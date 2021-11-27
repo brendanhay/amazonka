@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.KMS.PutKeyPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Attaches a key policy to the specified KMS key.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For more information about key policies, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Key Policies&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/. For help writing and</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- formatting a JSON policy document, see the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the //Identity and Access Management User Guide// . For examples of</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- adding a key policy in multiple programming languages, see</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/programming-key-policies.html#put-policy Setting a key policy&gt;</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- __Cross-account use__: No. You cannot perform this operation on a KMS</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- key in a different Amazon Web Services account.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- __Required permissions__:</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:PutKeyPolicy&gt;</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- (key policy)</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- __Related operations__: GetKeyPolicy</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KMS.PutKeyPolicy</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier">PutKeyPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#newPutKeyPolicy"><span class="hs-identifier">newPutKeyPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#putKeyPolicy_bypassPolicyLockoutSafetyCheck"><span class="hs-identifier">putKeyPolicy_bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#putKeyPolicy_keyId"><span class="hs-identifier">putKeyPolicy_keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#putKeyPolicy_policyName"><span class="hs-identifier">putKeyPolicy_policyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#putKeyPolicy_policy"><span class="hs-identifier">putKeyPolicy_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicyResponse"><span class="hs-identifier">PutKeyPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#newPutKeyPolicyResponse"><span class="hs-identifier">newPutKeyPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.html"><span class="hs-identifier">Amazonka.KMS.Types</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newPutKeyPolicy' smart constructor.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679252679"><span id="local-6989586621679252680"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutKeyPolicy"><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-var">PutKeyPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutKeyPolicy%27"><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-var">PutKeyPolicy'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A flag to indicate whether to bypass the key policy lockout safety</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- check.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Setting this value to true increases the risk that the KMS key becomes</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- unmanageable. Do not set this value to true indiscriminately.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- For more information, refer to the scenario in the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy&gt;</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- section in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- Use this parameter only when you intend to prevent the principal that is</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- making the request from making a subsequent @PutKeyPolicy@ request on</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- the KMS key.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- The default value is false.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AbypassPolicyLockoutSafetyCheck%3APutKeyPolicy%27"><span class="annot"><span class="annottext">PutKeyPolicy -&gt; Maybe Bool
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#%24sel%3AbypassPolicyLockoutSafetyCheck%3APutKeyPolicy%27"><span class="hs-identifier hs-var hs-var">bypassPolicyLockoutSafetyCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Sets the key policy on the specified KMS key.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Specify the key ID or key ARN of the KMS key.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- DescribeKey.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AkeyId%3APutKeyPolicy%27"><span class="annot"><span class="annottext">PutKeyPolicy -&gt; Text
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#%24sel%3AkeyId%3APutKeyPolicy%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The name of the key policy. The only valid value is @default@.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3ApolicyName%3APutKeyPolicy%27"><span class="annot"><span class="annottext">PutKeyPolicy -&gt; Text
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#%24sel%3ApolicyName%3APutKeyPolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The key policy to attach to the KMS key.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- The key policy must meet the following criteria:</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     policy must allow the principal that is making the @PutKeyPolicy@</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     request to make a subsequent @PutKeyPolicy@ request on the KMS key.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     This reduces the risk that the KMS key becomes unmanageable. For</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--     more information, refer to the scenario in the</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy&gt;</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--     section of the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- -   Each statement in the key policy must contain one or more</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--     principals. The principals in the key policy must exist and be</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--     visible to KMS. When you create a new Amazon Web Services principal</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--     (for example, an IAM user or role), you might need to enforce a</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--     delay before including the new principal in a key policy because the</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--     new principal might not be immediately visible to KMS. For more</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible&gt;</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--     in the /Amazon Web Services Identity and Access Management User</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--     Guide/.</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- The key policy cannot exceed 32 kilobytes (32768 bytes). For more</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html Resource Quotas&gt;</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3Apolicy%3APutKeyPolicy%27"><span class="annot"><span class="annottext">PutKeyPolicy -&gt; Text
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#%24sel%3Apolicy%3APutKeyPolicy%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252670"><span id="local-6989586621679252672"><span class="annot"><span class="annottext">PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool
+(PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool)
+-&gt; (PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool) -&gt; Eq PutKeyPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool
+$c/= :: PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool
+== :: PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool
+$c== :: PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252661"><span id="local-6989586621679252663"><span id="local-6989586621679252665"><span id="local-6989586621679252667"><span class="annot"><span class="annottext">ReadPrec [PutKeyPolicy]
+ReadPrec PutKeyPolicy
+Int -&gt; ReadS PutKeyPolicy
+ReadS [PutKeyPolicy]
+(Int -&gt; ReadS PutKeyPolicy)
+-&gt; ReadS [PutKeyPolicy]
+-&gt; ReadPrec PutKeyPolicy
+-&gt; ReadPrec [PutKeyPolicy]
+-&gt; Read PutKeyPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutKeyPolicy]
+$creadListPrec :: ReadPrec [PutKeyPolicy]
+readPrec :: ReadPrec PutKeyPolicy
+$creadPrec :: ReadPrec PutKeyPolicy
+readList :: ReadS [PutKeyPolicy]
+$creadList :: ReadS [PutKeyPolicy]
+readsPrec :: Int -&gt; ReadS PutKeyPolicy
+$creadsPrec :: Int -&gt; ReadS PutKeyPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252654"><span id="local-6989586621679252656"><span id="local-6989586621679252658"><span class="annot"><span class="annottext">Int -&gt; PutKeyPolicy -&gt; ShowS
+[PutKeyPolicy] -&gt; ShowS
+PutKeyPolicy -&gt; String
+(Int -&gt; PutKeyPolicy -&gt; ShowS)
+-&gt; (PutKeyPolicy -&gt; String)
+-&gt; ([PutKeyPolicy] -&gt; ShowS)
+-&gt; Show PutKeyPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutKeyPolicy] -&gt; ShowS
+$cshowList :: [PutKeyPolicy] -&gt; ShowS
+show :: PutKeyPolicy -&gt; String
+$cshow :: PutKeyPolicy -&gt; String
+showsPrec :: Int -&gt; PutKeyPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutKeyPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutKeyPolicy -&gt; Rep PutKeyPolicy x)
+-&gt; (forall x. Rep PutKeyPolicy x -&gt; PutKeyPolicy)
+-&gt; Generic PutKeyPolicy
+forall x. Rep PutKeyPolicy x -&gt; PutKeyPolicy
+forall x. PutKeyPolicy -&gt; Rep PutKeyPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutKeyPolicy x -&gt; PutKeyPolicy
+$cfrom :: forall x. PutKeyPolicy -&gt; Rep PutKeyPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Create a value of 'PutKeyPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'bypassPolicyLockoutSafetyCheck', 'putKeyPolicy_bypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- check.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Setting this value to true increases the risk that the KMS key becomes</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- unmanageable. Do not set this value to true indiscriminately.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- For more information, refer to the scenario in the</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy&gt;</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- section in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Use this parameter only when you intend to prevent the principal that is</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- making the request from making a subsequent @PutKeyPolicy@ request on</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the KMS key.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- The default value is false.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'keyId', 'putKeyPolicy_keyId' - Sets the key policy on the specified KMS key.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Specify the key ID or key ARN of the KMS key.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- DescribeKey.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'policyName', 'putKeyPolicy_policyName' - The name of the key policy. The only valid value is @default@.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'policy', 'putKeyPolicy_policy' - The key policy to attach to the KMS key.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- The key policy must meet the following criteria:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     policy must allow the principal that is making the @PutKeyPolicy@</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     request to make a subsequent @PutKeyPolicy@ request on the KMS key.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     This reduces the risk that the KMS key becomes unmanageable. For</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     more information, refer to the scenario in the</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy&gt;</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     section of the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   Each statement in the key policy must contain one or more</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     principals. The principals in the key policy must exist and be</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     visible to KMS. When you create a new Amazon Web Services principal</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     (for example, an IAM user or role), you might need to enforce a</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--     delay before including the new principal in a key policy because the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     new principal might not be immediately visible to KMS. For more</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible&gt;</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     in the /Amazon Web Services Identity and Access Management User</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     Guide/.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- The key policy cannot exceed 32 kilobytes (32768 bytes). For more</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html Resource Quotas&gt;</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#newPutKeyPolicy"><span class="hs-identifier hs-type">newPutKeyPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'keyId'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'policyName'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-comment">-- | 'policy'</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span>
+</span><span id="line-207"></span><span id="newPutKeyPolicy"><span class="annot"><span class="annottext">newPutKeyPolicy :: Text -&gt; Text -&gt; Text -&gt; PutKeyPolicy
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#newPutKeyPolicy"><span class="hs-identifier hs-var hs-var">newPutKeyPolicy</span></a></span></span><span> </span><span id="local-6989586621679252649"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252649"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span id="local-6989586621679252648"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252648"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span id="local-6989586621679252647"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252647"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">PutKeyPolicy' :: Maybe Bool -&gt; Text -&gt; Text -&gt; Text -&gt; PutKeyPolicy
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bypassPolicyLockoutSafetyCheck:PutKeyPolicy' :: Maybe Bool
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#%24sel%3AbypassPolicyLockoutSafetyCheck%3APutKeyPolicy%27"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:PutKeyPolicy' :: Text
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#%24sel%3AkeyId%3APutKeyPolicy%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252649"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyName:PutKeyPolicy' :: Text
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#%24sel%3ApolicyName%3APutKeyPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252648"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:PutKeyPolicy' :: Text
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#%24sel%3Apolicy%3APutKeyPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252647"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | A flag to indicate whether to bypass the key policy lockout safety</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- check.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Setting this value to true increases the risk that the KMS key becomes</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- unmanageable. Do not set this value to true indiscriminately.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- For more information, refer to the scenario in the</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy&gt;</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- section in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Use this parameter only when you intend to prevent the principal that is</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- making the request from making a subsequent @PutKeyPolicy@ request on</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- the KMS key.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- The default value is false.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#putKeyPolicy_bypassPolicyLockoutSafetyCheck"><span class="hs-identifier hs-type">putKeyPolicy_bypassPolicyLockoutSafetyCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="putKeyPolicy_bypassPolicyLockoutSafetyCheck"><span class="annot"><span class="annottext">putKeyPolicy_bypassPolicyLockoutSafetyCheck :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; PutKeyPolicy -&gt; f PutKeyPolicy
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#putKeyPolicy_bypassPolicyLockoutSafetyCheck"><span class="hs-identifier hs-var hs-var">putKeyPolicy_bypassPolicyLockoutSafetyCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutKeyPolicy -&gt; Maybe Bool)
+-&gt; (PutKeyPolicy -&gt; Maybe Bool -&gt; PutKeyPolicy)
+-&gt; Lens PutKeyPolicy PutKeyPolicy (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252644"><span class="annot"><span class="annottext">Maybe Bool
+bypassPolicyLockoutSafetyCheck :: Maybe Bool
+$sel:bypassPolicyLockoutSafetyCheck:PutKeyPolicy' :: PutKeyPolicy -&gt; Maybe Bool
+</span><a href="#local-6989586621679252644"><span class="hs-identifier hs-var hs-var">bypassPolicyLockoutSafetyCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252644"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252643"><span class="annot"><span class="annottext">s :: PutKeyPolicy
+</span><a href="#local-6989586621679252643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252642"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicy
+</span><a href="#local-6989586621679252643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bypassPolicyLockoutSafetyCheck:PutKeyPolicy' :: Maybe Bool
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#%24sel%3AbypassPolicyLockoutSafetyCheck%3APutKeyPolicy%27"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | Sets the key policy on the specified KMS key.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Specify the key ID or key ARN of the KMS key.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- DescribeKey.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#putKeyPolicy_keyId"><span class="hs-identifier hs-type">putKeyPolicy_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-248"></span><span id="putKeyPolicy_keyId"><span class="annot"><span class="annottext">putKeyPolicy_keyId :: (Text -&gt; f Text) -&gt; PutKeyPolicy -&gt; f PutKeyPolicy
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#putKeyPolicy_keyId"><span class="hs-identifier hs-var hs-var">putKeyPolicy_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutKeyPolicy -&gt; Text)
+-&gt; (PutKeyPolicy -&gt; Text -&gt; PutKeyPolicy)
+-&gt; Lens PutKeyPolicy PutKeyPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252641"><span class="annot"><span class="annottext">Text
+keyId :: Text
+$sel:keyId:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
+</span><a href="#local-6989586621679252641"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252641"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252640"><span class="annot"><span class="annottext">s :: PutKeyPolicy
+</span><a href="#local-6989586621679252640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicy
+</span><a href="#local-6989586621679252640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:PutKeyPolicy' :: Text
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#%24sel%3AkeyId%3APutKeyPolicy%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The name of the key policy. The only valid value is @default@.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#putKeyPolicy_policyName"><span class="hs-identifier hs-type">putKeyPolicy_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-252"></span><span id="putKeyPolicy_policyName"><span class="annot"><span class="annottext">putKeyPolicy_policyName :: (Text -&gt; f Text) -&gt; PutKeyPolicy -&gt; f PutKeyPolicy
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#putKeyPolicy_policyName"><span class="hs-identifier hs-var hs-var">putKeyPolicy_policyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutKeyPolicy -&gt; Text)
+-&gt; (PutKeyPolicy -&gt; Text -&gt; PutKeyPolicy)
+-&gt; Lens PutKeyPolicy PutKeyPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252638"><span class="annot"><span class="annottext">Text
+policyName :: Text
+$sel:policyName:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
+</span><a href="#local-6989586621679252638"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252638"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252637"><span class="annot"><span class="annottext">s :: PutKeyPolicy
+</span><a href="#local-6989586621679252637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252636"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicy
+</span><a href="#local-6989586621679252637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:PutKeyPolicy' :: Text
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#%24sel%3ApolicyName%3APutKeyPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The key policy to attach to the KMS key.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- The key policy must meet the following criteria:</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     policy must allow the principal that is making the @PutKeyPolicy@</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--     request to make a subsequent @PutKeyPolicy@ request on the KMS key.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--     This reduces the risk that the KMS key becomes unmanageable. For</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--     more information, refer to the scenario in the</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy&gt;</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--     section of the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- -   Each statement in the key policy must contain one or more</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     principals. The principals in the key policy must exist and be</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--     visible to KMS. When you create a new Amazon Web Services principal</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--     (for example, an IAM user or role), you might need to enforce a</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--     delay before including the new principal in a key policy because the</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--     new principal might not be immediately visible to KMS. For more</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible&gt;</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--     in the /Amazon Web Services Identity and Access Management User</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--     Guide/.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- The key policy cannot exceed 32 kilobytes (32768 bytes). For more</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html Resource Quotas&gt;</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#putKeyPolicy_policy"><span class="hs-identifier hs-type">putKeyPolicy_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-282"></span><span id="putKeyPolicy_policy"><span class="annot"><span class="annottext">putKeyPolicy_policy :: (Text -&gt; f Text) -&gt; PutKeyPolicy -&gt; f PutKeyPolicy
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#putKeyPolicy_policy"><span class="hs-identifier hs-var hs-var">putKeyPolicy_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutKeyPolicy -&gt; Text)
+-&gt; (PutKeyPolicy -&gt; Text -&gt; PutKeyPolicy)
+-&gt; Lens PutKeyPolicy PutKeyPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252635"><span class="annot"><span class="annottext">Text
+policy :: Text
+$sel:policy:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
+</span><a href="#local-6989586621679252635"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252635"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252634"><span class="annot"><span class="annottext">s :: PutKeyPolicy
+</span><a href="#local-6989586621679252634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252633"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicy
+</span><a href="#local-6989586621679252634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutKeyPolicy' :: Text
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#%24sel%3Apolicy%3APutKeyPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-285"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicyResponse"><span class="hs-identifier hs-type">PutKeyPolicyResponse</span></a></span><span>
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679252629"><span class="annot"><span class="annottext">request :: PutKeyPolicy -&gt; Request PutKeyPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutKeyPolicy -&gt; Request PutKeyPolicy
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-287"></span><span>  </span><span id="local-6989586621679252625"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutKeyPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutKeyPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSResponse PutKeyPolicy
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutKeyPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutKeyPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse PutKeyPolicy
+PutKeyPolicyResponse
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicyResponse%27"><span class="hs-identifier hs-var">PutKeyPolicyResponse'</span></a></span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252618"><span id="local-6989586621679252620"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span></span></span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252615"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span></span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-294"></span><span>  </span><span id="local-6989586621679252611"><span class="annot"><span class="annottext">toHeaders :: PutKeyPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutKeyPolicy -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-296"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-297"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-298"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TrentService.PutKeyPolicy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-300"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-301"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-302"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-304"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252601"><span id="local-6989586621679252603"><span id="local-6989586621679252605"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-307"></span><span>  </span><span id="local-6989586621679252599"><span class="annot"><span class="annottext">toJSON :: PutKeyPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252594"><span id="local-6989586621679252595"><span id="local-6989586621679252596"><span id="local-6989586621679252597"><span class="annot"><span class="annottext">Maybe Bool
+Text
+policy :: Text
+policyName :: Text
+keyId :: Text
+bypassPolicyLockoutSafetyCheck :: Maybe Bool
+$sel:policy:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
+$sel:policyName:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
+$sel:keyId:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
+$sel:bypassPolicyLockoutSafetyCheck:PutKeyPolicy' :: PutKeyPolicy -&gt; Maybe Bool
+</span><a href="#local-6989586621679252594"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-309"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-310"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BypassPolicyLockoutSafetyCheck&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252597"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252596"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252595"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252594"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-316"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621679252587"><span class="annot"><span class="annottext">toPath :: PutKeyPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutKeyPolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-320"></span><span>
+</span><span id="line-321"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-322"></span><span>  </span><span id="local-6989586621679252583"><span class="annot"><span class="annottext">toQuery :: PutKeyPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutKeyPolicy -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | /See:/ 'newPutKeyPolicyResponse' smart constructor.</span><span>
+</span><span id="line-325"></span><span id="local-6989586621679252580"><span id="local-6989586621679252581"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutKeyPolicyResponse"><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicyResponse"><span class="hs-identifier hs-var">PutKeyPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutKeyPolicyResponse%27"><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicyResponse%27"><span class="hs-identifier hs-var">PutKeyPolicyResponse'</span></a></span></span><span>
+</span><span id="line-326"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-327"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-328"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252576"><span id="local-6989586621679252578"><span class="annot"><span class="annottext">PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool
+(PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool)
+-&gt; (PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool)
+-&gt; Eq PutKeyPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool
+$c/= :: PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool
+== :: PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool
+$c== :: PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252568"><span id="local-6989586621679252570"><span id="local-6989586621679252572"><span id="local-6989586621679252574"><span class="annot"><span class="annottext">ReadPrec [PutKeyPolicyResponse]
+ReadPrec PutKeyPolicyResponse
+Int -&gt; ReadS PutKeyPolicyResponse
+ReadS [PutKeyPolicyResponse]
+(Int -&gt; ReadS PutKeyPolicyResponse)
+-&gt; ReadS [PutKeyPolicyResponse]
+-&gt; ReadPrec PutKeyPolicyResponse
+-&gt; ReadPrec [PutKeyPolicyResponse]
+-&gt; Read PutKeyPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutKeyPolicyResponse]
+$creadListPrec :: ReadPrec [PutKeyPolicyResponse]
+readPrec :: ReadPrec PutKeyPolicyResponse
+$creadPrec :: ReadPrec PutKeyPolicyResponse
+readList :: ReadS [PutKeyPolicyResponse]
+$creadList :: ReadS [PutKeyPolicyResponse]
+readsPrec :: Int -&gt; ReadS PutKeyPolicyResponse
+$creadsPrec :: Int -&gt; ReadS PutKeyPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252562"><span id="local-6989586621679252564"><span id="local-6989586621679252566"><span class="annot"><span class="annottext">Int -&gt; PutKeyPolicyResponse -&gt; ShowS
+[PutKeyPolicyResponse] -&gt; ShowS
+PutKeyPolicyResponse -&gt; String
+(Int -&gt; PutKeyPolicyResponse -&gt; ShowS)
+-&gt; (PutKeyPolicyResponse -&gt; String)
+-&gt; ([PutKeyPolicyResponse] -&gt; ShowS)
+-&gt; Show PutKeyPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutKeyPolicyResponse] -&gt; ShowS
+$cshowList :: [PutKeyPolicyResponse] -&gt; ShowS
+show :: PutKeyPolicyResponse -&gt; String
+$cshow :: PutKeyPolicyResponse -&gt; String
+showsPrec :: Int -&gt; PutKeyPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutKeyPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutKeyPolicyResponse -&gt; Rep PutKeyPolicyResponse x)
+-&gt; (forall x. Rep PutKeyPolicyResponse x -&gt; PutKeyPolicyResponse)
+-&gt; Generic PutKeyPolicyResponse
+forall x. Rep PutKeyPolicyResponse x -&gt; PutKeyPolicyResponse
+forall x. PutKeyPolicyResponse -&gt; Rep PutKeyPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutKeyPolicyResponse x -&gt; PutKeyPolicyResponse
+$cfrom :: forall x. PutKeyPolicyResponse -&gt; Rep PutKeyPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- Create a value of 'PutKeyPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#newPutKeyPolicyResponse"><span class="hs-identifier hs-type">newPutKeyPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-335"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicyResponse"><span class="hs-identifier hs-type">PutKeyPolicyResponse</span></a></span><span>
+</span><span id="line-336"></span><span id="newPutKeyPolicyResponse"><span class="annot"><span class="annottext">newPutKeyPolicyResponse :: PutKeyPolicyResponse
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#newPutKeyPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutKeyPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicyResponse
+</span><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicyResponse%27"><span class="hs-identifier hs-var">PutKeyPolicyResponse'</span></a></span><span>
+</span><span id="line-337"></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KMS.PutKeyPolicy.html#PutKeyPolicyResponse"><span class="hs-identifier hs-type">PutKeyPolicyResponse</span></a></span></span><span>
+</span><span id="line-339"></span></pre></body></html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.ReservationResourceSpecification</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.ReservationResourceSpecification</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ChannelClass.html"><span class="hs-identifier">Amazonka.MediaLive.Types.ChannelClass</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationCodec.html"><span class="hs-identifier">Amazonka.MediaLive.Types.ReservationCodec</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationMaximumBitrate.html"><span class="hs-identifier">Amazonka.MediaLive.Types.ReservationMaximumBitrate</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationMaximumFramerate.html"><span class="hs-identifier">Amazonka.MediaLive.Types.ReservationMaximumFramerate</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResolution.html"><span class="hs-identifier">Amazonka.MediaLive.Types.ReservationResolution</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceType.html"><span class="hs-identifier">Amazonka.MediaLive.Types.ReservationResourceType</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationSpecialFeature.html"><span class="hs-identifier">Amazonka.MediaLive.Types.ReservationSpecialFeature</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationVideoQuality.html"><span class="hs-identifier">Amazonka.MediaLive.Types.ReservationVideoQuality</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Resource configuration (codec, resolution, bitrate, ...)</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newReservationResourceSpecification' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679913648"><span id="local-6989586621679913649"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservationResourceSpecification"><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-var">ReservationResourceSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationResourceSpecification%27"><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-var">ReservationResourceSpecification'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Video quality, e.g. \'STANDARD\' (Outputs only)</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AvideoQuality%3AReservationResourceSpecification%27"><span class="annot"><span class="annottext">ReservationResourceSpecification -&gt; Maybe ReservationVideoQuality
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AvideoQuality%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var hs-var">videoQuality</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality"><span class="hs-identifier hs-type">ReservationVideoQuality</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Maximum framerate, e.g. \'MAX_30_FPS\' (Outputs only)</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmaximumFramerate%3AReservationResourceSpecification%27"><span class="annot"><span class="annottext">ReservationResourceSpecification
+-&gt; Maybe ReservationMaximumFramerate
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AmaximumFramerate%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var hs-var">maximumFramerate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationMaximumFramerate.html#ReservationMaximumFramerate"><span class="hs-identifier hs-type">ReservationMaximumFramerate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or \'CHANNEL\'</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AresourceType%3AReservationResourceSpecification%27"><span class="annot"><span class="annottext">ReservationResourceSpecification -&gt; Maybe ReservationResourceType
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AresourceType%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceType.html#ReservationResourceType"><span class="hs-identifier hs-type">ReservationResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Resolution, e.g. \'HD\'</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aresolution%3AReservationResourceSpecification%27"><span class="annot"><span class="annottext">ReservationResourceSpecification -&gt; Maybe ReservationResolution
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3Aresolution%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResolution.html#ReservationResolution"><span class="hs-identifier hs-type">ReservationResolution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Codec, e.g. \'AVC\'</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Acodec%3AReservationResourceSpecification%27"><span class="annot"><span class="annottext">ReservationResourceSpecification -&gt; Maybe ReservationCodec
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3Acodec%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var hs-var">codec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationCodec.html#ReservationCodec"><span class="hs-identifier hs-type">ReservationCodec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AspecialFeature%3AReservationResourceSpecification%27"><span class="annot"><span class="annottext">ReservationResourceSpecification -&gt; Maybe ReservationSpecialFeature
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AspecialFeature%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var hs-var">specialFeature</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationSpecialFeature.html#ReservationSpecialFeature"><span class="hs-identifier hs-type">ReservationSpecialFeature</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Channel class, e.g. \'STANDARD\'</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AchannelClass%3AReservationResourceSpecification%27"><span class="annot"><span class="annottext">ReservationResourceSpecification -&gt; Maybe ChannelClass
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AchannelClass%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var hs-var">channelClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ChannelClass.html#ChannelClass"><span class="hs-identifier hs-type">ChannelClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Maximum bitrate, e.g. \'MAX_20_MBPS\'</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AmaximumBitrate%3AReservationResourceSpecification%27"><span class="annot"><span class="annottext">ReservationResourceSpecification -&gt; Maybe ReservationMaximumBitrate
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AmaximumBitrate%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var hs-var">maximumBitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationMaximumBitrate.html#ReservationMaximumBitrate"><span class="hs-identifier hs-type">ReservationMaximumBitrate</span></a></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679913635"><span id="local-6989586621679913637"><span class="annot"><span class="annottext">ReservationResourceSpecification
+-&gt; ReservationResourceSpecification -&gt; Bool
+(ReservationResourceSpecification
+ -&gt; ReservationResourceSpecification -&gt; Bool)
+-&gt; (ReservationResourceSpecification
+    -&gt; ReservationResourceSpecification -&gt; Bool)
+-&gt; Eq ReservationResourceSpecification
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReservationResourceSpecification
+-&gt; ReservationResourceSpecification -&gt; Bool
+$c/= :: ReservationResourceSpecification
+-&gt; ReservationResourceSpecification -&gt; Bool
+== :: ReservationResourceSpecification
+-&gt; ReservationResourceSpecification -&gt; Bool
+$c== :: ReservationResourceSpecification
+-&gt; ReservationResourceSpecification -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679913626"><span id="local-6989586621679913628"><span id="local-6989586621679913630"><span id="local-6989586621679913632"><span class="annot"><span class="annottext">ReadPrec [ReservationResourceSpecification]
+ReadPrec ReservationResourceSpecification
+Int -&gt; ReadS ReservationResourceSpecification
+ReadS [ReservationResourceSpecification]
+(Int -&gt; ReadS ReservationResourceSpecification)
+-&gt; ReadS [ReservationResourceSpecification]
+-&gt; ReadPrec ReservationResourceSpecification
+-&gt; ReadPrec [ReservationResourceSpecification]
+-&gt; Read ReservationResourceSpecification
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReservationResourceSpecification]
+$creadListPrec :: ReadPrec [ReservationResourceSpecification]
+readPrec :: ReadPrec ReservationResourceSpecification
+$creadPrec :: ReadPrec ReservationResourceSpecification
+readList :: ReadS [ReservationResourceSpecification]
+$creadList :: ReadS [ReservationResourceSpecification]
+readsPrec :: Int -&gt; ReadS ReservationResourceSpecification
+$creadsPrec :: Int -&gt; ReadS ReservationResourceSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679913619"><span id="local-6989586621679913621"><span id="local-6989586621679913623"><span class="annot"><span class="annottext">Int -&gt; ReservationResourceSpecification -&gt; ShowS
+[ReservationResourceSpecification] -&gt; ShowS
+ReservationResourceSpecification -&gt; String
+(Int -&gt; ReservationResourceSpecification -&gt; ShowS)
+-&gt; (ReservationResourceSpecification -&gt; String)
+-&gt; ([ReservationResourceSpecification] -&gt; ShowS)
+-&gt; Show ReservationResourceSpecification
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReservationResourceSpecification] -&gt; ShowS
+$cshowList :: [ReservationResourceSpecification] -&gt; ShowS
+show :: ReservationResourceSpecification -&gt; String
+$cshow :: ReservationResourceSpecification -&gt; String
+showsPrec :: Int -&gt; ReservationResourceSpecification -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReservationResourceSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ReservationResourceSpecification
+ -&gt; Rep ReservationResourceSpecification x)
+-&gt; (forall x.
+    Rep ReservationResourceSpecification x
+    -&gt; ReservationResourceSpecification)
+-&gt; Generic ReservationResourceSpecification
+forall x.
+Rep ReservationResourceSpecification x
+-&gt; ReservationResourceSpecification
+forall x.
+ReservationResourceSpecification
+-&gt; Rep ReservationResourceSpecification x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ReservationResourceSpecification x
+-&gt; ReservationResourceSpecification
+$cfrom :: forall x.
+ReservationResourceSpecification
+-&gt; Rep ReservationResourceSpecification x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'ReservationResourceSpecification' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'videoQuality', 'reservationResourceSpecification_videoQuality' - Video quality, e.g. \'STANDARD\' (Outputs only)</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'maximumFramerate', 'reservationResourceSpecification_maximumFramerate' - Maximum framerate, e.g. \'MAX_30_FPS\' (Outputs only)</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'resourceType', 'reservationResourceSpecification_resourceType' - Resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or \'CHANNEL\'</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'resolution', 'reservationResourceSpecification_resolution' - Resolution, e.g. \'HD\'</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'codec', 'reservationResourceSpecification_codec' - Codec, e.g. \'AVC\'</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'specialFeature', 'reservationResourceSpecification_specialFeature' - Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'channelClass', 'reservationResourceSpecification_channelClass' - Channel class, e.g. \'STANDARD\'</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maximumBitrate', 'reservationResourceSpecification_maximumBitrate' - Maximum bitrate, e.g. \'MAX_20_MBPS\'</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#newReservationResourceSpecification"><span class="hs-identifier hs-type">newReservationResourceSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span>
+</span><span id="line-82"></span><span id="newReservationResourceSpecification"><span class="annot"><span class="annottext">newReservationResourceSpecification :: ReservationResourceSpecification
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#newReservationResourceSpecification"><span class="hs-identifier hs-var hs-var">newReservationResourceSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">ReservationResourceSpecification' :: Maybe ReservationVideoQuality
+-&gt; Maybe ReservationMaximumFramerate
+-&gt; Maybe ReservationResourceType
+-&gt; Maybe ReservationResolution
+-&gt; Maybe ReservationCodec
+-&gt; Maybe ReservationSpecialFeature
+-&gt; Maybe ChannelClass
+-&gt; Maybe ReservationMaximumBitrate
+-&gt; ReservationResourceSpecification
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:videoQuality:ReservationResourceSpecification' :: Maybe ReservationVideoQuality
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AvideoQuality%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">videoQuality</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReservationVideoQuality
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumFramerate:ReservationResourceSpecification' :: Maybe ReservationMaximumFramerate
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AmaximumFramerate%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">maximumFramerate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationMaximumFramerate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:ReservationResourceSpecification' :: Maybe ReservationResourceType
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AresourceType%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationResourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:resolution:ReservationResourceSpecification' :: Maybe ReservationResolution
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3Aresolution%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">resolution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationResolution
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:codec:ReservationResourceSpecification' :: Maybe ReservationCodec
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3Acodec%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">codec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationCodec
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:specialFeature:ReservationResourceSpecification' :: Maybe ReservationSpecialFeature
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AspecialFeature%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">specialFeature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationSpecialFeature
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelClass:ReservationResourceSpecification' :: Maybe ChannelClass
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AchannelClass%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">channelClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelClass
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumBitrate:ReservationResourceSpecification' :: Maybe ReservationMaximumBitrate
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AmaximumBitrate%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">maximumBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationMaximumBitrate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Video quality, e.g. \'STANDARD\' (Outputs only)</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_videoQuality"><span class="hs-identifier hs-type">reservationResourceSpecification_videoQuality</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationVideoQuality.html#ReservationVideoQuality"><span class="hs-identifier hs-type">ReservationVideoQuality</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="reservationResourceSpecification_videoQuality"><span class="annot"><span class="annottext">reservationResourceSpecification_videoQuality :: (Maybe ReservationVideoQuality
+ -&gt; f (Maybe ReservationVideoQuality))
+-&gt; ReservationResourceSpecification
+-&gt; f ReservationResourceSpecification
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_videoQuality"><span class="hs-identifier hs-var hs-var">reservationResourceSpecification_videoQuality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationResourceSpecification -&gt; Maybe ReservationVideoQuality)
+-&gt; (ReservationResourceSpecification
+    -&gt; Maybe ReservationVideoQuality
+    -&gt; ReservationResourceSpecification)
+-&gt; Lens
+     ReservationResourceSpecification
+     ReservationResourceSpecification
+     (Maybe ReservationVideoQuality)
+     (Maybe ReservationVideoQuality)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679913610"><span class="annot"><span class="annottext">Maybe ReservationVideoQuality
+videoQuality :: Maybe ReservationVideoQuality
+$sel:videoQuality:ReservationResourceSpecification' :: ReservationResourceSpecification -&gt; Maybe ReservationVideoQuality
+</span><a href="#local-6989586621679913610"><span class="hs-identifier hs-var hs-var">videoQuality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationVideoQuality
+</span><a href="#local-6989586621679913610"><span class="hs-identifier hs-var">videoQuality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679913609"><span class="annot"><span class="annottext">s :: ReservationResourceSpecification
+</span><a href="#local-6989586621679913609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679913608"><span class="annot"><span class="annottext">Maybe ReservationVideoQuality
+</span><a href="#local-6989586621679913608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationResourceSpecification
+</span><a href="#local-6989586621679913609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoQuality:ReservationResourceSpecification' :: Maybe ReservationVideoQuality
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AvideoQuality%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">videoQuality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationVideoQuality
+</span><a href="#local-6989586621679913608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Maximum framerate, e.g. \'MAX_30_FPS\' (Outputs only)</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_maximumFramerate"><span class="hs-identifier hs-type">reservationResourceSpecification_maximumFramerate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationMaximumFramerate.html#ReservationMaximumFramerate"><span class="hs-identifier hs-type">ReservationMaximumFramerate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="reservationResourceSpecification_maximumFramerate"><span class="annot"><span class="annottext">reservationResourceSpecification_maximumFramerate :: (Maybe ReservationMaximumFramerate
+ -&gt; f (Maybe ReservationMaximumFramerate))
+-&gt; ReservationResourceSpecification
+-&gt; f ReservationResourceSpecification
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_maximumFramerate"><span class="hs-identifier hs-var hs-var">reservationResourceSpecification_maximumFramerate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationResourceSpecification
+ -&gt; Maybe ReservationMaximumFramerate)
+-&gt; (ReservationResourceSpecification
+    -&gt; Maybe ReservationMaximumFramerate
+    -&gt; ReservationResourceSpecification)
+-&gt; Lens
+     ReservationResourceSpecification
+     ReservationResourceSpecification
+     (Maybe ReservationMaximumFramerate)
+     (Maybe ReservationMaximumFramerate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679913606"><span class="annot"><span class="annottext">Maybe ReservationMaximumFramerate
+maximumFramerate :: Maybe ReservationMaximumFramerate
+$sel:maximumFramerate:ReservationResourceSpecification' :: ReservationResourceSpecification
+-&gt; Maybe ReservationMaximumFramerate
+</span><a href="#local-6989586621679913606"><span class="hs-identifier hs-var hs-var">maximumFramerate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationMaximumFramerate
+</span><a href="#local-6989586621679913606"><span class="hs-identifier hs-var">maximumFramerate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679913605"><span class="annot"><span class="annottext">s :: ReservationResourceSpecification
+</span><a href="#local-6989586621679913605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679913604"><span class="annot"><span class="annottext">Maybe ReservationMaximumFramerate
+</span><a href="#local-6989586621679913604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationResourceSpecification
+</span><a href="#local-6989586621679913605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumFramerate:ReservationResourceSpecification' :: Maybe ReservationMaximumFramerate
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AmaximumFramerate%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">maximumFramerate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationMaximumFramerate
+</span><a href="#local-6989586621679913604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or \'CHANNEL\'</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_resourceType"><span class="hs-identifier hs-type">reservationResourceSpecification_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceType.html#ReservationResourceType"><span class="hs-identifier hs-type">ReservationResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="reservationResourceSpecification_resourceType"><span class="annot"><span class="annottext">reservationResourceSpecification_resourceType :: (Maybe ReservationResourceType
+ -&gt; f (Maybe ReservationResourceType))
+-&gt; ReservationResourceSpecification
+-&gt; f ReservationResourceSpecification
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_resourceType"><span class="hs-identifier hs-var hs-var">reservationResourceSpecification_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationResourceSpecification -&gt; Maybe ReservationResourceType)
+-&gt; (ReservationResourceSpecification
+    -&gt; Maybe ReservationResourceType
+    -&gt; ReservationResourceSpecification)
+-&gt; Lens
+     ReservationResourceSpecification
+     ReservationResourceSpecification
+     (Maybe ReservationResourceType)
+     (Maybe ReservationResourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679913602"><span class="annot"><span class="annottext">Maybe ReservationResourceType
+resourceType :: Maybe ReservationResourceType
+$sel:resourceType:ReservationResourceSpecification' :: ReservationResourceSpecification -&gt; Maybe ReservationResourceType
+</span><a href="#local-6989586621679913602"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationResourceType
+</span><a href="#local-6989586621679913602"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679913601"><span class="annot"><span class="annottext">s :: ReservationResourceSpecification
+</span><a href="#local-6989586621679913601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679913600"><span class="annot"><span class="annottext">Maybe ReservationResourceType
+</span><a href="#local-6989586621679913600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationResourceSpecification
+</span><a href="#local-6989586621679913601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ReservationResourceSpecification' :: Maybe ReservationResourceType
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AresourceType%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationResourceType
+</span><a href="#local-6989586621679913600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Resolution, e.g. \'HD\'</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_resolution"><span class="hs-identifier hs-type">reservationResourceSpecification_resolution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResolution.html#ReservationResolution"><span class="hs-identifier hs-type">ReservationResolution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="reservationResourceSpecification_resolution"><span class="annot"><span class="annottext">reservationResourceSpecification_resolution :: (Maybe ReservationResolution -&gt; f (Maybe ReservationResolution))
+-&gt; ReservationResourceSpecification
+-&gt; f ReservationResourceSpecification
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_resolution"><span class="hs-identifier hs-var hs-var">reservationResourceSpecification_resolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationResourceSpecification -&gt; Maybe ReservationResolution)
+-&gt; (ReservationResourceSpecification
+    -&gt; Maybe ReservationResolution -&gt; ReservationResourceSpecification)
+-&gt; Lens
+     ReservationResourceSpecification
+     ReservationResourceSpecification
+     (Maybe ReservationResolution)
+     (Maybe ReservationResolution)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679913598"><span class="annot"><span class="annottext">Maybe ReservationResolution
+resolution :: Maybe ReservationResolution
+$sel:resolution:ReservationResourceSpecification' :: ReservationResourceSpecification -&gt; Maybe ReservationResolution
+</span><a href="#local-6989586621679913598"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationResolution
+</span><a href="#local-6989586621679913598"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679913597"><span class="annot"><span class="annottext">s :: ReservationResourceSpecification
+</span><a href="#local-6989586621679913597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679913596"><span class="annot"><span class="annottext">Maybe ReservationResolution
+</span><a href="#local-6989586621679913596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationResourceSpecification
+</span><a href="#local-6989586621679913597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolution:ReservationResourceSpecification' :: Maybe ReservationResolution
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3Aresolution%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">resolution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationResolution
+</span><a href="#local-6989586621679913596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Codec, e.g. \'AVC\'</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_codec"><span class="hs-identifier hs-type">reservationResourceSpecification_codec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationCodec.html#ReservationCodec"><span class="hs-identifier hs-type">ReservationCodec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="reservationResourceSpecification_codec"><span class="annot"><span class="annottext">reservationResourceSpecification_codec :: (Maybe ReservationCodec -&gt; f (Maybe ReservationCodec))
+-&gt; ReservationResourceSpecification
+-&gt; f ReservationResourceSpecification
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_codec"><span class="hs-identifier hs-var hs-var">reservationResourceSpecification_codec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationResourceSpecification -&gt; Maybe ReservationCodec)
+-&gt; (ReservationResourceSpecification
+    -&gt; Maybe ReservationCodec -&gt; ReservationResourceSpecification)
+-&gt; Lens
+     ReservationResourceSpecification
+     ReservationResourceSpecification
+     (Maybe ReservationCodec)
+     (Maybe ReservationCodec)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679913594"><span class="annot"><span class="annottext">Maybe ReservationCodec
+codec :: Maybe ReservationCodec
+$sel:codec:ReservationResourceSpecification' :: ReservationResourceSpecification -&gt; Maybe ReservationCodec
+</span><a href="#local-6989586621679913594"><span class="hs-identifier hs-var hs-var">codec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationCodec
+</span><a href="#local-6989586621679913594"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679913593"><span class="annot"><span class="annottext">s :: ReservationResourceSpecification
+</span><a href="#local-6989586621679913593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679913592"><span class="annot"><span class="annottext">Maybe ReservationCodec
+</span><a href="#local-6989586621679913592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationResourceSpecification
+</span><a href="#local-6989586621679913593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codec:ReservationResourceSpecification' :: Maybe ReservationCodec
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3Acodec%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">codec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationCodec
+</span><a href="#local-6989586621679913592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_specialFeature"><span class="hs-identifier hs-type">reservationResourceSpecification_specialFeature</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationSpecialFeature.html#ReservationSpecialFeature"><span class="hs-identifier hs-type">ReservationSpecialFeature</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="reservationResourceSpecification_specialFeature"><span class="annot"><span class="annottext">reservationResourceSpecification_specialFeature :: (Maybe ReservationSpecialFeature
+ -&gt; f (Maybe ReservationSpecialFeature))
+-&gt; ReservationResourceSpecification
+-&gt; f ReservationResourceSpecification
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_specialFeature"><span class="hs-identifier hs-var hs-var">reservationResourceSpecification_specialFeature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationResourceSpecification
+ -&gt; Maybe ReservationSpecialFeature)
+-&gt; (ReservationResourceSpecification
+    -&gt; Maybe ReservationSpecialFeature
+    -&gt; ReservationResourceSpecification)
+-&gt; Lens
+     ReservationResourceSpecification
+     ReservationResourceSpecification
+     (Maybe ReservationSpecialFeature)
+     (Maybe ReservationSpecialFeature)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679913590"><span class="annot"><span class="annottext">Maybe ReservationSpecialFeature
+specialFeature :: Maybe ReservationSpecialFeature
+$sel:specialFeature:ReservationResourceSpecification' :: ReservationResourceSpecification -&gt; Maybe ReservationSpecialFeature
+</span><a href="#local-6989586621679913590"><span class="hs-identifier hs-var hs-var">specialFeature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationSpecialFeature
+</span><a href="#local-6989586621679913590"><span class="hs-identifier hs-var">specialFeature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679913589"><span class="annot"><span class="annottext">s :: ReservationResourceSpecification
+</span><a href="#local-6989586621679913589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679913588"><span class="annot"><span class="annottext">Maybe ReservationSpecialFeature
+</span><a href="#local-6989586621679913588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationResourceSpecification
+</span><a href="#local-6989586621679913589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:specialFeature:ReservationResourceSpecification' :: Maybe ReservationSpecialFeature
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AspecialFeature%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">specialFeature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationSpecialFeature
+</span><a href="#local-6989586621679913588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Channel class, e.g. \'STANDARD\'</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_channelClass"><span class="hs-identifier hs-type">reservationResourceSpecification_channelClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ChannelClass.html#ChannelClass"><span class="hs-identifier hs-type">ChannelClass</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="reservationResourceSpecification_channelClass"><span class="annot"><span class="annottext">reservationResourceSpecification_channelClass :: (Maybe ChannelClass -&gt; f (Maybe ChannelClass))
+-&gt; ReservationResourceSpecification
+-&gt; f ReservationResourceSpecification
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_channelClass"><span class="hs-identifier hs-var hs-var">reservationResourceSpecification_channelClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationResourceSpecification -&gt; Maybe ChannelClass)
+-&gt; (ReservationResourceSpecification
+    -&gt; Maybe ChannelClass -&gt; ReservationResourceSpecification)
+-&gt; Lens
+     ReservationResourceSpecification
+     ReservationResourceSpecification
+     (Maybe ChannelClass)
+     (Maybe ChannelClass)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679913586"><span class="annot"><span class="annottext">Maybe ChannelClass
+channelClass :: Maybe ChannelClass
+$sel:channelClass:ReservationResourceSpecification' :: ReservationResourceSpecification -&gt; Maybe ChannelClass
+</span><a href="#local-6989586621679913586"><span class="hs-identifier hs-var hs-var">channelClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelClass
+</span><a href="#local-6989586621679913586"><span class="hs-identifier hs-var">channelClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679913585"><span class="annot"><span class="annottext">s :: ReservationResourceSpecification
+</span><a href="#local-6989586621679913585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679913584"><span class="annot"><span class="annottext">Maybe ChannelClass
+</span><a href="#local-6989586621679913584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationResourceSpecification
+</span><a href="#local-6989586621679913585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelClass:ReservationResourceSpecification' :: Maybe ChannelClass
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AchannelClass%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">channelClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelClass
+</span><a href="#local-6989586621679913584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Maximum bitrate, e.g. \'MAX_20_MBPS\'</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_maximumBitrate"><span class="hs-identifier hs-type">reservationResourceSpecification_maximumBitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationMaximumBitrate.html#ReservationMaximumBitrate"><span class="hs-identifier hs-type">ReservationMaximumBitrate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="reservationResourceSpecification_maximumBitrate"><span class="annot"><span class="annottext">reservationResourceSpecification_maximumBitrate :: (Maybe ReservationMaximumBitrate
+ -&gt; f (Maybe ReservationMaximumBitrate))
+-&gt; ReservationResourceSpecification
+-&gt; f ReservationResourceSpecification
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#reservationResourceSpecification_maximumBitrate"><span class="hs-identifier hs-var hs-var">reservationResourceSpecification_maximumBitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationResourceSpecification
+ -&gt; Maybe ReservationMaximumBitrate)
+-&gt; (ReservationResourceSpecification
+    -&gt; Maybe ReservationMaximumBitrate
+    -&gt; ReservationResourceSpecification)
+-&gt; Lens
+     ReservationResourceSpecification
+     ReservationResourceSpecification
+     (Maybe ReservationMaximumBitrate)
+     (Maybe ReservationMaximumBitrate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679913582"><span class="annot"><span class="annottext">Maybe ReservationMaximumBitrate
+maximumBitrate :: Maybe ReservationMaximumBitrate
+$sel:maximumBitrate:ReservationResourceSpecification' :: ReservationResourceSpecification -&gt; Maybe ReservationMaximumBitrate
+</span><a href="#local-6989586621679913582"><span class="hs-identifier hs-var hs-var">maximumBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationMaximumBitrate
+</span><a href="#local-6989586621679913582"><span class="hs-identifier hs-var">maximumBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679913581"><span class="annot"><span class="annottext">s :: ReservationResourceSpecification
+</span><a href="#local-6989586621679913581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-type">ReservationResourceSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679913580"><span class="annot"><span class="annottext">Maybe ReservationMaximumBitrate
+</span><a href="#local-6989586621679913580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationResourceSpecification
+</span><a href="#local-6989586621679913581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumBitrate:ReservationResourceSpecification' :: Maybe ReservationMaximumBitrate
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#%24sel%3AmaximumBitrate%3AReservationResourceSpecification%27"><span class="hs-identifier hs-var">maximumBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationMaximumBitrate
+</span><a href="#local-6989586621679913580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679913577"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679913575"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReservationResourceSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ReservationResourceSpecification)
+-&gt; Value
+-&gt; Parser ReservationResourceSpecification
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ReservationResourceSpecification&quot;</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679913572"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679913572"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReservationVideoQuality
+-&gt; Maybe ReservationMaximumFramerate
+-&gt; Maybe ReservationResourceType
+-&gt; Maybe ReservationResolution
+-&gt; Maybe ReservationCodec
+-&gt; Maybe ReservationSpecialFeature
+-&gt; Maybe ChannelClass
+-&gt; Maybe ReservationMaximumBitrate
+-&gt; ReservationResourceSpecification
+</span><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification%27"><span class="hs-identifier hs-var">ReservationResourceSpecification'</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReservationVideoQuality
+ -&gt; Maybe ReservationMaximumFramerate
+ -&gt; Maybe ReservationResourceType
+ -&gt; Maybe ReservationResolution
+ -&gt; Maybe ReservationCodec
+ -&gt; Maybe ReservationSpecialFeature
+ -&gt; Maybe ChannelClass
+ -&gt; Maybe ReservationMaximumBitrate
+ -&gt; ReservationResourceSpecification)
+-&gt; Parser (Maybe ReservationVideoQuality)
+-&gt; Parser
+     (Maybe ReservationMaximumFramerate
+      -&gt; Maybe ReservationResourceType
+      -&gt; Maybe ReservationResolution
+      -&gt; Maybe ReservationCodec
+      -&gt; Maybe ReservationSpecialFeature
+      -&gt; Maybe ChannelClass
+      -&gt; Maybe ReservationMaximumBitrate
+      -&gt; ReservationResourceSpecification)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679913572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReservationVideoQuality)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoQuality&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReservationMaximumFramerate
+   -&gt; Maybe ReservationResourceType
+   -&gt; Maybe ReservationResolution
+   -&gt; Maybe ReservationCodec
+   -&gt; Maybe ReservationSpecialFeature
+   -&gt; Maybe ChannelClass
+   -&gt; Maybe ReservationMaximumBitrate
+   -&gt; ReservationResourceSpecification)
+-&gt; Parser (Maybe ReservationMaximumFramerate)
+-&gt; Parser
+     (Maybe ReservationResourceType
+      -&gt; Maybe ReservationResolution
+      -&gt; Maybe ReservationCodec
+      -&gt; Maybe ReservationSpecialFeature
+      -&gt; Maybe ChannelClass
+      -&gt; Maybe ReservationMaximumBitrate
+      -&gt; ReservationResourceSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679913572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReservationMaximumFramerate)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maximumFramerate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReservationResourceType
+   -&gt; Maybe ReservationResolution
+   -&gt; Maybe ReservationCodec
+   -&gt; Maybe ReservationSpecialFeature
+   -&gt; Maybe ChannelClass
+   -&gt; Maybe ReservationMaximumBitrate
+   -&gt; ReservationResourceSpecification)
+-&gt; Parser (Maybe ReservationResourceType)
+-&gt; Parser
+     (Maybe ReservationResolution
+      -&gt; Maybe ReservationCodec
+      -&gt; Maybe ReservationSpecialFeature
+      -&gt; Maybe ChannelClass
+      -&gt; Maybe ReservationMaximumBitrate
+      -&gt; ReservationResourceSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679913572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReservationResourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReservationResolution
+   -&gt; Maybe ReservationCodec
+   -&gt; Maybe ReservationSpecialFeature
+   -&gt; Maybe ChannelClass
+   -&gt; Maybe ReservationMaximumBitrate
+   -&gt; ReservationResourceSpecification)
+-&gt; Parser (Maybe ReservationResolution)
+-&gt; Parser
+     (Maybe ReservationCodec
+      -&gt; Maybe ReservationSpecialFeature
+      -&gt; Maybe ChannelClass
+      -&gt; Maybe ReservationMaximumBitrate
+      -&gt; ReservationResourceSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679913572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReservationResolution)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resolution&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReservationCodec
+   -&gt; Maybe ReservationSpecialFeature
+   -&gt; Maybe ChannelClass
+   -&gt; Maybe ReservationMaximumBitrate
+   -&gt; ReservationResourceSpecification)
+-&gt; Parser (Maybe ReservationCodec)
+-&gt; Parser
+     (Maybe ReservationSpecialFeature
+      -&gt; Maybe ChannelClass
+      -&gt; Maybe ReservationMaximumBitrate
+      -&gt; ReservationResourceSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679913572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReservationCodec)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;codec&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReservationSpecialFeature
+   -&gt; Maybe ChannelClass
+   -&gt; Maybe ReservationMaximumBitrate
+   -&gt; ReservationResourceSpecification)
+-&gt; Parser (Maybe ReservationSpecialFeature)
+-&gt; Parser
+     (Maybe ChannelClass
+      -&gt; Maybe ReservationMaximumBitrate
+      -&gt; ReservationResourceSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679913572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReservationSpecialFeature)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;specialFeature&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ChannelClass
+   -&gt; Maybe ReservationMaximumBitrate
+   -&gt; ReservationResourceSpecification)
+-&gt; Parser (Maybe ChannelClass)
+-&gt; Parser
+     (Maybe ReservationMaximumBitrate
+      -&gt; ReservationResourceSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679913572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelClass)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;channelClass&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReservationMaximumBitrate
+   -&gt; ReservationResourceSpecification)
+-&gt; Parser (Maybe ReservationMaximumBitrate)
+-&gt; Parser ReservationResourceSpecification
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679913572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReservationMaximumBitrate)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maximumBitrate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679913566"><span id="local-6989586621679913568"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679913563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.MediaLive.Types.ReservationResourceSpecification.html#ReservationResourceSpecification"><span class="hs-identifier hs-type">ReservationResourceSpecification</span></a></span></span><span>
+</span><span id="line-153"></span></pre></body></html>

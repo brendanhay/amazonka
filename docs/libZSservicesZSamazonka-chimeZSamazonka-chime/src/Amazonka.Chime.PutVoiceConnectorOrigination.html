@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.PutVoiceConnectorOrigination</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds origination settings for the specified Amazon Chime Voice</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Connector.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- If emergency calling is configured for the Amazon Chime Voice Connector,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- it must be deleted prior to turning off origination settings.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.PutVoiceConnectorOrigination</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier">PutVoiceConnectorOrigination</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#newPutVoiceConnectorOrigination"><span class="hs-identifier">newPutVoiceConnectorOrigination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#putVoiceConnectorOrigination_voiceConnectorId"><span class="hs-identifier">putVoiceConnectorOrigination_voiceConnectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#putVoiceConnectorOrigination_origination"><span class="hs-identifier">putVoiceConnectorOrigination_origination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse"><span class="hs-identifier">PutVoiceConnectorOriginationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#newPutVoiceConnectorOriginationResponse"><span class="hs-identifier">newPutVoiceConnectorOriginationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#putVoiceConnectorOriginationResponse_origination"><span class="hs-identifier">putVoiceConnectorOriginationResponse_origination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#putVoiceConnectorOriginationResponse_httpStatus"><span class="hs-identifier">putVoiceConnectorOriginationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newPutVoiceConnectorOrigination' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679528503"><span id="local-6989586621679528504"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutVoiceConnectorOrigination"><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-var">PutVoiceConnectorOrigination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutVoiceConnectorOrigination%27"><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination%27"><span class="hs-identifier hs-var">PutVoiceConnectorOrigination'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime Voice Connector ID.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AvoiceConnectorId%3APutVoiceConnectorOrigination%27"><span class="annot"><span class="annottext">PutVoiceConnectorOrigination -&gt; Text
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#%24sel%3AvoiceConnectorId%3APutVoiceConnectorOrigination%27"><span class="hs-identifier hs-var hs-var">voiceConnectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The origination setting details to add.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aorigination%3APutVoiceConnectorOrigination%27"><span class="annot"><span class="annottext">PutVoiceConnectorOrigination -&gt; Origination
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#%24sel%3Aorigination%3APutVoiceConnectorOrigination%27"><span class="hs-identifier hs-var hs-var">origination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Origination.html#Origination"><span class="hs-identifier hs-type">Origination</span></a></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679528496"><span id="local-6989586621679528498"><span class="annot"><span class="annottext">PutVoiceConnectorOrigination
+-&gt; PutVoiceConnectorOrigination -&gt; Bool
+(PutVoiceConnectorOrigination
+ -&gt; PutVoiceConnectorOrigination -&gt; Bool)
+-&gt; (PutVoiceConnectorOrigination
+    -&gt; PutVoiceConnectorOrigination -&gt; Bool)
+-&gt; Eq PutVoiceConnectorOrigination
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutVoiceConnectorOrigination
+-&gt; PutVoiceConnectorOrigination -&gt; Bool
+$c/= :: PutVoiceConnectorOrigination
+-&gt; PutVoiceConnectorOrigination -&gt; Bool
+== :: PutVoiceConnectorOrigination
+-&gt; PutVoiceConnectorOrigination -&gt; Bool
+$c== :: PutVoiceConnectorOrigination
+-&gt; PutVoiceConnectorOrigination -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528487"><span id="local-6989586621679528489"><span id="local-6989586621679528491"><span id="local-6989586621679528493"><span class="annot"><span class="annottext">ReadPrec [PutVoiceConnectorOrigination]
+ReadPrec PutVoiceConnectorOrigination
+Int -&gt; ReadS PutVoiceConnectorOrigination
+ReadS [PutVoiceConnectorOrigination]
+(Int -&gt; ReadS PutVoiceConnectorOrigination)
+-&gt; ReadS [PutVoiceConnectorOrigination]
+-&gt; ReadPrec PutVoiceConnectorOrigination
+-&gt; ReadPrec [PutVoiceConnectorOrigination]
+-&gt; Read PutVoiceConnectorOrigination
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutVoiceConnectorOrigination]
+$creadListPrec :: ReadPrec [PutVoiceConnectorOrigination]
+readPrec :: ReadPrec PutVoiceConnectorOrigination
+$creadPrec :: ReadPrec PutVoiceConnectorOrigination
+readList :: ReadS [PutVoiceConnectorOrigination]
+$creadList :: ReadS [PutVoiceConnectorOrigination]
+readsPrec :: Int -&gt; ReadS PutVoiceConnectorOrigination
+$creadsPrec :: Int -&gt; ReadS PutVoiceConnectorOrigination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528480"><span id="local-6989586621679528482"><span id="local-6989586621679528484"><span class="annot"><span class="annottext">Int -&gt; PutVoiceConnectorOrigination -&gt; ShowS
+[PutVoiceConnectorOrigination] -&gt; ShowS
+PutVoiceConnectorOrigination -&gt; String
+(Int -&gt; PutVoiceConnectorOrigination -&gt; ShowS)
+-&gt; (PutVoiceConnectorOrigination -&gt; String)
+-&gt; ([PutVoiceConnectorOrigination] -&gt; ShowS)
+-&gt; Show PutVoiceConnectorOrigination
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutVoiceConnectorOrigination] -&gt; ShowS
+$cshowList :: [PutVoiceConnectorOrigination] -&gt; ShowS
+show :: PutVoiceConnectorOrigination -&gt; String
+$cshow :: PutVoiceConnectorOrigination -&gt; String
+showsPrec :: Int -&gt; PutVoiceConnectorOrigination -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutVoiceConnectorOrigination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutVoiceConnectorOrigination -&gt; Rep PutVoiceConnectorOrigination x)
+-&gt; (forall x.
+    Rep PutVoiceConnectorOrigination x -&gt; PutVoiceConnectorOrigination)
+-&gt; Generic PutVoiceConnectorOrigination
+forall x.
+Rep PutVoiceConnectorOrigination x -&gt; PutVoiceConnectorOrigination
+forall x.
+PutVoiceConnectorOrigination -&gt; Rep PutVoiceConnectorOrigination x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutVoiceConnectorOrigination x -&gt; PutVoiceConnectorOrigination
+$cfrom :: forall x.
+PutVoiceConnectorOrigination -&gt; Rep PutVoiceConnectorOrigination x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'PutVoiceConnectorOrigination' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'voiceConnectorId', 'putVoiceConnectorOrigination_voiceConnectorId' - The Amazon Chime Voice Connector ID.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'origination', 'putVoiceConnectorOrigination_origination' - The origination setting details to add.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#newPutVoiceConnectorOrigination"><span class="hs-identifier hs-type">newPutVoiceConnectorOrigination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'voiceConnectorId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'origination'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.Origination.html#Origination"><span class="hs-identifier hs-type">Origination</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span><span>
+</span><span id="line-80"></span><span id="newPutVoiceConnectorOrigination"><span class="annot"><span class="annottext">newPutVoiceConnectorOrigination :: Text -&gt; Origination -&gt; PutVoiceConnectorOrigination
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#newPutVoiceConnectorOrigination"><span class="hs-identifier hs-var hs-var">newPutVoiceConnectorOrigination</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679528475"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528475"><span class="hs-identifier hs-var">pVoiceConnectorId_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679528474"><span class="annot"><span class="annottext">Origination
+</span><a href="#local-6989586621679528474"><span class="hs-identifier hs-var">pOrigination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">PutVoiceConnectorOrigination' :: Text -&gt; Origination -&gt; PutVoiceConnectorOrigination
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination%27"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination'</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:voiceConnectorId:PutVoiceConnectorOrigination' :: Text
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#%24sel%3AvoiceConnectorId%3APutVoiceConnectorOrigination%27"><span class="hs-identifier hs-var">voiceConnectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528475"><span class="hs-identifier hs-var">pVoiceConnectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:origination:PutVoiceConnectorOrigination' :: Origination
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#%24sel%3Aorigination%3APutVoiceConnectorOrigination%27"><span class="hs-identifier hs-var">origination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Origination
+</span><a href="#local-6989586621679528474"><span class="hs-identifier hs-var">pOrigination_</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The Amazon Chime Voice Connector ID.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#putVoiceConnectorOrigination_voiceConnectorId"><span class="hs-identifier hs-type">putVoiceConnectorOrigination_voiceConnectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="putVoiceConnectorOrigination_voiceConnectorId"><span class="annot"><span class="annottext">putVoiceConnectorOrigination_voiceConnectorId :: (Text -&gt; f Text)
+-&gt; PutVoiceConnectorOrigination -&gt; f PutVoiceConnectorOrigination
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#putVoiceConnectorOrigination_voiceConnectorId"><span class="hs-identifier hs-var hs-var">putVoiceConnectorOrigination_voiceConnectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutVoiceConnectorOrigination -&gt; Text)
+-&gt; (PutVoiceConnectorOrigination
+    -&gt; Text -&gt; PutVoiceConnectorOrigination)
+-&gt; Lens
+     PutVoiceConnectorOrigination PutVoiceConnectorOrigination Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination%27"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528471"><span class="annot"><span class="annottext">Text
+voiceConnectorId :: Text
+$sel:voiceConnectorId:PutVoiceConnectorOrigination' :: PutVoiceConnectorOrigination -&gt; Text
+</span><a href="#local-6989586621679528471"><span class="hs-identifier hs-var hs-var">voiceConnectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528471"><span class="hs-identifier hs-var">voiceConnectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528470"><span class="annot"><span class="annottext">s :: PutVoiceConnectorOrigination
+</span><a href="#local-6989586621679528470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination%27"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528469"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutVoiceConnectorOrigination
+</span><a href="#local-6989586621679528470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceConnectorId:PutVoiceConnectorOrigination' :: Text
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#%24sel%3AvoiceConnectorId%3APutVoiceConnectorOrigination%27"><span class="hs-identifier hs-var">voiceConnectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The origination setting details to add.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#putVoiceConnectorOrigination_origination"><span class="hs-identifier hs-type">putVoiceConnectorOrigination_origination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Origination.html#Origination"><span class="hs-identifier hs-type">Origination</span></a></span><span>
+</span><span id="line-95"></span><span id="putVoiceConnectorOrigination_origination"><span class="annot"><span class="annottext">putVoiceConnectorOrigination_origination :: (Origination -&gt; f Origination)
+-&gt; PutVoiceConnectorOrigination -&gt; f PutVoiceConnectorOrigination
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#putVoiceConnectorOrigination_origination"><span class="hs-identifier hs-var hs-var">putVoiceConnectorOrigination_origination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutVoiceConnectorOrigination -&gt; Origination)
+-&gt; (PutVoiceConnectorOrigination
+    -&gt; Origination -&gt; PutVoiceConnectorOrigination)
+-&gt; Lens
+     PutVoiceConnectorOrigination
+     PutVoiceConnectorOrigination
+     Origination
+     Origination
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination%27"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528468"><span class="annot"><span class="annottext">Origination
+origination :: Origination
+$sel:origination:PutVoiceConnectorOrigination' :: PutVoiceConnectorOrigination -&gt; Origination
+</span><a href="#local-6989586621679528468"><span class="hs-identifier hs-var hs-var">origination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origination
+</span><a href="#local-6989586621679528468"><span class="hs-identifier hs-var">origination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528467"><span class="annot"><span class="annottext">s :: PutVoiceConnectorOrigination
+</span><a href="#local-6989586621679528467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination%27"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528466"><span class="annot"><span class="annottext">Origination
+</span><a href="#local-6989586621679528466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutVoiceConnectorOrigination
+</span><a href="#local-6989586621679528467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:origination:PutVoiceConnectorOrigination' :: Origination
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#%24sel%3Aorigination%3APutVoiceConnectorOrigination%27"><span class="hs-identifier hs-var">origination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Origination
+</span><a href="#local-6989586621679528466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorOriginationResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679528462"><span class="annot"><span class="annottext">request :: PutVoiceConnectorOrigination
+-&gt; Request PutVoiceConnectorOrigination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutVoiceConnectorOrigination
+-&gt; Request PutVoiceConnectorOrigination
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679528458"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutVoiceConnectorOrigination
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutVoiceConnectorOrigination)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse PutVoiceConnectorOrigination))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutVoiceConnectorOrigination
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutVoiceConnectorOrigination)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679528455"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528455"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679528454"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679528454"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679528453"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679528453"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Origination -&gt; Int -&gt; PutVoiceConnectorOriginationResponse
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-var">PutVoiceConnectorOriginationResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Origination -&gt; Int -&gt; PutVoiceConnectorOriginationResponse)
+-&gt; Either String (Maybe Origination)
+-&gt; Either String (Int -&gt; PutVoiceConnectorOriginationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679528453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Origination)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Origination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PutVoiceConnectorOriginationResponse)
+-&gt; Either String Int
+-&gt; Either String PutVoiceConnectorOriginationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528455"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679528445"><span id="local-6989586621679528447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679528442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679528438"><span class="annot"><span class="annottext">toHeaders :: PutVoiceConnectorOrigination -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutVoiceConnectorOrigination -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679528429"><span id="local-6989586621679528431"><span id="local-6989586621679528433"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679528427"><span class="annot"><span class="annottext">toJSON :: PutVoiceConnectorOrigination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination%27"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528424"><span id="local-6989586621679528425"><span class="annot"><span class="annottext">Text
+Origination
+origination :: Origination
+voiceConnectorId :: Text
+$sel:origination:PutVoiceConnectorOrigination' :: PutVoiceConnectorOrigination -&gt; Origination
+$sel:voiceConnectorId:PutVoiceConnectorOrigination' :: PutVoiceConnectorOrigination -&gt; Text
+</span><a href="#local-6989586621679528424"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Origination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Origination -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Origination
+</span><a href="#local-6989586621679528424"><span class="hs-identifier hs-var">origination</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679528418"><span class="annot"><span class="annottext">toPath :: PutVoiceConnectorOrigination -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination%27"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528415"><span id="local-6989586621679528416"><span class="annot"><span class="annottext">Text
+Origination
+origination :: Origination
+voiceConnectorId :: Text
+$sel:origination:PutVoiceConnectorOrigination' :: PutVoiceConnectorOrigination -&gt; Origination
+$sel:voiceConnectorId:PutVoiceConnectorOrigination' :: PutVoiceConnectorOrigination -&gt; Text
+</span><a href="#local-6989586621679528415"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/voice-connectors/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528416"><span class="hs-identifier hs-var">voiceConnectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/origination&quot;</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOrigination"><span class="hs-identifier hs-type">PutVoiceConnectorOrigination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679528411"><span class="annot"><span class="annottext">toQuery :: PutVoiceConnectorOrigination -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutVoiceConnectorOrigination -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newPutVoiceConnectorOriginationResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679528408"><span id="local-6989586621679528409"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutVoiceConnectorOriginationResponse"><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse"><span class="hs-identifier hs-var">PutVoiceConnectorOriginationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutVoiceConnectorOriginationResponse%27"><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-var">PutVoiceConnectorOriginationResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated origination setting details.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3Aorigination%3APutVoiceConnectorOriginationResponse%27"><span class="annot"><span class="annottext">PutVoiceConnectorOriginationResponse -&gt; Maybe Origination
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#%24sel%3Aorigination%3APutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-var hs-var">origination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Origination.html#Origination"><span class="hs-identifier hs-type">Origination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutVoiceConnectorOriginationResponse%27"><span class="annot"><span class="annottext">PutVoiceConnectorOriginationResponse -&gt; Int
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#%24sel%3AhttpStatus%3APutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679528402"><span id="local-6989586621679528404"><span class="annot"><span class="annottext">PutVoiceConnectorOriginationResponse
+-&gt; PutVoiceConnectorOriginationResponse -&gt; Bool
+(PutVoiceConnectorOriginationResponse
+ -&gt; PutVoiceConnectorOriginationResponse -&gt; Bool)
+-&gt; (PutVoiceConnectorOriginationResponse
+    -&gt; PutVoiceConnectorOriginationResponse -&gt; Bool)
+-&gt; Eq PutVoiceConnectorOriginationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutVoiceConnectorOriginationResponse
+-&gt; PutVoiceConnectorOriginationResponse -&gt; Bool
+$c/= :: PutVoiceConnectorOriginationResponse
+-&gt; PutVoiceConnectorOriginationResponse -&gt; Bool
+== :: PutVoiceConnectorOriginationResponse
+-&gt; PutVoiceConnectorOriginationResponse -&gt; Bool
+$c== :: PutVoiceConnectorOriginationResponse
+-&gt; PutVoiceConnectorOriginationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528394"><span id="local-6989586621679528396"><span id="local-6989586621679528398"><span id="local-6989586621679528400"><span class="annot"><span class="annottext">ReadPrec [PutVoiceConnectorOriginationResponse]
+ReadPrec PutVoiceConnectorOriginationResponse
+Int -&gt; ReadS PutVoiceConnectorOriginationResponse
+ReadS [PutVoiceConnectorOriginationResponse]
+(Int -&gt; ReadS PutVoiceConnectorOriginationResponse)
+-&gt; ReadS [PutVoiceConnectorOriginationResponse]
+-&gt; ReadPrec PutVoiceConnectorOriginationResponse
+-&gt; ReadPrec [PutVoiceConnectorOriginationResponse]
+-&gt; Read PutVoiceConnectorOriginationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutVoiceConnectorOriginationResponse]
+$creadListPrec :: ReadPrec [PutVoiceConnectorOriginationResponse]
+readPrec :: ReadPrec PutVoiceConnectorOriginationResponse
+$creadPrec :: ReadPrec PutVoiceConnectorOriginationResponse
+readList :: ReadS [PutVoiceConnectorOriginationResponse]
+$creadList :: ReadS [PutVoiceConnectorOriginationResponse]
+readsPrec :: Int -&gt; ReadS PutVoiceConnectorOriginationResponse
+$creadsPrec :: Int -&gt; ReadS PutVoiceConnectorOriginationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528388"><span id="local-6989586621679528390"><span id="local-6989586621679528392"><span class="annot"><span class="annottext">Int -&gt; PutVoiceConnectorOriginationResponse -&gt; ShowS
+[PutVoiceConnectorOriginationResponse] -&gt; ShowS
+PutVoiceConnectorOriginationResponse -&gt; String
+(Int -&gt; PutVoiceConnectorOriginationResponse -&gt; ShowS)
+-&gt; (PutVoiceConnectorOriginationResponse -&gt; String)
+-&gt; ([PutVoiceConnectorOriginationResponse] -&gt; ShowS)
+-&gt; Show PutVoiceConnectorOriginationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutVoiceConnectorOriginationResponse] -&gt; ShowS
+$cshowList :: [PutVoiceConnectorOriginationResponse] -&gt; ShowS
+show :: PutVoiceConnectorOriginationResponse -&gt; String
+$cshow :: PutVoiceConnectorOriginationResponse -&gt; String
+showsPrec :: Int -&gt; PutVoiceConnectorOriginationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutVoiceConnectorOriginationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutVoiceConnectorOriginationResponse
+ -&gt; Rep PutVoiceConnectorOriginationResponse x)
+-&gt; (forall x.
+    Rep PutVoiceConnectorOriginationResponse x
+    -&gt; PutVoiceConnectorOriginationResponse)
+-&gt; Generic PutVoiceConnectorOriginationResponse
+forall x.
+Rep PutVoiceConnectorOriginationResponse x
+-&gt; PutVoiceConnectorOriginationResponse
+forall x.
+PutVoiceConnectorOriginationResponse
+-&gt; Rep PutVoiceConnectorOriginationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutVoiceConnectorOriginationResponse x
+-&gt; PutVoiceConnectorOriginationResponse
+$cfrom :: forall x.
+PutVoiceConnectorOriginationResponse
+-&gt; Rep PutVoiceConnectorOriginationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'PutVoiceConnectorOriginationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'origination', 'putVoiceConnectorOriginationResponse_origination' - The updated origination setting details.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'putVoiceConnectorOriginationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#newPutVoiceConnectorOriginationResponse"><span class="hs-identifier hs-type">newPutVoiceConnectorOriginationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorOriginationResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newPutVoiceConnectorOriginationResponse"><span class="annot"><span class="annottext">newPutVoiceConnectorOriginationResponse :: Int -&gt; PutVoiceConnectorOriginationResponse
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#newPutVoiceConnectorOriginationResponse"><span class="hs-identifier hs-var hs-var">newPutVoiceConnectorOriginationResponse</span></a></span></span><span> </span><span id="local-6989586621679528385"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528385"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">PutVoiceConnectorOriginationResponse' :: Maybe Origination -&gt; Int -&gt; PutVoiceConnectorOriginationResponse
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-type">PutVoiceConnectorOriginationResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:origination:PutVoiceConnectorOriginationResponse' :: Maybe Origination
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#%24sel%3Aorigination%3APutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-var">origination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Maybe Origination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutVoiceConnectorOriginationResponse' :: Int
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#%24sel%3AhttpStatus%3APutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528385"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The updated origination setting details.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#putVoiceConnectorOriginationResponse_origination"><span class="hs-identifier hs-type">putVoiceConnectorOriginationResponse_origination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorOriginationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Origination.html#Origination"><span class="hs-identifier hs-type">Origination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="putVoiceConnectorOriginationResponse_origination"><span class="annot"><span class="annottext">putVoiceConnectorOriginationResponse_origination :: (Maybe Origination -&gt; f (Maybe Origination))
+-&gt; PutVoiceConnectorOriginationResponse
+-&gt; f PutVoiceConnectorOriginationResponse
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#putVoiceConnectorOriginationResponse_origination"><span class="hs-identifier hs-var hs-var">putVoiceConnectorOriginationResponse_origination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutVoiceConnectorOriginationResponse -&gt; Maybe Origination)
+-&gt; (PutVoiceConnectorOriginationResponse
+    -&gt; Maybe Origination -&gt; PutVoiceConnectorOriginationResponse)
+-&gt; Lens
+     PutVoiceConnectorOriginationResponse
+     PutVoiceConnectorOriginationResponse
+     (Maybe Origination)
+     (Maybe Origination)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-type">PutVoiceConnectorOriginationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528384"><span class="annot"><span class="annottext">Maybe Origination
+origination :: Maybe Origination
+$sel:origination:PutVoiceConnectorOriginationResponse' :: PutVoiceConnectorOriginationResponse -&gt; Maybe Origination
+</span><a href="#local-6989586621679528384"><span class="hs-identifier hs-var hs-var">origination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Origination
+</span><a href="#local-6989586621679528384"><span class="hs-identifier hs-var">origination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528383"><span class="annot"><span class="annottext">s :: PutVoiceConnectorOriginationResponse
+</span><a href="#local-6989586621679528383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-type">PutVoiceConnectorOriginationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528382"><span class="annot"><span class="annottext">Maybe Origination
+</span><a href="#local-6989586621679528382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutVoiceConnectorOriginationResponse
+</span><a href="#local-6989586621679528383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:origination:PutVoiceConnectorOriginationResponse' :: Maybe Origination
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#%24sel%3Aorigination%3APutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-var">origination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Origination
+</span><a href="#local-6989586621679528382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorOriginationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#putVoiceConnectorOriginationResponse_httpStatus"><span class="hs-identifier hs-type">putVoiceConnectorOriginationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorOriginationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-174"></span><span id="putVoiceConnectorOriginationResponse_httpStatus"><span class="annot"><span class="annottext">putVoiceConnectorOriginationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutVoiceConnectorOriginationResponse
+-&gt; f PutVoiceConnectorOriginationResponse
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#putVoiceConnectorOriginationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putVoiceConnectorOriginationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutVoiceConnectorOriginationResponse -&gt; Int)
+-&gt; (PutVoiceConnectorOriginationResponse
+    -&gt; Int -&gt; PutVoiceConnectorOriginationResponse)
+-&gt; Lens
+     PutVoiceConnectorOriginationResponse
+     PutVoiceConnectorOriginationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-type">PutVoiceConnectorOriginationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528381"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutVoiceConnectorOriginationResponse' :: PutVoiceConnectorOriginationResponse -&gt; Int
+</span><a href="#local-6989586621679528381"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528381"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528380"><span class="annot"><span class="annottext">s :: PutVoiceConnectorOriginationResponse
+</span><a href="#local-6989586621679528380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-type">PutVoiceConnectorOriginationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528379"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutVoiceConnectorOriginationResponse
+</span><a href="#local-6989586621679528380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutVoiceConnectorOriginationResponse' :: Int
+</span><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#%24sel%3AhttpStatus%3APutVoiceConnectorOriginationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorOriginationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679528377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.PutVoiceConnectorOrigination.html#PutVoiceConnectorOriginationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorOriginationResponse</span></a></span></span><span>
+</span><span id="line-179"></span></pre></body></html>

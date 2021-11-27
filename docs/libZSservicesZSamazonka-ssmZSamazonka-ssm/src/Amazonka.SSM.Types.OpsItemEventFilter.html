@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.OpsItemEventFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.OpsItemEventFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilterKey.html"><span class="hs-identifier">Amazonka.SSM.Types.OpsItemEventFilterKey</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilterOperator.html"><span class="hs-identifier">Amazonka.SSM.Types.OpsItemEventFilterOperator</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a filter for a specific list of OpsItem events. You can filter</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- event information by using tags. You specify tags by using a key-value</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- pair mapping.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newOpsItemEventFilter' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679803083"><span id="local-6989586621679803084"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpsItemEventFilter"><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-var">OpsItemEventFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsItemEventFilter%27"><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-var">OpsItemEventFilter'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter key. Currently, the only supported value is</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @OpsItemId@.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Akey%3AOpsItemEventFilter%27"><span class="annot"><span class="annottext">OpsItemEventFilter -&gt; OpsItemEventFilterKey
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#%24sel%3Akey%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilterKey.html#OpsItemEventFilterKey"><span class="hs-identifier hs-type">OpsItemEventFilterKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The values for the filter, consisting of one or more OpsItem IDs.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Avalues%3AOpsItemEventFilter%27"><span class="annot"><span class="annottext">OpsItemEventFilter -&gt; [Text]
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#%24sel%3Avalues%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The operator used by the filter call. Currently, the only supported</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- value is @Equal@.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aoperator%3AOpsItemEventFilter%27"><span class="annot"><span class="annottext">OpsItemEventFilter -&gt; OpsItemEventFilterOperator
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#%24sel%3Aoperator%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilterOperator.html#OpsItemEventFilterOperator"><span class="hs-identifier hs-type">OpsItemEventFilterOperator</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679803075"><span id="local-6989586621679803077"><span class="annot"><span class="annottext">OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool
+(OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool)
+-&gt; (OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool)
+-&gt; Eq OpsItemEventFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool
+$c/= :: OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool
+== :: OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool
+$c== :: OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803066"><span id="local-6989586621679803068"><span id="local-6989586621679803070"><span id="local-6989586621679803072"><span class="annot"><span class="annottext">ReadPrec [OpsItemEventFilter]
+ReadPrec OpsItemEventFilter
+Int -&gt; ReadS OpsItemEventFilter
+ReadS [OpsItemEventFilter]
+(Int -&gt; ReadS OpsItemEventFilter)
+-&gt; ReadS [OpsItemEventFilter]
+-&gt; ReadPrec OpsItemEventFilter
+-&gt; ReadPrec [OpsItemEventFilter]
+-&gt; Read OpsItemEventFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OpsItemEventFilter]
+$creadListPrec :: ReadPrec [OpsItemEventFilter]
+readPrec :: ReadPrec OpsItemEventFilter
+$creadPrec :: ReadPrec OpsItemEventFilter
+readList :: ReadS [OpsItemEventFilter]
+$creadList :: ReadS [OpsItemEventFilter]
+readsPrec :: Int -&gt; ReadS OpsItemEventFilter
+$creadsPrec :: Int -&gt; ReadS OpsItemEventFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803059"><span id="local-6989586621679803061"><span id="local-6989586621679803063"><span class="annot"><span class="annottext">Int -&gt; OpsItemEventFilter -&gt; ShowS
+[OpsItemEventFilter] -&gt; ShowS
+OpsItemEventFilter -&gt; String
+(Int -&gt; OpsItemEventFilter -&gt; ShowS)
+-&gt; (OpsItemEventFilter -&gt; String)
+-&gt; ([OpsItemEventFilter] -&gt; ShowS)
+-&gt; Show OpsItemEventFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OpsItemEventFilter] -&gt; ShowS
+$cshowList :: [OpsItemEventFilter] -&gt; ShowS
+show :: OpsItemEventFilter -&gt; String
+$cshow :: OpsItemEventFilter -&gt; String
+showsPrec :: Int -&gt; OpsItemEventFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; OpsItemEventFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. OpsItemEventFilter -&gt; Rep OpsItemEventFilter x)
+-&gt; (forall x. Rep OpsItemEventFilter x -&gt; OpsItemEventFilter)
+-&gt; Generic OpsItemEventFilter
+forall x. Rep OpsItemEventFilter x -&gt; OpsItemEventFilter
+forall x. OpsItemEventFilter -&gt; Rep OpsItemEventFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OpsItemEventFilter x -&gt; OpsItemEventFilter
+$cfrom :: forall x. OpsItemEventFilter -&gt; Rep OpsItemEventFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'OpsItemEventFilter' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'key', 'opsItemEventFilter_key' - The name of the filter key. Currently, the only supported value is</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- @OpsItemId@.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'values', 'opsItemEventFilter_values' - The values for the filter, consisting of one or more OpsItem IDs.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'operator', 'opsItemEventFilter_operator' - The operator used by the filter call. Currently, the only supported</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- value is @Equal@.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#newOpsItemEventFilter"><span class="hs-identifier hs-type">newOpsItemEventFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'key'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilterKey.html#OpsItemEventFilterKey"><span class="hs-identifier hs-type">OpsItemEventFilterKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'operator'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilterOperator.html#OpsItemEventFilterOperator"><span class="hs-identifier hs-type">OpsItemEventFilterOperator</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span>
+</span><span id="line-66"></span><span id="newOpsItemEventFilter"><span class="annot"><span class="annottext">newOpsItemEventFilter :: OpsItemEventFilterKey
+-&gt; OpsItemEventFilterOperator -&gt; OpsItemEventFilter
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#newOpsItemEventFilter"><span class="hs-identifier hs-var hs-var">newOpsItemEventFilter</span></a></span></span><span> </span><span id="local-6989586621679803053"><span class="annot"><span class="annottext">OpsItemEventFilterKey
+</span><a href="#local-6989586621679803053"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679803052"><span class="annot"><span class="annottext">OpsItemEventFilterOperator
+</span><a href="#local-6989586621679803052"><span class="hs-identifier hs-var">pOperator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">OpsItemEventFilter' :: OpsItemEventFilterKey
+-&gt; [Text] -&gt; OpsItemEventFilterOperator -&gt; OpsItemEventFilter
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:OpsItemEventFilter' :: OpsItemEventFilterKey
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#%24sel%3Akey%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterKey
+</span><a href="#local-6989586621679803053"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:OpsItemEventFilter' :: [Text]
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#%24sel%3Avalues%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:operator:OpsItemEventFilter' :: OpsItemEventFilterOperator
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#%24sel%3Aoperator%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterOperator
+</span><a href="#local-6989586621679803052"><span class="hs-identifier hs-var">pOperator_</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The name of the filter key. Currently, the only supported value is</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- @OpsItemId@.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#opsItemEventFilter_key"><span class="hs-identifier hs-type">opsItemEventFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilterKey.html#OpsItemEventFilterKey"><span class="hs-identifier hs-type">OpsItemEventFilterKey</span></a></span><span>
+</span><span id="line-76"></span><span id="opsItemEventFilter_key"><span class="annot"><span class="annottext">opsItemEventFilter_key :: (OpsItemEventFilterKey -&gt; f OpsItemEventFilterKey)
+-&gt; OpsItemEventFilter -&gt; f OpsItemEventFilter
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#opsItemEventFilter_key"><span class="hs-identifier hs-var hs-var">opsItemEventFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OpsItemEventFilter -&gt; OpsItemEventFilterKey)
+-&gt; (OpsItemEventFilter
+    -&gt; OpsItemEventFilterKey -&gt; OpsItemEventFilter)
+-&gt; Lens
+     OpsItemEventFilter
+     OpsItemEventFilter
+     OpsItemEventFilterKey
+     OpsItemEventFilterKey
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803048"><span class="annot"><span class="annottext">OpsItemEventFilterKey
+key :: OpsItemEventFilterKey
+$sel:key:OpsItemEventFilter' :: OpsItemEventFilter -&gt; OpsItemEventFilterKey
+</span><a href="#local-6989586621679803048"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterKey
+</span><a href="#local-6989586621679803048"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803047"><span class="annot"><span class="annottext">s :: OpsItemEventFilter
+</span><a href="#local-6989586621679803047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803046"><span class="annot"><span class="annottext">OpsItemEventFilterKey
+</span><a href="#local-6989586621679803046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilter
+</span><a href="#local-6989586621679803047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:OpsItemEventFilter' :: OpsItemEventFilterKey
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#%24sel%3Akey%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterKey
+</span><a href="#local-6989586621679803046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The values for the filter, consisting of one or more OpsItem IDs.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#opsItemEventFilter_values"><span class="hs-identifier hs-type">opsItemEventFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-80"></span><span id="opsItemEventFilter_values"><span class="annot"><span class="annottext">opsItemEventFilter_values :: ([Text] -&gt; f [Text]) -&gt; OpsItemEventFilter -&gt; f OpsItemEventFilter
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#opsItemEventFilter_values"><span class="hs-identifier hs-var hs-var">opsItemEventFilter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OpsItemEventFilter -&gt; [Text])
+-&gt; (OpsItemEventFilter -&gt; [Text] -&gt; OpsItemEventFilter)
+-&gt; Lens OpsItemEventFilter OpsItemEventFilter [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803044"><span class="annot"><span class="annottext">[Text]
+values :: [Text]
+$sel:values:OpsItemEventFilter' :: OpsItemEventFilter -&gt; [Text]
+</span><a href="#local-6989586621679803044"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679803044"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803043"><span class="annot"><span class="annottext">s :: OpsItemEventFilter
+</span><a href="#local-6989586621679803043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803042"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679803042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilter
+</span><a href="#local-6989586621679803043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:OpsItemEventFilter' :: [Text]
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#%24sel%3Avalues%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679803042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; OpsItemEventFilter -&gt; f OpsItemEventFilter)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; OpsItemEventFilter
+-&gt; f OpsItemEventFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The operator used by the filter call. Currently, the only supported</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- value is @Equal@.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#opsItemEventFilter_operator"><span class="hs-identifier hs-type">opsItemEventFilter_operator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilterOperator.html#OpsItemEventFilterOperator"><span class="hs-identifier hs-type">OpsItemEventFilterOperator</span></a></span><span>
+</span><span id="line-85"></span><span id="opsItemEventFilter_operator"><span class="annot"><span class="annottext">opsItemEventFilter_operator :: (OpsItemEventFilterOperator -&gt; f OpsItemEventFilterOperator)
+-&gt; OpsItemEventFilter -&gt; f OpsItemEventFilter
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#opsItemEventFilter_operator"><span class="hs-identifier hs-var hs-var">opsItemEventFilter_operator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OpsItemEventFilter -&gt; OpsItemEventFilterOperator)
+-&gt; (OpsItemEventFilter
+    -&gt; OpsItemEventFilterOperator -&gt; OpsItemEventFilter)
+-&gt; Lens
+     OpsItemEventFilter
+     OpsItemEventFilter
+     OpsItemEventFilterOperator
+     OpsItemEventFilterOperator
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803038"><span class="annot"><span class="annottext">OpsItemEventFilterOperator
+operator :: OpsItemEventFilterOperator
+$sel:operator:OpsItemEventFilter' :: OpsItemEventFilter -&gt; OpsItemEventFilterOperator
+</span><a href="#local-6989586621679803038"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterOperator
+</span><a href="#local-6989586621679803038"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803037"><span class="annot"><span class="annottext">s :: OpsItemEventFilter
+</span><a href="#local-6989586621679803037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803036"><span class="annot"><span class="annottext">OpsItemEventFilterOperator
+</span><a href="#local-6989586621679803036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilter
+</span><a href="#local-6989586621679803037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:OpsItemEventFilter' :: OpsItemEventFilterOperator
+</span><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#%24sel%3Aoperator%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterOperator
+</span><a href="#local-6989586621679803036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803032"><span id="local-6989586621679803034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803021"><span id="local-6989586621679803023"><span id="local-6989586621679803025"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679803019"><span class="annot"><span class="annottext">toJSON :: OpsItemEventFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803015"><span id="local-6989586621679803016"><span id="local-6989586621679803017"><span class="annot"><span class="annottext">[Text]
+OpsItemEventFilterKey
+OpsItemEventFilterOperator
+operator :: OpsItemEventFilterOperator
+values :: [Text]
+key :: OpsItemEventFilterKey
+$sel:operator:OpsItemEventFilter' :: OpsItemEventFilter -&gt; OpsItemEventFilterOperator
+$sel:values:OpsItemEventFilter' :: OpsItemEventFilter -&gt; [Text]
+$sel:key:OpsItemEventFilter' :: OpsItemEventFilter -&gt; OpsItemEventFilterKey
+</span><a href="#local-6989586621679803015"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OpsItemEventFilterKey -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterKey
+</span><a href="#local-6989586621679803017"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679803016"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Operator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OpsItemEventFilterOperator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterOperator
+</span><a href="#local-6989586621679803015"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span></pre></body></html>

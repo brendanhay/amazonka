@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.Types.BatteryLevel</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.Types.BatteryLevel</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel"><span class="hs-identifier">BatteryLevel</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel_Critical"><span class="hs-identifier">BatteryLevel_Critical</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel_Low"><span class="hs-identifier">BatteryLevel_Low</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel_Normal"><span class="hs-identifier">BatteryLevel_Normal</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Sidewalk device battery level.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679272991"><span id="local-6989586621679272992"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BatteryLevel"><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel"><span class="hs-identifier hs-var">BatteryLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatteryLevel%27"><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel%27"><span class="hs-identifier hs-var">BatteryLevel'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBatteryLevel"><span class="annot"><span class="annottext">BatteryLevel -&gt; Text
+</span><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#fromBatteryLevel"><span class="hs-identifier hs-var hs-var">fromBatteryLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272983"><span id="local-6989586621679272985"><span id="local-6989586621679272987"><span class="annot"><span class="annottext">Int -&gt; BatteryLevel -&gt; ShowS
+[BatteryLevel] -&gt; ShowS
+BatteryLevel -&gt; String
+(Int -&gt; BatteryLevel -&gt; ShowS)
+-&gt; (BatteryLevel -&gt; String)
+-&gt; ([BatteryLevel] -&gt; ShowS)
+-&gt; Show BatteryLevel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatteryLevel] -&gt; ShowS
+$cshowList :: [BatteryLevel] -&gt; ShowS
+show :: BatteryLevel -&gt; String
+$cshow :: BatteryLevel -&gt; String
+showsPrec :: Int -&gt; BatteryLevel -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatteryLevel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679272974"><span id="local-6989586621679272976"><span id="local-6989586621679272978"><span id="local-6989586621679272980"><span class="annot"><span class="annottext">ReadPrec [BatteryLevel]
+ReadPrec BatteryLevel
+Int -&gt; ReadS BatteryLevel
+ReadS [BatteryLevel]
+(Int -&gt; ReadS BatteryLevel)
+-&gt; ReadS [BatteryLevel]
+-&gt; ReadPrec BatteryLevel
+-&gt; ReadPrec [BatteryLevel]
+-&gt; Read BatteryLevel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatteryLevel]
+$creadListPrec :: ReadPrec [BatteryLevel]
+readPrec :: ReadPrec BatteryLevel
+$creadPrec :: ReadPrec BatteryLevel
+readList :: ReadS [BatteryLevel]
+$creadList :: ReadS [BatteryLevel]
+readsPrec :: Int -&gt; ReadS BatteryLevel
+$creadsPrec :: Int -&gt; ReadS BatteryLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679272969"><span id="local-6989586621679272971"><span class="annot"><span class="annottext">BatteryLevel -&gt; BatteryLevel -&gt; Bool
+(BatteryLevel -&gt; BatteryLevel -&gt; Bool)
+-&gt; (BatteryLevel -&gt; BatteryLevel -&gt; Bool) -&gt; Eq BatteryLevel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatteryLevel -&gt; BatteryLevel -&gt; Bool
+$c/= :: BatteryLevel -&gt; BatteryLevel -&gt; Bool
+== :: BatteryLevel -&gt; BatteryLevel -&gt; Bool
+$c== :: BatteryLevel -&gt; BatteryLevel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679272953"><span id="local-6989586621679272955"><span id="local-6989586621679272957"><span id="local-6989586621679272959"><span id="local-6989586621679272961"><span id="local-6989586621679272963"><span id="local-6989586621679272965"><span class="annot"><span class="annottext">Eq BatteryLevel
+Eq BatteryLevel
+-&gt; (BatteryLevel -&gt; BatteryLevel -&gt; Ordering)
+-&gt; (BatteryLevel -&gt; BatteryLevel -&gt; Bool)
+-&gt; (BatteryLevel -&gt; BatteryLevel -&gt; Bool)
+-&gt; (BatteryLevel -&gt; BatteryLevel -&gt; Bool)
+-&gt; (BatteryLevel -&gt; BatteryLevel -&gt; Bool)
+-&gt; (BatteryLevel -&gt; BatteryLevel -&gt; BatteryLevel)
+-&gt; (BatteryLevel -&gt; BatteryLevel -&gt; BatteryLevel)
+-&gt; Ord BatteryLevel
+BatteryLevel -&gt; BatteryLevel -&gt; Bool
+BatteryLevel -&gt; BatteryLevel -&gt; Ordering
+BatteryLevel -&gt; BatteryLevel -&gt; BatteryLevel
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BatteryLevel -&gt; BatteryLevel -&gt; BatteryLevel
+$cmin :: BatteryLevel -&gt; BatteryLevel -&gt; BatteryLevel
+max :: BatteryLevel -&gt; BatteryLevel -&gt; BatteryLevel
+$cmax :: BatteryLevel -&gt; BatteryLevel -&gt; BatteryLevel
+&gt;= :: BatteryLevel -&gt; BatteryLevel -&gt; Bool
+$c&gt;= :: BatteryLevel -&gt; BatteryLevel -&gt; Bool
+&gt; :: BatteryLevel -&gt; BatteryLevel -&gt; Bool
+$c&gt; :: BatteryLevel -&gt; BatteryLevel -&gt; Bool
+&lt;= :: BatteryLevel -&gt; BatteryLevel -&gt; Bool
+$c&lt;= :: BatteryLevel -&gt; BatteryLevel -&gt; Bool
+&lt; :: BatteryLevel -&gt; BatteryLevel -&gt; Bool
+$c&lt; :: BatteryLevel -&gt; BatteryLevel -&gt; Bool
+compare :: BatteryLevel -&gt; BatteryLevel -&gt; Ordering
+$ccompare :: BatteryLevel -&gt; BatteryLevel -&gt; Ordering
+$cp1Ord :: Eq BatteryLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. BatteryLevel -&gt; Rep BatteryLevel x)
+-&gt; (forall x. Rep BatteryLevel x -&gt; BatteryLevel)
+-&gt; Generic BatteryLevel
+forall x. Rep BatteryLevel x -&gt; BatteryLevel
+forall x. BatteryLevel -&gt; Rep BatteryLevel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatteryLevel x -&gt; BatteryLevel
+$cfrom :: forall x. BatteryLevel -&gt; Rep BatteryLevel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272945"><span id="local-6989586621679272947"><span class="annot"><span class="annottext">Int -&gt; BatteryLevel -&gt; Int
+BatteryLevel -&gt; Int
+(Int -&gt; BatteryLevel -&gt; Int)
+-&gt; (BatteryLevel -&gt; Int) -&gt; Hashable BatteryLevel
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BatteryLevel -&gt; Int
+$chash :: BatteryLevel -&gt; Int
+hashWithSalt :: Int -&gt; BatteryLevel -&gt; Int
+$chashWithSalt :: Int -&gt; BatteryLevel -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679272942"><span class="annot"><span class="annottext">BatteryLevel -&gt; ()
+(BatteryLevel -&gt; ()) -&gt; NFData BatteryLevel
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BatteryLevel -&gt; ()
+$crnf :: BatteryLevel -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679272939"><span class="annot"><span class="annottext">Text -&gt; Either String BatteryLevel
+(Text -&gt; Either String BatteryLevel) -&gt; FromText BatteryLevel
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BatteryLevel
+$cfromText :: Text -&gt; Either String BatteryLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679272936"><span class="annot"><span class="annottext">BatteryLevel -&gt; Text
+(BatteryLevel -&gt; Text) -&gt; ToText BatteryLevel
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BatteryLevel -&gt; Text
+$ctoText :: BatteryLevel -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272933"><span class="annot"><span class="annottext">BatteryLevel -&gt; ByteString
+(BatteryLevel -&gt; ByteString) -&gt; ToByteString BatteryLevel
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BatteryLevel -&gt; ByteString
+$ctoBS :: BatteryLevel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272930"><span class="annot"><span class="annottext">BatteryLevel -&gt; ByteStringBuilder
+(BatteryLevel -&gt; ByteStringBuilder) -&gt; ToLog BatteryLevel
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BatteryLevel -&gt; ByteStringBuilder
+$cbuild :: BatteryLevel -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272927"><span class="annot"><span class="annottext">HeaderName -&gt; BatteryLevel -&gt; [Header]
+(HeaderName -&gt; BatteryLevel -&gt; [Header]) -&gt; ToHeader BatteryLevel
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BatteryLevel -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BatteryLevel -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272924"><span class="annot"><span class="annottext">BatteryLevel -&gt; QueryString
+(BatteryLevel -&gt; QueryString) -&gt; ToQuery BatteryLevel
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BatteryLevel -&gt; QueryString
+$ctoQuery :: BatteryLevel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272919"><span id="local-6989586621679272921"><span class="annot"><span class="annottext">Value -&gt; Parser [BatteryLevel]
+Value -&gt; Parser BatteryLevel
+(Value -&gt; Parser BatteryLevel)
+-&gt; (Value -&gt; Parser [BatteryLevel]) -&gt; FromJSON BatteryLevel
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BatteryLevel]
+$cparseJSONList :: Value -&gt; Parser [BatteryLevel]
+parseJSON :: Value -&gt; Parser BatteryLevel
+$cparseJSON :: Value -&gt; Parser BatteryLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272914"><span id="local-6989586621679272916"><span class="annot"><span class="annottext">FromJSONKeyFunction [BatteryLevel]
+FromJSONKeyFunction BatteryLevel
+FromJSONKeyFunction BatteryLevel
+-&gt; FromJSONKeyFunction [BatteryLevel] -&gt; FromJSONKey BatteryLevel
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BatteryLevel]
+$cfromJSONKeyList :: FromJSONKeyFunction [BatteryLevel]
+fromJSONKey :: FromJSONKeyFunction BatteryLevel
+$cfromJSONKey :: FromJSONKeyFunction BatteryLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272905"><span id="local-6989586621679272907"><span id="local-6989586621679272909"><span id="local-6989586621679272911"><span class="annot"><span class="annottext">[BatteryLevel] -&gt; Encoding
+[BatteryLevel] -&gt; Value
+BatteryLevel -&gt; Encoding
+BatteryLevel -&gt; Value
+(BatteryLevel -&gt; Value)
+-&gt; (BatteryLevel -&gt; Encoding)
+-&gt; ([BatteryLevel] -&gt; Value)
+-&gt; ([BatteryLevel] -&gt; Encoding)
+-&gt; ToJSON BatteryLevel
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BatteryLevel] -&gt; Encoding
+$ctoEncodingList :: [BatteryLevel] -&gt; Encoding
+toJSONList :: [BatteryLevel] -&gt; Value
+$ctoJSONList :: [BatteryLevel] -&gt; Value
+toEncoding :: BatteryLevel -&gt; Encoding
+$ctoEncoding :: BatteryLevel -&gt; Encoding
+toJSON :: BatteryLevel -&gt; Value
+$ctoJSON :: BatteryLevel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679272900"><span id="local-6989586621679272902"><span class="annot"><span class="annottext">ToJSONKeyFunction [BatteryLevel]
+ToJSONKeyFunction BatteryLevel
+ToJSONKeyFunction BatteryLevel
+-&gt; ToJSONKeyFunction [BatteryLevel] -&gt; ToJSONKey BatteryLevel
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BatteryLevel]
+$ctoJSONKeyList :: ToJSONKeyFunction [BatteryLevel]
+toJSONKey :: ToJSONKeyFunction BatteryLevel
+$ctoJSONKey :: ToJSONKeyFunction BatteryLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679272897"><span class="annot"><span class="annottext">[Node] -&gt; Either String BatteryLevel
+([Node] -&gt; Either String BatteryLevel) -&gt; FromXML BatteryLevel
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BatteryLevel
+$cparseXML :: [Node] -&gt; Either String BatteryLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679272894"><span class="annot"><span class="annottext">BatteryLevel -&gt; XML
+(BatteryLevel -&gt; XML) -&gt; ToXML BatteryLevel
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BatteryLevel -&gt; XML
+$ctoXML :: BatteryLevel -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel_Critical"><span class="hs-identifier hs-type">BatteryLevel_Critical</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel"><span class="hs-identifier hs-type">BatteryLevel</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBatteryLevel_Critical"><span id="%24mBatteryLevel_Critical"><span id="BatteryLevel_Critical"><span class="annot"><span class="annottext">$bBatteryLevel_Critical :: BatteryLevel
+$mBatteryLevel_Critical :: forall r. BatteryLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#%24bBatteryLevel_Critical"><span class="hs-identifier hs-var hs-var hs-var">BatteryLevel_Critical</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel%27"><span class="hs-identifier hs-type">BatteryLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;critical&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel_Low"><span class="hs-identifier hs-type">BatteryLevel_Low</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel"><span class="hs-identifier hs-type">BatteryLevel</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBatteryLevel_Low"><span id="%24mBatteryLevel_Low"><span id="BatteryLevel_Low"><span class="annot"><span class="annottext">$bBatteryLevel_Low :: BatteryLevel
+$mBatteryLevel_Low :: forall r. BatteryLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#%24bBatteryLevel_Low"><span class="hs-identifier hs-var hs-var hs-var">BatteryLevel_Low</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel%27"><span class="hs-identifier hs-type">BatteryLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;low&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel_Normal"><span class="hs-identifier hs-type">BatteryLevel_Normal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel"><span class="hs-identifier hs-type">BatteryLevel</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBatteryLevel_Normal"><span id="%24mBatteryLevel_Normal"><span id="BatteryLevel_Normal"><span class="annot"><span class="annottext">$bBatteryLevel_Normal :: BatteryLevel
+$mBatteryLevel_Normal :: forall r. BatteryLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#%24bBatteryLevel_Normal"><span class="hs-identifier hs-var hs-var hs-var">BatteryLevel_Normal</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel%27"><span class="hs-identifier hs-type">BatteryLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;normal&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel_Critical"><span class="hs-pragma hs-type">BatteryLevel_Critical</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel_Low"><span class="hs-pragma hs-type">BatteryLevel_Low</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel_Normal"><span class="hs-pragma hs-type">BatteryLevel_Normal</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.BatteryLevel.html#BatteryLevel%27"><span class="hs-pragma hs-type">BatteryLevel'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

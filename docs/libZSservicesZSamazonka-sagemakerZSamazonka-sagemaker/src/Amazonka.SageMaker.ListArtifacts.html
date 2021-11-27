@@ -1,0 +1,923 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.ListArtifacts</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the artifacts in your account and their properties.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.ListArtifacts</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier">ListArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#newListArtifacts"><span class="hs-identifier">newListArtifacts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_createdAfter"><span class="hs-identifier">listArtifacts_createdAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_nextToken"><span class="hs-identifier">listArtifacts_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_sortOrder"><span class="hs-identifier">listArtifacts_sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_sourceUri"><span class="hs-identifier">listArtifacts_sourceUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_artifactType"><span class="hs-identifier">listArtifacts_artifactType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_maxResults"><span class="hs-identifier">listArtifacts_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_createdBefore"><span class="hs-identifier">listArtifacts_createdBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_sortBy"><span class="hs-identifier">listArtifacts_sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier">ListArtifactsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#newListArtifactsResponse"><span class="hs-identifier">newListArtifactsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifactsResponse_artifactSummaries"><span class="hs-identifier">listArtifactsResponse_artifactSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifactsResponse_nextToken"><span class="hs-identifier">listArtifactsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifactsResponse_httpStatus"><span class="hs-identifier">listArtifactsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newListArtifacts' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621680387187"><span id="local-6989586621680387188"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListArtifacts"><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-var">ListArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListArtifacts%27"><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-var">ListArtifacts'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter that returns only artifacts created on or after the specified</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AcreatedAfter%3AListArtifacts%27"><span class="annot"><span class="annottext">ListArtifacts -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AcreatedAfter%3AListArtifacts%27"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | If the previous call to @ListArtifacts@ didn\'t return the full set of</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- artifacts, the call returns a token for getting the next set of</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- artifacts.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnextToken%3AListArtifacts%27"><span class="annot"><span class="annottext">ListArtifacts -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AnextToken%3AListArtifacts%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The sort order. The default value is @Descending@.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AsortOrder%3AListArtifacts%27"><span class="annot"><span class="annottext">ListArtifacts -&gt; Maybe SortOrder
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AsortOrder%3AListArtifacts%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A filter that returns only artifacts with the specified source URI.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AsourceUri%3AListArtifacts%27"><span class="annot"><span class="annottext">ListArtifacts -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AsourceUri%3AListArtifacts%27"><span class="hs-identifier hs-var hs-var">sourceUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A filter that returns only artifacts of the specified type.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AartifactType%3AListArtifacts%27"><span class="annot"><span class="annottext">ListArtifacts -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AartifactType%3AListArtifacts%27"><span class="hs-identifier hs-var hs-var">artifactType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The maximum number of artifacts to return in the response. The default</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- value is 10.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AmaxResults%3AListArtifacts%27"><span class="annot"><span class="annottext">ListArtifacts -&gt; Maybe Natural
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AmaxResults%3AListArtifacts%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A filter that returns only artifacts created on or before the specified</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AcreatedBefore%3AListArtifacts%27"><span class="annot"><span class="annottext">ListArtifacts -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AcreatedBefore%3AListArtifacts%27"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The property used to sort results. The default value is @CreationTime@.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AsortBy%3AListArtifacts%27"><span class="annot"><span class="annottext">ListArtifacts -&gt; Maybe SortArtifactsBy
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AsortBy%3AListArtifacts%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.SortArtifactsBy.html#SortArtifactsBy"><span class="hs-identifier hs-type">SortArtifactsBy</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680387174"><span id="local-6989586621680387176"><span class="annot"><span class="annottext">ListArtifacts -&gt; ListArtifacts -&gt; Bool
+(ListArtifacts -&gt; ListArtifacts -&gt; Bool)
+-&gt; (ListArtifacts -&gt; ListArtifacts -&gt; Bool) -&gt; Eq ListArtifacts
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListArtifacts -&gt; ListArtifacts -&gt; Bool
+$c/= :: ListArtifacts -&gt; ListArtifacts -&gt; Bool
+== :: ListArtifacts -&gt; ListArtifacts -&gt; Bool
+$c== :: ListArtifacts -&gt; ListArtifacts -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680387165"><span id="local-6989586621680387167"><span id="local-6989586621680387169"><span id="local-6989586621680387171"><span class="annot"><span class="annottext">ReadPrec [ListArtifacts]
+ReadPrec ListArtifacts
+Int -&gt; ReadS ListArtifacts
+ReadS [ListArtifacts]
+(Int -&gt; ReadS ListArtifacts)
+-&gt; ReadS [ListArtifacts]
+-&gt; ReadPrec ListArtifacts
+-&gt; ReadPrec [ListArtifacts]
+-&gt; Read ListArtifacts
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListArtifacts]
+$creadListPrec :: ReadPrec [ListArtifacts]
+readPrec :: ReadPrec ListArtifacts
+$creadPrec :: ReadPrec ListArtifacts
+readList :: ReadS [ListArtifacts]
+$creadList :: ReadS [ListArtifacts]
+readsPrec :: Int -&gt; ReadS ListArtifacts
+$creadsPrec :: Int -&gt; ReadS ListArtifacts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680387158"><span id="local-6989586621680387160"><span id="local-6989586621680387162"><span class="annot"><span class="annottext">Int -&gt; ListArtifacts -&gt; ShowS
+[ListArtifacts] -&gt; ShowS
+ListArtifacts -&gt; String
+(Int -&gt; ListArtifacts -&gt; ShowS)
+-&gt; (ListArtifacts -&gt; String)
+-&gt; ([ListArtifacts] -&gt; ShowS)
+-&gt; Show ListArtifacts
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListArtifacts] -&gt; ShowS
+$cshowList :: [ListArtifacts] -&gt; ShowS
+show :: ListArtifacts -&gt; String
+$cshow :: ListArtifacts -&gt; String
+showsPrec :: Int -&gt; ListArtifacts -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListArtifacts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListArtifacts -&gt; Rep ListArtifacts x)
+-&gt; (forall x. Rep ListArtifacts x -&gt; ListArtifacts)
+-&gt; Generic ListArtifacts
+forall x. Rep ListArtifacts x -&gt; ListArtifacts
+forall x. ListArtifacts -&gt; Rep ListArtifacts x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListArtifacts x -&gt; ListArtifacts
+$cfrom :: forall x. ListArtifacts -&gt; Rep ListArtifacts x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'ListArtifacts' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'createdAfter', 'listArtifacts_createdAfter' - A filter that returns only artifacts created on or after the specified</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'nextToken', 'listArtifacts_nextToken' - If the previous call to @ListArtifacts@ didn\'t return the full set of</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- artifacts, the call returns a token for getting the next set of</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- artifacts.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'sortOrder', 'listArtifacts_sortOrder' - The sort order. The default value is @Descending@.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'sourceUri', 'listArtifacts_sourceUri' - A filter that returns only artifacts with the specified source URI.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'artifactType', 'listArtifacts_artifactType' - A filter that returns only artifacts of the specified type.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'maxResults', 'listArtifacts_maxResults' - The maximum number of artifacts to return in the response. The default</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- value is 10.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'createdBefore', 'listArtifacts_createdBefore' - A filter that returns only artifacts created on or before the specified</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'sortBy', 'listArtifacts_sortBy' - The property used to sort results. The default value is @CreationTime@.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#newListArtifacts"><span class="hs-identifier hs-type">newListArtifacts</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span>
+</span><span id="line-115"></span><span id="newListArtifacts"><span class="annot"><span class="annottext">newListArtifacts :: ListArtifacts
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#newListArtifacts"><span class="hs-identifier hs-var hs-var">newListArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">ListArtifacts' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe SortOrder
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe POSIX
+-&gt; Maybe SortArtifactsBy
+-&gt; ListArtifacts
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdAfter:ListArtifacts' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AcreatedAfter%3AListArtifacts%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListArtifacts' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AnextToken%3AListArtifacts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:ListArtifacts' :: Maybe SortOrder
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AsortOrder%3AListArtifacts%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceUri:ListArtifacts' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AsourceUri%3AListArtifacts%27"><span class="hs-identifier hs-var">sourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactType:ListArtifacts' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AartifactType%3AListArtifacts%27"><span class="hs-identifier hs-var">artifactType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListArtifacts' :: Maybe Natural
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AmaxResults%3AListArtifacts%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBefore:ListArtifacts' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AcreatedBefore%3AListArtifacts%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortBy:ListArtifacts' :: Maybe SortArtifactsBy
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AsortBy%3AListArtifacts%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortArtifactsBy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | A filter that returns only artifacts created on or after the specified</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_createdAfter"><span class="hs-identifier hs-type">listArtifacts_createdAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="listArtifacts_createdAfter"><span class="annot"><span class="annottext">listArtifacts_createdAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListArtifacts -&gt; f ListArtifacts
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_createdAfter"><span class="hs-identifier hs-var hs-var">listArtifacts_createdAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArtifacts -&gt; Maybe POSIX)
+-&gt; (ListArtifacts -&gt; Maybe POSIX -&gt; ListArtifacts)
+-&gt; Lens ListArtifacts ListArtifacts (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387152"><span class="annot"><span class="annottext">Maybe POSIX
+createdAfter :: Maybe POSIX
+$sel:createdAfter:ListArtifacts' :: ListArtifacts -&gt; Maybe POSIX
+</span><a href="#local-6989586621680387152"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387152"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387151"><span class="annot"><span class="annottext">s :: ListArtifacts
+</span><a href="#local-6989586621680387151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387150"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621680387151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAfter:ListArtifacts' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AcreatedAfter%3AListArtifacts%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListArtifacts -&gt; f ListArtifacts)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListArtifacts
+-&gt; f ListArtifacts
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | If the previous call to @ListArtifacts@ didn\'t return the full set of</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- artifacts, the call returns a token for getting the next set of</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- artifacts.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_nextToken"><span class="hs-identifier hs-type">listArtifacts_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="listArtifacts_nextToken"><span class="annot"><span class="annottext">listArtifacts_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListArtifacts -&gt; f ListArtifacts
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_nextToken"><span class="hs-identifier hs-var hs-var">listArtifacts_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArtifacts -&gt; Maybe Text)
+-&gt; (ListArtifacts -&gt; Maybe Text -&gt; ListArtifacts)
+-&gt; Lens ListArtifacts ListArtifacts (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387146"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListArtifacts' :: ListArtifacts -&gt; Maybe Text
+</span><a href="#local-6989586621680387146"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387146"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387145"><span class="annot"><span class="annottext">s :: ListArtifacts
+</span><a href="#local-6989586621680387145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621680387145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListArtifacts' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AnextToken%3AListArtifacts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The sort order. The default value is @Descending@.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_sortOrder"><span class="hs-identifier hs-type">listArtifacts_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="listArtifacts_sortOrder"><span class="annot"><span class="annottext">listArtifacts_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
+-&gt; ListArtifacts -&gt; f ListArtifacts
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_sortOrder"><span class="hs-identifier hs-var hs-var">listArtifacts_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArtifacts -&gt; Maybe SortOrder)
+-&gt; (ListArtifacts -&gt; Maybe SortOrder -&gt; ListArtifacts)
+-&gt; Lens
+     ListArtifacts ListArtifacts (Maybe SortOrder) (Maybe SortOrder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387143"><span class="annot"><span class="annottext">Maybe SortOrder
+sortOrder :: Maybe SortOrder
+$sel:sortOrder:ListArtifacts' :: ListArtifacts -&gt; Maybe SortOrder
+</span><a href="#local-6989586621680387143"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680387143"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387142"><span class="annot"><span class="annottext">s :: ListArtifacts
+</span><a href="#local-6989586621680387142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387141"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680387141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621680387142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListArtifacts' :: Maybe SortOrder
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AsortOrder%3AListArtifacts%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680387141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | A filter that returns only artifacts with the specified source URI.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_sourceUri"><span class="hs-identifier hs-type">listArtifacts_sourceUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="listArtifacts_sourceUri"><span class="annot"><span class="annottext">listArtifacts_sourceUri :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListArtifacts -&gt; f ListArtifacts
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_sourceUri"><span class="hs-identifier hs-var hs-var">listArtifacts_sourceUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArtifacts -&gt; Maybe Text)
+-&gt; (ListArtifacts -&gt; Maybe Text -&gt; ListArtifacts)
+-&gt; Lens ListArtifacts ListArtifacts (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387140"><span class="annot"><span class="annottext">Maybe Text
+sourceUri :: Maybe Text
+$sel:sourceUri:ListArtifacts' :: ListArtifacts -&gt; Maybe Text
+</span><a href="#local-6989586621680387140"><span class="hs-identifier hs-var hs-var">sourceUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387140"><span class="hs-identifier hs-var">sourceUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387139"><span class="annot"><span class="annottext">s :: ListArtifacts
+</span><a href="#local-6989586621680387139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621680387139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceUri:ListArtifacts' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AsourceUri%3AListArtifacts%27"><span class="hs-identifier hs-var">sourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | A filter that returns only artifacts of the specified type.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_artifactType"><span class="hs-identifier hs-type">listArtifacts_artifactType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="listArtifacts_artifactType"><span class="annot"><span class="annottext">listArtifacts_artifactType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListArtifacts -&gt; f ListArtifacts
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_artifactType"><span class="hs-identifier hs-var hs-var">listArtifacts_artifactType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArtifacts -&gt; Maybe Text)
+-&gt; (ListArtifacts -&gt; Maybe Text -&gt; ListArtifacts)
+-&gt; Lens ListArtifacts ListArtifacts (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387137"><span class="annot"><span class="annottext">Maybe Text
+artifactType :: Maybe Text
+$sel:artifactType:ListArtifacts' :: ListArtifacts -&gt; Maybe Text
+</span><a href="#local-6989586621680387137"><span class="hs-identifier hs-var hs-var">artifactType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387137"><span class="hs-identifier hs-var">artifactType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387136"><span class="annot"><span class="annottext">s :: ListArtifacts
+</span><a href="#local-6989586621680387136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387135"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621680387136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactType:ListArtifacts' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AartifactType%3AListArtifacts%27"><span class="hs-identifier hs-var">artifactType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The maximum number of artifacts to return in the response. The default</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- value is 10.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_maxResults"><span class="hs-identifier hs-type">listArtifacts_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="listArtifacts_maxResults"><span class="annot"><span class="annottext">listArtifacts_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListArtifacts -&gt; f ListArtifacts
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_maxResults"><span class="hs-identifier hs-var hs-var">listArtifacts_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArtifacts -&gt; Maybe Natural)
+-&gt; (ListArtifacts -&gt; Maybe Natural -&gt; ListArtifacts)
+-&gt; Lens ListArtifacts ListArtifacts (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387134"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListArtifacts' :: ListArtifacts -&gt; Maybe Natural
+</span><a href="#local-6989586621680387134"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680387134"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387133"><span class="annot"><span class="annottext">s :: ListArtifacts
+</span><a href="#local-6989586621680387133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387132"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680387132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621680387133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListArtifacts' :: Maybe Natural
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AmaxResults%3AListArtifacts%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680387132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | A filter that returns only artifacts created on or before the specified</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_createdBefore"><span class="hs-identifier hs-type">listArtifacts_createdBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="listArtifacts_createdBefore"><span class="annot"><span class="annottext">listArtifacts_createdBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListArtifacts -&gt; f ListArtifacts
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_createdBefore"><span class="hs-identifier hs-var hs-var">listArtifacts_createdBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArtifacts -&gt; Maybe POSIX)
+-&gt; (ListArtifacts -&gt; Maybe POSIX -&gt; ListArtifacts)
+-&gt; Lens ListArtifacts ListArtifacts (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387131"><span class="annot"><span class="annottext">Maybe POSIX
+createdBefore :: Maybe POSIX
+$sel:createdBefore:ListArtifacts' :: ListArtifacts -&gt; Maybe POSIX
+</span><a href="#local-6989586621680387131"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387131"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387130"><span class="annot"><span class="annottext">s :: ListArtifacts
+</span><a href="#local-6989586621680387130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387129"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621680387130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBefore:ListArtifacts' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AcreatedBefore%3AListArtifacts%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListArtifacts -&gt; f ListArtifacts)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListArtifacts
+-&gt; f ListArtifacts
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The property used to sort results. The default value is @CreationTime@.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_sortBy"><span class="hs-identifier hs-type">listArtifacts_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.SortArtifactsBy.html#SortArtifactsBy"><span class="hs-identifier hs-type">SortArtifactsBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="listArtifacts_sortBy"><span class="annot"><span class="annottext">listArtifacts_sortBy :: (Maybe SortArtifactsBy -&gt; f (Maybe SortArtifactsBy))
+-&gt; ListArtifacts -&gt; f ListArtifacts
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_sortBy"><span class="hs-identifier hs-var hs-var">listArtifacts_sortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArtifacts -&gt; Maybe SortArtifactsBy)
+-&gt; (ListArtifacts -&gt; Maybe SortArtifactsBy -&gt; ListArtifacts)
+-&gt; Lens
+     ListArtifacts
+     ListArtifacts
+     (Maybe SortArtifactsBy)
+     (Maybe SortArtifactsBy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387128"><span class="annot"><span class="annottext">Maybe SortArtifactsBy
+sortBy :: Maybe SortArtifactsBy
+$sel:sortBy:ListArtifacts' :: ListArtifacts -&gt; Maybe SortArtifactsBy
+</span><a href="#local-6989586621680387128"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortArtifactsBy
+</span><a href="#local-6989586621680387128"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387127"><span class="annot"><span class="annottext">s :: ListArtifacts
+</span><a href="#local-6989586621680387127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387126"><span class="annot"><span class="annottext">Maybe SortArtifactsBy
+</span><a href="#local-6989586621680387126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621680387127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListArtifacts' :: Maybe SortArtifactsBy
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AsortBy%3AListArtifacts%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortArtifactsBy
+</span><a href="#local-6989586621680387126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621680387122"><span class="annot"><span class="annottext">page :: ListArtifacts -&gt; AWSResponse ListArtifacts -&gt; Maybe ListArtifacts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680387120"><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621680387120"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680387119"><span class="annot"><span class="annottext">AWSResponse ListArtifacts
+</span><a href="#local-6989586621680387119"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-167"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListArtifacts
+ListArtifactsResponse
+</span><a href="#local-6989586621680387119"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">ListArtifactsResponse
+-&gt; Getting (First Text) ListArtifactsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListArtifactsResponse
+-&gt; Const (First Text) ListArtifactsResponse
+Lens' ListArtifactsResponse (Maybe Text)
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifactsResponse_nextToken"><span class="hs-identifier hs-var">listArtifactsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListArtifactsResponse
+ -&gt; Const (First Text) ListArtifactsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListArtifactsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-169"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListArtifacts
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ArtifactSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-172"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListArtifacts
+ListArtifactsResponse
+</span><a href="#local-6989586621680387119"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">ListArtifactsResponse
+-&gt; Getting
+     (First [ArtifactSummary]) ListArtifactsResponse [ArtifactSummary]
+-&gt; Maybe [ArtifactSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ArtifactSummary]
+ -&gt; Const (First [ArtifactSummary]) (Maybe [ArtifactSummary]))
+-&gt; ListArtifactsResponse
+-&gt; Const (First [ArtifactSummary]) ListArtifactsResponse
+Lens' ListArtifactsResponse (Maybe [ArtifactSummary])
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifactsResponse_artifactSummaries"><span class="hs-identifier hs-var">listArtifactsResponse_artifactSummaries</span></a></span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ArtifactSummary]
+  -&gt; Const (First [ArtifactSummary]) (Maybe [ArtifactSummary]))
+ -&gt; ListArtifactsResponse
+ -&gt; Const (First [ArtifactSummary]) ListArtifactsResponse)
+-&gt; (([ArtifactSummary]
+     -&gt; Const (First [ArtifactSummary]) [ArtifactSummary])
+    -&gt; Maybe [ArtifactSummary]
+    -&gt; Const (First [ArtifactSummary]) (Maybe [ArtifactSummary]))
+-&gt; Getting
+     (First [ArtifactSummary]) ListArtifactsResponse [ArtifactSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ArtifactSummary]
+ -&gt; Const (First [ArtifactSummary]) [ArtifactSummary])
+-&gt; Maybe [ArtifactSummary]
+-&gt; Const (First [ArtifactSummary]) (Maybe [ArtifactSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-175"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListArtifacts
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">ListArtifacts -&gt; Maybe ListArtifacts
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListArtifacts -&gt; Maybe ListArtifacts)
+-&gt; ListArtifacts -&gt; Maybe ListArtifacts
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ListArtifacts
+</span><a href="#local-6989586621680387120"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">ListArtifacts -&gt; (ListArtifacts -&gt; ListArtifacts) -&gt; ListArtifacts
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListArtifacts -&gt; Identity ListArtifacts
+Lens ListArtifacts ListArtifacts (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifacts_nextToken"><span class="hs-identifier hs-var">listArtifacts_nextToken</span></a></span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListArtifacts -&gt; Identity ListArtifacts)
+-&gt; Maybe Text -&gt; ListArtifacts -&gt; ListArtifacts
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListArtifacts
+ListArtifactsResponse
+</span><a href="#local-6989586621680387119"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">ListArtifactsResponse
+-&gt; Getting (First Text) ListArtifactsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListArtifactsResponse
+-&gt; Const (First Text) ListArtifactsResponse
+Lens' ListArtifactsResponse (Maybe Text)
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifactsResponse_nextToken"><span class="hs-identifier hs-var">listArtifactsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListArtifactsResponse
+ -&gt; Const (First Text) ListArtifactsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListArtifactsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-186"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621680387110"><span class="annot"><span class="annottext">request :: ListArtifacts -&gt; Request ListArtifacts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListArtifacts -&gt; Request ListArtifacts
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621680387106"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListArtifacts
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListArtifacts)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListArtifacts))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListArtifacts
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListArtifacts)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680387103"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387103"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680387102"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680387102"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680387101"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680387101"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ArtifactSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListArtifactsResponse
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-var">ListArtifactsResponse'</span></a></span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ArtifactSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListArtifactsResponse)
+-&gt; Either String (Maybe [ArtifactSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListArtifactsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680387101"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ArtifactSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArtifactSummaries&quot;</span></span><span>
+</span><span id="line-194"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ArtifactSummary]))
+-&gt; Maybe [ArtifactSummary]
+-&gt; Either String (Maybe [ArtifactSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ArtifactSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-195"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListArtifactsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListArtifactsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680387101"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListArtifactsResponse)
+-&gt; Either String Int -&gt; Either String ListArtifactsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387103"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680387092"><span id="local-6989586621680387094"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span></span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680387089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621680387085"><span class="annot"><span class="annottext">toHeaders :: ListArtifacts -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListArtifacts -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-208"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.ListArtifacts&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-212"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-213"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680387075"><span id="local-6989586621680387077"><span id="local-6989586621680387079"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621680387073"><span class="annot"><span class="annottext">toJSON :: ListArtifacts -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts%27"><span class="hs-identifier hs-type">ListArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387064"><span id="local-6989586621680387065"><span id="local-6989586621680387066"><span id="local-6989586621680387067"><span id="local-6989586621680387068"><span id="local-6989586621680387069"><span id="local-6989586621680387070"><span id="local-6989586621680387071"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe POSIX
+Maybe SortArtifactsBy
+Maybe SortOrder
+sortBy :: Maybe SortArtifactsBy
+createdBefore :: Maybe POSIX
+maxResults :: Maybe Natural
+artifactType :: Maybe Text
+sourceUri :: Maybe Text
+sortOrder :: Maybe SortOrder
+nextToken :: Maybe Text
+createdAfter :: Maybe POSIX
+$sel:sortBy:ListArtifacts' :: ListArtifacts -&gt; Maybe SortArtifactsBy
+$sel:createdBefore:ListArtifacts' :: ListArtifacts -&gt; Maybe POSIX
+$sel:maxResults:ListArtifacts' :: ListArtifacts -&gt; Maybe Natural
+$sel:artifactType:ListArtifacts' :: ListArtifacts -&gt; Maybe Text
+$sel:sourceUri:ListArtifacts' :: ListArtifacts -&gt; Maybe Text
+$sel:sortOrder:ListArtifacts' :: ListArtifacts -&gt; Maybe SortOrder
+$sel:nextToken:ListArtifacts' :: ListArtifacts -&gt; Maybe Text
+$sel:createdAfter:ListArtifacts' :: ListArtifacts -&gt; Maybe POSIX
+</span><a href="#local-6989586621680387064"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-221"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387071"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387070"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680387069"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387068"><span class="hs-identifier hs-var">sourceUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArtifactType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387067"><span class="hs-identifier hs-var">artifactType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680387066"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680387065"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortArtifactsBy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortArtifactsBy -&gt; Pair) -&gt; Maybe SortArtifactsBy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortArtifactsBy
+</span><a href="#local-6989586621680387064"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
+</span><span id="line-229"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621680387058"><span class="annot"><span class="annottext">toPath :: ListArtifacts -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListArtifacts -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifacts"><span class="hs-identifier hs-type">ListArtifacts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621680387054"><span class="annot"><span class="annottext">toQuery :: ListArtifacts -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListArtifacts -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | /See:/ 'newListArtifactsResponse' smart constructor.</span><span>
+</span><span id="line-239"></span><span id="local-6989586621680387051"><span id="local-6989586621680387052"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListArtifactsResponse"><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-var">ListArtifactsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListArtifactsResponse%27"><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-var">ListArtifactsResponse'</span></a></span></span><span>
+</span><span id="line-240"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of artifacts and their properties.</span><span>
+</span><span id="line-241"></span><span>    </span><span id="%24sel%3AartifactSummaries%3AListArtifactsResponse%27"><span class="annot"><span class="annottext">ListArtifactsResponse -&gt; Maybe [ArtifactSummary]
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AartifactSummaries%3AListArtifactsResponse%27"><span class="hs-identifier hs-var hs-var">artifactSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- | A token for getting the next set of artifacts, if there are any.</span><span>
+</span><span id="line-243"></span><span>    </span><span id="%24sel%3AnextToken%3AListArtifactsResponse%27"><span class="annot"><span class="annottext">ListArtifactsResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AnextToken%3AListArtifactsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-245"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListArtifactsResponse%27"><span class="annot"><span class="annottext">ListArtifactsResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AhttpStatus%3AListArtifactsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680387044"><span id="local-6989586621680387046"><span class="annot"><span class="annottext">ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool
+(ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool)
+-&gt; (ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool)
+-&gt; Eq ListArtifactsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool
+$c/= :: ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool
+== :: ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool
+$c== :: ListArtifactsResponse -&gt; ListArtifactsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680387036"><span id="local-6989586621680387038"><span id="local-6989586621680387040"><span id="local-6989586621680387042"><span class="annot"><span class="annottext">ReadPrec [ListArtifactsResponse]
+ReadPrec ListArtifactsResponse
+Int -&gt; ReadS ListArtifactsResponse
+ReadS [ListArtifactsResponse]
+(Int -&gt; ReadS ListArtifactsResponse)
+-&gt; ReadS [ListArtifactsResponse]
+-&gt; ReadPrec ListArtifactsResponse
+-&gt; ReadPrec [ListArtifactsResponse]
+-&gt; Read ListArtifactsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListArtifactsResponse]
+$creadListPrec :: ReadPrec [ListArtifactsResponse]
+readPrec :: ReadPrec ListArtifactsResponse
+$creadPrec :: ReadPrec ListArtifactsResponse
+readList :: ReadS [ListArtifactsResponse]
+$creadList :: ReadS [ListArtifactsResponse]
+readsPrec :: Int -&gt; ReadS ListArtifactsResponse
+$creadsPrec :: Int -&gt; ReadS ListArtifactsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680387030"><span id="local-6989586621680387032"><span id="local-6989586621680387034"><span class="annot"><span class="annottext">Int -&gt; ListArtifactsResponse -&gt; ShowS
+[ListArtifactsResponse] -&gt; ShowS
+ListArtifactsResponse -&gt; String
+(Int -&gt; ListArtifactsResponse -&gt; ShowS)
+-&gt; (ListArtifactsResponse -&gt; String)
+-&gt; ([ListArtifactsResponse] -&gt; ShowS)
+-&gt; Show ListArtifactsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListArtifactsResponse] -&gt; ShowS
+$cshowList :: [ListArtifactsResponse] -&gt; ShowS
+show :: ListArtifactsResponse -&gt; String
+$cshow :: ListArtifactsResponse -&gt; String
+showsPrec :: Int -&gt; ListArtifactsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListArtifactsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListArtifactsResponse -&gt; Rep ListArtifactsResponse x)
+-&gt; (forall x. Rep ListArtifactsResponse x -&gt; ListArtifactsResponse)
+-&gt; Generic ListArtifactsResponse
+forall x. Rep ListArtifactsResponse x -&gt; ListArtifactsResponse
+forall x. ListArtifactsResponse -&gt; Rep ListArtifactsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListArtifactsResponse x -&gt; ListArtifactsResponse
+$cfrom :: forall x. ListArtifactsResponse -&gt; Rep ListArtifactsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- Create a value of 'ListArtifactsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'artifactSummaries', 'listArtifactsResponse_artifactSummaries' - A list of artifacts and their properties.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- 'nextToken', 'listArtifactsResponse_nextToken' - A token for getting the next set of artifacts, if there are any.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'httpStatus', 'listArtifactsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#newListArtifactsResponse"><span class="hs-identifier hs-type">newListArtifactsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-263"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-264"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span>
+</span><span id="line-266"></span><span id="newListArtifactsResponse"><span class="annot"><span class="annottext">newListArtifactsResponse :: Int -&gt; ListArtifactsResponse
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#newListArtifactsResponse"><span class="hs-identifier hs-var hs-var">newListArtifactsResponse</span></a></span></span><span> </span><span id="local-6989586621680387027"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387027"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><span class="annottext">ListArtifactsResponse' :: Maybe [ArtifactSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListArtifactsResponse
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:artifactSummaries:ListArtifactsResponse' :: Maybe [ArtifactSummary]
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AartifactSummaries%3AListArtifactsResponse%27"><span class="hs-identifier hs-var">artifactSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ArtifactSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListArtifactsResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AnextToken%3AListArtifactsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListArtifactsResponse' :: Int
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AhttpStatus%3AListArtifactsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387027"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | A list of artifacts and their properties.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifactsResponse_artifactSummaries"><span class="hs-identifier hs-type">listArtifactsResponse_artifactSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span id="listArtifactsResponse_artifactSummaries"><span class="annot"><span class="annottext">listArtifactsResponse_artifactSummaries :: (Maybe [ArtifactSummary] -&gt; f (Maybe [ArtifactSummary]))
+-&gt; ListArtifactsResponse -&gt; f ListArtifactsResponse
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifactsResponse_artifactSummaries"><span class="hs-identifier hs-var hs-var">listArtifactsResponse_artifactSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArtifactsResponse -&gt; Maybe [ArtifactSummary])
+-&gt; (ListArtifactsResponse
+    -&gt; Maybe [ArtifactSummary] -&gt; ListArtifactsResponse)
+-&gt; Lens' ListArtifactsResponse (Maybe [ArtifactSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387026"><span class="annot"><span class="annottext">Maybe [ArtifactSummary]
+artifactSummaries :: Maybe [ArtifactSummary]
+$sel:artifactSummaries:ListArtifactsResponse' :: ListArtifactsResponse -&gt; Maybe [ArtifactSummary]
+</span><a href="#local-6989586621680387026"><span class="hs-identifier hs-var hs-var">artifactSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ArtifactSummary]
+</span><a href="#local-6989586621680387026"><span class="hs-identifier hs-var">artifactSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387025"><span class="annot"><span class="annottext">s :: ListArtifactsResponse
+</span><a href="#local-6989586621680387025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387024"><span class="annot"><span class="annottext">Maybe [ArtifactSummary]
+</span><a href="#local-6989586621680387024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifactsResponse
+</span><a href="#local-6989586621680387025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactSummaries:ListArtifactsResponse' :: Maybe [ArtifactSummary]
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AartifactSummaries%3AListArtifactsResponse%27"><span class="hs-identifier hs-var">artifactSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ArtifactSummary]
+</span><a href="#local-6989586621680387024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ArtifactSummary] -&gt; f (Maybe [ArtifactSummary]))
+ -&gt; ListArtifactsResponse -&gt; f ListArtifactsResponse)
+-&gt; ((Maybe [ArtifactSummary] -&gt; f (Maybe [ArtifactSummary]))
+    -&gt; Maybe [ArtifactSummary] -&gt; f (Maybe [ArtifactSummary]))
+-&gt; (Maybe [ArtifactSummary] -&gt; f (Maybe [ArtifactSummary]))
+-&gt; ListArtifactsResponse
+-&gt; f ListArtifactsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ArtifactSummary]
+  [ArtifactSummary]
+  [ArtifactSummary]
+  [ArtifactSummary]
+-&gt; Iso
+     (Maybe [ArtifactSummary])
+     (Maybe [ArtifactSummary])
+     (Maybe [ArtifactSummary])
+     (Maybe [ArtifactSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ArtifactSummary]
+  [ArtifactSummary]
+  [ArtifactSummary]
+  [ArtifactSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | A token for getting the next set of artifacts, if there are any.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifactsResponse_nextToken"><span class="hs-identifier hs-type">listArtifactsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="listArtifactsResponse_nextToken"><span class="annot"><span class="annottext">listArtifactsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListArtifactsResponse -&gt; f ListArtifactsResponse
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifactsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listArtifactsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArtifactsResponse -&gt; Maybe Text)
+-&gt; (ListArtifactsResponse -&gt; Maybe Text -&gt; ListArtifactsResponse)
+-&gt; Lens' ListArtifactsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387022"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListArtifactsResponse' :: ListArtifactsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680387022"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387022"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387021"><span class="annot"><span class="annottext">s :: ListArtifactsResponse
+</span><a href="#local-6989586621680387021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387020"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifactsResponse
+</span><a href="#local-6989586621680387021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListArtifactsResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AnextToken%3AListArtifactsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifactsResponse_httpStatus"><span class="hs-identifier hs-type">listArtifactsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-284"></span><span id="listArtifactsResponse_httpStatus"><span class="annot"><span class="annottext">listArtifactsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListArtifactsResponse -&gt; f ListArtifactsResponse
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#listArtifactsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listArtifactsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArtifactsResponse -&gt; Int)
+-&gt; (ListArtifactsResponse -&gt; Int -&gt; ListArtifactsResponse)
+-&gt; Lens ListArtifactsResponse ListArtifactsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387019"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListArtifactsResponse' :: ListArtifactsResponse -&gt; Int
+</span><a href="#local-6989586621680387019"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387019"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387018"><span class="annot"><span class="annottext">s :: ListArtifactsResponse
+</span><a href="#local-6989586621680387018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse%27"><span class="hs-identifier hs-type">ListArtifactsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387017"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArtifactsResponse
+</span><a href="#local-6989586621680387018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListArtifactsResponse' :: Int
+</span><a href="Amazonka.SageMaker.ListArtifacts.html#%24sel%3AhttpStatus%3AListArtifactsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680387015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.ListArtifacts.html#ListArtifactsResponse"><span class="hs-identifier hs-type">ListArtifactsResponse</span></a></span></span><span>
+</span><span id="line-287"></span></pre></body></html>

@@ -1,0 +1,1209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DocumentDB.RestoreDBClusterFromSnapshot</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new cluster from a snapshot or cluster snapshot.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- If a snapshot is specified, the target cluster is created from the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- source DB snapshot with a default configuration and default security</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- If a cluster snapshot is specified, the target cluster is created from</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- the source cluster restore point with the same configuration as the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- original source DB cluster, except that the new cluster is created with</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- the default security group.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DocumentDB.RestoreDBClusterFromSnapshot</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#newRestoreDBClusterFromSnapshot"><span class="hs-identifier">newRestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_engineVersion"><span class="hs-identifier">restoreDBClusterFromSnapshot_engineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_deletionProtection"><span class="hs-identifier">restoreDBClusterFromSnapshot_deletionProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_dbSubnetGroupName"><span class="hs-identifier">restoreDBClusterFromSnapshot_dbSubnetGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_availabilityZones"><span class="hs-identifier">restoreDBClusterFromSnapshot_availabilityZones</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_kmsKeyId"><span class="hs-identifier">restoreDBClusterFromSnapshot_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_vpcSecurityGroupIds"><span class="hs-identifier">restoreDBClusterFromSnapshot_vpcSecurityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_tags"><span class="hs-identifier">restoreDBClusterFromSnapshot_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_port"><span class="hs-identifier">restoreDBClusterFromSnapshot_port</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_enableCloudwatchLogsExports"><span class="hs-identifier">restoreDBClusterFromSnapshot_enableCloudwatchLogsExports</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_dbClusterIdentifier"><span class="hs-identifier">restoreDBClusterFromSnapshot_dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_snapshotIdentifier"><span class="hs-identifier">restoreDBClusterFromSnapshot_snapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_engine"><span class="hs-identifier">restoreDBClusterFromSnapshot_engine</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse"><span class="hs-identifier">RestoreDBClusterFromSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#newRestoreDBClusterFromSnapshotResponse"><span class="hs-identifier">newRestoreDBClusterFromSnapshotResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshotResponse_dbCluster"><span class="hs-identifier">restoreDBClusterFromSnapshotResponse_dbCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshotResponse_httpStatus"><span class="hs-identifier">restoreDBClusterFromSnapshotResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.html"><span class="hs-identifier">Amazonka.DocumentDB.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | Represents the input to RestoreDBClusterFromSnapshot.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- /See:/ 'newRestoreDBClusterFromSnapshot' smart constructor.</span><span>
+</span><span id="line-72"></span><span id="local-6989586621679302997"><span id="local-6989586621679302998"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreDBClusterFromSnapshot"><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-var">RestoreDBClusterFromSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreDBClusterFromSnapshot%27"><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">RestoreDBClusterFromSnapshot'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the database engine to use for the new cluster.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AengineVersion%3ARestoreDBClusterFromSnapshot%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot -&gt; Maybe Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AengineVersion%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Specifies whether this cluster can be deleted. If @DeletionProtection@</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- is enabled, the cluster cannot be deleted unless it is modified and</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- from being accidentally deleted.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AdeletionProtection%3ARestoreDBClusterFromSnapshot%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot -&gt; Maybe Bool
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AdeletionProtection%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The name of the subnet group to use for the new cluster.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- Constraints: If provided, must match the name of an existing</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @DBSubnetGroup@.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- Example: @mySubnetgroup@</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AdbSubnetGroupName%3ARestoreDBClusterFromSnapshot%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot -&gt; Maybe Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AdbSubnetGroupName%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var hs-var">dbSubnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | Provides the list of Amazon EC2 Availability Zones that instances in the</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- restored DB cluster can be created in.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AavailabilityZones%3ARestoreDBClusterFromSnapshot%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot -&gt; Maybe [Text]
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AavailabilityZones%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The KMS key identifier to use when restoring an encrypted cluster from a</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- DB snapshot or cluster snapshot.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- encryption key. If you are restoring a cluster with the same account</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- that owns the KMS encryption key used to encrypt the new cluster, then</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- you can use the KMS key alias instead of the ARN for the KMS encryption</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- key.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- If you do not specify a value for the @KmsKeyId@ parameter, then the</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- following occurs:</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- -   If the snapshot or cluster snapshot in @SnapshotIdentifier@ is</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--     encrypted, then the restored cluster is encrypted using the KMS key</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--     that was used to encrypt the snapshot or the cluster snapshot.</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- -   If the snapshot or the cluster snapshot in @SnapshotIdentifier@ is</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     not encrypted, then the restored DB cluster is not encrypted.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AkmsKeyId%3ARestoreDBClusterFromSnapshot%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot -&gt; Maybe Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AkmsKeyId%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | A list of virtual private cloud (VPC) security groups that the new</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- cluster will belong to.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AvpcSecurityGroupIds%3ARestoreDBClusterFromSnapshot%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot -&gt; Maybe [Text]
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AvpcSecurityGroupIds%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var hs-var">vpcSecurityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The tags to be assigned to the restored cluster.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3Atags%3ARestoreDBClusterFromSnapshot%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot -&gt; Maybe [Tag]
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3Atags%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DocumentDB.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The port number on which the new cluster accepts connections.</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- Constraints: Must be a value from @1150@ to @65535@.</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- Default: The same port as the original cluster.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3Aport%3ARestoreDBClusterFromSnapshot%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot -&gt; Maybe Int
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3Aport%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | A list of log types that must be enabled for exporting to Amazon</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- CloudWatch Logs.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AenableCloudwatchLogsExports%3ARestoreDBClusterFromSnapshot%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot -&gt; Maybe [Text]
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AenableCloudwatchLogsExports%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var hs-var">enableCloudwatchLogsExports</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The name of the cluster to create from the snapshot or cluster snapshot.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- This parameter isn\'t case sensitive.</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- -   Must contain from 1 to 63 letters, numbers, or hyphens.</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- -   The first character must be a letter.</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- -   Cannot end with a hyphen or contain two consecutive hyphens.</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- Example: @my-snapshot-id@</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AdbClusterIdentifier%3ARestoreDBClusterFromSnapshot%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot -&gt; Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AdbClusterIdentifier%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The identifier for the snapshot or cluster snapshot to restore from.</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- You can use either the name or the Amazon Resource Name (ARN) to specify</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- a cluster snapshot. However, you can use only the ARN to specify a</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- snapshot.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- -   Must match the identifier of an existing snapshot.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AsnapshotIdentifier%3ARestoreDBClusterFromSnapshot%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot -&gt; Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AsnapshotIdentifier%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var hs-var">snapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The database engine to use for the new cluster.</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- Default: The same as source.</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- Constraint: Must be compatible with the engine of the source.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3Aengine%3ARestoreDBClusterFromSnapshot%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot -&gt; Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3Aengine%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302980"><span id="local-6989586621679302982"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+-&gt; RestoreDBClusterFromSnapshot -&gt; Bool
+(RestoreDBClusterFromSnapshot
+ -&gt; RestoreDBClusterFromSnapshot -&gt; Bool)
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; RestoreDBClusterFromSnapshot -&gt; Bool)
+-&gt; Eq RestoreDBClusterFromSnapshot
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RestoreDBClusterFromSnapshot
+-&gt; RestoreDBClusterFromSnapshot -&gt; Bool
+$c/= :: RestoreDBClusterFromSnapshot
+-&gt; RestoreDBClusterFromSnapshot -&gt; Bool
+== :: RestoreDBClusterFromSnapshot
+-&gt; RestoreDBClusterFromSnapshot -&gt; Bool
+$c== :: RestoreDBClusterFromSnapshot
+-&gt; RestoreDBClusterFromSnapshot -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302971"><span id="local-6989586621679302973"><span id="local-6989586621679302975"><span id="local-6989586621679302977"><span class="annot"><span class="annottext">ReadPrec [RestoreDBClusterFromSnapshot]
+ReadPrec RestoreDBClusterFromSnapshot
+Int -&gt; ReadS RestoreDBClusterFromSnapshot
+ReadS [RestoreDBClusterFromSnapshot]
+(Int -&gt; ReadS RestoreDBClusterFromSnapshot)
+-&gt; ReadS [RestoreDBClusterFromSnapshot]
+-&gt; ReadPrec RestoreDBClusterFromSnapshot
+-&gt; ReadPrec [RestoreDBClusterFromSnapshot]
+-&gt; Read RestoreDBClusterFromSnapshot
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RestoreDBClusterFromSnapshot]
+$creadListPrec :: ReadPrec [RestoreDBClusterFromSnapshot]
+readPrec :: ReadPrec RestoreDBClusterFromSnapshot
+$creadPrec :: ReadPrec RestoreDBClusterFromSnapshot
+readList :: ReadS [RestoreDBClusterFromSnapshot]
+$creadList :: ReadS [RestoreDBClusterFromSnapshot]
+readsPrec :: Int -&gt; ReadS RestoreDBClusterFromSnapshot
+$creadsPrec :: Int -&gt; ReadS RestoreDBClusterFromSnapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302964"><span id="local-6989586621679302966"><span id="local-6989586621679302968"><span class="annot"><span class="annottext">Int -&gt; RestoreDBClusterFromSnapshot -&gt; ShowS
+[RestoreDBClusterFromSnapshot] -&gt; ShowS
+RestoreDBClusterFromSnapshot -&gt; String
+(Int -&gt; RestoreDBClusterFromSnapshot -&gt; ShowS)
+-&gt; (RestoreDBClusterFromSnapshot -&gt; String)
+-&gt; ([RestoreDBClusterFromSnapshot] -&gt; ShowS)
+-&gt; Show RestoreDBClusterFromSnapshot
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RestoreDBClusterFromSnapshot] -&gt; ShowS
+$cshowList :: [RestoreDBClusterFromSnapshot] -&gt; ShowS
+show :: RestoreDBClusterFromSnapshot -&gt; String
+$cshow :: RestoreDBClusterFromSnapshot -&gt; String
+showsPrec :: Int -&gt; RestoreDBClusterFromSnapshot -&gt; ShowS
+$cshowsPrec :: Int -&gt; RestoreDBClusterFromSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RestoreDBClusterFromSnapshot -&gt; Rep RestoreDBClusterFromSnapshot x)
+-&gt; (forall x.
+    Rep RestoreDBClusterFromSnapshot x -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Generic RestoreDBClusterFromSnapshot
+forall x.
+Rep RestoreDBClusterFromSnapshot x -&gt; RestoreDBClusterFromSnapshot
+forall x.
+RestoreDBClusterFromSnapshot -&gt; Rep RestoreDBClusterFromSnapshot x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RestoreDBClusterFromSnapshot x -&gt; RestoreDBClusterFromSnapshot
+$cfrom :: forall x.
+RestoreDBClusterFromSnapshot -&gt; Rep RestoreDBClusterFromSnapshot x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Create a value of 'RestoreDBClusterFromSnapshot' with all optional fields omitted.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'engineVersion', 'restoreDBClusterFromSnapshot_engineVersion' - The version of the database engine to use for the new cluster.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'deletionProtection', 'restoreDBClusterFromSnapshot_deletionProtection' - Specifies whether this cluster can be deleted. If @DeletionProtection@</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- is enabled, the cluster cannot be deleted unless it is modified and</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- from being accidentally deleted.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'dbSubnetGroupName', 'restoreDBClusterFromSnapshot_dbSubnetGroupName' - The name of the subnet group to use for the new cluster.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Constraints: If provided, must match the name of an existing</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- @DBSubnetGroup@.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Example: @mySubnetgroup@</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'availabilityZones', 'restoreDBClusterFromSnapshot_availabilityZones' - Provides the list of Amazon EC2 Availability Zones that instances in the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- restored DB cluster can be created in.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'kmsKeyId', 'restoreDBClusterFromSnapshot_kmsKeyId' - The KMS key identifier to use when restoring an encrypted cluster from a</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- DB snapshot or cluster snapshot.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- encryption key. If you are restoring a cluster with the same account</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- that owns the KMS encryption key used to encrypt the new cluster, then</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- you can use the KMS key alias instead of the ARN for the KMS encryption</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- key.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- If you do not specify a value for the @KmsKeyId@ parameter, then the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- following occurs:</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   If the snapshot or cluster snapshot in @SnapshotIdentifier@ is</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     encrypted, then the restored cluster is encrypted using the KMS key</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     that was used to encrypt the snapshot or the cluster snapshot.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- -   If the snapshot or the cluster snapshot in @SnapshotIdentifier@ is</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     not encrypted, then the restored DB cluster is not encrypted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'vpcSecurityGroupIds', 'restoreDBClusterFromSnapshot_vpcSecurityGroupIds' - A list of virtual private cloud (VPC) security groups that the new</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- cluster will belong to.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'tags', 'restoreDBClusterFromSnapshot_tags' - The tags to be assigned to the restored cluster.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'port', 'restoreDBClusterFromSnapshot_port' - The port number on which the new cluster accepts connections.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Constraints: Must be a value from @1150@ to @65535@.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Default: The same port as the original cluster.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'enableCloudwatchLogsExports', 'restoreDBClusterFromSnapshot_enableCloudwatchLogsExports' - A list of log types that must be enabled for exporting to Amazon</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- CloudWatch Logs.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'dbClusterIdentifier', 'restoreDBClusterFromSnapshot_dbClusterIdentifier' - The name of the cluster to create from the snapshot or cluster snapshot.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- This parameter isn\'t case sensitive.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- -   Must contain from 1 to 63 letters, numbers, or hyphens.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- -   The first character must be a letter.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- -   Cannot end with a hyphen or contain two consecutive hyphens.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Example: @my-snapshot-id@</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'snapshotIdentifier', 'restoreDBClusterFromSnapshot_snapshotIdentifier' - The identifier for the snapshot or cluster snapshot to restore from.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- You can use either the name or the Amazon Resource Name (ARN) to specify</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- a cluster snapshot. However, you can use only the ARN to specify a</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- snapshot.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- -   Must match the identifier of an existing snapshot.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'engine', 'restoreDBClusterFromSnapshot_engine' - The database engine to use for the new cluster.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- Default: The same as source.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- Constraint: Must be compatible with the engine of the source.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#newRestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">newRestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-comment">-- | 'dbClusterIdentifier'</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-244"></span><span>  </span><span class="hs-comment">-- | 'snapshotIdentifier'</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-comment">-- | 'engine'</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span>
+</span><span id="line-249"></span><span id="newRestoreDBClusterFromSnapshot"><span class="annot"><span class="annottext">newRestoreDBClusterFromSnapshot :: Text -&gt; Text -&gt; Text -&gt; RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#newRestoreDBClusterFromSnapshot"><span class="hs-identifier hs-var hs-var">newRestoreDBClusterFromSnapshot</span></a></span></span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679302959"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302959"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span></span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679302958"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302958"><span class="hs-identifier hs-var">pSnapshotIdentifier_</span></a></span></span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679302957"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302957"><span class="hs-identifier hs-var">pEngine_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [Tag]
+-&gt; Maybe Int
+-&gt; Maybe [Text]
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:engineVersion:RestoreDBClusterFromSnapshot' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AengineVersion%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">$sel:deletionProtection:RestoreDBClusterFromSnapshot' :: Maybe Bool
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AdeletionProtection%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbSubnetGroupName:RestoreDBClusterFromSnapshot' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AdbSubnetGroupName%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">$sel:availabilityZones:RestoreDBClusterFromSnapshot' :: Maybe [Text]
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AavailabilityZones%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">$sel:kmsKeyId:RestoreDBClusterFromSnapshot' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AkmsKeyId%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">$sel:vpcSecurityGroupIds:RestoreDBClusterFromSnapshot' :: Maybe [Text]
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AvpcSecurityGroupIds%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:RestoreDBClusterFromSnapshot' :: Maybe [Tag]
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3Atags%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">$sel:port:RestoreDBClusterFromSnapshot' :: Maybe Int
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3Aport%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">$sel:enableCloudwatchLogsExports:RestoreDBClusterFromSnapshot' :: Maybe [Text]
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AenableCloudwatchLogsExports%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">enableCloudwatchLogsExports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:RestoreDBClusterFromSnapshot' :: Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AdbClusterIdentifier%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302959"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">$sel:snapshotIdentifier:RestoreDBClusterFromSnapshot' :: Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AsnapshotIdentifier%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302958"><span class="hs-identifier hs-var">pSnapshotIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">$sel:engine:RestoreDBClusterFromSnapshot' :: Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3Aengine%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302957"><span class="hs-identifier hs-var">pEngine_</span></a></span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The version of the database engine to use for the new cluster.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_engineVersion"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshot_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="restoreDBClusterFromSnapshot_engineVersion"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshot_engineVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_engineVersion"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshot_engineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshot -&gt; Maybe Text)
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; Maybe Text -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Lens
+     RestoreDBClusterFromSnapshot
+     RestoreDBClusterFromSnapshot
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302954"><span class="annot"><span class="annottext">Maybe Text
+engineVersion :: Maybe Text
+$sel:engineVersion:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621679302954"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302954"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302953"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302952"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:RestoreDBClusterFromSnapshot' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AengineVersion%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | Specifies whether this cluster can be deleted. If @DeletionProtection@</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- is enabled, the cluster cannot be deleted unless it is modified and</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- from being accidentally deleted.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_deletionProtection"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshot_deletionProtection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="restoreDBClusterFromSnapshot_deletionProtection"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshot_deletionProtection :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_deletionProtection"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshot_deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshot -&gt; Maybe Bool)
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; Maybe Bool -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Lens
+     RestoreDBClusterFromSnapshot
+     RestoreDBClusterFromSnapshot
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302951"><span class="annot"><span class="annottext">Maybe Bool
+deletionProtection :: Maybe Bool
+$sel:deletionProtection:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe Bool
+</span><a href="#local-6989586621679302951"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679302951"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302950"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302949"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679302949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionProtection:RestoreDBClusterFromSnapshot' :: Maybe Bool
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AdeletionProtection%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679302949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | The name of the subnet group to use for the new cluster.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- Constraints: If provided, must match the name of an existing</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- @DBSubnetGroup@.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- Example: @mySubnetgroup@</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_dbSubnetGroupName"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshot_dbSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="restoreDBClusterFromSnapshot_dbSubnetGroupName"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshot_dbSubnetGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_dbSubnetGroupName"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshot_dbSubnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshot -&gt; Maybe Text)
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; Maybe Text -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Lens
+     RestoreDBClusterFromSnapshot
+     RestoreDBClusterFromSnapshot
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302948"><span class="annot"><span class="annottext">Maybe Text
+dbSubnetGroupName :: Maybe Text
+$sel:dbSubnetGroupName:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621679302948"><span class="hs-identifier hs-var hs-var">dbSubnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302948"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302947"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302946"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroupName:RestoreDBClusterFromSnapshot' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AdbSubnetGroupName%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | Provides the list of Amazon EC2 Availability Zones that instances in the</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- restored DB cluster can be created in.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_availabilityZones"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshot_availabilityZones</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="restoreDBClusterFromSnapshot_availabilityZones"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshot_availabilityZones :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_availabilityZones"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshot_availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshot -&gt; Maybe [Text])
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; Maybe [Text] -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Lens
+     RestoreDBClusterFromSnapshot
+     RestoreDBClusterFromSnapshot
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302945"><span class="annot"><span class="annottext">Maybe [Text]
+availabilityZones :: Maybe [Text]
+$sel:availabilityZones:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe [Text]
+</span><a href="#local-6989586621679302945"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679302945"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302944"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302943"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679302943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZones:RestoreDBClusterFromSnapshot' :: Maybe [Text]
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AavailabilityZones%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679302943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RestoreDBClusterFromSnapshot
+-&gt; f RestoreDBClusterFromSnapshot
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The KMS key identifier to use when restoring an encrypted cluster from a</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- DB snapshot or cluster snapshot.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- encryption key. If you are restoring a cluster with the same account</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- that owns the KMS encryption key used to encrypt the new cluster, then</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- you can use the KMS key alias instead of the ARN for the KMS encryption</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- key.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- If you do not specify a value for the @KmsKeyId@ parameter, then the</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- following occurs:</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- -   If the snapshot or cluster snapshot in @SnapshotIdentifier@ is</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--     encrypted, then the restored cluster is encrypted using the KMS key</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     that was used to encrypt the snapshot or the cluster snapshot.</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- -   If the snapshot or the cluster snapshot in @SnapshotIdentifier@ is</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--     not encrypted, then the restored DB cluster is not encrypted.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_kmsKeyId"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshot_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span id="restoreDBClusterFromSnapshot_kmsKeyId"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshot_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_kmsKeyId"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshot_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshot -&gt; Maybe Text)
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; Maybe Text -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Lens
+     RestoreDBClusterFromSnapshot
+     RestoreDBClusterFromSnapshot
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302939"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621679302939"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302939"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302938"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:RestoreDBClusterFromSnapshot' :: Maybe Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AkmsKeyId%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | A list of virtual private cloud (VPC) security groups that the new</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- cluster will belong to.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_vpcSecurityGroupIds"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshot_vpcSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="restoreDBClusterFromSnapshot_vpcSecurityGroupIds"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshot_vpcSecurityGroupIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_vpcSecurityGroupIds"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshot_vpcSecurityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshot -&gt; Maybe [Text])
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; Maybe [Text] -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Lens
+     RestoreDBClusterFromSnapshot
+     RestoreDBClusterFromSnapshot
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302936"><span class="annot"><span class="annottext">Maybe [Text]
+vpcSecurityGroupIds :: Maybe [Text]
+$sel:vpcSecurityGroupIds:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe [Text]
+</span><a href="#local-6989586621679302936"><span class="hs-identifier hs-var hs-var">vpcSecurityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679302936"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302935"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302934"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679302934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcSecurityGroupIds:RestoreDBClusterFromSnapshot' :: Maybe [Text]
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AvpcSecurityGroupIds%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679302934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RestoreDBClusterFromSnapshot
+-&gt; f RestoreDBClusterFromSnapshot
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | The tags to be assigned to the restored cluster.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_tags"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshot_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DocumentDB.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span id="restoreDBClusterFromSnapshot_tags"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshot_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_tags"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshot_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshot -&gt; Maybe [Tag])
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; Maybe [Tag] -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Lens
+     RestoreDBClusterFromSnapshot
+     RestoreDBClusterFromSnapshot
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302933"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679302933"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679302933"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302932"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302931"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679302931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RestoreDBClusterFromSnapshot' :: Maybe [Tag]
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3Atags%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679302931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; RestoreDBClusterFromSnapshot
+-&gt; f RestoreDBClusterFromSnapshot
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | The port number on which the new cluster accepts connections.</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- Constraints: Must be a value from @1150@ to @65535@.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- Default: The same port as the original cluster.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_port"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshot_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span id="restoreDBClusterFromSnapshot_port"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshot_port :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_port"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshot_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshot -&gt; Maybe Int)
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; Maybe Int -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Lens
+     RestoreDBClusterFromSnapshot
+     RestoreDBClusterFromSnapshot
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302930"><span class="annot"><span class="annottext">Maybe Int
+port :: Maybe Int
+$sel:port:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe Int
+</span><a href="#local-6989586621679302930"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679302930"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302929"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302928"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679302928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:RestoreDBClusterFromSnapshot' :: Maybe Int
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3Aport%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679302928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | A list of log types that must be enabled for exporting to Amazon</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- CloudWatch Logs.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_enableCloudwatchLogsExports"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshot_enableCloudwatchLogsExports</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span id="restoreDBClusterFromSnapshot_enableCloudwatchLogsExports"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshot_enableCloudwatchLogsExports :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_enableCloudwatchLogsExports"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshot_enableCloudwatchLogsExports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshot -&gt; Maybe [Text])
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; Maybe [Text] -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Lens
+     RestoreDBClusterFromSnapshot
+     RestoreDBClusterFromSnapshot
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302927"><span class="annot"><span class="annottext">Maybe [Text]
+enableCloudwatchLogsExports :: Maybe [Text]
+$sel:enableCloudwatchLogsExports:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe [Text]
+</span><a href="#local-6989586621679302927"><span class="hs-identifier hs-var hs-var">enableCloudwatchLogsExports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679302927"><span class="hs-identifier hs-var">enableCloudwatchLogsExports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302926"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302925"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679302925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableCloudwatchLogsExports:RestoreDBClusterFromSnapshot' :: Maybe [Text]
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AenableCloudwatchLogsExports%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">enableCloudwatchLogsExports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679302925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RestoreDBClusterFromSnapshot
+-&gt; f RestoreDBClusterFromSnapshot
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | The name of the cluster to create from the snapshot or cluster snapshot.</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- This parameter isn\'t case sensitive.</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- -   Must contain from 1 to 63 letters, numbers, or hyphens.</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- -   The first character must be a letter.</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- -   Cannot end with a hyphen or contain two consecutive hyphens.</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- Example: @my-snapshot-id@</span><span>
+</span><span id="line-349"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_dbClusterIdentifier"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshot_dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-350"></span><span id="restoreDBClusterFromSnapshot_dbClusterIdentifier"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshot_dbClusterIdentifier :: (Text -&gt; f Text)
+-&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_dbClusterIdentifier"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshot_dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshot -&gt; Text)
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; Text -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Lens
+     RestoreDBClusterFromSnapshot RestoreDBClusterFromSnapshot Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302924"><span class="annot"><span class="annottext">Text
+dbClusterIdentifier :: Text
+$sel:dbClusterIdentifier:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Text
+</span><a href="#local-6989586621679302924"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302924"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302923"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302922"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:RestoreDBClusterFromSnapshot' :: Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AdbClusterIdentifier%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- | The identifier for the snapshot or cluster snapshot to restore from.</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- You can use either the name or the Amazon Resource Name (ARN) to specify</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- a cluster snapshot. However, you can use only the ARN to specify a</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- snapshot.</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- -   Must match the identifier of an existing snapshot.</span><span>
+</span><span id="line-361"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_snapshotIdentifier"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshot_snapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-362"></span><span id="restoreDBClusterFromSnapshot_snapshotIdentifier"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshot_snapshotIdentifier :: (Text -&gt; f Text)
+-&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_snapshotIdentifier"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshot_snapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshot -&gt; Text)
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; Text -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Lens
+     RestoreDBClusterFromSnapshot RestoreDBClusterFromSnapshot Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302921"><span class="annot"><span class="annottext">Text
+snapshotIdentifier :: Text
+$sel:snapshotIdentifier:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Text
+</span><a href="#local-6989586621679302921"><span class="hs-identifier hs-var hs-var">snapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302921"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302920"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302919"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotIdentifier:RestoreDBClusterFromSnapshot' :: Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AsnapshotIdentifier%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-363"></span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- | The database engine to use for the new cluster.</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- Default: The same as source.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- Constraint: Must be compatible with the engine of the source.</span><span>
+</span><span id="line-369"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_engine"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshot_engine</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-370"></span><span id="restoreDBClusterFromSnapshot_engine"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshot_engine :: (Text -&gt; f Text)
+-&gt; RestoreDBClusterFromSnapshot -&gt; f RestoreDBClusterFromSnapshot
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshot_engine"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshot_engine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshot -&gt; Text)
+-&gt; (RestoreDBClusterFromSnapshot
+    -&gt; Text -&gt; RestoreDBClusterFromSnapshot)
+-&gt; Lens
+     RestoreDBClusterFromSnapshot RestoreDBClusterFromSnapshot Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302918"><span class="annot"><span class="annottext">Text
+engine :: Text
+$sel:engine:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Text
+</span><a href="#local-6989586621679302918"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302918"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302917"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302916"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshot
+</span><a href="#local-6989586621679302917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:RestoreDBClusterFromSnapshot' :: Text
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3Aengine%3ARestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span>
+</span><span id="line-372"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-373"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-374"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-375"></span><span>      </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshotResponse</span></a></span><span>
+</span><span id="line-376"></span><span>  </span><span id="local-6989586621679302912"><span class="annot"><span class="annottext">request :: RestoreDBClusterFromSnapshot
+-&gt; Request RestoreDBClusterFromSnapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; RestoreDBClusterFromSnapshot
+-&gt; Request RestoreDBClusterFromSnapshot
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DocumentDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-377"></span><span>  </span><span id="local-6989586621679302908"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RestoreDBClusterFromSnapshot
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RestoreDBClusterFromSnapshot)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-378"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse RestoreDBClusterFromSnapshot))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RestoreDBClusterFromSnapshot
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RestoreDBClusterFromSnapshot)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-379"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RestoreDBClusterFromSnapshotResult&quot;</span></span><span>
+</span><span id="line-380"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302905"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302905"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302904"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679302904"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302903"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679302903"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-381"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBCluster -&gt; Int -&gt; RestoreDBClusterFromSnapshotResponse
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-var">RestoreDBClusterFromSnapshotResponse'</span></a></span><span>
+</span><span id="line-382"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBCluster -&gt; Int -&gt; RestoreDBClusterFromSnapshotResponse)
+-&gt; Either String (Maybe DBCluster)
+-&gt; Either String (Int -&gt; RestoreDBClusterFromSnapshotResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679302903"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBCluster)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBCluster&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RestoreDBClusterFromSnapshotResponse)
+-&gt; Either String Int
+-&gt; Either String RestoreDBClusterFromSnapshotResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302905"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-384"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-385"></span><span>
+</span><span id="line-386"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-387"></span><span>  </span><span id="local-6989586621679302895"><span id="local-6989586621679302897"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-388"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span></span></span><span>
+</span><span id="line-389"></span><span>
+</span><span id="line-390"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span></span><span>
+</span><span id="line-391"></span><span>
+</span><span id="line-392"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-393"></span><span>  </span><span id="local-6989586621679302888"><span class="annot"><span class="annottext">toHeaders :: RestoreDBClusterFromSnapshot -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RestoreDBClusterFromSnapshot -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-394"></span><span>
+</span><span id="line-395"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-396"></span><span>  </span><span id="local-6989586621679302883"><span class="annot"><span class="annottext">toPath :: RestoreDBClusterFromSnapshot -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RestoreDBClusterFromSnapshot -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-397"></span><span>
+</span><span id="line-398"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-399"></span><span>  </span><span id="local-6989586621679302879"><span class="annot"><span class="annottext">toQuery :: RestoreDBClusterFromSnapshot -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshot%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302866"><span id="local-6989586621679302867"><span id="local-6989586621679302868"><span id="local-6989586621679302869"><span id="local-6989586621679302870"><span id="local-6989586621679302871"><span id="local-6989586621679302872"><span id="local-6989586621679302873"><span id="local-6989586621679302874"><span id="local-6989586621679302875"><span id="local-6989586621679302876"><span id="local-6989586621679302877"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [Text]
+Maybe [Tag]
+Maybe Text
+Text
+engine :: Text
+snapshotIdentifier :: Text
+dbClusterIdentifier :: Text
+enableCloudwatchLogsExports :: Maybe [Text]
+port :: Maybe Int
+tags :: Maybe [Tag]
+vpcSecurityGroupIds :: Maybe [Text]
+kmsKeyId :: Maybe Text
+availabilityZones :: Maybe [Text]
+dbSubnetGroupName :: Maybe Text
+deletionProtection :: Maybe Bool
+engineVersion :: Maybe Text
+$sel:engine:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Text
+$sel:snapshotIdentifier:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Text
+$sel:dbClusterIdentifier:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Text
+$sel:enableCloudwatchLogsExports:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe [Text]
+$sel:port:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe Int
+$sel:tags:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe [Tag]
+$sel:vpcSecurityGroupIds:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe [Text]
+$sel:kmsKeyId:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe Text
+$sel:availabilityZones:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe [Text]
+$sel:dbSubnetGroupName:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe Text
+$sel:deletionProtection:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe Bool
+$sel:engineVersion:RestoreDBClusterFromSnapshot' :: RestoreDBClusterFromSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621679302866"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-400"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-401"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-402"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RestoreDBClusterFromSnapshot&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-403"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-404"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-405"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-406"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-407"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302877"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeletionProtection&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679302876"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-409"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBSubnetGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302875"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-410"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AvailabilityZones&quot;</span></span><span>
+</span><span id="line-411"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-412"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span>
+</span><span id="line-413"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679302874"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span>
+</span><span id="line-414"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-415"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302873"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-416"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VpcSecurityGroupIds&quot;</span></span><span>
+</span><span id="line-417"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-418"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VpcSecurityGroupId&quot;</span></span><span>
+</span><span id="line-419"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679302872"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span>
+</span><span id="line-420"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-421"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span>
+</span><span id="line-422"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-423"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679302871"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-424"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Port&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679302870"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-425"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnableCloudwatchLogsExports&quot;</span></span><span>
+</span><span id="line-426"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-427"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-428"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679302869"><span class="hs-identifier hs-var">enableCloudwatchLogsExports</span></a></span><span>
+</span><span id="line-429"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-430"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302868"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-431"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SnapshotIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302867"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-432"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Engine&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302866"><span class="hs-identifier hs-var">engine</span></a></span><span>
+</span><span id="line-433"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-434"></span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- | /See:/ 'newRestoreDBClusterFromSnapshotResponse' smart constructor.</span><span>
+</span><span id="line-436"></span><span id="local-6989586621679302862"><span id="local-6989586621679302863"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreDBClusterFromSnapshotResponse"><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse"><span class="hs-identifier hs-var">RestoreDBClusterFromSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreDBClusterFromSnapshotResponse%27"><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-var">RestoreDBClusterFromSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-437"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbCluster%3ARestoreDBClusterFromSnapshotResponse%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshotResponse -&gt; Maybe DBCluster
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AdbCluster%3ARestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">dbCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.DBCluster.html#DBCluster"><span class="hs-identifier hs-type">DBCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-438"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-439"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARestoreDBClusterFromSnapshotResponse%27"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshotResponse -&gt; Int
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AhttpStatus%3ARestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-440"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-441"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302856"><span id="local-6989586621679302858"><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshotResponse
+-&gt; RestoreDBClusterFromSnapshotResponse -&gt; Bool
+(RestoreDBClusterFromSnapshotResponse
+ -&gt; RestoreDBClusterFromSnapshotResponse -&gt; Bool)
+-&gt; (RestoreDBClusterFromSnapshotResponse
+    -&gt; RestoreDBClusterFromSnapshotResponse -&gt; Bool)
+-&gt; Eq RestoreDBClusterFromSnapshotResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RestoreDBClusterFromSnapshotResponse
+-&gt; RestoreDBClusterFromSnapshotResponse -&gt; Bool
+$c/= :: RestoreDBClusterFromSnapshotResponse
+-&gt; RestoreDBClusterFromSnapshotResponse -&gt; Bool
+== :: RestoreDBClusterFromSnapshotResponse
+-&gt; RestoreDBClusterFromSnapshotResponse -&gt; Bool
+$c== :: RestoreDBClusterFromSnapshotResponse
+-&gt; RestoreDBClusterFromSnapshotResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302848"><span id="local-6989586621679302850"><span id="local-6989586621679302852"><span id="local-6989586621679302854"><span class="annot"><span class="annottext">ReadPrec [RestoreDBClusterFromSnapshotResponse]
+ReadPrec RestoreDBClusterFromSnapshotResponse
+Int -&gt; ReadS RestoreDBClusterFromSnapshotResponse
+ReadS [RestoreDBClusterFromSnapshotResponse]
+(Int -&gt; ReadS RestoreDBClusterFromSnapshotResponse)
+-&gt; ReadS [RestoreDBClusterFromSnapshotResponse]
+-&gt; ReadPrec RestoreDBClusterFromSnapshotResponse
+-&gt; ReadPrec [RestoreDBClusterFromSnapshotResponse]
+-&gt; Read RestoreDBClusterFromSnapshotResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RestoreDBClusterFromSnapshotResponse]
+$creadListPrec :: ReadPrec [RestoreDBClusterFromSnapshotResponse]
+readPrec :: ReadPrec RestoreDBClusterFromSnapshotResponse
+$creadPrec :: ReadPrec RestoreDBClusterFromSnapshotResponse
+readList :: ReadS [RestoreDBClusterFromSnapshotResponse]
+$creadList :: ReadS [RestoreDBClusterFromSnapshotResponse]
+readsPrec :: Int -&gt; ReadS RestoreDBClusterFromSnapshotResponse
+$creadsPrec :: Int -&gt; ReadS RestoreDBClusterFromSnapshotResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302842"><span id="local-6989586621679302844"><span id="local-6989586621679302846"><span class="annot"><span class="annottext">Int -&gt; RestoreDBClusterFromSnapshotResponse -&gt; ShowS
+[RestoreDBClusterFromSnapshotResponse] -&gt; ShowS
+RestoreDBClusterFromSnapshotResponse -&gt; String
+(Int -&gt; RestoreDBClusterFromSnapshotResponse -&gt; ShowS)
+-&gt; (RestoreDBClusterFromSnapshotResponse -&gt; String)
+-&gt; ([RestoreDBClusterFromSnapshotResponse] -&gt; ShowS)
+-&gt; Show RestoreDBClusterFromSnapshotResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RestoreDBClusterFromSnapshotResponse] -&gt; ShowS
+$cshowList :: [RestoreDBClusterFromSnapshotResponse] -&gt; ShowS
+show :: RestoreDBClusterFromSnapshotResponse -&gt; String
+$cshow :: RestoreDBClusterFromSnapshotResponse -&gt; String
+showsPrec :: Int -&gt; RestoreDBClusterFromSnapshotResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RestoreDBClusterFromSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RestoreDBClusterFromSnapshotResponse
+ -&gt; Rep RestoreDBClusterFromSnapshotResponse x)
+-&gt; (forall x.
+    Rep RestoreDBClusterFromSnapshotResponse x
+    -&gt; RestoreDBClusterFromSnapshotResponse)
+-&gt; Generic RestoreDBClusterFromSnapshotResponse
+forall x.
+Rep RestoreDBClusterFromSnapshotResponse x
+-&gt; RestoreDBClusterFromSnapshotResponse
+forall x.
+RestoreDBClusterFromSnapshotResponse
+-&gt; Rep RestoreDBClusterFromSnapshotResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RestoreDBClusterFromSnapshotResponse x
+-&gt; RestoreDBClusterFromSnapshotResponse
+$cfrom :: forall x.
+RestoreDBClusterFromSnapshotResponse
+-&gt; Rep RestoreDBClusterFromSnapshotResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-442"></span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- Create a value of 'RestoreDBClusterFromSnapshotResponse' with all optional fields omitted.</span><span>
+</span><span id="line-445"></span><span class="hs-comment">--</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-447"></span><span class="hs-comment">--</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-450"></span><span class="hs-comment">--</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- 'dbCluster', 'restoreDBClusterFromSnapshotResponse_dbCluster' - Undocumented member.</span><span>
+</span><span id="line-452"></span><span class="hs-comment">--</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- 'httpStatus', 'restoreDBClusterFromSnapshotResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-454"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#newRestoreDBClusterFromSnapshotResponse"><span class="hs-identifier hs-type">newRestoreDBClusterFromSnapshotResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-455"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-456"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-457"></span><span>  </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshotResponse</span></a></span><span>
+</span><span id="line-458"></span><span id="newRestoreDBClusterFromSnapshotResponse"><span class="annot"><span class="annottext">newRestoreDBClusterFromSnapshotResponse :: Int -&gt; RestoreDBClusterFromSnapshotResponse
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#newRestoreDBClusterFromSnapshotResponse"><span class="hs-identifier hs-var hs-var">newRestoreDBClusterFromSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679302839"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302839"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-459"></span><span>  </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshotResponse' :: Maybe DBCluster -&gt; Int -&gt; RestoreDBClusterFromSnapshotResponse
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshotResponse'</span></a></span><span>
+</span><span id="line-460"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbCluster:RestoreDBClusterFromSnapshotResponse' :: Maybe DBCluster
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AdbCluster%3ARestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-var">dbCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-461"></span><span>        </span><span class="annot"><span class="annottext">Maybe DBCluster
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-462"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreDBClusterFromSnapshotResponse' :: Int
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AhttpStatus%3ARestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302839"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-463"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-464"></span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-466"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshotResponse_dbCluster"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshotResponse_dbCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.Types.DBCluster.html#DBCluster"><span class="hs-identifier hs-type">DBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-467"></span><span id="restoreDBClusterFromSnapshotResponse_dbCluster"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshotResponse_dbCluster :: (Maybe DBCluster -&gt; f (Maybe DBCluster))
+-&gt; RestoreDBClusterFromSnapshotResponse
+-&gt; f RestoreDBClusterFromSnapshotResponse
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshotResponse_dbCluster"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshotResponse_dbCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshotResponse -&gt; Maybe DBCluster)
+-&gt; (RestoreDBClusterFromSnapshotResponse
+    -&gt; Maybe DBCluster -&gt; RestoreDBClusterFromSnapshotResponse)
+-&gt; Lens
+     RestoreDBClusterFromSnapshotResponse
+     RestoreDBClusterFromSnapshotResponse
+     (Maybe DBCluster)
+     (Maybe DBCluster)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302838"><span class="annot"><span class="annottext">Maybe DBCluster
+dbCluster :: Maybe DBCluster
+$sel:dbCluster:RestoreDBClusterFromSnapshotResponse' :: RestoreDBClusterFromSnapshotResponse -&gt; Maybe DBCluster
+</span><a href="#local-6989586621679302838"><span class="hs-identifier hs-var hs-var">dbCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBCluster
+</span><a href="#local-6989586621679302838"><span class="hs-identifier hs-var">dbCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302837"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshotResponse
+</span><a href="#local-6989586621679302837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302836"><span class="annot"><span class="annottext">Maybe DBCluster
+</span><a href="#local-6989586621679302836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshotResponse
+</span><a href="#local-6989586621679302837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbCluster:RestoreDBClusterFromSnapshotResponse' :: Maybe DBCluster
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AdbCluster%3ARestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-var">dbCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBCluster
+</span><a href="#local-6989586621679302836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-468"></span><span>
+</span><span id="line-469"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-470"></span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">restoreDBClusterFromSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-471"></span><span id="restoreDBClusterFromSnapshotResponse_httpStatus"><span class="annot"><span class="annottext">restoreDBClusterFromSnapshotResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RestoreDBClusterFromSnapshotResponse
+-&gt; f RestoreDBClusterFromSnapshotResponse
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#restoreDBClusterFromSnapshotResponse_httpStatus"><span class="hs-identifier hs-var hs-var">restoreDBClusterFromSnapshotResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreDBClusterFromSnapshotResponse -&gt; Int)
+-&gt; (RestoreDBClusterFromSnapshotResponse
+    -&gt; Int -&gt; RestoreDBClusterFromSnapshotResponse)
+-&gt; Lens
+     RestoreDBClusterFromSnapshotResponse
+     RestoreDBClusterFromSnapshotResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302835"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RestoreDBClusterFromSnapshotResponse' :: RestoreDBClusterFromSnapshotResponse -&gt; Int
+</span><a href="#local-6989586621679302835"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302835"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302834"><span class="annot"><span class="annottext">s :: RestoreDBClusterFromSnapshotResponse
+</span><a href="#local-6989586621679302834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302833"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreDBClusterFromSnapshotResponse
+</span><a href="#local-6989586621679302834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreDBClusterFromSnapshotResponse' :: Int
+</span><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#%24sel%3AhttpStatus%3ARestoreDBClusterFromSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-472"></span><span>
+</span><span id="line-473"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-474"></span><span>  </span><span id="local-6989586621679302831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-475"></span><span>    </span><span class="annot"><a href="Amazonka.DocumentDB.RestoreDBClusterFromSnapshot.html#RestoreDBClusterFromSnapshotResponse"><span class="hs-identifier hs-type">RestoreDBClusterFromSnapshotResponse</span></a></span></span><span>
+</span><span id="line-476"></span></pre></body></html>

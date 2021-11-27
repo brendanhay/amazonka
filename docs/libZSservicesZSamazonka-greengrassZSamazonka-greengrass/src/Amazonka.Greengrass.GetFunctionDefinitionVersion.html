@@ -1,0 +1,864 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Greengrass.GetFunctionDefinitionVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about a Lambda function definition version,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- including which Lambda functions are included in the version and their</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- configurations.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Greengrass.GetFunctionDefinitionVersion</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier">GetFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#newGetFunctionDefinitionVersion"><span class="hs-identifier">newGetFunctionDefinitionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersion_nextToken"><span class="hs-identifier">getFunctionDefinitionVersion_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersion_functionDefinitionId"><span class="hs-identifier">getFunctionDefinitionVersion_functionDefinitionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersion_functionDefinitionVersionId"><span class="hs-identifier">getFunctionDefinitionVersion_functionDefinitionVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier">GetFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#newGetFunctionDefinitionVersionResponse"><span class="hs-identifier">newGetFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_definition"><span class="hs-identifier">getFunctionDefinitionVersionResponse_definition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_arn"><span class="hs-identifier">getFunctionDefinitionVersionResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_nextToken"><span class="hs-identifier">getFunctionDefinitionVersionResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier">getFunctionDefinitionVersionResponse_creationTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_version"><span class="hs-identifier">getFunctionDefinitionVersionResponse_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_id"><span class="hs-identifier">getFunctionDefinitionVersionResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_httpStatus"><span class="hs-identifier">getFunctionDefinitionVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.html"><span class="hs-identifier">Amazonka.Greengrass.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newGetFunctionDefinitionVersion' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679357936"><span id="local-6989586621679357937"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFunctionDefinitionVersion"><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-var">GetFunctionDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFunctionDefinitionVersion%27"><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">GetFunctionDefinitionVersion'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AGetFunctionDefinitionVersion%27"><span class="annot"><span class="annottext">GetFunctionDefinitionVersion -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AnextToken%3AGetFunctionDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ID of the Lambda function definition.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AfunctionDefinitionId%3AGetFunctionDefinitionVersion%27"><span class="annot"><span class="annottext">GetFunctionDefinitionVersion -&gt; Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AfunctionDefinitionId%3AGetFunctionDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">functionDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ID of the function definition version. This value maps to the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- \'\'Version\'\' property of the corresponding \'\'VersionInformation\'\'</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- object, which is returned by \'\'ListFunctionDefinitionVersions\'\'</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- requests. If the version is the last one that was associated with a</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- function definition, the value also maps to the \'\'LatestVersion\'\'</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- property of the corresponding \'\'DefinitionInformation\'\' object.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AfunctionDefinitionVersionId%3AGetFunctionDefinitionVersion%27"><span class="annot"><span class="annottext">GetFunctionDefinitionVersion -&gt; Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AfunctionDefinitionVersionId%3AGetFunctionDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">functionDefinitionVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357928"><span id="local-6989586621679357930"><span class="annot"><span class="annottext">GetFunctionDefinitionVersion
+-&gt; GetFunctionDefinitionVersion -&gt; Bool
+(GetFunctionDefinitionVersion
+ -&gt; GetFunctionDefinitionVersion -&gt; Bool)
+-&gt; (GetFunctionDefinitionVersion
+    -&gt; GetFunctionDefinitionVersion -&gt; Bool)
+-&gt; Eq GetFunctionDefinitionVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetFunctionDefinitionVersion
+-&gt; GetFunctionDefinitionVersion -&gt; Bool
+$c/= :: GetFunctionDefinitionVersion
+-&gt; GetFunctionDefinitionVersion -&gt; Bool
+== :: GetFunctionDefinitionVersion
+-&gt; GetFunctionDefinitionVersion -&gt; Bool
+$c== :: GetFunctionDefinitionVersion
+-&gt; GetFunctionDefinitionVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357919"><span id="local-6989586621679357921"><span id="local-6989586621679357923"><span id="local-6989586621679357925"><span class="annot"><span class="annottext">ReadPrec [GetFunctionDefinitionVersion]
+ReadPrec GetFunctionDefinitionVersion
+Int -&gt; ReadS GetFunctionDefinitionVersion
+ReadS [GetFunctionDefinitionVersion]
+(Int -&gt; ReadS GetFunctionDefinitionVersion)
+-&gt; ReadS [GetFunctionDefinitionVersion]
+-&gt; ReadPrec GetFunctionDefinitionVersion
+-&gt; ReadPrec [GetFunctionDefinitionVersion]
+-&gt; Read GetFunctionDefinitionVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetFunctionDefinitionVersion]
+$creadListPrec :: ReadPrec [GetFunctionDefinitionVersion]
+readPrec :: ReadPrec GetFunctionDefinitionVersion
+$creadPrec :: ReadPrec GetFunctionDefinitionVersion
+readList :: ReadS [GetFunctionDefinitionVersion]
+$creadList :: ReadS [GetFunctionDefinitionVersion]
+readsPrec :: Int -&gt; ReadS GetFunctionDefinitionVersion
+$creadsPrec :: Int -&gt; ReadS GetFunctionDefinitionVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357912"><span id="local-6989586621679357914"><span id="local-6989586621679357916"><span class="annot"><span class="annottext">Int -&gt; GetFunctionDefinitionVersion -&gt; ShowS
+[GetFunctionDefinitionVersion] -&gt; ShowS
+GetFunctionDefinitionVersion -&gt; String
+(Int -&gt; GetFunctionDefinitionVersion -&gt; ShowS)
+-&gt; (GetFunctionDefinitionVersion -&gt; String)
+-&gt; ([GetFunctionDefinitionVersion] -&gt; ShowS)
+-&gt; Show GetFunctionDefinitionVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetFunctionDefinitionVersion] -&gt; ShowS
+$cshowList :: [GetFunctionDefinitionVersion] -&gt; ShowS
+show :: GetFunctionDefinitionVersion -&gt; String
+$cshow :: GetFunctionDefinitionVersion -&gt; String
+showsPrec :: Int -&gt; GetFunctionDefinitionVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetFunctionDefinitionVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetFunctionDefinitionVersion -&gt; Rep GetFunctionDefinitionVersion x)
+-&gt; (forall x.
+    Rep GetFunctionDefinitionVersion x -&gt; GetFunctionDefinitionVersion)
+-&gt; Generic GetFunctionDefinitionVersion
+forall x.
+Rep GetFunctionDefinitionVersion x -&gt; GetFunctionDefinitionVersion
+forall x.
+GetFunctionDefinitionVersion -&gt; Rep GetFunctionDefinitionVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetFunctionDefinitionVersion x -&gt; GetFunctionDefinitionVersion
+$cfrom :: forall x.
+GetFunctionDefinitionVersion -&gt; Rep GetFunctionDefinitionVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'GetFunctionDefinitionVersion' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'getFunctionDefinitionVersion_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'functionDefinitionId', 'getFunctionDefinitionVersion_functionDefinitionId' - The ID of the Lambda function definition.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'functionDefinitionVersionId', 'getFunctionDefinitionVersion_functionDefinitionVersionId' - The ID of the function definition version. This value maps to the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- \'\'Version\'\' property of the corresponding \'\'VersionInformation\'\'</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- object, which is returned by \'\'ListFunctionDefinitionVersions\'\'</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- requests. If the version is the last one that was associated with a</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- function definition, the value also maps to the \'\'LatestVersion\'\'</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- property of the corresponding \'\'DefinitionInformation\'\' object.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#newGetFunctionDefinitionVersion"><span class="hs-identifier hs-type">newGetFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'functionDefinitionId'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'functionDefinitionVersionId'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span><span>
+</span><span id="line-100"></span><span id="newGetFunctionDefinitionVersion"><span class="annot"><span class="annottext">newGetFunctionDefinitionVersion :: Text -&gt; Text -&gt; GetFunctionDefinitionVersion
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#newGetFunctionDefinitionVersion"><span class="hs-identifier hs-var hs-var">newGetFunctionDefinitionVersion</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679357907"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357907"><span class="hs-identifier hs-var">pFunctionDefinitionId_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679357906"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357906"><span class="hs-identifier hs-var">pFunctionDefinitionVersionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">GetFunctionDefinitionVersion' :: Maybe Text -&gt; Text -&gt; Text -&gt; GetFunctionDefinitionVersion
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion'</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetFunctionDefinitionVersion' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AnextToken%3AGetFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:functionDefinitionId:GetFunctionDefinitionVersion' :: Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AfunctionDefinitionId%3AGetFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357907"><span class="hs-identifier hs-var">pFunctionDefinitionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:functionDefinitionVersionId:GetFunctionDefinitionVersion' :: Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AfunctionDefinitionVersionId%3AGetFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">functionDefinitionVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357906"><span class="hs-identifier hs-var">pFunctionDefinitionVersionId_</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersion_nextToken"><span class="hs-identifier hs-type">getFunctionDefinitionVersion_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="getFunctionDefinitionVersion_nextToken"><span class="annot"><span class="annottext">getFunctionDefinitionVersion_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFunctionDefinitionVersion -&gt; f GetFunctionDefinitionVersion
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersion_nextToken"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionVersion_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionVersion -&gt; Maybe Text)
+-&gt; (GetFunctionDefinitionVersion
+    -&gt; Maybe Text -&gt; GetFunctionDefinitionVersion)
+-&gt; Lens
+     GetFunctionDefinitionVersion
+     GetFunctionDefinitionVersion
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357903"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetFunctionDefinitionVersion' :: GetFunctionDefinitionVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679357903"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357903"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357902"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionVersion
+</span><a href="#local-6989586621679357902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357901"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionVersion
+</span><a href="#local-6989586621679357902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetFunctionDefinitionVersion' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AnextToken%3AGetFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The ID of the Lambda function definition.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersion_functionDefinitionId"><span class="hs-identifier hs-type">getFunctionDefinitionVersion_functionDefinitionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="getFunctionDefinitionVersion_functionDefinitionId"><span class="annot"><span class="annottext">getFunctionDefinitionVersion_functionDefinitionId :: (Text -&gt; f Text)
+-&gt; GetFunctionDefinitionVersion -&gt; f GetFunctionDefinitionVersion
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersion_functionDefinitionId"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionVersion_functionDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionVersion -&gt; Text)
+-&gt; (GetFunctionDefinitionVersion
+    -&gt; Text -&gt; GetFunctionDefinitionVersion)
+-&gt; Lens
+     GetFunctionDefinitionVersion GetFunctionDefinitionVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357900"><span class="annot"><span class="annottext">Text
+functionDefinitionId :: Text
+$sel:functionDefinitionId:GetFunctionDefinitionVersion' :: GetFunctionDefinitionVersion -&gt; Text
+</span><a href="#local-6989586621679357900"><span class="hs-identifier hs-var hs-var">functionDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357900"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357899"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionVersion
+</span><a href="#local-6989586621679357899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionVersion
+</span><a href="#local-6989586621679357899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionDefinitionId:GetFunctionDefinitionVersion' :: Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AfunctionDefinitionId%3AGetFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The ID of the function definition version. This value maps to the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- \'\'Version\'\' property of the corresponding \'\'VersionInformation\'\'</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- object, which is returned by \'\'ListFunctionDefinitionVersions\'\'</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- requests. If the version is the last one that was associated with a</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- function definition, the value also maps to the \'\'LatestVersion\'\'</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- property of the corresponding \'\'DefinitionInformation\'\' object.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersion_functionDefinitionVersionId"><span class="hs-identifier hs-type">getFunctionDefinitionVersion_functionDefinitionVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="getFunctionDefinitionVersion_functionDefinitionVersionId"><span class="annot"><span class="annottext">getFunctionDefinitionVersion_functionDefinitionVersionId :: (Text -&gt; f Text)
+-&gt; GetFunctionDefinitionVersion -&gt; f GetFunctionDefinitionVersion
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersion_functionDefinitionVersionId"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionVersion_functionDefinitionVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionVersion -&gt; Text)
+-&gt; (GetFunctionDefinitionVersion
+    -&gt; Text -&gt; GetFunctionDefinitionVersion)
+-&gt; Lens
+     GetFunctionDefinitionVersion GetFunctionDefinitionVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357897"><span class="annot"><span class="annottext">Text
+functionDefinitionVersionId :: Text
+$sel:functionDefinitionVersionId:GetFunctionDefinitionVersion' :: GetFunctionDefinitionVersion -&gt; Text
+</span><a href="#local-6989586621679357897"><span class="hs-identifier hs-var hs-var">functionDefinitionVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357897"><span class="hs-identifier hs-var">functionDefinitionVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357896"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionVersion
+</span><a href="#local-6989586621679357896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357895"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionVersion
+</span><a href="#local-6989586621679357896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionDefinitionVersionId:GetFunctionDefinitionVersion' :: Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AfunctionDefinitionVersionId%3AGetFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">functionDefinitionVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679357891"><span class="annot"><span class="annottext">request :: GetFunctionDefinitionVersion
+-&gt; Request GetFunctionDefinitionVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetFunctionDefinitionVersion
+-&gt; Request GetFunctionDefinitionVersion
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679357887"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetFunctionDefinitionVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetFunctionDefinitionVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetFunctionDefinitionVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetFunctionDefinitionVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetFunctionDefinitionVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679357884"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357884"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679357883"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679357883"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679357882"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357882"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe FunctionDefinitionVersion
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetFunctionDefinitionVersionResponse
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">GetFunctionDefinitionVersionResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FunctionDefinitionVersion
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Either String (Maybe FunctionDefinitionVersion)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetFunctionDefinitionVersionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357882"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FunctionDefinitionVersion)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Definition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetFunctionDefinitionVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357882"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetFunctionDefinitionVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357882"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; GetFunctionDefinitionVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357882"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; GetFunctionDefinitionVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357882"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetFunctionDefinitionVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357882"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Either String Int
+-&gt; Either String GetFunctionDefinitionVersionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357884"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679357874"><span id="local-6989586621679357876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679357867"><span class="annot"><span class="annottext">toHeaders :: GetFunctionDefinitionVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetFunctionDefinitionVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-160"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679357861"><span class="annot"><span class="annottext">toPath :: GetFunctionDefinitionVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357857"><span id="local-6989586621679357858"><span id="local-6989586621679357859"><span class="annot"><span class="annottext">Maybe Text
+Text
+functionDefinitionVersionId :: Text
+functionDefinitionId :: Text
+nextToken :: Maybe Text
+$sel:functionDefinitionVersionId:GetFunctionDefinitionVersion' :: GetFunctionDefinitionVersion -&gt; Text
+$sel:functionDefinitionId:GetFunctionDefinitionVersion' :: GetFunctionDefinitionVersion -&gt; Text
+$sel:nextToken:GetFunctionDefinitionVersion' :: GetFunctionDefinitionVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679357857"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/greengrass/definition/functions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357858"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/versions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357857"><span class="hs-identifier hs-var">functionDefinitionVersionId</span></a></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679357853"><span class="annot"><span class="annottext">toQuery :: GetFunctionDefinitionVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357849"><span id="local-6989586621679357850"><span id="local-6989586621679357851"><span class="annot"><span class="annottext">Maybe Text
+Text
+functionDefinitionVersionId :: Text
+functionDefinitionId :: Text
+nextToken :: Maybe Text
+$sel:functionDefinitionVersionId:GetFunctionDefinitionVersion' :: GetFunctionDefinitionVersion -&gt; Text
+$sel:functionDefinitionId:GetFunctionDefinitionVersion' :: GetFunctionDefinitionVersion -&gt; Text
+$sel:nextToken:GetFunctionDefinitionVersion' :: GetFunctionDefinitionVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679357849"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357851"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newGetFunctionDefinitionVersionResponse' smart constructor.</span><span>
+</span><span id="line-178"></span><span id="local-6989586621679357846"><span id="local-6989586621679357847"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFunctionDefinitionVersionResponse"><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-var">GetFunctionDefinitionVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFunctionDefinitionVersionResponse%27"><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">GetFunctionDefinitionVersionResponse'</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information on the definition.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3Adefinition%3AGetFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse
+-&gt; Maybe FunctionDefinitionVersion
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3Adefinition%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionDefinitionVersion.html#FunctionDefinitionVersion"><span class="hs-identifier hs-type">FunctionDefinitionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The ARN of the function definition version.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3Aarn%3AGetFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3Aarn%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AnextToken%3AGetFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AnextToken%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the function definition</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- version was created.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3AGetFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AcreationTimestamp%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The version of the function definition version.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3Aversion%3AGetFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3Aversion%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The ID of the function definition version.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3Aid%3AGetFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3Aid%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse -&gt; Int
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AhttpStatus%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357835"><span id="local-6989586621679357837"><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse
+-&gt; GetFunctionDefinitionVersionResponse -&gt; Bool
+(GetFunctionDefinitionVersionResponse
+ -&gt; GetFunctionDefinitionVersionResponse -&gt; Bool)
+-&gt; (GetFunctionDefinitionVersionResponse
+    -&gt; GetFunctionDefinitionVersionResponse -&gt; Bool)
+-&gt; Eq GetFunctionDefinitionVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetFunctionDefinitionVersionResponse
+-&gt; GetFunctionDefinitionVersionResponse -&gt; Bool
+$c/= :: GetFunctionDefinitionVersionResponse
+-&gt; GetFunctionDefinitionVersionResponse -&gt; Bool
+== :: GetFunctionDefinitionVersionResponse
+-&gt; GetFunctionDefinitionVersionResponse -&gt; Bool
+$c== :: GetFunctionDefinitionVersionResponse
+-&gt; GetFunctionDefinitionVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357827"><span id="local-6989586621679357829"><span id="local-6989586621679357831"><span id="local-6989586621679357833"><span class="annot"><span class="annottext">ReadPrec [GetFunctionDefinitionVersionResponse]
+ReadPrec GetFunctionDefinitionVersionResponse
+Int -&gt; ReadS GetFunctionDefinitionVersionResponse
+ReadS [GetFunctionDefinitionVersionResponse]
+(Int -&gt; ReadS GetFunctionDefinitionVersionResponse)
+-&gt; ReadS [GetFunctionDefinitionVersionResponse]
+-&gt; ReadPrec GetFunctionDefinitionVersionResponse
+-&gt; ReadPrec [GetFunctionDefinitionVersionResponse]
+-&gt; Read GetFunctionDefinitionVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetFunctionDefinitionVersionResponse]
+$creadListPrec :: ReadPrec [GetFunctionDefinitionVersionResponse]
+readPrec :: ReadPrec GetFunctionDefinitionVersionResponse
+$creadPrec :: ReadPrec GetFunctionDefinitionVersionResponse
+readList :: ReadS [GetFunctionDefinitionVersionResponse]
+$creadList :: ReadS [GetFunctionDefinitionVersionResponse]
+readsPrec :: Int -&gt; ReadS GetFunctionDefinitionVersionResponse
+$creadsPrec :: Int -&gt; ReadS GetFunctionDefinitionVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357821"><span id="local-6989586621679357823"><span id="local-6989586621679357825"><span class="annot"><span class="annottext">Int -&gt; GetFunctionDefinitionVersionResponse -&gt; ShowS
+[GetFunctionDefinitionVersionResponse] -&gt; ShowS
+GetFunctionDefinitionVersionResponse -&gt; String
+(Int -&gt; GetFunctionDefinitionVersionResponse -&gt; ShowS)
+-&gt; (GetFunctionDefinitionVersionResponse -&gt; String)
+-&gt; ([GetFunctionDefinitionVersionResponse] -&gt; ShowS)
+-&gt; Show GetFunctionDefinitionVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetFunctionDefinitionVersionResponse] -&gt; ShowS
+$cshowList :: [GetFunctionDefinitionVersionResponse] -&gt; ShowS
+show :: GetFunctionDefinitionVersionResponse -&gt; String
+$cshow :: GetFunctionDefinitionVersionResponse -&gt; String
+showsPrec :: Int -&gt; GetFunctionDefinitionVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetFunctionDefinitionVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetFunctionDefinitionVersionResponse
+ -&gt; Rep GetFunctionDefinitionVersionResponse x)
+-&gt; (forall x.
+    Rep GetFunctionDefinitionVersionResponse x
+    -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Generic GetFunctionDefinitionVersionResponse
+forall x.
+Rep GetFunctionDefinitionVersionResponse x
+-&gt; GetFunctionDefinitionVersionResponse
+forall x.
+GetFunctionDefinitionVersionResponse
+-&gt; Rep GetFunctionDefinitionVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetFunctionDefinitionVersionResponse x
+-&gt; GetFunctionDefinitionVersionResponse
+$cfrom :: forall x.
+GetFunctionDefinitionVersionResponse
+-&gt; Rep GetFunctionDefinitionVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Create a value of 'GetFunctionDefinitionVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'definition', 'getFunctionDefinitionVersionResponse_definition' - Information on the definition.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'arn', 'getFunctionDefinitionVersionResponse_arn' - The ARN of the function definition version.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'nextToken', 'getFunctionDefinitionVersionResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'creationTimestamp', 'getFunctionDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the function definition</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- version was created.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'version', 'getFunctionDefinitionVersionResponse_version' - The version of the function definition version.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'id', 'getFunctionDefinitionVersionResponse_id' - The ID of the function definition version.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'httpStatus', 'getFunctionDefinitionVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#newGetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">newGetFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span>
+</span><span id="line-225"></span><span id="newGetFunctionDefinitionVersionResponse"><span class="annot"><span class="annottext">newGetFunctionDefinitionVersionResponse :: Int -&gt; GetFunctionDefinitionVersionResponse
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#newGetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-var hs-var">newGetFunctionDefinitionVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679357818"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357818"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse' :: Maybe FunctionDefinitionVersion
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetFunctionDefinitionVersionResponse
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:definition:GetFunctionDefinitionVersionResponse' :: Maybe FunctionDefinitionVersion
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3Adefinition%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Maybe FunctionDefinitionVersion
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GetFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3Aarn%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AnextToken%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AcreationTimestamp%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:GetFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3Aversion%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:GetFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3Aid%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetFunctionDefinitionVersionResponse' :: Int
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AhttpStatus%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357818"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | Information on the definition.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_definition"><span class="hs-identifier hs-type">getFunctionDefinitionVersionResponse_definition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionDefinitionVersion.html#FunctionDefinitionVersion"><span class="hs-identifier hs-type">FunctionDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="getFunctionDefinitionVersionResponse_definition"><span class="annot"><span class="annottext">getFunctionDefinitionVersionResponse_definition :: (Maybe FunctionDefinitionVersion
+ -&gt; f (Maybe FunctionDefinitionVersion))
+-&gt; GetFunctionDefinitionVersionResponse
+-&gt; f GetFunctionDefinitionVersionResponse
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_definition"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionVersionResponse_definition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionVersionResponse
+ -&gt; Maybe FunctionDefinitionVersion)
+-&gt; (GetFunctionDefinitionVersionResponse
+    -&gt; Maybe FunctionDefinitionVersion
+    -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Lens
+     GetFunctionDefinitionVersionResponse
+     GetFunctionDefinitionVersionResponse
+     (Maybe FunctionDefinitionVersion)
+     (Maybe FunctionDefinitionVersion)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357817"><span class="annot"><span class="annottext">Maybe FunctionDefinitionVersion
+definition :: Maybe FunctionDefinitionVersion
+$sel:definition:GetFunctionDefinitionVersionResponse' :: GetFunctionDefinitionVersionResponse
+-&gt; Maybe FunctionDefinitionVersion
+</span><a href="#local-6989586621679357817"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionDefinitionVersion
+</span><a href="#local-6989586621679357817"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357816"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357815"><span class="annot"><span class="annottext">Maybe FunctionDefinitionVersion
+</span><a href="#local-6989586621679357815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:GetFunctionDefinitionVersionResponse' :: Maybe FunctionDefinitionVersion
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3Adefinition%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionDefinitionVersion
+</span><a href="#local-6989586621679357815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The ARN of the function definition version.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_arn"><span class="hs-identifier hs-type">getFunctionDefinitionVersionResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="getFunctionDefinitionVersionResponse_arn"><span class="annot"><span class="annottext">getFunctionDefinitionVersionResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFunctionDefinitionVersionResponse
+-&gt; f GetFunctionDefinitionVersionResponse
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_arn"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionVersionResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionVersionResponse -&gt; Maybe Text)
+-&gt; (GetFunctionDefinitionVersionResponse
+    -&gt; Maybe Text -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Lens
+     GetFunctionDefinitionVersionResponse
+     GetFunctionDefinitionVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357814"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:GetFunctionDefinitionVersionResponse' :: GetFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679357814"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357814"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357813"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357812"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3Aarn%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_nextToken"><span class="hs-identifier hs-type">getFunctionDefinitionVersionResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="getFunctionDefinitionVersionResponse_nextToken"><span class="annot"><span class="annottext">getFunctionDefinitionVersionResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFunctionDefinitionVersionResponse
+-&gt; f GetFunctionDefinitionVersionResponse
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_nextToken"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionVersionResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionVersionResponse -&gt; Maybe Text)
+-&gt; (GetFunctionDefinitionVersionResponse
+    -&gt; Maybe Text -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Lens
+     GetFunctionDefinitionVersionResponse
+     GetFunctionDefinitionVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357811"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetFunctionDefinitionVersionResponse' :: GetFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679357811"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357811"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357810"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357809"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AnextToken%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the function definition</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- version was created.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier hs-type">getFunctionDefinitionVersionResponse_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="getFunctionDefinitionVersionResponse_creationTimestamp"><span class="annot"><span class="annottext">getFunctionDefinitionVersionResponse_creationTimestamp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFunctionDefinitionVersionResponse
+-&gt; f GetFunctionDefinitionVersionResponse
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionVersionResponse_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionVersionResponse -&gt; Maybe Text)
+-&gt; (GetFunctionDefinitionVersionResponse
+    -&gt; Maybe Text -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Lens
+     GetFunctionDefinitionVersionResponse
+     GetFunctionDefinitionVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357808"><span class="annot"><span class="annottext">Maybe Text
+creationTimestamp :: Maybe Text
+$sel:creationTimestamp:GetFunctionDefinitionVersionResponse' :: GetFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679357808"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357808"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357807"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357806"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AcreationTimestamp%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The version of the function definition version.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_version"><span class="hs-identifier hs-type">getFunctionDefinitionVersionResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="getFunctionDefinitionVersionResponse_version"><span class="annot"><span class="annottext">getFunctionDefinitionVersionResponse_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFunctionDefinitionVersionResponse
+-&gt; f GetFunctionDefinitionVersionResponse
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_version"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionVersionResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionVersionResponse -&gt; Maybe Text)
+-&gt; (GetFunctionDefinitionVersionResponse
+    -&gt; Maybe Text -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Lens
+     GetFunctionDefinitionVersionResponse
+     GetFunctionDefinitionVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357805"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:GetFunctionDefinitionVersionResponse' :: GetFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679357805"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357805"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357804"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357803"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:GetFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3Aversion%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The ID of the function definition version.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_id"><span class="hs-identifier hs-type">getFunctionDefinitionVersionResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="getFunctionDefinitionVersionResponse_id"><span class="annot"><span class="annottext">getFunctionDefinitionVersionResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFunctionDefinitionVersionResponse
+-&gt; f GetFunctionDefinitionVersionResponse
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_id"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionVersionResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionVersionResponse -&gt; Maybe Text)
+-&gt; (GetFunctionDefinitionVersionResponse
+    -&gt; Maybe Text -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Lens
+     GetFunctionDefinitionVersionResponse
+     GetFunctionDefinitionVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357802"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:GetFunctionDefinitionVersionResponse' :: GetFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679357802"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357802"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357801"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357800"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3Aid%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_httpStatus"><span class="hs-identifier hs-type">getFunctionDefinitionVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-265"></span><span id="getFunctionDefinitionVersionResponse_httpStatus"><span class="annot"><span class="annottext">getFunctionDefinitionVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetFunctionDefinitionVersionResponse
+-&gt; f GetFunctionDefinitionVersionResponse
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#getFunctionDefinitionVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionVersionResponse -&gt; Int)
+-&gt; (GetFunctionDefinitionVersionResponse
+    -&gt; Int -&gt; GetFunctionDefinitionVersionResponse)
+-&gt; Lens
+     GetFunctionDefinitionVersionResponse
+     GetFunctionDefinitionVersionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357799"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetFunctionDefinitionVersionResponse' :: GetFunctionDefinitionVersionResponse -&gt; Int
+</span><a href="#local-6989586621679357799"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357799"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357798"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679357798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFunctionDefinitionVersionResponse' :: Int
+</span><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#%24sel%3AhttpStatus%3AGetFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679357795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetFunctionDefinitionVersion.html#GetFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionVersionResponse</span></a></span></span><span>
+</span><span id="line-270"></span></pre></body></html>

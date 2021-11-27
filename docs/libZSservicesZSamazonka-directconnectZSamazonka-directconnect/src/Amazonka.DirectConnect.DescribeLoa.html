@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DirectConnect.DescribeLoa</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the LOA-CFA for a connection, interconnect, or link aggregation</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- group (LAG).</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- The Letter of Authorization - Connecting Facility Assignment (LOA-CFA)</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- is a document that is used when establishing your cross connect to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Amazon Web Services at the colocation facility. For more information,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html Requesting Cross Connects at Direct Connect Locations&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Direct Connect User Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DirectConnect.DescribeLoa</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier">DescribeLoa</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#newDescribeLoa"><span class="hs-identifier">newDescribeLoa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoa_loaContentType"><span class="hs-identifier">describeLoa_loaContentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoa_providerName"><span class="hs-identifier">describeLoa_providerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoa_connectionId"><span class="hs-identifier">describeLoa_connectionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier">DescribeLoaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#newDescribeLoaResponse"><span class="hs-identifier">newDescribeLoaResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoaResponse_loaContent"><span class="hs-identifier">describeLoaResponse_loaContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoaResponse_loaContentType"><span class="hs-identifier">describeLoaResponse_loaContentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoaResponse_httpStatus"><span class="hs-identifier">describeLoaResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.html"><span class="hs-identifier">Amazonka.DirectConnect.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeLoa' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679295716"><span id="local-6989586621679295717"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoa"><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-var">DescribeLoa</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoa%27"><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-var">DescribeLoa'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The standard media type for the LOA-CFA document. The only supported</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- value is application\/pdf.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AloaContentType%3ADescribeLoa%27"><span class="annot"><span class="annottext">DescribeLoa -&gt; Maybe LoaContentType
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AloaContentType%3ADescribeLoa%27"><span class="hs-identifier hs-var hs-var">loaContentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.LoaContentType.html#LoaContentType"><span class="hs-identifier hs-type">LoaContentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of the service provider who establishes connectivity on your</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- behalf. If you specify this parameter, the LOA-CFA lists the provider</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- name alongside your company name as the requester of the cross connect.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AproviderName%3ADescribeLoa%27"><span class="annot"><span class="annottext">DescribeLoa -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AproviderName%3ADescribeLoa%27"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The ID of a connection, LAG, or interconnect.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AconnectionId%3ADescribeLoa%27"><span class="annot"><span class="annottext">DescribeLoa -&gt; Text
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AconnectionId%3ADescribeLoa%27"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295708"><span id="local-6989586621679295710"><span class="annot"><span class="annottext">DescribeLoa -&gt; DescribeLoa -&gt; Bool
+(DescribeLoa -&gt; DescribeLoa -&gt; Bool)
+-&gt; (DescribeLoa -&gt; DescribeLoa -&gt; Bool) -&gt; Eq DescribeLoa
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeLoa -&gt; DescribeLoa -&gt; Bool
+$c/= :: DescribeLoa -&gt; DescribeLoa -&gt; Bool
+== :: DescribeLoa -&gt; DescribeLoa -&gt; Bool
+$c== :: DescribeLoa -&gt; DescribeLoa -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295699"><span id="local-6989586621679295701"><span id="local-6989586621679295703"><span id="local-6989586621679295705"><span class="annot"><span class="annottext">ReadPrec [DescribeLoa]
+ReadPrec DescribeLoa
+Int -&gt; ReadS DescribeLoa
+ReadS [DescribeLoa]
+(Int -&gt; ReadS DescribeLoa)
+-&gt; ReadS [DescribeLoa]
+-&gt; ReadPrec DescribeLoa
+-&gt; ReadPrec [DescribeLoa]
+-&gt; Read DescribeLoa
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeLoa]
+$creadListPrec :: ReadPrec [DescribeLoa]
+readPrec :: ReadPrec DescribeLoa
+$creadPrec :: ReadPrec DescribeLoa
+readList :: ReadS [DescribeLoa]
+$creadList :: ReadS [DescribeLoa]
+readsPrec :: Int -&gt; ReadS DescribeLoa
+$creadsPrec :: Int -&gt; ReadS DescribeLoa
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295692"><span id="local-6989586621679295694"><span id="local-6989586621679295696"><span class="annot"><span class="annottext">Int -&gt; DescribeLoa -&gt; ShowS
+[DescribeLoa] -&gt; ShowS
+DescribeLoa -&gt; String
+(Int -&gt; DescribeLoa -&gt; ShowS)
+-&gt; (DescribeLoa -&gt; String)
+-&gt; ([DescribeLoa] -&gt; ShowS)
+-&gt; Show DescribeLoa
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeLoa] -&gt; ShowS
+$cshowList :: [DescribeLoa] -&gt; ShowS
+show :: DescribeLoa -&gt; String
+$cshow :: DescribeLoa -&gt; String
+showsPrec :: Int -&gt; DescribeLoa -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeLoa -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeLoa -&gt; Rep DescribeLoa x)
+-&gt; (forall x. Rep DescribeLoa x -&gt; DescribeLoa)
+-&gt; Generic DescribeLoa
+forall x. Rep DescribeLoa x -&gt; DescribeLoa
+forall x. DescribeLoa -&gt; Rep DescribeLoa x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeLoa x -&gt; DescribeLoa
+$cfrom :: forall x. DescribeLoa -&gt; Rep DescribeLoa x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'DescribeLoa' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'loaContentType', 'describeLoa_loaContentType' - The standard media type for the LOA-CFA document. The only supported</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- value is application\/pdf.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'providerName', 'describeLoa_providerName' - The name of the service provider who establishes connectivity on your</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- behalf. If you specify this parameter, the LOA-CFA lists the provider</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- name alongside your company name as the requester of the cross connect.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'connectionId', 'describeLoa_connectionId' - The ID of a connection, LAG, or interconnect.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#newDescribeLoa"><span class="hs-identifier hs-type">newDescribeLoa</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'connectionId'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span>
+</span><span id="line-94"></span><span id="newDescribeLoa"><span class="annot"><span class="annottext">newDescribeLoa :: Text -&gt; DescribeLoa
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#newDescribeLoa"><span class="hs-identifier hs-var hs-var">newDescribeLoa</span></a></span></span><span> </span><span id="local-6989586621679295687"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295687"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">DescribeLoa' :: Maybe LoaContentType -&gt; Maybe Text -&gt; Text -&gt; DescribeLoa
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loaContentType:DescribeLoa' :: Maybe LoaContentType
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AloaContentType%3ADescribeLoa%27"><span class="hs-identifier hs-var">loaContentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:providerName:DescribeLoa' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AproviderName%3ADescribeLoa%27"><span class="hs-identifier hs-var">providerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionId:DescribeLoa' :: Text
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AconnectionId%3ADescribeLoa%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295687"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The standard media type for the LOA-CFA document. The only supported</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- value is application\/pdf.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoa_loaContentType"><span class="hs-identifier hs-type">describeLoa_loaContentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.LoaContentType.html#LoaContentType"><span class="hs-identifier hs-type">LoaContentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="describeLoa_loaContentType"><span class="annot"><span class="annottext">describeLoa_loaContentType :: (Maybe LoaContentType -&gt; f (Maybe LoaContentType))
+-&gt; DescribeLoa -&gt; f DescribeLoa
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoa_loaContentType"><span class="hs-identifier hs-var hs-var">describeLoa_loaContentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLoa -&gt; Maybe LoaContentType)
+-&gt; (DescribeLoa -&gt; Maybe LoaContentType -&gt; DescribeLoa)
+-&gt; Lens
+     DescribeLoa
+     DescribeLoa
+     (Maybe LoaContentType)
+     (Maybe LoaContentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295684"><span class="annot"><span class="annottext">Maybe LoaContentType
+loaContentType :: Maybe LoaContentType
+$sel:loaContentType:DescribeLoa' :: DescribeLoa -&gt; Maybe LoaContentType
+</span><a href="#local-6989586621679295684"><span class="hs-identifier hs-var hs-var">loaContentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><a href="#local-6989586621679295684"><span class="hs-identifier hs-var">loaContentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295683"><span class="annot"><span class="annottext">s :: DescribeLoa
+</span><a href="#local-6989586621679295683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295682"><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><a href="#local-6989586621679295682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoa
+</span><a href="#local-6989586621679295683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loaContentType:DescribeLoa' :: Maybe LoaContentType
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AloaContentType%3ADescribeLoa%27"><span class="hs-identifier hs-var">loaContentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><a href="#local-6989586621679295682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the service provider who establishes connectivity on your</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- behalf. If you specify this parameter, the LOA-CFA lists the provider</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- name alongside your company name as the requester of the cross connect.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoa_providerName"><span class="hs-identifier hs-type">describeLoa_providerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="describeLoa_providerName"><span class="annot"><span class="annottext">describeLoa_providerName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeLoa -&gt; f DescribeLoa
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoa_providerName"><span class="hs-identifier hs-var hs-var">describeLoa_providerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLoa -&gt; Maybe Text)
+-&gt; (DescribeLoa -&gt; Maybe Text -&gt; DescribeLoa)
+-&gt; Lens DescribeLoa DescribeLoa (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295681"><span class="annot"><span class="annottext">Maybe Text
+providerName :: Maybe Text
+$sel:providerName:DescribeLoa' :: DescribeLoa -&gt; Maybe Text
+</span><a href="#local-6989586621679295681"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295681"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295680"><span class="annot"><span class="annottext">s :: DescribeLoa
+</span><a href="#local-6989586621679295680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295679"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoa
+</span><a href="#local-6989586621679295680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerName:DescribeLoa' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AproviderName%3ADescribeLoa%27"><span class="hs-identifier hs-var">providerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The ID of a connection, LAG, or interconnect.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoa_connectionId"><span class="hs-identifier hs-type">describeLoa_connectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="describeLoa_connectionId"><span class="annot"><span class="annottext">describeLoa_connectionId :: (Text -&gt; f Text) -&gt; DescribeLoa -&gt; f DescribeLoa
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoa_connectionId"><span class="hs-identifier hs-var hs-var">describeLoa_connectionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLoa -&gt; Text)
+-&gt; (DescribeLoa -&gt; Text -&gt; DescribeLoa)
+-&gt; Lens DescribeLoa DescribeLoa Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295678"><span class="annot"><span class="annottext">Text
+connectionId :: Text
+$sel:connectionId:DescribeLoa' :: DescribeLoa -&gt; Text
+</span><a href="#local-6989586621679295678"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295678"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295677"><span class="annot"><span class="annottext">s :: DescribeLoa
+</span><a href="#local-6989586621679295677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoa
+</span><a href="#local-6989586621679295677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:DescribeLoa' :: Text
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AconnectionId%3ADescribeLoa%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679295672"><span class="annot"><span class="annottext">request :: DescribeLoa -&gt; Request DescribeLoa
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeLoa -&gt; Request DescribeLoa
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679295668"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeLoa
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeLoa)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeLoa))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeLoa
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeLoa)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295665"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295665"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679295664"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679295664"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679295663"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Base64 -&gt; Maybe LoaContentType -&gt; Int -&gt; DescribeLoaResponse
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-var">DescribeLoaResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Base64
+ -&gt; Maybe LoaContentType -&gt; Int -&gt; DescribeLoaResponse)
+-&gt; Either String (Maybe Base64)
+-&gt; Either
+     String (Maybe LoaContentType -&gt; Int -&gt; DescribeLoaResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;loaContent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe LoaContentType -&gt; Int -&gt; DescribeLoaResponse)
+-&gt; Either String (Maybe LoaContentType)
+-&gt; Either String (Int -&gt; DescribeLoaResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LoaContentType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;loaContentType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeLoaResponse)
+-&gt; Either String Int -&gt; Either String DescribeLoaResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295665"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295655"><span id="local-6989586621679295657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679295648"><span class="annot"><span class="annottext">toHeaders :: DescribeLoa -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeLoa -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OvertureService.DescribeLoa&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-139"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295638"><span id="local-6989586621679295640"><span id="local-6989586621679295642"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679295636"><span class="annot"><span class="annottext">toJSON :: DescribeLoa -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295632"><span id="local-6989586621679295633"><span id="local-6989586621679295634"><span class="annot"><span class="annottext">Maybe Text
+Maybe LoaContentType
+Text
+connectionId :: Text
+providerName :: Maybe Text
+loaContentType :: Maybe LoaContentType
+$sel:connectionId:DescribeLoa' :: DescribeLoa -&gt; Text
+$sel:providerName:DescribeLoa' :: DescribeLoa -&gt; Maybe Text
+$sel:loaContentType:DescribeLoa' :: DescribeLoa -&gt; Maybe LoaContentType
+</span><a href="#local-6989586621679295632"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;loaContentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LoaContentType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(LoaContentType -&gt; Pair) -&gt; Maybe LoaContentType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><a href="#local-6989586621679295634"><span class="hs-identifier hs-var">loaContentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;providerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295633"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295632"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679295626"><span class="annot"><span class="annottext">toPath :: DescribeLoa -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeLoa -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679295622"><span class="annot"><span class="annottext">toQuery :: DescribeLoa -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeLoa -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Information about a Letter of Authorization - Connecting Facility</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Assignment (LOA-CFA) for a connection.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- /See:/ 'newDescribeLoaResponse' smart constructor.</span><span>
+</span><span id="line-168"></span><span id="local-6989586621679295619"><span id="local-6989586621679295620"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoaResponse"><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-var">DescribeLoaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoaResponse%27"><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-var">DescribeLoaResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The binary contents of the LOA-CFA document.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AloaContent%3ADescribeLoaResponse%27"><span class="annot"><span class="annottext">DescribeLoaResponse -&gt; Maybe Base64
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AloaContent%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var hs-var">loaContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The standard media type for the LOA-CFA document. The only supported</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- value is application\/pdf.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AloaContentType%3ADescribeLoaResponse%27"><span class="annot"><span class="annottext">DescribeLoaResponse -&gt; Maybe LoaContentType
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AloaContentType%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var hs-var">loaContentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.LoaContentType.html#LoaContentType"><span class="hs-identifier hs-type">LoaContentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeLoaResponse%27"><span class="annot"><span class="annottext">DescribeLoaResponse -&gt; Int
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AhttpStatus%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295612"><span id="local-6989586621679295614"><span class="annot"><span class="annottext">DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool
+(DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool)
+-&gt; (DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool)
+-&gt; Eq DescribeLoaResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool
+$c/= :: DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool
+== :: DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool
+$c== :: DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295604"><span id="local-6989586621679295606"><span id="local-6989586621679295608"><span id="local-6989586621679295610"><span class="annot"><span class="annottext">ReadPrec [DescribeLoaResponse]
+ReadPrec DescribeLoaResponse
+Int -&gt; ReadS DescribeLoaResponse
+ReadS [DescribeLoaResponse]
+(Int -&gt; ReadS DescribeLoaResponse)
+-&gt; ReadS [DescribeLoaResponse]
+-&gt; ReadPrec DescribeLoaResponse
+-&gt; ReadPrec [DescribeLoaResponse]
+-&gt; Read DescribeLoaResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeLoaResponse]
+$creadListPrec :: ReadPrec [DescribeLoaResponse]
+readPrec :: ReadPrec DescribeLoaResponse
+$creadPrec :: ReadPrec DescribeLoaResponse
+readList :: ReadS [DescribeLoaResponse]
+$creadList :: ReadS [DescribeLoaResponse]
+readsPrec :: Int -&gt; ReadS DescribeLoaResponse
+$creadsPrec :: Int -&gt; ReadS DescribeLoaResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295598"><span id="local-6989586621679295600"><span id="local-6989586621679295602"><span class="annot"><span class="annottext">Int -&gt; DescribeLoaResponse -&gt; ShowS
+[DescribeLoaResponse] -&gt; ShowS
+DescribeLoaResponse -&gt; String
+(Int -&gt; DescribeLoaResponse -&gt; ShowS)
+-&gt; (DescribeLoaResponse -&gt; String)
+-&gt; ([DescribeLoaResponse] -&gt; ShowS)
+-&gt; Show DescribeLoaResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeLoaResponse] -&gt; ShowS
+$cshowList :: [DescribeLoaResponse] -&gt; ShowS
+show :: DescribeLoaResponse -&gt; String
+$cshow :: DescribeLoaResponse -&gt; String
+showsPrec :: Int -&gt; DescribeLoaResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeLoaResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeLoaResponse -&gt; Rep DescribeLoaResponse x)
+-&gt; (forall x. Rep DescribeLoaResponse x -&gt; DescribeLoaResponse)
+-&gt; Generic DescribeLoaResponse
+forall x. Rep DescribeLoaResponse x -&gt; DescribeLoaResponse
+forall x. DescribeLoaResponse -&gt; Rep DescribeLoaResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeLoaResponse x -&gt; DescribeLoaResponse
+$cfrom :: forall x. DescribeLoaResponse -&gt; Rep DescribeLoaResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Create a value of 'DescribeLoaResponse' with all optional fields omitted.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'loaContent', 'describeLoaResponse_loaContent' - The binary contents of the LOA-CFA document.--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'loaContentType', 'describeLoaResponse_loaContentType' - The standard media type for the LOA-CFA document. The only supported</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- value is application\/pdf.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'httpStatus', 'describeLoaResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#newDescribeLoaResponse"><span class="hs-identifier hs-type">newDescribeLoaResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span>
+</span><span id="line-201"></span><span id="newDescribeLoaResponse"><span class="annot"><span class="annottext">newDescribeLoaResponse :: Int -&gt; DescribeLoaResponse
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#newDescribeLoaResponse"><span class="hs-identifier hs-var hs-var">newDescribeLoaResponse</span></a></span></span><span> </span><span id="local-6989586621679295595"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295595"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">DescribeLoaResponse' :: Maybe Base64 -&gt; Maybe LoaContentType -&gt; Int -&gt; DescribeLoaResponse
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loaContent:DescribeLoaResponse' :: Maybe Base64
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AloaContent%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var">loaContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:loaContentType:DescribeLoaResponse' :: Maybe LoaContentType
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AloaContentType%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var">loaContentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLoaResponse' :: Int
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AhttpStatus%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295595"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The binary contents of the LOA-CFA document.--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoaResponse_loaContent"><span class="hs-identifier hs-type">describeLoaResponse_loaContent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="describeLoaResponse_loaContent"><span class="annot"><span class="annottext">describeLoaResponse_loaContent :: (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; DescribeLoaResponse -&gt; f DescribeLoaResponse
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoaResponse_loaContent"><span class="hs-identifier hs-var hs-var">describeLoaResponse_loaContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLoaResponse -&gt; Maybe Base64)
+-&gt; (DescribeLoaResponse -&gt; Maybe Base64 -&gt; DescribeLoaResponse)
+-&gt; Lens
+     DescribeLoaResponse
+     DescribeLoaResponse
+     (Maybe Base64)
+     (Maybe Base64)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295594"><span class="annot"><span class="annottext">Maybe Base64
+loaContent :: Maybe Base64
+$sel:loaContent:DescribeLoaResponse' :: DescribeLoaResponse -&gt; Maybe Base64
+</span><a href="#local-6989586621679295594"><span class="hs-identifier hs-var hs-var">loaContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679295594"><span class="hs-identifier hs-var">loaContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295593"><span class="annot"><span class="annottext">s :: DescribeLoaResponse
+</span><a href="#local-6989586621679295593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295592"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679295592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoaResponse
+</span><a href="#local-6989586621679295593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loaContent:DescribeLoaResponse' :: Maybe Base64
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AloaContent%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var">loaContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679295592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+ -&gt; DescribeLoaResponse -&gt; f DescribeLoaResponse)
+-&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
+    -&gt; Maybe Base64 -&gt; f (Maybe Base64))
+-&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; DescribeLoaResponse
+-&gt; f DescribeLoaResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso Base64 Base64 ByteString ByteString
+-&gt; Iso
+     (Maybe Base64) (Maybe Base64) (Maybe ByteString) (Maybe ByteString)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso Base64 Base64 ByteString ByteString
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The standard media type for the LOA-CFA document. The only supported</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- value is application\/pdf.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoaResponse_loaContentType"><span class="hs-identifier hs-type">describeLoaResponse_loaContentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.LoaContentType.html#LoaContentType"><span class="hs-identifier hs-type">LoaContentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="describeLoaResponse_loaContentType"><span class="annot"><span class="annottext">describeLoaResponse_loaContentType :: (Maybe LoaContentType -&gt; f (Maybe LoaContentType))
+-&gt; DescribeLoaResponse -&gt; f DescribeLoaResponse
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoaResponse_loaContentType"><span class="hs-identifier hs-var hs-var">describeLoaResponse_loaContentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLoaResponse -&gt; Maybe LoaContentType)
+-&gt; (DescribeLoaResponse
+    -&gt; Maybe LoaContentType -&gt; DescribeLoaResponse)
+-&gt; Lens
+     DescribeLoaResponse
+     DescribeLoaResponse
+     (Maybe LoaContentType)
+     (Maybe LoaContentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295588"><span class="annot"><span class="annottext">Maybe LoaContentType
+loaContentType :: Maybe LoaContentType
+$sel:loaContentType:DescribeLoaResponse' :: DescribeLoaResponse -&gt; Maybe LoaContentType
+</span><a href="#local-6989586621679295588"><span class="hs-identifier hs-var hs-var">loaContentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><a href="#local-6989586621679295588"><span class="hs-identifier hs-var">loaContentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295587"><span class="annot"><span class="annottext">s :: DescribeLoaResponse
+</span><a href="#local-6989586621679295587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295586"><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><a href="#local-6989586621679295586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoaResponse
+</span><a href="#local-6989586621679295587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loaContentType:DescribeLoaResponse' :: Maybe LoaContentType
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AloaContentType%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var">loaContentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><a href="#local-6989586621679295586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoaResponse_httpStatus"><span class="hs-identifier hs-type">describeLoaResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-223"></span><span id="describeLoaResponse_httpStatus"><span class="annot"><span class="annottext">describeLoaResponse_httpStatus :: (Int -&gt; f Int) -&gt; DescribeLoaResponse -&gt; f DescribeLoaResponse
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#describeLoaResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeLoaResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLoaResponse -&gt; Int)
+-&gt; (DescribeLoaResponse -&gt; Int -&gt; DescribeLoaResponse)
+-&gt; Lens DescribeLoaResponse DescribeLoaResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295585"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeLoaResponse' :: DescribeLoaResponse -&gt; Int
+</span><a href="#local-6989586621679295585"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295585"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295584"><span class="annot"><span class="annottext">s :: DescribeLoaResponse
+</span><a href="#local-6989586621679295584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295583"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoaResponse
+</span><a href="#local-6989586621679295584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLoaResponse' :: Int
+</span><a href="Amazonka.DirectConnect.DescribeLoa.html#%24sel%3AhttpStatus%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295581"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span></span><span>
+</span><span id="line-226"></span></pre></body></html>

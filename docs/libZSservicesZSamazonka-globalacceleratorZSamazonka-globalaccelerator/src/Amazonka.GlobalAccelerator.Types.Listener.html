@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GlobalAccelerator.Types.Listener</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GlobalAccelerator.Types.Listener</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.ClientAffinity.html"><span class="hs-identifier">Amazonka.GlobalAccelerator.Types.ClientAffinity</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.PortRange.html"><span class="hs-identifier">Amazonka.GlobalAccelerator.Types.PortRange</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Protocol.html"><span class="hs-identifier">Amazonka.GlobalAccelerator.Types.Protocol</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A complex type for a listener.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newListener' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679238467"><span id="local-6989586621679238468"></span></span><span class="hs-keyword">data</span><span> </span><span id="Listener"><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-var">Listener</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Listener%27"><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener%27"><span class="hs-identifier hs-var">Listener'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of port ranges for the connections from clients to the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- accelerator.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AportRanges%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe (NonEmpty PortRange)
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#%24sel%3AportRanges%3AListener%27"><span class="hs-identifier hs-var hs-var">portRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the listener.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlistenerArn%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe Text
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#%24sel%3AlistenerArn%3AListener%27"><span class="hs-identifier hs-var hs-var">listenerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The protocol for the connections from clients to the accelerator.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aprotocol%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe Protocol
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#%24sel%3Aprotocol%3AListener%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Client affinity lets you direct all requests from a user to the same</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- endpoint, if you have stateful applications, regardless of the port and</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- protocol of the client request. Client affinity gives you control over</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- whether to always route each client to the same specific endpoint.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- AWS Global Accelerator uses a consistent-flow hashing algorithm to</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- choose the optimal endpoint for a connection. If client affinity is</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @NONE@, Global Accelerator uses the \&quot;five-tuple\&quot; (5-tuple)</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- properties&#8212;source IP address, source port, destination IP address,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- destination port, and protocol&#8212;to select the hash value, and then</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- chooses the best endpoint. However, with this setting, if someone uses</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- different ports to connect to Global Accelerator, their connections</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- might not be always routed to the same endpoint because the hash value</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- changes.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- If you want a given client to always be routed to the same endpoint, set</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- client affinity to @SOURCE_IP@ instead. When you use the @SOURCE_IP@</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- setting, Global Accelerator uses the \&quot;two-tuple\&quot; (2-tuple) properties&#8212;</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- source (client) IP address and destination IP address&#8212;to select the hash</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- The default value is @NONE@.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AclientAffinity%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe ClientAffinity
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#%24sel%3AclientAffinity%3AListener%27"><span class="hs-identifier hs-var hs-var">clientAffinity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.ClientAffinity.html#ClientAffinity"><span class="hs-identifier hs-type">ClientAffinity</span></a></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238458"><span id="local-6989586621679238460"><span class="annot"><span class="annottext">Listener -&gt; Listener -&gt; Bool
+(Listener -&gt; Listener -&gt; Bool)
+-&gt; (Listener -&gt; Listener -&gt; Bool) -&gt; Eq Listener
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Listener -&gt; Listener -&gt; Bool
+$c/= :: Listener -&gt; Listener -&gt; Bool
+== :: Listener -&gt; Listener -&gt; Bool
+$c== :: Listener -&gt; Listener -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238449"><span id="local-6989586621679238451"><span id="local-6989586621679238453"><span id="local-6989586621679238455"><span class="annot"><span class="annottext">ReadPrec [Listener]
+ReadPrec Listener
+Int -&gt; ReadS Listener
+ReadS [Listener]
+(Int -&gt; ReadS Listener)
+-&gt; ReadS [Listener]
+-&gt; ReadPrec Listener
+-&gt; ReadPrec [Listener]
+-&gt; Read Listener
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Listener]
+$creadListPrec :: ReadPrec [Listener]
+readPrec :: ReadPrec Listener
+$creadPrec :: ReadPrec Listener
+readList :: ReadS [Listener]
+$creadList :: ReadS [Listener]
+readsPrec :: Int -&gt; ReadS Listener
+$creadsPrec :: Int -&gt; ReadS Listener
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238442"><span id="local-6989586621679238444"><span id="local-6989586621679238446"><span class="annot"><span class="annottext">Int -&gt; Listener -&gt; ShowS
+[Listener] -&gt; ShowS
+Listener -&gt; String
+(Int -&gt; Listener -&gt; ShowS)
+-&gt; (Listener -&gt; String) -&gt; ([Listener] -&gt; ShowS) -&gt; Show Listener
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Listener] -&gt; ShowS
+$cshowList :: [Listener] -&gt; ShowS
+show :: Listener -&gt; String
+$cshow :: Listener -&gt; String
+showsPrec :: Int -&gt; Listener -&gt; ShowS
+$cshowsPrec :: Int -&gt; Listener -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Listener -&gt; Rep Listener x)
+-&gt; (forall x. Rep Listener x -&gt; Listener) -&gt; Generic Listener
+forall x. Rep Listener x -&gt; Listener
+forall x. Listener -&gt; Rep Listener x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Listener x -&gt; Listener
+$cfrom :: forall x. Listener -&gt; Rep Listener x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'Listener' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'portRanges', 'listener_portRanges' - The list of port ranges for the connections from clients to the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- accelerator.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'listenerArn', 'listener_listenerArn' - The Amazon Resource Name (ARN) of the listener.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'protocol', 'listener_protocol' - The protocol for the connections from clients to the accelerator.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'clientAffinity', 'listener_clientAffinity' - Client affinity lets you direct all requests from a user to the same</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- endpoint, if you have stateful applications, regardless of the port and</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- protocol of the client request. Client affinity gives you control over</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- whether to always route each client to the same specific endpoint.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- AWS Global Accelerator uses a consistent-flow hashing algorithm to</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- choose the optimal endpoint for a connection. If client affinity is</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @NONE@, Global Accelerator uses the \&quot;five-tuple\&quot; (5-tuple)</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- properties&#8212;source IP address, source port, destination IP address,</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- destination port, and protocol&#8212;to select the hash value, and then</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- chooses the best endpoint. However, with this setting, if someone uses</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- different ports to connect to Global Accelerator, their connections</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- might not be always routed to the same endpoint because the hash value</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- changes.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- If you want a given client to always be routed to the same endpoint, set</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- client affinity to @SOURCE_IP@ instead. When you use the @SOURCE_IP@</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- setting, Global Accelerator uses the \&quot;two-tuple\&quot; (2-tuple) properties&#8212;</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- source (client) IP address and destination IP address&#8212;to select the hash</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The default value is @NONE@.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#newListener"><span class="hs-identifier hs-type">newListener</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span>
+</span><span id="line-105"></span><span id="newListener"><span class="annot"><span class="annottext">newListener :: Listener
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#newListener"><span class="hs-identifier hs-var hs-var">newListener</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">Listener' :: Maybe (NonEmpty PortRange)
+-&gt; Maybe Text -&gt; Maybe Protocol -&gt; Maybe ClientAffinity -&gt; Listener
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:portRanges:Listener' :: Maybe (NonEmpty PortRange)
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#%24sel%3AportRanges%3AListener%27"><span class="hs-identifier hs-var">portRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty PortRange)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:listenerArn:Listener' :: Maybe Text
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#%24sel%3AlistenerArn%3AListener%27"><span class="hs-identifier hs-var">listenerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:Listener' :: Maybe Protocol
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#%24sel%3Aprotocol%3AListener%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientAffinity:Listener' :: Maybe ClientAffinity
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#%24sel%3AclientAffinity%3AListener%27"><span class="hs-identifier hs-var">clientAffinity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientAffinity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The list of port ranges for the connections from clients to the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- accelerator.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#listener_portRanges"><span class="hs-identifier hs-type">listener_portRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="listener_portRanges"><span class="annot"><span class="annottext">listener_portRanges :: (Maybe (NonEmpty PortRange) -&gt; f (Maybe (NonEmpty PortRange)))
+-&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#listener_portRanges"><span class="hs-identifier hs-var hs-var">listener_portRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe (NonEmpty PortRange))
+-&gt; (Listener -&gt; Maybe (NonEmpty PortRange) -&gt; Listener)
+-&gt; Lens
+     Listener
+     Listener
+     (Maybe (NonEmpty PortRange))
+     (Maybe (NonEmpty PortRange))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238433"><span class="annot"><span class="annottext">Maybe (NonEmpty PortRange)
+portRanges :: Maybe (NonEmpty PortRange)
+$sel:portRanges:Listener' :: Listener -&gt; Maybe (NonEmpty PortRange)
+</span><a href="#local-6989586621679238433"><span class="hs-identifier hs-var hs-var">portRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty PortRange)
+</span><a href="#local-6989586621679238433"><span class="hs-identifier hs-var">portRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238432"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679238432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238431"><span class="annot"><span class="annottext">Maybe (NonEmpty PortRange)
+</span><a href="#local-6989586621679238431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679238432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portRanges:Listener' :: Maybe (NonEmpty PortRange)
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#%24sel%3AportRanges%3AListener%27"><span class="hs-identifier hs-var">portRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty PortRange)
+</span><a href="#local-6989586621679238431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty PortRange) -&gt; f (Maybe (NonEmpty PortRange)))
+ -&gt; Listener -&gt; f Listener)
+-&gt; ((Maybe (NonEmpty PortRange) -&gt; f (Maybe (NonEmpty PortRange)))
+    -&gt; Maybe (NonEmpty PortRange) -&gt; f (Maybe (NonEmpty PortRange)))
+-&gt; (Maybe (NonEmpty PortRange) -&gt; f (Maybe (NonEmpty PortRange)))
+-&gt; Listener
+-&gt; f Listener
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty PortRange)
+  (NonEmpty PortRange)
+  (NonEmpty PortRange)
+  (NonEmpty PortRange)
+-&gt; Iso
+     (Maybe (NonEmpty PortRange))
+     (Maybe (NonEmpty PortRange))
+     (Maybe (NonEmpty PortRange))
+     (Maybe (NonEmpty PortRange))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty PortRange)
+  (NonEmpty PortRange)
+  (NonEmpty PortRange)
+  (NonEmpty PortRange)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the listener.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#listener_listenerArn"><span class="hs-identifier hs-type">listener_listenerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="listener_listenerArn"><span class="annot"><span class="annottext">listener_listenerArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#listener_listenerArn"><span class="hs-identifier hs-var hs-var">listener_listenerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe Text)
+-&gt; (Listener -&gt; Maybe Text -&gt; Listener)
+-&gt; Lens Listener Listener (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238426"><span class="annot"><span class="annottext">Maybe Text
+listenerArn :: Maybe Text
+$sel:listenerArn:Listener' :: Listener -&gt; Maybe Text
+</span><a href="#local-6989586621679238426"><span class="hs-identifier hs-var hs-var">listenerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238426"><span class="hs-identifier hs-var">listenerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238425"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679238425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238424"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679238425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listenerArn:Listener' :: Maybe Text
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#%24sel%3AlistenerArn%3AListener%27"><span class="hs-identifier hs-var">listenerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The protocol for the connections from clients to the accelerator.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#listener_protocol"><span class="hs-identifier hs-type">listener_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="listener_protocol"><span class="annot"><span class="annottext">listener_protocol :: (Maybe Protocol -&gt; f (Maybe Protocol)) -&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#listener_protocol"><span class="hs-identifier hs-var hs-var">listener_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe Protocol)
+-&gt; (Listener -&gt; Maybe Protocol -&gt; Listener)
+-&gt; Lens Listener Listener (Maybe Protocol) (Maybe Protocol)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238422"><span class="annot"><span class="annottext">Maybe Protocol
+protocol :: Maybe Protocol
+$sel:protocol:Listener' :: Listener -&gt; Maybe Protocol
+</span><a href="#local-6989586621679238422"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679238422"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238421"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679238421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238420"><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679238420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679238421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:Listener' :: Maybe Protocol
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#%24sel%3Aprotocol%3AListener%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679238420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Client affinity lets you direct all requests from a user to the same</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- endpoint, if you have stateful applications, regardless of the port and</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- protocol of the client request. Client affinity gives you control over</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- whether to always route each client to the same specific endpoint.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- AWS Global Accelerator uses a consistent-flow hashing algorithm to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- choose the optimal endpoint for a connection. If client affinity is</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- @NONE@, Global Accelerator uses the \&quot;five-tuple\&quot; (5-tuple)</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- properties&#8212;source IP address, source port, destination IP address,</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- destination port, and protocol&#8212;to select the hash value, and then</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- chooses the best endpoint. However, with this setting, if someone uses</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- different ports to connect to Global Accelerator, their connections</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- might not be always routed to the same endpoint because the hash value</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- changes.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- If you want a given client to always be routed to the same endpoint, set</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- client affinity to @SOURCE_IP@ instead. When you use the @SOURCE_IP@</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- setting, Global Accelerator uses the \&quot;two-tuple\&quot; (2-tuple) properties&#8212;</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- source (client) IP address and destination IP address&#8212;to select the hash</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The default value is @NONE@.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#listener_clientAffinity"><span class="hs-identifier hs-type">listener_clientAffinity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.ClientAffinity.html#ClientAffinity"><span class="hs-identifier hs-type">ClientAffinity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="listener_clientAffinity"><span class="annot"><span class="annottext">listener_clientAffinity :: (Maybe ClientAffinity -&gt; f (Maybe ClientAffinity))
+-&gt; Listener -&gt; f Listener
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#listener_clientAffinity"><span class="hs-identifier hs-var hs-var">listener_clientAffinity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe ClientAffinity)
+-&gt; (Listener -&gt; Maybe ClientAffinity -&gt; Listener)
+-&gt; Lens
+     Listener Listener (Maybe ClientAffinity) (Maybe ClientAffinity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238418"><span class="annot"><span class="annottext">Maybe ClientAffinity
+clientAffinity :: Maybe ClientAffinity
+$sel:clientAffinity:Listener' :: Listener -&gt; Maybe ClientAffinity
+</span><a href="#local-6989586621679238418"><span class="hs-identifier hs-var hs-var">clientAffinity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientAffinity
+</span><a href="#local-6989586621679238418"><span class="hs-identifier hs-var">clientAffinity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238417"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679238417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238416"><span class="annot"><span class="annottext">Maybe ClientAffinity
+</span><a href="#local-6989586621679238416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679238417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientAffinity:Listener' :: Maybe ClientAffinity
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#%24sel%3AclientAffinity%3AListener%27"><span class="hs-identifier hs-var">clientAffinity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientAffinity
+</span><a href="#local-6989586621679238416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238413"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679238411"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Listener
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Listener) -&gt; Value -&gt; Parser Listener
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Listener&quot;</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238408"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238408"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty PortRange)
+-&gt; Maybe Text -&gt; Maybe Protocol -&gt; Maybe ClientAffinity -&gt; Listener
+</span><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener%27"><span class="hs-identifier hs-var">Listener'</span></a></span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty PortRange)
+ -&gt; Maybe Text
+ -&gt; Maybe Protocol
+ -&gt; Maybe ClientAffinity
+ -&gt; Listener)
+-&gt; Parser (Maybe (NonEmpty PortRange))
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Protocol -&gt; Maybe ClientAffinity -&gt; Listener)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty PortRange))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PortRanges&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Protocol -&gt; Maybe ClientAffinity -&gt; Listener)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Protocol -&gt; Maybe ClientAffinity -&gt; Listener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListenerArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Protocol -&gt; Maybe ClientAffinity -&gt; Listener)
+-&gt; Parser (Maybe Protocol)
+-&gt; Parser (Maybe ClientAffinity -&gt; Listener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Protocol)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Protocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ClientAffinity -&gt; Listener)
+-&gt; Parser (Maybe ClientAffinity) -&gt; Parser Listener
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClientAffinity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientAffinity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238402"><span id="local-6989586621679238404"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238399"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

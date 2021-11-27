@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeDeploy.Types.LifecycleErrorCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeDeploy.Types.LifecycleErrorCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode"><span class="hs-identifier">LifecycleErrorCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_ScriptFailed"><span class="hs-identifier">LifecycleErrorCode_ScriptFailed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_ScriptMissing"><span class="hs-identifier">LifecycleErrorCode_ScriptMissing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_ScriptNotExecutable"><span class="hs-identifier">LifecycleErrorCode_ScriptNotExecutable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_ScriptTimedOut"><span class="hs-identifier">LifecycleErrorCode_ScriptTimedOut</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_Success"><span class="hs-identifier">LifecycleErrorCode_Success</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_UnknownError"><span class="hs-identifier">LifecycleErrorCode_UnknownError</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679309667"><span id="local-6989586621679309668"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LifecycleErrorCode"><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode"><span class="hs-identifier hs-var">LifecycleErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecycleErrorCode%27"><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode%27"><span class="hs-identifier hs-var">LifecycleErrorCode'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLifecycleErrorCode"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; Text
+</span><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#fromLifecycleErrorCode"><span class="hs-identifier hs-var hs-var">fromLifecycleErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309659"><span id="local-6989586621679309661"><span id="local-6989586621679309663"><span class="annot"><span class="annottext">Int -&gt; LifecycleErrorCode -&gt; ShowS
+[LifecycleErrorCode] -&gt; ShowS
+LifecycleErrorCode -&gt; String
+(Int -&gt; LifecycleErrorCode -&gt; ShowS)
+-&gt; (LifecycleErrorCode -&gt; String)
+-&gt; ([LifecycleErrorCode] -&gt; ShowS)
+-&gt; Show LifecycleErrorCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LifecycleErrorCode] -&gt; ShowS
+$cshowList :: [LifecycleErrorCode] -&gt; ShowS
+show :: LifecycleErrorCode -&gt; String
+$cshow :: LifecycleErrorCode -&gt; String
+showsPrec :: Int -&gt; LifecycleErrorCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; LifecycleErrorCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679309650"><span id="local-6989586621679309652"><span id="local-6989586621679309654"><span id="local-6989586621679309656"><span class="annot"><span class="annottext">ReadPrec [LifecycleErrorCode]
+ReadPrec LifecycleErrorCode
+Int -&gt; ReadS LifecycleErrorCode
+ReadS [LifecycleErrorCode]
+(Int -&gt; ReadS LifecycleErrorCode)
+-&gt; ReadS [LifecycleErrorCode]
+-&gt; ReadPrec LifecycleErrorCode
+-&gt; ReadPrec [LifecycleErrorCode]
+-&gt; Read LifecycleErrorCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LifecycleErrorCode]
+$creadListPrec :: ReadPrec [LifecycleErrorCode]
+readPrec :: ReadPrec LifecycleErrorCode
+$creadPrec :: ReadPrec LifecycleErrorCode
+readList :: ReadS [LifecycleErrorCode]
+$creadList :: ReadS [LifecycleErrorCode]
+readsPrec :: Int -&gt; ReadS LifecycleErrorCode
+$creadsPrec :: Int -&gt; ReadS LifecycleErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679309645"><span id="local-6989586621679309647"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+(LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool)
+-&gt; (LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool)
+-&gt; Eq LifecycleErrorCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+$c/= :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+== :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+$c== :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679309629"><span id="local-6989586621679309631"><span id="local-6989586621679309633"><span id="local-6989586621679309635"><span id="local-6989586621679309637"><span id="local-6989586621679309639"><span id="local-6989586621679309641"><span class="annot"><span class="annottext">Eq LifecycleErrorCode
+Eq LifecycleErrorCode
+-&gt; (LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Ordering)
+-&gt; (LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool)
+-&gt; (LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool)
+-&gt; (LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool)
+-&gt; (LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool)
+-&gt; (LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; LifecycleErrorCode)
+-&gt; (LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; LifecycleErrorCode)
+-&gt; Ord LifecycleErrorCode
+LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Ordering
+LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; LifecycleErrorCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; LifecycleErrorCode
+$cmin :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; LifecycleErrorCode
+max :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; LifecycleErrorCode
+$cmax :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; LifecycleErrorCode
+&gt;= :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+$c&gt;= :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+&gt; :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+$c&gt; :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+&lt;= :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+$c&lt;= :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+&lt; :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+$c&lt; :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+compare :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Ordering
+$ccompare :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Ordering
+$cp1Ord :: Eq LifecycleErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LifecycleErrorCode -&gt; Rep LifecycleErrorCode x)
+-&gt; (forall x. Rep LifecycleErrorCode x -&gt; LifecycleErrorCode)
+-&gt; Generic LifecycleErrorCode
+forall x. Rep LifecycleErrorCode x -&gt; LifecycleErrorCode
+forall x. LifecycleErrorCode -&gt; Rep LifecycleErrorCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LifecycleErrorCode x -&gt; LifecycleErrorCode
+$cfrom :: forall x. LifecycleErrorCode -&gt; Rep LifecycleErrorCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309621"><span id="local-6989586621679309623"><span class="annot"><span class="annottext">Int -&gt; LifecycleErrorCode -&gt; Int
+LifecycleErrorCode -&gt; Int
+(Int -&gt; LifecycleErrorCode -&gt; Int)
+-&gt; (LifecycleErrorCode -&gt; Int) -&gt; Hashable LifecycleErrorCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LifecycleErrorCode -&gt; Int
+$chash :: LifecycleErrorCode -&gt; Int
+hashWithSalt :: Int -&gt; LifecycleErrorCode -&gt; Int
+$chashWithSalt :: Int -&gt; LifecycleErrorCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679309618"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; ()
+(LifecycleErrorCode -&gt; ()) -&gt; NFData LifecycleErrorCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LifecycleErrorCode -&gt; ()
+$crnf :: LifecycleErrorCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679309615"><span class="annot"><span class="annottext">Text -&gt; Either String LifecycleErrorCode
+(Text -&gt; Either String LifecycleErrorCode)
+-&gt; FromText LifecycleErrorCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LifecycleErrorCode
+$cfromText :: Text -&gt; Either String LifecycleErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679309612"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; Text
+(LifecycleErrorCode -&gt; Text) -&gt; ToText LifecycleErrorCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LifecycleErrorCode -&gt; Text
+$ctoText :: LifecycleErrorCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679309609"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; ByteString
+(LifecycleErrorCode -&gt; ByteString)
+-&gt; ToByteString LifecycleErrorCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LifecycleErrorCode -&gt; ByteString
+$ctoBS :: LifecycleErrorCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679309606"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; ByteStringBuilder
+(LifecycleErrorCode -&gt; ByteStringBuilder)
+-&gt; ToLog LifecycleErrorCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LifecycleErrorCode -&gt; ByteStringBuilder
+$cbuild :: LifecycleErrorCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679309603"><span class="annot"><span class="annottext">HeaderName -&gt; LifecycleErrorCode -&gt; [Header]
+(HeaderName -&gt; LifecycleErrorCode -&gt; [Header])
+-&gt; ToHeader LifecycleErrorCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LifecycleErrorCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LifecycleErrorCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679309600"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; QueryString
+(LifecycleErrorCode -&gt; QueryString) -&gt; ToQuery LifecycleErrorCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LifecycleErrorCode -&gt; QueryString
+$ctoQuery :: LifecycleErrorCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679309595"><span id="local-6989586621679309597"><span class="annot"><span class="annottext">Value -&gt; Parser [LifecycleErrorCode]
+Value -&gt; Parser LifecycleErrorCode
+(Value -&gt; Parser LifecycleErrorCode)
+-&gt; (Value -&gt; Parser [LifecycleErrorCode])
+-&gt; FromJSON LifecycleErrorCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LifecycleErrorCode]
+$cparseJSONList :: Value -&gt; Parser [LifecycleErrorCode]
+parseJSON :: Value -&gt; Parser LifecycleErrorCode
+$cparseJSON :: Value -&gt; Parser LifecycleErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679309590"><span id="local-6989586621679309592"><span class="annot"><span class="annottext">FromJSONKeyFunction [LifecycleErrorCode]
+FromJSONKeyFunction LifecycleErrorCode
+FromJSONKeyFunction LifecycleErrorCode
+-&gt; FromJSONKeyFunction [LifecycleErrorCode]
+-&gt; FromJSONKey LifecycleErrorCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LifecycleErrorCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [LifecycleErrorCode]
+fromJSONKey :: FromJSONKeyFunction LifecycleErrorCode
+$cfromJSONKey :: FromJSONKeyFunction LifecycleErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679309581"><span id="local-6989586621679309583"><span id="local-6989586621679309585"><span id="local-6989586621679309587"><span class="annot"><span class="annottext">[LifecycleErrorCode] -&gt; Encoding
+[LifecycleErrorCode] -&gt; Value
+LifecycleErrorCode -&gt; Encoding
+LifecycleErrorCode -&gt; Value
+(LifecycleErrorCode -&gt; Value)
+-&gt; (LifecycleErrorCode -&gt; Encoding)
+-&gt; ([LifecycleErrorCode] -&gt; Value)
+-&gt; ([LifecycleErrorCode] -&gt; Encoding)
+-&gt; ToJSON LifecycleErrorCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LifecycleErrorCode] -&gt; Encoding
+$ctoEncodingList :: [LifecycleErrorCode] -&gt; Encoding
+toJSONList :: [LifecycleErrorCode] -&gt; Value
+$ctoJSONList :: [LifecycleErrorCode] -&gt; Value
+toEncoding :: LifecycleErrorCode -&gt; Encoding
+$ctoEncoding :: LifecycleErrorCode -&gt; Encoding
+toJSON :: LifecycleErrorCode -&gt; Value
+$ctoJSON :: LifecycleErrorCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679309576"><span id="local-6989586621679309578"><span class="annot"><span class="annottext">ToJSONKeyFunction [LifecycleErrorCode]
+ToJSONKeyFunction LifecycleErrorCode
+ToJSONKeyFunction LifecycleErrorCode
+-&gt; ToJSONKeyFunction [LifecycleErrorCode]
+-&gt; ToJSONKey LifecycleErrorCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LifecycleErrorCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [LifecycleErrorCode]
+toJSONKey :: ToJSONKeyFunction LifecycleErrorCode
+$ctoJSONKey :: ToJSONKeyFunction LifecycleErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679309573"><span class="annot"><span class="annottext">[Node] -&gt; Either String LifecycleErrorCode
+([Node] -&gt; Either String LifecycleErrorCode)
+-&gt; FromXML LifecycleErrorCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LifecycleErrorCode
+$cparseXML :: [Node] -&gt; Either String LifecycleErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679309570"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; XML
+(LifecycleErrorCode -&gt; XML) -&gt; ToXML LifecycleErrorCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LifecycleErrorCode -&gt; XML
+$ctoXML :: LifecycleErrorCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_ScriptFailed"><span class="hs-identifier hs-type">LifecycleErrorCode_ScriptFailed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode"><span class="hs-identifier hs-type">LifecycleErrorCode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifecycleErrorCode_ScriptFailed"><span id="%24mLifecycleErrorCode_ScriptFailed"><span id="LifecycleErrorCode_ScriptFailed"><span class="annot"><span class="annottext">$bLifecycleErrorCode_ScriptFailed :: LifecycleErrorCode
+$mLifecycleErrorCode_ScriptFailed :: forall r. LifecycleErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#%24bLifecycleErrorCode_ScriptFailed"><span class="hs-identifier hs-var hs-var hs-var">LifecycleErrorCode_ScriptFailed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode%27"><span class="hs-identifier hs-type">LifecycleErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ScriptFailed&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_ScriptMissing"><span class="hs-identifier hs-type">LifecycleErrorCode_ScriptMissing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode"><span class="hs-identifier hs-type">LifecycleErrorCode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifecycleErrorCode_ScriptMissing"><span id="%24mLifecycleErrorCode_ScriptMissing"><span id="LifecycleErrorCode_ScriptMissing"><span class="annot"><span class="annottext">$bLifecycleErrorCode_ScriptMissing :: LifecycleErrorCode
+$mLifecycleErrorCode_ScriptMissing :: forall r. LifecycleErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#%24bLifecycleErrorCode_ScriptMissing"><span class="hs-identifier hs-var hs-var hs-var">LifecycleErrorCode_ScriptMissing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode%27"><span class="hs-identifier hs-type">LifecycleErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ScriptMissing&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_ScriptNotExecutable"><span class="hs-identifier hs-type">LifecycleErrorCode_ScriptNotExecutable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode"><span class="hs-identifier hs-type">LifecycleErrorCode</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifecycleErrorCode_ScriptNotExecutable"><span id="%24mLifecycleErrorCode_ScriptNotExecutable"><span id="LifecycleErrorCode_ScriptNotExecutable"><span class="annot"><span class="annottext">$bLifecycleErrorCode_ScriptNotExecutable :: LifecycleErrorCode
+$mLifecycleErrorCode_ScriptNotExecutable :: forall r. LifecycleErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#%24bLifecycleErrorCode_ScriptNotExecutable"><span class="hs-identifier hs-var hs-var hs-var">LifecycleErrorCode_ScriptNotExecutable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode%27"><span class="hs-identifier hs-type">LifecycleErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ScriptNotExecutable&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_ScriptTimedOut"><span class="hs-identifier hs-type">LifecycleErrorCode_ScriptTimedOut</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode"><span class="hs-identifier hs-type">LifecycleErrorCode</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifecycleErrorCode_ScriptTimedOut"><span id="%24mLifecycleErrorCode_ScriptTimedOut"><span id="LifecycleErrorCode_ScriptTimedOut"><span class="annot"><span class="annottext">$bLifecycleErrorCode_ScriptTimedOut :: LifecycleErrorCode
+$mLifecycleErrorCode_ScriptTimedOut :: forall r. LifecycleErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#%24bLifecycleErrorCode_ScriptTimedOut"><span class="hs-identifier hs-var hs-var hs-var">LifecycleErrorCode_ScriptTimedOut</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode%27"><span class="hs-identifier hs-type">LifecycleErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ScriptTimedOut&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_Success"><span class="hs-identifier hs-type">LifecycleErrorCode_Success</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode"><span class="hs-identifier hs-type">LifecycleErrorCode</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifecycleErrorCode_Success"><span id="%24mLifecycleErrorCode_Success"><span id="LifecycleErrorCode_Success"><span class="annot"><span class="annottext">$bLifecycleErrorCode_Success :: LifecycleErrorCode
+$mLifecycleErrorCode_Success :: forall r. LifecycleErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#%24bLifecycleErrorCode_Success"><span class="hs-identifier hs-var hs-var hs-var">LifecycleErrorCode_Success</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode%27"><span class="hs-identifier hs-type">LifecycleErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Success&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_UnknownError"><span class="hs-identifier hs-type">LifecycleErrorCode_UnknownError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode"><span class="hs-identifier hs-type">LifecycleErrorCode</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifecycleErrorCode_UnknownError"><span id="%24mLifecycleErrorCode_UnknownError"><span id="LifecycleErrorCode_UnknownError"><span class="annot"><span class="annottext">$bLifecycleErrorCode_UnknownError :: LifecycleErrorCode
+$mLifecycleErrorCode_UnknownError :: forall r. LifecycleErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#%24bLifecycleErrorCode_UnknownError"><span class="hs-identifier hs-var hs-var hs-var">LifecycleErrorCode_UnknownError</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode%27"><span class="hs-identifier hs-type">LifecycleErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UnknownError&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_ScriptFailed"><span class="hs-pragma hs-type">LifecycleErrorCode_ScriptFailed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_ScriptMissing"><span class="hs-pragma hs-type">LifecycleErrorCode_ScriptMissing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_ScriptNotExecutable"><span class="hs-pragma hs-type">LifecycleErrorCode_ScriptNotExecutable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_ScriptTimedOut"><span class="hs-pragma hs-type">LifecycleErrorCode_ScriptTimedOut</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_Success"><span class="hs-pragma hs-type">LifecycleErrorCode_Success</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode_UnknownError"><span class="hs-pragma hs-type">LifecycleErrorCode_UnknownError</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode%27"><span class="hs-pragma hs-type">LifecycleErrorCode'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

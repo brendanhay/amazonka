@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTThingsGraph.CreateSystemTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a system. The system is validated against the entities in the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- latest version of the user\'s namespace unless another namespace version</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- is specified in the request.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTThingsGraph.CreateSystemTemplate</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier">CreateSystemTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#newCreateSystemTemplate"><span class="hs-identifier">newCreateSystemTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#createSystemTemplate_compatibleNamespaceVersion"><span class="hs-identifier">createSystemTemplate_compatibleNamespaceVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#createSystemTemplate_definition"><span class="hs-identifier">createSystemTemplate_definition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse"><span class="hs-identifier">CreateSystemTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#newCreateSystemTemplateResponse"><span class="hs-identifier">newCreateSystemTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#createSystemTemplateResponse_summary"><span class="hs-identifier">createSystemTemplateResponse_summary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#createSystemTemplateResponse_httpStatus"><span class="hs-identifier">createSystemTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.html"><span class="hs-identifier">Amazonka.IoTThingsGraph.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newCreateSystemTemplate' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679226721"><span id="local-6989586621679226722"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSystemTemplate"><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-var">CreateSystemTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSystemTemplate%27"><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate%27"><span class="hs-identifier hs-var">CreateSystemTemplate'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The namespace version in which the system is to be created.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- If no value is specified, the latest version is used by default.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AcompatibleNamespaceVersion%3ACreateSystemTemplate%27"><span class="annot"><span class="annottext">CreateSystemTemplate -&gt; Maybe Integer
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#%24sel%3AcompatibleNamespaceVersion%3ACreateSystemTemplate%27"><span class="hs-identifier hs-var hs-var">compatibleNamespaceVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The @DefinitionDocument@ used to create the system.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Adefinition%3ACreateSystemTemplate%27"><span class="annot"><span class="annottext">CreateSystemTemplate -&gt; DefinitionDocument
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#%24sel%3Adefinition%3ACreateSystemTemplate%27"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.DefinitionDocument.html#DefinitionDocument"><span class="hs-identifier hs-type">DefinitionDocument</span></a></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226714"><span id="local-6989586621679226716"><span class="annot"><span class="annottext">CreateSystemTemplate -&gt; CreateSystemTemplate -&gt; Bool
+(CreateSystemTemplate -&gt; CreateSystemTemplate -&gt; Bool)
+-&gt; (CreateSystemTemplate -&gt; CreateSystemTemplate -&gt; Bool)
+-&gt; Eq CreateSystemTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSystemTemplate -&gt; CreateSystemTemplate -&gt; Bool
+$c/= :: CreateSystemTemplate -&gt; CreateSystemTemplate -&gt; Bool
+== :: CreateSystemTemplate -&gt; CreateSystemTemplate -&gt; Bool
+$c== :: CreateSystemTemplate -&gt; CreateSystemTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226705"><span id="local-6989586621679226707"><span id="local-6989586621679226709"><span id="local-6989586621679226711"><span class="annot"><span class="annottext">ReadPrec [CreateSystemTemplate]
+ReadPrec CreateSystemTemplate
+Int -&gt; ReadS CreateSystemTemplate
+ReadS [CreateSystemTemplate]
+(Int -&gt; ReadS CreateSystemTemplate)
+-&gt; ReadS [CreateSystemTemplate]
+-&gt; ReadPrec CreateSystemTemplate
+-&gt; ReadPrec [CreateSystemTemplate]
+-&gt; Read CreateSystemTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSystemTemplate]
+$creadListPrec :: ReadPrec [CreateSystemTemplate]
+readPrec :: ReadPrec CreateSystemTemplate
+$creadPrec :: ReadPrec CreateSystemTemplate
+readList :: ReadS [CreateSystemTemplate]
+$creadList :: ReadS [CreateSystemTemplate]
+readsPrec :: Int -&gt; ReadS CreateSystemTemplate
+$creadsPrec :: Int -&gt; ReadS CreateSystemTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226698"><span id="local-6989586621679226700"><span id="local-6989586621679226702"><span class="annot"><span class="annottext">Int -&gt; CreateSystemTemplate -&gt; ShowS
+[CreateSystemTemplate] -&gt; ShowS
+CreateSystemTemplate -&gt; String
+(Int -&gt; CreateSystemTemplate -&gt; ShowS)
+-&gt; (CreateSystemTemplate -&gt; String)
+-&gt; ([CreateSystemTemplate] -&gt; ShowS)
+-&gt; Show CreateSystemTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSystemTemplate] -&gt; ShowS
+$cshowList :: [CreateSystemTemplate] -&gt; ShowS
+show :: CreateSystemTemplate -&gt; String
+$cshow :: CreateSystemTemplate -&gt; String
+showsPrec :: Int -&gt; CreateSystemTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSystemTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateSystemTemplate -&gt; Rep CreateSystemTemplate x)
+-&gt; (forall x. Rep CreateSystemTemplate x -&gt; CreateSystemTemplate)
+-&gt; Generic CreateSystemTemplate
+forall x. Rep CreateSystemTemplate x -&gt; CreateSystemTemplate
+forall x. CreateSystemTemplate -&gt; Rep CreateSystemTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateSystemTemplate x -&gt; CreateSystemTemplate
+$cfrom :: forall x. CreateSystemTemplate -&gt; Rep CreateSystemTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'CreateSystemTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'compatibleNamespaceVersion', 'createSystemTemplate_compatibleNamespaceVersion' - The namespace version in which the system is to be created.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- If no value is specified, the latest version is used by default.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'definition', 'createSystemTemplate_definition' - The @DefinitionDocument@ used to create the system.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#newCreateSystemTemplate"><span class="hs-identifier hs-type">newCreateSystemTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'definition'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.DefinitionDocument.html#DefinitionDocument"><span class="hs-identifier hs-type">DefinitionDocument</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span><span>
+</span><span id="line-80"></span><span id="newCreateSystemTemplate"><span class="annot"><span class="annottext">newCreateSystemTemplate :: DefinitionDocument -&gt; CreateSystemTemplate
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#newCreateSystemTemplate"><span class="hs-identifier hs-var hs-var">newCreateSystemTemplate</span></a></span></span><span> </span><span id="local-6989586621679226693"><span class="annot"><span class="annottext">DefinitionDocument
+</span><a href="#local-6989586621679226693"><span class="hs-identifier hs-var">pDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">CreateSystemTemplate' :: Maybe Integer -&gt; DefinitionDocument -&gt; CreateSystemTemplate
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate%27"><span class="hs-identifier hs-type">CreateSystemTemplate'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:compatibleNamespaceVersion:CreateSystemTemplate' :: Maybe Integer
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#%24sel%3AcompatibleNamespaceVersion%3ACreateSystemTemplate%27"><span class="hs-identifier hs-var">compatibleNamespaceVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:definition:CreateSystemTemplate' :: DefinitionDocument
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#%24sel%3Adefinition%3ACreateSystemTemplate%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DefinitionDocument
+</span><a href="#local-6989586621679226693"><span class="hs-identifier hs-var">pDefinition_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The namespace version in which the system is to be created.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- If no value is specified, the latest version is used by default.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#createSystemTemplate_compatibleNamespaceVersion"><span class="hs-identifier hs-type">createSystemTemplate_compatibleNamespaceVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="createSystemTemplate_compatibleNamespaceVersion"><span class="annot"><span class="annottext">createSystemTemplate_compatibleNamespaceVersion :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; CreateSystemTemplate -&gt; f CreateSystemTemplate
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#createSystemTemplate_compatibleNamespaceVersion"><span class="hs-identifier hs-var hs-var">createSystemTemplate_compatibleNamespaceVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemTemplate -&gt; Maybe Integer)
+-&gt; (CreateSystemTemplate -&gt; Maybe Integer -&gt; CreateSystemTemplate)
+-&gt; Lens
+     CreateSystemTemplate
+     CreateSystemTemplate
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate%27"><span class="hs-identifier hs-type">CreateSystemTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226690"><span class="annot"><span class="annottext">Maybe Integer
+compatibleNamespaceVersion :: Maybe Integer
+$sel:compatibleNamespaceVersion:CreateSystemTemplate' :: CreateSystemTemplate -&gt; Maybe Integer
+</span><a href="#local-6989586621679226690"><span class="hs-identifier hs-var hs-var">compatibleNamespaceVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679226690"><span class="hs-identifier hs-var">compatibleNamespaceVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226689"><span class="annot"><span class="annottext">s :: CreateSystemTemplate
+</span><a href="#local-6989586621679226689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate%27"><span class="hs-identifier hs-type">CreateSystemTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226688"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679226688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemTemplate
+</span><a href="#local-6989586621679226689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compatibleNamespaceVersion:CreateSystemTemplate' :: Maybe Integer
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#%24sel%3AcompatibleNamespaceVersion%3ACreateSystemTemplate%27"><span class="hs-identifier hs-var">compatibleNamespaceVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679226688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The @DefinitionDocument@ used to create the system.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#createSystemTemplate_definition"><span class="hs-identifier hs-type">createSystemTemplate_definition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.DefinitionDocument.html#DefinitionDocument"><span class="hs-identifier hs-type">DefinitionDocument</span></a></span><span>
+</span><span id="line-95"></span><span id="createSystemTemplate_definition"><span class="annot"><span class="annottext">createSystemTemplate_definition :: (DefinitionDocument -&gt; f DefinitionDocument)
+-&gt; CreateSystemTemplate -&gt; f CreateSystemTemplate
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#createSystemTemplate_definition"><span class="hs-identifier hs-var hs-var">createSystemTemplate_definition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemTemplate -&gt; DefinitionDocument)
+-&gt; (CreateSystemTemplate
+    -&gt; DefinitionDocument -&gt; CreateSystemTemplate)
+-&gt; Lens
+     CreateSystemTemplate
+     CreateSystemTemplate
+     DefinitionDocument
+     DefinitionDocument
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate%27"><span class="hs-identifier hs-type">CreateSystemTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226687"><span class="annot"><span class="annottext">DefinitionDocument
+definition :: DefinitionDocument
+$sel:definition:CreateSystemTemplate' :: CreateSystemTemplate -&gt; DefinitionDocument
+</span><a href="#local-6989586621679226687"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefinitionDocument
+</span><a href="#local-6989586621679226687"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226686"><span class="annot"><span class="annottext">s :: CreateSystemTemplate
+</span><a href="#local-6989586621679226686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate%27"><span class="hs-identifier hs-type">CreateSystemTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226685"><span class="annot"><span class="annottext">DefinitionDocument
+</span><a href="#local-6989586621679226685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemTemplate
+</span><a href="#local-6989586621679226686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:CreateSystemTemplate' :: DefinitionDocument
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#%24sel%3Adefinition%3ACreateSystemTemplate%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DefinitionDocument
+</span><a href="#local-6989586621679226685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse"><span class="hs-identifier hs-type">CreateSystemTemplateResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679226681"><span class="annot"><span class="annottext">request :: CreateSystemTemplate -&gt; Request CreateSystemTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateSystemTemplate -&gt; Request CreateSystemTemplate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTThingsGraph.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679226677"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateSystemTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateSystemTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateSystemTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateSystemTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateSystemTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226674"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226674"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226673"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679226673"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226672"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226672"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe SystemTemplateSummary -&gt; Int -&gt; CreateSystemTemplateResponse
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse%27"><span class="hs-identifier hs-var">CreateSystemTemplateResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SystemTemplateSummary
+ -&gt; Int -&gt; CreateSystemTemplateResponse)
+-&gt; Either String (Maybe SystemTemplateSummary)
+-&gt; Either String (Int -&gt; CreateSystemTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe SystemTemplateSummary)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;summary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateSystemTemplateResponse)
+-&gt; Either String Int -&gt; Either String CreateSystemTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226674"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226664"><span id="local-6989586621679226666"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226661"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679226657"><span class="annot"><span class="annottext">toHeaders :: CreateSystemTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateSystemTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IotThingsGraphFrontEndService.CreateSystemTemplate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226647"><span id="local-6989586621679226649"><span id="local-6989586621679226651"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679226645"><span class="annot"><span class="annottext">toJSON :: CreateSystemTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate%27"><span class="hs-identifier hs-type">CreateSystemTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226642"><span id="local-6989586621679226643"><span class="annot"><span class="annottext">Maybe Integer
+DefinitionDocument
+definition :: DefinitionDocument
+compatibleNamespaceVersion :: Maybe Integer
+$sel:definition:CreateSystemTemplate' :: CreateSystemTemplate -&gt; DefinitionDocument
+$sel:compatibleNamespaceVersion:CreateSystemTemplate' :: CreateSystemTemplate -&gt; Maybe Integer
+</span><a href="#local-6989586621679226642"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;compatibleNamespaceVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679226643"><span class="hs-identifier hs-var">compatibleNamespaceVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;definition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; DefinitionDocument -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DefinitionDocument
+</span><a href="#local-6989586621679226642"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679226636"><span class="annot"><span class="annottext">toPath :: CreateSystemTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateSystemTemplate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplate"><span class="hs-identifier hs-type">CreateSystemTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679226632"><span class="annot"><span class="annottext">toQuery :: CreateSystemTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateSystemTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newCreateSystemTemplateResponse' smart constructor.</span><span>
+</span><span id="line-146"></span><span id="local-6989586621679226629"><span id="local-6989586621679226630"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSystemTemplateResponse"><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse"><span class="hs-identifier hs-var">CreateSystemTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSystemTemplateResponse%27"><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse%27"><span class="hs-identifier hs-var">CreateSystemTemplateResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The summary object that describes the created system.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3Asummary%3ACreateSystemTemplateResponse%27"><span class="annot"><span class="annottext">CreateSystemTemplateResponse -&gt; Maybe SystemTemplateSummary
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#%24sel%3Asummary%3ACreateSystemTemplateResponse%27"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.SystemTemplateSummary.html#SystemTemplateSummary"><span class="hs-identifier hs-type">SystemTemplateSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateSystemTemplateResponse%27"><span class="annot"><span class="annottext">CreateSystemTemplateResponse -&gt; Int
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#%24sel%3AhttpStatus%3ACreateSystemTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226623"><span id="local-6989586621679226625"><span class="annot"><span class="annottext">CreateSystemTemplateResponse
+-&gt; CreateSystemTemplateResponse -&gt; Bool
+(CreateSystemTemplateResponse
+ -&gt; CreateSystemTemplateResponse -&gt; Bool)
+-&gt; (CreateSystemTemplateResponse
+    -&gt; CreateSystemTemplateResponse -&gt; Bool)
+-&gt; Eq CreateSystemTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSystemTemplateResponse
+-&gt; CreateSystemTemplateResponse -&gt; Bool
+$c/= :: CreateSystemTemplateResponse
+-&gt; CreateSystemTemplateResponse -&gt; Bool
+== :: CreateSystemTemplateResponse
+-&gt; CreateSystemTemplateResponse -&gt; Bool
+$c== :: CreateSystemTemplateResponse
+-&gt; CreateSystemTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226615"><span id="local-6989586621679226617"><span id="local-6989586621679226619"><span id="local-6989586621679226621"><span class="annot"><span class="annottext">ReadPrec [CreateSystemTemplateResponse]
+ReadPrec CreateSystemTemplateResponse
+Int -&gt; ReadS CreateSystemTemplateResponse
+ReadS [CreateSystemTemplateResponse]
+(Int -&gt; ReadS CreateSystemTemplateResponse)
+-&gt; ReadS [CreateSystemTemplateResponse]
+-&gt; ReadPrec CreateSystemTemplateResponse
+-&gt; ReadPrec [CreateSystemTemplateResponse]
+-&gt; Read CreateSystemTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSystemTemplateResponse]
+$creadListPrec :: ReadPrec [CreateSystemTemplateResponse]
+readPrec :: ReadPrec CreateSystemTemplateResponse
+$creadPrec :: ReadPrec CreateSystemTemplateResponse
+readList :: ReadS [CreateSystemTemplateResponse]
+$creadList :: ReadS [CreateSystemTemplateResponse]
+readsPrec :: Int -&gt; ReadS CreateSystemTemplateResponse
+$creadsPrec :: Int -&gt; ReadS CreateSystemTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226609"><span id="local-6989586621679226611"><span id="local-6989586621679226613"><span class="annot"><span class="annottext">Int -&gt; CreateSystemTemplateResponse -&gt; ShowS
+[CreateSystemTemplateResponse] -&gt; ShowS
+CreateSystemTemplateResponse -&gt; String
+(Int -&gt; CreateSystemTemplateResponse -&gt; ShowS)
+-&gt; (CreateSystemTemplateResponse -&gt; String)
+-&gt; ([CreateSystemTemplateResponse] -&gt; ShowS)
+-&gt; Show CreateSystemTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSystemTemplateResponse] -&gt; ShowS
+$cshowList :: [CreateSystemTemplateResponse] -&gt; ShowS
+show :: CreateSystemTemplateResponse -&gt; String
+$cshow :: CreateSystemTemplateResponse -&gt; String
+showsPrec :: Int -&gt; CreateSystemTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSystemTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateSystemTemplateResponse -&gt; Rep CreateSystemTemplateResponse x)
+-&gt; (forall x.
+    Rep CreateSystemTemplateResponse x -&gt; CreateSystemTemplateResponse)
+-&gt; Generic CreateSystemTemplateResponse
+forall x.
+Rep CreateSystemTemplateResponse x -&gt; CreateSystemTemplateResponse
+forall x.
+CreateSystemTemplateResponse -&gt; Rep CreateSystemTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateSystemTemplateResponse x -&gt; CreateSystemTemplateResponse
+$cfrom :: forall x.
+CreateSystemTemplateResponse -&gt; Rep CreateSystemTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Create a value of 'CreateSystemTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'summary', 'createSystemTemplateResponse_summary' - The summary object that describes the created system.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'httpStatus', 'createSystemTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#newCreateSystemTemplateResponse"><span class="hs-identifier hs-type">newCreateSystemTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse"><span class="hs-identifier hs-type">CreateSystemTemplateResponse</span></a></span><span>
+</span><span id="line-169"></span><span id="newCreateSystemTemplateResponse"><span class="annot"><span class="annottext">newCreateSystemTemplateResponse :: Int -&gt; CreateSystemTemplateResponse
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#newCreateSystemTemplateResponse"><span class="hs-identifier hs-var hs-var">newCreateSystemTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679226606"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226606"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">CreateSystemTemplateResponse' :: Maybe SystemTemplateSummary -&gt; Int -&gt; CreateSystemTemplateResponse
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse%27"><span class="hs-identifier hs-type">CreateSystemTemplateResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:summary:CreateSystemTemplateResponse' :: Maybe SystemTemplateSummary
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#%24sel%3Asummary%3ACreateSystemTemplateResponse%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Maybe SystemTemplateSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSystemTemplateResponse' :: Int
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#%24sel%3AhttpStatus%3ACreateSystemTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226606"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The summary object that describes the created system.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#createSystemTemplateResponse_summary"><span class="hs-identifier hs-type">createSystemTemplateResponse_summary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse"><span class="hs-identifier hs-type">CreateSystemTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.SystemTemplateSummary.html#SystemTemplateSummary"><span class="hs-identifier hs-type">SystemTemplateSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="createSystemTemplateResponse_summary"><span class="annot"><span class="annottext">createSystemTemplateResponse_summary :: (Maybe SystemTemplateSummary -&gt; f (Maybe SystemTemplateSummary))
+-&gt; CreateSystemTemplateResponse -&gt; f CreateSystemTemplateResponse
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#createSystemTemplateResponse_summary"><span class="hs-identifier hs-var hs-var">createSystemTemplateResponse_summary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemTemplateResponse -&gt; Maybe SystemTemplateSummary)
+-&gt; (CreateSystemTemplateResponse
+    -&gt; Maybe SystemTemplateSummary -&gt; CreateSystemTemplateResponse)
+-&gt; Lens
+     CreateSystemTemplateResponse
+     CreateSystemTemplateResponse
+     (Maybe SystemTemplateSummary)
+     (Maybe SystemTemplateSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse%27"><span class="hs-identifier hs-type">CreateSystemTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226605"><span class="annot"><span class="annottext">Maybe SystemTemplateSummary
+summary :: Maybe SystemTemplateSummary
+$sel:summary:CreateSystemTemplateResponse' :: CreateSystemTemplateResponse -&gt; Maybe SystemTemplateSummary
+</span><a href="#local-6989586621679226605"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SystemTemplateSummary
+</span><a href="#local-6989586621679226605"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226604"><span class="annot"><span class="annottext">s :: CreateSystemTemplateResponse
+</span><a href="#local-6989586621679226604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse%27"><span class="hs-identifier hs-type">CreateSystemTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226603"><span class="annot"><span class="annottext">Maybe SystemTemplateSummary
+</span><a href="#local-6989586621679226603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemTemplateResponse
+</span><a href="#local-6989586621679226604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summary:CreateSystemTemplateResponse' :: Maybe SystemTemplateSummary
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#%24sel%3Asummary%3ACreateSystemTemplateResponse%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SystemTemplateSummary
+</span><a href="#local-6989586621679226603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse"><span class="hs-identifier hs-type">CreateSystemTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#createSystemTemplateResponse_httpStatus"><span class="hs-identifier hs-type">createSystemTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse"><span class="hs-identifier hs-type">CreateSystemTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-182"></span><span id="createSystemTemplateResponse_httpStatus"><span class="annot"><span class="annottext">createSystemTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateSystemTemplateResponse -&gt; f CreateSystemTemplateResponse
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#createSystemTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createSystemTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSystemTemplateResponse -&gt; Int)
+-&gt; (CreateSystemTemplateResponse
+    -&gt; Int -&gt; CreateSystemTemplateResponse)
+-&gt; Lens
+     CreateSystemTemplateResponse CreateSystemTemplateResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse%27"><span class="hs-identifier hs-type">CreateSystemTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226602"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateSystemTemplateResponse' :: CreateSystemTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679226602"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226602"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226601"><span class="annot"><span class="annottext">s :: CreateSystemTemplateResponse
+</span><a href="#local-6989586621679226601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse%27"><span class="hs-identifier hs-type">CreateSystemTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226600"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSystemTemplateResponse
+</span><a href="#local-6989586621679226601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSystemTemplateResponse' :: Int
+</span><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#%24sel%3AhttpStatus%3ACreateSystemTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse"><span class="hs-identifier hs-type">CreateSystemTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226598"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.CreateSystemTemplate.html#CreateSystemTemplateResponse"><span class="hs-identifier hs-type">CreateSystemTemplateResponse</span></a></span></span><span>
+</span><span id="line-185"></span></pre></body></html>

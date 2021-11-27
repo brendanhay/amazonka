@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization"><span class="hs-identifier">H264TemporalAdaptiveQuantization</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization_DISABLED"><span class="hs-identifier">H264TemporalAdaptiveQuantization_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization_ENABLED"><span class="hs-identifier">H264TemporalAdaptiveQuantization_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Only use this setting when you change the default value, AUTO, for the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- setting H264AdaptiveQuantization. When you keep all defaults, excluding</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- H264AdaptiveQuantization and all other adaptive quantization from your</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- JSON job specification, MediaConvert automatically applies the best</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- types of quantization for your video content. When you set</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- H264AdaptiveQuantization to a value other than AUTO, the default value</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- for H264TemporalAdaptiveQuantization is Enabled (ENABLED). Keep this</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- default value to adjust quantization within each frame based on temporal</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- variation of content complexity. When you enable this feature, the</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- encoder uses fewer bits on areas of the frame that aren\'t moving and</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- uses more bits on complex objects with sharp edges that move a lot. For</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- example, this feature improves the readability of text tickers on</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- newscasts and scoreboards on sports matches. Enabling this feature will</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- almost always improve your video quality. Note, though, that this</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- feature doesn\'t take into account where the viewer\'s attention is</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- likely to be. If viewers are likely to be focusing their attention on a</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- part of the screen that doesn\'t have moving objects with sharp edges,</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- such as sports athletes\' faces, you might choose to set</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- H264TemporalAdaptiveQuantization to Disabled (DISABLED). Related</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- setting: When you enable temporal quantization, adjust the strength of</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- the filter with the setting Adaptive quantization</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- (adaptiveQuantization). To manually enable or disable</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- H264TemporalAdaptiveQuantization, you must set Adaptive quantization</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- (H264AdaptiveQuantization) to a value other than AUTO.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679970392"><span id="local-6989586621679970393"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264TemporalAdaptiveQuantization"><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization"><span class="hs-identifier hs-var">H264TemporalAdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264TemporalAdaptiveQuantization%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization%27"><span class="hs-identifier hs-var">H264TemporalAdaptiveQuantization'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264TemporalAdaptiveQuantization"><span class="annot"><span class="annottext">H264TemporalAdaptiveQuantization -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#fromH264TemporalAdaptiveQuantization"><span class="hs-identifier hs-var hs-var">fromH264TemporalAdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679970384"><span id="local-6989586621679970386"><span id="local-6989586621679970388"><span class="annot"><span class="annottext">Int -&gt; H264TemporalAdaptiveQuantization -&gt; ShowS
+[H264TemporalAdaptiveQuantization] -&gt; ShowS
+H264TemporalAdaptiveQuantization -&gt; String
+(Int -&gt; H264TemporalAdaptiveQuantization -&gt; ShowS)
+-&gt; (H264TemporalAdaptiveQuantization -&gt; String)
+-&gt; ([H264TemporalAdaptiveQuantization] -&gt; ShowS)
+-&gt; Show H264TemporalAdaptiveQuantization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H264TemporalAdaptiveQuantization] -&gt; ShowS
+$cshowList :: [H264TemporalAdaptiveQuantization] -&gt; ShowS
+show :: H264TemporalAdaptiveQuantization -&gt; String
+$cshow :: H264TemporalAdaptiveQuantization -&gt; String
+showsPrec :: Int -&gt; H264TemporalAdaptiveQuantization -&gt; ShowS
+$cshowsPrec :: Int -&gt; H264TemporalAdaptiveQuantization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679970375"><span id="local-6989586621679970377"><span id="local-6989586621679970379"><span id="local-6989586621679970381"><span class="annot"><span class="annottext">ReadPrec [H264TemporalAdaptiveQuantization]
+ReadPrec H264TemporalAdaptiveQuantization
+Int -&gt; ReadS H264TemporalAdaptiveQuantization
+ReadS [H264TemporalAdaptiveQuantization]
+(Int -&gt; ReadS H264TemporalAdaptiveQuantization)
+-&gt; ReadS [H264TemporalAdaptiveQuantization]
+-&gt; ReadPrec H264TemporalAdaptiveQuantization
+-&gt; ReadPrec [H264TemporalAdaptiveQuantization]
+-&gt; Read H264TemporalAdaptiveQuantization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H264TemporalAdaptiveQuantization]
+$creadListPrec :: ReadPrec [H264TemporalAdaptiveQuantization]
+readPrec :: ReadPrec H264TemporalAdaptiveQuantization
+$creadPrec :: ReadPrec H264TemporalAdaptiveQuantization
+readList :: ReadS [H264TemporalAdaptiveQuantization]
+$creadList :: ReadS [H264TemporalAdaptiveQuantization]
+readsPrec :: Int -&gt; ReadS H264TemporalAdaptiveQuantization
+$creadsPrec :: Int -&gt; ReadS H264TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679970370"><span id="local-6989586621679970372"><span class="annot"><span class="annottext">H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+(H264TemporalAdaptiveQuantization
+ -&gt; H264TemporalAdaptiveQuantization -&gt; Bool)
+-&gt; (H264TemporalAdaptiveQuantization
+    -&gt; H264TemporalAdaptiveQuantization -&gt; Bool)
+-&gt; Eq H264TemporalAdaptiveQuantization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+$c/= :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+== :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+$c== :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679970354"><span id="local-6989586621679970356"><span id="local-6989586621679970358"><span id="local-6989586621679970360"><span id="local-6989586621679970362"><span id="local-6989586621679970364"><span id="local-6989586621679970366"><span class="annot"><span class="annottext">Eq H264TemporalAdaptiveQuantization
+Eq H264TemporalAdaptiveQuantization
+-&gt; (H264TemporalAdaptiveQuantization
+    -&gt; H264TemporalAdaptiveQuantization -&gt; Ordering)
+-&gt; (H264TemporalAdaptiveQuantization
+    -&gt; H264TemporalAdaptiveQuantization -&gt; Bool)
+-&gt; (H264TemporalAdaptiveQuantization
+    -&gt; H264TemporalAdaptiveQuantization -&gt; Bool)
+-&gt; (H264TemporalAdaptiveQuantization
+    -&gt; H264TemporalAdaptiveQuantization -&gt; Bool)
+-&gt; (H264TemporalAdaptiveQuantization
+    -&gt; H264TemporalAdaptiveQuantization -&gt; Bool)
+-&gt; (H264TemporalAdaptiveQuantization
+    -&gt; H264TemporalAdaptiveQuantization
+    -&gt; H264TemporalAdaptiveQuantization)
+-&gt; (H264TemporalAdaptiveQuantization
+    -&gt; H264TemporalAdaptiveQuantization
+    -&gt; H264TemporalAdaptiveQuantization)
+-&gt; Ord H264TemporalAdaptiveQuantization
+H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Ordering
+H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization
+$cmin :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization
+max :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization
+$cmax :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization
+&gt;= :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+$c&gt;= :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+&gt; :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+$c&gt; :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+&lt;= :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+$c&lt;= :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+&lt; :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+$c&lt; :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Bool
+compare :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Ordering
+$ccompare :: H264TemporalAdaptiveQuantization
+-&gt; H264TemporalAdaptiveQuantization -&gt; Ordering
+$cp1Ord :: Eq H264TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ H264TemporalAdaptiveQuantization
+ -&gt; Rep H264TemporalAdaptiveQuantization x)
+-&gt; (forall x.
+    Rep H264TemporalAdaptiveQuantization x
+    -&gt; H264TemporalAdaptiveQuantization)
+-&gt; Generic H264TemporalAdaptiveQuantization
+forall x.
+Rep H264TemporalAdaptiveQuantization x
+-&gt; H264TemporalAdaptiveQuantization
+forall x.
+H264TemporalAdaptiveQuantization
+-&gt; Rep H264TemporalAdaptiveQuantization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep H264TemporalAdaptiveQuantization x
+-&gt; H264TemporalAdaptiveQuantization
+$cfrom :: forall x.
+H264TemporalAdaptiveQuantization
+-&gt; Rep H264TemporalAdaptiveQuantization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679970346"><span id="local-6989586621679970348"><span class="annot"><span class="annottext">Int -&gt; H264TemporalAdaptiveQuantization -&gt; Int
+H264TemporalAdaptiveQuantization -&gt; Int
+(Int -&gt; H264TemporalAdaptiveQuantization -&gt; Int)
+-&gt; (H264TemporalAdaptiveQuantization -&gt; Int)
+-&gt; Hashable H264TemporalAdaptiveQuantization
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H264TemporalAdaptiveQuantization -&gt; Int
+$chash :: H264TemporalAdaptiveQuantization -&gt; Int
+hashWithSalt :: Int -&gt; H264TemporalAdaptiveQuantization -&gt; Int
+$chashWithSalt :: Int -&gt; H264TemporalAdaptiveQuantization -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679970343"><span class="annot"><span class="annottext">H264TemporalAdaptiveQuantization -&gt; ()
+(H264TemporalAdaptiveQuantization -&gt; ())
+-&gt; NFData H264TemporalAdaptiveQuantization
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H264TemporalAdaptiveQuantization -&gt; ()
+$crnf :: H264TemporalAdaptiveQuantization -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679970340"><span class="annot"><span class="annottext">Text -&gt; Either String H264TemporalAdaptiveQuantization
+(Text -&gt; Either String H264TemporalAdaptiveQuantization)
+-&gt; FromText H264TemporalAdaptiveQuantization
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H264TemporalAdaptiveQuantization
+$cfromText :: Text -&gt; Either String H264TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679970337"><span class="annot"><span class="annottext">H264TemporalAdaptiveQuantization -&gt; Text
+(H264TemporalAdaptiveQuantization -&gt; Text)
+-&gt; ToText H264TemporalAdaptiveQuantization
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H264TemporalAdaptiveQuantization -&gt; Text
+$ctoText :: H264TemporalAdaptiveQuantization -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679970334"><span class="annot"><span class="annottext">H264TemporalAdaptiveQuantization -&gt; ByteString
+(H264TemporalAdaptiveQuantization -&gt; ByteString)
+-&gt; ToByteString H264TemporalAdaptiveQuantization
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H264TemporalAdaptiveQuantization -&gt; ByteString
+$ctoBS :: H264TemporalAdaptiveQuantization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679970331"><span class="annot"><span class="annottext">H264TemporalAdaptiveQuantization -&gt; ByteStringBuilder
+(H264TemporalAdaptiveQuantization -&gt; ByteStringBuilder)
+-&gt; ToLog H264TemporalAdaptiveQuantization
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H264TemporalAdaptiveQuantization -&gt; ByteStringBuilder
+$cbuild :: H264TemporalAdaptiveQuantization -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679970328"><span class="annot"><span class="annottext">HeaderName -&gt; H264TemporalAdaptiveQuantization -&gt; [Header]
+(HeaderName -&gt; H264TemporalAdaptiveQuantization -&gt; [Header])
+-&gt; ToHeader H264TemporalAdaptiveQuantization
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H264TemporalAdaptiveQuantization -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H264TemporalAdaptiveQuantization -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679970325"><span class="annot"><span class="annottext">H264TemporalAdaptiveQuantization -&gt; QueryString
+(H264TemporalAdaptiveQuantization -&gt; QueryString)
+-&gt; ToQuery H264TemporalAdaptiveQuantization
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H264TemporalAdaptiveQuantization -&gt; QueryString
+$ctoQuery :: H264TemporalAdaptiveQuantization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679970320"><span id="local-6989586621679970322"><span class="annot"><span class="annottext">Value -&gt; Parser [H264TemporalAdaptiveQuantization]
+Value -&gt; Parser H264TemporalAdaptiveQuantization
+(Value -&gt; Parser H264TemporalAdaptiveQuantization)
+-&gt; (Value -&gt; Parser [H264TemporalAdaptiveQuantization])
+-&gt; FromJSON H264TemporalAdaptiveQuantization
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H264TemporalAdaptiveQuantization]
+$cparseJSONList :: Value -&gt; Parser [H264TemporalAdaptiveQuantization]
+parseJSON :: Value -&gt; Parser H264TemporalAdaptiveQuantization
+$cparseJSON :: Value -&gt; Parser H264TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679970315"><span id="local-6989586621679970317"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264TemporalAdaptiveQuantization]
+FromJSONKeyFunction H264TemporalAdaptiveQuantization
+FromJSONKeyFunction H264TemporalAdaptiveQuantization
+-&gt; FromJSONKeyFunction [H264TemporalAdaptiveQuantization]
+-&gt; FromJSONKey H264TemporalAdaptiveQuantization
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H264TemporalAdaptiveQuantization]
+$cfromJSONKeyList :: FromJSONKeyFunction [H264TemporalAdaptiveQuantization]
+fromJSONKey :: FromJSONKeyFunction H264TemporalAdaptiveQuantization
+$cfromJSONKey :: FromJSONKeyFunction H264TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679970306"><span id="local-6989586621679970308"><span id="local-6989586621679970310"><span id="local-6989586621679970312"><span class="annot"><span class="annottext">[H264TemporalAdaptiveQuantization] -&gt; Encoding
+[H264TemporalAdaptiveQuantization] -&gt; Value
+H264TemporalAdaptiveQuantization -&gt; Encoding
+H264TemporalAdaptiveQuantization -&gt; Value
+(H264TemporalAdaptiveQuantization -&gt; Value)
+-&gt; (H264TemporalAdaptiveQuantization -&gt; Encoding)
+-&gt; ([H264TemporalAdaptiveQuantization] -&gt; Value)
+-&gt; ([H264TemporalAdaptiveQuantization] -&gt; Encoding)
+-&gt; ToJSON H264TemporalAdaptiveQuantization
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H264TemporalAdaptiveQuantization] -&gt; Encoding
+$ctoEncodingList :: [H264TemporalAdaptiveQuantization] -&gt; Encoding
+toJSONList :: [H264TemporalAdaptiveQuantization] -&gt; Value
+$ctoJSONList :: [H264TemporalAdaptiveQuantization] -&gt; Value
+toEncoding :: H264TemporalAdaptiveQuantization -&gt; Encoding
+$ctoEncoding :: H264TemporalAdaptiveQuantization -&gt; Encoding
+toJSON :: H264TemporalAdaptiveQuantization -&gt; Value
+$ctoJSON :: H264TemporalAdaptiveQuantization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679970301"><span id="local-6989586621679970303"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264TemporalAdaptiveQuantization]
+ToJSONKeyFunction H264TemporalAdaptiveQuantization
+ToJSONKeyFunction H264TemporalAdaptiveQuantization
+-&gt; ToJSONKeyFunction [H264TemporalAdaptiveQuantization]
+-&gt; ToJSONKey H264TemporalAdaptiveQuantization
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H264TemporalAdaptiveQuantization]
+$ctoJSONKeyList :: ToJSONKeyFunction [H264TemporalAdaptiveQuantization]
+toJSONKey :: ToJSONKeyFunction H264TemporalAdaptiveQuantization
+$ctoJSONKey :: ToJSONKeyFunction H264TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679970298"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264TemporalAdaptiveQuantization
+([Node] -&gt; Either String H264TemporalAdaptiveQuantization)
+-&gt; FromXML H264TemporalAdaptiveQuantization
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H264TemporalAdaptiveQuantization
+$cparseXML :: [Node] -&gt; Either String H264TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679970295"><span class="annot"><span class="annottext">H264TemporalAdaptiveQuantization -&gt; XML
+(H264TemporalAdaptiveQuantization -&gt; XML)
+-&gt; ToXML H264TemporalAdaptiveQuantization
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H264TemporalAdaptiveQuantization -&gt; XML
+$ctoXML :: H264TemporalAdaptiveQuantization -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization_DISABLED"><span class="hs-identifier hs-type">H264TemporalAdaptiveQuantization_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization"><span class="hs-identifier hs-type">H264TemporalAdaptiveQuantization</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264TemporalAdaptiveQuantization_DISABLED"><span id="%24mH264TemporalAdaptiveQuantization_DISABLED"><span id="H264TemporalAdaptiveQuantization_DISABLED"><span class="annot"><span class="annottext">$bH264TemporalAdaptiveQuantization_DISABLED :: H264TemporalAdaptiveQuantization
+$mH264TemporalAdaptiveQuantization_DISABLED :: forall r.
+H264TemporalAdaptiveQuantization
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#%24bH264TemporalAdaptiveQuantization_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">H264TemporalAdaptiveQuantization_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization%27"><span class="hs-identifier hs-type">H264TemporalAdaptiveQuantization'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization_ENABLED"><span class="hs-identifier hs-type">H264TemporalAdaptiveQuantization_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization"><span class="hs-identifier hs-type">H264TemporalAdaptiveQuantization</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264TemporalAdaptiveQuantization_ENABLED"><span id="%24mH264TemporalAdaptiveQuantization_ENABLED"><span id="H264TemporalAdaptiveQuantization_ENABLED"><span class="annot"><span class="annottext">$bH264TemporalAdaptiveQuantization_ENABLED :: H264TemporalAdaptiveQuantization
+$mH264TemporalAdaptiveQuantization_ENABLED :: forall r.
+H264TemporalAdaptiveQuantization
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#%24bH264TemporalAdaptiveQuantization_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">H264TemporalAdaptiveQuantization_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization%27"><span class="hs-identifier hs-type">H264TemporalAdaptiveQuantization'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization_DISABLED"><span class="hs-pragma hs-type">H264TemporalAdaptiveQuantization_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization_ENABLED"><span class="hs-pragma hs-type">H264TemporalAdaptiveQuantization_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization.html#H264TemporalAdaptiveQuantization%27"><span class="hs-pragma hs-type">H264TemporalAdaptiveQuantization'</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-95"></span></pre></body></html>

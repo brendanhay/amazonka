@@ -1,0 +1,916 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.DescribeClientVpnConnections</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes active client connections and connections that have been</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- terminated within the last 60 minutes for the specified Client VPN</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.DescribeClientVpnConnections</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier">DescribeClientVpnConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#newDescribeClientVpnConnections"><span class="hs-identifier">newDescribeClientVpnConnections</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_filters"><span class="hs-identifier">describeClientVpnConnections_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_nextToken"><span class="hs-identifier">describeClientVpnConnections_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_dryRun"><span class="hs-identifier">describeClientVpnConnections_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_maxResults"><span class="hs-identifier">describeClientVpnConnections_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_clientVpnEndpointId"><span class="hs-identifier">describeClientVpnConnections_clientVpnEndpointId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse"><span class="hs-identifier">DescribeClientVpnConnectionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#newDescribeClientVpnConnectionsResponse"><span class="hs-identifier">newDescribeClientVpnConnectionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnectionsResponse_connections"><span class="hs-identifier">describeClientVpnConnectionsResponse_connections</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnectionsResponse_nextToken"><span class="hs-identifier">describeClientVpnConnectionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnectionsResponse_httpStatus"><span class="hs-identifier">describeClientVpnConnectionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDescribeClientVpnConnections' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621681269532"><span id="local-6989586621681269533"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeClientVpnConnections"><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-var">DescribeClientVpnConnections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeClientVpnConnections%27"><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-var">DescribeClientVpnConnections'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more filters. Filter names and values are case-sensitive.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @connection-id@ - The ID of the connection.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @username@ - For Active Directory client authentication, the user</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     name of the client who established the client connection.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeClientVpnConnections%27"><span class="annot"><span class="annottext">DescribeClientVpnConnections -&gt; Maybe [Filter]
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3Afilters%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The token to retrieve the next page of results.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeClientVpnConnections%27"><span class="annot"><span class="annottext">DescribeClientVpnConnections -&gt; Maybe Text
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AnextToken%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeClientVpnConnections%27"><span class="annot"><span class="annottext">DescribeClientVpnConnections -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AdryRun%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return for the request in a single</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- page. The remaining results can be seen by sending another request with</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the nextToken value.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeClientVpnConnections%27"><span class="annot"><span class="annottext">DescribeClientVpnConnections -&gt; Maybe Natural
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AmaxResults%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The ID of the Client VPN endpoint.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AclientVpnEndpointId%3ADescribeClientVpnConnections%27"><span class="annot"><span class="annottext">DescribeClientVpnConnections -&gt; Text
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AclientVpnEndpointId%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var hs-var">clientVpnEndpointId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681269522"><span id="local-6989586621681269524"><span class="annot"><span class="annottext">DescribeClientVpnConnections
+-&gt; DescribeClientVpnConnections -&gt; Bool
+(DescribeClientVpnConnections
+ -&gt; DescribeClientVpnConnections -&gt; Bool)
+-&gt; (DescribeClientVpnConnections
+    -&gt; DescribeClientVpnConnections -&gt; Bool)
+-&gt; Eq DescribeClientVpnConnections
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeClientVpnConnections
+-&gt; DescribeClientVpnConnections -&gt; Bool
+$c/= :: DescribeClientVpnConnections
+-&gt; DescribeClientVpnConnections -&gt; Bool
+== :: DescribeClientVpnConnections
+-&gt; DescribeClientVpnConnections -&gt; Bool
+$c== :: DescribeClientVpnConnections
+-&gt; DescribeClientVpnConnections -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681269513"><span id="local-6989586621681269515"><span id="local-6989586621681269517"><span id="local-6989586621681269519"><span class="annot"><span class="annottext">ReadPrec [DescribeClientVpnConnections]
+ReadPrec DescribeClientVpnConnections
+Int -&gt; ReadS DescribeClientVpnConnections
+ReadS [DescribeClientVpnConnections]
+(Int -&gt; ReadS DescribeClientVpnConnections)
+-&gt; ReadS [DescribeClientVpnConnections]
+-&gt; ReadPrec DescribeClientVpnConnections
+-&gt; ReadPrec [DescribeClientVpnConnections]
+-&gt; Read DescribeClientVpnConnections
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeClientVpnConnections]
+$creadListPrec :: ReadPrec [DescribeClientVpnConnections]
+readPrec :: ReadPrec DescribeClientVpnConnections
+$creadPrec :: ReadPrec DescribeClientVpnConnections
+readList :: ReadS [DescribeClientVpnConnections]
+$creadList :: ReadS [DescribeClientVpnConnections]
+readsPrec :: Int -&gt; ReadS DescribeClientVpnConnections
+$creadsPrec :: Int -&gt; ReadS DescribeClientVpnConnections
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681269506"><span id="local-6989586621681269508"><span id="local-6989586621681269510"><span class="annot"><span class="annottext">Int -&gt; DescribeClientVpnConnections -&gt; ShowS
+[DescribeClientVpnConnections] -&gt; ShowS
+DescribeClientVpnConnections -&gt; String
+(Int -&gt; DescribeClientVpnConnections -&gt; ShowS)
+-&gt; (DescribeClientVpnConnections -&gt; String)
+-&gt; ([DescribeClientVpnConnections] -&gt; ShowS)
+-&gt; Show DescribeClientVpnConnections
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeClientVpnConnections] -&gt; ShowS
+$cshowList :: [DescribeClientVpnConnections] -&gt; ShowS
+show :: DescribeClientVpnConnections -&gt; String
+$cshow :: DescribeClientVpnConnections -&gt; String
+showsPrec :: Int -&gt; DescribeClientVpnConnections -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeClientVpnConnections -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeClientVpnConnections -&gt; Rep DescribeClientVpnConnections x)
+-&gt; (forall x.
+    Rep DescribeClientVpnConnections x -&gt; DescribeClientVpnConnections)
+-&gt; Generic DescribeClientVpnConnections
+forall x.
+Rep DescribeClientVpnConnections x -&gt; DescribeClientVpnConnections
+forall x.
+DescribeClientVpnConnections -&gt; Rep DescribeClientVpnConnections x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeClientVpnConnections x -&gt; DescribeClientVpnConnections
+$cfrom :: forall x.
+DescribeClientVpnConnections -&gt; Rep DescribeClientVpnConnections x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'DescribeClientVpnConnections' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'filters', 'describeClientVpnConnections_filters' - One or more filters. Filter names and values are case-sensitive.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   @connection-id@ - The ID of the connection.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   @username@ - For Active Directory client authentication, the user</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     name of the client who established the client connection.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'nextToken', 'describeClientVpnConnections_nextToken' - The token to retrieve the next page of results.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'dryRun', 'describeClientVpnConnections_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'maxResults', 'describeClientVpnConnections_maxResults' - The maximum number of results to return for the request in a single</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- page. The remaining results can be seen by sending another request with</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- the nextToken value.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'clientVpnEndpointId', 'describeClientVpnConnections_clientVpnEndpointId' - The ID of the Client VPN endpoint.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#newDescribeClientVpnConnections"><span class="hs-identifier hs-type">newDescribeClientVpnConnections</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'clientVpnEndpointId'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span>
+</span><span id="line-114"></span><span id="newDescribeClientVpnConnections"><span class="annot"><span class="annottext">newDescribeClientVpnConnections :: Text -&gt; DescribeClientVpnConnections
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#newDescribeClientVpnConnections"><span class="hs-identifier hs-var hs-var">newDescribeClientVpnConnections</span></a></span></span><span> </span><span id="local-6989586621681269501"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681269501"><span class="hs-identifier hs-var">pClientVpnEndpointId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">DescribeClientVpnConnections' :: Maybe [Filter]
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; DescribeClientVpnConnections
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-type">DescribeClientVpnConnections'</span></a></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeClientVpnConnections' :: Maybe [Filter]
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3Afilters%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeClientVpnConnections' :: Maybe Text
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AnextToken%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeClientVpnConnections' :: Maybe Bool
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AdryRun%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeClientVpnConnections' :: Maybe Natural
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AmaxResults%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientVpnEndpointId:DescribeClientVpnConnections' :: Text
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AclientVpnEndpointId%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681269501"><span class="hs-identifier hs-var">pClientVpnEndpointId_</span></a></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | One or more filters. Filter names and values are case-sensitive.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   @connection-id@ - The ID of the connection.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @username@ - For Active Directory client authentication, the user</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     name of the client who established the client connection.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_filters"><span class="hs-identifier hs-type">describeClientVpnConnections_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="describeClientVpnConnections_filters"><span class="annot"><span class="annottext">describeClientVpnConnections_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeClientVpnConnections -&gt; f DescribeClientVpnConnections
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_filters"><span class="hs-identifier hs-var hs-var">describeClientVpnConnections_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClientVpnConnections -&gt; Maybe [Filter])
+-&gt; (DescribeClientVpnConnections
+    -&gt; Maybe [Filter] -&gt; DescribeClientVpnConnections)
+-&gt; Lens
+     DescribeClientVpnConnections
+     DescribeClientVpnConnections
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-type">DescribeClientVpnConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269499"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:DescribeClientVpnConnections' :: DescribeClientVpnConnections -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681269499"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681269499"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269498"><span class="annot"><span class="annottext">s :: DescribeClientVpnConnections
+</span><a href="#local-6989586621681269498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-type">DescribeClientVpnConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269497"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681269497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClientVpnConnections
+</span><a href="#local-6989586621681269498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeClientVpnConnections' :: Maybe [Filter]
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3Afilters%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681269497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; DescribeClientVpnConnections -&gt; f DescribeClientVpnConnections)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeClientVpnConnections
+-&gt; f DescribeClientVpnConnections
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The token to retrieve the next page of results.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_nextToken"><span class="hs-identifier hs-type">describeClientVpnConnections_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="describeClientVpnConnections_nextToken"><span class="annot"><span class="annottext">describeClientVpnConnections_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeClientVpnConnections -&gt; f DescribeClientVpnConnections
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_nextToken"><span class="hs-identifier hs-var hs-var">describeClientVpnConnections_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClientVpnConnections -&gt; Maybe Text)
+-&gt; (DescribeClientVpnConnections
+    -&gt; Maybe Text -&gt; DescribeClientVpnConnections)
+-&gt; Lens
+     DescribeClientVpnConnections
+     DescribeClientVpnConnections
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-type">DescribeClientVpnConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269493"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeClientVpnConnections' :: DescribeClientVpnConnections -&gt; Maybe Text
+</span><a href="#local-6989586621681269493"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681269493"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269492"><span class="annot"><span class="annottext">s :: DescribeClientVpnConnections
+</span><a href="#local-6989586621681269492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-type">DescribeClientVpnConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269491"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681269491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClientVpnConnections
+</span><a href="#local-6989586621681269492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeClientVpnConnections' :: Maybe Text
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AnextToken%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681269491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_dryRun"><span class="hs-identifier hs-type">describeClientVpnConnections_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="describeClientVpnConnections_dryRun"><span class="annot"><span class="annottext">describeClientVpnConnections_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeClientVpnConnections -&gt; f DescribeClientVpnConnections
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_dryRun"><span class="hs-identifier hs-var hs-var">describeClientVpnConnections_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClientVpnConnections -&gt; Maybe Bool)
+-&gt; (DescribeClientVpnConnections
+    -&gt; Maybe Bool -&gt; DescribeClientVpnConnections)
+-&gt; Lens
+     DescribeClientVpnConnections
+     DescribeClientVpnConnections
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-type">DescribeClientVpnConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269490"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeClientVpnConnections' :: DescribeClientVpnConnections -&gt; Maybe Bool
+</span><a href="#local-6989586621681269490"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681269490"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269489"><span class="annot"><span class="annottext">s :: DescribeClientVpnConnections
+</span><a href="#local-6989586621681269489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-type">DescribeClientVpnConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269488"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681269488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClientVpnConnections
+</span><a href="#local-6989586621681269489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeClientVpnConnections' :: Maybe Bool
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AdryRun%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681269488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The maximum number of results to return for the request in a single</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- page. The remaining results can be seen by sending another request with</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- the nextToken value.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_maxResults"><span class="hs-identifier hs-type">describeClientVpnConnections_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="describeClientVpnConnections_maxResults"><span class="annot"><span class="annottext">describeClientVpnConnections_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeClientVpnConnections -&gt; f DescribeClientVpnConnections
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_maxResults"><span class="hs-identifier hs-var hs-var">describeClientVpnConnections_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClientVpnConnections -&gt; Maybe Natural)
+-&gt; (DescribeClientVpnConnections
+    -&gt; Maybe Natural -&gt; DescribeClientVpnConnections)
+-&gt; Lens
+     DescribeClientVpnConnections
+     DescribeClientVpnConnections
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-type">DescribeClientVpnConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269487"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeClientVpnConnections' :: DescribeClientVpnConnections -&gt; Maybe Natural
+</span><a href="#local-6989586621681269487"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681269487"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269486"><span class="annot"><span class="annottext">s :: DescribeClientVpnConnections
+</span><a href="#local-6989586621681269486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-type">DescribeClientVpnConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269485"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681269485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClientVpnConnections
+</span><a href="#local-6989586621681269486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeClientVpnConnections' :: Maybe Natural
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AmaxResults%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681269485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The ID of the Client VPN endpoint.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_clientVpnEndpointId"><span class="hs-identifier hs-type">describeClientVpnConnections_clientVpnEndpointId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span id="describeClientVpnConnections_clientVpnEndpointId"><span class="annot"><span class="annottext">describeClientVpnConnections_clientVpnEndpointId :: (Text -&gt; f Text)
+-&gt; DescribeClientVpnConnections -&gt; f DescribeClientVpnConnections
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_clientVpnEndpointId"><span class="hs-identifier hs-var hs-var">describeClientVpnConnections_clientVpnEndpointId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClientVpnConnections -&gt; Text)
+-&gt; (DescribeClientVpnConnections
+    -&gt; Text -&gt; DescribeClientVpnConnections)
+-&gt; Lens
+     DescribeClientVpnConnections DescribeClientVpnConnections Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-type">DescribeClientVpnConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269484"><span class="annot"><span class="annottext">Text
+clientVpnEndpointId :: Text
+$sel:clientVpnEndpointId:DescribeClientVpnConnections' :: DescribeClientVpnConnections -&gt; Text
+</span><a href="#local-6989586621681269484"><span class="hs-identifier hs-var hs-var">clientVpnEndpointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681269484"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269483"><span class="annot"><span class="annottext">s :: DescribeClientVpnConnections
+</span><a href="#local-6989586621681269483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-type">DescribeClientVpnConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269482"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681269482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClientVpnConnections
+</span><a href="#local-6989586621681269483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientVpnEndpointId:DescribeClientVpnConnections' :: Text
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AclientVpnEndpointId%3ADescribeClientVpnConnections%27"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681269482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621681269478"><span class="annot"><span class="annottext">page :: DescribeClientVpnConnections
+-&gt; AWSResponse DescribeClientVpnConnections
+-&gt; Maybe DescribeClientVpnConnections
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681269476"><span class="annot"><span class="annottext">DescribeClientVpnConnections
+</span><a href="#local-6989586621681269476"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681269475"><span class="annot"><span class="annottext">AWSResponse DescribeClientVpnConnections
+</span><a href="#local-6989586621681269475"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-157"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeClientVpnConnections
+DescribeClientVpnConnectionsResponse
+</span><a href="#local-6989586621681269475"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">DescribeClientVpnConnectionsResponse
+-&gt; Getting (First Text) DescribeClientVpnConnectionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeClientVpnConnectionsResponse
+-&gt; Const (First Text) DescribeClientVpnConnectionsResponse
+Lens' DescribeClientVpnConnectionsResponse (Maybe Text)
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnectionsResponse_nextToken"><span class="hs-identifier hs-var">describeClientVpnConnectionsResponse_nextToken</span></a></span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeClientVpnConnectionsResponse
+ -&gt; Const (First Text) DescribeClientVpnConnectionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeClientVpnConnectionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-160"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeClientVpnConnections
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ClientVpnConnection] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-163"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeClientVpnConnections
+DescribeClientVpnConnectionsResponse
+</span><a href="#local-6989586621681269475"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">DescribeClientVpnConnectionsResponse
+-&gt; Getting
+     (First [ClientVpnConnection])
+     DescribeClientVpnConnectionsResponse
+     [ClientVpnConnection]
+-&gt; Maybe [ClientVpnConnection]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ClientVpnConnection]
+ -&gt; Const
+      (First [ClientVpnConnection]) (Maybe [ClientVpnConnection]))
+-&gt; DescribeClientVpnConnectionsResponse
+-&gt; Const
+     (First [ClientVpnConnection]) DescribeClientVpnConnectionsResponse
+Lens'
+  DescribeClientVpnConnectionsResponse (Maybe [ClientVpnConnection])
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnectionsResponse_connections"><span class="hs-identifier hs-var">describeClientVpnConnectionsResponse_connections</span></a></span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ClientVpnConnection]
+  -&gt; Const
+       (First [ClientVpnConnection]) (Maybe [ClientVpnConnection]))
+ -&gt; DescribeClientVpnConnectionsResponse
+ -&gt; Const
+      (First [ClientVpnConnection]) DescribeClientVpnConnectionsResponse)
+-&gt; (([ClientVpnConnection]
+     -&gt; Const (First [ClientVpnConnection]) [ClientVpnConnection])
+    -&gt; Maybe [ClientVpnConnection]
+    -&gt; Const
+         (First [ClientVpnConnection]) (Maybe [ClientVpnConnection]))
+-&gt; Getting
+     (First [ClientVpnConnection])
+     DescribeClientVpnConnectionsResponse
+     [ClientVpnConnection]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ClientVpnConnection]
+ -&gt; Const (First [ClientVpnConnection]) [ClientVpnConnection])
+-&gt; Maybe [ClientVpnConnection]
+-&gt; Const
+     (First [ClientVpnConnection]) (Maybe [ClientVpnConnection])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-166"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeClientVpnConnections
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">DescribeClientVpnConnections -&gt; Maybe DescribeClientVpnConnections
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeClientVpnConnections
+ -&gt; Maybe DescribeClientVpnConnections)
+-&gt; DescribeClientVpnConnections
+-&gt; Maybe DescribeClientVpnConnections
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">DescribeClientVpnConnections
+</span><a href="#local-6989586621681269476"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">DescribeClientVpnConnections
+-&gt; (DescribeClientVpnConnections -&gt; DescribeClientVpnConnections)
+-&gt; DescribeClientVpnConnections
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeClientVpnConnections
+-&gt; Identity DescribeClientVpnConnections
+Lens
+  DescribeClientVpnConnections
+  DescribeClientVpnConnections
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnections_nextToken"><span class="hs-identifier hs-var">describeClientVpnConnections_nextToken</span></a></span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeClientVpnConnections
+ -&gt; Identity DescribeClientVpnConnections)
+-&gt; Maybe Text
+-&gt; DescribeClientVpnConnections
+-&gt; DescribeClientVpnConnections
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeClientVpnConnections
+DescribeClientVpnConnectionsResponse
+</span><a href="#local-6989586621681269475"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">DescribeClientVpnConnectionsResponse
+-&gt; Getting (First Text) DescribeClientVpnConnectionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeClientVpnConnectionsResponse
+-&gt; Const (First Text) DescribeClientVpnConnectionsResponse
+Lens' DescribeClientVpnConnectionsResponse (Maybe Text)
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnectionsResponse_nextToken"><span class="hs-identifier hs-var">describeClientVpnConnectionsResponse_nextToken</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeClientVpnConnectionsResponse
+ -&gt; Const (First Text) DescribeClientVpnConnectionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeClientVpnConnectionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-178"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse</span></a></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621681269466"><span class="annot"><span class="annottext">request :: DescribeClientVpnConnections
+-&gt; Request DescribeClientVpnConnections
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeClientVpnConnections
+-&gt; Request DescribeClientVpnConnections
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621681269462"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeClientVpnConnections
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeClientVpnConnections)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DescribeClientVpnConnections))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeClientVpnConnections
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeClientVpnConnections)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681269459"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681269459"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681269458"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681269458"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681269457"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681269457"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ClientVpnConnection]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeClientVpnConnectionsResponse
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-var">DescribeClientVpnConnectionsResponse'</span></a></span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ClientVpnConnection]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeClientVpnConnectionsResponse)
+-&gt; Either String (Maybe [ClientVpnConnection])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeClientVpnConnectionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681269457"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connections&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-186"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ClientVpnConnection]))
+-&gt; Either String (Maybe [ClientVpnConnection])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ClientVpnConnection])
+-&gt; [Node] -&gt; Either String (Maybe [ClientVpnConnection])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ClientVpnConnection]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeClientVpnConnectionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeClientVpnConnectionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681269457"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeClientVpnConnectionsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeClientVpnConnectionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681269459"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621681269446"><span id="local-6989586621681269448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span></span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681269443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621681269439"><span class="annot"><span class="annottext">toHeaders :: DescribeClientVpnConnections -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeClientVpnConnections -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621681269434"><span class="annot"><span class="annottext">toPath :: DescribeClientVpnConnections -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeClientVpnConnections -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections"><span class="hs-identifier hs-type">DescribeClientVpnConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621681269430"><span class="annot"><span class="annottext">toQuery :: DescribeClientVpnConnections -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnections%27"><span class="hs-identifier hs-type">DescribeClientVpnConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269424"><span id="local-6989586621681269425"><span id="local-6989586621681269426"><span id="local-6989586621681269427"><span id="local-6989586621681269428"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe [Filter]
+Maybe Text
+Text
+clientVpnEndpointId :: Text
+maxResults :: Maybe Natural
+dryRun :: Maybe Bool
+nextToken :: Maybe Text
+filters :: Maybe [Filter]
+$sel:clientVpnEndpointId:DescribeClientVpnConnections' :: DescribeClientVpnConnections -&gt; Text
+$sel:maxResults:DescribeClientVpnConnections' :: DescribeClientVpnConnections -&gt; Maybe Natural
+$sel:dryRun:DescribeClientVpnConnections' :: DescribeClientVpnConnections -&gt; Maybe Bool
+$sel:nextToken:DescribeClientVpnConnections' :: DescribeClientVpnConnections -&gt; Maybe Text
+$sel:filters:DescribeClientVpnConnections' :: DescribeClientVpnConnections -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681269424"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeClientVpnConnections&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-210"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-214"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681269428"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681269427"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681269426"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681269425"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ClientVpnEndpointId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681269424"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | /See:/ 'newDescribeClientVpnConnectionsResponse' smart constructor.</span><span>
+</span><span id="line-222"></span><span id="local-6989586621681269420"><span id="local-6989586621681269421"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeClientVpnConnectionsResponse"><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse"><span class="hs-identifier hs-var">DescribeClientVpnConnectionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeClientVpnConnectionsResponse%27"><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-var">DescribeClientVpnConnectionsResponse'</span></a></span></span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the active and terminated client connections.</span><span>
+</span><span id="line-224"></span><span>    </span><span id="%24sel%3Aconnections%3ADescribeClientVpnConnectionsResponse%27"><span class="annot"><span class="annottext">DescribeClientVpnConnectionsResponse -&gt; Maybe [ClientVpnConnection]
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3Aconnections%3ADescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-var hs-var">connections</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.ClientVpnConnection.html#ClientVpnConnection"><span class="hs-identifier hs-type">ClientVpnConnection</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeClientVpnConnectionsResponse%27"><span class="annot"><span class="annottext">DescribeClientVpnConnectionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AnextToken%3ADescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeClientVpnConnectionsResponse%27"><span class="annot"><span class="annottext">DescribeClientVpnConnectionsResponse -&gt; Int
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AhttpStatus%3ADescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681269413"><span id="local-6989586621681269415"><span class="annot"><span class="annottext">DescribeClientVpnConnectionsResponse
+-&gt; DescribeClientVpnConnectionsResponse -&gt; Bool
+(DescribeClientVpnConnectionsResponse
+ -&gt; DescribeClientVpnConnectionsResponse -&gt; Bool)
+-&gt; (DescribeClientVpnConnectionsResponse
+    -&gt; DescribeClientVpnConnectionsResponse -&gt; Bool)
+-&gt; Eq DescribeClientVpnConnectionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeClientVpnConnectionsResponse
+-&gt; DescribeClientVpnConnectionsResponse -&gt; Bool
+$c/= :: DescribeClientVpnConnectionsResponse
+-&gt; DescribeClientVpnConnectionsResponse -&gt; Bool
+== :: DescribeClientVpnConnectionsResponse
+-&gt; DescribeClientVpnConnectionsResponse -&gt; Bool
+$c== :: DescribeClientVpnConnectionsResponse
+-&gt; DescribeClientVpnConnectionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681269405"><span id="local-6989586621681269407"><span id="local-6989586621681269409"><span id="local-6989586621681269411"><span class="annot"><span class="annottext">ReadPrec [DescribeClientVpnConnectionsResponse]
+ReadPrec DescribeClientVpnConnectionsResponse
+Int -&gt; ReadS DescribeClientVpnConnectionsResponse
+ReadS [DescribeClientVpnConnectionsResponse]
+(Int -&gt; ReadS DescribeClientVpnConnectionsResponse)
+-&gt; ReadS [DescribeClientVpnConnectionsResponse]
+-&gt; ReadPrec DescribeClientVpnConnectionsResponse
+-&gt; ReadPrec [DescribeClientVpnConnectionsResponse]
+-&gt; Read DescribeClientVpnConnectionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeClientVpnConnectionsResponse]
+$creadListPrec :: ReadPrec [DescribeClientVpnConnectionsResponse]
+readPrec :: ReadPrec DescribeClientVpnConnectionsResponse
+$creadPrec :: ReadPrec DescribeClientVpnConnectionsResponse
+readList :: ReadS [DescribeClientVpnConnectionsResponse]
+$creadList :: ReadS [DescribeClientVpnConnectionsResponse]
+readsPrec :: Int -&gt; ReadS DescribeClientVpnConnectionsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeClientVpnConnectionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681269399"><span id="local-6989586621681269401"><span id="local-6989586621681269403"><span class="annot"><span class="annottext">Int -&gt; DescribeClientVpnConnectionsResponse -&gt; ShowS
+[DescribeClientVpnConnectionsResponse] -&gt; ShowS
+DescribeClientVpnConnectionsResponse -&gt; String
+(Int -&gt; DescribeClientVpnConnectionsResponse -&gt; ShowS)
+-&gt; (DescribeClientVpnConnectionsResponse -&gt; String)
+-&gt; ([DescribeClientVpnConnectionsResponse] -&gt; ShowS)
+-&gt; Show DescribeClientVpnConnectionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeClientVpnConnectionsResponse] -&gt; ShowS
+$cshowList :: [DescribeClientVpnConnectionsResponse] -&gt; ShowS
+show :: DescribeClientVpnConnectionsResponse -&gt; String
+$cshow :: DescribeClientVpnConnectionsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeClientVpnConnectionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeClientVpnConnectionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeClientVpnConnectionsResponse
+ -&gt; Rep DescribeClientVpnConnectionsResponse x)
+-&gt; (forall x.
+    Rep DescribeClientVpnConnectionsResponse x
+    -&gt; DescribeClientVpnConnectionsResponse)
+-&gt; Generic DescribeClientVpnConnectionsResponse
+forall x.
+Rep DescribeClientVpnConnectionsResponse x
+-&gt; DescribeClientVpnConnectionsResponse
+forall x.
+DescribeClientVpnConnectionsResponse
+-&gt; Rep DescribeClientVpnConnectionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeClientVpnConnectionsResponse x
+-&gt; DescribeClientVpnConnectionsResponse
+$cfrom :: forall x.
+DescribeClientVpnConnectionsResponse
+-&gt; Rep DescribeClientVpnConnectionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Create a value of 'DescribeClientVpnConnectionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'connections', 'describeClientVpnConnectionsResponse_connections' - Information about the active and terminated client connections.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'nextToken', 'describeClientVpnConnectionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'httpStatus', 'describeClientVpnConnectionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#newDescribeClientVpnConnectionsResponse"><span class="hs-identifier hs-type">newDescribeClientVpnConnectionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-248"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse</span></a></span><span>
+</span><span id="line-251"></span><span id="newDescribeClientVpnConnectionsResponse"><span class="annot"><span class="annottext">newDescribeClientVpnConnectionsResponse :: Int -&gt; DescribeClientVpnConnectionsResponse
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#newDescribeClientVpnConnectionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeClientVpnConnectionsResponse</span></a></span></span><span> </span><span id="local-6989586621681269396"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681269396"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>  </span><span class="annot"><span class="annottext">DescribeClientVpnConnectionsResponse' :: Maybe [ClientVpnConnection]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeClientVpnConnectionsResponse
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse'</span></a></span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connections:DescribeClientVpnConnectionsResponse' :: Maybe [ClientVpnConnection]
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3Aconnections%3ADescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-var">connections</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ClientVpnConnection]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeClientVpnConnectionsResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AnextToken%3ADescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeClientVpnConnectionsResponse' :: Int
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AhttpStatus%3ADescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681269396"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | Information about the active and terminated client connections.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnectionsResponse_connections"><span class="hs-identifier hs-type">describeClientVpnConnectionsResponse_connections</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.ClientVpnConnection.html#ClientVpnConnection"><span class="hs-identifier hs-type">ClientVpnConnection</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="describeClientVpnConnectionsResponse_connections"><span class="annot"><span class="annottext">describeClientVpnConnectionsResponse_connections :: (Maybe [ClientVpnConnection] -&gt; f (Maybe [ClientVpnConnection]))
+-&gt; DescribeClientVpnConnectionsResponse
+-&gt; f DescribeClientVpnConnectionsResponse
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnectionsResponse_connections"><span class="hs-identifier hs-var hs-var">describeClientVpnConnectionsResponse_connections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClientVpnConnectionsResponse
+ -&gt; Maybe [ClientVpnConnection])
+-&gt; (DescribeClientVpnConnectionsResponse
+    -&gt; Maybe [ClientVpnConnection]
+    -&gt; DescribeClientVpnConnectionsResponse)
+-&gt; Lens'
+     DescribeClientVpnConnectionsResponse (Maybe [ClientVpnConnection])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269395"><span class="annot"><span class="annottext">Maybe [ClientVpnConnection]
+connections :: Maybe [ClientVpnConnection]
+$sel:connections:DescribeClientVpnConnectionsResponse' :: DescribeClientVpnConnectionsResponse -&gt; Maybe [ClientVpnConnection]
+</span><a href="#local-6989586621681269395"><span class="hs-identifier hs-var hs-var">connections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClientVpnConnection]
+</span><a href="#local-6989586621681269395"><span class="hs-identifier hs-var">connections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269394"><span class="annot"><span class="annottext">s :: DescribeClientVpnConnectionsResponse
+</span><a href="#local-6989586621681269394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269393"><span class="annot"><span class="annottext">Maybe [ClientVpnConnection]
+</span><a href="#local-6989586621681269393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClientVpnConnectionsResponse
+</span><a href="#local-6989586621681269394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connections:DescribeClientVpnConnectionsResponse' :: Maybe [ClientVpnConnection]
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3Aconnections%3ADescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-var">connections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClientVpnConnection]
+</span><a href="#local-6989586621681269393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClientVpnConnection] -&gt; f (Maybe [ClientVpnConnection]))
+ -&gt; DescribeClientVpnConnectionsResponse
+ -&gt; f DescribeClientVpnConnectionsResponse)
+-&gt; ((Maybe [ClientVpnConnection]
+     -&gt; f (Maybe [ClientVpnConnection]))
+    -&gt; Maybe [ClientVpnConnection] -&gt; f (Maybe [ClientVpnConnection]))
+-&gt; (Maybe [ClientVpnConnection] -&gt; f (Maybe [ClientVpnConnection]))
+-&gt; DescribeClientVpnConnectionsResponse
+-&gt; f DescribeClientVpnConnectionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ClientVpnConnection]
+  [ClientVpnConnection]
+  [ClientVpnConnection]
+  [ClientVpnConnection]
+-&gt; Iso
+     (Maybe [ClientVpnConnection])
+     (Maybe [ClientVpnConnection])
+     (Maybe [ClientVpnConnection])
+     (Maybe [ClientVpnConnection])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ClientVpnConnection]
+  [ClientVpnConnection]
+  [ClientVpnConnection]
+  [ClientVpnConnection]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnectionsResponse_nextToken"><span class="hs-identifier hs-type">describeClientVpnConnectionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="describeClientVpnConnectionsResponse_nextToken"><span class="annot"><span class="annottext">describeClientVpnConnectionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeClientVpnConnectionsResponse
+-&gt; f DescribeClientVpnConnectionsResponse
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnectionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeClientVpnConnectionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClientVpnConnectionsResponse -&gt; Maybe Text)
+-&gt; (DescribeClientVpnConnectionsResponse
+    -&gt; Maybe Text -&gt; DescribeClientVpnConnectionsResponse)
+-&gt; Lens' DescribeClientVpnConnectionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269392"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeClientVpnConnectionsResponse' :: DescribeClientVpnConnectionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681269392"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681269392"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269391"><span class="annot"><span class="annottext">s :: DescribeClientVpnConnectionsResponse
+</span><a href="#local-6989586621681269391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269390"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681269390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClientVpnConnectionsResponse
+</span><a href="#local-6989586621681269391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeClientVpnConnectionsResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AnextToken%3ADescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681269390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnectionsResponse_httpStatus"><span class="hs-identifier hs-type">describeClientVpnConnectionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-270"></span><span id="describeClientVpnConnectionsResponse_httpStatus"><span class="annot"><span class="annottext">describeClientVpnConnectionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeClientVpnConnectionsResponse
+-&gt; f DescribeClientVpnConnectionsResponse
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#describeClientVpnConnectionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeClientVpnConnectionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClientVpnConnectionsResponse -&gt; Int)
+-&gt; (DescribeClientVpnConnectionsResponse
+    -&gt; Int -&gt; DescribeClientVpnConnectionsResponse)
+-&gt; Lens
+     DescribeClientVpnConnectionsResponse
+     DescribeClientVpnConnectionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269389"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeClientVpnConnectionsResponse' :: DescribeClientVpnConnectionsResponse -&gt; Int
+</span><a href="#local-6989586621681269389"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681269389"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269388"><span class="annot"><span class="annottext">s :: DescribeClientVpnConnectionsResponse
+</span><a href="#local-6989586621681269388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269387"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681269387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClientVpnConnectionsResponse
+</span><a href="#local-6989586621681269388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeClientVpnConnectionsResponse' :: Int
+</span><a href="Amazonka.EC2.DescribeClientVpnConnections.html#%24sel%3AhttpStatus%3ADescribeClientVpnConnectionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681269387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621681269385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClientVpnConnections.html#DescribeClientVpnConnectionsResponse"><span class="hs-identifier hs-type">DescribeClientVpnConnectionsResponse</span></a></span></span><span>
+</span><span id="line-275"></span></pre></body></html>

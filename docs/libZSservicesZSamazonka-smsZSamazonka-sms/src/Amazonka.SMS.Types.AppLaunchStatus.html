@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SMS.Types.AppLaunchStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SMS.Types.AppLaunchStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier">AppLaunchStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_CONFIGURATION_INVALID"><span class="hs-identifier">AppLaunchStatus_CONFIGURATION_INVALID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_CONFIGURATION_IN_PROGRESS"><span class="hs-identifier">AppLaunchStatus_CONFIGURATION_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_DELTA_LAUNCH_FAILED"><span class="hs-identifier">AppLaunchStatus_DELTA_LAUNCH_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS"><span class="hs-identifier">AppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_LAUNCHED"><span class="hs-identifier">AppLaunchStatus_LAUNCHED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_LAUNCH_FAILED"><span class="hs-identifier">AppLaunchStatus_LAUNCH_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_LAUNCH_IN_PROGRESS"><span class="hs-identifier">AppLaunchStatus_LAUNCH_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_LAUNCH_PENDING"><span class="hs-identifier">AppLaunchStatus_LAUNCH_PENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_PARTIALLY_LAUNCHED"><span class="hs-identifier">AppLaunchStatus_PARTIALLY_LAUNCHED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_READY_FOR_CONFIGURATION"><span class="hs-identifier">AppLaunchStatus_READY_FOR_CONFIGURATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_READY_FOR_LAUNCH"><span class="hs-identifier">AppLaunchStatus_READY_FOR_LAUNCH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_TERMINATED"><span class="hs-identifier">AppLaunchStatus_TERMINATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_TERMINATE_FAILED"><span class="hs-identifier">AppLaunchStatus_TERMINATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_TERMINATE_IN_PROGRESS"><span class="hs-identifier">AppLaunchStatus_TERMINATE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_VALIDATION_IN_PROGRESS"><span class="hs-identifier">AppLaunchStatus_VALIDATION_IN_PROGRESS</span></a></span><span>
+</span><span id="line-38"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679243855"><span id="local-6989586621679243856"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppLaunchStatus"><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-var">AppLaunchStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppLaunchStatus%27"><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-var">AppLaunchStatus'</span></a></span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAppLaunchStatus"><span class="annot"><span class="annottext">AppLaunchStatus -&gt; Text
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#fromAppLaunchStatus"><span class="hs-identifier hs-var hs-var">fromAppLaunchStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243847"><span id="local-6989586621679243849"><span id="local-6989586621679243851"><span class="annot"><span class="annottext">Int -&gt; AppLaunchStatus -&gt; ShowS
+[AppLaunchStatus] -&gt; ShowS
+AppLaunchStatus -&gt; String
+(Int -&gt; AppLaunchStatus -&gt; ShowS)
+-&gt; (AppLaunchStatus -&gt; String)
+-&gt; ([AppLaunchStatus] -&gt; ShowS)
+-&gt; Show AppLaunchStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AppLaunchStatus] -&gt; ShowS
+$cshowList :: [AppLaunchStatus] -&gt; ShowS
+show :: AppLaunchStatus -&gt; String
+$cshow :: AppLaunchStatus -&gt; String
+showsPrec :: Int -&gt; AppLaunchStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AppLaunchStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679243838"><span id="local-6989586621679243840"><span id="local-6989586621679243842"><span id="local-6989586621679243844"><span class="annot"><span class="annottext">ReadPrec [AppLaunchStatus]
+ReadPrec AppLaunchStatus
+Int -&gt; ReadS AppLaunchStatus
+ReadS [AppLaunchStatus]
+(Int -&gt; ReadS AppLaunchStatus)
+-&gt; ReadS [AppLaunchStatus]
+-&gt; ReadPrec AppLaunchStatus
+-&gt; ReadPrec [AppLaunchStatus]
+-&gt; Read AppLaunchStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AppLaunchStatus]
+$creadListPrec :: ReadPrec [AppLaunchStatus]
+readPrec :: ReadPrec AppLaunchStatus
+$creadPrec :: ReadPrec AppLaunchStatus
+readList :: ReadS [AppLaunchStatus]
+$creadList :: ReadS [AppLaunchStatus]
+readsPrec :: Int -&gt; ReadS AppLaunchStatus
+$creadsPrec :: Int -&gt; ReadS AppLaunchStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679243833"><span id="local-6989586621679243835"><span class="annot"><span class="annottext">AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+(AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool)
+-&gt; (AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool)
+-&gt; Eq AppLaunchStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+$c/= :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+== :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+$c== :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679243817"><span id="local-6989586621679243819"><span id="local-6989586621679243821"><span id="local-6989586621679243823"><span id="local-6989586621679243825"><span id="local-6989586621679243827"><span id="local-6989586621679243829"><span class="annot"><span class="annottext">Eq AppLaunchStatus
+Eq AppLaunchStatus
+-&gt; (AppLaunchStatus -&gt; AppLaunchStatus -&gt; Ordering)
+-&gt; (AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool)
+-&gt; (AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool)
+-&gt; (AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool)
+-&gt; (AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool)
+-&gt; (AppLaunchStatus -&gt; AppLaunchStatus -&gt; AppLaunchStatus)
+-&gt; (AppLaunchStatus -&gt; AppLaunchStatus -&gt; AppLaunchStatus)
+-&gt; Ord AppLaunchStatus
+AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+AppLaunchStatus -&gt; AppLaunchStatus -&gt; Ordering
+AppLaunchStatus -&gt; AppLaunchStatus -&gt; AppLaunchStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; AppLaunchStatus
+$cmin :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; AppLaunchStatus
+max :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; AppLaunchStatus
+$cmax :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; AppLaunchStatus
+&gt;= :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+$c&gt;= :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+&gt; :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+$c&gt; :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+&lt;= :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+$c&lt;= :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+&lt; :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+$c&lt; :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Bool
+compare :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Ordering
+$ccompare :: AppLaunchStatus -&gt; AppLaunchStatus -&gt; Ordering
+$cp1Ord :: Eq AppLaunchStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AppLaunchStatus -&gt; Rep AppLaunchStatus x)
+-&gt; (forall x. Rep AppLaunchStatus x -&gt; AppLaunchStatus)
+-&gt; Generic AppLaunchStatus
+forall x. Rep AppLaunchStatus x -&gt; AppLaunchStatus
+forall x. AppLaunchStatus -&gt; Rep AppLaunchStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AppLaunchStatus x -&gt; AppLaunchStatus
+$cfrom :: forall x. AppLaunchStatus -&gt; Rep AppLaunchStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243809"><span id="local-6989586621679243811"><span class="annot"><span class="annottext">Int -&gt; AppLaunchStatus -&gt; Int
+AppLaunchStatus -&gt; Int
+(Int -&gt; AppLaunchStatus -&gt; Int)
+-&gt; (AppLaunchStatus -&gt; Int) -&gt; Hashable AppLaunchStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AppLaunchStatus -&gt; Int
+$chash :: AppLaunchStatus -&gt; Int
+hashWithSalt :: Int -&gt; AppLaunchStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AppLaunchStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679243806"><span class="annot"><span class="annottext">AppLaunchStatus -&gt; ()
+(AppLaunchStatus -&gt; ()) -&gt; NFData AppLaunchStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AppLaunchStatus -&gt; ()
+$crnf :: AppLaunchStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679243803"><span class="annot"><span class="annottext">Text -&gt; Either String AppLaunchStatus
+(Text -&gt; Either String AppLaunchStatus) -&gt; FromText AppLaunchStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AppLaunchStatus
+$cfromText :: Text -&gt; Either String AppLaunchStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679243800"><span class="annot"><span class="annottext">AppLaunchStatus -&gt; Text
+(AppLaunchStatus -&gt; Text) -&gt; ToText AppLaunchStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AppLaunchStatus -&gt; Text
+$ctoText :: AppLaunchStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679243797"><span class="annot"><span class="annottext">AppLaunchStatus -&gt; ByteString
+(AppLaunchStatus -&gt; ByteString) -&gt; ToByteString AppLaunchStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AppLaunchStatus -&gt; ByteString
+$ctoBS :: AppLaunchStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679243794"><span class="annot"><span class="annottext">AppLaunchStatus -&gt; ByteStringBuilder
+(AppLaunchStatus -&gt; ByteStringBuilder) -&gt; ToLog AppLaunchStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AppLaunchStatus -&gt; ByteStringBuilder
+$cbuild :: AppLaunchStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679243791"><span class="annot"><span class="annottext">HeaderName -&gt; AppLaunchStatus -&gt; [Header]
+(HeaderName -&gt; AppLaunchStatus -&gt; [Header])
+-&gt; ToHeader AppLaunchStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AppLaunchStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AppLaunchStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679243788"><span class="annot"><span class="annottext">AppLaunchStatus -&gt; QueryString
+(AppLaunchStatus -&gt; QueryString) -&gt; ToQuery AppLaunchStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AppLaunchStatus -&gt; QueryString
+$ctoQuery :: AppLaunchStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679243783"><span id="local-6989586621679243785"><span class="annot"><span class="annottext">Value -&gt; Parser [AppLaunchStatus]
+Value -&gt; Parser AppLaunchStatus
+(Value -&gt; Parser AppLaunchStatus)
+-&gt; (Value -&gt; Parser [AppLaunchStatus]) -&gt; FromJSON AppLaunchStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AppLaunchStatus]
+$cparseJSONList :: Value -&gt; Parser [AppLaunchStatus]
+parseJSON :: Value -&gt; Parser AppLaunchStatus
+$cparseJSON :: Value -&gt; Parser AppLaunchStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679243778"><span id="local-6989586621679243780"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppLaunchStatus]
+FromJSONKeyFunction AppLaunchStatus
+FromJSONKeyFunction AppLaunchStatus
+-&gt; FromJSONKeyFunction [AppLaunchStatus]
+-&gt; FromJSONKey AppLaunchStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AppLaunchStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AppLaunchStatus]
+fromJSONKey :: FromJSONKeyFunction AppLaunchStatus
+$cfromJSONKey :: FromJSONKeyFunction AppLaunchStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679243769"><span id="local-6989586621679243771"><span id="local-6989586621679243773"><span id="local-6989586621679243775"><span class="annot"><span class="annottext">[AppLaunchStatus] -&gt; Encoding
+[AppLaunchStatus] -&gt; Value
+AppLaunchStatus -&gt; Encoding
+AppLaunchStatus -&gt; Value
+(AppLaunchStatus -&gt; Value)
+-&gt; (AppLaunchStatus -&gt; Encoding)
+-&gt; ([AppLaunchStatus] -&gt; Value)
+-&gt; ([AppLaunchStatus] -&gt; Encoding)
+-&gt; ToJSON AppLaunchStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AppLaunchStatus] -&gt; Encoding
+$ctoEncodingList :: [AppLaunchStatus] -&gt; Encoding
+toJSONList :: [AppLaunchStatus] -&gt; Value
+$ctoJSONList :: [AppLaunchStatus] -&gt; Value
+toEncoding :: AppLaunchStatus -&gt; Encoding
+$ctoEncoding :: AppLaunchStatus -&gt; Encoding
+toJSON :: AppLaunchStatus -&gt; Value
+$ctoJSON :: AppLaunchStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679243764"><span id="local-6989586621679243766"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppLaunchStatus]
+ToJSONKeyFunction AppLaunchStatus
+ToJSONKeyFunction AppLaunchStatus
+-&gt; ToJSONKeyFunction [AppLaunchStatus] -&gt; ToJSONKey AppLaunchStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AppLaunchStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AppLaunchStatus]
+toJSONKey :: ToJSONKeyFunction AppLaunchStatus
+$ctoJSONKey :: ToJSONKeyFunction AppLaunchStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679243761"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppLaunchStatus
+([Node] -&gt; Either String AppLaunchStatus)
+-&gt; FromXML AppLaunchStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AppLaunchStatus
+$cparseXML :: [Node] -&gt; Either String AppLaunchStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679243758"><span class="annot"><span class="annottext">AppLaunchStatus -&gt; XML
+(AppLaunchStatus -&gt; XML) -&gt; ToXML AppLaunchStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AppLaunchStatus -&gt; XML
+$ctoXML :: AppLaunchStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_CONFIGURATION_INVALID"><span class="hs-identifier hs-type">AppLaunchStatus_CONFIGURATION_INVALID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_CONFIGURATION_INVALID"><span id="%24mAppLaunchStatus_CONFIGURATION_INVALID"><span id="AppLaunchStatus_CONFIGURATION_INVALID"><span class="annot"><span class="annottext">$bAppLaunchStatus_CONFIGURATION_INVALID :: AppLaunchStatus
+$mAppLaunchStatus_CONFIGURATION_INVALID :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_CONFIGURATION_INVALID"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_CONFIGURATION_INVALID</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONFIGURATION_INVALID&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_CONFIGURATION_IN_PROGRESS"><span class="hs-identifier hs-type">AppLaunchStatus_CONFIGURATION_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_CONFIGURATION_IN_PROGRESS"><span id="%24mAppLaunchStatus_CONFIGURATION_IN_PROGRESS"><span id="AppLaunchStatus_CONFIGURATION_IN_PROGRESS"><span class="annot"><span class="annottext">$bAppLaunchStatus_CONFIGURATION_IN_PROGRESS :: AppLaunchStatus
+$mAppLaunchStatus_CONFIGURATION_IN_PROGRESS :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_CONFIGURATION_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_CONFIGURATION_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONFIGURATION_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_DELTA_LAUNCH_FAILED"><span class="hs-identifier hs-type">AppLaunchStatus_DELTA_LAUNCH_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_DELTA_LAUNCH_FAILED"><span id="%24mAppLaunchStatus_DELTA_LAUNCH_FAILED"><span id="AppLaunchStatus_DELTA_LAUNCH_FAILED"><span class="annot"><span class="annottext">$bAppLaunchStatus_DELTA_LAUNCH_FAILED :: AppLaunchStatus
+$mAppLaunchStatus_DELTA_LAUNCH_FAILED :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_DELTA_LAUNCH_FAILED"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_DELTA_LAUNCH_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELTA_LAUNCH_FAILED&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS"><span class="hs-identifier hs-type">AppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS"><span id="%24mAppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS"><span id="AppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS"><span class="annot"><span class="annottext">$bAppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS :: AppLaunchStatus
+$mAppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELTA_LAUNCH_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_LAUNCHED"><span class="hs-identifier hs-type">AppLaunchStatus_LAUNCHED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_LAUNCHED"><span id="%24mAppLaunchStatus_LAUNCHED"><span id="AppLaunchStatus_LAUNCHED"><span class="annot"><span class="annottext">$bAppLaunchStatus_LAUNCHED :: AppLaunchStatus
+$mAppLaunchStatus_LAUNCHED :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_LAUNCHED"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_LAUNCHED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LAUNCHED&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_LAUNCH_FAILED"><span class="hs-identifier hs-type">AppLaunchStatus_LAUNCH_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_LAUNCH_FAILED"><span id="%24mAppLaunchStatus_LAUNCH_FAILED"><span id="AppLaunchStatus_LAUNCH_FAILED"><span class="annot"><span class="annottext">$bAppLaunchStatus_LAUNCH_FAILED :: AppLaunchStatus
+$mAppLaunchStatus_LAUNCH_FAILED :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_LAUNCH_FAILED"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_LAUNCH_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LAUNCH_FAILED&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_LAUNCH_IN_PROGRESS"><span class="hs-identifier hs-type">AppLaunchStatus_LAUNCH_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_LAUNCH_IN_PROGRESS"><span id="%24mAppLaunchStatus_LAUNCH_IN_PROGRESS"><span id="AppLaunchStatus_LAUNCH_IN_PROGRESS"><span class="annot"><span class="annottext">$bAppLaunchStatus_LAUNCH_IN_PROGRESS :: AppLaunchStatus
+$mAppLaunchStatus_LAUNCH_IN_PROGRESS :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_LAUNCH_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_LAUNCH_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LAUNCH_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_LAUNCH_PENDING"><span class="hs-identifier hs-type">AppLaunchStatus_LAUNCH_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_LAUNCH_PENDING"><span id="%24mAppLaunchStatus_LAUNCH_PENDING"><span id="AppLaunchStatus_LAUNCH_PENDING"><span class="annot"><span class="annottext">$bAppLaunchStatus_LAUNCH_PENDING :: AppLaunchStatus
+$mAppLaunchStatus_LAUNCH_PENDING :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_LAUNCH_PENDING"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_LAUNCH_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LAUNCH_PENDING&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_PARTIALLY_LAUNCHED"><span class="hs-identifier hs-type">AppLaunchStatus_PARTIALLY_LAUNCHED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_PARTIALLY_LAUNCHED"><span id="%24mAppLaunchStatus_PARTIALLY_LAUNCHED"><span id="AppLaunchStatus_PARTIALLY_LAUNCHED"><span class="annot"><span class="annottext">$bAppLaunchStatus_PARTIALLY_LAUNCHED :: AppLaunchStatus
+$mAppLaunchStatus_PARTIALLY_LAUNCHED :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_PARTIALLY_LAUNCHED"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_PARTIALLY_LAUNCHED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PARTIALLY_LAUNCHED&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_READY_FOR_CONFIGURATION"><span class="hs-identifier hs-type">AppLaunchStatus_READY_FOR_CONFIGURATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_READY_FOR_CONFIGURATION"><span id="%24mAppLaunchStatus_READY_FOR_CONFIGURATION"><span id="AppLaunchStatus_READY_FOR_CONFIGURATION"><span class="annot"><span class="annottext">$bAppLaunchStatus_READY_FOR_CONFIGURATION :: AppLaunchStatus
+$mAppLaunchStatus_READY_FOR_CONFIGURATION :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_READY_FOR_CONFIGURATION"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_READY_FOR_CONFIGURATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READY_FOR_CONFIGURATION&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_READY_FOR_LAUNCH"><span class="hs-identifier hs-type">AppLaunchStatus_READY_FOR_LAUNCH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_READY_FOR_LAUNCH"><span id="%24mAppLaunchStatus_READY_FOR_LAUNCH"><span id="AppLaunchStatus_READY_FOR_LAUNCH"><span class="annot"><span class="annottext">$bAppLaunchStatus_READY_FOR_LAUNCH :: AppLaunchStatus
+$mAppLaunchStatus_READY_FOR_LAUNCH :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_READY_FOR_LAUNCH"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_READY_FOR_LAUNCH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READY_FOR_LAUNCH&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_TERMINATED"><span class="hs-identifier hs-type">AppLaunchStatus_TERMINATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_TERMINATED"><span id="%24mAppLaunchStatus_TERMINATED"><span id="AppLaunchStatus_TERMINATED"><span class="annot"><span class="annottext">$bAppLaunchStatus_TERMINATED :: AppLaunchStatus
+$mAppLaunchStatus_TERMINATED :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_TERMINATED"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_TERMINATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERMINATED&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_TERMINATE_FAILED"><span class="hs-identifier hs-type">AppLaunchStatus_TERMINATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_TERMINATE_FAILED"><span id="%24mAppLaunchStatus_TERMINATE_FAILED"><span id="AppLaunchStatus_TERMINATE_FAILED"><span class="annot"><span class="annottext">$bAppLaunchStatus_TERMINATE_FAILED :: AppLaunchStatus
+$mAppLaunchStatus_TERMINATE_FAILED :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_TERMINATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_TERMINATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERMINATE_FAILED&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_TERMINATE_IN_PROGRESS"><span class="hs-identifier hs-type">AppLaunchStatus_TERMINATE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_TERMINATE_IN_PROGRESS"><span id="%24mAppLaunchStatus_TERMINATE_IN_PROGRESS"><span id="AppLaunchStatus_TERMINATE_IN_PROGRESS"><span class="annot"><span class="annottext">$bAppLaunchStatus_TERMINATE_IN_PROGRESS :: AppLaunchStatus
+$mAppLaunchStatus_TERMINATE_IN_PROGRESS :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_TERMINATE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_TERMINATE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERMINATE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_VALIDATION_IN_PROGRESS"><span class="hs-identifier hs-type">AppLaunchStatus_VALIDATION_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus"><span class="hs-identifier hs-type">AppLaunchStatus</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppLaunchStatus_VALIDATION_IN_PROGRESS"><span id="%24mAppLaunchStatus_VALIDATION_IN_PROGRESS"><span id="AppLaunchStatus_VALIDATION_IN_PROGRESS"><span class="annot"><span class="annottext">$bAppLaunchStatus_VALIDATION_IN_PROGRESS :: AppLaunchStatus
+$mAppLaunchStatus_VALIDATION_IN_PROGRESS :: forall r. AppLaunchStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppLaunchStatus.html#%24bAppLaunchStatus_VALIDATION_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">AppLaunchStatus_VALIDATION_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-identifier hs-type">AppLaunchStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATION_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_CONFIGURATION_INVALID"><span class="hs-pragma hs-type">AppLaunchStatus_CONFIGURATION_INVALID</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_CONFIGURATION_IN_PROGRESS"><span class="hs-pragma hs-type">AppLaunchStatus_CONFIGURATION_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_DELTA_LAUNCH_FAILED"><span class="hs-pragma hs-type">AppLaunchStatus_DELTA_LAUNCH_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS"><span class="hs-pragma hs-type">AppLaunchStatus_DELTA_LAUNCH_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_LAUNCHED"><span class="hs-pragma hs-type">AppLaunchStatus_LAUNCHED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_LAUNCH_FAILED"><span class="hs-pragma hs-type">AppLaunchStatus_LAUNCH_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_LAUNCH_IN_PROGRESS"><span class="hs-pragma hs-type">AppLaunchStatus_LAUNCH_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_LAUNCH_PENDING"><span class="hs-pragma hs-type">AppLaunchStatus_LAUNCH_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_PARTIALLY_LAUNCHED"><span class="hs-pragma hs-type">AppLaunchStatus_PARTIALLY_LAUNCHED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_READY_FOR_CONFIGURATION"><span class="hs-pragma hs-type">AppLaunchStatus_READY_FOR_CONFIGURATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_READY_FOR_LAUNCH"><span class="hs-pragma hs-type">AppLaunchStatus_READY_FOR_LAUNCH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_TERMINATED"><span class="hs-pragma hs-type">AppLaunchStatus_TERMINATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_TERMINATE_FAILED"><span class="hs-pragma hs-type">AppLaunchStatus_TERMINATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_TERMINATE_IN_PROGRESS"><span class="hs-pragma hs-type">AppLaunchStatus_TERMINATE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus_VALIDATION_IN_PROGRESS"><span class="hs-pragma hs-type">AppLaunchStatus_VALIDATION_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppLaunchStatus.html#AppLaunchStatus%27"><span class="hs-pragma hs-type">AppLaunchStatus'</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-136"></span></pre></body></html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ComprehendMedical.Types.EntitySubType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComprehendMedical.Types.EntitySubType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier">EntitySubType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_ACUITY"><span class="hs-identifier">EntitySubType_ACUITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_ADDRESS"><span class="hs-identifier">EntitySubType_ADDRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_AGE"><span class="hs-identifier">EntitySubType_AGE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_BRAND_NAME"><span class="hs-identifier">EntitySubType_BRAND_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_CONTACT_POINT"><span class="hs-identifier">EntitySubType_CONTACT_POINT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_DATE"><span class="hs-identifier">EntitySubType_DATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_DIRECTION"><span class="hs-identifier">EntitySubType_DIRECTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_DOSAGE"><span class="hs-identifier">EntitySubType_DOSAGE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_DURATION"><span class="hs-identifier">EntitySubType_DURATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_EMAIL"><span class="hs-identifier">EntitySubType_EMAIL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_FORM"><span class="hs-identifier">EntitySubType_FORM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_FREQUENCY"><span class="hs-identifier">EntitySubType_FREQUENCY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_GENERIC_NAME"><span class="hs-identifier">EntitySubType_GENERIC_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_IDENTIFIER"><span class="hs-identifier">EntitySubType_IDENTIFIER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_NAME"><span class="hs-identifier">EntitySubType_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_PROCEDURE_NAME"><span class="hs-identifier">EntitySubType_PROCEDURE_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_PROFESSION"><span class="hs-identifier">EntitySubType_PROFESSION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_QUALITY"><span class="hs-identifier">EntitySubType_QUALITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_QUANTITY"><span class="hs-identifier">EntitySubType_QUANTITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_RATE"><span class="hs-identifier">EntitySubType_RATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_ROUTE_OR_MODE"><span class="hs-identifier">EntitySubType_ROUTE_OR_MODE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_STRENGTH"><span class="hs-identifier">EntitySubType_STRENGTH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_SYSTEM_ORGAN_SITE"><span class="hs-identifier">EntitySubType_SYSTEM_ORGAN_SITE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TEST_NAME"><span class="hs-identifier">EntitySubType_TEST_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TEST_UNITS"><span class="hs-identifier">EntitySubType_TEST_UNITS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TEST_VALUE"><span class="hs-identifier">EntitySubType_TEST_VALUE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_EXPRESSION"><span class="hs-identifier">EntitySubType_TIME_EXPRESSION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_DX_NAME"><span class="hs-identifier">EntitySubType_TIME_TO_DX_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_MEDICATION_NAME"><span class="hs-identifier">EntitySubType_TIME_TO_MEDICATION_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_PROCEDURE_NAME"><span class="hs-identifier">EntitySubType_TIME_TO_PROCEDURE_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_TEST_NAME"><span class="hs-identifier">EntitySubType_TIME_TO_TEST_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_TREATMENT_NAME"><span class="hs-identifier">EntitySubType_TIME_TO_TREATMENT_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TREATMENT_NAME"><span class="hs-identifier">EntitySubType_TREATMENT_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_URL"><span class="hs-identifier">EntitySubType_URL</span></a></span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679206369"><span id="local-6989586621679206370"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EntitySubType"><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-var">EntitySubType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EntitySubType%27"><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-var">EntitySubType'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEntitySubType"><span class="annot"><span class="annottext">EntitySubType -&gt; Text
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#fromEntitySubType"><span class="hs-identifier hs-var hs-var">fromEntitySubType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206361"><span id="local-6989586621679206363"><span id="local-6989586621679206365"><span class="annot"><span class="annottext">Int -&gt; EntitySubType -&gt; ShowS
+[EntitySubType] -&gt; ShowS
+EntitySubType -&gt; String
+(Int -&gt; EntitySubType -&gt; ShowS)
+-&gt; (EntitySubType -&gt; String)
+-&gt; ([EntitySubType] -&gt; ShowS)
+-&gt; Show EntitySubType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EntitySubType] -&gt; ShowS
+$cshowList :: [EntitySubType] -&gt; ShowS
+show :: EntitySubType -&gt; String
+$cshow :: EntitySubType -&gt; String
+showsPrec :: Int -&gt; EntitySubType -&gt; ShowS
+$cshowsPrec :: Int -&gt; EntitySubType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679206352"><span id="local-6989586621679206354"><span id="local-6989586621679206356"><span id="local-6989586621679206358"><span class="annot"><span class="annottext">ReadPrec [EntitySubType]
+ReadPrec EntitySubType
+Int -&gt; ReadS EntitySubType
+ReadS [EntitySubType]
+(Int -&gt; ReadS EntitySubType)
+-&gt; ReadS [EntitySubType]
+-&gt; ReadPrec EntitySubType
+-&gt; ReadPrec [EntitySubType]
+-&gt; Read EntitySubType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EntitySubType]
+$creadListPrec :: ReadPrec [EntitySubType]
+readPrec :: ReadPrec EntitySubType
+$creadPrec :: ReadPrec EntitySubType
+readList :: ReadS [EntitySubType]
+$creadList :: ReadS [EntitySubType]
+readsPrec :: Int -&gt; ReadS EntitySubType
+$creadsPrec :: Int -&gt; ReadS EntitySubType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679206347"><span id="local-6989586621679206349"><span class="annot"><span class="annottext">EntitySubType -&gt; EntitySubType -&gt; Bool
+(EntitySubType -&gt; EntitySubType -&gt; Bool)
+-&gt; (EntitySubType -&gt; EntitySubType -&gt; Bool) -&gt; Eq EntitySubType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EntitySubType -&gt; EntitySubType -&gt; Bool
+$c/= :: EntitySubType -&gt; EntitySubType -&gt; Bool
+== :: EntitySubType -&gt; EntitySubType -&gt; Bool
+$c== :: EntitySubType -&gt; EntitySubType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679206331"><span id="local-6989586621679206333"><span id="local-6989586621679206335"><span id="local-6989586621679206337"><span id="local-6989586621679206339"><span id="local-6989586621679206341"><span id="local-6989586621679206343"><span class="annot"><span class="annottext">Eq EntitySubType
+Eq EntitySubType
+-&gt; (EntitySubType -&gt; EntitySubType -&gt; Ordering)
+-&gt; (EntitySubType -&gt; EntitySubType -&gt; Bool)
+-&gt; (EntitySubType -&gt; EntitySubType -&gt; Bool)
+-&gt; (EntitySubType -&gt; EntitySubType -&gt; Bool)
+-&gt; (EntitySubType -&gt; EntitySubType -&gt; Bool)
+-&gt; (EntitySubType -&gt; EntitySubType -&gt; EntitySubType)
+-&gt; (EntitySubType -&gt; EntitySubType -&gt; EntitySubType)
+-&gt; Ord EntitySubType
+EntitySubType -&gt; EntitySubType -&gt; Bool
+EntitySubType -&gt; EntitySubType -&gt; Ordering
+EntitySubType -&gt; EntitySubType -&gt; EntitySubType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EntitySubType -&gt; EntitySubType -&gt; EntitySubType
+$cmin :: EntitySubType -&gt; EntitySubType -&gt; EntitySubType
+max :: EntitySubType -&gt; EntitySubType -&gt; EntitySubType
+$cmax :: EntitySubType -&gt; EntitySubType -&gt; EntitySubType
+&gt;= :: EntitySubType -&gt; EntitySubType -&gt; Bool
+$c&gt;= :: EntitySubType -&gt; EntitySubType -&gt; Bool
+&gt; :: EntitySubType -&gt; EntitySubType -&gt; Bool
+$c&gt; :: EntitySubType -&gt; EntitySubType -&gt; Bool
+&lt;= :: EntitySubType -&gt; EntitySubType -&gt; Bool
+$c&lt;= :: EntitySubType -&gt; EntitySubType -&gt; Bool
+&lt; :: EntitySubType -&gt; EntitySubType -&gt; Bool
+$c&lt; :: EntitySubType -&gt; EntitySubType -&gt; Bool
+compare :: EntitySubType -&gt; EntitySubType -&gt; Ordering
+$ccompare :: EntitySubType -&gt; EntitySubType -&gt; Ordering
+$cp1Ord :: Eq EntitySubType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EntitySubType -&gt; Rep EntitySubType x)
+-&gt; (forall x. Rep EntitySubType x -&gt; EntitySubType)
+-&gt; Generic EntitySubType
+forall x. Rep EntitySubType x -&gt; EntitySubType
+forall x. EntitySubType -&gt; Rep EntitySubType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EntitySubType x -&gt; EntitySubType
+$cfrom :: forall x. EntitySubType -&gt; Rep EntitySubType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206323"><span id="local-6989586621679206325"><span class="annot"><span class="annottext">Int -&gt; EntitySubType -&gt; Int
+EntitySubType -&gt; Int
+(Int -&gt; EntitySubType -&gt; Int)
+-&gt; (EntitySubType -&gt; Int) -&gt; Hashable EntitySubType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EntitySubType -&gt; Int
+$chash :: EntitySubType -&gt; Int
+hashWithSalt :: Int -&gt; EntitySubType -&gt; Int
+$chashWithSalt :: Int -&gt; EntitySubType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679206320"><span class="annot"><span class="annottext">EntitySubType -&gt; ()
+(EntitySubType -&gt; ()) -&gt; NFData EntitySubType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EntitySubType -&gt; ()
+$crnf :: EntitySubType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679206317"><span class="annot"><span class="annottext">Text -&gt; Either String EntitySubType
+(Text -&gt; Either String EntitySubType) -&gt; FromText EntitySubType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EntitySubType
+$cfromText :: Text -&gt; Either String EntitySubType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679206314"><span class="annot"><span class="annottext">EntitySubType -&gt; Text
+(EntitySubType -&gt; Text) -&gt; ToText EntitySubType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EntitySubType -&gt; Text
+$ctoText :: EntitySubType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679206311"><span class="annot"><span class="annottext">EntitySubType -&gt; ByteString
+(EntitySubType -&gt; ByteString) -&gt; ToByteString EntitySubType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EntitySubType -&gt; ByteString
+$ctoBS :: EntitySubType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679206308"><span class="annot"><span class="annottext">EntitySubType -&gt; ByteStringBuilder
+(EntitySubType -&gt; ByteStringBuilder) -&gt; ToLog EntitySubType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EntitySubType -&gt; ByteStringBuilder
+$cbuild :: EntitySubType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679206305"><span class="annot"><span class="annottext">HeaderName -&gt; EntitySubType -&gt; [Header]
+(HeaderName -&gt; EntitySubType -&gt; [Header]) -&gt; ToHeader EntitySubType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EntitySubType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EntitySubType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679206302"><span class="annot"><span class="annottext">EntitySubType -&gt; QueryString
+(EntitySubType -&gt; QueryString) -&gt; ToQuery EntitySubType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EntitySubType -&gt; QueryString
+$ctoQuery :: EntitySubType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679206297"><span id="local-6989586621679206299"><span class="annot"><span class="annottext">Value -&gt; Parser [EntitySubType]
+Value -&gt; Parser EntitySubType
+(Value -&gt; Parser EntitySubType)
+-&gt; (Value -&gt; Parser [EntitySubType]) -&gt; FromJSON EntitySubType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EntitySubType]
+$cparseJSONList :: Value -&gt; Parser [EntitySubType]
+parseJSON :: Value -&gt; Parser EntitySubType
+$cparseJSON :: Value -&gt; Parser EntitySubType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621679206292"><span id="local-6989586621679206294"><span class="annot"><span class="annottext">FromJSONKeyFunction [EntitySubType]
+FromJSONKeyFunction EntitySubType
+FromJSONKeyFunction EntitySubType
+-&gt; FromJSONKeyFunction [EntitySubType] -&gt; FromJSONKey EntitySubType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EntitySubType]
+$cfromJSONKeyList :: FromJSONKeyFunction [EntitySubType]
+fromJSONKey :: FromJSONKeyFunction EntitySubType
+$cfromJSONKey :: FromJSONKeyFunction EntitySubType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span id="local-6989586621679206283"><span id="local-6989586621679206285"><span id="local-6989586621679206287"><span id="local-6989586621679206289"><span class="annot"><span class="annottext">[EntitySubType] -&gt; Encoding
+[EntitySubType] -&gt; Value
+EntitySubType -&gt; Encoding
+EntitySubType -&gt; Value
+(EntitySubType -&gt; Value)
+-&gt; (EntitySubType -&gt; Encoding)
+-&gt; ([EntitySubType] -&gt; Value)
+-&gt; ([EntitySubType] -&gt; Encoding)
+-&gt; ToJSON EntitySubType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EntitySubType] -&gt; Encoding
+$ctoEncodingList :: [EntitySubType] -&gt; Encoding
+toJSONList :: [EntitySubType] -&gt; Value
+$ctoJSONList :: [EntitySubType] -&gt; Value
+toEncoding :: EntitySubType -&gt; Encoding
+$ctoEncoding :: EntitySubType -&gt; Encoding
+toJSON :: EntitySubType -&gt; Value
+$ctoJSON :: EntitySubType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span id="local-6989586621679206278"><span id="local-6989586621679206280"><span class="annot"><span class="annottext">ToJSONKeyFunction [EntitySubType]
+ToJSONKeyFunction EntitySubType
+ToJSONKeyFunction EntitySubType
+-&gt; ToJSONKeyFunction [EntitySubType] -&gt; ToJSONKey EntitySubType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EntitySubType]
+$ctoJSONKeyList :: ToJSONKeyFunction [EntitySubType]
+toJSONKey :: ToJSONKeyFunction EntitySubType
+$ctoJSONKey :: ToJSONKeyFunction EntitySubType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span id="local-6989586621679206275"><span class="annot"><span class="annottext">[Node] -&gt; Either String EntitySubType
+([Node] -&gt; Either String EntitySubType) -&gt; FromXML EntitySubType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EntitySubType
+$cparseXML :: [Node] -&gt; Either String EntitySubType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span id="local-6989586621679206272"><span class="annot"><span class="annottext">EntitySubType -&gt; XML
+(EntitySubType -&gt; XML) -&gt; ToXML EntitySubType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EntitySubType -&gt; XML
+$ctoXML :: EntitySubType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_ACUITY"><span class="hs-identifier hs-type">EntitySubType_ACUITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_ACUITY"><span id="%24mEntitySubType_ACUITY"><span id="EntitySubType_ACUITY"><span class="annot"><span class="annottext">$bEntitySubType_ACUITY :: EntitySubType
+$mEntitySubType_ACUITY :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_ACUITY"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_ACUITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACUITY&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_ADDRESS"><span class="hs-identifier hs-type">EntitySubType_ADDRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_ADDRESS"><span id="%24mEntitySubType_ADDRESS"><span id="EntitySubType_ADDRESS"><span class="annot"><span class="annottext">$bEntitySubType_ADDRESS :: EntitySubType
+$mEntitySubType_ADDRESS :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_ADDRESS"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_ADDRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADDRESS&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_AGE"><span class="hs-identifier hs-type">EntitySubType_AGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_AGE"><span id="%24mEntitySubType_AGE"><span id="EntitySubType_AGE"><span class="annot"><span class="annottext">$bEntitySubType_AGE :: EntitySubType
+$mEntitySubType_AGE :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_AGE"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_AGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AGE&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_BRAND_NAME"><span class="hs-identifier hs-type">EntitySubType_BRAND_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_BRAND_NAME"><span id="%24mEntitySubType_BRAND_NAME"><span id="EntitySubType_BRAND_NAME"><span class="annot"><span class="annottext">$bEntitySubType_BRAND_NAME :: EntitySubType
+$mEntitySubType_BRAND_NAME :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_BRAND_NAME"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_BRAND_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BRAND_NAME&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_CONTACT_POINT"><span class="hs-identifier hs-type">EntitySubType_CONTACT_POINT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_CONTACT_POINT"><span id="%24mEntitySubType_CONTACT_POINT"><span id="EntitySubType_CONTACT_POINT"><span class="annot"><span class="annottext">$bEntitySubType_CONTACT_POINT :: EntitySubType
+$mEntitySubType_CONTACT_POINT :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_CONTACT_POINT"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_CONTACT_POINT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACT_POINT&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_DATE"><span class="hs-identifier hs-type">EntitySubType_DATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_DATE"><span id="%24mEntitySubType_DATE"><span id="EntitySubType_DATE"><span class="annot"><span class="annottext">$bEntitySubType_DATE :: EntitySubType
+$mEntitySubType_DATE :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_DATE"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_DATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DATE&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_DIRECTION"><span class="hs-identifier hs-type">EntitySubType_DIRECTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_DIRECTION"><span id="%24mEntitySubType_DIRECTION"><span id="EntitySubType_DIRECTION"><span class="annot"><span class="annottext">$bEntitySubType_DIRECTION :: EntitySubType
+$mEntitySubType_DIRECTION :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_DIRECTION"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_DIRECTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DIRECTION&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_DOSAGE"><span class="hs-identifier hs-type">EntitySubType_DOSAGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_DOSAGE"><span id="%24mEntitySubType_DOSAGE"><span id="EntitySubType_DOSAGE"><span class="annot"><span class="annottext">$bEntitySubType_DOSAGE :: EntitySubType
+$mEntitySubType_DOSAGE :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_DOSAGE"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_DOSAGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DOSAGE&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_DURATION"><span class="hs-identifier hs-type">EntitySubType_DURATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_DURATION"><span id="%24mEntitySubType_DURATION"><span id="EntitySubType_DURATION"><span class="annot"><span class="annottext">$bEntitySubType_DURATION :: EntitySubType
+$mEntitySubType_DURATION :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_DURATION"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_DURATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DURATION&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_EMAIL"><span class="hs-identifier hs-type">EntitySubType_EMAIL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_EMAIL"><span id="%24mEntitySubType_EMAIL"><span id="EntitySubType_EMAIL"><span class="annot"><span class="annottext">$bEntitySubType_EMAIL :: EntitySubType
+$mEntitySubType_EMAIL :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_EMAIL"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_EMAIL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMAIL&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_FORM"><span class="hs-identifier hs-type">EntitySubType_FORM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_FORM"><span id="%24mEntitySubType_FORM"><span id="EntitySubType_FORM"><span class="annot"><span class="annottext">$bEntitySubType_FORM :: EntitySubType
+$mEntitySubType_FORM :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_FORM"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_FORM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FORM&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_FREQUENCY"><span class="hs-identifier hs-type">EntitySubType_FREQUENCY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_FREQUENCY"><span id="%24mEntitySubType_FREQUENCY"><span id="EntitySubType_FREQUENCY"><span class="annot"><span class="annottext">$bEntitySubType_FREQUENCY :: EntitySubType
+$mEntitySubType_FREQUENCY :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_FREQUENCY"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_FREQUENCY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FREQUENCY&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_GENERIC_NAME"><span class="hs-identifier hs-type">EntitySubType_GENERIC_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_GENERIC_NAME"><span id="%24mEntitySubType_GENERIC_NAME"><span id="EntitySubType_GENERIC_NAME"><span class="annot"><span class="annottext">$bEntitySubType_GENERIC_NAME :: EntitySubType
+$mEntitySubType_GENERIC_NAME :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_GENERIC_NAME"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_GENERIC_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GENERIC_NAME&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_IDENTIFIER"><span class="hs-identifier hs-type">EntitySubType_IDENTIFIER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_IDENTIFIER"><span id="%24mEntitySubType_IDENTIFIER"><span id="EntitySubType_IDENTIFIER"><span class="annot"><span class="annottext">$bEntitySubType_IDENTIFIER :: EntitySubType
+$mEntitySubType_IDENTIFIER :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_IDENTIFIER"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_IDENTIFIER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IDENTIFIER&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_NAME"><span class="hs-identifier hs-type">EntitySubType_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_NAME"><span id="%24mEntitySubType_NAME"><span id="EntitySubType_NAME"><span class="annot"><span class="annottext">$bEntitySubType_NAME :: EntitySubType
+$mEntitySubType_NAME :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_NAME"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NAME&quot;</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_PROCEDURE_NAME"><span class="hs-identifier hs-type">EntitySubType_PROCEDURE_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_PROCEDURE_NAME"><span id="%24mEntitySubType_PROCEDURE_NAME"><span id="EntitySubType_PROCEDURE_NAME"><span class="annot"><span class="annottext">$bEntitySubType_PROCEDURE_NAME :: EntitySubType
+$mEntitySubType_PROCEDURE_NAME :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_PROCEDURE_NAME"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_PROCEDURE_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROCEDURE_NAME&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_PROFESSION"><span class="hs-identifier hs-type">EntitySubType_PROFESSION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_PROFESSION"><span id="%24mEntitySubType_PROFESSION"><span id="EntitySubType_PROFESSION"><span class="annot"><span class="annottext">$bEntitySubType_PROFESSION :: EntitySubType
+$mEntitySubType_PROFESSION :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_PROFESSION"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_PROFESSION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROFESSION&quot;</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_QUALITY"><span class="hs-identifier hs-type">EntitySubType_QUALITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_QUALITY"><span id="%24mEntitySubType_QUALITY"><span id="EntitySubType_QUALITY"><span class="annot"><span class="annottext">$bEntitySubType_QUALITY :: EntitySubType
+$mEntitySubType_QUALITY :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_QUALITY"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_QUALITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUALITY&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_QUANTITY"><span class="hs-identifier hs-type">EntitySubType_QUANTITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_QUANTITY"><span id="%24mEntitySubType_QUANTITY"><span id="EntitySubType_QUANTITY"><span class="annot"><span class="annottext">$bEntitySubType_QUANTITY :: EntitySubType
+$mEntitySubType_QUANTITY :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_QUANTITY"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_QUANTITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUANTITY&quot;</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_RATE"><span class="hs-identifier hs-type">EntitySubType_RATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_RATE"><span id="%24mEntitySubType_RATE"><span id="EntitySubType_RATE"><span class="annot"><span class="annottext">$bEntitySubType_RATE :: EntitySubType
+$mEntitySubType_RATE :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_RATE"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_RATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RATE&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_ROUTE_OR_MODE"><span class="hs-identifier hs-type">EntitySubType_ROUTE_OR_MODE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_ROUTE_OR_MODE"><span id="%24mEntitySubType_ROUTE_OR_MODE"><span id="EntitySubType_ROUTE_OR_MODE"><span class="annot"><span class="annottext">$bEntitySubType_ROUTE_OR_MODE :: EntitySubType
+$mEntitySubType_ROUTE_OR_MODE :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_ROUTE_OR_MODE"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_ROUTE_OR_MODE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROUTE_OR_MODE&quot;</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_STRENGTH"><span class="hs-identifier hs-type">EntitySubType_STRENGTH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_STRENGTH"><span id="%24mEntitySubType_STRENGTH"><span id="EntitySubType_STRENGTH"><span class="annot"><span class="annottext">$bEntitySubType_STRENGTH :: EntitySubType
+$mEntitySubType_STRENGTH :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_STRENGTH"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_STRENGTH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH&quot;</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_SYSTEM_ORGAN_SITE"><span class="hs-identifier hs-type">EntitySubType_SYSTEM_ORGAN_SITE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_SYSTEM_ORGAN_SITE"><span id="%24mEntitySubType_SYSTEM_ORGAN_SITE"><span id="EntitySubType_SYSTEM_ORGAN_SITE"><span class="annot"><span class="annottext">$bEntitySubType_SYSTEM_ORGAN_SITE :: EntitySubType
+$mEntitySubType_SYSTEM_ORGAN_SITE :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_SYSTEM_ORGAN_SITE"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_SYSTEM_ORGAN_SITE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SYSTEM_ORGAN_SITE&quot;</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TEST_NAME"><span class="hs-identifier hs-type">EntitySubType_TEST_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_TEST_NAME"><span id="%24mEntitySubType_TEST_NAME"><span id="EntitySubType_TEST_NAME"><span class="annot"><span class="annottext">$bEntitySubType_TEST_NAME :: EntitySubType
+$mEntitySubType_TEST_NAME :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_TEST_NAME"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_TEST_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TEST_NAME&quot;</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TEST_UNITS"><span class="hs-identifier hs-type">EntitySubType_TEST_UNITS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_TEST_UNITS"><span id="%24mEntitySubType_TEST_UNITS"><span id="EntitySubType_TEST_UNITS"><span class="annot"><span class="annottext">$bEntitySubType_TEST_UNITS :: EntitySubType
+$mEntitySubType_TEST_UNITS :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_TEST_UNITS"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_TEST_UNITS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TEST_UNITS&quot;</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TEST_VALUE"><span class="hs-identifier hs-type">EntitySubType_TEST_VALUE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_TEST_VALUE"><span id="%24mEntitySubType_TEST_VALUE"><span id="EntitySubType_TEST_VALUE"><span class="annot"><span class="annottext">$bEntitySubType_TEST_VALUE :: EntitySubType
+$mEntitySubType_TEST_VALUE :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_TEST_VALUE"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_TEST_VALUE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TEST_VALUE&quot;</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_EXPRESSION"><span class="hs-identifier hs-type">EntitySubType_TIME_EXPRESSION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_TIME_EXPRESSION"><span id="%24mEntitySubType_TIME_EXPRESSION"><span id="EntitySubType_TIME_EXPRESSION"><span class="annot"><span class="annottext">$bEntitySubType_TIME_EXPRESSION :: EntitySubType
+$mEntitySubType_TIME_EXPRESSION :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_TIME_EXPRESSION"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_TIME_EXPRESSION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIME_EXPRESSION&quot;</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_DX_NAME"><span class="hs-identifier hs-type">EntitySubType_TIME_TO_DX_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_TIME_TO_DX_NAME"><span id="%24mEntitySubType_TIME_TO_DX_NAME"><span id="EntitySubType_TIME_TO_DX_NAME"><span class="annot"><span class="annottext">$bEntitySubType_TIME_TO_DX_NAME :: EntitySubType
+$mEntitySubType_TIME_TO_DX_NAME :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_TIME_TO_DX_NAME"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_TIME_TO_DX_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIME_TO_DX_NAME&quot;</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_MEDICATION_NAME"><span class="hs-identifier hs-type">EntitySubType_TIME_TO_MEDICATION_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_TIME_TO_MEDICATION_NAME"><span id="%24mEntitySubType_TIME_TO_MEDICATION_NAME"><span id="EntitySubType_TIME_TO_MEDICATION_NAME"><span class="annot"><span class="annottext">$bEntitySubType_TIME_TO_MEDICATION_NAME :: EntitySubType
+$mEntitySubType_TIME_TO_MEDICATION_NAME :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_TIME_TO_MEDICATION_NAME"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_TIME_TO_MEDICATION_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIME_TO_MEDICATION_NAME&quot;</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_PROCEDURE_NAME"><span class="hs-identifier hs-type">EntitySubType_TIME_TO_PROCEDURE_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_TIME_TO_PROCEDURE_NAME"><span id="%24mEntitySubType_TIME_TO_PROCEDURE_NAME"><span id="EntitySubType_TIME_TO_PROCEDURE_NAME"><span class="annot"><span class="annottext">$bEntitySubType_TIME_TO_PROCEDURE_NAME :: EntitySubType
+$mEntitySubType_TIME_TO_PROCEDURE_NAME :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_TIME_TO_PROCEDURE_NAME"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_TIME_TO_PROCEDURE_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIME_TO_PROCEDURE_NAME&quot;</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_TEST_NAME"><span class="hs-identifier hs-type">EntitySubType_TIME_TO_TEST_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_TIME_TO_TEST_NAME"><span id="%24mEntitySubType_TIME_TO_TEST_NAME"><span id="EntitySubType_TIME_TO_TEST_NAME"><span class="annot"><span class="annottext">$bEntitySubType_TIME_TO_TEST_NAME :: EntitySubType
+$mEntitySubType_TIME_TO_TEST_NAME :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_TIME_TO_TEST_NAME"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_TIME_TO_TEST_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIME_TO_TEST_NAME&quot;</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_TREATMENT_NAME"><span class="hs-identifier hs-type">EntitySubType_TIME_TO_TREATMENT_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_TIME_TO_TREATMENT_NAME"><span id="%24mEntitySubType_TIME_TO_TREATMENT_NAME"><span id="EntitySubType_TIME_TO_TREATMENT_NAME"><span class="annot"><span class="annottext">$bEntitySubType_TIME_TO_TREATMENT_NAME :: EntitySubType
+$mEntitySubType_TIME_TO_TREATMENT_NAME :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_TIME_TO_TREATMENT_NAME"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_TIME_TO_TREATMENT_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIME_TO_TREATMENT_NAME&quot;</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TREATMENT_NAME"><span class="hs-identifier hs-type">EntitySubType_TREATMENT_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_TREATMENT_NAME"><span id="%24mEntitySubType_TREATMENT_NAME"><span id="EntitySubType_TREATMENT_NAME"><span class="annot"><span class="annottext">$bEntitySubType_TREATMENT_NAME :: EntitySubType
+$mEntitySubType_TREATMENT_NAME :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_TREATMENT_NAME"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_TREATMENT_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TREATMENT_NAME&quot;</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_URL"><span class="hs-identifier hs-type">EntitySubType_URL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType"><span class="hs-identifier hs-type">EntitySubType</span></a></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntitySubType_URL"><span id="%24mEntitySubType_URL"><span id="EntitySubType_URL"><span class="annot"><span class="annottext">$bEntitySubType_URL :: EntitySubType
+$mEntitySubType_URL :: forall r. EntitySubType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#%24bEntitySubType_URL"><span class="hs-identifier hs-var hs-var hs-var">EntitySubType_URL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-identifier hs-type">EntitySubType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;URL&quot;</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_ACUITY"><span class="hs-pragma hs-type">EntitySubType_ACUITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_ADDRESS"><span class="hs-pragma hs-type">EntitySubType_ADDRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_AGE"><span class="hs-pragma hs-type">EntitySubType_AGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_BRAND_NAME"><span class="hs-pragma hs-type">EntitySubType_BRAND_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_CONTACT_POINT"><span class="hs-pragma hs-type">EntitySubType_CONTACT_POINT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_DATE"><span class="hs-pragma hs-type">EntitySubType_DATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_DIRECTION"><span class="hs-pragma hs-type">EntitySubType_DIRECTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_DOSAGE"><span class="hs-pragma hs-type">EntitySubType_DOSAGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_DURATION"><span class="hs-pragma hs-type">EntitySubType_DURATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_EMAIL"><span class="hs-pragma hs-type">EntitySubType_EMAIL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_FORM"><span class="hs-pragma hs-type">EntitySubType_FORM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_FREQUENCY"><span class="hs-pragma hs-type">EntitySubType_FREQUENCY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_GENERIC_NAME"><span class="hs-pragma hs-type">EntitySubType_GENERIC_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_IDENTIFIER"><span class="hs-pragma hs-type">EntitySubType_IDENTIFIER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_NAME"><span class="hs-pragma hs-type">EntitySubType_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_PROCEDURE_NAME"><span class="hs-pragma hs-type">EntitySubType_PROCEDURE_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_PROFESSION"><span class="hs-pragma hs-type">EntitySubType_PROFESSION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_QUALITY"><span class="hs-pragma hs-type">EntitySubType_QUALITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_QUANTITY"><span class="hs-pragma hs-type">EntitySubType_QUANTITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_RATE"><span class="hs-pragma hs-type">EntitySubType_RATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_ROUTE_OR_MODE"><span class="hs-pragma hs-type">EntitySubType_ROUTE_OR_MODE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_STRENGTH"><span class="hs-pragma hs-type">EntitySubType_STRENGTH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_SYSTEM_ORGAN_SITE"><span class="hs-pragma hs-type">EntitySubType_SYSTEM_ORGAN_SITE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TEST_NAME"><span class="hs-pragma hs-type">EntitySubType_TEST_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TEST_UNITS"><span class="hs-pragma hs-type">EntitySubType_TEST_UNITS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TEST_VALUE"><span class="hs-pragma hs-type">EntitySubType_TEST_VALUE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_EXPRESSION"><span class="hs-pragma hs-type">EntitySubType_TIME_EXPRESSION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_DX_NAME"><span class="hs-pragma hs-type">EntitySubType_TIME_TO_DX_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_MEDICATION_NAME"><span class="hs-pragma hs-type">EntitySubType_TIME_TO_MEDICATION_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_PROCEDURE_NAME"><span class="hs-pragma hs-type">EntitySubType_TIME_TO_PROCEDURE_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_TEST_NAME"><span class="hs-pragma hs-type">EntitySubType_TIME_TO_TEST_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TIME_TO_TREATMENT_NAME"><span class="hs-pragma hs-type">EntitySubType_TIME_TO_TREATMENT_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_TREATMENT_NAME"><span class="hs-pragma hs-type">EntitySubType_TREATMENT_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType_URL"><span class="hs-pragma hs-type">EntitySubType_URL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.EntitySubType.html#EntitySubType%27"><span class="hs-pragma hs-type">EntitySubType'</span></a></span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-231"></span></pre></body></html>

@@ -1,0 +1,1013 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatch.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatch.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_LimitExceededFault"><span class="hs-identifier">_LimitExceededFault</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_DashboardNotFoundError"><span class="hs-identifier">_DashboardNotFoundError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_InvalidNextToken"><span class="hs-identifier">_InvalidNextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_InternalServiceFault"><span class="hs-identifier">_InternalServiceFault</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_DashboardInvalidInputError"><span class="hs-identifier">_DashboardInvalidInputError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_InvalidParameterValueException"><span class="hs-identifier">_InvalidParameterValueException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_ConcurrentModificationException"><span class="hs-identifier">_ConcurrentModificationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_InvalidFormatFault"><span class="hs-identifier">_InvalidFormatFault</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_MissingRequiredParameterException"><span class="hs-identifier">_MissingRequiredParameterException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_InvalidParameterCombinationException"><span class="hs-identifier">_InvalidParameterCombinationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_ResourceNotFound"><span class="hs-identifier">_ResourceNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AlarmType</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmType.html#AlarmType"><span class="hs-identifier">AlarmType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyDetectorStateValue</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue"><span class="hs-identifier">AnomalyDetectorStateValue</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ComparisonOperator</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier">ComparisonOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * HistoryItemType</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.HistoryItemType.html#HistoryItemType"><span class="hs-identifier">HistoryItemType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricStreamOutputFormat</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier">MetricStreamOutputFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RecentlyActive</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.RecentlyActive.html#RecentlyActive"><span class="hs-identifier">RecentlyActive</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScanBy</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.ScanBy.html#ScanBy"><span class="hs-identifier">ScanBy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StandardUnit</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StandardUnit.html#StandardUnit"><span class="hs-identifier">StandardUnit</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StateValue</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StateValue.html#StateValue"><span class="hs-identifier">StateValue</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Statistic</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Statistic.html#Statistic"><span class="hs-identifier">Statistic</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StatusCode</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StatusCode.html#StatusCode"><span class="hs-identifier">StatusCode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AlarmHistoryItem</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#AlarmHistoryItem"><span class="hs-identifier">AlarmHistoryItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#newAlarmHistoryItem"><span class="hs-identifier">newAlarmHistoryItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_alarmName"><span class="hs-identifier">alarmHistoryItem_alarmName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_historyItemType"><span class="hs-identifier">alarmHistoryItem_historyItemType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_historyData"><span class="hs-identifier">alarmHistoryItem_historyData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_alarmType"><span class="hs-identifier">alarmHistoryItem_alarmType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_historySummary"><span class="hs-identifier">alarmHistoryItem_historySummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html#alarmHistoryItem_timestamp"><span class="hs-identifier">alarmHistoryItem_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyDetector</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier">AnomalyDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetector.html#newAnomalyDetector"><span class="hs-identifier">newAnomalyDetector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_metricName"><span class="hs-identifier">anomalyDetector_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_namespace"><span class="hs-identifier">anomalyDetector_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_stateValue"><span class="hs-identifier">anomalyDetector_stateValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_stat"><span class="hs-identifier">anomalyDetector_stat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_configuration"><span class="hs-identifier">anomalyDetector_configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_dimensions"><span class="hs-identifier">anomalyDetector_dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyDetectorConfiguration</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration.html#AnomalyDetectorConfiguration"><span class="hs-identifier">AnomalyDetectorConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration.html#newAnomalyDetectorConfiguration"><span class="hs-identifier">newAnomalyDetectorConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration.html#anomalyDetectorConfiguration_metricTimezone"><span class="hs-identifier">anomalyDetectorConfiguration_metricTimezone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration.html#anomalyDetectorConfiguration_excludedTimeRanges"><span class="hs-identifier">anomalyDetectorConfiguration_excludedTimeRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CompositeAlarm</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#CompositeAlarm"><span class="hs-identifier">CompositeAlarm</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#newCompositeAlarm"><span class="hs-identifier">newCompositeAlarm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_alarmName"><span class="hs-identifier">compositeAlarm_alarmName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_stateUpdatedTimestamp"><span class="hs-identifier">compositeAlarm_stateUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_alarmDescription"><span class="hs-identifier">compositeAlarm_alarmDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_alarmRule"><span class="hs-identifier">compositeAlarm_alarmRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_oKActions"><span class="hs-identifier">compositeAlarm_oKActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_stateValue"><span class="hs-identifier">compositeAlarm_stateValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_alarmConfigurationUpdatedTimestamp"><span class="hs-identifier">compositeAlarm_alarmConfigurationUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_actionsEnabled"><span class="hs-identifier">compositeAlarm_actionsEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_insufficientDataActions"><span class="hs-identifier">compositeAlarm_insufficientDataActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_stateReason"><span class="hs-identifier">compositeAlarm_stateReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_stateReasonData"><span class="hs-identifier">compositeAlarm_stateReasonData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_alarmArn"><span class="hs-identifier">compositeAlarm_alarmArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html#compositeAlarm_alarmActions"><span class="hs-identifier">compositeAlarm_alarmActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DashboardEntry</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#DashboardEntry"><span class="hs-identifier">DashboardEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#newDashboardEntry"><span class="hs-identifier">newDashboardEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#dashboardEntry_size"><span class="hs-identifier">dashboardEntry_size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#dashboardEntry_dashboardName"><span class="hs-identifier">dashboardEntry_dashboardName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#dashboardEntry_lastModified"><span class="hs-identifier">dashboardEntry_lastModified</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html#dashboardEntry_dashboardArn"><span class="hs-identifier">dashboardEntry_dashboardArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DashboardValidationMessage</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardValidationMessage.html#DashboardValidationMessage"><span class="hs-identifier">DashboardValidationMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardValidationMessage.html#newDashboardValidationMessage"><span class="hs-identifier">newDashboardValidationMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardValidationMessage.html#dashboardValidationMessage_dataPath"><span class="hs-identifier">dashboardValidationMessage_dataPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardValidationMessage.html#dashboardValidationMessage_message"><span class="hs-identifier">dashboardValidationMessage_message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Datapoint</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Datapoint.html#Datapoint"><span class="hs-identifier">Datapoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Datapoint.html#newDatapoint"><span class="hs-identifier">newDatapoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Datapoint.html#datapoint_sampleCount"><span class="hs-identifier">datapoint_sampleCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Datapoint.html#datapoint_maximum"><span class="hs-identifier">datapoint_maximum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Datapoint.html#datapoint_average"><span class="hs-identifier">datapoint_average</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Datapoint.html#datapoint_minimum"><span class="hs-identifier">datapoint_minimum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Datapoint.html#datapoint_extendedStatistics"><span class="hs-identifier">datapoint_extendedStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Datapoint.html#datapoint_sum"><span class="hs-identifier">datapoint_sum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Datapoint.html#datapoint_unit"><span class="hs-identifier">datapoint_unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Datapoint.html#datapoint_timestamp"><span class="hs-identifier">datapoint_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Dimension</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier">Dimension</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Dimension.html#newDimension"><span class="hs-identifier">newDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Dimension.html#dimension_name"><span class="hs-identifier">dimension_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Dimension.html#dimension_value"><span class="hs-identifier">dimension_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DimensionFilter</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier">DimensionFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DimensionFilter.html#newDimensionFilter"><span class="hs-identifier">newDimensionFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DimensionFilter.html#dimensionFilter_value"><span class="hs-identifier">dimensionFilter_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DimensionFilter.html#dimensionFilter_name"><span class="hs-identifier">dimensionFilter_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InsightRule</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier">InsightRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRule.html#newInsightRule"><span class="hs-identifier">newInsightRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRule.html#insightRule_name"><span class="hs-identifier">insightRule_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRule.html#insightRule_state"><span class="hs-identifier">insightRule_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRule.html#insightRule_schema"><span class="hs-identifier">insightRule_schema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRule.html#insightRule_definition"><span class="hs-identifier">insightRule_definition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InsightRuleContributor</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier">InsightRuleContributor</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleContributor.html#newInsightRuleContributor"><span class="hs-identifier">newInsightRuleContributor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleContributor.html#insightRuleContributor_keys"><span class="hs-identifier">insightRuleContributor_keys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleContributor.html#insightRuleContributor_approximateAggregateValue"><span class="hs-identifier">insightRuleContributor_approximateAggregateValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleContributor.html#insightRuleContributor_datapoints"><span class="hs-identifier">insightRuleContributor_datapoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InsightRuleContributorDatapoint</span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint.html#InsightRuleContributorDatapoint"><span class="hs-identifier">InsightRuleContributorDatapoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint.html#newInsightRuleContributorDatapoint"><span class="hs-identifier">newInsightRuleContributorDatapoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint.html#insightRuleContributorDatapoint_timestamp"><span class="hs-identifier">insightRuleContributorDatapoint_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint.html#insightRuleContributorDatapoint_approximateValue"><span class="hs-identifier">insightRuleContributorDatapoint_approximateValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InsightRuleMetricDatapoint</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint.html#InsightRuleMetricDatapoint"><span class="hs-identifier">InsightRuleMetricDatapoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint.html#newInsightRuleMetricDatapoint"><span class="hs-identifier">newInsightRuleMetricDatapoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint.html#insightRuleMetricDatapoint_maxContributorValue"><span class="hs-identifier">insightRuleMetricDatapoint_maxContributorValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint.html#insightRuleMetricDatapoint_sampleCount"><span class="hs-identifier">insightRuleMetricDatapoint_sampleCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint.html#insightRuleMetricDatapoint_maximum"><span class="hs-identifier">insightRuleMetricDatapoint_maximum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint.html#insightRuleMetricDatapoint_average"><span class="hs-identifier">insightRuleMetricDatapoint_average</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint.html#insightRuleMetricDatapoint_minimum"><span class="hs-identifier">insightRuleMetricDatapoint_minimum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint.html#insightRuleMetricDatapoint_uniqueContributors"><span class="hs-identifier">insightRuleMetricDatapoint_uniqueContributors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint.html#insightRuleMetricDatapoint_sum"><span class="hs-identifier">insightRuleMetricDatapoint_sum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint.html#insightRuleMetricDatapoint_timestamp"><span class="hs-identifier">insightRuleMetricDatapoint_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LabelOptions</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.LabelOptions.html#LabelOptions"><span class="hs-identifier">LabelOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.LabelOptions.html#newLabelOptions"><span class="hs-identifier">newLabelOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.LabelOptions.html#labelOptions_timezone"><span class="hs-identifier">labelOptions_timezone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MessageData</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MessageData.html#MessageData"><span class="hs-identifier">MessageData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MessageData.html#newMessageData"><span class="hs-identifier">newMessageData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MessageData.html#messageData_value"><span class="hs-identifier">messageData_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MessageData.html#messageData_code"><span class="hs-identifier">messageData_code</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Metric</span></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier">Metric</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#newMetric"><span class="hs-identifier">newMetric</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#metric_metricName"><span class="hs-identifier">metric_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#metric_namespace"><span class="hs-identifier">metric_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html#metric_dimensions"><span class="hs-identifier">metric_dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricAlarm</span></span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#MetricAlarm"><span class="hs-identifier">MetricAlarm</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#newMetricAlarm"><span class="hs-identifier">newMetricAlarm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_alarmName"><span class="hs-identifier">metricAlarm_alarmName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_stateUpdatedTimestamp"><span class="hs-identifier">metricAlarm_stateUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_metrics"><span class="hs-identifier">metricAlarm_metrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_treatMissingData"><span class="hs-identifier">metricAlarm_treatMissingData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_period"><span class="hs-identifier">metricAlarm_period</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_alarmDescription"><span class="hs-identifier">metricAlarm_alarmDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_evaluationPeriods"><span class="hs-identifier">metricAlarm_evaluationPeriods</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_metricName"><span class="hs-identifier">metricAlarm_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_namespace"><span class="hs-identifier">metricAlarm_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_thresholdMetricId"><span class="hs-identifier">metricAlarm_thresholdMetricId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_comparisonOperator"><span class="hs-identifier">metricAlarm_comparisonOperator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_oKActions"><span class="hs-identifier">metricAlarm_oKActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_evaluateLowSampleCountPercentile"><span class="hs-identifier">metricAlarm_evaluateLowSampleCountPercentile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_stateValue"><span class="hs-identifier">metricAlarm_stateValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_datapointsToAlarm"><span class="hs-identifier">metricAlarm_datapointsToAlarm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_threshold"><span class="hs-identifier">metricAlarm_threshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_alarmConfigurationUpdatedTimestamp"><span class="hs-identifier">metricAlarm_alarmConfigurationUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_actionsEnabled"><span class="hs-identifier">metricAlarm_actionsEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_insufficientDataActions"><span class="hs-identifier">metricAlarm_insufficientDataActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_stateReason"><span class="hs-identifier">metricAlarm_stateReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_stateReasonData"><span class="hs-identifier">metricAlarm_stateReasonData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_dimensions"><span class="hs-identifier">metricAlarm_dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_alarmArn"><span class="hs-identifier">metricAlarm_alarmArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_alarmActions"><span class="hs-identifier">metricAlarm_alarmActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_unit"><span class="hs-identifier">metricAlarm_unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_statistic"><span class="hs-identifier">metricAlarm_statistic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html#metricAlarm_extendedStatistic"><span class="hs-identifier">metricAlarm_extendedStatistic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricDataQuery</span></span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataQuery.html#MetricDataQuery"><span class="hs-identifier">MetricDataQuery</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataQuery.html#newMetricDataQuery"><span class="hs-identifier">newMetricDataQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataQuery.html#metricDataQuery_returnData"><span class="hs-identifier">metricDataQuery_returnData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataQuery.html#metricDataQuery_period"><span class="hs-identifier">metricDataQuery_period</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataQuery.html#metricDataQuery_accountId"><span class="hs-identifier">metricDataQuery_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataQuery.html#metricDataQuery_expression"><span class="hs-identifier">metricDataQuery_expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataQuery.html#metricDataQuery_label"><span class="hs-identifier">metricDataQuery_label</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataQuery.html#metricDataQuery_metricStat"><span class="hs-identifier">metricDataQuery_metricStat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataQuery.html#metricDataQuery_id"><span class="hs-identifier">metricDataQuery_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricDataResult</span></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataResult.html#MetricDataResult"><span class="hs-identifier">MetricDataResult</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataResult.html#newMetricDataResult"><span class="hs-identifier">newMetricDataResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataResult.html#metricDataResult_values"><span class="hs-identifier">metricDataResult_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataResult.html#metricDataResult_id"><span class="hs-identifier">metricDataResult_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataResult.html#metricDataResult_timestamps"><span class="hs-identifier">metricDataResult_timestamps</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataResult.html#metricDataResult_messages"><span class="hs-identifier">metricDataResult_messages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataResult.html#metricDataResult_label"><span class="hs-identifier">metricDataResult_label</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataResult.html#metricDataResult_statusCode"><span class="hs-identifier">metricDataResult_statusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricDatum</span></span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier">MetricDatum</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDatum.html#newMetricDatum"><span class="hs-identifier">newMetricDatum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDatum.html#metricDatum_values"><span class="hs-identifier">metricDatum_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDatum.html#metricDatum_counts"><span class="hs-identifier">metricDatum_counts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDatum.html#metricDatum_value"><span class="hs-identifier">metricDatum_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDatum.html#metricDatum_storageResolution"><span class="hs-identifier">metricDatum_storageResolution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDatum.html#metricDatum_dimensions"><span class="hs-identifier">metricDatum_dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDatum.html#metricDatum_unit"><span class="hs-identifier">metricDatum_unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDatum.html#metricDatum_timestamp"><span class="hs-identifier">metricDatum_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDatum.html#metricDatum_statisticValues"><span class="hs-identifier">metricDatum_statisticValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDatum.html#metricDatum_metricName"><span class="hs-identifier">metricDatum_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricStat</span></span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier">MetricStat</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStat.html#newMetricStat"><span class="hs-identifier">newMetricStat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStat.html#metricStat_unit"><span class="hs-identifier">metricStat_unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStat.html#metricStat_metric"><span class="hs-identifier">metricStat_metric</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStat.html#metricStat_period"><span class="hs-identifier">metricStat_period</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStat.html#metricStat_stat"><span class="hs-identifier">metricStat_stat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricStreamEntry</span></span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamEntry.html#newMetricStreamEntry"><span class="hs-identifier">newMetricStreamEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_state"><span class="hs-identifier">metricStreamEntry_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_arn"><span class="hs-identifier">metricStreamEntry_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_firehoseArn"><span class="hs-identifier">metricStreamEntry_firehoseArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_outputFormat"><span class="hs-identifier">metricStreamEntry_outputFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_lastUpdateDate"><span class="hs-identifier">metricStreamEntry_lastUpdateDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_name"><span class="hs-identifier">metricStreamEntry_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_creationDate"><span class="hs-identifier">metricStreamEntry_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricStreamFilter</span></span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier">MetricStreamFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamFilter.html#newMetricStreamFilter"><span class="hs-identifier">newMetricStreamFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamFilter.html#metricStreamFilter_namespace"><span class="hs-identifier">metricStreamFilter_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PartialFailure</span></span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.PartialFailure.html#PartialFailure"><span class="hs-identifier">PartialFailure</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.PartialFailure.html#newPartialFailure"><span class="hs-identifier">newPartialFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.PartialFailure.html#partialFailure_failureResource"><span class="hs-identifier">partialFailure_failureResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.PartialFailure.html#partialFailure_failureCode"><span class="hs-identifier">partialFailure_failureCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.PartialFailure.html#partialFailure_failureDescription"><span class="hs-identifier">partialFailure_failureDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.PartialFailure.html#partialFailure_exceptionType"><span class="hs-identifier">partialFailure_exceptionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Range</span></span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Range.html#Range"><span class="hs-identifier">Range</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Range.html#newRange"><span class="hs-identifier">newRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Range.html#range_startTime"><span class="hs-identifier">range_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Range.html#range_endTime"><span class="hs-identifier">range_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StatisticSet</span></span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StatisticSet.html#StatisticSet"><span class="hs-identifier">StatisticSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StatisticSet.html#newStatisticSet"><span class="hs-identifier">newStatisticSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StatisticSet.html#statisticSet_sampleCount"><span class="hs-identifier">statisticSet_sampleCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StatisticSet.html#statisticSet_sum"><span class="hs-identifier">statisticSet_sum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StatisticSet.html#statisticSet_minimum"><span class="hs-identifier">statisticSet_minimum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StatisticSet.html#statisticSet_maximum"><span class="hs-identifier">statisticSet_maximum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tag</span></span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Tag.html#tag_key"><span class="hs-identifier">tag_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Tag.html#tag_value"><span class="hs-identifier">tag_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmHistoryItem.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.AlarmHistoryItem</span></a></span><span>
+</span><span id="line-319"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AlarmType.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.AlarmType</span></a></span><span>
+</span><span id="line-320"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetector.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.AnomalyDetector</span></a></span><span>
+</span><span id="line-321"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration</span></a></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.AnomalyDetectorStateValue.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.AnomalyDetectorStateValue</span></a></span><span>
+</span><span id="line-323"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.ComparisonOperator.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.ComparisonOperator</span></a></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.CompositeAlarm.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.CompositeAlarm</span></a></span><span>
+</span><span id="line-325"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardEntry.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.DashboardEntry</span></a></span><span>
+</span><span id="line-326"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DashboardValidationMessage.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.DashboardValidationMessage</span></a></span><span>
+</span><span id="line-327"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Datapoint.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.Datapoint</span></a></span><span>
+</span><span id="line-328"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Dimension.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.Dimension</span></a></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.DimensionFilter.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.DimensionFilter</span></a></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.HistoryItemType.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.HistoryItemType</span></a></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRule.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.InsightRule</span></a></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleContributor.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.InsightRuleContributor</span></a></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint</span></a></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint</span></a></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.LabelOptions.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.LabelOptions</span></a></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MessageData.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.MessageData</span></a></span><span>
+</span><span id="line-337"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Metric.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.Metric</span></a></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricAlarm.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.MetricAlarm</span></a></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataQuery.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.MetricDataQuery</span></a></span><span>
+</span><span id="line-340"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDataResult.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.MetricDataResult</span></a></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricDatum.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.MetricDatum</span></a></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStat.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.MetricStat</span></a></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamEntry.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.MetricStreamEntry</span></a></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamFilter.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.MetricStreamFilter</span></a></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.MetricStreamOutputFormat.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.MetricStreamOutputFormat</span></a></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.PartialFailure.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.PartialFailure</span></a></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Range.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.Range</span></a></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.RecentlyActive.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.RecentlyActive</span></a></span><span>
+</span><span id="line-349"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.ScanBy.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.ScanBy</span></a></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StandardUnit.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.StandardUnit</span></a></span><span>
+</span><span id="line-351"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StateValue.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.StateValue</span></a></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Statistic.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.Statistic</span></a></span><span>
+</span><span id="line-353"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StatisticSet.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.StatisticSet</span></a></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.StatusCode.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.StatusCode</span></a></span><span>
+</span><span id="line-355"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatch.Types.Tag.html"><span class="hs-identifier">Amazonka.CloudWatch.Types.Tag</span></a></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-360"></span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- | API version @2010-08-01@ of the Amazon CloudWatch SDK configuration.</span><span>
+</span><span id="line-362"></span><span class="annot"><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-363"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-364"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-365"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;CloudWatch&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;monitoring&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;monitoring&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-08-01&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-371"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseXMLError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;CloudWatch&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679258578"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-376"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-377"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-378"></span><span>    </span><span id="local-6989586621679258578"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679258578"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-379"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-380"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679258572"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-384"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-385"></span><span>    </span><span id="local-6989586621679258572"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679258572"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679258571"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-386"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-387"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-388"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-389"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-391"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-392"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-393"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-394"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-395"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-396"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-397"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-398"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-399"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-400"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-401"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-402"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-403"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-404"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-405"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-406"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-407"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-408"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-409"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-410"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-411"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-412"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-413"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-414"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-415"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-416"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-417"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-418"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-419"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-420"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-421"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-422"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-423"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-424"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-425"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-426"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-427"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-428"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-429"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-430"></span><span>
+</span><span id="line-431"></span><span class="hs-comment">-- | The quota for alarms for this customer has already been reached.</span><span>
+</span><span id="line-432"></span><span id="local-6989586621679258566"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_LimitExceededFault"><span class="hs-identifier hs-type">_LimitExceededFault</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258566"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258566"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-433"></span><span id="_LimitExceededFault"><span class="annot"><span class="annottext">_LimitExceededFault :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_LimitExceededFault"><span class="hs-identifier hs-var hs-var">_LimitExceededFault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-434"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-435"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-436"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LimitExceeded&quot;</span></span><span>
+</span><span id="line-437"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-438"></span><span>
+</span><span id="line-439"></span><span class="hs-comment">-- | The specified dashboard does not exist.</span><span>
+</span><span id="line-440"></span><span id="local-6989586621679258564"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_DashboardNotFoundError"><span class="hs-identifier hs-type">_DashboardNotFoundError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258564"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258564"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-441"></span><span id="_DashboardNotFoundError"><span class="annot"><span class="annottext">_DashboardNotFoundError :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_DashboardNotFoundError"><span class="hs-identifier hs-var hs-var">_DashboardNotFoundError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-442"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-443"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-444"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFound&quot;</span></span><span>
+</span><span id="line-445"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-446"></span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- | The next token specified is invalid.</span><span>
+</span><span id="line-448"></span><span id="local-6989586621679258563"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_InvalidNextToken"><span class="hs-identifier hs-type">_InvalidNextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258563"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258563"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-449"></span><span id="_InvalidNextToken"><span class="annot"><span class="annottext">_InvalidNextToken :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_InvalidNextToken"><span class="hs-identifier hs-var hs-var">_InvalidNextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-450"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-451"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-452"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidNextToken&quot;</span></span><span>
+</span><span id="line-453"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-454"></span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- | Request processing has failed due to some unknown error, exception, or</span><span>
+</span><span id="line-456"></span><span class="hs-comment">-- failure.</span><span>
+</span><span id="line-457"></span><span id="local-6989586621679258562"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_InternalServiceFault"><span class="hs-identifier hs-type">_InternalServiceFault</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258562"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258562"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-458"></span><span id="_InternalServiceFault"><span class="annot"><span class="annottext">_InternalServiceFault :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_InternalServiceFault"><span class="hs-identifier hs-var hs-var">_InternalServiceFault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-459"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-460"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-461"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServiceError&quot;</span></span><span>
+</span><span id="line-462"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span>
+</span><span id="line-463"></span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- | Some part of the dashboard data is invalid.</span><span>
+</span><span id="line-465"></span><span id="local-6989586621679258561"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_DashboardInvalidInputError"><span class="hs-identifier hs-type">_DashboardInvalidInputError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258561"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258561"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-466"></span><span id="_DashboardInvalidInputError"><span class="annot"><span class="annottext">_DashboardInvalidInputError :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_DashboardInvalidInputError"><span class="hs-identifier hs-var hs-var">_DashboardInvalidInputError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-467"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-468"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-469"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidParameterInput&quot;</span></span><span>
+</span><span id="line-470"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-471"></span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- | The value of an input parameter is bad or out-of-range.</span><span>
+</span><span id="line-473"></span><span id="local-6989586621679258560"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_InvalidParameterValueException"><span class="hs-identifier hs-type">_InvalidParameterValueException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258560"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258560"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-474"></span><span id="_InvalidParameterValueException"><span class="annot"><span class="annottext">_InvalidParameterValueException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_InvalidParameterValueException"><span class="hs-identifier hs-var hs-var">_InvalidParameterValueException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-475"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-476"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-477"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidParameterValue&quot;</span></span><span>
+</span><span id="line-478"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-479"></span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- | More than one process tried to modify a resource at the same time.</span><span>
+</span><span id="line-481"></span><span id="local-6989586621679258559"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_ConcurrentModificationException"><span class="hs-identifier hs-type">_ConcurrentModificationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258559"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258559"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-482"></span><span id="_ConcurrentModificationException"><span class="annot"><span class="annottext">_ConcurrentModificationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_ConcurrentModificationException"><span class="hs-identifier hs-var hs-var">_ConcurrentModificationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-483"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-484"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-485"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConcurrentModificationException&quot;</span></span><span>
+</span><span id="line-486"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span>
+</span><span id="line-487"></span><span>
+</span><span id="line-488"></span><span class="hs-comment">-- | Data was not syntactically valid JSON.</span><span>
+</span><span id="line-489"></span><span id="local-6989586621679258558"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_InvalidFormatFault"><span class="hs-identifier hs-type">_InvalidFormatFault</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258558"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258558"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-490"></span><span id="_InvalidFormatFault"><span class="annot"><span class="annottext">_InvalidFormatFault :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_InvalidFormatFault"><span class="hs-identifier hs-var hs-var">_InvalidFormatFault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-491"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-492"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-493"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidFormat&quot;</span></span><span>
+</span><span id="line-494"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-495"></span><span>
+</span><span id="line-496"></span><span class="hs-comment">-- | An input parameter that is required is missing.</span><span>
+</span><span id="line-497"></span><span id="local-6989586621679258557"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_MissingRequiredParameterException"><span class="hs-identifier hs-type">_MissingRequiredParameterException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258557"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258557"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-498"></span><span id="_MissingRequiredParameterException"><span class="annot"><span class="annottext">_MissingRequiredParameterException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_MissingRequiredParameterException"><span class="hs-identifier hs-var hs-var">_MissingRequiredParameterException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-499"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-500"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-501"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;MissingParameter&quot;</span></span><span>
+</span><span id="line-502"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-503"></span><span>
+</span><span id="line-504"></span><span class="hs-comment">-- | The named resource does not exist.</span><span>
+</span><span id="line-505"></span><span id="local-6989586621679258556"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258556"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258556"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-506"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-507"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-508"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-509"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-510"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-511"></span><span>
+</span><span id="line-512"></span><span class="hs-comment">-- | Parameters were used together that cannot be used together.</span><span>
+</span><span id="line-513"></span><span id="local-6989586621679258555"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_InvalidParameterCombinationException"><span class="hs-identifier hs-type">_InvalidParameterCombinationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258555"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258555"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-514"></span><span id="_InvalidParameterCombinationException"><span class="annot"><span class="annottext">_InvalidParameterCombinationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_InvalidParameterCombinationException"><span class="hs-identifier hs-var hs-var">_InvalidParameterCombinationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-515"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-516"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-517"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidParameterCombination&quot;</span></span><span>
+</span><span id="line-518"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-519"></span><span>
+</span><span id="line-520"></span><span class="hs-comment">-- | The operation exceeded one or more limits.</span><span>
+</span><span id="line-521"></span><span id="local-6989586621679258554"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258554"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258554"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-522"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-523"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-524"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-525"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
+</span><span id="line-526"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-527"></span><span>
+</span><span id="line-528"></span><span class="hs-comment">-- | The named resource does not exist.</span><span>
+</span><span id="line-529"></span><span id="local-6989586621679258553"><span class="annot"><a href="Amazonka.CloudWatch.Types.html#_ResourceNotFound"><span class="hs-identifier hs-type">_ResourceNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679258553"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679258553"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-530"></span><span id="_ResourceNotFound"><span class="annot"><span class="annottext">_ResourceNotFound :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.CloudWatch.Types.html#_ResourceNotFound"><span class="hs-identifier hs-var hs-var">_ResourceNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-531"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-532"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-533"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFound&quot;</span></span><span>
+</span><span id="line-534"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-535"></span></pre></body></html>

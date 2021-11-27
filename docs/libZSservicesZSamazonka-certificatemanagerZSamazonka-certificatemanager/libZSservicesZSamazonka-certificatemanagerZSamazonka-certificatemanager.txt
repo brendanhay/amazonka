@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.CertificateManager.Types.CertificateStatus
+module Amazonka.CertificateManager.Types.CertificateStatus
 newtype CertificateStatus
 CertificateStatus' :: Text -> CertificateStatus
 [fromCertificateStatus] :: CertificateStatus -> Text
@@ -16,28 +16,28 @@ pattern CertificateStatus_ISSUED :: CertificateStatus
 pattern CertificateStatus_PENDING_VALIDATION :: CertificateStatus
 pattern CertificateStatus_REVOKED :: CertificateStatus
 pattern CertificateStatus_VALIDATION_TIMED_OUT :: CertificateStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance GHC.Read.Read Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
+instance GHC.Show.Show Amazonka.CertificateManager.Types.CertificateStatus.CertificateStatus
 
 
-module Network.AWS.CertificateManager.Types.CertificateSummary
+module Amazonka.CertificateManager.Types.CertificateSummary
 
 -- | This structure is returned in the response object of ListCertificates
 --   action.
@@ -98,43 +98,43 @@ certificateSummary_certificateArn :: Lens' CertificateSummary (Maybe Text)
 -- | Fully qualified domain name (FQDN), such as www.example.com or
 --   example.com, for the certificate.
 certificateSummary_domainName :: Lens' CertificateSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.CertificateSummary.CertificateSummary
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.CertificateSummary.CertificateSummary
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.CertificateSummary.CertificateSummary
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.CertificateSummary.CertificateSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.CertificateSummary.CertificateSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.CertificateSummary.CertificateSummary
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.CertificateSummary.CertificateSummary
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.CertificateSummary.CertificateSummary
+instance GHC.Show.Show Amazonka.CertificateManager.Types.CertificateSummary.CertificateSummary
+instance GHC.Read.Read Amazonka.CertificateManager.Types.CertificateSummary.CertificateSummary
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.CertificateSummary.CertificateSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.CertificateSummary.CertificateSummary
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.CertificateSummary.CertificateSummary
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.CertificateSummary.CertificateSummary
 
 
-module Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference
+module Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference
 newtype CertificateTransparencyLoggingPreference
 CertificateTransparencyLoggingPreference' :: Text -> CertificateTransparencyLoggingPreference
 [fromCertificateTransparencyLoggingPreference] :: CertificateTransparencyLoggingPreference -> Text
 pattern CertificateTransparencyLoggingPreference_DISABLED :: CertificateTransparencyLoggingPreference
 pattern CertificateTransparencyLoggingPreference_ENABLED :: CertificateTransparencyLoggingPreference
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance GHC.Read.Read Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
+instance GHC.Show.Show Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference.CertificateTransparencyLoggingPreference
 
 
-module Network.AWS.CertificateManager.Types.CertificateOptions
+module Amazonka.CertificateManager.Types.CertificateOptions
 
 -- | Structure that contains options for your certificate. Currently, you
 --   can use this only to specify whether to opt in to or out of
@@ -172,73 +172,73 @@ newCertificateOptions :: CertificateOptions
 -- | You can opt out of certificate transparency logging by specifying the
 --   <tt>DISABLED</tt> option. Opt in by specifying <tt>ENABLED</tt>.
 certificateOptions_certificateTransparencyLoggingPreference :: Lens' CertificateOptions (Maybe CertificateTransparencyLoggingPreference)
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.CertificateOptions.CertificateOptions
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.CertificateOptions.CertificateOptions
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.CertificateOptions.CertificateOptions
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.CertificateOptions.CertificateOptions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.CertificateOptions.CertificateOptions
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.CertificateOptions.CertificateOptions
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.CertificateOptions.CertificateOptions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.CertificateOptions.CertificateOptions
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.CertificateOptions.CertificateOptions
+instance GHC.Show.Show Amazonka.CertificateManager.Types.CertificateOptions.CertificateOptions
+instance GHC.Read.Read Amazonka.CertificateManager.Types.CertificateOptions.CertificateOptions
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.CertificateOptions.CertificateOptions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.CertificateOptions.CertificateOptions
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.CertificateOptions.CertificateOptions
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.CertificateOptions.CertificateOptions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.CertificateOptions.CertificateOptions
 
 
-module Network.AWS.CertificateManager.Types.CertificateType
+module Amazonka.CertificateManager.Types.CertificateType
 newtype CertificateType
 CertificateType' :: Text -> CertificateType
 [fromCertificateType] :: CertificateType -> Text
 pattern CertificateType_AMAZON_ISSUED :: CertificateType
 pattern CertificateType_IMPORTED :: CertificateType
 pattern CertificateType_PRIVATE :: CertificateType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.CertificateType.CertificateType
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.CertificateType.CertificateType
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance GHC.Read.Read Amazonka.CertificateManager.Types.CertificateType.CertificateType
+instance GHC.Show.Show Amazonka.CertificateManager.Types.CertificateType.CertificateType
 
 
-module Network.AWS.CertificateManager.Types.DomainStatus
+module Amazonka.CertificateManager.Types.DomainStatus
 newtype DomainStatus
 DomainStatus' :: Text -> DomainStatus
 [fromDomainStatus] :: DomainStatus -> Text
 pattern DomainStatus_FAILED :: DomainStatus
 pattern DomainStatus_PENDING_VALIDATION :: DomainStatus
 pattern DomainStatus_SUCCESS :: DomainStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance GHC.Read.Read Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
+instance GHC.Show.Show Amazonka.CertificateManager.Types.DomainStatus.DomainStatus
 
 
-module Network.AWS.CertificateManager.Types.DomainValidationOption
+module Amazonka.CertificateManager.Types.DomainValidationOption
 
 -- | Contains information about the domain names that you want ACM to use
 --   to send you emails that enable you to validate domain ownership.
@@ -318,16 +318,16 @@ domainValidationOption_domainName :: Lens' DomainValidationOption Text
 --   <li>webmaster@example.com</li>
 --   </ul>
 domainValidationOption_validationDomain :: Lens' DomainValidationOption Text
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.DomainValidationOption.DomainValidationOption
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.DomainValidationOption.DomainValidationOption
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.DomainValidationOption.DomainValidationOption
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.DomainValidationOption.DomainValidationOption
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.DomainValidationOption.DomainValidationOption
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.DomainValidationOption.DomainValidationOption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.DomainValidationOption.DomainValidationOption
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.DomainValidationOption.DomainValidationOption
+instance GHC.Show.Show Amazonka.CertificateManager.Types.DomainValidationOption.DomainValidationOption
+instance GHC.Read.Read Amazonka.CertificateManager.Types.DomainValidationOption.DomainValidationOption
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.DomainValidationOption.DomainValidationOption
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.DomainValidationOption.DomainValidationOption
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.DomainValidationOption.DomainValidationOption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.DomainValidationOption.DomainValidationOption
 
 
-module Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration
+module Amazonka.CertificateManager.Types.ExpiryEventsConfiguration
 
 -- | Object containing expiration events options associated with an Amazon
 --   Web Services account.
@@ -366,17 +366,17 @@ newExpiryEventsConfiguration :: ExpiryEventsConfiguration
 --   accounts receive events starting 45 days before certificate
 --   expiration.
 expiryEventsConfiguration_daysBeforeExpiry :: Lens' ExpiryEventsConfiguration (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
+instance GHC.Show.Show Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
+instance GHC.Read.Read Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.ExpiryEventsConfiguration
 
 
-module Network.AWS.CertificateManager.Types.ExtendedKeyUsageName
+module Amazonka.CertificateManager.Types.ExtendedKeyUsageName
 newtype ExtendedKeyUsageName
 ExtendedKeyUsageName' :: Text -> ExtendedKeyUsageName
 [fromExtendedKeyUsageName] :: ExtendedKeyUsageName -> Text
@@ -392,28 +392,28 @@ pattern ExtendedKeyUsageName_OCSP_SIGNING :: ExtendedKeyUsageName
 pattern ExtendedKeyUsageName_TIME_STAMPING :: ExtendedKeyUsageName
 pattern ExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION :: ExtendedKeyUsageName
 pattern ExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION :: ExtendedKeyUsageName
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance GHC.Read.Read Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
+instance GHC.Show.Show Amazonka.CertificateManager.Types.ExtendedKeyUsageName.ExtendedKeyUsageName
 
 
-module Network.AWS.CertificateManager.Types.ExtendedKeyUsage
+module Amazonka.CertificateManager.Types.ExtendedKeyUsage
 
 -- | The Extended Key Usage X.509 v3 extension defines one or more purposes
 --   for which the public key can be used. This is in addition to or in
@@ -492,16 +492,16 @@ extendedKeyUsage_oid :: Lens' ExtendedKeyUsage (Maybe Text)
 
 -- | The name of an Extended Key Usage value.
 extendedKeyUsage_name :: Lens' ExtendedKeyUsage (Maybe ExtendedKeyUsageName)
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
+instance GHC.Show.Show Amazonka.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
+instance GHC.Read.Read Amazonka.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.ExtendedKeyUsage.ExtendedKeyUsage
 
 
-module Network.AWS.CertificateManager.Types.FailureReason
+module Amazonka.CertificateManager.Types.FailureReason
 newtype FailureReason
 FailureReason' :: Text -> FailureReason
 [fromFailureReason] :: FailureReason -> Text
@@ -522,28 +522,28 @@ pattern FailureReason_PCA_NAME_CONSTRAINTS_VALIDATION :: FailureReason
 pattern FailureReason_PCA_REQUEST_FAILED :: FailureReason
 pattern FailureReason_PCA_RESOURCE_NOT_FOUND :: FailureReason
 pattern FailureReason_SLR_NOT_FOUND :: FailureReason
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.FailureReason.FailureReason
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.FailureReason.FailureReason
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance GHC.Read.Read Amazonka.CertificateManager.Types.FailureReason.FailureReason
+instance GHC.Show.Show Amazonka.CertificateManager.Types.FailureReason.FailureReason
 
 
-module Network.AWS.CertificateManager.Types.KeyAlgorithm
+module Amazonka.CertificateManager.Types.KeyAlgorithm
 newtype KeyAlgorithm
 KeyAlgorithm' :: Text -> KeyAlgorithm
 [fromKeyAlgorithm] :: KeyAlgorithm -> Text
@@ -554,28 +554,28 @@ pattern KeyAlgorithm_RSA_1024 :: KeyAlgorithm
 pattern KeyAlgorithm_RSA_2048 :: KeyAlgorithm
 pattern KeyAlgorithm_RSA_3072 :: KeyAlgorithm
 pattern KeyAlgorithm_RSA_4096 :: KeyAlgorithm
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance GHC.Read.Read Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
+instance GHC.Show.Show Amazonka.CertificateManager.Types.KeyAlgorithm.KeyAlgorithm
 
 
-module Network.AWS.CertificateManager.Types.KeyUsageName
+module Amazonka.CertificateManager.Types.KeyUsageName
 newtype KeyUsageName
 KeyUsageName' :: Text -> KeyUsageName
 [fromKeyUsageName] :: KeyUsageName -> Text
@@ -590,28 +590,28 @@ pattern KeyUsageName_ENCIPHER_ONLY :: KeyUsageName
 pattern KeyUsageName_KEY_AGREEMENT :: KeyUsageName
 pattern KeyUsageName_KEY_ENCIPHERMENT :: KeyUsageName
 pattern KeyUsageName_NON_REPUDIATION :: KeyUsageName
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance GHC.Read.Read Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
+instance GHC.Show.Show Amazonka.CertificateManager.Types.KeyUsageName.KeyUsageName
 
 
-module Network.AWS.CertificateManager.Types.KeyUsage
+module Amazonka.CertificateManager.Types.KeyUsage
 
 -- | The Key Usage X.509 v3 extension defines the purpose of the public key
 --   contained in the certificate.
@@ -637,16 +637,16 @@ newKeyUsage :: KeyUsage
 
 -- | A string value that contains a Key Usage extension name.
 keyUsage_name :: Lens' KeyUsage (Maybe KeyUsageName)
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.KeyUsage.KeyUsage
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.KeyUsage.KeyUsage
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.KeyUsage.KeyUsage
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.KeyUsage.KeyUsage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.KeyUsage.KeyUsage
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.KeyUsage.KeyUsage
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.KeyUsage.KeyUsage
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.KeyUsage.KeyUsage
+instance GHC.Show.Show Amazonka.CertificateManager.Types.KeyUsage.KeyUsage
+instance GHC.Read.Read Amazonka.CertificateManager.Types.KeyUsage.KeyUsage
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.KeyUsage.KeyUsage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.KeyUsage.KeyUsage
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.KeyUsage.KeyUsage
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.KeyUsage.KeyUsage
 
 
-module Network.AWS.CertificateManager.Types.Filters
+module Amazonka.CertificateManager.Types.Filters
 
 -- | This structure can be used in the ListCertificates action to filter
 --   the output of the certificate list.
@@ -711,69 +711,69 @@ filters_keyUsage :: Lens' Filters (Maybe [KeyUsageName])
 
 -- | Specify one or more ExtendedKeyUsage extension values.
 filters_extendedKeyUsage :: Lens' Filters (Maybe [ExtendedKeyUsageName])
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.Filters.Filters
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.Filters.Filters
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.Filters.Filters
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.Filters.Filters
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.Filters.Filters
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.Filters.Filters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.Filters.Filters
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.Filters.Filters
+instance GHC.Show.Show Amazonka.CertificateManager.Types.Filters.Filters
+instance GHC.Read.Read Amazonka.CertificateManager.Types.Filters.Filters
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.Filters.Filters
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.Filters.Filters
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.Filters.Filters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.Filters.Filters
 
 
-module Network.AWS.CertificateManager.Types.RecordType
+module Amazonka.CertificateManager.Types.RecordType
 newtype RecordType
 RecordType' :: Text -> RecordType
 [fromRecordType] :: RecordType -> Text
 pattern RecordType_CNAME :: RecordType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.RecordType.RecordType
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.RecordType.RecordType
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.RecordType.RecordType
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.RecordType.RecordType
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.RecordType.RecordType
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.RecordType.RecordType
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.RecordType.RecordType
+instance GHC.Read.Read Amazonka.CertificateManager.Types.RecordType.RecordType
+instance GHC.Show.Show Amazonka.CertificateManager.Types.RecordType.RecordType
 
 
-module Network.AWS.CertificateManager.Types.RenewalEligibility
+module Amazonka.CertificateManager.Types.RenewalEligibility
 newtype RenewalEligibility
 RenewalEligibility' :: Text -> RenewalEligibility
 [fromRenewalEligibility] :: RenewalEligibility -> Text
 pattern RenewalEligibility_ELIGIBLE :: RenewalEligibility
 pattern RenewalEligibility_INELIGIBLE :: RenewalEligibility
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance GHC.Read.Read Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
+instance GHC.Show.Show Amazonka.CertificateManager.Types.RenewalEligibility.RenewalEligibility
 
 
-module Network.AWS.CertificateManager.Types.RenewalStatus
+module Amazonka.CertificateManager.Types.RenewalStatus
 newtype RenewalStatus
 RenewalStatus' :: Text -> RenewalStatus
 [fromRenewalStatus] :: RenewalStatus -> Text
@@ -781,28 +781,28 @@ pattern RenewalStatus_FAILED :: RenewalStatus
 pattern RenewalStatus_PENDING_AUTO_RENEWAL :: RenewalStatus
 pattern RenewalStatus_PENDING_VALIDATION :: RenewalStatus
 pattern RenewalStatus_SUCCESS :: RenewalStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance GHC.Read.Read Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
+instance GHC.Show.Show Amazonka.CertificateManager.Types.RenewalStatus.RenewalStatus
 
 
-module Network.AWS.CertificateManager.Types.ResourceRecord
+module Amazonka.CertificateManager.Types.ResourceRecord
 
 -- | Contains a DNS record value that you can use to validate ownership or
 --   control of a domain. This is used by the DescribeCertificate action.
@@ -853,16 +853,16 @@ resourceRecord_type :: Lens' ResourceRecord RecordType
 -- | The value of the CNAME record to add to your DNS database. This is
 --   supplied by ACM.
 resourceRecord_value :: Lens' ResourceRecord Text
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.ResourceRecord.ResourceRecord
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.ResourceRecord.ResourceRecord
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.ResourceRecord.ResourceRecord
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.ResourceRecord.ResourceRecord
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.ResourceRecord.ResourceRecord
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.ResourceRecord.ResourceRecord
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.ResourceRecord.ResourceRecord
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.ResourceRecord.ResourceRecord
+instance GHC.Show.Show Amazonka.CertificateManager.Types.ResourceRecord.ResourceRecord
+instance GHC.Read.Read Amazonka.CertificateManager.Types.ResourceRecord.ResourceRecord
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.ResourceRecord.ResourceRecord
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.ResourceRecord.ResourceRecord
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.ResourceRecord.ResourceRecord
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.ResourceRecord.ResourceRecord
 
 
-module Network.AWS.CertificateManager.Types.RevocationReason
+module Amazonka.CertificateManager.Types.RevocationReason
 newtype RevocationReason
 RevocationReason' :: Text -> RevocationReason
 [fromRevocationReason] :: RevocationReason -> Text
@@ -876,28 +876,28 @@ pattern RevocationReason_PRIVILEGE_WITHDRAWN :: RevocationReason
 pattern RevocationReason_REMOVE_FROM_CRL :: RevocationReason
 pattern RevocationReason_SUPERCEDED :: RevocationReason
 pattern RevocationReason_UNSPECIFIED :: RevocationReason
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.RevocationReason.RevocationReason
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance GHC.Read.Read Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
+instance GHC.Show.Show Amazonka.CertificateManager.Types.RevocationReason.RevocationReason
 
 
-module Network.AWS.CertificateManager.Types.Tag
+module Amazonka.CertificateManager.Types.Tag
 
 -- | A key-value pair that identifies or specifies metadata about an ACM
 --   resource.
@@ -930,44 +930,44 @@ tag_value :: Lens' Tag (Maybe Text)
 
 -- | The key of the tag.
 tag_key :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.CertificateManager.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.CertificateManager.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.Tag.Tag
 
 
-module Network.AWS.CertificateManager.Types.ValidationMethod
+module Amazonka.CertificateManager.Types.ValidationMethod
 newtype ValidationMethod
 ValidationMethod' :: Text -> ValidationMethod
 [fromValidationMethod] :: ValidationMethod -> Text
 pattern ValidationMethod_DNS :: ValidationMethod
 pattern ValidationMethod_EMAIL :: ValidationMethod
-instance Network.AWS.Data.XML.ToXML Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Network.AWS.Data.XML.FromXML Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Network.AWS.Data.Log.ToLog Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Network.AWS.Data.Text.ToText Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Network.AWS.Data.Text.FromText Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance GHC.Classes.Ord Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Amazonka.Data.XML.ToXML Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Amazonka.Data.XML.FromXML Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Amazonka.Data.Headers.ToHeader Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Amazonka.Data.Log.ToLog Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Amazonka.Data.Text.ToText Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Amazonka.Data.Text.FromText Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance GHC.Classes.Ord Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance GHC.Read.Read Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
+instance GHC.Show.Show Amazonka.CertificateManager.Types.ValidationMethod.ValidationMethod
 
 
-module Network.AWS.CertificateManager.Types.DomainValidation
+module Amazonka.CertificateManager.Types.DomainValidation
 
 -- | Contains information about the validation of each domain name in the
 --   certificate.
@@ -1093,16 +1093,16 @@ domainValidation_validationDomain :: Lens' DomainValidation (Maybe Text)
 -- | A fully qualified domain name (FQDN) in the certificate. For example,
 --   <tt>www.example.com</tt> or <tt>example.com</tt>.
 domainValidation_domainName :: Lens' DomainValidation Text
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.DomainValidation.DomainValidation
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.DomainValidation.DomainValidation
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.DomainValidation.DomainValidation
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.DomainValidation.DomainValidation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.DomainValidation.DomainValidation
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.DomainValidation.DomainValidation
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.DomainValidation.DomainValidation
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.DomainValidation.DomainValidation
+instance GHC.Show.Show Amazonka.CertificateManager.Types.DomainValidation.DomainValidation
+instance GHC.Read.Read Amazonka.CertificateManager.Types.DomainValidation.DomainValidation
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.DomainValidation.DomainValidation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.DomainValidation.DomainValidation
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.DomainValidation.DomainValidation
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.DomainValidation.DomainValidation
 
 
-module Network.AWS.CertificateManager.Types.RenewalSummary
+module Amazonka.CertificateManager.Types.RenewalSummary
 
 -- | Contains information about the status of ACM's <a>managed renewal</a>
 --   for the certificate. This structure exists only when the certificate
@@ -1172,16 +1172,16 @@ renewalSummary_domainValidationOptions :: Lens' RenewalSummary (NonEmpty DomainV
 
 -- | The time at which the renewal summary was last updated.
 renewalSummary_updatedAt :: Lens' RenewalSummary UTCTime
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.RenewalSummary.RenewalSummary
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.RenewalSummary.RenewalSummary
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.RenewalSummary.RenewalSummary
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.RenewalSummary.RenewalSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.RenewalSummary.RenewalSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.RenewalSummary.RenewalSummary
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.RenewalSummary.RenewalSummary
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.RenewalSummary.RenewalSummary
+instance GHC.Show.Show Amazonka.CertificateManager.Types.RenewalSummary.RenewalSummary
+instance GHC.Read.Read Amazonka.CertificateManager.Types.RenewalSummary.RenewalSummary
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.RenewalSummary.RenewalSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.RenewalSummary.RenewalSummary
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.RenewalSummary.RenewalSummary
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.RenewalSummary.RenewalSummary
 
 
-module Network.AWS.CertificateManager.Types.CertificateDetail
+module Amazonka.CertificateManager.Types.CertificateDetail
 
 -- | Contains metadata about an ACM certificate. This structure is returned
 --   in the response to a DescribeCertificate request.
@@ -1586,16 +1586,16 @@ certificateDetail_notAfter :: Lens' CertificateDetail (Maybe UTCTime)
 --   arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012
 --   </pre>
 certificateDetail_certificateAuthorityArn :: Lens' CertificateDetail (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CertificateManager.Types.CertificateDetail.CertificateDetail
-instance GHC.Show.Show Network.AWS.CertificateManager.Types.CertificateDetail.CertificateDetail
-instance GHC.Read.Read Network.AWS.CertificateManager.Types.CertificateDetail.CertificateDetail
-instance GHC.Classes.Eq Network.AWS.CertificateManager.Types.CertificateDetail.CertificateDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CertificateManager.Types.CertificateDetail.CertificateDetail
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.Types.CertificateDetail.CertificateDetail
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.Types.CertificateDetail.CertificateDetail
+instance GHC.Generics.Generic Amazonka.CertificateManager.Types.CertificateDetail.CertificateDetail
+instance GHC.Show.Show Amazonka.CertificateManager.Types.CertificateDetail.CertificateDetail
+instance GHC.Read.Read Amazonka.CertificateManager.Types.CertificateDetail.CertificateDetail
+instance GHC.Classes.Eq Amazonka.CertificateManager.Types.CertificateDetail.CertificateDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CertificateManager.Types.CertificateDetail.CertificateDetail
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.Types.CertificateDetail.CertificateDetail
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.Types.CertificateDetail.CertificateDetail
 
 
-module Network.AWS.CertificateManager.Types
+module Amazonka.CertificateManager.Types
 
 -- | API version <tt>2015-12-08</tt> of the Amazon Certificate Manager SDK
 --   configuration.
@@ -2855,7 +2855,7 @@ tag_key :: Lens' Tag Text
 --   attempt to resend validation mail, you must request a new certificate.
 --   For more information about setting up your contact email addresses,
 --   see <a>Configure Email for your Domain</a>.
-module Network.AWS.CertificateManager.ResendValidationEmail
+module Amazonka.CertificateManager.ResendValidationEmail
 
 -- | <i>See:</i> <a>newResendValidationEmail</a> smart constructor.
 data ResendValidationEmail
@@ -2982,22 +2982,22 @@ ResendValidationEmailResponse' :: ResendValidationEmailResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newResendValidationEmailResponse :: ResendValidationEmailResponse
-instance GHC.Generics.Generic Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmail
-instance GHC.Show.Show Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmail
-instance GHC.Read.Read Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmail
-instance GHC.Classes.Eq Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmail
-instance GHC.Generics.Generic Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmailResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmailResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmailResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmailResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmail
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmailResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmail
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmail
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmail
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmail
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmail
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.ResendValidationEmail.ResendValidationEmail
+instance GHC.Generics.Generic Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmail
+instance GHC.Show.Show Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmail
+instance GHC.Read.Read Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmail
+instance GHC.Classes.Eq Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmail
+instance GHC.Generics.Generic Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmailResponse
+instance GHC.Show.Show Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmailResponse
+instance GHC.Read.Read Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmailResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmailResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmail
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmailResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmail
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmail
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmail
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmail
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmail
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.ResendValidationEmail.ResendValidationEmail
 
 
 -- | Requests an ACM certificate for use with other Amazon Web Services
@@ -3018,7 +3018,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.ResendVal
 --   specification of the certificate validation process. first checks for
 --   a subject alternative name, and, if it finds one, ignores the common
 --   name (CN)
-module Network.AWS.CertificateManager.RequestCertificate
+module Amazonka.CertificateManager.RequestCertificate
 
 -- | <i>See:</i> <a>newRequestCertificate</a> smart constructor.
 data RequestCertificate
@@ -3327,22 +3327,22 @@ requestCertificateResponse_certificateArn :: Lens' RequestCertificateResponse (M
 
 -- | The response's http status code.
 requestCertificateResponse_httpStatus :: Lens' RequestCertificateResponse Int
-instance GHC.Generics.Generic Network.AWS.CertificateManager.RequestCertificate.RequestCertificate
-instance GHC.Show.Show Network.AWS.CertificateManager.RequestCertificate.RequestCertificate
-instance GHC.Read.Read Network.AWS.CertificateManager.RequestCertificate.RequestCertificate
-instance GHC.Classes.Eq Network.AWS.CertificateManager.RequestCertificate.RequestCertificate
-instance GHC.Generics.Generic Network.AWS.CertificateManager.RequestCertificate.RequestCertificateResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.RequestCertificate.RequestCertificateResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.RequestCertificate.RequestCertificateResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.RequestCertificate.RequestCertificateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.RequestCertificate.RequestCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.RequestCertificate.RequestCertificateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.RequestCertificate.RequestCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.RequestCertificate.RequestCertificate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.RequestCertificate.RequestCertificate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.RequestCertificate.RequestCertificate
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.RequestCertificate.RequestCertificate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.RequestCertificate.RequestCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.RequestCertificate.RequestCertificate
+instance GHC.Show.Show Amazonka.CertificateManager.RequestCertificate.RequestCertificate
+instance GHC.Read.Read Amazonka.CertificateManager.RequestCertificate.RequestCertificate
+instance GHC.Classes.Eq Amazonka.CertificateManager.RequestCertificate.RequestCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.RequestCertificate.RequestCertificateResponse
+instance GHC.Show.Show Amazonka.CertificateManager.RequestCertificate.RequestCertificateResponse
+instance GHC.Read.Read Amazonka.CertificateManager.RequestCertificate.RequestCertificateResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.RequestCertificate.RequestCertificateResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.RequestCertificate.RequestCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.RequestCertificate.RequestCertificateResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.RequestCertificate.RequestCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.RequestCertificate.RequestCertificate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.RequestCertificate.RequestCertificate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.RequestCertificate.RequestCertificate
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.RequestCertificate.RequestCertificate
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.RequestCertificate.RequestCertificate
 
 
 -- | Renews an eligible ACM certificate. At this time, only exported
@@ -3350,7 +3350,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.RequestCe
 --   renew your ACM PCA certificates with ACM, you must first <a>grant the
 --   ACM service principal permission to do so</a>. For more information,
 --   see <a>Testing Managed Renewal</a> in the ACM User Guide.
-module Network.AWS.CertificateManager.RenewCertificate
+module Amazonka.CertificateManager.RenewCertificate
 
 -- | <i>See:</i> <a>newRenewCertificate</a> smart constructor.
 data RenewCertificate
@@ -3409,22 +3409,22 @@ RenewCertificateResponse' :: RenewCertificateResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newRenewCertificateResponse :: RenewCertificateResponse
-instance GHC.Generics.Generic Network.AWS.CertificateManager.RenewCertificate.RenewCertificate
-instance GHC.Show.Show Network.AWS.CertificateManager.RenewCertificate.RenewCertificate
-instance GHC.Read.Read Network.AWS.CertificateManager.RenewCertificate.RenewCertificate
-instance GHC.Classes.Eq Network.AWS.CertificateManager.RenewCertificate.RenewCertificate
-instance GHC.Generics.Generic Network.AWS.CertificateManager.RenewCertificate.RenewCertificateResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.RenewCertificate.RenewCertificateResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.RenewCertificate.RenewCertificateResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.RenewCertificate.RenewCertificateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.RenewCertificate.RenewCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.RenewCertificate.RenewCertificateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.RenewCertificate.RenewCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.RenewCertificate.RenewCertificate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.RenewCertificate.RenewCertificate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.RenewCertificate.RenewCertificate
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.RenewCertificate.RenewCertificate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.RenewCertificate.RenewCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.RenewCertificate.RenewCertificate
+instance GHC.Show.Show Amazonka.CertificateManager.RenewCertificate.RenewCertificate
+instance GHC.Read.Read Amazonka.CertificateManager.RenewCertificate.RenewCertificate
+instance GHC.Classes.Eq Amazonka.CertificateManager.RenewCertificate.RenewCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.RenewCertificate.RenewCertificateResponse
+instance GHC.Show.Show Amazonka.CertificateManager.RenewCertificate.RenewCertificateResponse
+instance GHC.Read.Read Amazonka.CertificateManager.RenewCertificate.RenewCertificateResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.RenewCertificate.RenewCertificateResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.RenewCertificate.RenewCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.RenewCertificate.RenewCertificateResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.RenewCertificate.RenewCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.RenewCertificate.RenewCertificate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.RenewCertificate.RenewCertificate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.RenewCertificate.RenewCertificate
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.RenewCertificate.RenewCertificate
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.RenewCertificate.RenewCertificate
 
 
 -- | Remove one or more tags from an ACM certificate. A tag consists of a
@@ -3436,7 +3436,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.RenewCert
 --   To add tags to a certificate, use the AddTagsToCertificate action. To
 --   view all of the tags that have been applied to a specific ACM
 --   certificate, use the ListTagsForCertificate action.
-module Network.AWS.CertificateManager.RemoveTagsFromCertificate
+module Amazonka.CertificateManager.RemoveTagsFromCertificate
 
 -- | <i>See:</i> <a>newRemoveTagsFromCertificate</a> smart constructor.
 data RemoveTagsFromCertificate
@@ -3507,22 +3507,22 @@ RemoveTagsFromCertificateResponse' :: RemoveTagsFromCertificateResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newRemoveTagsFromCertificateResponse :: RemoveTagsFromCertificateResponse
-instance GHC.Generics.Generic Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
-instance GHC.Show.Show Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
-instance GHC.Read.Read Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
-instance GHC.Classes.Eq Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
-instance GHC.Generics.Generic Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificateResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificateResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificateResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
+instance GHC.Show.Show Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
+instance GHC.Read.Read Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
+instance GHC.Classes.Eq Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificateResponse
+instance GHC.Show.Show Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificateResponse
+instance GHC.Read.Read Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificateResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificateResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificateResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.RemoveTagsFromCertificate.RemoveTagsFromCertificate
 
 
 -- | Adds or modifies account-level configurations in ACM.
@@ -3533,7 +3533,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.RemoveTag
 --   event per day per certificate until the certificate expires. By
 --   default, accounts receive events starting 45 days before certificate
 --   expiration.
-module Network.AWS.CertificateManager.PutAccountConfiguration
+module Amazonka.CertificateManager.PutAccountConfiguration
 
 -- | <i>See:</i> <a>newPutAccountConfiguration</a> smart constructor.
 data PutAccountConfiguration
@@ -3595,29 +3595,29 @@ PutAccountConfigurationResponse' :: PutAccountConfigurationResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newPutAccountConfigurationResponse :: PutAccountConfigurationResponse
-instance GHC.Generics.Generic Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
-instance GHC.Show.Show Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
-instance GHC.Read.Read Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
-instance GHC.Classes.Eq Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
-instance GHC.Generics.Generic Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfigurationResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfigurationResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
+instance GHC.Generics.Generic Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
+instance GHC.Show.Show Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
+instance GHC.Read.Read Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
+instance GHC.Classes.Eq Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
+instance GHC.Generics.Generic Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfigurationResponse
+instance GHC.Show.Show Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfigurationResponse
+instance GHC.Read.Read Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfigurationResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.PutAccountConfiguration.PutAccountConfiguration
 
 
 -- | Lists the tags that have been applied to the ACM certificate. Use the
 --   certificate's Amazon Resource Name (ARN) to specify the certificate.
 --   To add a tag to an ACM certificate, use the AddTagsToCertificate
 --   action. To delete a tag, use the RemoveTagsFromCertificate action.
-module Network.AWS.CertificateManager.ListTagsForCertificate
+module Amazonka.CertificateManager.ListTagsForCertificate
 
 -- | <i>See:</i> <a>newListTagsForCertificate</a> smart constructor.
 data ListTagsForCertificate
@@ -3701,22 +3701,22 @@ listTagsForCertificateResponse_tags :: Lens' ListTagsForCertificateResponse (May
 
 -- | The response's http status code.
 listTagsForCertificateResponse_httpStatus :: Lens' ListTagsForCertificateResponse Int
-instance GHC.Generics.Generic Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
-instance GHC.Show.Show Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
-instance GHC.Read.Read Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
-instance GHC.Classes.Eq Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
-instance GHC.Generics.Generic Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificateResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificateResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificateResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
+instance GHC.Show.Show Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
+instance GHC.Read.Read Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
+instance GHC.Classes.Eq Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificateResponse
+instance GHC.Show.Show Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificateResponse
+instance GHC.Read.Read Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificateResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificateResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificateResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.ListTagsForCertificate.ListTagsForCertificate
 
 
 -- | Retrieves a list of certificate ARNs and domain names. You can request
@@ -3726,7 +3726,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.ListTagsF
 --   information, see Filters.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CertificateManager.ListCertificates
+module Amazonka.CertificateManager.ListCertificates
 
 -- | <i>See:</i> <a>newListCertificates</a> smart constructor.
 data ListCertificates
@@ -3852,23 +3852,23 @@ listCertificatesResponse_nextToken :: Lens' ListCertificatesResponse (Maybe Text
 
 -- | The response's http status code.
 listCertificatesResponse_httpStatus :: Lens' ListCertificatesResponse Int
-instance GHC.Generics.Generic Network.AWS.CertificateManager.ListCertificates.ListCertificates
-instance GHC.Show.Show Network.AWS.CertificateManager.ListCertificates.ListCertificates
-instance GHC.Read.Read Network.AWS.CertificateManager.ListCertificates.ListCertificates
-instance GHC.Classes.Eq Network.AWS.CertificateManager.ListCertificates.ListCertificates
-instance GHC.Generics.Generic Network.AWS.CertificateManager.ListCertificates.ListCertificatesResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.ListCertificates.ListCertificatesResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.ListCertificates.ListCertificatesResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.ListCertificates.ListCertificatesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.ListCertificates.ListCertificates
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.ListCertificates.ListCertificatesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CertificateManager.ListCertificates.ListCertificates
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.ListCertificates.ListCertificates
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.ListCertificates.ListCertificates
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.ListCertificates.ListCertificates
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.ListCertificates.ListCertificates
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.ListCertificates.ListCertificates
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.ListCertificates.ListCertificates
+instance GHC.Generics.Generic Amazonka.CertificateManager.ListCertificates.ListCertificates
+instance GHC.Show.Show Amazonka.CertificateManager.ListCertificates.ListCertificates
+instance GHC.Read.Read Amazonka.CertificateManager.ListCertificates.ListCertificates
+instance GHC.Classes.Eq Amazonka.CertificateManager.ListCertificates.ListCertificates
+instance GHC.Generics.Generic Amazonka.CertificateManager.ListCertificates.ListCertificatesResponse
+instance GHC.Show.Show Amazonka.CertificateManager.ListCertificates.ListCertificatesResponse
+instance GHC.Read.Read Amazonka.CertificateManager.ListCertificates.ListCertificatesResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.ListCertificates.ListCertificatesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.ListCertificates.ListCertificates
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.ListCertificates.ListCertificatesResponse
+instance Amazonka.Pager.AWSPager Amazonka.CertificateManager.ListCertificates.ListCertificates
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.ListCertificates.ListCertificates
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.ListCertificates.ListCertificates
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.ListCertificates.ListCertificates
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.ListCertificates.ListCertificates
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.ListCertificates.ListCertificates
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.ListCertificates.ListCertificates
 
 
 -- | Imports a certificate into Amazon Web Services Certificate Manager
@@ -3922,7 +3922,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.ListCerti
 --   
 --   This operation returns the <a>Amazon Resource Name (ARN)</a> of the
 --   imported certificate.
-module Network.AWS.CertificateManager.ImportCertificate
+module Amazonka.CertificateManager.ImportCertificate
 
 -- | <i>See:</i> <a>newImportCertificate</a> smart constructor.
 data ImportCertificate
@@ -4057,21 +4057,21 @@ importCertificateResponse_certificateArn :: Lens' ImportCertificateResponse (May
 
 -- | The response's http status code.
 importCertificateResponse_httpStatus :: Lens' ImportCertificateResponse Int
-instance GHC.Generics.Generic Network.AWS.CertificateManager.ImportCertificate.ImportCertificate
-instance GHC.Show.Show Network.AWS.CertificateManager.ImportCertificate.ImportCertificate
-instance GHC.Classes.Eq Network.AWS.CertificateManager.ImportCertificate.ImportCertificate
-instance GHC.Generics.Generic Network.AWS.CertificateManager.ImportCertificate.ImportCertificateResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.ImportCertificate.ImportCertificateResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.ImportCertificate.ImportCertificateResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.ImportCertificate.ImportCertificateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.ImportCertificate.ImportCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.ImportCertificate.ImportCertificateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.ImportCertificate.ImportCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.ImportCertificate.ImportCertificate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.ImportCertificate.ImportCertificate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.ImportCertificate.ImportCertificate
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.ImportCertificate.ImportCertificate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.ImportCertificate.ImportCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.ImportCertificate.ImportCertificate
+instance GHC.Show.Show Amazonka.CertificateManager.ImportCertificate.ImportCertificate
+instance GHC.Classes.Eq Amazonka.CertificateManager.ImportCertificate.ImportCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.ImportCertificate.ImportCertificateResponse
+instance GHC.Show.Show Amazonka.CertificateManager.ImportCertificate.ImportCertificateResponse
+instance GHC.Read.Read Amazonka.CertificateManager.ImportCertificate.ImportCertificateResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.ImportCertificate.ImportCertificateResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.ImportCertificate.ImportCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.ImportCertificate.ImportCertificateResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.ImportCertificate.ImportCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.ImportCertificate.ImportCertificate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.ImportCertificate.ImportCertificate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.ImportCertificate.ImportCertificate
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.ImportCertificate.ImportCertificate
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.ImportCertificate.ImportCertificate
 
 
 -- | Retrieves an Amazon-issued certificate and its certificate chain. The
@@ -4079,7 +4079,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.ImportCer
 --   intermediate certificates of any other subordinate CAs. All of the
 --   certificates are base64 encoded. You can use <a>OpenSSL</a> to decode
 --   the certificates and inspect individual fields.
-module Network.AWS.CertificateManager.GetCertificate
+module Amazonka.CertificateManager.GetCertificate
 
 -- | <i>See:</i> <a>newGetCertificate</a> smart constructor.
 data GetCertificate
@@ -4177,27 +4177,27 @@ getCertificateResponse_certificateChain :: Lens' GetCertificateResponse (Maybe T
 
 -- | The response's http status code.
 getCertificateResponse_httpStatus :: Lens' GetCertificateResponse Int
-instance GHC.Generics.Generic Network.AWS.CertificateManager.GetCertificate.GetCertificate
-instance GHC.Show.Show Network.AWS.CertificateManager.GetCertificate.GetCertificate
-instance GHC.Read.Read Network.AWS.CertificateManager.GetCertificate.GetCertificate
-instance GHC.Classes.Eq Network.AWS.CertificateManager.GetCertificate.GetCertificate
-instance GHC.Generics.Generic Network.AWS.CertificateManager.GetCertificate.GetCertificateResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.GetCertificate.GetCertificateResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.GetCertificate.GetCertificateResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.GetCertificate.GetCertificateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.GetCertificate.GetCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.GetCertificate.GetCertificateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.GetCertificate.GetCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.GetCertificate.GetCertificate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.GetCertificate.GetCertificate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.GetCertificate.GetCertificate
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.GetCertificate.GetCertificate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.GetCertificate.GetCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.GetCertificate.GetCertificate
+instance GHC.Show.Show Amazonka.CertificateManager.GetCertificate.GetCertificate
+instance GHC.Read.Read Amazonka.CertificateManager.GetCertificate.GetCertificate
+instance GHC.Classes.Eq Amazonka.CertificateManager.GetCertificate.GetCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.GetCertificate.GetCertificateResponse
+instance GHC.Show.Show Amazonka.CertificateManager.GetCertificate.GetCertificateResponse
+instance GHC.Read.Read Amazonka.CertificateManager.GetCertificate.GetCertificateResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.GetCertificate.GetCertificateResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.GetCertificate.GetCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.GetCertificate.GetCertificateResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.GetCertificate.GetCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.GetCertificate.GetCertificate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.GetCertificate.GetCertificate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.GetCertificate.GetCertificate
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.GetCertificate.GetCertificate
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.GetCertificate.GetCertificate
 
 
 -- | Returns the account configuration options associated with an Amazon
 --   Web Services account.
-module Network.AWS.CertificateManager.GetAccountConfiguration
+module Amazonka.CertificateManager.GetAccountConfiguration
 
 -- | <i>See:</i> <a>newGetAccountConfiguration</a> smart constructor.
 data GetAccountConfiguration
@@ -4247,22 +4247,22 @@ getAccountConfigurationResponse_expiryEvents :: Lens' GetAccountConfigurationRes
 
 -- | The response's http status code.
 getAccountConfigurationResponse_httpStatus :: Lens' GetAccountConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
-instance GHC.Show.Show Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
-instance GHC.Read.Read Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
-instance GHC.Classes.Eq Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
-instance GHC.Generics.Generic Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfigurationResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfigurationResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
+instance GHC.Generics.Generic Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
+instance GHC.Show.Show Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
+instance GHC.Read.Read Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
+instance GHC.Classes.Eq Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
+instance GHC.Generics.Generic Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfigurationResponse
+instance GHC.Show.Show Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfigurationResponse
+instance GHC.Read.Read Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfigurationResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.GetAccountConfiguration.GetAccountConfiguration
 
 
 -- | Exports a private certificate issued by a private certificate
@@ -4274,7 +4274,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.GetAccoun
 --   
 --   For information about exporting and formatting a certificate using the
 --   ACM console or CLI, see <a>Export a Private Certificate</a>.
-module Network.AWS.CertificateManager.ExportCertificate
+module Amazonka.CertificateManager.ExportCertificate
 
 -- | <i>See:</i> <a>newExportCertificate</a> smart constructor.
 data ExportCertificate
@@ -4411,24 +4411,24 @@ exportCertificateResponse_certificateChain :: Lens' ExportCertificateResponse (M
 
 -- | The response's http status code.
 exportCertificateResponse_httpStatus :: Lens' ExportCertificateResponse Int
-instance GHC.Generics.Generic Network.AWS.CertificateManager.ExportCertificate.ExportCertificate
-instance GHC.Show.Show Network.AWS.CertificateManager.ExportCertificate.ExportCertificate
-instance GHC.Classes.Eq Network.AWS.CertificateManager.ExportCertificate.ExportCertificate
-instance GHC.Generics.Generic Network.AWS.CertificateManager.ExportCertificate.ExportCertificateResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.ExportCertificate.ExportCertificateResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.ExportCertificate.ExportCertificateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.ExportCertificate.ExportCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.ExportCertificate.ExportCertificateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.ExportCertificate.ExportCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.ExportCertificate.ExportCertificate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.ExportCertificate.ExportCertificate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.ExportCertificate.ExportCertificate
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.ExportCertificate.ExportCertificate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.ExportCertificate.ExportCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.ExportCertificate.ExportCertificate
+instance GHC.Show.Show Amazonka.CertificateManager.ExportCertificate.ExportCertificate
+instance GHC.Classes.Eq Amazonka.CertificateManager.ExportCertificate.ExportCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.ExportCertificate.ExportCertificateResponse
+instance GHC.Show.Show Amazonka.CertificateManager.ExportCertificate.ExportCertificateResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.ExportCertificate.ExportCertificateResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.ExportCertificate.ExportCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.ExportCertificate.ExportCertificateResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.ExportCertificate.ExportCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.ExportCertificate.ExportCertificate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.ExportCertificate.ExportCertificate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.ExportCertificate.ExportCertificate
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.ExportCertificate.ExportCertificate
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.ExportCertificate.ExportCertificate
 
 
 -- | Returns detailed metadata about the specified ACM certificate.
-module Network.AWS.CertificateManager.DescribeCertificate
+module Amazonka.CertificateManager.DescribeCertificate
 
 -- | <i>See:</i> <a>newDescribeCertificate</a> smart constructor.
 data DescribeCertificate
@@ -4510,22 +4510,22 @@ describeCertificateResponse_certificate :: Lens' DescribeCertificateResponse (Ma
 
 -- | The response's http status code.
 describeCertificateResponse_httpStatus :: Lens' DescribeCertificateResponse Int
-instance GHC.Generics.Generic Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificate
-instance GHC.Show.Show Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificate
-instance GHC.Read.Read Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificate
-instance GHC.Classes.Eq Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificate
-instance GHC.Generics.Generic Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificateResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificateResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificateResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificate
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.DescribeCertificate.DescribeCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.DescribeCertificate.DescribeCertificate
+instance GHC.Show.Show Amazonka.CertificateManager.DescribeCertificate.DescribeCertificate
+instance GHC.Read.Read Amazonka.CertificateManager.DescribeCertificate.DescribeCertificate
+instance GHC.Classes.Eq Amazonka.CertificateManager.DescribeCertificate.DescribeCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.DescribeCertificate.DescribeCertificateResponse
+instance GHC.Show.Show Amazonka.CertificateManager.DescribeCertificate.DescribeCertificateResponse
+instance GHC.Read.Read Amazonka.CertificateManager.DescribeCertificate.DescribeCertificateResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.DescribeCertificate.DescribeCertificateResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.DescribeCertificate.DescribeCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.DescribeCertificate.DescribeCertificateResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.DescribeCertificate.DescribeCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.DescribeCertificate.DescribeCertificate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.DescribeCertificate.DescribeCertificate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.DescribeCertificate.DescribeCertificate
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.DescribeCertificate.DescribeCertificate
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.DescribeCertificate.DescribeCertificate
 
 
 -- | Deletes a certificate and its associated private key. If this action
@@ -4537,7 +4537,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.DescribeC
 --   You cannot delete an ACM certificate that is being used by another
 --   Amazon Web Services service. To delete a certificate that is in use,
 --   the certificate association must first be removed.
-module Network.AWS.CertificateManager.DeleteCertificate
+module Amazonka.CertificateManager.DeleteCertificate
 
 -- | <i>See:</i> <a>newDeleteCertificate</a> smart constructor.
 data DeleteCertificate
@@ -4596,22 +4596,22 @@ DeleteCertificateResponse' :: DeleteCertificateResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteCertificateResponse :: DeleteCertificateResponse
-instance GHC.Generics.Generic Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificate
-instance GHC.Show.Show Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificate
-instance GHC.Read.Read Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificate
-instance GHC.Classes.Eq Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificate
-instance GHC.Generics.Generic Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificateResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificateResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificateResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificate
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.DeleteCertificate.DeleteCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.DeleteCertificate.DeleteCertificate
+instance GHC.Show.Show Amazonka.CertificateManager.DeleteCertificate.DeleteCertificate
+instance GHC.Read.Read Amazonka.CertificateManager.DeleteCertificate.DeleteCertificate
+instance GHC.Classes.Eq Amazonka.CertificateManager.DeleteCertificate.DeleteCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.DeleteCertificate.DeleteCertificateResponse
+instance GHC.Show.Show Amazonka.CertificateManager.DeleteCertificate.DeleteCertificateResponse
+instance GHC.Read.Read Amazonka.CertificateManager.DeleteCertificate.DeleteCertificateResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.DeleteCertificate.DeleteCertificateResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.DeleteCertificate.DeleteCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.DeleteCertificate.DeleteCertificateResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.DeleteCertificate.DeleteCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.DeleteCertificate.DeleteCertificate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.DeleteCertificate.DeleteCertificate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.DeleteCertificate.DeleteCertificate
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.DeleteCertificate.DeleteCertificate
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.DeleteCertificate.DeleteCertificate
 
 
 -- | Adds one or more tags to an ACM certificate. Tags are labels that you
@@ -4633,7 +4633,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.DeleteCer
 --   To remove one or more tags, use the RemoveTagsFromCertificate action.
 --   To view all of the tags that have been applied to the certificate, use
 --   the ListTagsForCertificate action.
-module Network.AWS.CertificateManager.AddTagsToCertificate
+module Amazonka.CertificateManager.AddTagsToCertificate
 
 -- | <i>See:</i> <a>newAddTagsToCertificate</a> smart constructor.
 data AddTagsToCertificate
@@ -4703,29 +4703,29 @@ AddTagsToCertificateResponse' :: AddTagsToCertificateResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newAddTagsToCertificateResponse :: AddTagsToCertificateResponse
-instance GHC.Generics.Generic Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
-instance GHC.Show.Show Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
-instance GHC.Read.Read Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
-instance GHC.Classes.Eq Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
-instance GHC.Generics.Generic Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificateResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificateResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificateResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
+instance GHC.Show.Show Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
+instance GHC.Read.Read Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
+instance GHC.Classes.Eq Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
+instance GHC.Generics.Generic Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificateResponse
+instance GHC.Show.Show Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificateResponse
+instance GHC.Read.Read Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificateResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificateResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificateResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.AddTagsToCertificate.AddTagsToCertificate
 
 
 -- | Updates a certificate. Currently, you can use this function to specify
 --   whether to opt in to or out of recording your certificate in a
 --   certificate transparency log. For more information, see <a>Opting Out
 --   of Certificate Transparency Logging</a>.
-module Network.AWS.CertificateManager.UpdateCertificateOptions
+module Amazonka.CertificateManager.UpdateCertificateOptions
 
 -- | <i>See:</i> <a>newUpdateCertificateOptions</a> smart constructor.
 data UpdateCertificateOptions
@@ -4798,25 +4798,25 @@ UpdateCertificateOptionsResponse' :: UpdateCertificateOptionsResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUpdateCertificateOptionsResponse :: UpdateCertificateOptionsResponse
-instance GHC.Generics.Generic Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
-instance GHC.Show.Show Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
-instance GHC.Read.Read Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
-instance GHC.Classes.Eq Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
-instance GHC.Generics.Generic Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptionsResponse
-instance GHC.Show.Show Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptionsResponse
-instance GHC.Read.Read Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptionsResponse
-instance GHC.Classes.Eq Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
-instance Control.DeepSeq.NFData Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
-instance Network.AWS.Data.Path.ToPath Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
+instance GHC.Generics.Generic Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
+instance GHC.Show.Show Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
+instance GHC.Read.Read Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
+instance GHC.Classes.Eq Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
+instance GHC.Generics.Generic Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptionsResponse
+instance GHC.Show.Show Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptionsResponse
+instance GHC.Read.Read Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptionsResponse
+instance GHC.Classes.Eq Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
+instance Control.DeepSeq.NFData Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
+instance Amazonka.Data.Path.ToPath Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.CertificateManager.UpdateCertificateOptions.UpdateCertificateOptions
 
 
-module Network.AWS.CertificateManager.Lens
+module Amazonka.CertificateManager.Lens
 
 -- | String that contains the ARN of the requested certificate. The
 --   certificate ARN is generated and returned by the RequestCertificate
@@ -5465,7 +5465,7 @@ tag_value :: Lens' Tag (Maybe Text)
 tag_key :: Lens' Tag Text
 
 
-module Network.AWS.CertificateManager.Waiters
+module Amazonka.CertificateManager.Waiters
 
 -- | Polls <a>DescribeCertificate</a> every 60 seconds until a successful
 --   state is reached. An error is returned after 40 failed checks.
@@ -5481,7 +5481,7 @@ newCertificateValidated :: Wait DescribeCertificate
 --   SSL/TLS certificates for your Amazon Web Services-based websites and
 --   applications. For more information about using ACM, see the <a>Amazon
 --   Web Services Certificate Manager User Guide</a>.
-module Network.AWS.CertificateManager
+module Amazonka.CertificateManager
 
 -- | API version <tt>2015-12-08</tt> of the Amazon Certificate Manager SDK
 --   configuration.

@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AutoScalingPlans.Types.ScalingMetricType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ScalingMetricType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier">ScalingMetricType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ALBRequestCountPerTarget"><span class="hs-identifier">ScalingMetricType_ALBRequestCountPerTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ASGAverageCPUUtilization"><span class="hs-identifier">ScalingMetricType_ASGAverageCPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ASGAverageNetworkIn"><span class="hs-identifier">ScalingMetricType_ASGAverageNetworkIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ASGAverageNetworkOut"><span class="hs-identifier">ScalingMetricType_ASGAverageNetworkOut</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_DynamoDBReadCapacityUtilization"><span class="hs-identifier">ScalingMetricType_DynamoDBReadCapacityUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_DynamoDBWriteCapacityUtilization"><span class="hs-identifier">ScalingMetricType_DynamoDBWriteCapacityUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization"><span class="hs-identifier">ScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_EC2SpotFleetRequestAverageNetworkIn"><span class="hs-identifier">ScalingMetricType_EC2SpotFleetRequestAverageNetworkIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_EC2SpotFleetRequestAverageNetworkOut"><span class="hs-identifier">ScalingMetricType_EC2SpotFleetRequestAverageNetworkOut</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ECSServiceAverageCPUUtilization"><span class="hs-identifier">ScalingMetricType_ECSServiceAverageCPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ECSServiceAverageMemoryUtilization"><span class="hs-identifier">ScalingMetricType_ECSServiceAverageMemoryUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_RDSReaderAverageCPUUtilization"><span class="hs-identifier">ScalingMetricType_RDSReaderAverageCPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_RDSReaderAverageDatabaseConnections"><span class="hs-identifier">ScalingMetricType_RDSReaderAverageDatabaseConnections</span></a></span><span>
+</span><span id="line-36"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679177374"><span id="local-6989586621679177375"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalingMetricType"><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-var">ScalingMetricType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingMetricType%27"><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-var">ScalingMetricType'</span></a></span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScalingMetricType"><span class="annot"><span class="annottext">ScalingMetricType -&gt; Text
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#fromScalingMetricType"><span class="hs-identifier hs-var hs-var">fromScalingMetricType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177366"><span id="local-6989586621679177368"><span id="local-6989586621679177370"><span class="annot"><span class="annottext">Int -&gt; ScalingMetricType -&gt; ShowS
+[ScalingMetricType] -&gt; ShowS
+ScalingMetricType -&gt; String
+(Int -&gt; ScalingMetricType -&gt; ShowS)
+-&gt; (ScalingMetricType -&gt; String)
+-&gt; ([ScalingMetricType] -&gt; ShowS)
+-&gt; Show ScalingMetricType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScalingMetricType] -&gt; ShowS
+$cshowList :: [ScalingMetricType] -&gt; ShowS
+show :: ScalingMetricType -&gt; String
+$cshow :: ScalingMetricType -&gt; String
+showsPrec :: Int -&gt; ScalingMetricType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScalingMetricType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679177357"><span id="local-6989586621679177359"><span id="local-6989586621679177361"><span id="local-6989586621679177363"><span class="annot"><span class="annottext">ReadPrec [ScalingMetricType]
+ReadPrec ScalingMetricType
+Int -&gt; ReadS ScalingMetricType
+ReadS [ScalingMetricType]
+(Int -&gt; ReadS ScalingMetricType)
+-&gt; ReadS [ScalingMetricType]
+-&gt; ReadPrec ScalingMetricType
+-&gt; ReadPrec [ScalingMetricType]
+-&gt; Read ScalingMetricType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScalingMetricType]
+$creadListPrec :: ReadPrec [ScalingMetricType]
+readPrec :: ReadPrec ScalingMetricType
+$creadPrec :: ReadPrec ScalingMetricType
+readList :: ReadS [ScalingMetricType]
+$creadList :: ReadS [ScalingMetricType]
+readsPrec :: Int -&gt; ReadS ScalingMetricType
+$creadsPrec :: Int -&gt; ReadS ScalingMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679177352"><span id="local-6989586621679177354"><span class="annot"><span class="annottext">ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+(ScalingMetricType -&gt; ScalingMetricType -&gt; Bool)
+-&gt; (ScalingMetricType -&gt; ScalingMetricType -&gt; Bool)
+-&gt; Eq ScalingMetricType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+$c/= :: ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+== :: ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+$c== :: ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679177336"><span id="local-6989586621679177338"><span id="local-6989586621679177340"><span id="local-6989586621679177342"><span id="local-6989586621679177344"><span id="local-6989586621679177346"><span id="local-6989586621679177348"><span class="annot"><span class="annottext">Eq ScalingMetricType
+Eq ScalingMetricType
+-&gt; (ScalingMetricType -&gt; ScalingMetricType -&gt; Ordering)
+-&gt; (ScalingMetricType -&gt; ScalingMetricType -&gt; Bool)
+-&gt; (ScalingMetricType -&gt; ScalingMetricType -&gt; Bool)
+-&gt; (ScalingMetricType -&gt; ScalingMetricType -&gt; Bool)
+-&gt; (ScalingMetricType -&gt; ScalingMetricType -&gt; Bool)
+-&gt; (ScalingMetricType -&gt; ScalingMetricType -&gt; ScalingMetricType)
+-&gt; (ScalingMetricType -&gt; ScalingMetricType -&gt; ScalingMetricType)
+-&gt; Ord ScalingMetricType
+ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+ScalingMetricType -&gt; ScalingMetricType -&gt; Ordering
+ScalingMetricType -&gt; ScalingMetricType -&gt; ScalingMetricType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ScalingMetricType -&gt; ScalingMetricType -&gt; ScalingMetricType
+$cmin :: ScalingMetricType -&gt; ScalingMetricType -&gt; ScalingMetricType
+max :: ScalingMetricType -&gt; ScalingMetricType -&gt; ScalingMetricType
+$cmax :: ScalingMetricType -&gt; ScalingMetricType -&gt; ScalingMetricType
+&gt;= :: ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+$c&gt;= :: ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+&gt; :: ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+$c&gt; :: ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+&lt;= :: ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+$c&lt;= :: ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+&lt; :: ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+$c&lt; :: ScalingMetricType -&gt; ScalingMetricType -&gt; Bool
+compare :: ScalingMetricType -&gt; ScalingMetricType -&gt; Ordering
+$ccompare :: ScalingMetricType -&gt; ScalingMetricType -&gt; Ordering
+$cp1Ord :: Eq ScalingMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ScalingMetricType -&gt; Rep ScalingMetricType x)
+-&gt; (forall x. Rep ScalingMetricType x -&gt; ScalingMetricType)
+-&gt; Generic ScalingMetricType
+forall x. Rep ScalingMetricType x -&gt; ScalingMetricType
+forall x. ScalingMetricType -&gt; Rep ScalingMetricType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScalingMetricType x -&gt; ScalingMetricType
+$cfrom :: forall x. ScalingMetricType -&gt; Rep ScalingMetricType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177328"><span id="local-6989586621679177330"><span class="annot"><span class="annottext">Int -&gt; ScalingMetricType -&gt; Int
+ScalingMetricType -&gt; Int
+(Int -&gt; ScalingMetricType -&gt; Int)
+-&gt; (ScalingMetricType -&gt; Int) -&gt; Hashable ScalingMetricType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ScalingMetricType -&gt; Int
+$chash :: ScalingMetricType -&gt; Int
+hashWithSalt :: Int -&gt; ScalingMetricType -&gt; Int
+$chashWithSalt :: Int -&gt; ScalingMetricType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679177325"><span class="annot"><span class="annottext">ScalingMetricType -&gt; ()
+(ScalingMetricType -&gt; ()) -&gt; NFData ScalingMetricType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ScalingMetricType -&gt; ()
+$crnf :: ScalingMetricType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679177322"><span class="annot"><span class="annottext">Text -&gt; Either String ScalingMetricType
+(Text -&gt; Either String ScalingMetricType)
+-&gt; FromText ScalingMetricType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ScalingMetricType
+$cfromText :: Text -&gt; Either String ScalingMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679177319"><span class="annot"><span class="annottext">ScalingMetricType -&gt; Text
+(ScalingMetricType -&gt; Text) -&gt; ToText ScalingMetricType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ScalingMetricType -&gt; Text
+$ctoText :: ScalingMetricType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679177316"><span class="annot"><span class="annottext">ScalingMetricType -&gt; ByteString
+(ScalingMetricType -&gt; ByteString) -&gt; ToByteString ScalingMetricType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ScalingMetricType -&gt; ByteString
+$ctoBS :: ScalingMetricType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679177313"><span class="annot"><span class="annottext">ScalingMetricType -&gt; ByteStringBuilder
+(ScalingMetricType -&gt; ByteStringBuilder) -&gt; ToLog ScalingMetricType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ScalingMetricType -&gt; ByteStringBuilder
+$cbuild :: ScalingMetricType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679177310"><span class="annot"><span class="annottext">HeaderName -&gt; ScalingMetricType -&gt; [Header]
+(HeaderName -&gt; ScalingMetricType -&gt; [Header])
+-&gt; ToHeader ScalingMetricType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ScalingMetricType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ScalingMetricType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679177307"><span class="annot"><span class="annottext">ScalingMetricType -&gt; QueryString
+(ScalingMetricType -&gt; QueryString) -&gt; ToQuery ScalingMetricType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ScalingMetricType -&gt; QueryString
+$ctoQuery :: ScalingMetricType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679177302"><span id="local-6989586621679177304"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalingMetricType]
+Value -&gt; Parser ScalingMetricType
+(Value -&gt; Parser ScalingMetricType)
+-&gt; (Value -&gt; Parser [ScalingMetricType])
+-&gt; FromJSON ScalingMetricType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ScalingMetricType]
+$cparseJSONList :: Value -&gt; Parser [ScalingMetricType]
+parseJSON :: Value -&gt; Parser ScalingMetricType
+$cparseJSON :: Value -&gt; Parser ScalingMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679177297"><span id="local-6989586621679177299"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalingMetricType]
+FromJSONKeyFunction ScalingMetricType
+FromJSONKeyFunction ScalingMetricType
+-&gt; FromJSONKeyFunction [ScalingMetricType]
+-&gt; FromJSONKey ScalingMetricType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ScalingMetricType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ScalingMetricType]
+fromJSONKey :: FromJSONKeyFunction ScalingMetricType
+$cfromJSONKey :: FromJSONKeyFunction ScalingMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679177288"><span id="local-6989586621679177290"><span id="local-6989586621679177292"><span id="local-6989586621679177294"><span class="annot"><span class="annottext">[ScalingMetricType] -&gt; Encoding
+[ScalingMetricType] -&gt; Value
+ScalingMetricType -&gt; Encoding
+ScalingMetricType -&gt; Value
+(ScalingMetricType -&gt; Value)
+-&gt; (ScalingMetricType -&gt; Encoding)
+-&gt; ([ScalingMetricType] -&gt; Value)
+-&gt; ([ScalingMetricType] -&gt; Encoding)
+-&gt; ToJSON ScalingMetricType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ScalingMetricType] -&gt; Encoding
+$ctoEncodingList :: [ScalingMetricType] -&gt; Encoding
+toJSONList :: [ScalingMetricType] -&gt; Value
+$ctoJSONList :: [ScalingMetricType] -&gt; Value
+toEncoding :: ScalingMetricType -&gt; Encoding
+$ctoEncoding :: ScalingMetricType -&gt; Encoding
+toJSON :: ScalingMetricType -&gt; Value
+$ctoJSON :: ScalingMetricType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679177283"><span id="local-6989586621679177285"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalingMetricType]
+ToJSONKeyFunction ScalingMetricType
+ToJSONKeyFunction ScalingMetricType
+-&gt; ToJSONKeyFunction [ScalingMetricType]
+-&gt; ToJSONKey ScalingMetricType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ScalingMetricType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ScalingMetricType]
+toJSONKey :: ToJSONKeyFunction ScalingMetricType
+$ctoJSONKey :: ToJSONKeyFunction ScalingMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679177280"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalingMetricType
+([Node] -&gt; Either String ScalingMetricType)
+-&gt; FromXML ScalingMetricType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ScalingMetricType
+$cparseXML :: [Node] -&gt; Either String ScalingMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679177277"><span class="annot"><span class="annottext">ScalingMetricType -&gt; XML
+(ScalingMetricType -&gt; XML) -&gt; ToXML ScalingMetricType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ScalingMetricType -&gt; XML
+$ctoXML :: ScalingMetricType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ALBRequestCountPerTarget"><span class="hs-identifier hs-type">ScalingMetricType_ALBRequestCountPerTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_ALBRequestCountPerTarget"><span id="%24mScalingMetricType_ALBRequestCountPerTarget"><span id="ScalingMetricType_ALBRequestCountPerTarget"><span class="annot"><span class="annottext">$bScalingMetricType_ALBRequestCountPerTarget :: ScalingMetricType
+$mScalingMetricType_ALBRequestCountPerTarget :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_ALBRequestCountPerTarget"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_ALBRequestCountPerTarget</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALBRequestCountPerTarget&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ASGAverageCPUUtilization"><span class="hs-identifier hs-type">ScalingMetricType_ASGAverageCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_ASGAverageCPUUtilization"><span id="%24mScalingMetricType_ASGAverageCPUUtilization"><span id="ScalingMetricType_ASGAverageCPUUtilization"><span class="annot"><span class="annottext">$bScalingMetricType_ASGAverageCPUUtilization :: ScalingMetricType
+$mScalingMetricType_ASGAverageCPUUtilization :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_ASGAverageCPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_ASGAverageCPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASGAverageCPUUtilization&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ASGAverageNetworkIn"><span class="hs-identifier hs-type">ScalingMetricType_ASGAverageNetworkIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_ASGAverageNetworkIn"><span id="%24mScalingMetricType_ASGAverageNetworkIn"><span id="ScalingMetricType_ASGAverageNetworkIn"><span class="annot"><span class="annottext">$bScalingMetricType_ASGAverageNetworkIn :: ScalingMetricType
+$mScalingMetricType_ASGAverageNetworkIn :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_ASGAverageNetworkIn"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_ASGAverageNetworkIn</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASGAverageNetworkIn&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ASGAverageNetworkOut"><span class="hs-identifier hs-type">ScalingMetricType_ASGAverageNetworkOut</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_ASGAverageNetworkOut"><span id="%24mScalingMetricType_ASGAverageNetworkOut"><span id="ScalingMetricType_ASGAverageNetworkOut"><span class="annot"><span class="annottext">$bScalingMetricType_ASGAverageNetworkOut :: ScalingMetricType
+$mScalingMetricType_ASGAverageNetworkOut :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_ASGAverageNetworkOut"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_ASGAverageNetworkOut</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASGAverageNetworkOut&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_DynamoDBReadCapacityUtilization"><span class="hs-identifier hs-type">ScalingMetricType_DynamoDBReadCapacityUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_DynamoDBReadCapacityUtilization"><span id="%24mScalingMetricType_DynamoDBReadCapacityUtilization"><span id="ScalingMetricType_DynamoDBReadCapacityUtilization"><span class="annot"><span class="annottext">$bScalingMetricType_DynamoDBReadCapacityUtilization :: ScalingMetricType
+$mScalingMetricType_DynamoDBReadCapacityUtilization :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_DynamoDBReadCapacityUtilization"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_DynamoDBReadCapacityUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DynamoDBReadCapacityUtilization&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_DynamoDBWriteCapacityUtilization"><span class="hs-identifier hs-type">ScalingMetricType_DynamoDBWriteCapacityUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_DynamoDBWriteCapacityUtilization"><span id="%24mScalingMetricType_DynamoDBWriteCapacityUtilization"><span id="ScalingMetricType_DynamoDBWriteCapacityUtilization"><span class="annot"><span class="annottext">$bScalingMetricType_DynamoDBWriteCapacityUtilization :: ScalingMetricType
+$mScalingMetricType_DynamoDBWriteCapacityUtilization :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_DynamoDBWriteCapacityUtilization"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_DynamoDBWriteCapacityUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DynamoDBWriteCapacityUtilization&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization"><span class="hs-identifier hs-type">ScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization"><span id="%24mScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization"><span id="ScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization"><span class="annot"><span class="annottext">$bScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization :: ScalingMetricType
+$mScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EC2SpotFleetRequestAverageCPUUtilization&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_EC2SpotFleetRequestAverageNetworkIn"><span class="hs-identifier hs-type">ScalingMetricType_EC2SpotFleetRequestAverageNetworkIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_EC2SpotFleetRequestAverageNetworkIn"><span id="%24mScalingMetricType_EC2SpotFleetRequestAverageNetworkIn"><span id="ScalingMetricType_EC2SpotFleetRequestAverageNetworkIn"><span class="annot"><span class="annottext">$bScalingMetricType_EC2SpotFleetRequestAverageNetworkIn :: ScalingMetricType
+$mScalingMetricType_EC2SpotFleetRequestAverageNetworkIn :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_EC2SpotFleetRequestAverageNetworkIn"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_EC2SpotFleetRequestAverageNetworkIn</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EC2SpotFleetRequestAverageNetworkIn&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_EC2SpotFleetRequestAverageNetworkOut"><span class="hs-identifier hs-type">ScalingMetricType_EC2SpotFleetRequestAverageNetworkOut</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_EC2SpotFleetRequestAverageNetworkOut"><span id="%24mScalingMetricType_EC2SpotFleetRequestAverageNetworkOut"><span id="ScalingMetricType_EC2SpotFleetRequestAverageNetworkOut"><span class="annot"><span class="annottext">$bScalingMetricType_EC2SpotFleetRequestAverageNetworkOut :: ScalingMetricType
+$mScalingMetricType_EC2SpotFleetRequestAverageNetworkOut :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_EC2SpotFleetRequestAverageNetworkOut"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_EC2SpotFleetRequestAverageNetworkOut</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EC2SpotFleetRequestAverageNetworkOut&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ECSServiceAverageCPUUtilization"><span class="hs-identifier hs-type">ScalingMetricType_ECSServiceAverageCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_ECSServiceAverageCPUUtilization"><span id="%24mScalingMetricType_ECSServiceAverageCPUUtilization"><span id="ScalingMetricType_ECSServiceAverageCPUUtilization"><span class="annot"><span class="annottext">$bScalingMetricType_ECSServiceAverageCPUUtilization :: ScalingMetricType
+$mScalingMetricType_ECSServiceAverageCPUUtilization :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_ECSServiceAverageCPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_ECSServiceAverageCPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECSServiceAverageCPUUtilization&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ECSServiceAverageMemoryUtilization"><span class="hs-identifier hs-type">ScalingMetricType_ECSServiceAverageMemoryUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_ECSServiceAverageMemoryUtilization"><span id="%24mScalingMetricType_ECSServiceAverageMemoryUtilization"><span id="ScalingMetricType_ECSServiceAverageMemoryUtilization"><span class="annot"><span class="annottext">$bScalingMetricType_ECSServiceAverageMemoryUtilization :: ScalingMetricType
+$mScalingMetricType_ECSServiceAverageMemoryUtilization :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_ECSServiceAverageMemoryUtilization"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_ECSServiceAverageMemoryUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECSServiceAverageMemoryUtilization&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_RDSReaderAverageCPUUtilization"><span class="hs-identifier hs-type">ScalingMetricType_RDSReaderAverageCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_RDSReaderAverageCPUUtilization"><span id="%24mScalingMetricType_RDSReaderAverageCPUUtilization"><span id="ScalingMetricType_RDSReaderAverageCPUUtilization"><span class="annot"><span class="annottext">$bScalingMetricType_RDSReaderAverageCPUUtilization :: ScalingMetricType
+$mScalingMetricType_RDSReaderAverageCPUUtilization :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_RDSReaderAverageCPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_RDSReaderAverageCPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RDSReaderAverageCPUUtilization&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_RDSReaderAverageDatabaseConnections"><span class="hs-identifier hs-type">ScalingMetricType_RDSReaderAverageDatabaseConnections</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier hs-type">ScalingMetricType</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingMetricType_RDSReaderAverageDatabaseConnections"><span id="%24mScalingMetricType_RDSReaderAverageDatabaseConnections"><span id="ScalingMetricType_RDSReaderAverageDatabaseConnections"><span class="annot"><span class="annottext">$bScalingMetricType_RDSReaderAverageDatabaseConnections :: ScalingMetricType
+$mScalingMetricType_RDSReaderAverageDatabaseConnections :: forall r. ScalingMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#%24bScalingMetricType_RDSReaderAverageDatabaseConnections"><span class="hs-identifier hs-var hs-var hs-var">ScalingMetricType_RDSReaderAverageDatabaseConnections</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-identifier hs-type">ScalingMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RDSReaderAverageDatabaseConnections&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ALBRequestCountPerTarget"><span class="hs-pragma hs-type">ScalingMetricType_ALBRequestCountPerTarget</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ASGAverageCPUUtilization"><span class="hs-pragma hs-type">ScalingMetricType_ASGAverageCPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ASGAverageNetworkIn"><span class="hs-pragma hs-type">ScalingMetricType_ASGAverageNetworkIn</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ASGAverageNetworkOut"><span class="hs-pragma hs-type">ScalingMetricType_ASGAverageNetworkOut</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_DynamoDBReadCapacityUtilization"><span class="hs-pragma hs-type">ScalingMetricType_DynamoDBReadCapacityUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_DynamoDBWriteCapacityUtilization"><span class="hs-pragma hs-type">ScalingMetricType_DynamoDBWriteCapacityUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization"><span class="hs-pragma hs-type">ScalingMetricType_EC2SpotFleetRequestAverageCPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_EC2SpotFleetRequestAverageNetworkIn"><span class="hs-pragma hs-type">ScalingMetricType_EC2SpotFleetRequestAverageNetworkIn</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_EC2SpotFleetRequestAverageNetworkOut"><span class="hs-pragma hs-type">ScalingMetricType_EC2SpotFleetRequestAverageNetworkOut</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ECSServiceAverageCPUUtilization"><span class="hs-pragma hs-type">ScalingMetricType_ECSServiceAverageCPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_ECSServiceAverageMemoryUtilization"><span class="hs-pragma hs-type">ScalingMetricType_ECSServiceAverageMemoryUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_RDSReaderAverageCPUUtilization"><span class="hs-pragma hs-type">ScalingMetricType_RDSReaderAverageCPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType_RDSReaderAverageDatabaseConnections"><span class="hs-pragma hs-type">ScalingMetricType_RDSReaderAverageDatabaseConnections</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType%27"><span class="hs-pragma hs-type">ScalingMetricType'</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-126"></span></pre></body></html>

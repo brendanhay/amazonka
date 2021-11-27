@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ApplicationCostProfiler.DeleteReportDefinition</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified report definition in AWS Application Cost</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Profiler. This stops the report from being generated.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApplicationCostProfiler.DeleteReportDefinition</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition"><span class="hs-identifier">DeleteReportDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#newDeleteReportDefinition"><span class="hs-identifier">newDeleteReportDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#deleteReportDefinition_reportId"><span class="hs-identifier">deleteReportDefinition_reportId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse"><span class="hs-identifier">DeleteReportDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#newDeleteReportDefinitionResponse"><span class="hs-identifier">newDeleteReportDefinitionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#deleteReportDefinitionResponse_reportId"><span class="hs-identifier">deleteReportDefinitionResponse_reportId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#deleteReportDefinitionResponse_httpStatus"><span class="hs-identifier">deleteReportDefinitionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.html"><span class="hs-identifier">Amazonka.ApplicationCostProfiler.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteReportDefinition' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679151487"><span id="local-6989586621679151488"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReportDefinition"><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition"><span class="hs-identifier hs-var">DeleteReportDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReportDefinition%27"><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition%27"><span class="hs-identifier hs-var">DeleteReportDefinition'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Required. ID of the report to delete.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AreportId%3ADeleteReportDefinition%27"><span class="annot"><span class="annottext">DeleteReportDefinition -&gt; Text
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#%24sel%3AreportId%3ADeleteReportDefinition%27"><span class="hs-identifier hs-var hs-var">reportId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151481"><span id="local-6989586621679151483"><span class="annot"><span class="annottext">DeleteReportDefinition -&gt; DeleteReportDefinition -&gt; Bool
+(DeleteReportDefinition -&gt; DeleteReportDefinition -&gt; Bool)
+-&gt; (DeleteReportDefinition -&gt; DeleteReportDefinition -&gt; Bool)
+-&gt; Eq DeleteReportDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteReportDefinition -&gt; DeleteReportDefinition -&gt; Bool
+$c/= :: DeleteReportDefinition -&gt; DeleteReportDefinition -&gt; Bool
+== :: DeleteReportDefinition -&gt; DeleteReportDefinition -&gt; Bool
+$c== :: DeleteReportDefinition -&gt; DeleteReportDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151472"><span id="local-6989586621679151474"><span id="local-6989586621679151476"><span id="local-6989586621679151478"><span class="annot"><span class="annottext">ReadPrec [DeleteReportDefinition]
+ReadPrec DeleteReportDefinition
+Int -&gt; ReadS DeleteReportDefinition
+ReadS [DeleteReportDefinition]
+(Int -&gt; ReadS DeleteReportDefinition)
+-&gt; ReadS [DeleteReportDefinition]
+-&gt; ReadPrec DeleteReportDefinition
+-&gt; ReadPrec [DeleteReportDefinition]
+-&gt; Read DeleteReportDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteReportDefinition]
+$creadListPrec :: ReadPrec [DeleteReportDefinition]
+readPrec :: ReadPrec DeleteReportDefinition
+$creadPrec :: ReadPrec DeleteReportDefinition
+readList :: ReadS [DeleteReportDefinition]
+$creadList :: ReadS [DeleteReportDefinition]
+readsPrec :: Int -&gt; ReadS DeleteReportDefinition
+$creadsPrec :: Int -&gt; ReadS DeleteReportDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151465"><span id="local-6989586621679151467"><span id="local-6989586621679151469"><span class="annot"><span class="annottext">Int -&gt; DeleteReportDefinition -&gt; ShowS
+[DeleteReportDefinition] -&gt; ShowS
+DeleteReportDefinition -&gt; String
+(Int -&gt; DeleteReportDefinition -&gt; ShowS)
+-&gt; (DeleteReportDefinition -&gt; String)
+-&gt; ([DeleteReportDefinition] -&gt; ShowS)
+-&gt; Show DeleteReportDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteReportDefinition] -&gt; ShowS
+$cshowList :: [DeleteReportDefinition] -&gt; ShowS
+show :: DeleteReportDefinition -&gt; String
+$cshow :: DeleteReportDefinition -&gt; String
+showsPrec :: Int -&gt; DeleteReportDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteReportDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteReportDefinition -&gt; Rep DeleteReportDefinition x)
+-&gt; (forall x.
+    Rep DeleteReportDefinition x -&gt; DeleteReportDefinition)
+-&gt; Generic DeleteReportDefinition
+forall x. Rep DeleteReportDefinition x -&gt; DeleteReportDefinition
+forall x. DeleteReportDefinition -&gt; Rep DeleteReportDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteReportDefinition x -&gt; DeleteReportDefinition
+$cfrom :: forall x. DeleteReportDefinition -&gt; Rep DeleteReportDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DeleteReportDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'reportId', 'deleteReportDefinition_reportId' - Required. ID of the report to delete.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#newDeleteReportDefinition"><span class="hs-identifier hs-type">newDeleteReportDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'reportId'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition"><span class="hs-identifier hs-type">DeleteReportDefinition</span></a></span><span>
+</span><span id="line-70"></span><span id="newDeleteReportDefinition"><span class="annot"><span class="annottext">newDeleteReportDefinition :: Text -&gt; DeleteReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#newDeleteReportDefinition"><span class="hs-identifier hs-var hs-var">newDeleteReportDefinition</span></a></span></span><span> </span><span id="local-6989586621679151460"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151460"><span class="hs-identifier hs-var">pReportId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DeleteReportDefinition' :: Text -&gt; DeleteReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition%27"><span class="hs-identifier hs-type">DeleteReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportId:DeleteReportDefinition' :: Text
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#%24sel%3AreportId%3ADeleteReportDefinition%27"><span class="hs-identifier hs-var">reportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151460"><span class="hs-identifier hs-var">pReportId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | Required. ID of the report to delete.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#deleteReportDefinition_reportId"><span class="hs-identifier hs-type">deleteReportDefinition_reportId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition"><span class="hs-identifier hs-type">DeleteReportDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="deleteReportDefinition_reportId"><span class="annot"><span class="annottext">deleteReportDefinition_reportId :: (Text -&gt; f Text)
+-&gt; DeleteReportDefinition -&gt; f DeleteReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#deleteReportDefinition_reportId"><span class="hs-identifier hs-var hs-var">deleteReportDefinition_reportId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReportDefinition -&gt; Text)
+-&gt; (DeleteReportDefinition -&gt; Text -&gt; DeleteReportDefinition)
+-&gt; Lens DeleteReportDefinition DeleteReportDefinition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition%27"><span class="hs-identifier hs-type">DeleteReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151457"><span class="annot"><span class="annottext">Text
+reportId :: Text
+$sel:reportId:DeleteReportDefinition' :: DeleteReportDefinition -&gt; Text
+</span><a href="#local-6989586621679151457"><span class="hs-identifier hs-var hs-var">reportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151457"><span class="hs-identifier hs-var">reportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151456"><span class="annot"><span class="annottext">s :: DeleteReportDefinition
+</span><a href="#local-6989586621679151456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition%27"><span class="hs-identifier hs-type">DeleteReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151455"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReportDefinition
+</span><a href="#local-6989586621679151456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportId:DeleteReportDefinition' :: Text
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#%24sel%3AreportId%3ADeleteReportDefinition%27"><span class="hs-identifier hs-var">reportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition"><span class="hs-identifier hs-type">DeleteReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition"><span class="hs-identifier hs-type">DeleteReportDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition"><span class="hs-identifier hs-type">DeleteReportDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse"><span class="hs-identifier hs-type">DeleteReportDefinitionResponse</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679151451"><span class="annot"><span class="annottext">request :: DeleteReportDefinition -&gt; Request DeleteReportDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteReportDefinition -&gt; Request DeleteReportDefinition
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ApplicationCostProfiler.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679151447"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteReportDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteReportDefinition)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteReportDefinition))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteReportDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteReportDefinition)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679151444"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151444"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679151443"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679151443"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679151442"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679151442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteReportDefinitionResponse
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteReportDefinitionResponse'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteReportDefinitionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DeleteReportDefinitionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679151442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reportId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteReportDefinitionResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteReportDefinitionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151444"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151434"><span id="local-6989586621679151436"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition"><span class="hs-identifier hs-type">DeleteReportDefinition</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151431"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition"><span class="hs-identifier hs-type">DeleteReportDefinition</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition"><span class="hs-identifier hs-type">DeleteReportDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679151427"><span class="annot"><span class="annottext">toHeaders :: DeleteReportDefinition -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteReportDefinition -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition"><span class="hs-identifier hs-type">DeleteReportDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679151421"><span class="annot"><span class="annottext">toPath :: DeleteReportDefinition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition%27"><span class="hs-identifier hs-type">DeleteReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151419"><span class="annot"><span class="annottext">Text
+reportId :: Text
+$sel:reportId:DeleteReportDefinition' :: DeleteReportDefinition -&gt; Text
+</span><a href="#local-6989586621679151419"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/reportDefinition/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151419"><span class="hs-identifier hs-var">reportId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinition"><span class="hs-identifier hs-type">DeleteReportDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679151415"><span class="annot"><span class="annottext">toQuery :: DeleteReportDefinition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteReportDefinition -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newDeleteReportDefinitionResponse' smart constructor.</span><span>
+</span><span id="line-114"></span><span id="local-6989586621679151412"><span id="local-6989586621679151413"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReportDefinitionResponse"><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse"><span class="hs-identifier hs-var">DeleteReportDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReportDefinitionResponse%27"><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteReportDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ID of the report that was deleted.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AreportId%3ADeleteReportDefinitionResponse%27"><span class="annot"><span class="annottext">DeleteReportDefinitionResponse -&gt; Maybe Text
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#%24sel%3AreportId%3ADeleteReportDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">reportId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteReportDefinitionResponse%27"><span class="annot"><span class="annottext">DeleteReportDefinitionResponse -&gt; Int
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#%24sel%3AhttpStatus%3ADeleteReportDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151406"><span id="local-6989586621679151408"><span class="annot"><span class="annottext">DeleteReportDefinitionResponse
+-&gt; DeleteReportDefinitionResponse -&gt; Bool
+(DeleteReportDefinitionResponse
+ -&gt; DeleteReportDefinitionResponse -&gt; Bool)
+-&gt; (DeleteReportDefinitionResponse
+    -&gt; DeleteReportDefinitionResponse -&gt; Bool)
+-&gt; Eq DeleteReportDefinitionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteReportDefinitionResponse
+-&gt; DeleteReportDefinitionResponse -&gt; Bool
+$c/= :: DeleteReportDefinitionResponse
+-&gt; DeleteReportDefinitionResponse -&gt; Bool
+== :: DeleteReportDefinitionResponse
+-&gt; DeleteReportDefinitionResponse -&gt; Bool
+$c== :: DeleteReportDefinitionResponse
+-&gt; DeleteReportDefinitionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151398"><span id="local-6989586621679151400"><span id="local-6989586621679151402"><span id="local-6989586621679151404"><span class="annot"><span class="annottext">ReadPrec [DeleteReportDefinitionResponse]
+ReadPrec DeleteReportDefinitionResponse
+Int -&gt; ReadS DeleteReportDefinitionResponse
+ReadS [DeleteReportDefinitionResponse]
+(Int -&gt; ReadS DeleteReportDefinitionResponse)
+-&gt; ReadS [DeleteReportDefinitionResponse]
+-&gt; ReadPrec DeleteReportDefinitionResponse
+-&gt; ReadPrec [DeleteReportDefinitionResponse]
+-&gt; Read DeleteReportDefinitionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteReportDefinitionResponse]
+$creadListPrec :: ReadPrec [DeleteReportDefinitionResponse]
+readPrec :: ReadPrec DeleteReportDefinitionResponse
+$creadPrec :: ReadPrec DeleteReportDefinitionResponse
+readList :: ReadS [DeleteReportDefinitionResponse]
+$creadList :: ReadS [DeleteReportDefinitionResponse]
+readsPrec :: Int -&gt; ReadS DeleteReportDefinitionResponse
+$creadsPrec :: Int -&gt; ReadS DeleteReportDefinitionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151392"><span id="local-6989586621679151394"><span id="local-6989586621679151396"><span class="annot"><span class="annottext">Int -&gt; DeleteReportDefinitionResponse -&gt; ShowS
+[DeleteReportDefinitionResponse] -&gt; ShowS
+DeleteReportDefinitionResponse -&gt; String
+(Int -&gt; DeleteReportDefinitionResponse -&gt; ShowS)
+-&gt; (DeleteReportDefinitionResponse -&gt; String)
+-&gt; ([DeleteReportDefinitionResponse] -&gt; ShowS)
+-&gt; Show DeleteReportDefinitionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteReportDefinitionResponse] -&gt; ShowS
+$cshowList :: [DeleteReportDefinitionResponse] -&gt; ShowS
+show :: DeleteReportDefinitionResponse -&gt; String
+$cshow :: DeleteReportDefinitionResponse -&gt; String
+showsPrec :: Int -&gt; DeleteReportDefinitionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteReportDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteReportDefinitionResponse
+ -&gt; Rep DeleteReportDefinitionResponse x)
+-&gt; (forall x.
+    Rep DeleteReportDefinitionResponse x
+    -&gt; DeleteReportDefinitionResponse)
+-&gt; Generic DeleteReportDefinitionResponse
+forall x.
+Rep DeleteReportDefinitionResponse x
+-&gt; DeleteReportDefinitionResponse
+forall x.
+DeleteReportDefinitionResponse
+-&gt; Rep DeleteReportDefinitionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteReportDefinitionResponse x
+-&gt; DeleteReportDefinitionResponse
+$cfrom :: forall x.
+DeleteReportDefinitionResponse
+-&gt; Rep DeleteReportDefinitionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Create a value of 'DeleteReportDefinitionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'reportId', 'deleteReportDefinitionResponse_reportId' - ID of the report that was deleted.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'httpStatus', 'deleteReportDefinitionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#newDeleteReportDefinitionResponse"><span class="hs-identifier hs-type">newDeleteReportDefinitionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse"><span class="hs-identifier hs-type">DeleteReportDefinitionResponse</span></a></span><span>
+</span><span id="line-137"></span><span id="newDeleteReportDefinitionResponse"><span class="annot"><span class="annottext">newDeleteReportDefinitionResponse :: Int -&gt; DeleteReportDefinitionResponse
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#newDeleteReportDefinitionResponse"><span class="hs-identifier hs-var hs-var">newDeleteReportDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679151389"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151389"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">DeleteReportDefinitionResponse' :: Maybe Text -&gt; Int -&gt; DeleteReportDefinitionResponse
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteReportDefinitionResponse'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reportId:DeleteReportDefinitionResponse' :: Maybe Text
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#%24sel%3AreportId%3ADeleteReportDefinitionResponse%27"><span class="hs-identifier hs-var">reportId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReportDefinitionResponse' :: Int
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#%24sel%3AhttpStatus%3ADeleteReportDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151389"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | ID of the report that was deleted.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#deleteReportDefinitionResponse_reportId"><span class="hs-identifier hs-type">deleteReportDefinitionResponse_reportId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse"><span class="hs-identifier hs-type">DeleteReportDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="deleteReportDefinitionResponse_reportId"><span class="annot"><span class="annottext">deleteReportDefinitionResponse_reportId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteReportDefinitionResponse
+-&gt; f DeleteReportDefinitionResponse
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#deleteReportDefinitionResponse_reportId"><span class="hs-identifier hs-var hs-var">deleteReportDefinitionResponse_reportId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReportDefinitionResponse -&gt; Maybe Text)
+-&gt; (DeleteReportDefinitionResponse
+    -&gt; Maybe Text -&gt; DeleteReportDefinitionResponse)
+-&gt; Lens
+     DeleteReportDefinitionResponse
+     DeleteReportDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteReportDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151388"><span class="annot"><span class="annottext">Maybe Text
+reportId :: Maybe Text
+$sel:reportId:DeleteReportDefinitionResponse' :: DeleteReportDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679151388"><span class="hs-identifier hs-var hs-var">reportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151388"><span class="hs-identifier hs-var">reportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151387"><span class="annot"><span class="annottext">s :: DeleteReportDefinitionResponse
+</span><a href="#local-6989586621679151387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteReportDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151386"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReportDefinitionResponse
+</span><a href="#local-6989586621679151387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportId:DeleteReportDefinitionResponse' :: Maybe Text
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#%24sel%3AreportId%3ADeleteReportDefinitionResponse%27"><span class="hs-identifier hs-var">reportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse"><span class="hs-identifier hs-type">DeleteReportDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#deleteReportDefinitionResponse_httpStatus"><span class="hs-identifier hs-type">deleteReportDefinitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse"><span class="hs-identifier hs-type">DeleteReportDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-150"></span><span id="deleteReportDefinitionResponse_httpStatus"><span class="annot"><span class="annottext">deleteReportDefinitionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteReportDefinitionResponse
+-&gt; f DeleteReportDefinitionResponse
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#deleteReportDefinitionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteReportDefinitionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReportDefinitionResponse -&gt; Int)
+-&gt; (DeleteReportDefinitionResponse
+    -&gt; Int -&gt; DeleteReportDefinitionResponse)
+-&gt; Lens
+     DeleteReportDefinitionResponse
+     DeleteReportDefinitionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteReportDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151385"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteReportDefinitionResponse' :: DeleteReportDefinitionResponse -&gt; Int
+</span><a href="#local-6989586621679151385"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151385"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151384"><span class="annot"><span class="annottext">s :: DeleteReportDefinitionResponse
+</span><a href="#local-6989586621679151384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteReportDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151383"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReportDefinitionResponse
+</span><a href="#local-6989586621679151384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReportDefinitionResponse' :: Int
+</span><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#%24sel%3AhttpStatus%3ADeleteReportDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse"><span class="hs-identifier hs-type">DeleteReportDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679151381"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.DeleteReportDefinition.html#DeleteReportDefinitionResponse"><span class="hs-identifier hs-type">DeleteReportDefinitionResponse</span></a></span></span><span>
+</span><span id="line-155"></span></pre></body></html>

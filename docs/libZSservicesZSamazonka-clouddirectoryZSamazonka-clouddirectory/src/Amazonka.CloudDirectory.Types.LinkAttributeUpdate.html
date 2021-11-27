@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudDirectory.Types.LinkAttributeUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudDirectory.Types.LinkAttributeUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.AttributeKey.html"><span class="hs-identifier">Amazonka.CloudDirectory.Types.AttributeKey</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeAction.html"><span class="hs-identifier">Amazonka.CloudDirectory.Types.LinkAttributeAction</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Structure that contains attribute update information.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLinkAttributeUpdate' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679333638"><span id="local-6989586621679333639"></span></span><span class="hs-keyword">data</span><span> </span><span id="LinkAttributeUpdate"><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate"><span class="hs-identifier hs-var">LinkAttributeUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LinkAttributeUpdate%27"><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate%27"><span class="hs-identifier hs-var">LinkAttributeUpdate'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The action to perform as part of the attribute update.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AattributeAction%3ALinkAttributeUpdate%27"><span class="annot"><span class="annottext">LinkAttributeUpdate -&gt; Maybe LinkAttributeAction
+</span><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#%24sel%3AattributeAction%3ALinkAttributeUpdate%27"><span class="hs-identifier hs-var hs-var">attributeAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The key of the attribute being updated.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AattributeKey%3ALinkAttributeUpdate%27"><span class="annot"><span class="annottext">LinkAttributeUpdate -&gt; Maybe AttributeKey
+</span><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#%24sel%3AattributeKey%3ALinkAttributeUpdate%27"><span class="hs-identifier hs-var hs-var">attributeKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333631"><span id="local-6989586621679333633"><span class="annot"><span class="annottext">LinkAttributeUpdate -&gt; LinkAttributeUpdate -&gt; Bool
+(LinkAttributeUpdate -&gt; LinkAttributeUpdate -&gt; Bool)
+-&gt; (LinkAttributeUpdate -&gt; LinkAttributeUpdate -&gt; Bool)
+-&gt; Eq LinkAttributeUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LinkAttributeUpdate -&gt; LinkAttributeUpdate -&gt; Bool
+$c/= :: LinkAttributeUpdate -&gt; LinkAttributeUpdate -&gt; Bool
+== :: LinkAttributeUpdate -&gt; LinkAttributeUpdate -&gt; Bool
+$c== :: LinkAttributeUpdate -&gt; LinkAttributeUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333622"><span id="local-6989586621679333624"><span id="local-6989586621679333626"><span id="local-6989586621679333628"><span class="annot"><span class="annottext">ReadPrec [LinkAttributeUpdate]
+ReadPrec LinkAttributeUpdate
+Int -&gt; ReadS LinkAttributeUpdate
+ReadS [LinkAttributeUpdate]
+(Int -&gt; ReadS LinkAttributeUpdate)
+-&gt; ReadS [LinkAttributeUpdate]
+-&gt; ReadPrec LinkAttributeUpdate
+-&gt; ReadPrec [LinkAttributeUpdate]
+-&gt; Read LinkAttributeUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LinkAttributeUpdate]
+$creadListPrec :: ReadPrec [LinkAttributeUpdate]
+readPrec :: ReadPrec LinkAttributeUpdate
+$creadPrec :: ReadPrec LinkAttributeUpdate
+readList :: ReadS [LinkAttributeUpdate]
+$creadList :: ReadS [LinkAttributeUpdate]
+readsPrec :: Int -&gt; ReadS LinkAttributeUpdate
+$creadsPrec :: Int -&gt; ReadS LinkAttributeUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333615"><span id="local-6989586621679333617"><span id="local-6989586621679333619"><span class="annot"><span class="annottext">Int -&gt; LinkAttributeUpdate -&gt; ShowS
+[LinkAttributeUpdate] -&gt; ShowS
+LinkAttributeUpdate -&gt; String
+(Int -&gt; LinkAttributeUpdate -&gt; ShowS)
+-&gt; (LinkAttributeUpdate -&gt; String)
+-&gt; ([LinkAttributeUpdate] -&gt; ShowS)
+-&gt; Show LinkAttributeUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LinkAttributeUpdate] -&gt; ShowS
+$cshowList :: [LinkAttributeUpdate] -&gt; ShowS
+show :: LinkAttributeUpdate -&gt; String
+$cshow :: LinkAttributeUpdate -&gt; String
+showsPrec :: Int -&gt; LinkAttributeUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; LinkAttributeUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LinkAttributeUpdate -&gt; Rep LinkAttributeUpdate x)
+-&gt; (forall x. Rep LinkAttributeUpdate x -&gt; LinkAttributeUpdate)
+-&gt; Generic LinkAttributeUpdate
+forall x. Rep LinkAttributeUpdate x -&gt; LinkAttributeUpdate
+forall x. LinkAttributeUpdate -&gt; Rep LinkAttributeUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LinkAttributeUpdate x -&gt; LinkAttributeUpdate
+$cfrom :: forall x. LinkAttributeUpdate -&gt; Rep LinkAttributeUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'LinkAttributeUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'attributeAction', 'linkAttributeUpdate_attributeAction' - The action to perform as part of the attribute update.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'attributeKey', 'linkAttributeUpdate_attributeKey' - The key of the attribute being updated.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#newLinkAttributeUpdate"><span class="hs-identifier hs-type">newLinkAttributeUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate"><span class="hs-identifier hs-type">LinkAttributeUpdate</span></a></span><span>
+</span><span id="line-52"></span><span id="newLinkAttributeUpdate"><span class="annot"><span class="annottext">newLinkAttributeUpdate :: LinkAttributeUpdate
+</span><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#newLinkAttributeUpdate"><span class="hs-identifier hs-var hs-var">newLinkAttributeUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">LinkAttributeUpdate' :: Maybe LinkAttributeAction
+-&gt; Maybe AttributeKey -&gt; LinkAttributeUpdate
+</span><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate%27"><span class="hs-identifier hs-type">LinkAttributeUpdate'</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributeAction:LinkAttributeUpdate' :: Maybe LinkAttributeAction
+</span><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#%24sel%3AattributeAction%3ALinkAttributeUpdate%27"><span class="hs-identifier hs-var">attributeAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe LinkAttributeAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeKey:LinkAttributeUpdate' :: Maybe AttributeKey
+</span><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#%24sel%3AattributeKey%3ALinkAttributeUpdate%27"><span class="hs-identifier hs-var">attributeKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeKey
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The action to perform as part of the attribute update.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#linkAttributeUpdate_attributeAction"><span class="hs-identifier hs-type">linkAttributeUpdate_attributeAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate"><span class="hs-identifier hs-type">LinkAttributeUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="linkAttributeUpdate_attributeAction"><span class="annot"><span class="annottext">linkAttributeUpdate_attributeAction :: (Maybe LinkAttributeAction -&gt; f (Maybe LinkAttributeAction))
+-&gt; LinkAttributeUpdate -&gt; f LinkAttributeUpdate
+</span><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#linkAttributeUpdate_attributeAction"><span class="hs-identifier hs-var hs-var">linkAttributeUpdate_attributeAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinkAttributeUpdate -&gt; Maybe LinkAttributeAction)
+-&gt; (LinkAttributeUpdate
+    -&gt; Maybe LinkAttributeAction -&gt; LinkAttributeUpdate)
+-&gt; Lens
+     LinkAttributeUpdate
+     LinkAttributeUpdate
+     (Maybe LinkAttributeAction)
+     (Maybe LinkAttributeAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate%27"><span class="hs-identifier hs-type">LinkAttributeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333606"><span class="annot"><span class="annottext">Maybe LinkAttributeAction
+attributeAction :: Maybe LinkAttributeAction
+$sel:attributeAction:LinkAttributeUpdate' :: LinkAttributeUpdate -&gt; Maybe LinkAttributeAction
+</span><a href="#local-6989586621679333606"><span class="hs-identifier hs-var hs-var">attributeAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LinkAttributeAction
+</span><a href="#local-6989586621679333606"><span class="hs-identifier hs-var">attributeAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333605"><span class="annot"><span class="annottext">s :: LinkAttributeUpdate
+</span><a href="#local-6989586621679333605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate%27"><span class="hs-identifier hs-type">LinkAttributeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333604"><span class="annot"><span class="annottext">Maybe LinkAttributeAction
+</span><a href="#local-6989586621679333604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkAttributeUpdate
+</span><a href="#local-6989586621679333605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeAction:LinkAttributeUpdate' :: Maybe LinkAttributeAction
+</span><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#%24sel%3AattributeAction%3ALinkAttributeUpdate%27"><span class="hs-identifier hs-var">attributeAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LinkAttributeAction
+</span><a href="#local-6989586621679333604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate"><span class="hs-identifier hs-type">LinkAttributeUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The key of the attribute being updated.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#linkAttributeUpdate_attributeKey"><span class="hs-identifier hs-type">linkAttributeUpdate_attributeKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate"><span class="hs-identifier hs-type">LinkAttributeUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="linkAttributeUpdate_attributeKey"><span class="annot"><span class="annottext">linkAttributeUpdate_attributeKey :: (Maybe AttributeKey -&gt; f (Maybe AttributeKey))
+-&gt; LinkAttributeUpdate -&gt; f LinkAttributeUpdate
+</span><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#linkAttributeUpdate_attributeKey"><span class="hs-identifier hs-var hs-var">linkAttributeUpdate_attributeKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinkAttributeUpdate -&gt; Maybe AttributeKey)
+-&gt; (LinkAttributeUpdate
+    -&gt; Maybe AttributeKey -&gt; LinkAttributeUpdate)
+-&gt; Lens
+     LinkAttributeUpdate
+     LinkAttributeUpdate
+     (Maybe AttributeKey)
+     (Maybe AttributeKey)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate%27"><span class="hs-identifier hs-type">LinkAttributeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333602"><span class="annot"><span class="annottext">Maybe AttributeKey
+attributeKey :: Maybe AttributeKey
+$sel:attributeKey:LinkAttributeUpdate' :: LinkAttributeUpdate -&gt; Maybe AttributeKey
+</span><a href="#local-6989586621679333602"><span class="hs-identifier hs-var hs-var">attributeKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeKey
+</span><a href="#local-6989586621679333602"><span class="hs-identifier hs-var">attributeKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333601"><span class="annot"><span class="annottext">s :: LinkAttributeUpdate
+</span><a href="#local-6989586621679333601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate%27"><span class="hs-identifier hs-type">LinkAttributeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333600"><span class="annot"><span class="annottext">Maybe AttributeKey
+</span><a href="#local-6989586621679333600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkAttributeUpdate
+</span><a href="#local-6989586621679333601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeKey:LinkAttributeUpdate' :: Maybe AttributeKey
+</span><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#%24sel%3AattributeKey%3ALinkAttributeUpdate%27"><span class="hs-identifier hs-var">attributeKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeKey
+</span><a href="#local-6989586621679333600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate"><span class="hs-identifier hs-type">LinkAttributeUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333596"><span id="local-6989586621679333598"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate"><span class="hs-identifier hs-type">LinkAttributeUpdate</span></a></span></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333593"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate"><span class="hs-identifier hs-type">LinkAttributeUpdate</span></a></span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333585"><span id="local-6989586621679333587"><span id="local-6989586621679333589"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate"><span class="hs-identifier hs-type">LinkAttributeUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679333583"><span class="annot"><span class="annottext">toJSON :: LinkAttributeUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.LinkAttributeUpdate.html#LinkAttributeUpdate%27"><span class="hs-identifier hs-type">LinkAttributeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333580"><span id="local-6989586621679333581"><span class="annot"><span class="annottext">Maybe AttributeKey
+Maybe LinkAttributeAction
+attributeKey :: Maybe AttributeKey
+attributeAction :: Maybe LinkAttributeAction
+$sel:attributeKey:LinkAttributeUpdate' :: LinkAttributeUpdate -&gt; Maybe AttributeKey
+$sel:attributeAction:LinkAttributeUpdate' :: LinkAttributeUpdate -&gt; Maybe LinkAttributeAction
+</span><a href="#local-6989586621679333580"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-75"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LinkAttributeAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>              </span><span class="annot"><span class="annottext">(LinkAttributeAction -&gt; Pair)
+-&gt; Maybe LinkAttributeAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LinkAttributeAction
+</span><a href="#local-6989586621679333581"><span class="hs-identifier hs-var">attributeAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AttributeKey -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AttributeKey -&gt; Pair) -&gt; Maybe AttributeKey -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AttributeKey
+</span><a href="#local-6989586621679333580"><span class="hs-identifier hs-var">attributeKey</span></a></span><span>
+</span><span id="line-78"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span></pre></body></html>

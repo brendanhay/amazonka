@@ -1,0 +1,573 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.Types.DeviceFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.Types.DeviceFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types.DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types.RuleOperator</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents a device filter used to select a set of devices to be</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- included in a test run. This data structure is passed in as the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @deviceSelectionConfiguration@ parameter to @ScheduleRun@. For an</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- example of the JSON request syntax, see ScheduleRun.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- It is also passed in as the @filters@ parameter to @ListDevices@. For an</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- example of the JSON request syntax, see ListDevices.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newDeviceFilter' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679367276"><span id="local-6989586621679367277"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceFilter"><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-var">DeviceFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceFilter%27"><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-var">DeviceFilter'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The aspect of a device such as platform or model used as the selection</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- criteria in a device filter.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- The supported operators for each attribute are provided in the following</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- [ARN]</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     The Amazon Resource Name (ARN) of the device (for example,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     @arn:aws:devicefarm:us-west-2::device:12345Example@).</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     Supported operators: @EQUALS@, @IN@, @NOT_IN@</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- [PLATFORM]</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     The device platform. Valid values are ANDROID or IOS.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- [OS_VERSION]</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     The operating system version (for example, 10.3.2).</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     Supported operators: @EQUALS@, @GREATER_THAN@,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     @GREATER_THAN_OR_EQUALS@, @IN@, @LESS_THAN@, @LESS_THAN_OR_EQUALS@,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     @NOT_IN@</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- [MODEL]</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     The device model (for example, iPad 5th Gen).</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     Supported operators: @CONTAINS@, @EQUALS@, @IN@, @NOT_IN@</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- [AVAILABILITY]</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     The current availability of the device. Valid values are AVAILABLE,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- [FORM_FACTOR]</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     The device form factor. Valid values are PHONE or TABLET.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- [MANUFACTURER]</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     The device manufacturer (for example, Apple).</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     Supported operators: @EQUALS@, @IN@, @NOT_IN@</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- [REMOTE_ACCESS_ENABLED]</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     Whether the device is enabled for remote access. Valid values are</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     TRUE or FALSE.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- [REMOTE_DEBUG_ENABLED]</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     Whether the device is enabled for remote debugging. Valid values are</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     TRUE or FALSE.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     Because remote debugging is</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported&gt;,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     this filter is ignored.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- [INSTANCE_ARN]</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     The Amazon Resource Name (ARN) of the device instance.</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     Supported operators: @EQUALS@, @IN@, @NOT_IN@</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- [INSTANCE_LABELS]</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     The label of the device instance.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     Supported operators: @CONTAINS@</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- [FLEET_TYPE]</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--     The fleet type. Valid values are PUBLIC or PRIVATE.</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3Aattribute%3ADeviceFilter%27"><span class="annot"><span class="annottext">DeviceFilter -&gt; DeviceFilterAttribute
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#%24sel%3Aattribute%3ADeviceFilter%27"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | Specifies how Device Farm compares the filter\'s attribute to the value.</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- See the attribute descriptions.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3Aoperator%3ADeviceFilter%27"><span class="annot"><span class="annottext">DeviceFilter -&gt; RuleOperator
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#%24sel%3Aoperator%3ADeviceFilter%27"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-type">RuleOperator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | An array of one or more filter values used in a device filter.</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- __Operator Values__</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- -   The IN and NOT_IN operators can take a values array that has more</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--     than one element.</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   The other operators require an array with a single element.</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- __Attribute Values__</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- -   The PLATFORM attribute can be set to ANDROID or IOS.</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- -   The AVAILABILITY attribute can be set to AVAILABLE,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- -   The FORM_FACTOR attribute can be set to PHONE or TABLET.</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3Avalues%3ADeviceFilter%27"><span class="annot"><span class="annottext">DeviceFilter -&gt; [Text]
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#%24sel%3Avalues%3ADeviceFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367268"><span id="local-6989586621679367270"><span class="annot"><span class="annottext">DeviceFilter -&gt; DeviceFilter -&gt; Bool
+(DeviceFilter -&gt; DeviceFilter -&gt; Bool)
+-&gt; (DeviceFilter -&gt; DeviceFilter -&gt; Bool) -&gt; Eq DeviceFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeviceFilter -&gt; DeviceFilter -&gt; Bool
+$c/= :: DeviceFilter -&gt; DeviceFilter -&gt; Bool
+== :: DeviceFilter -&gt; DeviceFilter -&gt; Bool
+$c== :: DeviceFilter -&gt; DeviceFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367259"><span id="local-6989586621679367261"><span id="local-6989586621679367263"><span id="local-6989586621679367265"><span class="annot"><span class="annottext">ReadPrec [DeviceFilter]
+ReadPrec DeviceFilter
+Int -&gt; ReadS DeviceFilter
+ReadS [DeviceFilter]
+(Int -&gt; ReadS DeviceFilter)
+-&gt; ReadS [DeviceFilter]
+-&gt; ReadPrec DeviceFilter
+-&gt; ReadPrec [DeviceFilter]
+-&gt; Read DeviceFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeviceFilter]
+$creadListPrec :: ReadPrec [DeviceFilter]
+readPrec :: ReadPrec DeviceFilter
+$creadPrec :: ReadPrec DeviceFilter
+readList :: ReadS [DeviceFilter]
+$creadList :: ReadS [DeviceFilter]
+readsPrec :: Int -&gt; ReadS DeviceFilter
+$creadsPrec :: Int -&gt; ReadS DeviceFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367252"><span id="local-6989586621679367254"><span id="local-6989586621679367256"><span class="annot"><span class="annottext">Int -&gt; DeviceFilter -&gt; ShowS
+[DeviceFilter] -&gt; ShowS
+DeviceFilter -&gt; String
+(Int -&gt; DeviceFilter -&gt; ShowS)
+-&gt; (DeviceFilter -&gt; String)
+-&gt; ([DeviceFilter] -&gt; ShowS)
+-&gt; Show DeviceFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeviceFilter] -&gt; ShowS
+$cshowList :: [DeviceFilter] -&gt; ShowS
+show :: DeviceFilter -&gt; String
+$cshow :: DeviceFilter -&gt; String
+showsPrec :: Int -&gt; DeviceFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeviceFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeviceFilter -&gt; Rep DeviceFilter x)
+-&gt; (forall x. Rep DeviceFilter x -&gt; DeviceFilter)
+-&gt; Generic DeviceFilter
+forall x. Rep DeviceFilter x -&gt; DeviceFilter
+forall x. DeviceFilter -&gt; Rep DeviceFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeviceFilter x -&gt; DeviceFilter
+$cfrom :: forall x. DeviceFilter -&gt; Rep DeviceFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'DeviceFilter' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'attribute', 'deviceFilter_attribute' - The aspect of a device such as platform or model used as the selection</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- criteria in a device filter.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The supported operators for each attribute are provided in the following</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- [ARN]</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     The Amazon Resource Name (ARN) of the device (for example,</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     @arn:aws:devicefarm:us-west-2::device:12345Example@).</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     Supported operators: @EQUALS@, @IN@, @NOT_IN@</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- [PLATFORM]</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     The device platform. Valid values are ANDROID or IOS.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- [OS_VERSION]</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     The operating system version (for example, 10.3.2).</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--     Supported operators: @EQUALS@, @GREATER_THAN@,</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     @GREATER_THAN_OR_EQUALS@, @IN@, @LESS_THAN@, @LESS_THAN_OR_EQUALS@,</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     @NOT_IN@</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- [MODEL]</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     The device model (for example, iPad 5th Gen).</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--     Supported operators: @CONTAINS@, @EQUALS@, @IN@, @NOT_IN@</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- [AVAILABILITY]</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     The current availability of the device. Valid values are AVAILABLE,</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- [FORM_FACTOR]</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     The device form factor. Valid values are PHONE or TABLET.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- [MANUFACTURER]</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     The device manufacturer (for example, Apple).</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     Supported operators: @EQUALS@, @IN@, @NOT_IN@</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- [REMOTE_ACCESS_ENABLED]</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     Whether the device is enabled for remote access. Valid values are</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     TRUE or FALSE.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- [REMOTE_DEBUG_ENABLED]</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     Whether the device is enabled for remote debugging. Valid values are</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     TRUE or FALSE.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--     Because remote debugging is</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported&gt;,</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--     this filter is ignored.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- [INSTANCE_ARN]</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--     The Amazon Resource Name (ARN) of the device instance.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     Supported operators: @EQUALS@, @IN@, @NOT_IN@</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- [INSTANCE_LABELS]</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--     The label of the device instance.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--     Supported operators: @CONTAINS@</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- [FLEET_TYPE]</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--     The fleet type. Valid values are PUBLIC or PRIVATE.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'operator', 'deviceFilter_operator' - Specifies how Device Farm compares the filter\'s attribute to the value.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- See the attribute descriptions.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'values', 'deviceFilter_values' - An array of one or more filter values used in a device filter.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- __Operator Values__</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   The IN and NOT_IN operators can take a values array that has more</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     than one element.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- -   The other operators require an array with a single element.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- __Attribute Values__</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- -   The PLATFORM attribute can be set to ANDROID or IOS.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   The AVAILABILITY attribute can be set to AVAILABLE,</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   The FORM_FACTOR attribute can be set to PHONE or TABLET.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#newDeviceFilter"><span class="hs-identifier hs-type">newDeviceFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-comment">-- | 'attribute'</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-comment">-- | 'operator'</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-type">RuleOperator</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span>
+</span><span id="line-252"></span><span id="newDeviceFilter"><span class="annot"><span class="annottext">newDeviceFilter :: DeviceFilterAttribute -&gt; RuleOperator -&gt; DeviceFilter
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#newDeviceFilter"><span class="hs-identifier hs-var hs-var">newDeviceFilter</span></a></span></span><span> </span><span id="local-6989586621679367246"><span class="annot"><span class="annottext">DeviceFilterAttribute
+</span><a href="#local-6989586621679367246"><span class="hs-identifier hs-var">pAttribute_</span></a></span></span><span> </span><span id="local-6989586621679367245"><span class="annot"><span class="annottext">RuleOperator
+</span><a href="#local-6989586621679367245"><span class="hs-identifier hs-var">pOperator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>  </span><span class="annot"><span class="annottext">DeviceFilter' :: DeviceFilterAttribute -&gt; RuleOperator -&gt; [Text] -&gt; DeviceFilter
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attribute:DeviceFilter' :: DeviceFilterAttribute
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#%24sel%3Aattribute%3ADeviceFilter%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceFilterAttribute
+</span><a href="#local-6989586621679367246"><span class="hs-identifier hs-var">pAttribute_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:operator:DeviceFilter' :: RuleOperator
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#%24sel%3Aoperator%3ADeviceFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleOperator
+</span><a href="#local-6989586621679367245"><span class="hs-identifier hs-var">pOperator_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:DeviceFilter' :: [Text]
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#%24sel%3Avalues%3ADeviceFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The aspect of a device such as platform or model used as the selection</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- criteria in a device filter.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- The supported operators for each attribute are provided in the following</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- [ARN]</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--     The Amazon Resource Name (ARN) of the device (for example,</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     @arn:aws:devicefarm:us-west-2::device:12345Example@).</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--     Supported operators: @EQUALS@, @IN@, @NOT_IN@</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- [PLATFORM]</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--     The device platform. Valid values are ANDROID or IOS.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- [OS_VERSION]</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--     The operating system version (for example, 10.3.2).</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--     Supported operators: @EQUALS@, @GREATER_THAN@,</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--     @GREATER_THAN_OR_EQUALS@, @IN@, @LESS_THAN@, @LESS_THAN_OR_EQUALS@,</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--     @NOT_IN@</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- [MODEL]</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--     The device model (for example, iPad 5th Gen).</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--     Supported operators: @CONTAINS@, @EQUALS@, @IN@, @NOT_IN@</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- [AVAILABILITY]</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--     The current availability of the device. Valid values are AVAILABLE,</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--     HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- [FORM_FACTOR]</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--     The device form factor. Valid values are PHONE or TABLET.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- [MANUFACTURER]</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--     The device manufacturer (for example, Apple).</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--     Supported operators: @EQUALS@, @IN@, @NOT_IN@</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- [REMOTE_ACCESS_ENABLED]</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--     Whether the device is enabled for remote access. Valid values are</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--     TRUE or FALSE.</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- [REMOTE_DEBUG_ENABLED]</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--     Whether the device is enabled for remote debugging. Valid values are</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--     TRUE or FALSE.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--     Because remote debugging is</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported&gt;,</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--     this filter is ignored.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- [INSTANCE_ARN]</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--     The Amazon Resource Name (ARN) of the device instance.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--     Supported operators: @EQUALS@, @IN@, @NOT_IN@</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- [INSTANCE_LABELS]</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--     The label of the device instance.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--     Supported operators: @CONTAINS@</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- [FLEET_TYPE]</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--     The fleet type. Valid values are PUBLIC or PRIVATE.</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--     Supported operators: @EQUALS@</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#deviceFilter_attribute"><span class="hs-identifier hs-type">deviceFilter_attribute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-335"></span><span id="deviceFilter_attribute"><span class="annot"><span class="annottext">deviceFilter_attribute :: (DeviceFilterAttribute -&gt; f DeviceFilterAttribute)
+-&gt; DeviceFilter -&gt; f DeviceFilter
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#deviceFilter_attribute"><span class="hs-identifier hs-var hs-var">deviceFilter_attribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceFilter -&gt; DeviceFilterAttribute)
+-&gt; (DeviceFilter -&gt; DeviceFilterAttribute -&gt; DeviceFilter)
+-&gt; Lens
+     DeviceFilter
+     DeviceFilter
+     DeviceFilterAttribute
+     DeviceFilterAttribute
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367241"><span class="annot"><span class="annottext">DeviceFilterAttribute
+attribute :: DeviceFilterAttribute
+$sel:attribute:DeviceFilter' :: DeviceFilter -&gt; DeviceFilterAttribute
+</span><a href="#local-6989586621679367241"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFilterAttribute
+</span><a href="#local-6989586621679367241"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367240"><span class="annot"><span class="annottext">s :: DeviceFilter
+</span><a href="#local-6989586621679367240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367239"><span class="annot"><span class="annottext">DeviceFilterAttribute
+</span><a href="#local-6989586621679367239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFilter
+</span><a href="#local-6989586621679367240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attribute:DeviceFilter' :: DeviceFilterAttribute
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#%24sel%3Aattribute%3ADeviceFilter%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceFilterAttribute
+</span><a href="#local-6989586621679367239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | Specifies how Device Farm compares the filter\'s attribute to the value.</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- See the attribute descriptions.</span><span>
+</span><span id="line-339"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#deviceFilter_operator"><span class="hs-identifier hs-type">deviceFilter_operator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-type">RuleOperator</span></a></span><span>
+</span><span id="line-340"></span><span id="deviceFilter_operator"><span class="annot"><span class="annottext">deviceFilter_operator :: (RuleOperator -&gt; f RuleOperator) -&gt; DeviceFilter -&gt; f DeviceFilter
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#deviceFilter_operator"><span class="hs-identifier hs-var hs-var">deviceFilter_operator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceFilter -&gt; RuleOperator)
+-&gt; (DeviceFilter -&gt; RuleOperator -&gt; DeviceFilter)
+-&gt; Lens DeviceFilter DeviceFilter RuleOperator RuleOperator
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367237"><span class="annot"><span class="annottext">RuleOperator
+operator :: RuleOperator
+$sel:operator:DeviceFilter' :: DeviceFilter -&gt; RuleOperator
+</span><a href="#local-6989586621679367237"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleOperator
+</span><a href="#local-6989586621679367237"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367236"><span class="annot"><span class="annottext">s :: DeviceFilter
+</span><a href="#local-6989586621679367236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367235"><span class="annot"><span class="annottext">RuleOperator
+</span><a href="#local-6989586621679367235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFilter
+</span><a href="#local-6989586621679367236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:DeviceFilter' :: RuleOperator
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#%24sel%3Aoperator%3ADeviceFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleOperator
+</span><a href="#local-6989586621679367235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- | An array of one or more filter values used in a device filter.</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- __Operator Values__</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- -   The IN and NOT_IN operators can take a values array that has more</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--     than one element.</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- -   The other operators require an array with a single element.</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- __Attribute Values__</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- -   The PLATFORM attribute can be set to ANDROID or IOS.</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- -   The AVAILABILITY attribute can be set to AVAILABLE,</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--     HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- -   The FORM_FACTOR attribute can be set to PHONE or TABLET.</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.</span><span>
+</span><span id="line-361"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#deviceFilter_values"><span class="hs-identifier hs-type">deviceFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-362"></span><span id="deviceFilter_values"><span class="annot"><span class="annottext">deviceFilter_values :: ([Text] -&gt; f [Text]) -&gt; DeviceFilter -&gt; f DeviceFilter
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#deviceFilter_values"><span class="hs-identifier hs-var hs-var">deviceFilter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceFilter -&gt; [Text])
+-&gt; (DeviceFilter -&gt; [Text] -&gt; DeviceFilter)
+-&gt; Lens DeviceFilter DeviceFilter [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367233"><span class="annot"><span class="annottext">[Text]
+values :: [Text]
+$sel:values:DeviceFilter' :: DeviceFilter -&gt; [Text]
+</span><a href="#local-6989586621679367233"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679367233"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367232"><span class="annot"><span class="annottext">s :: DeviceFilter
+</span><a href="#local-6989586621679367232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367231"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679367231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFilter
+</span><a href="#local-6989586621679367232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:DeviceFilter' :: [Text]
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#%24sel%3Avalues%3ADeviceFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679367231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeviceFilter -&gt; f DeviceFilter)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DeviceFilter
+-&gt; f DeviceFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-363"></span><span>
+</span><span id="line-364"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367226"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-365"></span><span>  </span><span id="local-6989586621679367224"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-366"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DeviceFilter) -&gt; Value -&gt; Parser DeviceFilter
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-367"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DeviceFilter&quot;</span></span><span>
+</span><span id="line-368"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367221"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367221"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-369"></span><span>          </span><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; RuleOperator -&gt; [Text] -&gt; DeviceFilter
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-var">DeviceFilter'</span></a></span><span>
+</span><span id="line-370"></span><span>            </span><span class="annot"><span class="annottext">(DeviceFilterAttribute -&gt; RuleOperator -&gt; [Text] -&gt; DeviceFilter)
+-&gt; Parser DeviceFilterAttribute
+-&gt; Parser (RuleOperator -&gt; [Text] -&gt; DeviceFilter)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeviceFilterAttribute
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attribute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span>            </span><span class="annot"><span class="annottext">Parser (RuleOperator -&gt; [Text] -&gt; DeviceFilter)
+-&gt; Parser RuleOperator -&gt; Parser ([Text] -&gt; DeviceFilter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RuleOperator
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Text] -&gt; DeviceFilter)
+-&gt; Parser [Text] -&gt; Parser DeviceFilter
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span>
+</span><span id="line-375"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367213"><span id="local-6989586621679367215"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span></span></span><span>
+</span><span id="line-376"></span><span>
+</span><span id="line-377"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367210"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span></span><span>
+</span><span id="line-378"></span><span>
+</span><span id="line-379"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367202"><span id="local-6989586621679367204"><span id="local-6989586621679367206"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-380"></span><span>  </span><span id="local-6989586621679367200"><span class="annot"><span class="annottext">toJSON :: DeviceFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367196"><span id="local-6989586621679367197"><span id="local-6989586621679367198"><span class="annot"><span class="annottext">[Text]
+DeviceFilterAttribute
+RuleOperator
+values :: [Text]
+operator :: RuleOperator
+attribute :: DeviceFilterAttribute
+$sel:values:DeviceFilter' :: DeviceFilter -&gt; [Text]
+$sel:operator:DeviceFilter' :: DeviceFilter -&gt; RuleOperator
+$sel:attribute:DeviceFilter' :: DeviceFilter -&gt; DeviceFilterAttribute
+</span><a href="#local-6989586621679367196"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-381"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-382"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-383"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attribute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeviceFilterAttribute -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DeviceFilterAttribute
+</span><a href="#local-6989586621679367198"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RuleOperator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RuleOperator
+</span><a href="#local-6989586621679367197"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679367196"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-387"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-388"></span></pre></body></html>

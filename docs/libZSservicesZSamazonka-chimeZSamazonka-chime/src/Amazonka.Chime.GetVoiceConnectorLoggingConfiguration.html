@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.GetVoiceConnectorLoggingConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the logging configuration details for the specified Amazon</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Chime Voice Connector. Shows whether SIP message logs are enabled for</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- sending to Amazon CloudWatch Logs.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.GetVoiceConnectorLoggingConfiguration</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration"><span class="hs-identifier">GetVoiceConnectorLoggingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#newGetVoiceConnectorLoggingConfiguration"><span class="hs-identifier">newGetVoiceConnectorLoggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#getVoiceConnectorLoggingConfiguration_voiceConnectorId"><span class="hs-identifier">getVoiceConnectorLoggingConfiguration_voiceConnectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier">GetVoiceConnectorLoggingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#newGetVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier">newGetVoiceConnectorLoggingConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration"><span class="hs-identifier">getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#getVoiceConnectorLoggingConfigurationResponse_httpStatus"><span class="hs-identifier">getVoiceConnectorLoggingConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetVoiceConnectorLoggingConfiguration' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679538295"><span id="local-6989586621679538296"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVoiceConnectorLoggingConfiguration"><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-var">GetVoiceConnectorLoggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVoiceConnectorLoggingConfiguration%27"><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-var">GetVoiceConnectorLoggingConfiguration'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime Voice Connector ID.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AvoiceConnectorId%3AGetVoiceConnectorLoggingConfiguration%27"><span class="annot"><span class="annottext">GetVoiceConnectorLoggingConfiguration -&gt; Text
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#%24sel%3AvoiceConnectorId%3AGetVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-var hs-var">voiceConnectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679538289"><span id="local-6989586621679538291"><span class="annot"><span class="annottext">GetVoiceConnectorLoggingConfiguration
+-&gt; GetVoiceConnectorLoggingConfiguration -&gt; Bool
+(GetVoiceConnectorLoggingConfiguration
+ -&gt; GetVoiceConnectorLoggingConfiguration -&gt; Bool)
+-&gt; (GetVoiceConnectorLoggingConfiguration
+    -&gt; GetVoiceConnectorLoggingConfiguration -&gt; Bool)
+-&gt; Eq GetVoiceConnectorLoggingConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetVoiceConnectorLoggingConfiguration
+-&gt; GetVoiceConnectorLoggingConfiguration -&gt; Bool
+$c/= :: GetVoiceConnectorLoggingConfiguration
+-&gt; GetVoiceConnectorLoggingConfiguration -&gt; Bool
+== :: GetVoiceConnectorLoggingConfiguration
+-&gt; GetVoiceConnectorLoggingConfiguration -&gt; Bool
+$c== :: GetVoiceConnectorLoggingConfiguration
+-&gt; GetVoiceConnectorLoggingConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679538280"><span id="local-6989586621679538282"><span id="local-6989586621679538284"><span id="local-6989586621679538286"><span class="annot"><span class="annottext">ReadPrec [GetVoiceConnectorLoggingConfiguration]
+ReadPrec GetVoiceConnectorLoggingConfiguration
+Int -&gt; ReadS GetVoiceConnectorLoggingConfiguration
+ReadS [GetVoiceConnectorLoggingConfiguration]
+(Int -&gt; ReadS GetVoiceConnectorLoggingConfiguration)
+-&gt; ReadS [GetVoiceConnectorLoggingConfiguration]
+-&gt; ReadPrec GetVoiceConnectorLoggingConfiguration
+-&gt; ReadPrec [GetVoiceConnectorLoggingConfiguration]
+-&gt; Read GetVoiceConnectorLoggingConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetVoiceConnectorLoggingConfiguration]
+$creadListPrec :: ReadPrec [GetVoiceConnectorLoggingConfiguration]
+readPrec :: ReadPrec GetVoiceConnectorLoggingConfiguration
+$creadPrec :: ReadPrec GetVoiceConnectorLoggingConfiguration
+readList :: ReadS [GetVoiceConnectorLoggingConfiguration]
+$creadList :: ReadS [GetVoiceConnectorLoggingConfiguration]
+readsPrec :: Int -&gt; ReadS GetVoiceConnectorLoggingConfiguration
+$creadsPrec :: Int -&gt; ReadS GetVoiceConnectorLoggingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679538273"><span id="local-6989586621679538275"><span id="local-6989586621679538277"><span class="annot"><span class="annottext">Int -&gt; GetVoiceConnectorLoggingConfiguration -&gt; ShowS
+[GetVoiceConnectorLoggingConfiguration] -&gt; ShowS
+GetVoiceConnectorLoggingConfiguration -&gt; String
+(Int -&gt; GetVoiceConnectorLoggingConfiguration -&gt; ShowS)
+-&gt; (GetVoiceConnectorLoggingConfiguration -&gt; String)
+-&gt; ([GetVoiceConnectorLoggingConfiguration] -&gt; ShowS)
+-&gt; Show GetVoiceConnectorLoggingConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetVoiceConnectorLoggingConfiguration] -&gt; ShowS
+$cshowList :: [GetVoiceConnectorLoggingConfiguration] -&gt; ShowS
+show :: GetVoiceConnectorLoggingConfiguration -&gt; String
+$cshow :: GetVoiceConnectorLoggingConfiguration -&gt; String
+showsPrec :: Int -&gt; GetVoiceConnectorLoggingConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetVoiceConnectorLoggingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetVoiceConnectorLoggingConfiguration
+ -&gt; Rep GetVoiceConnectorLoggingConfiguration x)
+-&gt; (forall x.
+    Rep GetVoiceConnectorLoggingConfiguration x
+    -&gt; GetVoiceConnectorLoggingConfiguration)
+-&gt; Generic GetVoiceConnectorLoggingConfiguration
+forall x.
+Rep GetVoiceConnectorLoggingConfiguration x
+-&gt; GetVoiceConnectorLoggingConfiguration
+forall x.
+GetVoiceConnectorLoggingConfiguration
+-&gt; Rep GetVoiceConnectorLoggingConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetVoiceConnectorLoggingConfiguration x
+-&gt; GetVoiceConnectorLoggingConfiguration
+$cfrom :: forall x.
+GetVoiceConnectorLoggingConfiguration
+-&gt; Rep GetVoiceConnectorLoggingConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'GetVoiceConnectorLoggingConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'voiceConnectorId', 'getVoiceConnectorLoggingConfiguration_voiceConnectorId' - The Amazon Chime Voice Connector ID.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#newGetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">newGetVoiceConnectorLoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'voiceConnectorId'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration</span></a></span><span>
+</span><span id="line-71"></span><span id="newGetVoiceConnectorLoggingConfiguration"><span class="annot"><span class="annottext">newGetVoiceConnectorLoggingConfiguration :: Text -&gt; GetVoiceConnectorLoggingConfiguration
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#newGetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-var hs-var">newGetVoiceConnectorLoggingConfiguration</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679538268"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679538268"><span class="hs-identifier hs-var">pVoiceConnectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">GetVoiceConnectorLoggingConfiguration' :: Text -&gt; GetVoiceConnectorLoggingConfiguration
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration'</span></a></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:voiceConnectorId:GetVoiceConnectorLoggingConfiguration' :: Text
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#%24sel%3AvoiceConnectorId%3AGetVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-var">voiceConnectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679538268"><span class="hs-identifier hs-var">pVoiceConnectorId_</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The Amazon Chime Voice Connector ID.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#getVoiceConnectorLoggingConfiguration_voiceConnectorId"><span class="hs-identifier hs-type">getVoiceConnectorLoggingConfiguration_voiceConnectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="getVoiceConnectorLoggingConfiguration_voiceConnectorId"><span class="annot"><span class="annottext">getVoiceConnectorLoggingConfiguration_voiceConnectorId :: (Text -&gt; f Text)
+-&gt; GetVoiceConnectorLoggingConfiguration
+-&gt; f GetVoiceConnectorLoggingConfiguration
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#getVoiceConnectorLoggingConfiguration_voiceConnectorId"><span class="hs-identifier hs-var hs-var">getVoiceConnectorLoggingConfiguration_voiceConnectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVoiceConnectorLoggingConfiguration -&gt; Text)
+-&gt; (GetVoiceConnectorLoggingConfiguration
+    -&gt; Text -&gt; GetVoiceConnectorLoggingConfiguration)
+-&gt; Lens
+     GetVoiceConnectorLoggingConfiguration
+     GetVoiceConnectorLoggingConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538265"><span class="annot"><span class="annottext">Text
+voiceConnectorId :: Text
+$sel:voiceConnectorId:GetVoiceConnectorLoggingConfiguration' :: GetVoiceConnectorLoggingConfiguration -&gt; Text
+</span><a href="#local-6989586621679538265"><span class="hs-identifier hs-var hs-var">voiceConnectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679538265"><span class="hs-identifier hs-var">voiceConnectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538264"><span class="annot"><span class="annottext">s :: GetVoiceConnectorLoggingConfiguration
+</span><a href="#local-6989586621679538264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538263"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679538263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVoiceConnectorLoggingConfiguration
+</span><a href="#local-6989586621679538264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceConnectorId:GetVoiceConnectorLoggingConfiguration' :: Text
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#%24sel%3AvoiceConnectorId%3AGetVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-var">voiceConnectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679538263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfigurationResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679538259"><span class="annot"><span class="annottext">request :: GetVoiceConnectorLoggingConfiguration
+-&gt; Request GetVoiceConnectorLoggingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetVoiceConnectorLoggingConfiguration
+-&gt; Request GetVoiceConnectorLoggingConfiguration
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679538255"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetVoiceConnectorLoggingConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse GetVoiceConnectorLoggingConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse GetVoiceConnectorLoggingConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetVoiceConnectorLoggingConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse GetVoiceConnectorLoggingConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679538252"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538252"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679538251"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679538251"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679538250"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679538250"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+-&gt; Int -&gt; GetVoiceConnectorLoggingConfigurationResponse
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">GetVoiceConnectorLoggingConfigurationResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LoggingConfiguration
+ -&gt; Int -&gt; GetVoiceConnectorLoggingConfigurationResponse)
+-&gt; Either String (Maybe LoggingConfiguration)
+-&gt; Either
+     String (Int -&gt; GetVoiceConnectorLoggingConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679538250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LoggingConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoggingConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; GetVoiceConnectorLoggingConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either String GetVoiceConnectorLoggingConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538252"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679538242"><span id="local-6989586621679538244"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679538239"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679538235"><span class="annot"><span class="annottext">toHeaders :: GetVoiceConnectorLoggingConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetVoiceConnectorLoggingConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679538230"><span class="annot"><span class="annottext">toPath :: GetVoiceConnectorLoggingConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538228"><span class="annot"><span class="annottext">Text
+voiceConnectorId :: Text
+$sel:voiceConnectorId:GetVoiceConnectorLoggingConfiguration' :: GetVoiceConnectorLoggingConfiguration -&gt; Text
+</span><a href="#local-6989586621679538228"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/voice-connectors/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679538228"><span class="hs-identifier hs-var">voiceConnectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/logging-configuration&quot;</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfiguration</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679538224"><span class="annot"><span class="annottext">toQuery :: GetVoiceConnectorLoggingConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetVoiceConnectorLoggingConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newGetVoiceConnectorLoggingConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-131"></span><span id="local-6989586621679538221"><span id="local-6989586621679538222"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVoiceConnectorLoggingConfigurationResponse"><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-var">GetVoiceConnectorLoggingConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVoiceConnectorLoggingConfigurationResponse%27"><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">GetVoiceConnectorLoggingConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The logging configuration details.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AloggingConfiguration%3AGetVoiceConnectorLoggingConfigurationResponse%27"><span class="annot"><span class="annottext">GetVoiceConnectorLoggingConfigurationResponse
+-&gt; Maybe LoggingConfiguration
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#%24sel%3AloggingConfiguration%3AGetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetVoiceConnectorLoggingConfigurationResponse%27"><span class="annot"><span class="annottext">GetVoiceConnectorLoggingConfigurationResponse -&gt; Int
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#%24sel%3AhttpStatus%3AGetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679538215"><span id="local-6989586621679538217"><span class="annot"><span class="annottext">GetVoiceConnectorLoggingConfigurationResponse
+-&gt; GetVoiceConnectorLoggingConfigurationResponse -&gt; Bool
+(GetVoiceConnectorLoggingConfigurationResponse
+ -&gt; GetVoiceConnectorLoggingConfigurationResponse -&gt; Bool)
+-&gt; (GetVoiceConnectorLoggingConfigurationResponse
+    -&gt; GetVoiceConnectorLoggingConfigurationResponse -&gt; Bool)
+-&gt; Eq GetVoiceConnectorLoggingConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetVoiceConnectorLoggingConfigurationResponse
+-&gt; GetVoiceConnectorLoggingConfigurationResponse -&gt; Bool
+$c/= :: GetVoiceConnectorLoggingConfigurationResponse
+-&gt; GetVoiceConnectorLoggingConfigurationResponse -&gt; Bool
+== :: GetVoiceConnectorLoggingConfigurationResponse
+-&gt; GetVoiceConnectorLoggingConfigurationResponse -&gt; Bool
+$c== :: GetVoiceConnectorLoggingConfigurationResponse
+-&gt; GetVoiceConnectorLoggingConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679538207"><span id="local-6989586621679538209"><span id="local-6989586621679538211"><span id="local-6989586621679538213"><span class="annot"><span class="annottext">ReadPrec [GetVoiceConnectorLoggingConfigurationResponse]
+ReadPrec GetVoiceConnectorLoggingConfigurationResponse
+Int -&gt; ReadS GetVoiceConnectorLoggingConfigurationResponse
+ReadS [GetVoiceConnectorLoggingConfigurationResponse]
+(Int -&gt; ReadS GetVoiceConnectorLoggingConfigurationResponse)
+-&gt; ReadS [GetVoiceConnectorLoggingConfigurationResponse]
+-&gt; ReadPrec GetVoiceConnectorLoggingConfigurationResponse
+-&gt; ReadPrec [GetVoiceConnectorLoggingConfigurationResponse]
+-&gt; Read GetVoiceConnectorLoggingConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetVoiceConnectorLoggingConfigurationResponse]
+$creadListPrec :: ReadPrec [GetVoiceConnectorLoggingConfigurationResponse]
+readPrec :: ReadPrec GetVoiceConnectorLoggingConfigurationResponse
+$creadPrec :: ReadPrec GetVoiceConnectorLoggingConfigurationResponse
+readList :: ReadS [GetVoiceConnectorLoggingConfigurationResponse]
+$creadList :: ReadS [GetVoiceConnectorLoggingConfigurationResponse]
+readsPrec :: Int -&gt; ReadS GetVoiceConnectorLoggingConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS GetVoiceConnectorLoggingConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679538201"><span id="local-6989586621679538203"><span id="local-6989586621679538205"><span class="annot"><span class="annottext">Int -&gt; GetVoiceConnectorLoggingConfigurationResponse -&gt; ShowS
+[GetVoiceConnectorLoggingConfigurationResponse] -&gt; ShowS
+GetVoiceConnectorLoggingConfigurationResponse -&gt; String
+(Int -&gt; GetVoiceConnectorLoggingConfigurationResponse -&gt; ShowS)
+-&gt; (GetVoiceConnectorLoggingConfigurationResponse -&gt; String)
+-&gt; ([GetVoiceConnectorLoggingConfigurationResponse] -&gt; ShowS)
+-&gt; Show GetVoiceConnectorLoggingConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetVoiceConnectorLoggingConfigurationResponse] -&gt; ShowS
+$cshowList :: [GetVoiceConnectorLoggingConfigurationResponse] -&gt; ShowS
+show :: GetVoiceConnectorLoggingConfigurationResponse -&gt; String
+$cshow :: GetVoiceConnectorLoggingConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; GetVoiceConnectorLoggingConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetVoiceConnectorLoggingConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetVoiceConnectorLoggingConfigurationResponse
+ -&gt; Rep GetVoiceConnectorLoggingConfigurationResponse x)
+-&gt; (forall x.
+    Rep GetVoiceConnectorLoggingConfigurationResponse x
+    -&gt; GetVoiceConnectorLoggingConfigurationResponse)
+-&gt; Generic GetVoiceConnectorLoggingConfigurationResponse
+forall x.
+Rep GetVoiceConnectorLoggingConfigurationResponse x
+-&gt; GetVoiceConnectorLoggingConfigurationResponse
+forall x.
+GetVoiceConnectorLoggingConfigurationResponse
+-&gt; Rep GetVoiceConnectorLoggingConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetVoiceConnectorLoggingConfigurationResponse x
+-&gt; GetVoiceConnectorLoggingConfigurationResponse
+$cfrom :: forall x.
+GetVoiceConnectorLoggingConfigurationResponse
+-&gt; Rep GetVoiceConnectorLoggingConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'GetVoiceConnectorLoggingConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'loggingConfiguration', 'getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration' - The logging configuration details.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'getVoiceConnectorLoggingConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#newGetVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">newGetVoiceConnectorLoggingConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfigurationResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newGetVoiceConnectorLoggingConfigurationResponse"><span class="annot"><span class="annottext">newGetVoiceConnectorLoggingConfigurationResponse :: Int -&gt; GetVoiceConnectorLoggingConfigurationResponse
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#newGetVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-var hs-var">newGetVoiceConnectorLoggingConfigurationResponse</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679538198"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538198"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">GetVoiceConnectorLoggingConfigurationResponse' :: Maybe LoggingConfiguration
+-&gt; Int -&gt; GetVoiceConnectorLoggingConfigurationResponse
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfigurationResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loggingConfiguration:GetVoiceConnectorLoggingConfigurationResponse' :: Maybe LoggingConfiguration
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#%24sel%3AloggingConfiguration%3AGetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetVoiceConnectorLoggingConfigurationResponse' :: Int
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#%24sel%3AhttpStatus%3AGetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538198"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The logging configuration details.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration"><span class="hs-identifier hs-type">getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration"><span class="annot"><span class="annottext">getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration :: (Maybe LoggingConfiguration -&gt; f (Maybe LoggingConfiguration))
+-&gt; GetVoiceConnectorLoggingConfigurationResponse
+-&gt; f GetVoiceConnectorLoggingConfigurationResponse
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration"><span class="hs-identifier hs-var hs-var">getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVoiceConnectorLoggingConfigurationResponse
+ -&gt; Maybe LoggingConfiguration)
+-&gt; (GetVoiceConnectorLoggingConfigurationResponse
+    -&gt; Maybe LoggingConfiguration
+    -&gt; GetVoiceConnectorLoggingConfigurationResponse)
+-&gt; Lens
+     GetVoiceConnectorLoggingConfigurationResponse
+     GetVoiceConnectorLoggingConfigurationResponse
+     (Maybe LoggingConfiguration)
+     (Maybe LoggingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538197"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+loggingConfiguration :: Maybe LoggingConfiguration
+$sel:loggingConfiguration:GetVoiceConnectorLoggingConfigurationResponse' :: GetVoiceConnectorLoggingConfigurationResponse
+-&gt; Maybe LoggingConfiguration
+</span><a href="#local-6989586621679538197"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679538197"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538196"><span class="annot"><span class="annottext">s :: GetVoiceConnectorLoggingConfigurationResponse
+</span><a href="#local-6989586621679538196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538195"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679538195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVoiceConnectorLoggingConfigurationResponse
+</span><a href="#local-6989586621679538196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfiguration:GetVoiceConnectorLoggingConfigurationResponse' :: Maybe LoggingConfiguration
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#%24sel%3AloggingConfiguration%3AGetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679538195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#getVoiceConnectorLoggingConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">getVoiceConnectorLoggingConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span id="getVoiceConnectorLoggingConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">getVoiceConnectorLoggingConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetVoiceConnectorLoggingConfigurationResponse
+-&gt; f GetVoiceConnectorLoggingConfigurationResponse
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#getVoiceConnectorLoggingConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getVoiceConnectorLoggingConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVoiceConnectorLoggingConfigurationResponse -&gt; Int)
+-&gt; (GetVoiceConnectorLoggingConfigurationResponse
+    -&gt; Int -&gt; GetVoiceConnectorLoggingConfigurationResponse)
+-&gt; Lens
+     GetVoiceConnectorLoggingConfigurationResponse
+     GetVoiceConnectorLoggingConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538194"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetVoiceConnectorLoggingConfigurationResponse' :: GetVoiceConnectorLoggingConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679538194"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538194"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538193"><span class="annot"><span class="annottext">s :: GetVoiceConnectorLoggingConfigurationResponse
+</span><a href="#local-6989586621679538193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538192"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVoiceConnectorLoggingConfigurationResponse
+</span><a href="#local-6989586621679538193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetVoiceConnectorLoggingConfigurationResponse' :: Int
+</span><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#%24sel%3AhttpStatus%3AGetVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679538190"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.GetVoiceConnectorLoggingConfiguration.html#GetVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">GetVoiceConnectorLoggingConfigurationResponse</span></a></span></span><span>
+</span><span id="line-173"></span></pre></body></html>

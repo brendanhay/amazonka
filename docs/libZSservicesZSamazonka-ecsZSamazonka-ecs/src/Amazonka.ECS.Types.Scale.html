@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECS.Types.Scale</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECS.Types.Scale</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ScaleUnit.html"><span class="hs-identifier">Amazonka.ECS.Types.ScaleUnit</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A floating-point percentage of the desired number of tasks to place and</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- keep running in the task set.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newScale' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679459497"><span id="local-6989586621679459498"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scale"><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-var">Scale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scale%27"><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-var">Scale'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value, specified as a percent total of a service\'s @desiredCount@,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to scale the task set. Accepted values are numbers between 0 and 100.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AScale%27"><span class="annot"><span class="annottext">Scale -&gt; Maybe Double
+</span><a href="Amazonka.ECS.Types.Scale.html#%24sel%3Avalue%3AScale%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The unit of measure for the scale value.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aunit%3AScale%27"><span class="annot"><span class="annottext">Scale -&gt; Maybe ScaleUnit
+</span><a href="Amazonka.ECS.Types.Scale.html#%24sel%3Aunit%3AScale%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ScaleUnit.html#ScaleUnit"><span class="hs-identifier hs-type">ScaleUnit</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459490"><span id="local-6989586621679459492"><span class="annot"><span class="annottext">Scale -&gt; Scale -&gt; Bool
+(Scale -&gt; Scale -&gt; Bool) -&gt; (Scale -&gt; Scale -&gt; Bool) -&gt; Eq Scale
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Scale -&gt; Scale -&gt; Bool
+$c/= :: Scale -&gt; Scale -&gt; Bool
+== :: Scale -&gt; Scale -&gt; Bool
+$c== :: Scale -&gt; Scale -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459481"><span id="local-6989586621679459483"><span id="local-6989586621679459485"><span id="local-6989586621679459487"><span class="annot"><span class="annottext">ReadPrec [Scale]
+ReadPrec Scale
+Int -&gt; ReadS Scale
+ReadS [Scale]
+(Int -&gt; ReadS Scale)
+-&gt; ReadS [Scale]
+-&gt; ReadPrec Scale
+-&gt; ReadPrec [Scale]
+-&gt; Read Scale
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Scale]
+$creadListPrec :: ReadPrec [Scale]
+readPrec :: ReadPrec Scale
+$creadPrec :: ReadPrec Scale
+readList :: ReadS [Scale]
+$creadList :: ReadS [Scale]
+readsPrec :: Int -&gt; ReadS Scale
+$creadsPrec :: Int -&gt; ReadS Scale
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459474"><span id="local-6989586621679459476"><span id="local-6989586621679459478"><span class="annot"><span class="annottext">Int -&gt; Scale -&gt; ShowS
+[Scale] -&gt; ShowS
+Scale -&gt; String
+(Int -&gt; Scale -&gt; ShowS)
+-&gt; (Scale -&gt; String) -&gt; ([Scale] -&gt; ShowS) -&gt; Show Scale
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Scale] -&gt; ShowS
+$cshowList :: [Scale] -&gt; ShowS
+show :: Scale -&gt; String
+$cshow :: Scale -&gt; String
+showsPrec :: Int -&gt; Scale -&gt; ShowS
+$cshowsPrec :: Int -&gt; Scale -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Scale -&gt; Rep Scale x)
+-&gt; (forall x. Rep Scale x -&gt; Scale) -&gt; Generic Scale
+forall x. Rep Scale x -&gt; Scale
+forall x. Scale -&gt; Rep Scale x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Scale x -&gt; Scale
+$cfrom :: forall x. Scale -&gt; Rep Scale x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'Scale' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'value', 'scale_value' - The value, specified as a percent total of a service\'s @desiredCount@,</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- to scale the task set. Accepted values are numbers between 0 and 100.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'unit', 'scale_unit' - The unit of measure for the scale value.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#newScale"><span class="hs-identifier hs-type">newScale</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span><span>
+</span><span id="line-54"></span><span id="newScale"><span class="annot"><span class="annottext">newScale :: Scale
+</span><a href="Amazonka.ECS.Types.Scale.html#newScale"><span class="hs-identifier hs-var hs-var">newScale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Scale' :: Maybe Double -&gt; Maybe ScaleUnit -&gt; Scale
+</span><a href="Amazonka.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:Scale' :: Maybe Double
+</span><a href="Amazonka.ECS.Types.Scale.html#%24sel%3Avalue%3AScale%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:unit:Scale' :: Maybe ScaleUnit
+</span><a href="Amazonka.ECS.Types.Scale.html#%24sel%3Aunit%3AScale%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScaleUnit
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The value, specified as a percent total of a service\'s @desiredCount@,</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- to scale the task set. Accepted values are numbers between 0 and 100.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#scale_value"><span class="hs-identifier hs-type">scale_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="scale_value"><span class="annot"><span class="annottext">scale_value :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Scale -&gt; f Scale
+</span><a href="Amazonka.ECS.Types.Scale.html#scale_value"><span class="hs-identifier hs-var hs-var">scale_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Scale -&gt; Maybe Double)
+-&gt; (Scale -&gt; Maybe Double -&gt; Scale)
+-&gt; Lens Scale Scale (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459465"><span class="annot"><span class="annottext">Maybe Double
+value :: Maybe Double
+$sel:value:Scale' :: Scale -&gt; Maybe Double
+</span><a href="#local-6989586621679459465"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679459465"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459464"><span class="annot"><span class="annottext">s :: Scale
+</span><a href="#local-6989586621679459464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459463"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679459463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scale
+</span><a href="#local-6989586621679459464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Scale' :: Maybe Double
+</span><a href="Amazonka.ECS.Types.Scale.html#%24sel%3Avalue%3AScale%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679459463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The unit of measure for the scale value.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#scale_unit"><span class="hs-identifier hs-type">scale_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.ScaleUnit.html#ScaleUnit"><span class="hs-identifier hs-type">ScaleUnit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="scale_unit"><span class="annot"><span class="annottext">scale_unit :: (Maybe ScaleUnit -&gt; f (Maybe ScaleUnit)) -&gt; Scale -&gt; f Scale
+</span><a href="Amazonka.ECS.Types.Scale.html#scale_unit"><span class="hs-identifier hs-var hs-var">scale_unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Scale -&gt; Maybe ScaleUnit)
+-&gt; (Scale -&gt; Maybe ScaleUnit -&gt; Scale)
+-&gt; Lens Scale Scale (Maybe ScaleUnit) (Maybe ScaleUnit)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459461"><span class="annot"><span class="annottext">Maybe ScaleUnit
+unit :: Maybe ScaleUnit
+$sel:unit:Scale' :: Scale -&gt; Maybe ScaleUnit
+</span><a href="#local-6989586621679459461"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScaleUnit
+</span><a href="#local-6989586621679459461"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459460"><span class="annot"><span class="annottext">s :: Scale
+</span><a href="#local-6989586621679459460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459459"><span class="annot"><span class="annottext">Maybe ScaleUnit
+</span><a href="#local-6989586621679459459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scale
+</span><a href="#local-6989586621679459460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:Scale' :: Maybe ScaleUnit
+</span><a href="Amazonka.ECS.Types.Scale.html#%24sel%3Aunit%3AScale%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScaleUnit
+</span><a href="#local-6989586621679459459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459456"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679459454"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Scale
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Scale) -&gt; Value -&gt; Parser Scale
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Scale&quot;</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679459451"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679459451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe ScaleUnit -&gt; Scale
+</span><a href="Amazonka.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-var">Scale'</span></a></span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe ScaleUnit -&gt; Scale)
+-&gt; Parser (Maybe Double) -&gt; Parser (Maybe ScaleUnit -&gt; Scale)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679459451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe ScaleUnit -&gt; Scale)
+-&gt; Parser (Maybe ScaleUnit) -&gt; Parser Scale
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679459451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ScaleUnit)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459445"><span id="local-6989586621679459447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459434"><span id="local-6989586621679459436"><span id="local-6989586621679459438"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679459432"><span class="annot"><span class="annottext">toJSON :: Scale -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459429"><span id="local-6989586621679459430"><span class="annot"><span class="annottext">Maybe Double
+Maybe ScaleUnit
+unit :: Maybe ScaleUnit
+value :: Maybe Double
+$sel:unit:Scale' :: Scale -&gt; Maybe ScaleUnit
+$sel:value:Scale' :: Scale -&gt; Maybe Double
+</span><a href="#local-6989586621679459429"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-86"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679459430"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScaleUnit -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ScaleUnit -&gt; Pair) -&gt; Maybe ScaleUnit -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScaleUnit
+</span><a href="#local-6989586621679459429"><span class="hs-keyword hs-var">unit</span></a></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span></pre></body></html>

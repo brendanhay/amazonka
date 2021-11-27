@@ -1,0 +1,1172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Panorama.DescribePackageVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about a package version.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Panorama.DescribePackageVersion</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier">DescribePackageVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#newDescribePackageVersion"><span class="hs-identifier">newDescribePackageVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersion_patchVersion"><span class="hs-identifier">describePackageVersion_patchVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersion_ownerAccount"><span class="hs-identifier">describePackageVersion_ownerAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersion_packageId"><span class="hs-identifier">describePackageVersion_packageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersion_packageVersion"><span class="hs-identifier">describePackageVersion_packageVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier">DescribePackageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#newDescribePackageVersionResponse"><span class="hs-identifier">newDescribePackageVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_statusDescription"><span class="hs-identifier">describePackageVersionResponse_statusDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_packageArn"><span class="hs-identifier">describePackageVersionResponse_packageArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_registeredTime"><span class="hs-identifier">describePackageVersionResponse_registeredTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_ownerAccount"><span class="hs-identifier">describePackageVersionResponse_ownerAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_httpStatus"><span class="hs-identifier">describePackageVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_packageId"><span class="hs-identifier">describePackageVersionResponse_packageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_packageName"><span class="hs-identifier">describePackageVersionResponse_packageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_packageVersion"><span class="hs-identifier">describePackageVersionResponse_packageVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_patchVersion"><span class="hs-identifier">describePackageVersionResponse_patchVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_isLatestPatch"><span class="hs-identifier">describePackageVersionResponse_isLatestPatch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_status"><span class="hs-identifier">describePackageVersionResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.html"><span class="hs-identifier">Amazonka.Panorama.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newDescribePackageVersion' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679264080"><span id="local-6989586621679264081"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePackageVersion"><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-var">DescribePackageVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePackageVersion%27"><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion%27"><span class="hs-identifier hs-var">DescribePackageVersion'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version\'s patch version.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3ApatchVersion%3ADescribePackageVersion%27"><span class="annot"><span class="annottext">DescribePackageVersion -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApatchVersion%3ADescribePackageVersion%27"><span class="hs-identifier hs-var hs-var">patchVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The version\'s owner account.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AownerAccount%3ADescribePackageVersion%27"><span class="annot"><span class="annottext">DescribePackageVersion -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AownerAccount%3ADescribePackageVersion%27"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The version\'s ID.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3ApackageId%3ADescribePackageVersion%27"><span class="annot"><span class="annottext">DescribePackageVersion -&gt; Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageId%3ADescribePackageVersion%27"><span class="hs-identifier hs-var hs-var">packageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The version\'s version.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3ApackageVersion%3ADescribePackageVersion%27"><span class="annot"><span class="annottext">DescribePackageVersion -&gt; Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageVersion%3ADescribePackageVersion%27"><span class="hs-identifier hs-var hs-var">packageVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264071"><span id="local-6989586621679264073"><span class="annot"><span class="annottext">DescribePackageVersion -&gt; DescribePackageVersion -&gt; Bool
+(DescribePackageVersion -&gt; DescribePackageVersion -&gt; Bool)
+-&gt; (DescribePackageVersion -&gt; DescribePackageVersion -&gt; Bool)
+-&gt; Eq DescribePackageVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePackageVersion -&gt; DescribePackageVersion -&gt; Bool
+$c/= :: DescribePackageVersion -&gt; DescribePackageVersion -&gt; Bool
+== :: DescribePackageVersion -&gt; DescribePackageVersion -&gt; Bool
+$c== :: DescribePackageVersion -&gt; DescribePackageVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264062"><span id="local-6989586621679264064"><span id="local-6989586621679264066"><span id="local-6989586621679264068"><span class="annot"><span class="annottext">ReadPrec [DescribePackageVersion]
+ReadPrec DescribePackageVersion
+Int -&gt; ReadS DescribePackageVersion
+ReadS [DescribePackageVersion]
+(Int -&gt; ReadS DescribePackageVersion)
+-&gt; ReadS [DescribePackageVersion]
+-&gt; ReadPrec DescribePackageVersion
+-&gt; ReadPrec [DescribePackageVersion]
+-&gt; Read DescribePackageVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePackageVersion]
+$creadListPrec :: ReadPrec [DescribePackageVersion]
+readPrec :: ReadPrec DescribePackageVersion
+$creadPrec :: ReadPrec DescribePackageVersion
+readList :: ReadS [DescribePackageVersion]
+$creadList :: ReadS [DescribePackageVersion]
+readsPrec :: Int -&gt; ReadS DescribePackageVersion
+$creadsPrec :: Int -&gt; ReadS DescribePackageVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264055"><span id="local-6989586621679264057"><span id="local-6989586621679264059"><span class="annot"><span class="annottext">Int -&gt; DescribePackageVersion -&gt; ShowS
+[DescribePackageVersion] -&gt; ShowS
+DescribePackageVersion -&gt; String
+(Int -&gt; DescribePackageVersion -&gt; ShowS)
+-&gt; (DescribePackageVersion -&gt; String)
+-&gt; ([DescribePackageVersion] -&gt; ShowS)
+-&gt; Show DescribePackageVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePackageVersion] -&gt; ShowS
+$cshowList :: [DescribePackageVersion] -&gt; ShowS
+show :: DescribePackageVersion -&gt; String
+$cshow :: DescribePackageVersion -&gt; String
+showsPrec :: Int -&gt; DescribePackageVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePackageVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribePackageVersion -&gt; Rep DescribePackageVersion x)
+-&gt; (forall x.
+    Rep DescribePackageVersion x -&gt; DescribePackageVersion)
+-&gt; Generic DescribePackageVersion
+forall x. Rep DescribePackageVersion x -&gt; DescribePackageVersion
+forall x. DescribePackageVersion -&gt; Rep DescribePackageVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribePackageVersion x -&gt; DescribePackageVersion
+$cfrom :: forall x. DescribePackageVersion -&gt; Rep DescribePackageVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'DescribePackageVersion' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'patchVersion', 'describePackageVersion_patchVersion' - The version\'s patch version.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'ownerAccount', 'describePackageVersion_ownerAccount' - The version\'s owner account.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'packageId', 'describePackageVersion_packageId' - The version\'s ID.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'packageVersion', 'describePackageVersion_packageVersion' - The version\'s version.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#newDescribePackageVersion"><span class="hs-identifier hs-type">newDescribePackageVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'packageId'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'packageVersion'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span>
+</span><span id="line-95"></span><span id="newDescribePackageVersion"><span class="annot"><span class="annottext">newDescribePackageVersion :: Text -&gt; Text -&gt; DescribePackageVersion
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#newDescribePackageVersion"><span class="hs-identifier hs-var hs-var">newDescribePackageVersion</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679264050"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264050"><span class="hs-identifier hs-var">pPackageId_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679264049"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264049"><span class="hs-identifier hs-var">pPackageVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">DescribePackageVersion' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DescribePackageVersion
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion%27"><span class="hs-identifier hs-type">DescribePackageVersion'</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:patchVersion:DescribePackageVersion' :: Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApatchVersion%3ADescribePackageVersion%27"><span class="hs-identifier hs-var">patchVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:ownerAccount:DescribePackageVersion' :: Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AownerAccount%3ADescribePackageVersion%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:packageId:DescribePackageVersion' :: Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageId%3ADescribePackageVersion%27"><span class="hs-identifier hs-var">packageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264050"><span class="hs-identifier hs-var">pPackageId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:packageVersion:DescribePackageVersion' :: Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageVersion%3ADescribePackageVersion%27"><span class="hs-identifier hs-var">packageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264049"><span class="hs-identifier hs-var">pPackageVersion_</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The version\'s patch version.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersion_patchVersion"><span class="hs-identifier hs-type">describePackageVersion_patchVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="describePackageVersion_patchVersion"><span class="annot"><span class="annottext">describePackageVersion_patchVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePackageVersion -&gt; f DescribePackageVersion
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersion_patchVersion"><span class="hs-identifier hs-var hs-var">describePackageVersion_patchVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersion -&gt; Maybe Text)
+-&gt; (DescribePackageVersion -&gt; Maybe Text -&gt; DescribePackageVersion)
+-&gt; Lens
+     DescribePackageVersion
+     DescribePackageVersion
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion%27"><span class="hs-identifier hs-type">DescribePackageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264046"><span class="annot"><span class="annottext">Maybe Text
+patchVersion :: Maybe Text
+$sel:patchVersion:DescribePackageVersion' :: DescribePackageVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679264046"><span class="hs-identifier hs-var hs-var">patchVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264046"><span class="hs-identifier hs-var">patchVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264045"><span class="annot"><span class="annottext">s :: DescribePackageVersion
+</span><a href="#local-6989586621679264045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion%27"><span class="hs-identifier hs-type">DescribePackageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264044"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersion
+</span><a href="#local-6989586621679264045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchVersion:DescribePackageVersion' :: Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApatchVersion%3ADescribePackageVersion%27"><span class="hs-identifier hs-var">patchVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The version\'s owner account.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersion_ownerAccount"><span class="hs-identifier hs-type">describePackageVersion_ownerAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="describePackageVersion_ownerAccount"><span class="annot"><span class="annottext">describePackageVersion_ownerAccount :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePackageVersion -&gt; f DescribePackageVersion
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersion_ownerAccount"><span class="hs-identifier hs-var hs-var">describePackageVersion_ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersion -&gt; Maybe Text)
+-&gt; (DescribePackageVersion -&gt; Maybe Text -&gt; DescribePackageVersion)
+-&gt; Lens
+     DescribePackageVersion
+     DescribePackageVersion
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion%27"><span class="hs-identifier hs-type">DescribePackageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264043"><span class="annot"><span class="annottext">Maybe Text
+ownerAccount :: Maybe Text
+$sel:ownerAccount:DescribePackageVersion' :: DescribePackageVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679264043"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264043"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264042"><span class="annot"><span class="annottext">s :: DescribePackageVersion
+</span><a href="#local-6989586621679264042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion%27"><span class="hs-identifier hs-type">DescribePackageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264041"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersion
+</span><a href="#local-6989586621679264042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAccount:DescribePackageVersion' :: Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AownerAccount%3ADescribePackageVersion%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The version\'s ID.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersion_packageId"><span class="hs-identifier hs-type">describePackageVersion_packageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="describePackageVersion_packageId"><span class="annot"><span class="annottext">describePackageVersion_packageId :: (Text -&gt; f Text)
+-&gt; DescribePackageVersion -&gt; f DescribePackageVersion
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersion_packageId"><span class="hs-identifier hs-var hs-var">describePackageVersion_packageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersion -&gt; Text)
+-&gt; (DescribePackageVersion -&gt; Text -&gt; DescribePackageVersion)
+-&gt; Lens DescribePackageVersion DescribePackageVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion%27"><span class="hs-identifier hs-type">DescribePackageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264040"><span class="annot"><span class="annottext">Text
+packageId :: Text
+$sel:packageId:DescribePackageVersion' :: DescribePackageVersion -&gt; Text
+</span><a href="#local-6989586621679264040"><span class="hs-identifier hs-var hs-var">packageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264040"><span class="hs-identifier hs-var">packageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264039"><span class="annot"><span class="annottext">s :: DescribePackageVersion
+</span><a href="#local-6989586621679264039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion%27"><span class="hs-identifier hs-type">DescribePackageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264038"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersion
+</span><a href="#local-6989586621679264039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageId:DescribePackageVersion' :: Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageId%3ADescribePackageVersion%27"><span class="hs-identifier hs-var">packageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The version\'s version.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersion_packageVersion"><span class="hs-identifier hs-type">describePackageVersion_packageVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="describePackageVersion_packageVersion"><span class="annot"><span class="annottext">describePackageVersion_packageVersion :: (Text -&gt; f Text)
+-&gt; DescribePackageVersion -&gt; f DescribePackageVersion
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersion_packageVersion"><span class="hs-identifier hs-var hs-var">describePackageVersion_packageVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersion -&gt; Text)
+-&gt; (DescribePackageVersion -&gt; Text -&gt; DescribePackageVersion)
+-&gt; Lens DescribePackageVersion DescribePackageVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion%27"><span class="hs-identifier hs-type">DescribePackageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264037"><span class="annot"><span class="annottext">Text
+packageVersion :: Text
+$sel:packageVersion:DescribePackageVersion' :: DescribePackageVersion -&gt; Text
+</span><a href="#local-6989586621679264037"><span class="hs-identifier hs-var hs-var">packageVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264037"><span class="hs-identifier hs-var">packageVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264036"><span class="annot"><span class="annottext">s :: DescribePackageVersion
+</span><a href="#local-6989586621679264036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion%27"><span class="hs-identifier hs-type">DescribePackageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264035"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersion
+</span><a href="#local-6989586621679264036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageVersion:DescribePackageVersion' :: Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageVersion%3ADescribePackageVersion%27"><span class="hs-identifier hs-var">packageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679264031"><span class="annot"><span class="annottext">request :: DescribePackageVersion -&gt; Request DescribePackageVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribePackageVersion -&gt; Request DescribePackageVersion
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Panorama.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679264027"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribePackageVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribePackageVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribePackageVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribePackageVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribePackageVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264024"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264024"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679264023"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679264023"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679264022"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264022"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Bool
+-&gt; PackageVersionStatus
+-&gt; DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-var">DescribePackageVersionResponse'</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Bool
+ -&gt; PackageVersionStatus
+ -&gt; DescribePackageVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; PackageVersionStatus
+      -&gt; DescribePackageVersionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; PackageVersionStatus
+   -&gt; DescribePackageVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; PackageVersionStatus
+      -&gt; DescribePackageVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PackageArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; PackageVersionStatus
+   -&gt; DescribePackageVersionResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; PackageVersionStatus
+      -&gt; DescribePackageVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RegisteredTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; PackageVersionStatus
+   -&gt; DescribePackageVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Int
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; PackageVersionStatus
+      -&gt; DescribePackageVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerAccount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; PackageVersionStatus
+   -&gt; DescribePackageVersionResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; PackageVersionStatus
+      -&gt; DescribePackageVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264024"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; PackageVersionStatus
+   -&gt; DescribePackageVersionResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; PackageVersionStatus
+      -&gt; DescribePackageVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PackageId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; PackageVersionStatus
+   -&gt; DescribePackageVersionResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; PackageVersionStatus
+      -&gt; DescribePackageVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PackageName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; PackageVersionStatus
+   -&gt; DescribePackageVersionResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; Bool -&gt; PackageVersionStatus -&gt; DescribePackageVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PackageVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Bool -&gt; PackageVersionStatus -&gt; DescribePackageVersionResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Bool -&gt; PackageVersionStatus -&gt; DescribePackageVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PatchVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Bool -&gt; PackageVersionStatus -&gt; DescribePackageVersionResponse)
+-&gt; Either String Bool
+-&gt; Either
+     String (PackageVersionStatus -&gt; DescribePackageVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Bool
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsLatestPatch&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (PackageVersionStatus -&gt; DescribePackageVersionResponse)
+-&gt; Either String PackageVersionStatus
+-&gt; Either String DescribePackageVersionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String PackageVersionStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264013"><span id="local-6989586621679264015"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264010"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679264006"><span class="annot"><span class="annottext">toHeaders :: DescribePackageVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribePackageVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679264000"><span class="annot"><span class="annottext">toPath :: DescribePackageVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion%27"><span class="hs-identifier hs-type">DescribePackageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263995"><span id="local-6989586621679263996"><span id="local-6989586621679263997"><span id="local-6989586621679263998"><span class="annot"><span class="annottext">Maybe Text
+Text
+packageVersion :: Text
+packageId :: Text
+ownerAccount :: Maybe Text
+patchVersion :: Maybe Text
+$sel:packageVersion:DescribePackageVersion' :: DescribePackageVersion -&gt; Text
+$sel:packageId:DescribePackageVersion' :: DescribePackageVersion -&gt; Text
+$sel:ownerAccount:DescribePackageVersion' :: DescribePackageVersion -&gt; Maybe Text
+$sel:patchVersion:DescribePackageVersion' :: DescribePackageVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679263995"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/packages/metadata/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263996"><span class="hs-identifier hs-var">packageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/versions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263995"><span class="hs-identifier hs-var">packageVersion</span></a></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion"><span class="hs-identifier hs-type">DescribePackageVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679263991"><span class="annot"><span class="annottext">toQuery :: DescribePackageVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersion%27"><span class="hs-identifier hs-type">DescribePackageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263986"><span id="local-6989586621679263987"><span id="local-6989586621679263988"><span id="local-6989586621679263989"><span class="annot"><span class="annottext">Maybe Text
+Text
+packageVersion :: Text
+packageId :: Text
+ownerAccount :: Maybe Text
+patchVersion :: Maybe Text
+$sel:packageVersion:DescribePackageVersion' :: DescribePackageVersion -&gt; Text
+$sel:packageId:DescribePackageVersion' :: DescribePackageVersion -&gt; Text
+$sel:ownerAccount:DescribePackageVersion' :: DescribePackageVersion -&gt; Maybe Text
+$sel:patchVersion:DescribePackageVersion' :: DescribePackageVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679263986"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PatchVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263989"><span class="hs-identifier hs-var">patchVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OwnerAccount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263988"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newDescribePackageVersionResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679263983"><span id="local-6989586621679263984"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePackageVersionResponse"><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-var">DescribePackageVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePackageVersionResponse%27"><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-var">DescribePackageVersionResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version\'s status description.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AstatusDescription%3ADescribePackageVersionResponse%27"><span class="annot"><span class="annottext">DescribePackageVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AstatusDescription%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var hs-var">statusDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The ARN of the package.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3ApackageArn%3ADescribePackageVersionResponse%27"><span class="annot"><span class="annottext">DescribePackageVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageArn%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var hs-var">packageArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The version\'s registered time.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AregisteredTime%3ADescribePackageVersionResponse%27"><span class="annot"><span class="annottext">DescribePackageVersionResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AregisteredTime%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var hs-var">registeredTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | The account ID of the version\'s owner.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AownerAccount%3ADescribePackageVersionResponse%27"><span class="annot"><span class="annottext">DescribePackageVersionResponse -&gt; Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AownerAccount%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePackageVersionResponse%27"><span class="annot"><span class="annottext">DescribePackageVersionResponse -&gt; Int
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AhttpStatus%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The version\'s ID.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3ApackageId%3ADescribePackageVersionResponse%27"><span class="annot"><span class="annottext">DescribePackageVersionResponse -&gt; Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageId%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var hs-var">packageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The version\'s name.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3ApackageName%3ADescribePackageVersionResponse%27"><span class="annot"><span class="annottext">DescribePackageVersionResponse -&gt; Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageName%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var hs-var">packageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The version\'s version.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3ApackageVersion%3ADescribePackageVersionResponse%27"><span class="annot"><span class="annottext">DescribePackageVersionResponse -&gt; Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageVersion%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var hs-var">packageVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The version\'s patch version.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3ApatchVersion%3ADescribePackageVersionResponse%27"><span class="annot"><span class="annottext">DescribePackageVersionResponse -&gt; Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApatchVersion%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var hs-var">patchVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | Whether the version is the latest available.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AisLatestPatch%3ADescribePackageVersionResponse%27"><span class="annot"><span class="annottext">DescribePackageVersionResponse -&gt; Bool
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AisLatestPatch%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var hs-var">isLatestPatch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The version\'s status.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3Astatus%3ADescribePackageVersionResponse%27"><span class="annot"><span class="annottext">DescribePackageVersionResponse -&gt; PackageVersionStatus
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3Astatus%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263968"><span id="local-6989586621679263970"><span class="annot"><span class="annottext">DescribePackageVersionResponse
+-&gt; DescribePackageVersionResponse -&gt; Bool
+(DescribePackageVersionResponse
+ -&gt; DescribePackageVersionResponse -&gt; Bool)
+-&gt; (DescribePackageVersionResponse
+    -&gt; DescribePackageVersionResponse -&gt; Bool)
+-&gt; Eq DescribePackageVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePackageVersionResponse
+-&gt; DescribePackageVersionResponse -&gt; Bool
+$c/= :: DescribePackageVersionResponse
+-&gt; DescribePackageVersionResponse -&gt; Bool
+== :: DescribePackageVersionResponse
+-&gt; DescribePackageVersionResponse -&gt; Bool
+$c== :: DescribePackageVersionResponse
+-&gt; DescribePackageVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263960"><span id="local-6989586621679263962"><span id="local-6989586621679263964"><span id="local-6989586621679263966"><span class="annot"><span class="annottext">ReadPrec [DescribePackageVersionResponse]
+ReadPrec DescribePackageVersionResponse
+Int -&gt; ReadS DescribePackageVersionResponse
+ReadS [DescribePackageVersionResponse]
+(Int -&gt; ReadS DescribePackageVersionResponse)
+-&gt; ReadS [DescribePackageVersionResponse]
+-&gt; ReadPrec DescribePackageVersionResponse
+-&gt; ReadPrec [DescribePackageVersionResponse]
+-&gt; Read DescribePackageVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePackageVersionResponse]
+$creadListPrec :: ReadPrec [DescribePackageVersionResponse]
+readPrec :: ReadPrec DescribePackageVersionResponse
+$creadPrec :: ReadPrec DescribePackageVersionResponse
+readList :: ReadS [DescribePackageVersionResponse]
+$creadList :: ReadS [DescribePackageVersionResponse]
+readsPrec :: Int -&gt; ReadS DescribePackageVersionResponse
+$creadsPrec :: Int -&gt; ReadS DescribePackageVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263954"><span id="local-6989586621679263956"><span id="local-6989586621679263958"><span class="annot"><span class="annottext">Int -&gt; DescribePackageVersionResponse -&gt; ShowS
+[DescribePackageVersionResponse] -&gt; ShowS
+DescribePackageVersionResponse -&gt; String
+(Int -&gt; DescribePackageVersionResponse -&gt; ShowS)
+-&gt; (DescribePackageVersionResponse -&gt; String)
+-&gt; ([DescribePackageVersionResponse] -&gt; ShowS)
+-&gt; Show DescribePackageVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePackageVersionResponse] -&gt; ShowS
+$cshowList :: [DescribePackageVersionResponse] -&gt; ShowS
+show :: DescribePackageVersionResponse -&gt; String
+$cshow :: DescribePackageVersionResponse -&gt; String
+showsPrec :: Int -&gt; DescribePackageVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePackageVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePackageVersionResponse
+ -&gt; Rep DescribePackageVersionResponse x)
+-&gt; (forall x.
+    Rep DescribePackageVersionResponse x
+    -&gt; DescribePackageVersionResponse)
+-&gt; Generic DescribePackageVersionResponse
+forall x.
+Rep DescribePackageVersionResponse x
+-&gt; DescribePackageVersionResponse
+forall x.
+DescribePackageVersionResponse
+-&gt; Rep DescribePackageVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePackageVersionResponse x
+-&gt; DescribePackageVersionResponse
+$cfrom :: forall x.
+DescribePackageVersionResponse
+-&gt; Rep DescribePackageVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Create a value of 'DescribePackageVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'statusDescription', 'describePackageVersionResponse_statusDescription' - The version\'s status description.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'packageArn', 'describePackageVersionResponse_packageArn' - The ARN of the package.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'registeredTime', 'describePackageVersionResponse_registeredTime' - The version\'s registered time.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'ownerAccount', 'describePackageVersionResponse_ownerAccount' - The account ID of the version\'s owner.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'httpStatus', 'describePackageVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'packageId', 'describePackageVersionResponse_packageId' - The version\'s ID.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'packageName', 'describePackageVersionResponse_packageName' - The version\'s name.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'packageVersion', 'describePackageVersionResponse_packageVersion' - The version\'s version.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'patchVersion', 'describePackageVersionResponse_patchVersion' - The version\'s patch version.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'isLatestPatch', 'describePackageVersionResponse_isLatestPatch' - Whether the version is the latest available.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'status', 'describePackageVersionResponse_status' - The version\'s status.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#newDescribePackageVersionResponse"><span class="hs-identifier hs-type">newDescribePackageVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-comment">-- | 'packageId'</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-comment">-- | 'packageName'</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-comment">-- | 'packageVersion'</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>  </span><span class="hs-comment">-- | 'patchVersion'</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-comment">-- | 'isLatestPatch'</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-244"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span>
+</span><span id="line-247"></span><span id="newDescribePackageVersionResponse"><span class="annot"><span class="annottext">newDescribePackageVersionResponse :: Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Bool
+-&gt; PackageVersionStatus
+-&gt; DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#newDescribePackageVersionResponse"><span class="hs-identifier hs-var hs-var">newDescribePackageVersionResponse</span></a></span></span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679263951"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263951"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679263950"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263950"><span class="hs-identifier hs-var">pPackageId_</span></a></span></span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679263949"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263949"><span class="hs-identifier hs-var">pPackageName_</span></a></span></span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679263948"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263948"><span class="hs-identifier hs-var">pPackageVersion_</span></a></span></span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679263947"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263947"><span class="hs-identifier hs-var">pPatchVersion_</span></a></span></span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679263946"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679263946"><span class="hs-identifier hs-var">pIsLatestPatch_</span></a></span></span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679263945"><span class="annot"><span class="annottext">PackageVersionStatus
+</span><a href="#local-6989586621679263945"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><span class="annottext">DescribePackageVersionResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Bool
+-&gt; PackageVersionStatus
+-&gt; DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span>
+</span><span id="line-256"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusDescription:DescribePackageVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AstatusDescription%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">statusDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">$sel:packageArn:DescribePackageVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageArn%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">packageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">$sel:registeredTime:DescribePackageVersionResponse' :: Maybe POSIX
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AregisteredTime%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">registeredTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">$sel:ownerAccount:DescribePackageVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AownerAccount%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePackageVersionResponse' :: Int
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AhttpStatus%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263951"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">$sel:packageId:DescribePackageVersionResponse' :: Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageId%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">packageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263950"><span class="hs-identifier hs-var">pPackageId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">$sel:packageName:DescribePackageVersionResponse' :: Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageName%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">packageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263949"><span class="hs-identifier hs-var">pPackageName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">$sel:packageVersion:DescribePackageVersionResponse' :: Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageVersion%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">packageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263948"><span class="hs-identifier hs-var">pPackageVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">$sel:patchVersion:DescribePackageVersionResponse' :: Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApatchVersion%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">patchVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263947"><span class="hs-identifier hs-var">pPatchVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">$sel:isLatestPatch:DescribePackageVersionResponse' :: Bool
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AisLatestPatch%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">isLatestPatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679263946"><span class="hs-identifier hs-var">pIsLatestPatch_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:DescribePackageVersionResponse' :: PackageVersionStatus
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3Astatus%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageVersionStatus
+</span><a href="#local-6989586621679263945"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The version\'s status description.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_statusDescription"><span class="hs-identifier hs-type">describePackageVersionResponse_statusDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="describePackageVersionResponse_statusDescription"><span class="annot"><span class="annottext">describePackageVersionResponse_statusDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePackageVersionResponse
+-&gt; f DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_statusDescription"><span class="hs-identifier hs-var hs-var">describePackageVersionResponse_statusDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersionResponse -&gt; Maybe Text)
+-&gt; (DescribePackageVersionResponse
+    -&gt; Maybe Text -&gt; DescribePackageVersionResponse)
+-&gt; Lens
+     DescribePackageVersionResponse
+     DescribePackageVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263944"><span class="annot"><span class="annottext">Maybe Text
+statusDescription :: Maybe Text
+$sel:statusDescription:DescribePackageVersionResponse' :: DescribePackageVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679263944"><span class="hs-identifier hs-var hs-var">statusDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263944"><span class="hs-identifier hs-var">statusDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263943"><span class="annot"><span class="annottext">s :: DescribePackageVersionResponse
+</span><a href="#local-6989586621679263943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263942"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersionResponse
+</span><a href="#local-6989586621679263943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusDescription:DescribePackageVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AstatusDescription%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">statusDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The ARN of the package.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_packageArn"><span class="hs-identifier hs-type">describePackageVersionResponse_packageArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span id="describePackageVersionResponse_packageArn"><span class="annot"><span class="annottext">describePackageVersionResponse_packageArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePackageVersionResponse
+-&gt; f DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_packageArn"><span class="hs-identifier hs-var hs-var">describePackageVersionResponse_packageArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersionResponse -&gt; Maybe Text)
+-&gt; (DescribePackageVersionResponse
+    -&gt; Maybe Text -&gt; DescribePackageVersionResponse)
+-&gt; Lens
+     DescribePackageVersionResponse
+     DescribePackageVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263941"><span class="annot"><span class="annottext">Maybe Text
+packageArn :: Maybe Text
+$sel:packageArn:DescribePackageVersionResponse' :: DescribePackageVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679263941"><span class="hs-identifier hs-var hs-var">packageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263941"><span class="hs-identifier hs-var">packageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263940"><span class="annot"><span class="annottext">s :: DescribePackageVersionResponse
+</span><a href="#local-6989586621679263940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263939"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersionResponse
+</span><a href="#local-6989586621679263940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageArn:DescribePackageVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageArn%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">packageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The version\'s registered time.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_registeredTime"><span class="hs-identifier hs-type">describePackageVersionResponse_registeredTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="describePackageVersionResponse_registeredTime"><span class="annot"><span class="annottext">describePackageVersionResponse_registeredTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribePackageVersionResponse
+-&gt; f DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_registeredTime"><span class="hs-identifier hs-var hs-var">describePackageVersionResponse_registeredTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersionResponse -&gt; Maybe POSIX)
+-&gt; (DescribePackageVersionResponse
+    -&gt; Maybe POSIX -&gt; DescribePackageVersionResponse)
+-&gt; Lens
+     DescribePackageVersionResponse
+     DescribePackageVersionResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263938"><span class="annot"><span class="annottext">Maybe POSIX
+registeredTime :: Maybe POSIX
+$sel:registeredTime:DescribePackageVersionResponse' :: DescribePackageVersionResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679263938"><span class="hs-identifier hs-var hs-var">registeredTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679263938"><span class="hs-identifier hs-var">registeredTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263937"><span class="annot"><span class="annottext">s :: DescribePackageVersionResponse
+</span><a href="#local-6989586621679263937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263936"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679263936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersionResponse
+</span><a href="#local-6989586621679263937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registeredTime:DescribePackageVersionResponse' :: Maybe POSIX
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AregisteredTime%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">registeredTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679263936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribePackageVersionResponse
+ -&gt; f DescribePackageVersionResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribePackageVersionResponse
+-&gt; f DescribePackageVersionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The account ID of the version\'s owner.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_ownerAccount"><span class="hs-identifier hs-type">describePackageVersionResponse_ownerAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="describePackageVersionResponse_ownerAccount"><span class="annot"><span class="annottext">describePackageVersionResponse_ownerAccount :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePackageVersionResponse
+-&gt; f DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_ownerAccount"><span class="hs-identifier hs-var hs-var">describePackageVersionResponse_ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersionResponse -&gt; Maybe Text)
+-&gt; (DescribePackageVersionResponse
+    -&gt; Maybe Text -&gt; DescribePackageVersionResponse)
+-&gt; Lens
+     DescribePackageVersionResponse
+     DescribePackageVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263932"><span class="annot"><span class="annottext">Maybe Text
+ownerAccount :: Maybe Text
+$sel:ownerAccount:DescribePackageVersionResponse' :: DescribePackageVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679263932"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263932"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263931"><span class="annot"><span class="annottext">s :: DescribePackageVersionResponse
+</span><a href="#local-6989586621679263931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263930"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersionResponse
+</span><a href="#local-6989586621679263931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAccount:DescribePackageVersionResponse' :: Maybe Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AownerAccount%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_httpStatus"><span class="hs-identifier hs-type">describePackageVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-288"></span><span id="describePackageVersionResponse_httpStatus"><span class="annot"><span class="annottext">describePackageVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribePackageVersionResponse
+-&gt; f DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describePackageVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersionResponse -&gt; Int)
+-&gt; (DescribePackageVersionResponse
+    -&gt; Int -&gt; DescribePackageVersionResponse)
+-&gt; Lens
+     DescribePackageVersionResponse
+     DescribePackageVersionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263929"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribePackageVersionResponse' :: DescribePackageVersionResponse -&gt; Int
+</span><a href="#local-6989586621679263929"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263929"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263928"><span class="annot"><span class="annottext">s :: DescribePackageVersionResponse
+</span><a href="#local-6989586621679263928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263927"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersionResponse
+</span><a href="#local-6989586621679263928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePackageVersionResponse' :: Int
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AhttpStatus%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | The version\'s ID.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_packageId"><span class="hs-identifier hs-type">describePackageVersionResponse_packageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-292"></span><span id="describePackageVersionResponse_packageId"><span class="annot"><span class="annottext">describePackageVersionResponse_packageId :: (Text -&gt; f Text)
+-&gt; DescribePackageVersionResponse
+-&gt; f DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_packageId"><span class="hs-identifier hs-var hs-var">describePackageVersionResponse_packageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersionResponse -&gt; Text)
+-&gt; (DescribePackageVersionResponse
+    -&gt; Text -&gt; DescribePackageVersionResponse)
+-&gt; Lens
+     DescribePackageVersionResponse
+     DescribePackageVersionResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263926"><span class="annot"><span class="annottext">Text
+packageId :: Text
+$sel:packageId:DescribePackageVersionResponse' :: DescribePackageVersionResponse -&gt; Text
+</span><a href="#local-6989586621679263926"><span class="hs-identifier hs-var hs-var">packageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263926"><span class="hs-identifier hs-var">packageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263925"><span class="annot"><span class="annottext">s :: DescribePackageVersionResponse
+</span><a href="#local-6989586621679263925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263924"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersionResponse
+</span><a href="#local-6989586621679263925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageId:DescribePackageVersionResponse' :: Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageId%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">packageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The version\'s name.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_packageName"><span class="hs-identifier hs-type">describePackageVersionResponse_packageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-296"></span><span id="describePackageVersionResponse_packageName"><span class="annot"><span class="annottext">describePackageVersionResponse_packageName :: (Text -&gt; f Text)
+-&gt; DescribePackageVersionResponse
+-&gt; f DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_packageName"><span class="hs-identifier hs-var hs-var">describePackageVersionResponse_packageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersionResponse -&gt; Text)
+-&gt; (DescribePackageVersionResponse
+    -&gt; Text -&gt; DescribePackageVersionResponse)
+-&gt; Lens
+     DescribePackageVersionResponse
+     DescribePackageVersionResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263923"><span class="annot"><span class="annottext">Text
+packageName :: Text
+$sel:packageName:DescribePackageVersionResponse' :: DescribePackageVersionResponse -&gt; Text
+</span><a href="#local-6989586621679263923"><span class="hs-identifier hs-var hs-var">packageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263923"><span class="hs-identifier hs-var">packageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263922"><span class="annot"><span class="annottext">s :: DescribePackageVersionResponse
+</span><a href="#local-6989586621679263922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263921"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersionResponse
+</span><a href="#local-6989586621679263922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageName:DescribePackageVersionResponse' :: Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageName%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">packageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The version\'s version.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_packageVersion"><span class="hs-identifier hs-type">describePackageVersionResponse_packageVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-300"></span><span id="describePackageVersionResponse_packageVersion"><span class="annot"><span class="annottext">describePackageVersionResponse_packageVersion :: (Text -&gt; f Text)
+-&gt; DescribePackageVersionResponse
+-&gt; f DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_packageVersion"><span class="hs-identifier hs-var hs-var">describePackageVersionResponse_packageVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersionResponse -&gt; Text)
+-&gt; (DescribePackageVersionResponse
+    -&gt; Text -&gt; DescribePackageVersionResponse)
+-&gt; Lens
+     DescribePackageVersionResponse
+     DescribePackageVersionResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263920"><span class="annot"><span class="annottext">Text
+packageVersion :: Text
+$sel:packageVersion:DescribePackageVersionResponse' :: DescribePackageVersionResponse -&gt; Text
+</span><a href="#local-6989586621679263920"><span class="hs-identifier hs-var hs-var">packageVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263920"><span class="hs-identifier hs-var">packageVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263919"><span class="annot"><span class="annottext">s :: DescribePackageVersionResponse
+</span><a href="#local-6989586621679263919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263918"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersionResponse
+</span><a href="#local-6989586621679263919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageVersion:DescribePackageVersionResponse' :: Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApackageVersion%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">packageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | The version\'s patch version.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_patchVersion"><span class="hs-identifier hs-type">describePackageVersionResponse_patchVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-304"></span><span id="describePackageVersionResponse_patchVersion"><span class="annot"><span class="annottext">describePackageVersionResponse_patchVersion :: (Text -&gt; f Text)
+-&gt; DescribePackageVersionResponse
+-&gt; f DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_patchVersion"><span class="hs-identifier hs-var hs-var">describePackageVersionResponse_patchVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersionResponse -&gt; Text)
+-&gt; (DescribePackageVersionResponse
+    -&gt; Text -&gt; DescribePackageVersionResponse)
+-&gt; Lens
+     DescribePackageVersionResponse
+     DescribePackageVersionResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263917"><span class="annot"><span class="annottext">Text
+patchVersion :: Text
+$sel:patchVersion:DescribePackageVersionResponse' :: DescribePackageVersionResponse -&gt; Text
+</span><a href="#local-6989586621679263917"><span class="hs-identifier hs-var hs-var">patchVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263917"><span class="hs-identifier hs-var">patchVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263916"><span class="annot"><span class="annottext">s :: DescribePackageVersionResponse
+</span><a href="#local-6989586621679263916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263915"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersionResponse
+</span><a href="#local-6989586621679263916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchVersion:DescribePackageVersionResponse' :: Text
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3ApatchVersion%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">patchVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | Whether the version is the latest available.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_isLatestPatch"><span class="hs-identifier hs-type">describePackageVersionResponse_isLatestPatch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-308"></span><span id="describePackageVersionResponse_isLatestPatch"><span class="annot"><span class="annottext">describePackageVersionResponse_isLatestPatch :: (Bool -&gt; f Bool)
+-&gt; DescribePackageVersionResponse
+-&gt; f DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_isLatestPatch"><span class="hs-identifier hs-var hs-var">describePackageVersionResponse_isLatestPatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersionResponse -&gt; Bool)
+-&gt; (DescribePackageVersionResponse
+    -&gt; Bool -&gt; DescribePackageVersionResponse)
+-&gt; Lens
+     DescribePackageVersionResponse
+     DescribePackageVersionResponse
+     Bool
+     Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263914"><span class="annot"><span class="annottext">Bool
+isLatestPatch :: Bool
+$sel:isLatestPatch:DescribePackageVersionResponse' :: DescribePackageVersionResponse -&gt; Bool
+</span><a href="#local-6989586621679263914"><span class="hs-identifier hs-var hs-var">isLatestPatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679263914"><span class="hs-identifier hs-var">isLatestPatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263913"><span class="annot"><span class="annottext">s :: DescribePackageVersionResponse
+</span><a href="#local-6989586621679263913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263912"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679263912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersionResponse
+</span><a href="#local-6989586621679263913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isLatestPatch:DescribePackageVersionResponse' :: Bool
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3AisLatestPatch%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">isLatestPatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679263912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | The version\'s status.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_status"><span class="hs-identifier hs-type">describePackageVersionResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Panorama.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span>
+</span><span id="line-312"></span><span id="describePackageVersionResponse_status"><span class="annot"><span class="annottext">describePackageVersionResponse_status :: (PackageVersionStatus -&gt; f PackageVersionStatus)
+-&gt; DescribePackageVersionResponse
+-&gt; f DescribePackageVersionResponse
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#describePackageVersionResponse_status"><span class="hs-identifier hs-var hs-var">describePackageVersionResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePackageVersionResponse -&gt; PackageVersionStatus)
+-&gt; (DescribePackageVersionResponse
+    -&gt; PackageVersionStatus -&gt; DescribePackageVersionResponse)
+-&gt; Lens
+     DescribePackageVersionResponse
+     DescribePackageVersionResponse
+     PackageVersionStatus
+     PackageVersionStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263911"><span class="annot"><span class="annottext">PackageVersionStatus
+status :: PackageVersionStatus
+$sel:status:DescribePackageVersionResponse' :: DescribePackageVersionResponse -&gt; PackageVersionStatus
+</span><a href="#local-6989586621679263911"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionStatus
+</span><a href="#local-6989586621679263911"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263910"><span class="annot"><span class="annottext">s :: DescribePackageVersionResponse
+</span><a href="#local-6989586621679263910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse%27"><span class="hs-identifier hs-type">DescribePackageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263909"><span class="annot"><span class="annottext">PackageVersionStatus
+</span><a href="#local-6989586621679263909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePackageVersionResponse
+</span><a href="#local-6989586621679263910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribePackageVersionResponse' :: PackageVersionStatus
+</span><a href="Amazonka.Panorama.DescribePackageVersion.html#%24sel%3Astatus%3ADescribePackageVersionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageVersionStatus
+</span><a href="#local-6989586621679263909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621679263907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Amazonka.Panorama.DescribePackageVersion.html#DescribePackageVersionResponse"><span class="hs-identifier hs-type">DescribePackageVersionResponse</span></a></span></span><span>
+</span><span id="line-317"></span></pre></body></html>

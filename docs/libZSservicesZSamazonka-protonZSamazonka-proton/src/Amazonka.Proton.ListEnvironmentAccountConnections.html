@@ -1,0 +1,980 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Proton.ListEnvironmentAccountConnections</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- View a list of environment account connections.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /AWS Proton Administrator guide/.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Proton.ListEnvironmentAccountConnections</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier">ListEnvironmentAccountConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#newListEnvironmentAccountConnections"><span class="hs-identifier">newListEnvironmentAccountConnections</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_nextToken"><span class="hs-identifier">listEnvironmentAccountConnections_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_environmentName"><span class="hs-identifier">listEnvironmentAccountConnections_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_statuses"><span class="hs-identifier">listEnvironmentAccountConnections_statuses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_maxResults"><span class="hs-identifier">listEnvironmentAccountConnections_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_requestedBy"><span class="hs-identifier">listEnvironmentAccountConnections_requestedBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse"><span class="hs-identifier">ListEnvironmentAccountConnectionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#newListEnvironmentAccountConnectionsResponse"><span class="hs-identifier">newListEnvironmentAccountConnectionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnectionsResponse_nextToken"><span class="hs-identifier">listEnvironmentAccountConnectionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnectionsResponse_httpStatus"><span class="hs-identifier">listEnvironmentAccountConnectionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnectionsResponse_environmentAccountConnections"><span class="hs-identifier">listEnvironmentAccountConnectionsResponse_environmentAccountConnections</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.html"><span class="hs-identifier">Amazonka.Proton.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newListEnvironmentAccountConnections' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679268684"><span id="local-6989586621679268685"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEnvironmentAccountConnections"><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-var">ListEnvironmentAccountConnections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEnvironmentAccountConnections%27"><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var">ListEnvironmentAccountConnections'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to indicate the location of the next environment account</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- connection in the array of environment account connections, after the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- list of environment account connections that was previously requested.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3AListEnvironmentAccountConnections%27"><span class="annot"><span class="annottext">ListEnvironmentAccountConnections -&gt; Maybe Text
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AnextToken%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The environment name that\'s associated with each listed environment</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- account connection.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AenvironmentName%3AListEnvironmentAccountConnections%27"><span class="annot"><span class="annottext">ListEnvironmentAccountConnections -&gt; Maybe Text
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AenvironmentName%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The status details for each listed environment account connection.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Astatuses%3AListEnvironmentAccountConnections%27"><span class="annot"><span class="annottext">ListEnvironmentAccountConnections
+-&gt; Maybe [EnvironmentAccountConnectionStatus]
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3Astatuses%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var hs-var">statuses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentAccountConnectionStatus.html#EnvironmentAccountConnectionStatus"><span class="hs-identifier hs-type">EnvironmentAccountConnectionStatus</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The maximum number of environment account connections to list.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3AListEnvironmentAccountConnections%27"><span class="annot"><span class="annottext">ListEnvironmentAccountConnections -&gt; Maybe Natural
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AmaxResults%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The type of account making the @ListEnvironmentAccountConnections@</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3ArequestedBy%3AListEnvironmentAccountConnections%27"><span class="annot"><span class="annottext">ListEnvironmentAccountConnections
+-&gt; EnvironmentAccountConnectionRequesterAccountType
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3ArequestedBy%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var hs-var">requestedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentAccountConnectionRequesterAccountType.html#EnvironmentAccountConnectionRequesterAccountType"><span class="hs-identifier hs-type">EnvironmentAccountConnectionRequesterAccountType</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268674"><span id="local-6989586621679268676"><span class="annot"><span class="annottext">ListEnvironmentAccountConnections
+-&gt; ListEnvironmentAccountConnections -&gt; Bool
+(ListEnvironmentAccountConnections
+ -&gt; ListEnvironmentAccountConnections -&gt; Bool)
+-&gt; (ListEnvironmentAccountConnections
+    -&gt; ListEnvironmentAccountConnections -&gt; Bool)
+-&gt; Eq ListEnvironmentAccountConnections
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEnvironmentAccountConnections
+-&gt; ListEnvironmentAccountConnections -&gt; Bool
+$c/= :: ListEnvironmentAccountConnections
+-&gt; ListEnvironmentAccountConnections -&gt; Bool
+== :: ListEnvironmentAccountConnections
+-&gt; ListEnvironmentAccountConnections -&gt; Bool
+$c== :: ListEnvironmentAccountConnections
+-&gt; ListEnvironmentAccountConnections -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268665"><span id="local-6989586621679268667"><span id="local-6989586621679268669"><span id="local-6989586621679268671"><span class="annot"><span class="annottext">ReadPrec [ListEnvironmentAccountConnections]
+ReadPrec ListEnvironmentAccountConnections
+Int -&gt; ReadS ListEnvironmentAccountConnections
+ReadS [ListEnvironmentAccountConnections]
+(Int -&gt; ReadS ListEnvironmentAccountConnections)
+-&gt; ReadS [ListEnvironmentAccountConnections]
+-&gt; ReadPrec ListEnvironmentAccountConnections
+-&gt; ReadPrec [ListEnvironmentAccountConnections]
+-&gt; Read ListEnvironmentAccountConnections
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEnvironmentAccountConnections]
+$creadListPrec :: ReadPrec [ListEnvironmentAccountConnections]
+readPrec :: ReadPrec ListEnvironmentAccountConnections
+$creadPrec :: ReadPrec ListEnvironmentAccountConnections
+readList :: ReadS [ListEnvironmentAccountConnections]
+$creadList :: ReadS [ListEnvironmentAccountConnections]
+readsPrec :: Int -&gt; ReadS ListEnvironmentAccountConnections
+$creadsPrec :: Int -&gt; ReadS ListEnvironmentAccountConnections
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268658"><span id="local-6989586621679268660"><span id="local-6989586621679268662"><span class="annot"><span class="annottext">Int -&gt; ListEnvironmentAccountConnections -&gt; ShowS
+[ListEnvironmentAccountConnections] -&gt; ShowS
+ListEnvironmentAccountConnections -&gt; String
+(Int -&gt; ListEnvironmentAccountConnections -&gt; ShowS)
+-&gt; (ListEnvironmentAccountConnections -&gt; String)
+-&gt; ([ListEnvironmentAccountConnections] -&gt; ShowS)
+-&gt; Show ListEnvironmentAccountConnections
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEnvironmentAccountConnections] -&gt; ShowS
+$cshowList :: [ListEnvironmentAccountConnections] -&gt; ShowS
+show :: ListEnvironmentAccountConnections -&gt; String
+$cshow :: ListEnvironmentAccountConnections -&gt; String
+showsPrec :: Int -&gt; ListEnvironmentAccountConnections -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEnvironmentAccountConnections -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListEnvironmentAccountConnections
+ -&gt; Rep ListEnvironmentAccountConnections x)
+-&gt; (forall x.
+    Rep ListEnvironmentAccountConnections x
+    -&gt; ListEnvironmentAccountConnections)
+-&gt; Generic ListEnvironmentAccountConnections
+forall x.
+Rep ListEnvironmentAccountConnections x
+-&gt; ListEnvironmentAccountConnections
+forall x.
+ListEnvironmentAccountConnections
+-&gt; Rep ListEnvironmentAccountConnections x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListEnvironmentAccountConnections x
+-&gt; ListEnvironmentAccountConnections
+$cfrom :: forall x.
+ListEnvironmentAccountConnections
+-&gt; Rep ListEnvironmentAccountConnections x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'ListEnvironmentAccountConnections' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'nextToken', 'listEnvironmentAccountConnections_nextToken' - A token to indicate the location of the next environment account</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- connection in the array of environment account connections, after the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- list of environment account connections that was previously requested.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'environmentName', 'listEnvironmentAccountConnections_environmentName' - The environment name that\'s associated with each listed environment</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- account connection.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'statuses', 'listEnvironmentAccountConnections_statuses' - The status details for each listed environment account connection.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'maxResults', 'listEnvironmentAccountConnections_maxResults' - The maximum number of environment account connections to list.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'requestedBy', 'listEnvironmentAccountConnections_requestedBy' - The type of account making the @ListEnvironmentAccountConnections@</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#newListEnvironmentAccountConnections"><span class="hs-identifier hs-type">newListEnvironmentAccountConnections</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'requestedBy'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentAccountConnectionRequesterAccountType.html#EnvironmentAccountConnectionRequesterAccountType"><span class="hs-identifier hs-type">EnvironmentAccountConnectionRequesterAccountType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span>
+</span><span id="line-104"></span><span id="newListEnvironmentAccountConnections"><span class="annot"><span class="annottext">newListEnvironmentAccountConnections :: EnvironmentAccountConnectionRequesterAccountType
+-&gt; ListEnvironmentAccountConnections
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#newListEnvironmentAccountConnections"><span class="hs-identifier hs-var hs-var">newListEnvironmentAccountConnections</span></a></span></span><span> </span><span id="local-6989586621679268653"><span class="annot"><span class="annottext">EnvironmentAccountConnectionRequesterAccountType
+</span><a href="#local-6989586621679268653"><span class="hs-identifier hs-var">pRequestedBy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnections' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [EnvironmentAccountConnectionStatus]
+-&gt; Maybe Natural
+-&gt; EnvironmentAccountConnectionRequesterAccountType
+-&gt; ListEnvironmentAccountConnections
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections'</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListEnvironmentAccountConnections' :: Maybe Text
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AnextToken%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:ListEnvironmentAccountConnections' :: Maybe Text
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AenvironmentName%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:statuses:ListEnvironmentAccountConnections' :: Maybe [EnvironmentAccountConnectionStatus]
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3Astatuses%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var">statuses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentAccountConnectionStatus]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListEnvironmentAccountConnections' :: Maybe Natural
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AmaxResults%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestedBy:ListEnvironmentAccountConnections' :: EnvironmentAccountConnectionRequesterAccountType
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3ArequestedBy%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var">requestedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EnvironmentAccountConnectionRequesterAccountType
+</span><a href="#local-6989586621679268653"><span class="hs-identifier hs-var">pRequestedBy_</span></a></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | A token to indicate the location of the next environment account</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- connection in the array of environment account connections, after the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- list of environment account connections that was previously requested.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_nextToken"><span class="hs-identifier hs-type">listEnvironmentAccountConnections_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="listEnvironmentAccountConnections_nextToken"><span class="annot"><span class="annottext">listEnvironmentAccountConnections_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEnvironmentAccountConnections
+-&gt; f ListEnvironmentAccountConnections
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_nextToken"><span class="hs-identifier hs-var hs-var">listEnvironmentAccountConnections_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEnvironmentAccountConnections -&gt; Maybe Text)
+-&gt; (ListEnvironmentAccountConnections
+    -&gt; Maybe Text -&gt; ListEnvironmentAccountConnections)
+-&gt; Lens
+     ListEnvironmentAccountConnections
+     ListEnvironmentAccountConnections
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268651"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListEnvironmentAccountConnections' :: ListEnvironmentAccountConnections -&gt; Maybe Text
+</span><a href="#local-6989586621679268651"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268651"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268650"><span class="annot"><span class="annottext">s :: ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268649"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEnvironmentAccountConnections' :: Maybe Text
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AnextToken%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The environment name that\'s associated with each listed environment</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- account connection.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_environmentName"><span class="hs-identifier hs-type">listEnvironmentAccountConnections_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="listEnvironmentAccountConnections_environmentName"><span class="annot"><span class="annottext">listEnvironmentAccountConnections_environmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEnvironmentAccountConnections
+-&gt; f ListEnvironmentAccountConnections
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_environmentName"><span class="hs-identifier hs-var hs-var">listEnvironmentAccountConnections_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEnvironmentAccountConnections -&gt; Maybe Text)
+-&gt; (ListEnvironmentAccountConnections
+    -&gt; Maybe Text -&gt; ListEnvironmentAccountConnections)
+-&gt; Lens
+     ListEnvironmentAccountConnections
+     ListEnvironmentAccountConnections
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268648"><span class="annot"><span class="annottext">Maybe Text
+environmentName :: Maybe Text
+$sel:environmentName:ListEnvironmentAccountConnections' :: ListEnvironmentAccountConnections -&gt; Maybe Text
+</span><a href="#local-6989586621679268648"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268648"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268647"><span class="annot"><span class="annottext">s :: ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268646"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:ListEnvironmentAccountConnections' :: Maybe Text
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AenvironmentName%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The status details for each listed environment account connection.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_statuses"><span class="hs-identifier hs-type">listEnvironmentAccountConnections_statuses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentAccountConnectionStatus.html#EnvironmentAccountConnectionStatus"><span class="hs-identifier hs-type">EnvironmentAccountConnectionStatus</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="listEnvironmentAccountConnections_statuses"><span class="annot"><span class="annottext">listEnvironmentAccountConnections_statuses :: (Maybe [EnvironmentAccountConnectionStatus]
+ -&gt; f (Maybe [EnvironmentAccountConnectionStatus]))
+-&gt; ListEnvironmentAccountConnections
+-&gt; f ListEnvironmentAccountConnections
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_statuses"><span class="hs-identifier hs-var hs-var">listEnvironmentAccountConnections_statuses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEnvironmentAccountConnections
+ -&gt; Maybe [EnvironmentAccountConnectionStatus])
+-&gt; (ListEnvironmentAccountConnections
+    -&gt; Maybe [EnvironmentAccountConnectionStatus]
+    -&gt; ListEnvironmentAccountConnections)
+-&gt; Lens
+     ListEnvironmentAccountConnections
+     ListEnvironmentAccountConnections
+     (Maybe [EnvironmentAccountConnectionStatus])
+     (Maybe [EnvironmentAccountConnectionStatus])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268645"><span class="annot"><span class="annottext">Maybe [EnvironmentAccountConnectionStatus]
+statuses :: Maybe [EnvironmentAccountConnectionStatus]
+$sel:statuses:ListEnvironmentAccountConnections' :: ListEnvironmentAccountConnections
+-&gt; Maybe [EnvironmentAccountConnectionStatus]
+</span><a href="#local-6989586621679268645"><span class="hs-identifier hs-var hs-var">statuses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentAccountConnectionStatus]
+</span><a href="#local-6989586621679268645"><span class="hs-identifier hs-var">statuses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268644"><span class="annot"><span class="annottext">s :: ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268643"><span class="annot"><span class="annottext">Maybe [EnvironmentAccountConnectionStatus]
+</span><a href="#local-6989586621679268643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statuses:ListEnvironmentAccountConnections' :: Maybe [EnvironmentAccountConnectionStatus]
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3Astatuses%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var">statuses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentAccountConnectionStatus]
+</span><a href="#local-6989586621679268643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EnvironmentAccountConnectionStatus]
+  -&gt; f (Maybe [EnvironmentAccountConnectionStatus]))
+ -&gt; ListEnvironmentAccountConnections
+ -&gt; f ListEnvironmentAccountConnections)
+-&gt; ((Maybe [EnvironmentAccountConnectionStatus]
+     -&gt; f (Maybe [EnvironmentAccountConnectionStatus]))
+    -&gt; Maybe [EnvironmentAccountConnectionStatus]
+    -&gt; f (Maybe [EnvironmentAccountConnectionStatus]))
+-&gt; (Maybe [EnvironmentAccountConnectionStatus]
+    -&gt; f (Maybe [EnvironmentAccountConnectionStatus]))
+-&gt; ListEnvironmentAccountConnections
+-&gt; f ListEnvironmentAccountConnections
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EnvironmentAccountConnectionStatus]
+  [EnvironmentAccountConnectionStatus]
+  [EnvironmentAccountConnectionStatus]
+  [EnvironmentAccountConnectionStatus]
+-&gt; Iso
+     (Maybe [EnvironmentAccountConnectionStatus])
+     (Maybe [EnvironmentAccountConnectionStatus])
+     (Maybe [EnvironmentAccountConnectionStatus])
+     (Maybe [EnvironmentAccountConnectionStatus])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EnvironmentAccountConnectionStatus]
+  [EnvironmentAccountConnectionStatus]
+  [EnvironmentAccountConnectionStatus]
+  [EnvironmentAccountConnectionStatus]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The maximum number of environment account connections to list.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_maxResults"><span class="hs-identifier hs-type">listEnvironmentAccountConnections_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="listEnvironmentAccountConnections_maxResults"><span class="annot"><span class="annottext">listEnvironmentAccountConnections_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListEnvironmentAccountConnections
+-&gt; f ListEnvironmentAccountConnections
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_maxResults"><span class="hs-identifier hs-var hs-var">listEnvironmentAccountConnections_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEnvironmentAccountConnections -&gt; Maybe Natural)
+-&gt; (ListEnvironmentAccountConnections
+    -&gt; Maybe Natural -&gt; ListEnvironmentAccountConnections)
+-&gt; Lens
+     ListEnvironmentAccountConnections
+     ListEnvironmentAccountConnections
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268639"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListEnvironmentAccountConnections' :: ListEnvironmentAccountConnections -&gt; Maybe Natural
+</span><a href="#local-6989586621679268639"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679268639"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268638"><span class="annot"><span class="annottext">s :: ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268637"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679268637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListEnvironmentAccountConnections' :: Maybe Natural
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AmaxResults%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679268637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The type of account making the @ListEnvironmentAccountConnections@</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_requestedBy"><span class="hs-identifier hs-type">listEnvironmentAccountConnections_requestedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentAccountConnectionRequesterAccountType.html#EnvironmentAccountConnectionRequesterAccountType"><span class="hs-identifier hs-type">EnvironmentAccountConnectionRequesterAccountType</span></a></span><span>
+</span><span id="line-136"></span><span id="listEnvironmentAccountConnections_requestedBy"><span class="annot"><span class="annottext">listEnvironmentAccountConnections_requestedBy :: (EnvironmentAccountConnectionRequesterAccountType
+ -&gt; f EnvironmentAccountConnectionRequesterAccountType)
+-&gt; ListEnvironmentAccountConnections
+-&gt; f ListEnvironmentAccountConnections
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_requestedBy"><span class="hs-identifier hs-var hs-var">listEnvironmentAccountConnections_requestedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEnvironmentAccountConnections
+ -&gt; EnvironmentAccountConnectionRequesterAccountType)
+-&gt; (ListEnvironmentAccountConnections
+    -&gt; EnvironmentAccountConnectionRequesterAccountType
+    -&gt; ListEnvironmentAccountConnections)
+-&gt; Lens
+     ListEnvironmentAccountConnections
+     ListEnvironmentAccountConnections
+     EnvironmentAccountConnectionRequesterAccountType
+     EnvironmentAccountConnectionRequesterAccountType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268636"><span class="annot"><span class="annottext">EnvironmentAccountConnectionRequesterAccountType
+requestedBy :: EnvironmentAccountConnectionRequesterAccountType
+$sel:requestedBy:ListEnvironmentAccountConnections' :: ListEnvironmentAccountConnections
+-&gt; EnvironmentAccountConnectionRequesterAccountType
+</span><a href="#local-6989586621679268636"><span class="hs-identifier hs-var hs-var">requestedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentAccountConnectionRequesterAccountType
+</span><a href="#local-6989586621679268636"><span class="hs-identifier hs-var">requestedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268635"><span class="annot"><span class="annottext">s :: ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268634"><span class="annot"><span class="annottext">EnvironmentAccountConnectionRequesterAccountType
+</span><a href="#local-6989586621679268634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestedBy:ListEnvironmentAccountConnections' :: EnvironmentAccountConnectionRequesterAccountType
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3ArequestedBy%3AListEnvironmentAccountConnections%27"><span class="hs-identifier hs-var">requestedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EnvironmentAccountConnectionRequesterAccountType
+</span><a href="#local-6989586621679268634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679268630"><span class="annot"><span class="annottext">page :: ListEnvironmentAccountConnections
+-&gt; AWSResponse ListEnvironmentAccountConnections
+-&gt; Maybe ListEnvironmentAccountConnections
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679268628"><span class="annot"><span class="annottext">ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268628"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679268627"><span class="annot"><span class="annottext">AWSResponse ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268627"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-144"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEnvironmentAccountConnections
+ListEnvironmentAccountConnectionsResponse
+</span><a href="#local-6989586621679268627"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnectionsResponse
+-&gt; Getting
+     (First Text) ListEnvironmentAccountConnectionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListEnvironmentAccountConnectionsResponse
+-&gt; Const (First Text) ListEnvironmentAccountConnectionsResponse
+Lens' ListEnvironmentAccountConnectionsResponse (Maybe Text)
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnectionsResponse_nextToken"><span class="hs-identifier hs-var">listEnvironmentAccountConnectionsResponse_nextToken</span></a></span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListEnvironmentAccountConnectionsResponse
+ -&gt; Const (First Text) ListEnvironmentAccountConnectionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) ListEnvironmentAccountConnectionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-147"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListEnvironmentAccountConnections
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[EnvironmentAccountConnectionSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-150"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEnvironmentAccountConnections
+ListEnvironmentAccountConnectionsResponse
+</span><a href="#local-6989586621679268627"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnectionsResponse
+-&gt; Getting
+     [EnvironmentAccountConnectionSummary]
+     ListEnvironmentAccountConnectionsResponse
+     [EnvironmentAccountConnectionSummary]
+-&gt; [EnvironmentAccountConnectionSummary]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting
+  [EnvironmentAccountConnectionSummary]
+  ListEnvironmentAccountConnectionsResponse
+  [EnvironmentAccountConnectionSummary]
+Lens'
+  ListEnvironmentAccountConnectionsResponse
+  [EnvironmentAccountConnectionSummary]
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnectionsResponse_environmentAccountConnections"><span class="hs-identifier hs-var">listEnvironmentAccountConnectionsResponse_environmentAccountConnections</span></a></span><span>
+</span><span id="line-152"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListEnvironmentAccountConnections
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnections
+-&gt; Maybe ListEnvironmentAccountConnections
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListEnvironmentAccountConnections
+ -&gt; Maybe ListEnvironmentAccountConnections)
+-&gt; ListEnvironmentAccountConnections
+-&gt; Maybe ListEnvironmentAccountConnections
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnections
+</span><a href="#local-6989586621679268628"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnections
+-&gt; (ListEnvironmentAccountConnections
+    -&gt; ListEnvironmentAccountConnections)
+-&gt; ListEnvironmentAccountConnections
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListEnvironmentAccountConnections
+-&gt; Identity ListEnvironmentAccountConnections
+Lens
+  ListEnvironmentAccountConnections
+  ListEnvironmentAccountConnections
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnections_nextToken"><span class="hs-identifier hs-var">listEnvironmentAccountConnections_nextToken</span></a></span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListEnvironmentAccountConnections
+ -&gt; Identity ListEnvironmentAccountConnections)
+-&gt; Maybe Text
+-&gt; ListEnvironmentAccountConnections
+-&gt; ListEnvironmentAccountConnections
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEnvironmentAccountConnections
+ListEnvironmentAccountConnectionsResponse
+</span><a href="#local-6989586621679268627"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnectionsResponse
+-&gt; Getting
+     (First Text) ListEnvironmentAccountConnectionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListEnvironmentAccountConnectionsResponse
+-&gt; Const (First Text) ListEnvironmentAccountConnectionsResponse
+Lens' ListEnvironmentAccountConnectionsResponse (Maybe Text)
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnectionsResponse_nextToken"><span class="hs-identifier hs-var">listEnvironmentAccountConnectionsResponse_nextToken</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListEnvironmentAccountConnectionsResponse
+ -&gt; Const (First Text) ListEnvironmentAccountConnectionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) ListEnvironmentAccountConnectionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-167"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679268617"><span class="annot"><span class="annottext">request :: ListEnvironmentAccountConnections
+-&gt; Request ListEnvironmentAccountConnections
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListEnvironmentAccountConnections
+-&gt; Request ListEnvironmentAccountConnections
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Proton.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679268613"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListEnvironmentAccountConnections
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ListEnvironmentAccountConnections)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListEnvironmentAccountConnections))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListEnvironmentAccountConnections
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ListEnvironmentAccountConnections)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268610"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268610"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679268609"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679268609"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679268608"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268608"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Int
+-&gt; [EnvironmentAccountConnectionSummary]
+-&gt; ListEnvironmentAccountConnectionsResponse
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-var">ListEnvironmentAccountConnectionsResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Int
+ -&gt; [EnvironmentAccountConnectionSummary]
+ -&gt; ListEnvironmentAccountConnectionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Int
+      -&gt; [EnvironmentAccountConnectionSummary]
+      -&gt; ListEnvironmentAccountConnectionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268608"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; [EnvironmentAccountConnectionSummary]
+   -&gt; ListEnvironmentAccountConnectionsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     ([EnvironmentAccountConnectionSummary]
+      -&gt; ListEnvironmentAccountConnectionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268610"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  ([EnvironmentAccountConnectionSummary]
+   -&gt; ListEnvironmentAccountConnectionsResponse)
+-&gt; Either String [EnvironmentAccountConnectionSummary]
+-&gt; Either String ListEnvironmentAccountConnectionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268608"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe [EnvironmentAccountConnectionSummary])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environmentAccountConnections&quot;</span></span><span>
+</span><span id="line-177"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe [EnvironmentAccountConnectionSummary])
+-&gt; [EnvironmentAccountConnectionSummary]
+-&gt; Either String [EnvironmentAccountConnectionSummary]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[EnvironmentAccountConnectionSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-178"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679268599"><span id="local-6989586621679268601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679268596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679268592"><span class="annot"><span class="annottext">toHeaders :: ListEnvironmentAccountConnections -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ListEnvironmentAccountConnections -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AwsProton20200720.ListEnvironmentAccountConnections&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-199"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-203"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679268582"><span id="local-6989586621679268584"><span id="local-6989586621679268586"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span></span></span></span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679268580"><span class="annot"><span class="annottext">toJSON :: ListEnvironmentAccountConnections -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268574"><span id="local-6989586621679268575"><span id="local-6989586621679268576"><span id="local-6989586621679268577"><span id="local-6989586621679268578"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [EnvironmentAccountConnectionStatus]
+Maybe Text
+EnvironmentAccountConnectionRequesterAccountType
+requestedBy :: EnvironmentAccountConnectionRequesterAccountType
+maxResults :: Maybe Natural
+statuses :: Maybe [EnvironmentAccountConnectionStatus]
+environmentName :: Maybe Text
+nextToken :: Maybe Text
+$sel:requestedBy:ListEnvironmentAccountConnections' :: ListEnvironmentAccountConnections
+-&gt; EnvironmentAccountConnectionRequesterAccountType
+$sel:maxResults:ListEnvironmentAccountConnections' :: ListEnvironmentAccountConnections -&gt; Maybe Natural
+$sel:statuses:ListEnvironmentAccountConnections' :: ListEnvironmentAccountConnections
+-&gt; Maybe [EnvironmentAccountConnectionStatus]
+$sel:environmentName:ListEnvironmentAccountConnections' :: ListEnvironmentAccountConnections -&gt; Maybe Text
+$sel:nextToken:ListEnvironmentAccountConnections' :: ListEnvironmentAccountConnections -&gt; Maybe Text
+</span><a href="#local-6989586621679268574"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-214"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268578"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268577"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statuses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EnvironmentAccountConnectionStatus] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([EnvironmentAccountConnectionStatus] -&gt; Pair)
+-&gt; Maybe [EnvironmentAccountConnectionStatus] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentAccountConnectionStatus]
+</span><a href="#local-6989586621679268576"><span class="hs-identifier hs-var">statuses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679268575"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestedBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EnvironmentAccountConnectionRequesterAccountType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EnvironmentAccountConnectionRequesterAccountType
+</span><a href="#local-6989586621679268574"><span class="hs-identifier hs-var">requestedBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679268568"><span class="annot"><span class="annottext">toPath :: ListEnvironmentAccountConnections -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListEnvironmentAccountConnections -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnections"><span class="hs-identifier hs-type">ListEnvironmentAccountConnections</span></a></span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679268564"><span class="annot"><span class="annottext">toQuery :: ListEnvironmentAccountConnections -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListEnvironmentAccountConnections -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | /See:/ 'newListEnvironmentAccountConnectionsResponse' smart constructor.</span><span>
+</span><span id="line-236"></span><span id="local-6989586621679268561"><span id="local-6989586621679268562"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEnvironmentAccountConnectionsResponse"><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse"><span class="hs-identifier hs-var">ListEnvironmentAccountConnectionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEnvironmentAccountConnectionsResponse%27"><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-var">ListEnvironmentAccountConnectionsResponse'</span></a></span></span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to indicate the location of the next environment account</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- connection in the array of environment account connections, after the</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- current requested list of environment account connections.</span><span>
+</span><span id="line-240"></span><span>    </span><span id="%24sel%3AnextToken%3AListEnvironmentAccountConnectionsResponse%27"><span class="annot"><span class="annottext">ListEnvironmentAccountConnectionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AnextToken%3AListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-242"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListEnvironmentAccountConnectionsResponse%27"><span class="annot"><span class="annottext">ListEnvironmentAccountConnectionsResponse -&gt; Int
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AhttpStatus%3AListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- | An array of environment account connections with details that\'s</span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-comment">-- returned by AWS Proton.</span><span>
+</span><span id="line-245"></span><span>    </span><span id="%24sel%3AenvironmentAccountConnections%3AListEnvironmentAccountConnectionsResponse%27"><span class="annot"><span class="annottext">ListEnvironmentAccountConnectionsResponse
+-&gt; [EnvironmentAccountConnectionSummary]
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AenvironmentAccountConnections%3AListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-var hs-var">environmentAccountConnections</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentAccountConnectionSummary.html#EnvironmentAccountConnectionSummary"><span class="hs-identifier hs-type">EnvironmentAccountConnectionSummary</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268554"><span id="local-6989586621679268556"><span class="annot"><span class="annottext">ListEnvironmentAccountConnectionsResponse
+-&gt; ListEnvironmentAccountConnectionsResponse -&gt; Bool
+(ListEnvironmentAccountConnectionsResponse
+ -&gt; ListEnvironmentAccountConnectionsResponse -&gt; Bool)
+-&gt; (ListEnvironmentAccountConnectionsResponse
+    -&gt; ListEnvironmentAccountConnectionsResponse -&gt; Bool)
+-&gt; Eq ListEnvironmentAccountConnectionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEnvironmentAccountConnectionsResponse
+-&gt; ListEnvironmentAccountConnectionsResponse -&gt; Bool
+$c/= :: ListEnvironmentAccountConnectionsResponse
+-&gt; ListEnvironmentAccountConnectionsResponse -&gt; Bool
+== :: ListEnvironmentAccountConnectionsResponse
+-&gt; ListEnvironmentAccountConnectionsResponse -&gt; Bool
+$c== :: ListEnvironmentAccountConnectionsResponse
+-&gt; ListEnvironmentAccountConnectionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268546"><span id="local-6989586621679268548"><span id="local-6989586621679268550"><span id="local-6989586621679268552"><span class="annot"><span class="annottext">ReadPrec [ListEnvironmentAccountConnectionsResponse]
+ReadPrec ListEnvironmentAccountConnectionsResponse
+Int -&gt; ReadS ListEnvironmentAccountConnectionsResponse
+ReadS [ListEnvironmentAccountConnectionsResponse]
+(Int -&gt; ReadS ListEnvironmentAccountConnectionsResponse)
+-&gt; ReadS [ListEnvironmentAccountConnectionsResponse]
+-&gt; ReadPrec ListEnvironmentAccountConnectionsResponse
+-&gt; ReadPrec [ListEnvironmentAccountConnectionsResponse]
+-&gt; Read ListEnvironmentAccountConnectionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEnvironmentAccountConnectionsResponse]
+$creadListPrec :: ReadPrec [ListEnvironmentAccountConnectionsResponse]
+readPrec :: ReadPrec ListEnvironmentAccountConnectionsResponse
+$creadPrec :: ReadPrec ListEnvironmentAccountConnectionsResponse
+readList :: ReadS [ListEnvironmentAccountConnectionsResponse]
+$creadList :: ReadS [ListEnvironmentAccountConnectionsResponse]
+readsPrec :: Int -&gt; ReadS ListEnvironmentAccountConnectionsResponse
+$creadsPrec :: Int -&gt; ReadS ListEnvironmentAccountConnectionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268540"><span id="local-6989586621679268542"><span id="local-6989586621679268544"><span class="annot"><span class="annottext">Int -&gt; ListEnvironmentAccountConnectionsResponse -&gt; ShowS
+[ListEnvironmentAccountConnectionsResponse] -&gt; ShowS
+ListEnvironmentAccountConnectionsResponse -&gt; String
+(Int -&gt; ListEnvironmentAccountConnectionsResponse -&gt; ShowS)
+-&gt; (ListEnvironmentAccountConnectionsResponse -&gt; String)
+-&gt; ([ListEnvironmentAccountConnectionsResponse] -&gt; ShowS)
+-&gt; Show ListEnvironmentAccountConnectionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEnvironmentAccountConnectionsResponse] -&gt; ShowS
+$cshowList :: [ListEnvironmentAccountConnectionsResponse] -&gt; ShowS
+show :: ListEnvironmentAccountConnectionsResponse -&gt; String
+$cshow :: ListEnvironmentAccountConnectionsResponse -&gt; String
+showsPrec :: Int -&gt; ListEnvironmentAccountConnectionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEnvironmentAccountConnectionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListEnvironmentAccountConnectionsResponse
+ -&gt; Rep ListEnvironmentAccountConnectionsResponse x)
+-&gt; (forall x.
+    Rep ListEnvironmentAccountConnectionsResponse x
+    -&gt; ListEnvironmentAccountConnectionsResponse)
+-&gt; Generic ListEnvironmentAccountConnectionsResponse
+forall x.
+Rep ListEnvironmentAccountConnectionsResponse x
+-&gt; ListEnvironmentAccountConnectionsResponse
+forall x.
+ListEnvironmentAccountConnectionsResponse
+-&gt; Rep ListEnvironmentAccountConnectionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListEnvironmentAccountConnectionsResponse x
+-&gt; ListEnvironmentAccountConnectionsResponse
+$cfrom :: forall x.
+ListEnvironmentAccountConnectionsResponse
+-&gt; Rep ListEnvironmentAccountConnectionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- Create a value of 'ListEnvironmentAccountConnectionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'nextToken', 'listEnvironmentAccountConnectionsResponse_nextToken' - A token to indicate the location of the next environment account</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- connection in the array of environment account connections, after the</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- current requested list of environment account connections.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'httpStatus', 'listEnvironmentAccountConnectionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 'environmentAccountConnections', 'listEnvironmentAccountConnectionsResponse_environmentAccountConnections' - An array of environment account connections with details that\'s</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- returned by AWS Proton.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#newListEnvironmentAccountConnectionsResponse"><span class="hs-identifier hs-type">newListEnvironmentAccountConnectionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse</span></a></span><span>
+</span><span id="line-269"></span><span id="newListEnvironmentAccountConnectionsResponse"><span class="annot"><span class="annottext">newListEnvironmentAccountConnectionsResponse :: Int -&gt; ListEnvironmentAccountConnectionsResponse
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#newListEnvironmentAccountConnectionsResponse"><span class="hs-identifier hs-var hs-var">newListEnvironmentAccountConnectionsResponse</span></a></span></span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679268537"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268537"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnectionsResponse' :: Maybe Text
+-&gt; Int
+-&gt; [EnvironmentAccountConnectionSummary]
+-&gt; ListEnvironmentAccountConnectionsResponse
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse'</span></a></span><span>
+</span><span id="line-272"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListEnvironmentAccountConnectionsResponse' :: Maybe Text
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AnextToken%3AListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListEnvironmentAccountConnectionsResponse' :: Int
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AhttpStatus%3AListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268537"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">$sel:environmentAccountConnections:ListEnvironmentAccountConnectionsResponse' :: [EnvironmentAccountConnectionSummary]
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AenvironmentAccountConnections%3AListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-var">environmentAccountConnections</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>          </span><span class="annot"><span class="annottext">[EnvironmentAccountConnectionSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | A token to indicate the location of the next environment account</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- connection in the array of environment account connections, after the</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- current requested list of environment account connections.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnectionsResponse_nextToken"><span class="hs-identifier hs-type">listEnvironmentAccountConnectionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="listEnvironmentAccountConnectionsResponse_nextToken"><span class="annot"><span class="annottext">listEnvironmentAccountConnectionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEnvironmentAccountConnectionsResponse
+-&gt; f ListEnvironmentAccountConnectionsResponse
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnectionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listEnvironmentAccountConnectionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEnvironmentAccountConnectionsResponse -&gt; Maybe Text)
+-&gt; (ListEnvironmentAccountConnectionsResponse
+    -&gt; Maybe Text -&gt; ListEnvironmentAccountConnectionsResponse)
+-&gt; Lens' ListEnvironmentAccountConnectionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268536"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListEnvironmentAccountConnectionsResponse' :: ListEnvironmentAccountConnectionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679268536"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268536"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268535"><span class="annot"><span class="annottext">s :: ListEnvironmentAccountConnectionsResponse
+</span><a href="#local-6989586621679268535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268534"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnectionsResponse
+</span><a href="#local-6989586621679268535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEnvironmentAccountConnectionsResponse' :: Maybe Text
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AnextToken%3AListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnectionsResponse_httpStatus"><span class="hs-identifier hs-type">listEnvironmentAccountConnectionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-287"></span><span id="listEnvironmentAccountConnectionsResponse_httpStatus"><span class="annot"><span class="annottext">listEnvironmentAccountConnectionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListEnvironmentAccountConnectionsResponse
+-&gt; f ListEnvironmentAccountConnectionsResponse
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnectionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listEnvironmentAccountConnectionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEnvironmentAccountConnectionsResponse -&gt; Int)
+-&gt; (ListEnvironmentAccountConnectionsResponse
+    -&gt; Int -&gt; ListEnvironmentAccountConnectionsResponse)
+-&gt; Lens
+     ListEnvironmentAccountConnectionsResponse
+     ListEnvironmentAccountConnectionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268533"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListEnvironmentAccountConnectionsResponse' :: ListEnvironmentAccountConnectionsResponse -&gt; Int
+</span><a href="#local-6989586621679268533"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268533"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268532"><span class="annot"><span class="annottext">s :: ListEnvironmentAccountConnectionsResponse
+</span><a href="#local-6989586621679268532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268531"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnectionsResponse
+</span><a href="#local-6989586621679268532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListEnvironmentAccountConnectionsResponse' :: Int
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AhttpStatus%3AListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | An array of environment account connections with details that\'s</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- returned by AWS Proton.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnectionsResponse_environmentAccountConnections"><span class="hs-identifier hs-type">listEnvironmentAccountConnectionsResponse_environmentAccountConnections</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentAccountConnectionSummary.html#EnvironmentAccountConnectionSummary"><span class="hs-identifier hs-type">EnvironmentAccountConnectionSummary</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-292"></span><span id="listEnvironmentAccountConnectionsResponse_environmentAccountConnections"><span class="annot"><span class="annottext">listEnvironmentAccountConnectionsResponse_environmentAccountConnections :: ([EnvironmentAccountConnectionSummary]
+ -&gt; f [EnvironmentAccountConnectionSummary])
+-&gt; ListEnvironmentAccountConnectionsResponse
+-&gt; f ListEnvironmentAccountConnectionsResponse
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#listEnvironmentAccountConnectionsResponse_environmentAccountConnections"><span class="hs-identifier hs-var hs-var">listEnvironmentAccountConnectionsResponse_environmentAccountConnections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEnvironmentAccountConnectionsResponse
+ -&gt; [EnvironmentAccountConnectionSummary])
+-&gt; (ListEnvironmentAccountConnectionsResponse
+    -&gt; [EnvironmentAccountConnectionSummary]
+    -&gt; ListEnvironmentAccountConnectionsResponse)
+-&gt; Lens'
+     ListEnvironmentAccountConnectionsResponse
+     [EnvironmentAccountConnectionSummary]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268530"><span class="annot"><span class="annottext">[EnvironmentAccountConnectionSummary]
+environmentAccountConnections :: [EnvironmentAccountConnectionSummary]
+$sel:environmentAccountConnections:ListEnvironmentAccountConnectionsResponse' :: ListEnvironmentAccountConnectionsResponse
+-&gt; [EnvironmentAccountConnectionSummary]
+</span><a href="#local-6989586621679268530"><span class="hs-identifier hs-var hs-var">environmentAccountConnections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EnvironmentAccountConnectionSummary]
+</span><a href="#local-6989586621679268530"><span class="hs-identifier hs-var">environmentAccountConnections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268529"><span class="annot"><span class="annottext">s :: ListEnvironmentAccountConnectionsResponse
+</span><a href="#local-6989586621679268529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268528"><span class="annot"><span class="annottext">[EnvironmentAccountConnectionSummary]
+</span><a href="#local-6989586621679268528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEnvironmentAccountConnectionsResponse
+</span><a href="#local-6989586621679268529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentAccountConnections:ListEnvironmentAccountConnectionsResponse' :: [EnvironmentAccountConnectionSummary]
+</span><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#%24sel%3AenvironmentAccountConnections%3AListEnvironmentAccountConnectionsResponse%27"><span class="hs-identifier hs-var">environmentAccountConnections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EnvironmentAccountConnectionSummary]
+</span><a href="#local-6989586621679268528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EnvironmentAccountConnectionSummary]
+  -&gt; f [EnvironmentAccountConnectionSummary])
+ -&gt; ListEnvironmentAccountConnectionsResponse
+ -&gt; f ListEnvironmentAccountConnectionsResponse)
+-&gt; (([EnvironmentAccountConnectionSummary]
+     -&gt; f [EnvironmentAccountConnectionSummary])
+    -&gt; [EnvironmentAccountConnectionSummary]
+    -&gt; f [EnvironmentAccountConnectionSummary])
+-&gt; ([EnvironmentAccountConnectionSummary]
+    -&gt; f [EnvironmentAccountConnectionSummary])
+-&gt; ListEnvironmentAccountConnectionsResponse
+-&gt; f ListEnvironmentAccountConnectionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([EnvironmentAccountConnectionSummary]
+ -&gt; f [EnvironmentAccountConnectionSummary])
+-&gt; [EnvironmentAccountConnectionSummary]
+-&gt; f [EnvironmentAccountConnectionSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-295"></span><span>  </span><span id="local-6989586621679268526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.ListEnvironmentAccountConnections.html#ListEnvironmentAccountConnectionsResponse"><span class="hs-identifier hs-type">ListEnvironmentAccountConnectionsResponse</span></a></span></span><span>
+</span><span id="line-297"></span></pre></body></html>

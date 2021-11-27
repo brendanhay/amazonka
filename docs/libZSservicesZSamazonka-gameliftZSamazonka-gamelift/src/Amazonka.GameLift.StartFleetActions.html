@@ -1,0 +1,620 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.GameLift.StartFleetActions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Resumes certain types of activity on fleet instances that were suspended</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- with StopFleetActions. For multi-location fleets, fleet actions are</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- managed separately for each location. Currently, this operation is used</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- to restart a fleet\'s auto-scaling activity.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation can be used in the following ways:</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   To restart actions on instances in the fleet\'s home Region, provide</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     a fleet ID and the type of actions to resume.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   To restart actions on instances in one of the fleet\'s remote</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     locations, provide a fleet ID, a location name, and the type of</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     actions to resume.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- If successful, GameLift once again initiates scaling events as triggered</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- by the fleet\'s scaling policies. If actions on the fleet location were</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- never stopped, this operation will have no effect. You can view a</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- fleet\'s stopped actions using DescribeFleetAttributes or</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- DescribeFleetLocationAttributes.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- __Learn more__</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets&gt;</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- __Related actions__</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- CreateFleet | UpdateFleetCapacity | PutScalingPolicy |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- DescribeEC2InstanceLimits | DescribeFleetAttributes |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- DescribeFleetLocationAttributes | UpdateFleetAttributes |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- StopFleetActions | DeleteFleet |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task&gt;</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GameLift.StartFleetActions</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier">StartFleetActions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#newStartFleetActions"><span class="hs-identifier">newStartFleetActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActions_location"><span class="hs-identifier">startFleetActions_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActions_fleetId"><span class="hs-identifier">startFleetActions_fleetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActions_actions"><span class="hs-identifier">startFleetActions_actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse"><span class="hs-identifier">StartFleetActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#newStartFleetActionsResponse"><span class="hs-identifier">newStartFleetActionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActionsResponse_fleetArn"><span class="hs-identifier">startFleetActionsResponse_fleetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActionsResponse_fleetId"><span class="hs-identifier">startFleetActionsResponse_fleetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActionsResponse_httpStatus"><span class="hs-identifier">startFleetActionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.html"><span class="hs-identifier">Amazonka.GameLift.Types</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- /See:/ 'newStartFleetActions' smart constructor.</span><span>
+</span><span id="line-85"></span><span id="local-6989586621679445410"><span id="local-6989586621679445411"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartFleetActions"><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-var">StartFleetActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartFleetActions%27"><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions%27"><span class="hs-identifier hs-var">StartFleetActions'</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The fleet location to restart fleet actions for. Specify a location in</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- the form of an AWS Region code, such as @us-west-2@.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Alocation%3AStartFleetActions%27"><span class="annot"><span class="annottext">StartFleetActions -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3Alocation%3AStartFleetActions%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the fleet to restart actions on. You can use</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- either the fleet ID or ARN value.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AfleetId%3AStartFleetActions%27"><span class="annot"><span class="annottext">StartFleetActions -&gt; Text
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3AfleetId%3AStartFleetActions%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | List of actions to restart on the fleet.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3Aactions%3AStartFleetActions%27"><span class="annot"><span class="annottext">StartFleetActions -&gt; NonEmpty FleetAction
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3Aactions%3AStartFleetActions%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetAction.html#FleetAction"><span class="hs-identifier hs-type">FleetAction</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679445402"><span id="local-6989586621679445404"><span class="annot"><span class="annottext">StartFleetActions -&gt; StartFleetActions -&gt; Bool
+(StartFleetActions -&gt; StartFleetActions -&gt; Bool)
+-&gt; (StartFleetActions -&gt; StartFleetActions -&gt; Bool)
+-&gt; Eq StartFleetActions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartFleetActions -&gt; StartFleetActions -&gt; Bool
+$c/= :: StartFleetActions -&gt; StartFleetActions -&gt; Bool
+== :: StartFleetActions -&gt; StartFleetActions -&gt; Bool
+$c== :: StartFleetActions -&gt; StartFleetActions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445393"><span id="local-6989586621679445395"><span id="local-6989586621679445397"><span id="local-6989586621679445399"><span class="annot"><span class="annottext">ReadPrec [StartFleetActions]
+ReadPrec StartFleetActions
+Int -&gt; ReadS StartFleetActions
+ReadS [StartFleetActions]
+(Int -&gt; ReadS StartFleetActions)
+-&gt; ReadS [StartFleetActions]
+-&gt; ReadPrec StartFleetActions
+-&gt; ReadPrec [StartFleetActions]
+-&gt; Read StartFleetActions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartFleetActions]
+$creadListPrec :: ReadPrec [StartFleetActions]
+readPrec :: ReadPrec StartFleetActions
+$creadPrec :: ReadPrec StartFleetActions
+readList :: ReadS [StartFleetActions]
+$creadList :: ReadS [StartFleetActions]
+readsPrec :: Int -&gt; ReadS StartFleetActions
+$creadsPrec :: Int -&gt; ReadS StartFleetActions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445386"><span id="local-6989586621679445388"><span id="local-6989586621679445390"><span class="annot"><span class="annottext">Int -&gt; StartFleetActions -&gt; ShowS
+[StartFleetActions] -&gt; ShowS
+StartFleetActions -&gt; String
+(Int -&gt; StartFleetActions -&gt; ShowS)
+-&gt; (StartFleetActions -&gt; String)
+-&gt; ([StartFleetActions] -&gt; ShowS)
+-&gt; Show StartFleetActions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartFleetActions] -&gt; ShowS
+$cshowList :: [StartFleetActions] -&gt; ShowS
+show :: StartFleetActions -&gt; String
+$cshow :: StartFleetActions -&gt; String
+showsPrec :: Int -&gt; StartFleetActions -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartFleetActions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartFleetActions -&gt; Rep StartFleetActions x)
+-&gt; (forall x. Rep StartFleetActions x -&gt; StartFleetActions)
+-&gt; Generic StartFleetActions
+forall x. Rep StartFleetActions x -&gt; StartFleetActions
+forall x. StartFleetActions -&gt; Rep StartFleetActions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartFleetActions x -&gt; StartFleetActions
+$cfrom :: forall x. StartFleetActions -&gt; Rep StartFleetActions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Create a value of 'StartFleetActions' with all optional fields omitted.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'location', 'startFleetActions_location' - The fleet location to restart fleet actions for. Specify a location in</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- the form of an AWS Region code, such as @us-west-2@.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'fleetId', 'startFleetActions_fleetId' - A unique identifier for the fleet to restart actions on. You can use</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- either the fleet ID or ARN value.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'actions', 'startFleetActions_actions' - List of actions to restart on the fleet.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#newStartFleetActions"><span class="hs-identifier hs-type">newStartFleetActions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-comment">-- | 'fleetId'</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-comment">-- | 'actions'</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetAction.html#FleetAction"><span class="hs-identifier hs-type">FleetAction</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span><span>
+</span><span id="line-118"></span><span id="newStartFleetActions"><span class="annot"><span class="annottext">newStartFleetActions :: Text -&gt; NonEmpty FleetAction -&gt; StartFleetActions
+</span><a href="Amazonka.GameLift.StartFleetActions.html#newStartFleetActions"><span class="hs-identifier hs-var hs-var">newStartFleetActions</span></a></span></span><span> </span><span id="local-6989586621679445381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445381"><span class="hs-identifier hs-var">pFleetId_</span></a></span></span><span> </span><span id="local-6989586621679445380"><span class="annot"><span class="annottext">NonEmpty FleetAction
+</span><a href="#local-6989586621679445380"><span class="hs-identifier hs-var">pActions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">StartFleetActions' :: Maybe Text -&gt; Text -&gt; NonEmpty FleetAction -&gt; StartFleetActions
+</span><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions%27"><span class="hs-identifier hs-type">StartFleetActions'</span></a></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:StartFleetActions' :: Maybe Text
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3Alocation%3AStartFleetActions%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:StartFleetActions' :: Text
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3AfleetId%3AStartFleetActions%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445381"><span class="hs-identifier hs-var">pFleetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:actions:StartFleetActions' :: NonEmpty FleetAction
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3Aactions%3AStartFleetActions%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty FleetAction) (Identity (NonEmpty FleetAction))
+-&gt; Tagged (NonEmpty FleetAction) (Identity (NonEmpty FleetAction))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty FleetAction) (Identity (NonEmpty FleetAction))
+ -&gt; Tagged (NonEmpty FleetAction) (Identity (NonEmpty FleetAction)))
+-&gt; NonEmpty FleetAction -&gt; NonEmpty FleetAction
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty FleetAction
+</span><a href="#local-6989586621679445380"><span class="hs-identifier hs-var">pActions_</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The fleet location to restart fleet actions for. Specify a location in</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- the form of an AWS Region code, such as @us-west-2@.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActions_location"><span class="hs-identifier hs-type">startFleetActions_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="startFleetActions_location"><span class="annot"><span class="annottext">startFleetActions_location :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartFleetActions -&gt; f StartFleetActions
+</span><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActions_location"><span class="hs-identifier hs-var hs-var">startFleetActions_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFleetActions -&gt; Maybe Text)
+-&gt; (StartFleetActions -&gt; Maybe Text -&gt; StartFleetActions)
+-&gt; Lens
+     StartFleetActions StartFleetActions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions%27"><span class="hs-identifier hs-type">StartFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445375"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:StartFleetActions' :: StartFleetActions -&gt; Maybe Text
+</span><a href="#local-6989586621679445375"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445375"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445374"><span class="annot"><span class="annottext">s :: StartFleetActions
+</span><a href="#local-6989586621679445374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions%27"><span class="hs-identifier hs-type">StartFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFleetActions
+</span><a href="#local-6989586621679445374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:StartFleetActions' :: Maybe Text
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3Alocation%3AStartFleetActions%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | A unique identifier for the fleet to restart actions on. You can use</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- either the fleet ID or ARN value.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActions_fleetId"><span class="hs-identifier hs-type">startFleetActions_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="startFleetActions_fleetId"><span class="annot"><span class="annottext">startFleetActions_fleetId :: (Text -&gt; f Text) -&gt; StartFleetActions -&gt; f StartFleetActions
+</span><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActions_fleetId"><span class="hs-identifier hs-var hs-var">startFleetActions_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFleetActions -&gt; Text)
+-&gt; (StartFleetActions -&gt; Text -&gt; StartFleetActions)
+-&gt; Lens StartFleetActions StartFleetActions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions%27"><span class="hs-identifier hs-type">StartFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445372"><span class="annot"><span class="annottext">Text
+fleetId :: Text
+$sel:fleetId:StartFleetActions' :: StartFleetActions -&gt; Text
+</span><a href="#local-6989586621679445372"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445372"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445371"><span class="annot"><span class="annottext">s :: StartFleetActions
+</span><a href="#local-6989586621679445371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions%27"><span class="hs-identifier hs-type">StartFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445370"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFleetActions
+</span><a href="#local-6989586621679445371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:StartFleetActions' :: Text
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3AfleetId%3AStartFleetActions%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | List of actions to restart on the fleet.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActions_actions"><span class="hs-identifier hs-type">startFleetActions_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetAction.html#FleetAction"><span class="hs-identifier hs-type">FleetAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="startFleetActions_actions"><span class="annot"><span class="annottext">startFleetActions_actions :: (NonEmpty FleetAction -&gt; f (NonEmpty FleetAction))
+-&gt; StartFleetActions -&gt; f StartFleetActions
+</span><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActions_actions"><span class="hs-identifier hs-var hs-var">startFleetActions_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFleetActions -&gt; NonEmpty FleetAction)
+-&gt; (StartFleetActions -&gt; NonEmpty FleetAction -&gt; StartFleetActions)
+-&gt; Lens
+     StartFleetActions
+     StartFleetActions
+     (NonEmpty FleetAction)
+     (NonEmpty FleetAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions%27"><span class="hs-identifier hs-type">StartFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445369"><span class="annot"><span class="annottext">NonEmpty FleetAction
+actions :: NonEmpty FleetAction
+$sel:actions:StartFleetActions' :: StartFleetActions -&gt; NonEmpty FleetAction
+</span><a href="#local-6989586621679445369"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty FleetAction
+</span><a href="#local-6989586621679445369"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445368"><span class="annot"><span class="annottext">s :: StartFleetActions
+</span><a href="#local-6989586621679445368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions%27"><span class="hs-identifier hs-type">StartFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445367"><span class="annot"><span class="annottext">NonEmpty FleetAction
+</span><a href="#local-6989586621679445367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFleetActions
+</span><a href="#local-6989586621679445368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:StartFleetActions' :: NonEmpty FleetAction
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3Aactions%3AStartFleetActions%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty FleetAction
+</span><a href="#local-6989586621679445367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty FleetAction -&gt; f (NonEmpty FleetAction))
+ -&gt; StartFleetActions -&gt; f StartFleetActions)
+-&gt; ((NonEmpty FleetAction -&gt; f (NonEmpty FleetAction))
+    -&gt; NonEmpty FleetAction -&gt; f (NonEmpty FleetAction))
+-&gt; (NonEmpty FleetAction -&gt; f (NonEmpty FleetAction))
+-&gt; StartFleetActions
+-&gt; f StartFleetActions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty FleetAction -&gt; f (NonEmpty FleetAction))
+-&gt; NonEmpty FleetAction -&gt; f (NonEmpty FleetAction)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse"><span class="hs-identifier hs-type">StartFleetActionsResponse</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679445362"><span class="annot"><span class="annottext">request :: StartFleetActions -&gt; Request StartFleetActions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartFleetActions -&gt; Request StartFleetActions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679445358"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartFleetActions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartFleetActions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartFleetActions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartFleetActions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartFleetActions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679445355"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445355"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679445354"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679445354"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679445353"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679445353"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartFleetActionsResponse
+</span><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse%27"><span class="hs-identifier hs-var">StartFleetActionsResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartFleetActionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; StartFleetActionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679445353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; StartFleetActionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartFleetActionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679445353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartFleetActionsResponse)
+-&gt; Either String Int -&gt; Either String StartFleetActionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445355"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445345"><span id="local-6989586621679445347"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445342"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679445338"><span class="annot"><span class="annottext">toHeaders :: StartFleetActions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartFleetActions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GameLift.StartFleetActions&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-166"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445328"><span id="local-6989586621679445330"><span id="local-6989586621679445332"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679445326"><span class="annot"><span class="annottext">toJSON :: StartFleetActions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions%27"><span class="hs-identifier hs-type">StartFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445322"><span id="local-6989586621679445323"><span id="local-6989586621679445324"><span class="annot"><span class="annottext">Maybe Text
+NonEmpty FleetAction
+Text
+actions :: NonEmpty FleetAction
+fleetId :: Text
+location :: Maybe Text
+$sel:actions:StartFleetActions' :: StartFleetActions -&gt; NonEmpty FleetAction
+$sel:fleetId:StartFleetActions' :: StartFleetActions -&gt; Text
+$sel:location:StartFleetActions' :: StartFleetActions -&gt; Maybe Text
+</span><a href="#local-6989586621679445322"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445324"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445323"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty FleetAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty FleetAction
+</span><a href="#local-6989586621679445322"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679445316"><span class="annot"><span class="annottext">toPath :: StartFleetActions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartFleetActions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActions"><span class="hs-identifier hs-type">StartFleetActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679445312"><span class="annot"><span class="annottext">toQuery :: StartFleetActions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartFleetActions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- /See:/ 'newStartFleetActionsResponse' smart constructor.</span><span>
+</span><span id="line-189"></span><span id="local-6989586621679445309"><span id="local-6989586621679445310"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartFleetActionsResponse"><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse"><span class="hs-identifier hs-var">StartFleetActionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartFleetActionsResponse%27"><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse%27"><span class="hs-identifier hs-var">StartFleetActionsResponse'</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AfleetArn%3AStartFleetActionsResponse%27"><span class="annot"><span class="annottext">StartFleetActionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3AfleetArn%3AStartFleetActionsResponse%27"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the fleet to restart actions on.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AfleetId%3AStartFleetActionsResponse%27"><span class="annot"><span class="annottext">StartFleetActionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3AfleetId%3AStartFleetActionsResponse%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartFleetActionsResponse%27"><span class="annot"><span class="annottext">StartFleetActionsResponse -&gt; Int
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3AhttpStatus%3AStartFleetActionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679445302"><span id="local-6989586621679445304"><span class="annot"><span class="annottext">StartFleetActionsResponse -&gt; StartFleetActionsResponse -&gt; Bool
+(StartFleetActionsResponse -&gt; StartFleetActionsResponse -&gt; Bool)
+-&gt; (StartFleetActionsResponse -&gt; StartFleetActionsResponse -&gt; Bool)
+-&gt; Eq StartFleetActionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartFleetActionsResponse -&gt; StartFleetActionsResponse -&gt; Bool
+$c/= :: StartFleetActionsResponse -&gt; StartFleetActionsResponse -&gt; Bool
+== :: StartFleetActionsResponse -&gt; StartFleetActionsResponse -&gt; Bool
+$c== :: StartFleetActionsResponse -&gt; StartFleetActionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445294"><span id="local-6989586621679445296"><span id="local-6989586621679445298"><span id="local-6989586621679445300"><span class="annot"><span class="annottext">ReadPrec [StartFleetActionsResponse]
+ReadPrec StartFleetActionsResponse
+Int -&gt; ReadS StartFleetActionsResponse
+ReadS [StartFleetActionsResponse]
+(Int -&gt; ReadS StartFleetActionsResponse)
+-&gt; ReadS [StartFleetActionsResponse]
+-&gt; ReadPrec StartFleetActionsResponse
+-&gt; ReadPrec [StartFleetActionsResponse]
+-&gt; Read StartFleetActionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartFleetActionsResponse]
+$creadListPrec :: ReadPrec [StartFleetActionsResponse]
+readPrec :: ReadPrec StartFleetActionsResponse
+$creadPrec :: ReadPrec StartFleetActionsResponse
+readList :: ReadS [StartFleetActionsResponse]
+$creadList :: ReadS [StartFleetActionsResponse]
+readsPrec :: Int -&gt; ReadS StartFleetActionsResponse
+$creadsPrec :: Int -&gt; ReadS StartFleetActionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445288"><span id="local-6989586621679445290"><span id="local-6989586621679445292"><span class="annot"><span class="annottext">Int -&gt; StartFleetActionsResponse -&gt; ShowS
+[StartFleetActionsResponse] -&gt; ShowS
+StartFleetActionsResponse -&gt; String
+(Int -&gt; StartFleetActionsResponse -&gt; ShowS)
+-&gt; (StartFleetActionsResponse -&gt; String)
+-&gt; ([StartFleetActionsResponse] -&gt; ShowS)
+-&gt; Show StartFleetActionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartFleetActionsResponse] -&gt; ShowS
+$cshowList :: [StartFleetActionsResponse] -&gt; ShowS
+show :: StartFleetActionsResponse -&gt; String
+$cshow :: StartFleetActionsResponse -&gt; String
+showsPrec :: Int -&gt; StartFleetActionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartFleetActionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartFleetActionsResponse -&gt; Rep StartFleetActionsResponse x)
+-&gt; (forall x.
+    Rep StartFleetActionsResponse x -&gt; StartFleetActionsResponse)
+-&gt; Generic StartFleetActionsResponse
+forall x.
+Rep StartFleetActionsResponse x -&gt; StartFleetActionsResponse
+forall x.
+StartFleetActionsResponse -&gt; Rep StartFleetActionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartFleetActionsResponse x -&gt; StartFleetActionsResponse
+$cfrom :: forall x.
+StartFleetActionsResponse -&gt; Rep StartFleetActionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Create a value of 'StartFleetActionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'fleetArn', 'startFleetActionsResponse_fleetArn' - The Amazon Resource Name</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'fleetId', 'startFleetActionsResponse_fleetId' - A unique identifier for the fleet to restart actions on.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'httpStatus', 'startFleetActionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#newStartFleetActionsResponse"><span class="hs-identifier hs-type">newStartFleetActionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse"><span class="hs-identifier hs-type">StartFleetActionsResponse</span></a></span><span>
+</span><span id="line-224"></span><span id="newStartFleetActionsResponse"><span class="annot"><span class="annottext">newStartFleetActionsResponse :: Int -&gt; StartFleetActionsResponse
+</span><a href="Amazonka.GameLift.StartFleetActions.html#newStartFleetActionsResponse"><span class="hs-identifier hs-var hs-var">newStartFleetActionsResponse</span></a></span></span><span> </span><span id="local-6989586621679445285"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445285"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">StartFleetActionsResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartFleetActionsResponse
+</span><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse%27"><span class="hs-identifier hs-type">StartFleetActionsResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fleetArn:StartFleetActionsResponse' :: Maybe Text
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3AfleetArn%3AStartFleetActionsResponse%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:StartFleetActionsResponse' :: Maybe Text
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3AfleetId%3AStartFleetActionsResponse%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartFleetActionsResponse' :: Int
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3AhttpStatus%3AStartFleetActionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445285"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActionsResponse_fleetArn"><span class="hs-identifier hs-type">startFleetActionsResponse_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse"><span class="hs-identifier hs-type">StartFleetActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="startFleetActionsResponse_fleetArn"><span class="annot"><span class="annottext">startFleetActionsResponse_fleetArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartFleetActionsResponse -&gt; f StartFleetActionsResponse
+</span><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActionsResponse_fleetArn"><span class="hs-identifier hs-var hs-var">startFleetActionsResponse_fleetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFleetActionsResponse -&gt; Maybe Text)
+-&gt; (StartFleetActionsResponse
+    -&gt; Maybe Text -&gt; StartFleetActionsResponse)
+-&gt; Lens
+     StartFleetActionsResponse
+     StartFleetActionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse%27"><span class="hs-identifier hs-type">StartFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445284"><span class="annot"><span class="annottext">Maybe Text
+fleetArn :: Maybe Text
+$sel:fleetArn:StartFleetActionsResponse' :: StartFleetActionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679445284"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445284"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445283"><span class="annot"><span class="annottext">s :: StartFleetActionsResponse
+</span><a href="#local-6989586621679445283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse%27"><span class="hs-identifier hs-type">StartFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445282"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFleetActionsResponse
+</span><a href="#local-6989586621679445283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:StartFleetActionsResponse' :: Maybe Text
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3AfleetArn%3AStartFleetActionsResponse%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse"><span class="hs-identifier hs-type">StartFleetActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | A unique identifier for the fleet to restart actions on.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActionsResponse_fleetId"><span class="hs-identifier hs-type">startFleetActionsResponse_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse"><span class="hs-identifier hs-type">StartFleetActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="startFleetActionsResponse_fleetId"><span class="annot"><span class="annottext">startFleetActionsResponse_fleetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartFleetActionsResponse -&gt; f StartFleetActionsResponse
+</span><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActionsResponse_fleetId"><span class="hs-identifier hs-var hs-var">startFleetActionsResponse_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFleetActionsResponse -&gt; Maybe Text)
+-&gt; (StartFleetActionsResponse
+    -&gt; Maybe Text -&gt; StartFleetActionsResponse)
+-&gt; Lens
+     StartFleetActionsResponse
+     StartFleetActionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse%27"><span class="hs-identifier hs-type">StartFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445281"><span class="annot"><span class="annottext">Maybe Text
+fleetId :: Maybe Text
+$sel:fleetId:StartFleetActionsResponse' :: StartFleetActionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679445281"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445281"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445280"><span class="annot"><span class="annottext">s :: StartFleetActionsResponse
+</span><a href="#local-6989586621679445280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse%27"><span class="hs-identifier hs-type">StartFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445279"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFleetActionsResponse
+</span><a href="#local-6989586621679445280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:StartFleetActionsResponse' :: Maybe Text
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3AfleetId%3AStartFleetActionsResponse%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse"><span class="hs-identifier hs-type">StartFleetActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActionsResponse_httpStatus"><span class="hs-identifier hs-type">startFleetActionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse"><span class="hs-identifier hs-type">StartFleetActionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-246"></span><span id="startFleetActionsResponse_httpStatus"><span class="annot"><span class="annottext">startFleetActionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartFleetActionsResponse -&gt; f StartFleetActionsResponse
+</span><a href="Amazonka.GameLift.StartFleetActions.html#startFleetActionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startFleetActionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartFleetActionsResponse -&gt; Int)
+-&gt; (StartFleetActionsResponse -&gt; Int -&gt; StartFleetActionsResponse)
+-&gt; Lens StartFleetActionsResponse StartFleetActionsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse%27"><span class="hs-identifier hs-type">StartFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445278"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartFleetActionsResponse' :: StartFleetActionsResponse -&gt; Int
+</span><a href="#local-6989586621679445278"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445278"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445277"><span class="annot"><span class="annottext">s :: StartFleetActionsResponse
+</span><a href="#local-6989586621679445277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse%27"><span class="hs-identifier hs-type">StartFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445276"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartFleetActionsResponse
+</span><a href="#local-6989586621679445277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartFleetActionsResponse' :: Int
+</span><a href="Amazonka.GameLift.StartFleetActions.html#%24sel%3AhttpStatus%3AStartFleetActionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse"><span class="hs-identifier hs-type">StartFleetActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445274"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.StartFleetActions.html#StartFleetActionsResponse"><span class="hs-identifier hs-type">StartFleetActionsResponse</span></a></span></span><span>
+</span><span id="line-249"></span></pre></body></html>

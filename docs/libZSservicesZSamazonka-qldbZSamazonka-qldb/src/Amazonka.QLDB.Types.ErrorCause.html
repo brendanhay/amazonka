@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QLDB.Types.ErrorCause</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QLDB.Types.ErrorCause</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause"><span class="hs-identifier">ErrorCause</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause_IAM_PERMISSION_REVOKED"><span class="hs-identifier">ErrorCause_IAM_PERMISSION_REVOKED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause_KINESIS_STREAM_NOT_FOUND"><span class="hs-identifier">ErrorCause_KINESIS_STREAM_NOT_FOUND</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679181568"><span id="local-6989586621679181569"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ErrorCause"><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause"><span class="hs-identifier hs-var">ErrorCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorCause%27"><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause%27"><span class="hs-identifier hs-var">ErrorCause'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromErrorCause"><span class="annot"><span class="annottext">ErrorCause -&gt; Text
+</span><a href="Amazonka.QLDB.Types.ErrorCause.html#fromErrorCause"><span class="hs-identifier hs-var hs-var">fromErrorCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679181560"><span id="local-6989586621679181562"><span id="local-6989586621679181564"><span class="annot"><span class="annottext">Int -&gt; ErrorCause -&gt; ShowS
+[ErrorCause] -&gt; ShowS
+ErrorCause -&gt; String
+(Int -&gt; ErrorCause -&gt; ShowS)
+-&gt; (ErrorCause -&gt; String)
+-&gt; ([ErrorCause] -&gt; ShowS)
+-&gt; Show ErrorCause
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ErrorCause] -&gt; ShowS
+$cshowList :: [ErrorCause] -&gt; ShowS
+show :: ErrorCause -&gt; String
+$cshow :: ErrorCause -&gt; String
+showsPrec :: Int -&gt; ErrorCause -&gt; ShowS
+$cshowsPrec :: Int -&gt; ErrorCause -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679181551"><span id="local-6989586621679181553"><span id="local-6989586621679181555"><span id="local-6989586621679181557"><span class="annot"><span class="annottext">ReadPrec [ErrorCause]
+ReadPrec ErrorCause
+Int -&gt; ReadS ErrorCause
+ReadS [ErrorCause]
+(Int -&gt; ReadS ErrorCause)
+-&gt; ReadS [ErrorCause]
+-&gt; ReadPrec ErrorCause
+-&gt; ReadPrec [ErrorCause]
+-&gt; Read ErrorCause
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ErrorCause]
+$creadListPrec :: ReadPrec [ErrorCause]
+readPrec :: ReadPrec ErrorCause
+$creadPrec :: ReadPrec ErrorCause
+readList :: ReadS [ErrorCause]
+$creadList :: ReadS [ErrorCause]
+readsPrec :: Int -&gt; ReadS ErrorCause
+$creadsPrec :: Int -&gt; ReadS ErrorCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679181546"><span id="local-6989586621679181548"><span class="annot"><span class="annottext">ErrorCause -&gt; ErrorCause -&gt; Bool
+(ErrorCause -&gt; ErrorCause -&gt; Bool)
+-&gt; (ErrorCause -&gt; ErrorCause -&gt; Bool) -&gt; Eq ErrorCause
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ErrorCause -&gt; ErrorCause -&gt; Bool
+$c/= :: ErrorCause -&gt; ErrorCause -&gt; Bool
+== :: ErrorCause -&gt; ErrorCause -&gt; Bool
+$c== :: ErrorCause -&gt; ErrorCause -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679181530"><span id="local-6989586621679181532"><span id="local-6989586621679181534"><span id="local-6989586621679181536"><span id="local-6989586621679181538"><span id="local-6989586621679181540"><span id="local-6989586621679181542"><span class="annot"><span class="annottext">Eq ErrorCause
+Eq ErrorCause
+-&gt; (ErrorCause -&gt; ErrorCause -&gt; Ordering)
+-&gt; (ErrorCause -&gt; ErrorCause -&gt; Bool)
+-&gt; (ErrorCause -&gt; ErrorCause -&gt; Bool)
+-&gt; (ErrorCause -&gt; ErrorCause -&gt; Bool)
+-&gt; (ErrorCause -&gt; ErrorCause -&gt; Bool)
+-&gt; (ErrorCause -&gt; ErrorCause -&gt; ErrorCause)
+-&gt; (ErrorCause -&gt; ErrorCause -&gt; ErrorCause)
+-&gt; Ord ErrorCause
+ErrorCause -&gt; ErrorCause -&gt; Bool
+ErrorCause -&gt; ErrorCause -&gt; Ordering
+ErrorCause -&gt; ErrorCause -&gt; ErrorCause
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ErrorCause -&gt; ErrorCause -&gt; ErrorCause
+$cmin :: ErrorCause -&gt; ErrorCause -&gt; ErrorCause
+max :: ErrorCause -&gt; ErrorCause -&gt; ErrorCause
+$cmax :: ErrorCause -&gt; ErrorCause -&gt; ErrorCause
+&gt;= :: ErrorCause -&gt; ErrorCause -&gt; Bool
+$c&gt;= :: ErrorCause -&gt; ErrorCause -&gt; Bool
+&gt; :: ErrorCause -&gt; ErrorCause -&gt; Bool
+$c&gt; :: ErrorCause -&gt; ErrorCause -&gt; Bool
+&lt;= :: ErrorCause -&gt; ErrorCause -&gt; Bool
+$c&lt;= :: ErrorCause -&gt; ErrorCause -&gt; Bool
+&lt; :: ErrorCause -&gt; ErrorCause -&gt; Bool
+$c&lt; :: ErrorCause -&gt; ErrorCause -&gt; Bool
+compare :: ErrorCause -&gt; ErrorCause -&gt; Ordering
+$ccompare :: ErrorCause -&gt; ErrorCause -&gt; Ordering
+$cp1Ord :: Eq ErrorCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ErrorCause -&gt; Rep ErrorCause x)
+-&gt; (forall x. Rep ErrorCause x -&gt; ErrorCause) -&gt; Generic ErrorCause
+forall x. Rep ErrorCause x -&gt; ErrorCause
+forall x. ErrorCause -&gt; Rep ErrorCause x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ErrorCause x -&gt; ErrorCause
+$cfrom :: forall x. ErrorCause -&gt; Rep ErrorCause x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679181522"><span id="local-6989586621679181524"><span class="annot"><span class="annottext">Int -&gt; ErrorCause -&gt; Int
+ErrorCause -&gt; Int
+(Int -&gt; ErrorCause -&gt; Int)
+-&gt; (ErrorCause -&gt; Int) -&gt; Hashable ErrorCause
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ErrorCause -&gt; Int
+$chash :: ErrorCause -&gt; Int
+hashWithSalt :: Int -&gt; ErrorCause -&gt; Int
+$chashWithSalt :: Int -&gt; ErrorCause -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679181519"><span class="annot"><span class="annottext">ErrorCause -&gt; ()
+(ErrorCause -&gt; ()) -&gt; NFData ErrorCause
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ErrorCause -&gt; ()
+$crnf :: ErrorCause -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679181516"><span class="annot"><span class="annottext">Text -&gt; Either String ErrorCause
+(Text -&gt; Either String ErrorCause) -&gt; FromText ErrorCause
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ErrorCause
+$cfromText :: Text -&gt; Either String ErrorCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679181513"><span class="annot"><span class="annottext">ErrorCause -&gt; Text
+(ErrorCause -&gt; Text) -&gt; ToText ErrorCause
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ErrorCause -&gt; Text
+$ctoText :: ErrorCause -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679181510"><span class="annot"><span class="annottext">ErrorCause -&gt; ByteString
+(ErrorCause -&gt; ByteString) -&gt; ToByteString ErrorCause
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ErrorCause -&gt; ByteString
+$ctoBS :: ErrorCause -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679181507"><span class="annot"><span class="annottext">ErrorCause -&gt; ByteStringBuilder
+(ErrorCause -&gt; ByteStringBuilder) -&gt; ToLog ErrorCause
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ErrorCause -&gt; ByteStringBuilder
+$cbuild :: ErrorCause -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679181504"><span class="annot"><span class="annottext">HeaderName -&gt; ErrorCause -&gt; [Header]
+(HeaderName -&gt; ErrorCause -&gt; [Header]) -&gt; ToHeader ErrorCause
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ErrorCause -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ErrorCause -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679181501"><span class="annot"><span class="annottext">ErrorCause -&gt; QueryString
+(ErrorCause -&gt; QueryString) -&gt; ToQuery ErrorCause
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ErrorCause -&gt; QueryString
+$ctoQuery :: ErrorCause -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679181496"><span id="local-6989586621679181498"><span class="annot"><span class="annottext">Value -&gt; Parser [ErrorCause]
+Value -&gt; Parser ErrorCause
+(Value -&gt; Parser ErrorCause)
+-&gt; (Value -&gt; Parser [ErrorCause]) -&gt; FromJSON ErrorCause
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ErrorCause]
+$cparseJSONList :: Value -&gt; Parser [ErrorCause]
+parseJSON :: Value -&gt; Parser ErrorCause
+$cparseJSON :: Value -&gt; Parser ErrorCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679181491"><span id="local-6989586621679181493"><span class="annot"><span class="annottext">FromJSONKeyFunction [ErrorCause]
+FromJSONKeyFunction ErrorCause
+FromJSONKeyFunction ErrorCause
+-&gt; FromJSONKeyFunction [ErrorCause] -&gt; FromJSONKey ErrorCause
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ErrorCause]
+$cfromJSONKeyList :: FromJSONKeyFunction [ErrorCause]
+fromJSONKey :: FromJSONKeyFunction ErrorCause
+$cfromJSONKey :: FromJSONKeyFunction ErrorCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679181482"><span id="local-6989586621679181484"><span id="local-6989586621679181486"><span id="local-6989586621679181488"><span class="annot"><span class="annottext">[ErrorCause] -&gt; Encoding
+[ErrorCause] -&gt; Value
+ErrorCause -&gt; Encoding
+ErrorCause -&gt; Value
+(ErrorCause -&gt; Value)
+-&gt; (ErrorCause -&gt; Encoding)
+-&gt; ([ErrorCause] -&gt; Value)
+-&gt; ([ErrorCause] -&gt; Encoding)
+-&gt; ToJSON ErrorCause
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ErrorCause] -&gt; Encoding
+$ctoEncodingList :: [ErrorCause] -&gt; Encoding
+toJSONList :: [ErrorCause] -&gt; Value
+$ctoJSONList :: [ErrorCause] -&gt; Value
+toEncoding :: ErrorCause -&gt; Encoding
+$ctoEncoding :: ErrorCause -&gt; Encoding
+toJSON :: ErrorCause -&gt; Value
+$ctoJSON :: ErrorCause -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679181477"><span id="local-6989586621679181479"><span class="annot"><span class="annottext">ToJSONKeyFunction [ErrorCause]
+ToJSONKeyFunction ErrorCause
+ToJSONKeyFunction ErrorCause
+-&gt; ToJSONKeyFunction [ErrorCause] -&gt; ToJSONKey ErrorCause
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ErrorCause]
+$ctoJSONKeyList :: ToJSONKeyFunction [ErrorCause]
+toJSONKey :: ToJSONKeyFunction ErrorCause
+$ctoJSONKey :: ToJSONKeyFunction ErrorCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679181474"><span class="annot"><span class="annottext">[Node] -&gt; Either String ErrorCause
+([Node] -&gt; Either String ErrorCause) -&gt; FromXML ErrorCause
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ErrorCause
+$cparseXML :: [Node] -&gt; Either String ErrorCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679181471"><span class="annot"><span class="annottext">ErrorCause -&gt; XML
+(ErrorCause -&gt; XML) -&gt; ToXML ErrorCause
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ErrorCause -&gt; XML
+$ctoXML :: ErrorCause -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause_IAM_PERMISSION_REVOKED"><span class="hs-identifier hs-type">ErrorCause_IAM_PERMISSION_REVOKED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause"><span class="hs-identifier hs-type">ErrorCause</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCause_IAM_PERMISSION_REVOKED"><span id="%24mErrorCause_IAM_PERMISSION_REVOKED"><span id="ErrorCause_IAM_PERMISSION_REVOKED"><span class="annot"><span class="annottext">$bErrorCause_IAM_PERMISSION_REVOKED :: ErrorCause
+$mErrorCause_IAM_PERMISSION_REVOKED :: forall r. ErrorCause -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QLDB.Types.ErrorCause.html#%24bErrorCause_IAM_PERMISSION_REVOKED"><span class="hs-identifier hs-var hs-var hs-var">ErrorCause_IAM_PERMISSION_REVOKED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause%27"><span class="hs-identifier hs-type">ErrorCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IAM_PERMISSION_REVOKED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause_KINESIS_STREAM_NOT_FOUND"><span class="hs-identifier hs-type">ErrorCause_KINESIS_STREAM_NOT_FOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause"><span class="hs-identifier hs-type">ErrorCause</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCause_KINESIS_STREAM_NOT_FOUND"><span id="%24mErrorCause_KINESIS_STREAM_NOT_FOUND"><span id="ErrorCause_KINESIS_STREAM_NOT_FOUND"><span class="annot"><span class="annottext">$bErrorCause_KINESIS_STREAM_NOT_FOUND :: ErrorCause
+$mErrorCause_KINESIS_STREAM_NOT_FOUND :: forall r. ErrorCause -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QLDB.Types.ErrorCause.html#%24bErrorCause_KINESIS_STREAM_NOT_FOUND"><span class="hs-identifier hs-var hs-var hs-var">ErrorCause_KINESIS_STREAM_NOT_FOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause%27"><span class="hs-identifier hs-type">ErrorCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KINESIS_STREAM_NOT_FOUND&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause_IAM_PERMISSION_REVOKED"><span class="hs-pragma hs-type">ErrorCause_IAM_PERMISSION_REVOKED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause_KINESIS_STREAM_NOT_FOUND"><span class="hs-pragma hs-type">ErrorCause_KINESIS_STREAM_NOT_FOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.QLDB.Types.ErrorCause.html#ErrorCause%27"><span class="hs-pragma hs-type">ErrorCause'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

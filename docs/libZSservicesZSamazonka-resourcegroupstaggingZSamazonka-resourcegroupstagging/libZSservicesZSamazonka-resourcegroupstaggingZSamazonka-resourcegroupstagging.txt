@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails
+module Amazonka.ResourceGroupsTagging.Types.ComplianceDetails
 
 -- | Information that shows whether a resource is compliant with the
 --   effective tag policy, including details on any noncompliant tag keys.
@@ -58,71 +58,71 @@ complianceDetails_complianceStatus :: Lens' ComplianceDetails (Maybe Bool)
 -- | These tag keys on the resource are noncompliant with the effective tag
 --   policy.
 complianceDetails_noncompliantKeys :: Lens' ComplianceDetails (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.Types.ComplianceDetails.ComplianceDetails
 
 
-module Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute
+module Amazonka.ResourceGroupsTagging.Types.GroupByAttribute
 newtype GroupByAttribute
 GroupByAttribute' :: Text -> GroupByAttribute
 [fromGroupByAttribute] :: GroupByAttribute -> Text
 pattern GroupByAttribute_REGION :: GroupByAttribute
 pattern GroupByAttribute_RESOURCE_TYPE :: GroupByAttribute
 pattern GroupByAttribute_TARGET_ID :: GroupByAttribute
-instance Network.AWS.Data.XML.ToXML Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Network.AWS.Data.XML.FromXML Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Network.AWS.Data.Log.ToLog Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Network.AWS.Data.Text.ToText Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Network.AWS.Data.Text.FromText Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance GHC.Classes.Ord Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Amazonka.Data.XML.ToXML Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Amazonka.Data.XML.FromXML Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Amazonka.Data.Headers.ToHeader Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Amazonka.Data.Log.ToLog Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Amazonka.Data.Text.ToText Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Amazonka.Data.Text.FromText Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance GHC.Classes.Ord Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.Types.GroupByAttribute.GroupByAttribute
 
 
-module Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode
+module Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode
 newtype ResourceErrorCode
 ResourceErrorCode' :: Text -> ResourceErrorCode
 [fromResourceErrorCode] :: ResourceErrorCode -> Text
 pattern ResourceErrorCode_InternalServiceException :: ResourceErrorCode
 pattern ResourceErrorCode_InvalidParameterException :: ResourceErrorCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Network.AWS.Data.Text.ToText Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Network.AWS.Data.Text.FromText Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance GHC.Classes.Ord Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Amazonka.Data.XML.ToXML Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Amazonka.Data.XML.FromXML Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Amazonka.Data.Log.ToLog Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Amazonka.Data.Text.ToText Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Amazonka.Data.Text.FromText Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance GHC.Classes.Ord Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode.ResourceErrorCode
 
 
-module Network.AWS.ResourceGroupsTagging.Types.FailureInfo
+module Amazonka.ResourceGroupsTagging.Types.FailureInfo
 
 -- | Information about the errors that are returned for each failed
 --   resource. This information can include
@@ -200,16 +200,16 @@ failureInfo_errorMessage :: Lens' FailureInfo (Maybe Text)
 
 -- | The HTTP status code of the common error.
 failureInfo_statusCode :: Lens' FailureInfo (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.Types.FailureInfo.FailureInfo
 
 
-module Network.AWS.ResourceGroupsTagging.Types.Tag
+module Amazonka.ResourceGroupsTagging.Types.Tag
 
 -- | The metadata that you apply to AWS resources to help you categorize
 --   and organize them. Each tag consists of a key and a value, both of
@@ -254,16 +254,16 @@ tag_key :: Lens' Tag Text
 --   descriptor within a tag category (key). The value can be empty or
 --   null.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroupsTagging.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroupsTagging.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.Types.Tag.Tag
 
 
-module Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping
+module Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping
 
 -- | A list of resource ARNs and the tags (keys and values) that are
 --   associated with each.
@@ -312,16 +312,16 @@ resourceTagMapping_resourceARN :: Lens' ResourceTagMapping (Maybe Text)
 
 -- | The tags that have been applied to one or more AWS resources.
 resourceTagMapping_tags :: Lens' ResourceTagMapping (Maybe [Tag])
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping.ResourceTagMapping
 
 
-module Network.AWS.ResourceGroupsTagging.Types.TagFilter
+module Amazonka.ResourceGroupsTagging.Types.TagFilter
 
 -- | A list of tags (keys and values) that are used to specify the
 --   associated resources.
@@ -364,44 +364,44 @@ tagFilter_values :: Lens' TagFilter (Maybe [Text])
 -- | One part of a key-value pair that makes up a tag. A key is a general
 --   label that acts like a category for more specific tag values.
 tagFilter_key :: Lens' TagFilter (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.Types.TagFilter.TagFilter
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.Types.TagFilter.TagFilter
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.Types.TagFilter.TagFilter
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.Types.TagFilter.TagFilter
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.Types.TagFilter.TagFilter
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.Types.TagFilter.TagFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroupsTagging.Types.TagFilter.TagFilter
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.Types.TagFilter.TagFilter
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.Types.TagFilter.TagFilter
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.Types.TagFilter.TagFilter
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.Types.TagFilter.TagFilter
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.Types.TagFilter.TagFilter
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.Types.TagFilter.TagFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroupsTagging.Types.TagFilter.TagFilter
 
 
-module Network.AWS.ResourceGroupsTagging.Types.TargetIdType
+module Amazonka.ResourceGroupsTagging.Types.TargetIdType
 newtype TargetIdType
 TargetIdType' :: Text -> TargetIdType
 [fromTargetIdType] :: TargetIdType -> Text
 pattern TargetIdType_ACCOUNT :: TargetIdType
 pattern TargetIdType_OU :: TargetIdType
 pattern TargetIdType_ROOT :: TargetIdType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Network.AWS.Data.Text.ToText Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Network.AWS.Data.Text.FromText Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance GHC.Classes.Ord Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Amazonka.Data.XML.ToXML Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Amazonka.Data.XML.FromXML Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Amazonka.Data.Log.ToLog Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Amazonka.Data.Text.ToText Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Amazonka.Data.Text.FromText Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance GHC.Classes.Ord Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.Types.TargetIdType.TargetIdType
 
 
-module Network.AWS.ResourceGroupsTagging.Types.Summary
+module Amazonka.ResourceGroupsTagging.Types.Summary
 
 -- | A count of noncompliant resources.
 --   
@@ -480,16 +480,16 @@ summary_targetIdType :: Lens' Summary (Maybe TargetIdType)
 
 -- | The AWS Region that the summary applies to.
 summary_region :: Lens' Summary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.Types.Summary.Summary
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.Types.Summary.Summary
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.Types.Summary.Summary
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.Types.Summary.Summary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroupsTagging.Types.Summary.Summary
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.Types.Summary.Summary
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.Types.Summary.Summary
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.Types.Summary.Summary
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.Types.Summary.Summary
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.Types.Summary.Summary
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.Types.Summary.Summary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroupsTagging.Types.Summary.Summary
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.Types.Summary.Summary
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.Types.Summary.Summary
 
 
-module Network.AWS.ResourceGroupsTagging.Types
+module Amazonka.ResourceGroupsTagging.Types
 
 -- | API version <tt>2017-01-26</tt> of the Amazon Resource Groups Tagging
 --   API SDK configuration.
@@ -924,7 +924,7 @@ tagFilter_key :: Lens' TagFilter (Maybe Text)
 --   confidential or sensitive information in tags. We use tags to provide
 --   you with billing and administration services. Tags are not intended to
 --   be used for private or sensitive data.
-module Network.AWS.ResourceGroupsTagging.TagResources
+module Amazonka.ResourceGroupsTagging.TagResources
 
 -- | <i>See:</i> <a>newTagResources</a> smart constructor.
 data TagResources
@@ -1021,22 +1021,22 @@ tagResourcesResponse_failedResourcesMap :: Lens' TagResourcesResponse (Maybe (Ha
 
 -- | The response's http status code.
 tagResourcesResponse_httpStatus :: Lens' TagResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.TagResources.TagResources
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.TagResources.TagResources
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.TagResources.TagResources
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.TagResources.TagResources
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.TagResources.TagResourcesResponse
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.TagResources.TagResourcesResponse
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.TagResources.TagResourcesResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.TagResources.TagResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroupsTagging.TagResources.TagResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.TagResources.TagResourcesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.TagResources.TagResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.TagResources.TagResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroupsTagging.TagResources.TagResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroupsTagging.TagResources.TagResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroupsTagging.TagResources.TagResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.TagResources.TagResources
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.TagResources.TagResources
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.TagResources.TagResources
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.TagResources.TagResources
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.TagResources.TagResources
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.TagResources.TagResourcesResponse
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.TagResources.TagResourcesResponse
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.TagResources.TagResourcesResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.TagResources.TagResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroupsTagging.TagResources.TagResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.TagResources.TagResourcesResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.TagResources.TagResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.TagResources.TagResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroupsTagging.TagResources.TagResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroupsTagging.TagResources.TagResources
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroupsTagging.TagResources.TagResources
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroupsTagging.TagResources.TagResources
 
 
 -- | Generates a report that lists all tagged resources in the accounts
@@ -1052,7 +1052,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.TagRes
 --   
 --   You can call this operation only from the organization's management
 --   account and from the us-east-1 Region.
-module Network.AWS.ResourceGroupsTagging.StartReportCreation
+module Amazonka.ResourceGroupsTagging.StartReportCreation
 
 -- | <i>See:</i> <a>newStartReportCreation</a> smart constructor.
 data StartReportCreation
@@ -1124,22 +1124,22 @@ newStartReportCreationResponse :: Int -> StartReportCreationResponse
 
 -- | The response's http status code.
 startReportCreationResponse_httpStatus :: Lens' StartReportCreationResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreation
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreation
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreation
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreation
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreationResponse
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreationResponse
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreationResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreation
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreation
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreation
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.StartReportCreation.StartReportCreation
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreation
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreation
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreation
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreation
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreationResponse
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreationResponse
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreationResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreation
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreation
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreation
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreation
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroupsTagging.StartReportCreation.StartReportCreation
 
 
 -- | Returns all tag values for the specified key that are used in the
@@ -1155,7 +1155,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.StartR
 --   waiting to be returned.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ResourceGroupsTagging.GetTagValues
+module Amazonka.ResourceGroupsTagging.GetTagValues
 
 -- | <i>See:</i> <a>newGetTagValues</a> smart constructor.
 data GetTagValues
@@ -1256,23 +1256,23 @@ getTagValuesResponse_tagValues :: Lens' GetTagValuesResponse (Maybe [Text])
 
 -- | The response's http status code.
 getTagValuesResponse_httpStatus :: Lens' GetTagValuesResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValues
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValues
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValues
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValues
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValuesResponse
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValuesResponse
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValuesResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValuesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValues
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValuesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValues
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValues
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValues
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValues
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValues
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValues
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.GetTagValues.GetTagValues
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValues
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValues
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValues
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValues
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValuesResponse
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValuesResponse
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValuesResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValuesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValues
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValuesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValues
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValues
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValues
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValues
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValues
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValues
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroupsTagging.GetTagValues.GetTagValues
 
 
 -- | Returns all tag keys currently in use in the specified Region for the
@@ -1288,7 +1288,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.GetTag
 --   waiting to be returned.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ResourceGroupsTagging.GetTagKeys
+module Amazonka.ResourceGroupsTagging.GetTagKeys
 
 -- | <i>See:</i> <a>newGetTagKeys</a> smart constructor.
 data GetTagKeys
@@ -1370,23 +1370,23 @@ getTagKeysResponse_tagKeys :: Lens' GetTagKeysResponse (Maybe [Text])
 
 -- | The response's http status code.
 getTagKeysResponse_httpStatus :: Lens' GetTagKeysResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeys
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeys
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeys
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeys
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeysResponse
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeysResponse
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeysResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeysResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeys
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeysResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeys
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeys
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeys
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeys
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeys
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeys
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.GetTagKeys.GetTagKeys
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeys
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeys
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeys
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeys
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeysResponse
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeysResponse
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeysResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeysResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeys
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeysResponse
+instance Amazonka.Pager.AWSPager Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeys
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeys
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeys
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeys
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeys
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeys
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroupsTagging.GetTagKeys.GetTagKeys
 
 
 -- | Returns all the tagged or previously tagged resources that are located
@@ -1414,7 +1414,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.GetTag
 --   waiting to be returned.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ResourceGroupsTagging.GetResources
+module Amazonka.ResourceGroupsTagging.GetResources
 
 -- | <i>See:</i> <a>newGetResources</a> smart constructor.
 data GetResources
@@ -1838,23 +1838,23 @@ getResourcesResponse_resourceTagMappingList :: Lens' GetResourcesResponse (Maybe
 
 -- | The response's http status code.
 getResourcesResponse_httpStatus :: Lens' GetResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.GetResources.GetResources
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.GetResources.GetResources
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.GetResources.GetResources
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.GetResources.GetResources
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.GetResources.GetResourcesResponse
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.GetResources.GetResourcesResponse
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.GetResources.GetResourcesResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.GetResources.GetResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroupsTagging.GetResources.GetResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.GetResources.GetResourcesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ResourceGroupsTagging.GetResources.GetResources
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.GetResources.GetResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.GetResources.GetResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroupsTagging.GetResources.GetResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroupsTagging.GetResources.GetResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroupsTagging.GetResources.GetResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.GetResources.GetResources
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.GetResources.GetResources
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.GetResources.GetResources
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.GetResources.GetResources
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.GetResources.GetResources
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.GetResources.GetResourcesResponse
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.GetResources.GetResourcesResponse
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.GetResources.GetResourcesResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.GetResources.GetResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroupsTagging.GetResources.GetResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.GetResources.GetResourcesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ResourceGroupsTagging.GetResources.GetResources
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.GetResources.GetResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.GetResources.GetResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroupsTagging.GetResources.GetResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroupsTagging.GetResources.GetResources
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroupsTagging.GetResources.GetResources
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroupsTagging.GetResources.GetResources
 
 
 -- | Returns a table that shows counts of resources that are noncompliant
@@ -1876,7 +1876,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.GetRes
 --   waiting to be returned.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ResourceGroupsTagging.GetComplianceSummary
+module Amazonka.ResourceGroupsTagging.GetComplianceSummary
 
 -- | <i>See:</i> <a>newGetComplianceSummary</a> smart constructor.
 data GetComplianceSummary
@@ -2121,30 +2121,30 @@ getComplianceSummaryResponse_summaryList :: Lens' GetComplianceSummaryResponse (
 
 -- | The response's http status code.
 getComplianceSummaryResponse_httpStatus :: Lens' GetComplianceSummaryResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummaryResponse
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummaryResponse
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummaryResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummaryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummaryResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummaryResponse
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummaryResponse
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummaryResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummaryResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummaryResponse
+instance Amazonka.Pager.AWSPager Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroupsTagging.GetComplianceSummary.GetComplianceSummary
 
 
 -- | Describes the status of the <tt>StartReportCreation</tt> operation.
 --   
 --   You can call this operation only from the organization's management
 --   account and from the us-east-1 Region.
-module Network.AWS.ResourceGroupsTagging.DescribeReportCreation
+module Amazonka.ResourceGroupsTagging.DescribeReportCreation
 
 -- | <i>See:</i> <a>newDescribeReportCreation</a> smart constructor.
 data DescribeReportCreation
@@ -2252,22 +2252,22 @@ describeReportCreationResponse_errorMessage :: Lens' DescribeReportCreationRespo
 
 -- | The response's http status code.
 describeReportCreationResponse_httpStatus :: Lens' DescribeReportCreationResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreationResponse
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreationResponse
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreationResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreationResponse
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreationResponse
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreationResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroupsTagging.DescribeReportCreation.DescribeReportCreation
 
 
 -- | Removes the specified tags from the specified resources. When you
@@ -2283,7 +2283,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.Descri
 --   <li>You can only tag resources that are located in the specified AWS
 --   Region for the calling AWS account.</li>
 --   </ul>
-module Network.AWS.ResourceGroupsTagging.UntagResources
+module Amazonka.ResourceGroupsTagging.UntagResources
 
 -- | <i>See:</i> <a>newUntagResources</a> smart constructor.
 data UntagResources
@@ -2380,25 +2380,25 @@ untagResourcesResponse_failedResourcesMap :: Lens' UntagResourcesResponse (Maybe
 
 -- | The response's http status code.
 untagResourcesResponse_httpStatus :: Lens' UntagResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.UntagResources.UntagResources
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.UntagResources.UntagResources
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.UntagResources.UntagResources
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.UntagResources.UntagResources
-instance GHC.Generics.Generic Network.AWS.ResourceGroupsTagging.UntagResources.UntagResourcesResponse
-instance GHC.Show.Show Network.AWS.ResourceGroupsTagging.UntagResources.UntagResourcesResponse
-instance GHC.Read.Read Network.AWS.ResourceGroupsTagging.UntagResources.UntagResourcesResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroupsTagging.UntagResources.UntagResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroupsTagging.UntagResources.UntagResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.UntagResources.UntagResourcesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroupsTagging.UntagResources.UntagResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroupsTagging.UntagResources.UntagResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroupsTagging.UntagResources.UntagResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroupsTagging.UntagResources.UntagResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroupsTagging.UntagResources.UntagResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroupsTagging.UntagResources.UntagResources
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.UntagResources.UntagResources
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.UntagResources.UntagResources
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.UntagResources.UntagResources
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.UntagResources.UntagResources
+instance GHC.Generics.Generic Amazonka.ResourceGroupsTagging.UntagResources.UntagResourcesResponse
+instance GHC.Show.Show Amazonka.ResourceGroupsTagging.UntagResources.UntagResourcesResponse
+instance GHC.Read.Read Amazonka.ResourceGroupsTagging.UntagResources.UntagResourcesResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroupsTagging.UntagResources.UntagResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroupsTagging.UntagResources.UntagResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.UntagResources.UntagResourcesResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroupsTagging.UntagResources.UntagResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroupsTagging.UntagResources.UntagResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroupsTagging.UntagResources.UntagResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroupsTagging.UntagResources.UntagResources
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroupsTagging.UntagResources.UntagResources
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroupsTagging.UntagResources.UntagResources
 
 
-module Network.AWS.ResourceGroupsTagging.Lens
+module Amazonka.ResourceGroupsTagging.Lens
 
 -- | Specifies a list of attributes to group the counts of noncompliant
 --   resources by. If supplied, the counts are sorted by those attributes.
@@ -2795,14 +2795,14 @@ tagFilter_values :: Lens' TagFilter (Maybe [Text])
 tagFilter_key :: Lens' TagFilter (Maybe Text)
 
 
-module Network.AWS.ResourceGroupsTagging.Waiters
+module Amazonka.ResourceGroupsTagging.Waiters
 
 
 -- | Derived from API version <tt>2017-01-26</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   Resource Groups Tagging API
-module Network.AWS.ResourceGroupsTagging
+module Amazonka.ResourceGroupsTagging
 
 -- | API version <tt>2017-01-26</tt> of the Amazon Resource Groups Tagging
 --   API SDK configuration.

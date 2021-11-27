@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECS.Types.PlacementConstraintType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECS.Types.PlacementConstraintType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType"><span class="hs-identifier">PlacementConstraintType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType_DistinctInstance"><span class="hs-identifier">PlacementConstraintType_DistinctInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType_MemberOf"><span class="hs-identifier">PlacementConstraintType_MemberOf</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679457308"><span id="local-6989586621679457309"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlacementConstraintType"><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType"><span class="hs-identifier hs-var">PlacementConstraintType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementConstraintType%27"><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType%27"><span class="hs-identifier hs-var">PlacementConstraintType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPlacementConstraintType"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; Text
+</span><a href="Amazonka.ECS.Types.PlacementConstraintType.html#fromPlacementConstraintType"><span class="hs-identifier hs-var hs-var">fromPlacementConstraintType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679457300"><span id="local-6989586621679457302"><span id="local-6989586621679457304"><span class="annot"><span class="annottext">Int -&gt; PlacementConstraintType -&gt; ShowS
+[PlacementConstraintType] -&gt; ShowS
+PlacementConstraintType -&gt; String
+(Int -&gt; PlacementConstraintType -&gt; ShowS)
+-&gt; (PlacementConstraintType -&gt; String)
+-&gt; ([PlacementConstraintType] -&gt; ShowS)
+-&gt; Show PlacementConstraintType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PlacementConstraintType] -&gt; ShowS
+$cshowList :: [PlacementConstraintType] -&gt; ShowS
+show :: PlacementConstraintType -&gt; String
+$cshow :: PlacementConstraintType -&gt; String
+showsPrec :: Int -&gt; PlacementConstraintType -&gt; ShowS
+$cshowsPrec :: Int -&gt; PlacementConstraintType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679457291"><span id="local-6989586621679457293"><span id="local-6989586621679457295"><span id="local-6989586621679457297"><span class="annot"><span class="annottext">ReadPrec [PlacementConstraintType]
+ReadPrec PlacementConstraintType
+Int -&gt; ReadS PlacementConstraintType
+ReadS [PlacementConstraintType]
+(Int -&gt; ReadS PlacementConstraintType)
+-&gt; ReadS [PlacementConstraintType]
+-&gt; ReadPrec PlacementConstraintType
+-&gt; ReadPrec [PlacementConstraintType]
+-&gt; Read PlacementConstraintType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PlacementConstraintType]
+$creadListPrec :: ReadPrec [PlacementConstraintType]
+readPrec :: ReadPrec PlacementConstraintType
+$creadPrec :: ReadPrec PlacementConstraintType
+readList :: ReadS [PlacementConstraintType]
+$creadList :: ReadS [PlacementConstraintType]
+readsPrec :: Int -&gt; ReadS PlacementConstraintType
+$creadsPrec :: Int -&gt; ReadS PlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679457286"><span id="local-6989586621679457288"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+(PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool)
+-&gt; (PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool)
+-&gt; Eq PlacementConstraintType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+$c/= :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+== :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+$c== :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679457270"><span id="local-6989586621679457272"><span id="local-6989586621679457274"><span id="local-6989586621679457276"><span id="local-6989586621679457278"><span id="local-6989586621679457280"><span id="local-6989586621679457282"><span class="annot"><span class="annottext">Eq PlacementConstraintType
+Eq PlacementConstraintType
+-&gt; (PlacementConstraintType -&gt; PlacementConstraintType -&gt; Ordering)
+-&gt; (PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool)
+-&gt; (PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool)
+-&gt; (PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool)
+-&gt; (PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool)
+-&gt; (PlacementConstraintType
+    -&gt; PlacementConstraintType -&gt; PlacementConstraintType)
+-&gt; (PlacementConstraintType
+    -&gt; PlacementConstraintType -&gt; PlacementConstraintType)
+-&gt; Ord PlacementConstraintType
+PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+PlacementConstraintType -&gt; PlacementConstraintType -&gt; Ordering
+PlacementConstraintType
+-&gt; PlacementConstraintType -&gt; PlacementConstraintType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PlacementConstraintType
+-&gt; PlacementConstraintType -&gt; PlacementConstraintType
+$cmin :: PlacementConstraintType
+-&gt; PlacementConstraintType -&gt; PlacementConstraintType
+max :: PlacementConstraintType
+-&gt; PlacementConstraintType -&gt; PlacementConstraintType
+$cmax :: PlacementConstraintType
+-&gt; PlacementConstraintType -&gt; PlacementConstraintType
+&gt;= :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+$c&gt;= :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+&gt; :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+$c&gt; :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+&lt;= :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+$c&lt;= :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+&lt; :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+$c&lt; :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+compare :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Ordering
+$ccompare :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Ordering
+$cp1Ord :: Eq PlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ PlacementConstraintType -&gt; Rep PlacementConstraintType x)
+-&gt; (forall x.
+    Rep PlacementConstraintType x -&gt; PlacementConstraintType)
+-&gt; Generic PlacementConstraintType
+forall x. Rep PlacementConstraintType x -&gt; PlacementConstraintType
+forall x. PlacementConstraintType -&gt; Rep PlacementConstraintType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PlacementConstraintType x -&gt; PlacementConstraintType
+$cfrom :: forall x. PlacementConstraintType -&gt; Rep PlacementConstraintType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679457262"><span id="local-6989586621679457264"><span class="annot"><span class="annottext">Int -&gt; PlacementConstraintType -&gt; Int
+PlacementConstraintType -&gt; Int
+(Int -&gt; PlacementConstraintType -&gt; Int)
+-&gt; (PlacementConstraintType -&gt; Int)
+-&gt; Hashable PlacementConstraintType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PlacementConstraintType -&gt; Int
+$chash :: PlacementConstraintType -&gt; Int
+hashWithSalt :: Int -&gt; PlacementConstraintType -&gt; Int
+$chashWithSalt :: Int -&gt; PlacementConstraintType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679457259"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; ()
+(PlacementConstraintType -&gt; ()) -&gt; NFData PlacementConstraintType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PlacementConstraintType -&gt; ()
+$crnf :: PlacementConstraintType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679457256"><span class="annot"><span class="annottext">Text -&gt; Either String PlacementConstraintType
+(Text -&gt; Either String PlacementConstraintType)
+-&gt; FromText PlacementConstraintType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PlacementConstraintType
+$cfromText :: Text -&gt; Either String PlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679457253"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; Text
+(PlacementConstraintType -&gt; Text) -&gt; ToText PlacementConstraintType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PlacementConstraintType -&gt; Text
+$ctoText :: PlacementConstraintType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679457250"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; ByteString
+(PlacementConstraintType -&gt; ByteString)
+-&gt; ToByteString PlacementConstraintType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PlacementConstraintType -&gt; ByteString
+$ctoBS :: PlacementConstraintType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679457247"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; ByteStringBuilder
+(PlacementConstraintType -&gt; ByteStringBuilder)
+-&gt; ToLog PlacementConstraintType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PlacementConstraintType -&gt; ByteStringBuilder
+$cbuild :: PlacementConstraintType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679457244"><span class="annot"><span class="annottext">HeaderName -&gt; PlacementConstraintType -&gt; [Header]
+(HeaderName -&gt; PlacementConstraintType -&gt; [Header])
+-&gt; ToHeader PlacementConstraintType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PlacementConstraintType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PlacementConstraintType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679457241"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; QueryString
+(PlacementConstraintType -&gt; QueryString)
+-&gt; ToQuery PlacementConstraintType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PlacementConstraintType -&gt; QueryString
+$ctoQuery :: PlacementConstraintType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679457236"><span id="local-6989586621679457238"><span class="annot"><span class="annottext">Value -&gt; Parser [PlacementConstraintType]
+Value -&gt; Parser PlacementConstraintType
+(Value -&gt; Parser PlacementConstraintType)
+-&gt; (Value -&gt; Parser [PlacementConstraintType])
+-&gt; FromJSON PlacementConstraintType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PlacementConstraintType]
+$cparseJSONList :: Value -&gt; Parser [PlacementConstraintType]
+parseJSON :: Value -&gt; Parser PlacementConstraintType
+$cparseJSON :: Value -&gt; Parser PlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679457231"><span id="local-6989586621679457233"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlacementConstraintType]
+FromJSONKeyFunction PlacementConstraintType
+FromJSONKeyFunction PlacementConstraintType
+-&gt; FromJSONKeyFunction [PlacementConstraintType]
+-&gt; FromJSONKey PlacementConstraintType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PlacementConstraintType]
+$cfromJSONKeyList :: FromJSONKeyFunction [PlacementConstraintType]
+fromJSONKey :: FromJSONKeyFunction PlacementConstraintType
+$cfromJSONKey :: FromJSONKeyFunction PlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679457222"><span id="local-6989586621679457224"><span id="local-6989586621679457226"><span id="local-6989586621679457228"><span class="annot"><span class="annottext">[PlacementConstraintType] -&gt; Encoding
+[PlacementConstraintType] -&gt; Value
+PlacementConstraintType -&gt; Encoding
+PlacementConstraintType -&gt; Value
+(PlacementConstraintType -&gt; Value)
+-&gt; (PlacementConstraintType -&gt; Encoding)
+-&gt; ([PlacementConstraintType] -&gt; Value)
+-&gt; ([PlacementConstraintType] -&gt; Encoding)
+-&gt; ToJSON PlacementConstraintType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PlacementConstraintType] -&gt; Encoding
+$ctoEncodingList :: [PlacementConstraintType] -&gt; Encoding
+toJSONList :: [PlacementConstraintType] -&gt; Value
+$ctoJSONList :: [PlacementConstraintType] -&gt; Value
+toEncoding :: PlacementConstraintType -&gt; Encoding
+$ctoEncoding :: PlacementConstraintType -&gt; Encoding
+toJSON :: PlacementConstraintType -&gt; Value
+$ctoJSON :: PlacementConstraintType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679457217"><span id="local-6989586621679457219"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlacementConstraintType]
+ToJSONKeyFunction PlacementConstraintType
+ToJSONKeyFunction PlacementConstraintType
+-&gt; ToJSONKeyFunction [PlacementConstraintType]
+-&gt; ToJSONKey PlacementConstraintType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PlacementConstraintType]
+$ctoJSONKeyList :: ToJSONKeyFunction [PlacementConstraintType]
+toJSONKey :: ToJSONKeyFunction PlacementConstraintType
+$ctoJSONKey :: ToJSONKeyFunction PlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679457214"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlacementConstraintType
+([Node] -&gt; Either String PlacementConstraintType)
+-&gt; FromXML PlacementConstraintType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PlacementConstraintType
+$cparseXML :: [Node] -&gt; Either String PlacementConstraintType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679457211"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; XML
+(PlacementConstraintType -&gt; XML) -&gt; ToXML PlacementConstraintType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PlacementConstraintType -&gt; XML
+$ctoXML :: PlacementConstraintType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType_DistinctInstance"><span class="hs-identifier hs-type">PlacementConstraintType_DistinctInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType"><span class="hs-identifier hs-type">PlacementConstraintType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlacementConstraintType_DistinctInstance"><span id="%24mPlacementConstraintType_DistinctInstance"><span id="PlacementConstraintType_DistinctInstance"><span class="annot"><span class="annottext">$bPlacementConstraintType_DistinctInstance :: PlacementConstraintType
+$mPlacementConstraintType_DistinctInstance :: forall r.
+PlacementConstraintType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ECS.Types.PlacementConstraintType.html#%24bPlacementConstraintType_DistinctInstance"><span class="hs-identifier hs-var hs-var hs-var">PlacementConstraintType_DistinctInstance</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType%27"><span class="hs-identifier hs-type">PlacementConstraintType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;distinctInstance&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType_MemberOf"><span class="hs-identifier hs-type">PlacementConstraintType_MemberOf</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType"><span class="hs-identifier hs-type">PlacementConstraintType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlacementConstraintType_MemberOf"><span id="%24mPlacementConstraintType_MemberOf"><span id="PlacementConstraintType_MemberOf"><span class="annot"><span class="annottext">$bPlacementConstraintType_MemberOf :: PlacementConstraintType
+$mPlacementConstraintType_MemberOf :: forall r.
+PlacementConstraintType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ECS.Types.PlacementConstraintType.html#%24bPlacementConstraintType_MemberOf"><span class="hs-identifier hs-var hs-var hs-var">PlacementConstraintType_MemberOf</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType%27"><span class="hs-identifier hs-type">PlacementConstraintType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;memberOf&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType_DistinctInstance"><span class="hs-pragma hs-type">PlacementConstraintType_DistinctInstance</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType_MemberOf"><span class="hs-pragma hs-type">PlacementConstraintType_MemberOf</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.Types.PlacementConstraintType.html#PlacementConstraintType%27"><span class="hs-pragma hs-type">PlacementConstraintType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

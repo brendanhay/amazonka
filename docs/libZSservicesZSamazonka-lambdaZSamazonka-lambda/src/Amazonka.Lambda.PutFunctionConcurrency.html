@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lambda.PutFunctionConcurrency</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sets the maximum number of simultaneous executions for a function, and</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- reserves capacity for that concurrency level.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Concurrency settings apply to the function as a whole, including all</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- published versions and the unpublished version. Reserving concurrency</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- both ensures that your function has capacity to process the specified</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- number of events simultaneously, and prevents it from scaling beyond</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- that level. Use GetFunction to see the current setting for a function.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Use GetAccountSettings to see your Regional concurrency limit. You can</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- reserve concurrency for as many functions as you like, as long as you</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- leave at least 100 simultaneous executions unreserved for functions that</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- aren\'t configured with a per-function limit. For more information, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency&gt;.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lambda.PutFunctionConcurrency</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier">PutFunctionConcurrency</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#newPutFunctionConcurrency"><span class="hs-identifier">newPutFunctionConcurrency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#putFunctionConcurrency_functionName"><span class="hs-identifier">putFunctionConcurrency_functionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#putFunctionConcurrency_reservedConcurrentExecutions"><span class="hs-identifier">putFunctionConcurrency_reservedConcurrentExecutions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier">Concurrency</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.Concurrency.html#newConcurrency"><span class="hs-identifier">newConcurrency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Lambda.Types.Concurrency.html#concurrency_reservedConcurrentExecutions"><span class="hs-identifier">concurrency_reservedConcurrentExecutions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.html"><span class="hs-identifier">Amazonka.Lambda.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newPutFunctionConcurrency' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679302327"><span id="local-6989586621679302328"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFunctionConcurrency"><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-var">PutFunctionConcurrency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFunctionConcurrency%27"><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency%27"><span class="hs-identifier hs-var">PutFunctionConcurrency'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Lambda function.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- __Name formats__</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   __Function name__ - @my-function@.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   __Function ARN__ -</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   __Partial ARN__ - @123456789012:function:my-function@.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- The length constraint applies only to the full ARN. If you specify only</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the function name, it is limited to 64 characters in length.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AfunctionName%3APutFunctionConcurrency%27"><span class="annot"><span class="annottext">PutFunctionConcurrency -&gt; Text
+</span><a href="Amazonka.Lambda.PutFunctionConcurrency.html#%24sel%3AfunctionName%3APutFunctionConcurrency%27"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The number of simultaneous executions to reserve for the function.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AreservedConcurrentExecutions%3APutFunctionConcurrency%27"><span class="annot"><span class="annottext">PutFunctionConcurrency -&gt; Natural
+</span><a href="Amazonka.Lambda.PutFunctionConcurrency.html#%24sel%3AreservedConcurrentExecutions%3APutFunctionConcurrency%27"><span class="hs-identifier hs-var hs-var">reservedConcurrentExecutions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302320"><span id="local-6989586621679302322"><span class="annot"><span class="annottext">PutFunctionConcurrency -&gt; PutFunctionConcurrency -&gt; Bool
+(PutFunctionConcurrency -&gt; PutFunctionConcurrency -&gt; Bool)
+-&gt; (PutFunctionConcurrency -&gt; PutFunctionConcurrency -&gt; Bool)
+-&gt; Eq PutFunctionConcurrency
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutFunctionConcurrency -&gt; PutFunctionConcurrency -&gt; Bool
+$c/= :: PutFunctionConcurrency -&gt; PutFunctionConcurrency -&gt; Bool
+== :: PutFunctionConcurrency -&gt; PutFunctionConcurrency -&gt; Bool
+$c== :: PutFunctionConcurrency -&gt; PutFunctionConcurrency -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302311"><span id="local-6989586621679302313"><span id="local-6989586621679302315"><span id="local-6989586621679302317"><span class="annot"><span class="annottext">ReadPrec [PutFunctionConcurrency]
+ReadPrec PutFunctionConcurrency
+Int -&gt; ReadS PutFunctionConcurrency
+ReadS [PutFunctionConcurrency]
+(Int -&gt; ReadS PutFunctionConcurrency)
+-&gt; ReadS [PutFunctionConcurrency]
+-&gt; ReadPrec PutFunctionConcurrency
+-&gt; ReadPrec [PutFunctionConcurrency]
+-&gt; Read PutFunctionConcurrency
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutFunctionConcurrency]
+$creadListPrec :: ReadPrec [PutFunctionConcurrency]
+readPrec :: ReadPrec PutFunctionConcurrency
+$creadPrec :: ReadPrec PutFunctionConcurrency
+readList :: ReadS [PutFunctionConcurrency]
+$creadList :: ReadS [PutFunctionConcurrency]
+readsPrec :: Int -&gt; ReadS PutFunctionConcurrency
+$creadsPrec :: Int -&gt; ReadS PutFunctionConcurrency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302304"><span id="local-6989586621679302306"><span id="local-6989586621679302308"><span class="annot"><span class="annottext">Int -&gt; PutFunctionConcurrency -&gt; ShowS
+[PutFunctionConcurrency] -&gt; ShowS
+PutFunctionConcurrency -&gt; String
+(Int -&gt; PutFunctionConcurrency -&gt; ShowS)
+-&gt; (PutFunctionConcurrency -&gt; String)
+-&gt; ([PutFunctionConcurrency] -&gt; ShowS)
+-&gt; Show PutFunctionConcurrency
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutFunctionConcurrency] -&gt; ShowS
+$cshowList :: [PutFunctionConcurrency] -&gt; ShowS
+show :: PutFunctionConcurrency -&gt; String
+$cshow :: PutFunctionConcurrency -&gt; String
+showsPrec :: Int -&gt; PutFunctionConcurrency -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutFunctionConcurrency -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutFunctionConcurrency -&gt; Rep PutFunctionConcurrency x)
+-&gt; (forall x.
+    Rep PutFunctionConcurrency x -&gt; PutFunctionConcurrency)
+-&gt; Generic PutFunctionConcurrency
+forall x. Rep PutFunctionConcurrency x -&gt; PutFunctionConcurrency
+forall x. PutFunctionConcurrency -&gt; Rep PutFunctionConcurrency x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutFunctionConcurrency x -&gt; PutFunctionConcurrency
+$cfrom :: forall x. PutFunctionConcurrency -&gt; Rep PutFunctionConcurrency x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'PutFunctionConcurrency' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'functionName', 'putFunctionConcurrency_functionName' - The name of the Lambda function.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- __Name formats__</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   __Function name__ - @my-function@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   __Function ARN__ -</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- -   __Partial ARN__ - @123456789012:function:my-function@.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The length constraint applies only to the full ARN. If you specify only</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- the function name, it is limited to 64 characters in length.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'reservedConcurrentExecutions', 'putFunctionConcurrency_reservedConcurrentExecutions' - The number of simultaneous executions to reserve for the function.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#newPutFunctionConcurrency"><span class="hs-identifier hs-type">newPutFunctionConcurrency</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'functionName'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'reservedConcurrentExecutions'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span><span>
+</span><span id="line-112"></span><span id="newPutFunctionConcurrency"><span class="annot"><span class="annottext">newPutFunctionConcurrency :: Text -&gt; Natural -&gt; PutFunctionConcurrency
+</span><a href="Amazonka.Lambda.PutFunctionConcurrency.html#newPutFunctionConcurrency"><span class="hs-identifier hs-var hs-var">newPutFunctionConcurrency</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679302299"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302299"><span class="hs-identifier hs-var">pFunctionName_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679302298"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679302298"><span class="hs-identifier hs-var">pReservedConcurrentExecutions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">PutFunctionConcurrency' :: Text -&gt; Natural -&gt; PutFunctionConcurrency
+</span><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency%27"><span class="hs-identifier hs-type">PutFunctionConcurrency'</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:functionName:PutFunctionConcurrency' :: Text
+</span><a href="Amazonka.Lambda.PutFunctionConcurrency.html#%24sel%3AfunctionName%3APutFunctionConcurrency%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302299"><span class="hs-identifier hs-var">pFunctionName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:reservedConcurrentExecutions:PutFunctionConcurrency' :: Natural
+</span><a href="Amazonka.Lambda.PutFunctionConcurrency.html#%24sel%3AreservedConcurrentExecutions%3APutFunctionConcurrency%27"><span class="hs-identifier hs-var">reservedConcurrentExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679302298"><span class="hs-identifier hs-var">pReservedConcurrentExecutions_</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The name of the Lambda function.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- __Name formats__</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   __Function name__ - @my-function@.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   __Function ARN__ -</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   __Partial ARN__ - @123456789012:function:my-function@.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- The length constraint applies only to the full ARN. If you specify only</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- the function name, it is limited to 64 characters in length.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#putFunctionConcurrency_functionName"><span class="hs-identifier hs-type">putFunctionConcurrency_functionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-136"></span><span id="putFunctionConcurrency_functionName"><span class="annot"><span class="annottext">putFunctionConcurrency_functionName :: (Text -&gt; f Text)
+-&gt; PutFunctionConcurrency -&gt; f PutFunctionConcurrency
+</span><a href="Amazonka.Lambda.PutFunctionConcurrency.html#putFunctionConcurrency_functionName"><span class="hs-identifier hs-var hs-var">putFunctionConcurrency_functionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFunctionConcurrency -&gt; Text)
+-&gt; (PutFunctionConcurrency -&gt; Text -&gt; PutFunctionConcurrency)
+-&gt; Lens PutFunctionConcurrency PutFunctionConcurrency Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency%27"><span class="hs-identifier hs-type">PutFunctionConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302295"><span class="annot"><span class="annottext">Text
+functionName :: Text
+$sel:functionName:PutFunctionConcurrency' :: PutFunctionConcurrency -&gt; Text
+</span><a href="#local-6989586621679302295"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302295"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302294"><span class="annot"><span class="annottext">s :: PutFunctionConcurrency
+</span><a href="#local-6989586621679302294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency%27"><span class="hs-identifier hs-type">PutFunctionConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302293"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFunctionConcurrency
+</span><a href="#local-6989586621679302294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:PutFunctionConcurrency' :: Text
+</span><a href="Amazonka.Lambda.PutFunctionConcurrency.html#%24sel%3AfunctionName%3APutFunctionConcurrency%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The number of simultaneous executions to reserve for the function.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#putFunctionConcurrency_reservedConcurrentExecutions"><span class="hs-identifier hs-type">putFunctionConcurrency_reservedConcurrentExecutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-140"></span><span id="putFunctionConcurrency_reservedConcurrentExecutions"><span class="annot"><span class="annottext">putFunctionConcurrency_reservedConcurrentExecutions :: (Natural -&gt; f Natural)
+-&gt; PutFunctionConcurrency -&gt; f PutFunctionConcurrency
+</span><a href="Amazonka.Lambda.PutFunctionConcurrency.html#putFunctionConcurrency_reservedConcurrentExecutions"><span class="hs-identifier hs-var hs-var">putFunctionConcurrency_reservedConcurrentExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFunctionConcurrency -&gt; Natural)
+-&gt; (PutFunctionConcurrency -&gt; Natural -&gt; PutFunctionConcurrency)
+-&gt; Lens
+     PutFunctionConcurrency PutFunctionConcurrency Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency%27"><span class="hs-identifier hs-type">PutFunctionConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302292"><span class="annot"><span class="annottext">Natural
+reservedConcurrentExecutions :: Natural
+$sel:reservedConcurrentExecutions:PutFunctionConcurrency' :: PutFunctionConcurrency -&gt; Natural
+</span><a href="#local-6989586621679302292"><span class="hs-identifier hs-var hs-var">reservedConcurrentExecutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679302292"><span class="hs-identifier hs-var">reservedConcurrentExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302291"><span class="annot"><span class="annottext">s :: PutFunctionConcurrency
+</span><a href="#local-6989586621679302291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency%27"><span class="hs-identifier hs-type">PutFunctionConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302290"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679302290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFunctionConcurrency
+</span><a href="#local-6989586621679302291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedConcurrentExecutions:PutFunctionConcurrency' :: Natural
+</span><a href="Amazonka.Lambda.PutFunctionConcurrency.html#%24sel%3AreservedConcurrentExecutions%3APutFunctionConcurrency%27"><span class="hs-identifier hs-var">reservedConcurrentExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679302290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679302286"><span class="annot"><span class="annottext">request :: PutFunctionConcurrency -&gt; Request PutFunctionConcurrency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutFunctionConcurrency -&gt; Request PutFunctionConcurrency
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679302282"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutFunctionConcurrency
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutFunctionConcurrency)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse PutFunctionConcurrency))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutFunctionConcurrency
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutFunctionConcurrency)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302279"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302279"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302278"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679302278"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302277"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302277"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Concurrency
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302277"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302272"><span id="local-6989586621679302274"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302269"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679302265"><span class="annot"><span class="annottext">toHeaders :: PutFunctionConcurrency -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutFunctionConcurrency -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302256"><span id="local-6989586621679302258"><span id="local-6989586621679302260"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679302254"><span class="annot"><span class="annottext">toJSON :: PutFunctionConcurrency -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency%27"><span class="hs-identifier hs-type">PutFunctionConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302251"><span id="local-6989586621679302252"><span class="annot"><span class="annottext">Natural
+Text
+reservedConcurrentExecutions :: Natural
+functionName :: Text
+$sel:reservedConcurrentExecutions:PutFunctionConcurrency' :: PutFunctionConcurrency -&gt; Natural
+$sel:functionName:PutFunctionConcurrency' :: PutFunctionConcurrency -&gt; Text
+</span><a href="#local-6989586621679302251"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-161"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReservedConcurrentExecutions&quot;</span></span><span>
+</span><span id="line-162"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679302251"><span class="hs-identifier hs-var">reservedConcurrentExecutions</span></a></span><span>
+</span><span id="line-163"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679302245"><span class="annot"><span class="annottext">toPath :: PutFunctionConcurrency -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency%27"><span class="hs-identifier hs-type">PutFunctionConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302242"><span id="local-6989586621679302243"><span class="annot"><span class="annottext">Natural
+Text
+reservedConcurrentExecutions :: Natural
+functionName :: Text
+$sel:reservedConcurrentExecutions:PutFunctionConcurrency' :: PutFunctionConcurrency -&gt; Natural
+$sel:functionName:PutFunctionConcurrency' :: PutFunctionConcurrency -&gt; Text
+</span><a href="#local-6989586621679302242"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2017-10-31/functions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302243"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/concurrency&quot;</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.PutFunctionConcurrency.html#PutFunctionConcurrency"><span class="hs-identifier hs-type">PutFunctionConcurrency</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679302238"><span class="annot"><span class="annottext">toQuery :: PutFunctionConcurrency -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutFunctionConcurrency -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-177"></span></pre></body></html>

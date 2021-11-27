@@ -1,0 +1,1097 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMakerRuntime.InvokeEndpoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- After you deploy a model into production using Amazon SageMaker hosting</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- services, your client applications use this API to get inferences from</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- the model hosted at the specified endpoint.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- For an overview of Amazon SageMaker, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html How It Works&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Amazon SageMaker strips all POST headers except those supported by the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- API. Amazon SageMaker might add additional headers. You should not rely</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- on the behavior of headers outside those enumerated in the request</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- syntax.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- Calls to @InvokeEndpoint@ are authenticated by using AWS Signature</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Version 4. For information, see</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html Authenticating Requests (AWS Signature Version 4)&gt;</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- in the /Amazon S3 API Reference/.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- A customer\'s model containers must respond to requests within 60</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- seconds. The model itself can have a maximum processing time of 60</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- seconds before responding to invocations. If your model is going to take</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- 50-60 seconds of processing time, the SDK socket timeout should be set</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- to be 70 seconds.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Endpoints are scoped to an individual account, and are not public. The</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- URL does not contain the account ID, but Amazon SageMaker determines the</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- account ID from the authentication token that is supplied by the caller.</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMakerRuntime.InvokeEndpoint</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier">InvokeEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#newInvokeEndpoint"><span class="hs-identifier">newInvokeEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_accept"><span class="hs-identifier">invokeEndpoint_accept</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_targetModel"><span class="hs-identifier">invokeEndpoint_targetModel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_customAttributes"><span class="hs-identifier">invokeEndpoint_customAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_inferenceId"><span class="hs-identifier">invokeEndpoint_inferenceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_targetVariant"><span class="hs-identifier">invokeEndpoint_targetVariant</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_contentType"><span class="hs-identifier">invokeEndpoint_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_targetContainerHostname"><span class="hs-identifier">invokeEndpoint_targetContainerHostname</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_endpointName"><span class="hs-identifier">invokeEndpoint_endpointName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_body"><span class="hs-identifier">invokeEndpoint_body</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier">InvokeEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#newInvokeEndpointResponse"><span class="hs-identifier">newInvokeEndpointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_invokedProductionVariant"><span class="hs-identifier">invokeEndpointResponse_invokedProductionVariant</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_customAttributes"><span class="hs-identifier">invokeEndpointResponse_customAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_contentType"><span class="hs-identifier">invokeEndpointResponse_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_httpStatus"><span class="hs-identifier">invokeEndpointResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_body"><span class="hs-identifier">invokeEndpointResponse_body</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.Types.html"><span class="hs-identifier">Amazonka.SageMakerRuntime.Types</span></a></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | /See:/ 'newInvokeEndpoint' smart constructor.</span><span>
+</span><span id="line-86"></span><span id="local-6989586621679139018"><span id="local-6989586621679139019"></span></span><span class="hs-keyword">data</span><span> </span><span id="InvokeEndpoint"><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-var">InvokeEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InvokeEndpoint%27"><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-var">InvokeEndpoint'</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The desired MIME type of the inference in the response.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Aaccept%3AInvokeEndpoint%27"><span class="annot"><span class="annottext">InvokeEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3Aaccept%3AInvokeEndpoint%27"><span class="hs-identifier hs-var hs-var">accept</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The model to request for inference when invoking a multi-model endpoint.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AtargetModel%3AInvokeEndpoint%27"><span class="annot"><span class="annottext">InvokeEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AtargetModel%3AInvokeEndpoint%27"><span class="hs-identifier hs-var hs-var">targetModel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Provides additional information about a request for an inference</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- submitted to a model hosted at an Amazon SageMaker endpoint. The</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- information is an opaque value that is forwarded verbatim. You could use</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- this value, for example, to provide an ID that you can use to track a</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- request or to provide other metadata that a service endpoint was</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- programmed to process. The value must consist of no more than 1024</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- visible US-ASCII characters as specified in</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components&gt;</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- of the Hypertext Transfer Protocol (HTTP\/1.1).</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- The code in your model is responsible for setting or updating any custom</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- attributes in the response. If your code does not set this value in the</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- response, an empty value is returned. For example, if a custom attribute</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- represents the trace ID, your model can prepend the custom attribute</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- with @Trace ID:@ in your post-processing function.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- This feature is currently supported in the AWS SDKs but not in the</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- Amazon SageMaker Python SDK.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AcustomAttributes%3AInvokeEndpoint%27"><span class="annot"><span class="annottext">InvokeEndpoint -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AcustomAttributes%3AInvokeEndpoint%27"><span class="hs-identifier hs-var hs-var">customAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | If you provide a value, it is added to the captured data when you enable</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- data capture on the endpoint. For information about data capture, see</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture Data&gt;.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AinferenceId%3AInvokeEndpoint%27"><span class="annot"><span class="annottext">InvokeEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AinferenceId%3AInvokeEndpoint%27"><span class="hs-identifier hs-var hs-var">inferenceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | Specify the production variant to send the inference request to when</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- invoking an endpoint that is running two or more variants. Note that</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- this parameter overrides the default behavior for the endpoint, which is</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- to distribute the invocation traffic based on the variant weights.</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- For information about how to use variant targeting to perform a\/b</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- testing, see</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html Test models in production&gt;</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AtargetVariant%3AInvokeEndpoint%27"><span class="annot"><span class="annottext">InvokeEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AtargetVariant%3AInvokeEndpoint%27"><span class="hs-identifier hs-var hs-var">targetVariant</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The MIME type of the input data in the request body.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AcontentType%3AInvokeEndpoint%27"><span class="annot"><span class="annottext">InvokeEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AcontentType%3AInvokeEndpoint%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | If the endpoint hosts multiple containers and is configured to use</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- direct invocation, this parameter specifies the host name of the</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- container to invoke.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AtargetContainerHostname%3AInvokeEndpoint%27"><span class="annot"><span class="annottext">InvokeEndpoint -&gt; Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AtargetContainerHostname%3AInvokeEndpoint%27"><span class="hs-identifier hs-var hs-var">targetContainerHostname</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The name of the endpoint that you specified when you created the</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- endpoint using the</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint&gt;</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AendpointName%3AInvokeEndpoint%27"><span class="annot"><span class="annottext">InvokeEndpoint -&gt; Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AendpointName%3AInvokeEndpoint%27"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | Provides input data, in the format specified in the @ContentType@</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- request header. Amazon SageMaker passes all of the data in the body to</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- the model.</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- For information about the format of the request body, see</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference&gt;.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3Abody%3AInvokeEndpoint%27"><span class="annot"><span class="annottext">InvokeEndpoint -&gt; Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3Abody%3AInvokeEndpoint%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679139004"><span id="local-6989586621679139006"><span class="annot"><span class="annottext">InvokeEndpoint -&gt; InvokeEndpoint -&gt; Bool
+(InvokeEndpoint -&gt; InvokeEndpoint -&gt; Bool)
+-&gt; (InvokeEndpoint -&gt; InvokeEndpoint -&gt; Bool) -&gt; Eq InvokeEndpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InvokeEndpoint -&gt; InvokeEndpoint -&gt; Bool
+$c/= :: InvokeEndpoint -&gt; InvokeEndpoint -&gt; Bool
+== :: InvokeEndpoint -&gt; InvokeEndpoint -&gt; Bool
+$c== :: InvokeEndpoint -&gt; InvokeEndpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679138997"><span id="local-6989586621679138999"><span id="local-6989586621679139001"><span class="annot"><span class="annottext">Int -&gt; InvokeEndpoint -&gt; ShowS
+[InvokeEndpoint] -&gt; ShowS
+InvokeEndpoint -&gt; String
+(Int -&gt; InvokeEndpoint -&gt; ShowS)
+-&gt; (InvokeEndpoint -&gt; String)
+-&gt; ([InvokeEndpoint] -&gt; ShowS)
+-&gt; Show InvokeEndpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InvokeEndpoint] -&gt; ShowS
+$cshowList :: [InvokeEndpoint] -&gt; ShowS
+show :: InvokeEndpoint -&gt; String
+$cshow :: InvokeEndpoint -&gt; String
+showsPrec :: Int -&gt; InvokeEndpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; InvokeEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InvokeEndpoint -&gt; Rep InvokeEndpoint x)
+-&gt; (forall x. Rep InvokeEndpoint x -&gt; InvokeEndpoint)
+-&gt; Generic InvokeEndpoint
+forall x. Rep InvokeEndpoint x -&gt; InvokeEndpoint
+forall x. InvokeEndpoint -&gt; Rep InvokeEndpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InvokeEndpoint x -&gt; InvokeEndpoint
+$cfrom :: forall x. InvokeEndpoint -&gt; Rep InvokeEndpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Create a value of 'InvokeEndpoint' with all optional fields omitted.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'accept', 'invokeEndpoint_accept' - The desired MIME type of the inference in the response.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'targetModel', 'invokeEndpoint_targetModel' - The model to request for inference when invoking a multi-model endpoint.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'customAttributes', 'invokeEndpoint_customAttributes' - Provides additional information about a request for an inference</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- submitted to a model hosted at an Amazon SageMaker endpoint. The</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- information is an opaque value that is forwarded verbatim. You could use</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- this value, for example, to provide an ID that you can use to track a</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- request or to provide other metadata that a service endpoint was</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- programmed to process. The value must consist of no more than 1024</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- visible US-ASCII characters as specified in</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components&gt;</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- of the Hypertext Transfer Protocol (HTTP\/1.1).</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- The code in your model is responsible for setting or updating any custom</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- attributes in the response. If your code does not set this value in the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- response, an empty value is returned. For example, if a custom attribute</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- represents the trace ID, your model can prepend the custom attribute</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- with @Trace ID:@ in your post-processing function.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- This feature is currently supported in the AWS SDKs but not in the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Amazon SageMaker Python SDK.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'inferenceId', 'invokeEndpoint_inferenceId' - If you provide a value, it is added to the captured data when you enable</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- data capture on the endpoint. For information about data capture, see</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture Data&gt;.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'targetVariant', 'invokeEndpoint_targetVariant' - Specify the production variant to send the inference request to when</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- invoking an endpoint that is running two or more variants. Note that</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- this parameter overrides the default behavior for the endpoint, which is</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- to distribute the invocation traffic based on the variant weights.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- For information about how to use variant targeting to perform a\/b</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- testing, see</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html Test models in production&gt;</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'contentType', 'invokeEndpoint_contentType' - The MIME type of the input data in the request body.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'targetContainerHostname', 'invokeEndpoint_targetContainerHostname' - If the endpoint hosts multiple containers and is configured to use</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- direct invocation, this parameter specifies the host name of the</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- container to invoke.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'endpointName', 'invokeEndpoint_endpointName' - The name of the endpoint that you specified when you created the</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- endpoint using the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint&gt;</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'body', 'invokeEndpoint_body' - Provides input data, in the format specified in the @ContentType@</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- request header. Amazon SageMaker passes all of the data in the body to</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- the model.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- For information about the format of the request body, see</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference&gt;.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#newInvokeEndpoint"><span class="hs-identifier hs-type">newInvokeEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-comment">-- | 'endpointName'</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'body'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span>
+</span><span id="line-211"></span><span id="newInvokeEndpoint"><span class="annot"><span class="annottext">newInvokeEndpoint :: Text -&gt; Text -&gt; InvokeEndpoint
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#newInvokeEndpoint"><span class="hs-identifier hs-var hs-var">newInvokeEndpoint</span></a></span></span><span> </span><span id="local-6989586621679138992"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138992"><span class="hs-identifier hs-var">pEndpointName_</span></a></span></span><span> </span><span id="local-6989586621679138991"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138991"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">InvokeEndpoint' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; InvokeEndpoint
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accept:InvokeEndpoint' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3Aaccept%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">accept</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetModel:InvokeEndpoint' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AtargetModel%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">targetModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:customAttributes:InvokeEndpoint' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AcustomAttributes%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">customAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:inferenceId:InvokeEndpoint' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AinferenceId%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">inferenceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetVariant:InvokeEndpoint' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AtargetVariant%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">targetVariant</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:InvokeEndpoint' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AcontentType%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetContainerHostname:InvokeEndpoint' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AtargetContainerHostname%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">targetContainerHostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointName:InvokeEndpoint' :: Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AendpointName%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138992"><span class="hs-identifier hs-var">pEndpointName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:InvokeEndpoint' :: Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3Abody%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138991"><span class="hs-identifier hs-var">pBody_</span></a></span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The desired MIME type of the inference in the response.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_accept"><span class="hs-identifier hs-type">invokeEndpoint_accept</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="invokeEndpoint_accept"><span class="annot"><span class="annottext">invokeEndpoint_accept :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeEndpoint -&gt; f InvokeEndpoint
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_accept"><span class="hs-identifier hs-var hs-var">invokeEndpoint_accept</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpoint -&gt; Maybe Text)
+-&gt; (InvokeEndpoint -&gt; Maybe Text -&gt; InvokeEndpoint)
+-&gt; Lens InvokeEndpoint InvokeEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138988"><span class="annot"><span class="annottext">Maybe Text
+accept :: Maybe Text
+$sel:accept:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679138988"><span class="hs-identifier hs-var hs-var">accept</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138988"><span class="hs-identifier hs-var">accept</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138987"><span class="annot"><span class="annottext">s :: InvokeEndpoint
+</span><a href="#local-6989586621679138987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138986"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpoint
+</span><a href="#local-6989586621679138987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accept:InvokeEndpoint' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3Aaccept%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">accept</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The model to request for inference when invoking a multi-model endpoint.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_targetModel"><span class="hs-identifier hs-type">invokeEndpoint_targetModel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="invokeEndpoint_targetModel"><span class="annot"><span class="annottext">invokeEndpoint_targetModel :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeEndpoint -&gt; f InvokeEndpoint
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_targetModel"><span class="hs-identifier hs-var hs-var">invokeEndpoint_targetModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpoint -&gt; Maybe Text)
+-&gt; (InvokeEndpoint -&gt; Maybe Text -&gt; InvokeEndpoint)
+-&gt; Lens InvokeEndpoint InvokeEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138985"><span class="annot"><span class="annottext">Maybe Text
+targetModel :: Maybe Text
+$sel:targetModel:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679138985"><span class="hs-identifier hs-var hs-var">targetModel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138985"><span class="hs-identifier hs-var">targetModel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138984"><span class="annot"><span class="annottext">s :: InvokeEndpoint
+</span><a href="#local-6989586621679138984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138983"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpoint
+</span><a href="#local-6989586621679138984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetModel:InvokeEndpoint' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AtargetModel%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">targetModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Provides additional information about a request for an inference</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- submitted to a model hosted at an Amazon SageMaker endpoint. The</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- information is an opaque value that is forwarded verbatim. You could use</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- this value, for example, to provide an ID that you can use to track a</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- request or to provide other metadata that a service endpoint was</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- programmed to process. The value must consist of no more than 1024</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- visible US-ASCII characters as specified in</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components&gt;</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- of the Hypertext Transfer Protocol (HTTP\/1.1).</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- The code in your model is responsible for setting or updating any custom</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- attributes in the response. If your code does not set this value in the</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- response, an empty value is returned. For example, if a custom attribute</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- represents the trace ID, your model can prepend the custom attribute</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- with @Trace ID:@ in your post-processing function.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- This feature is currently supported in the AWS SDKs but not in the</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- Amazon SageMaker Python SDK.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_customAttributes"><span class="hs-identifier hs-type">invokeEndpoint_customAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="invokeEndpoint_customAttributes"><span class="annot"><span class="annottext">invokeEndpoint_customAttributes :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeEndpoint -&gt; f InvokeEndpoint
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_customAttributes"><span class="hs-identifier hs-var hs-var">invokeEndpoint_customAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpoint -&gt; Maybe (Sensitive Text))
+-&gt; (InvokeEndpoint -&gt; Maybe (Sensitive Text) -&gt; InvokeEndpoint)
+-&gt; Lens
+     InvokeEndpoint
+     InvokeEndpoint
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138982"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+customAttributes :: Maybe (Sensitive Text)
+$sel:customAttributes:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679138982"><span class="hs-identifier hs-var hs-var">customAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679138982"><span class="hs-identifier hs-var">customAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138981"><span class="annot"><span class="annottext">s :: InvokeEndpoint
+</span><a href="#local-6989586621679138981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138980"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679138980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpoint
+</span><a href="#local-6989586621679138981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customAttributes:InvokeEndpoint' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AcustomAttributes%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">customAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679138980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; InvokeEndpoint -&gt; f InvokeEndpoint)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeEndpoint
+-&gt; f InvokeEndpoint
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | If you provide a value, it is added to the captured data when you enable</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- data capture on the endpoint. For information about data capture, see</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture Data&gt;.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_inferenceId"><span class="hs-identifier hs-type">invokeEndpoint_inferenceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="invokeEndpoint_inferenceId"><span class="annot"><span class="annottext">invokeEndpoint_inferenceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeEndpoint -&gt; f InvokeEndpoint
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_inferenceId"><span class="hs-identifier hs-var hs-var">invokeEndpoint_inferenceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpoint -&gt; Maybe Text)
+-&gt; (InvokeEndpoint -&gt; Maybe Text -&gt; InvokeEndpoint)
+-&gt; Lens InvokeEndpoint InvokeEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138976"><span class="annot"><span class="annottext">Maybe Text
+inferenceId :: Maybe Text
+$sel:inferenceId:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679138976"><span class="hs-identifier hs-var hs-var">inferenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138976"><span class="hs-identifier hs-var">inferenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138975"><span class="annot"><span class="annottext">s :: InvokeEndpoint
+</span><a href="#local-6989586621679138975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138974"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpoint
+</span><a href="#local-6989586621679138975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferenceId:InvokeEndpoint' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AinferenceId%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">inferenceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | Specify the production variant to send the inference request to when</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- invoking an endpoint that is running two or more variants. Note that</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- this parameter overrides the default behavior for the endpoint, which is</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- to distribute the invocation traffic based on the variant weights.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- For information about how to use variant targeting to perform a\/b</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- testing, see</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html Test models in production&gt;</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_targetVariant"><span class="hs-identifier hs-type">invokeEndpoint_targetVariant</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="invokeEndpoint_targetVariant"><span class="annot"><span class="annottext">invokeEndpoint_targetVariant :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeEndpoint -&gt; f InvokeEndpoint
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_targetVariant"><span class="hs-identifier hs-var hs-var">invokeEndpoint_targetVariant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpoint -&gt; Maybe Text)
+-&gt; (InvokeEndpoint -&gt; Maybe Text -&gt; InvokeEndpoint)
+-&gt; Lens InvokeEndpoint InvokeEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138973"><span class="annot"><span class="annottext">Maybe Text
+targetVariant :: Maybe Text
+$sel:targetVariant:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679138973"><span class="hs-identifier hs-var hs-var">targetVariant</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138973"><span class="hs-identifier hs-var">targetVariant</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138972"><span class="annot"><span class="annottext">s :: InvokeEndpoint
+</span><a href="#local-6989586621679138972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpoint
+</span><a href="#local-6989586621679138972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetVariant:InvokeEndpoint' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AtargetVariant%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">targetVariant</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The MIME type of the input data in the request body.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_contentType"><span class="hs-identifier hs-type">invokeEndpoint_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="invokeEndpoint_contentType"><span class="annot"><span class="annottext">invokeEndpoint_contentType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeEndpoint -&gt; f InvokeEndpoint
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_contentType"><span class="hs-identifier hs-var hs-var">invokeEndpoint_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpoint -&gt; Maybe Text)
+-&gt; (InvokeEndpoint -&gt; Maybe Text -&gt; InvokeEndpoint)
+-&gt; Lens InvokeEndpoint InvokeEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138970"><span class="annot"><span class="annottext">Maybe Text
+contentType :: Maybe Text
+$sel:contentType:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679138970"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138970"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138969"><span class="annot"><span class="annottext">s :: InvokeEndpoint
+</span><a href="#local-6989586621679138969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138968"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpoint
+</span><a href="#local-6989586621679138969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:InvokeEndpoint' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AcontentType%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | If the endpoint hosts multiple containers and is configured to use</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- direct invocation, this parameter specifies the host name of the</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- container to invoke.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_targetContainerHostname"><span class="hs-identifier hs-type">invokeEndpoint_targetContainerHostname</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="invokeEndpoint_targetContainerHostname"><span class="annot"><span class="annottext">invokeEndpoint_targetContainerHostname :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeEndpoint -&gt; f InvokeEndpoint
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_targetContainerHostname"><span class="hs-identifier hs-var hs-var">invokeEndpoint_targetContainerHostname</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpoint -&gt; Maybe Text)
+-&gt; (InvokeEndpoint -&gt; Maybe Text -&gt; InvokeEndpoint)
+-&gt; Lens InvokeEndpoint InvokeEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138967"><span class="annot"><span class="annottext">Maybe Text
+targetContainerHostname :: Maybe Text
+$sel:targetContainerHostname:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679138967"><span class="hs-identifier hs-var hs-var">targetContainerHostname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138967"><span class="hs-identifier hs-var">targetContainerHostname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138966"><span class="annot"><span class="annottext">s :: InvokeEndpoint
+</span><a href="#local-6989586621679138966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138965"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpoint
+</span><a href="#local-6989586621679138966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetContainerHostname:InvokeEndpoint' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AtargetContainerHostname%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">targetContainerHostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | The name of the endpoint that you specified when you created the</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- endpoint using the</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint&gt;</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_endpointName"><span class="hs-identifier hs-type">invokeEndpoint_endpointName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-285"></span><span id="invokeEndpoint_endpointName"><span class="annot"><span class="annottext">invokeEndpoint_endpointName :: (Text -&gt; f Text) -&gt; InvokeEndpoint -&gt; f InvokeEndpoint
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_endpointName"><span class="hs-identifier hs-var hs-var">invokeEndpoint_endpointName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpoint -&gt; Text)
+-&gt; (InvokeEndpoint -&gt; Text -&gt; InvokeEndpoint)
+-&gt; Lens InvokeEndpoint InvokeEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138964"><span class="annot"><span class="annottext">Text
+endpointName :: Text
+$sel:endpointName:InvokeEndpoint' :: InvokeEndpoint -&gt; Text
+</span><a href="#local-6989586621679138964"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138964"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138963"><span class="annot"><span class="annottext">s :: InvokeEndpoint
+</span><a href="#local-6989586621679138963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138962"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpoint
+</span><a href="#local-6989586621679138963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:InvokeEndpoint' :: Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AendpointName%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | Provides input data, in the format specified in the @ContentType@</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- request header. Amazon SageMaker passes all of the data in the body to</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- the model.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- For information about the format of the request body, see</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference&gt;.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_body"><span class="hs-identifier hs-type">invokeEndpoint_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-294"></span><span id="invokeEndpoint_body"><span class="annot"><span class="annottext">invokeEndpoint_body :: (Text -&gt; f Text) -&gt; InvokeEndpoint -&gt; f InvokeEndpoint
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpoint_body"><span class="hs-identifier hs-var hs-var">invokeEndpoint_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpoint -&gt; Text)
+-&gt; (InvokeEndpoint -&gt; Text -&gt; InvokeEndpoint)
+-&gt; Lens InvokeEndpoint InvokeEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138961"><span class="annot"><span class="annottext">Text
+body :: Text
+$sel:body:InvokeEndpoint' :: InvokeEndpoint -&gt; Text
+</span><a href="#local-6989586621679138961"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138961"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138960"><span class="annot"><span class="annottext">s :: InvokeEndpoint
+</span><a href="#local-6989586621679138960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138959"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpoint
+</span><a href="#local-6989586621679138960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:InvokeEndpoint' :: Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3Abody%3AInvokeEndpoint%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-297"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-298"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span><span>
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621679138955"><span class="annot"><span class="annottext">request :: InvokeEndpoint -&gt; Request InvokeEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; InvokeEndpoint -&gt; Request InvokeEndpoint
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMakerRuntime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621679138951"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy InvokeEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse InvokeEndpoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse InvokeEndpoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy InvokeEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse InvokeEndpoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-303"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679138948"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138948"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679138947"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679138947"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679138946"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679138946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-304"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Int
+-&gt; Text
+-&gt; InvokeEndpointResponse
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-var">InvokeEndpointResponse'</span></a></span><span>
+</span><span id="line-305"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; Text
+ -&gt; InvokeEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (Sensitive Text)
+      -&gt; Maybe Text -&gt; Int -&gt; Text -&gt; InvokeEndpointResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679138947"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-Amzn-Invoked-Production-Variant&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (Sensitive Text)
+   -&gt; Maybe Text -&gt; Int -&gt; Text -&gt; InvokeEndpointResponse)
+-&gt; Either String (Maybe (Sensitive Text))
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; Text -&gt; InvokeEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679138947"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; HeaderName -&gt; Either String (Maybe (Sensitive Text))
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amzn-SageMaker-Custom-Attributes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; Text -&gt; InvokeEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; Text -&gt; InvokeEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679138947"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; Text -&gt; InvokeEndpointResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; InvokeEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138948"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; InvokeEndpointResponse)
+-&gt; Either String Text -&gt; Either String InvokeEndpointResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679138946"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138937"><span id="local-6989586621679138939"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span></span></span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span></span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-317"></span><span>  </span><span id="local-6989586621679138930"><span class="annot"><span class="annottext">toHeaders :: InvokeEndpoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138920"><span id="local-6989586621679138921"><span id="local-6989586621679138922"><span id="local-6989586621679138923"><span id="local-6989586621679138924"><span id="local-6989586621679138925"><span id="local-6989586621679138926"><span id="local-6989586621679138927"><span id="local-6989586621679138928"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Text
+body :: Text
+endpointName :: Text
+targetContainerHostname :: Maybe Text
+contentType :: Maybe Text
+targetVariant :: Maybe Text
+inferenceId :: Maybe Text
+customAttributes :: Maybe (Sensitive Text)
+targetModel :: Maybe Text
+accept :: Maybe Text
+$sel:body:InvokeEndpoint' :: InvokeEndpoint -&gt; Text
+$sel:endpointName:InvokeEndpoint' :: InvokeEndpoint -&gt; Text
+$sel:targetContainerHostname:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:contentType:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:targetVariant:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:inferenceId:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:customAttributes:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe (Sensitive Text)
+$sel:targetModel:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:accept:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679138920"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-319"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Accept&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138928"><span class="hs-identifier hs-var">accept</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amzn-SageMaker-Target-Model&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138927"><span class="hs-identifier hs-var">targetModel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amzn-SageMaker-Custom-Attributes&quot;</span></span><span>
+</span><span id="line-322"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679138926"><span class="hs-identifier hs-var">customAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amzn-SageMaker-Inference-Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138925"><span class="hs-identifier hs-var">inferenceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amzn-SageMaker-Target-Variant&quot;</span></span><span>
+</span><span id="line-325"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138924"><span class="hs-identifier hs-var">targetVariant</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138923"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amzn-SageMaker-Target-Container-Hostname&quot;</span></span><span>
+</span><span id="line-328"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138922"><span class="hs-identifier hs-var">targetContainerHostname</span></a></span><span>
+</span><span id="line-329"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138912"><span id="local-6989586621679138914"><span id="local-6989586621679138916"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-332"></span><span>  </span><span id="local-6989586621679138910"><span class="annot"><span class="annottext">toJSON :: InvokeEndpoint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138900"><span id="local-6989586621679138901"><span id="local-6989586621679138902"><span id="local-6989586621679138903"><span id="local-6989586621679138904"><span id="local-6989586621679138905"><span id="local-6989586621679138906"><span id="local-6989586621679138907"><span id="local-6989586621679138908"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Text
+body :: Text
+endpointName :: Text
+targetContainerHostname :: Maybe Text
+contentType :: Maybe Text
+targetVariant :: Maybe Text
+inferenceId :: Maybe Text
+customAttributes :: Maybe (Sensitive Text)
+targetModel :: Maybe Text
+accept :: Maybe Text
+$sel:body:InvokeEndpoint' :: InvokeEndpoint -&gt; Text
+$sel:endpointName:InvokeEndpoint' :: InvokeEndpoint -&gt; Text
+$sel:targetContainerHostname:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:contentType:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:targetVariant:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:inferenceId:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:customAttributes:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe (Sensitive Text)
+$sel:targetModel:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:accept:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679138900"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-333"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-334"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-335"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Body&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138900"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-336"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-339"></span><span>  </span><span id="local-6989586621679138894"><span class="annot"><span class="annottext">toPath :: InvokeEndpoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint%27"><span class="hs-identifier hs-type">InvokeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138884"><span id="local-6989586621679138885"><span id="local-6989586621679138886"><span id="local-6989586621679138887"><span id="local-6989586621679138888"><span id="local-6989586621679138889"><span id="local-6989586621679138890"><span id="local-6989586621679138891"><span id="local-6989586621679138892"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Text
+body :: Text
+endpointName :: Text
+targetContainerHostname :: Maybe Text
+contentType :: Maybe Text
+targetVariant :: Maybe Text
+inferenceId :: Maybe Text
+customAttributes :: Maybe (Sensitive Text)
+targetModel :: Maybe Text
+accept :: Maybe Text
+$sel:body:InvokeEndpoint' :: InvokeEndpoint -&gt; Text
+$sel:endpointName:InvokeEndpoint' :: InvokeEndpoint -&gt; Text
+$sel:targetContainerHostname:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:contentType:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:targetVariant:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:inferenceId:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:customAttributes:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe (Sensitive Text)
+$sel:targetModel:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+$sel:accept:InvokeEndpoint' :: InvokeEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679138884"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-340"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-341"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/endpoints/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138885"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/invocations&quot;</span></span><span>
+</span><span id="line-344"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpoint"><span class="hs-identifier hs-type">InvokeEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-347"></span><span>  </span><span id="local-6989586621679138880"><span class="annot"><span class="annottext">toQuery :: InvokeEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; InvokeEndpoint -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-348"></span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- | /See:/ 'newInvokeEndpointResponse' smart constructor.</span><span>
+</span><span id="line-350"></span><span id="local-6989586621679138876"><span id="local-6989586621679138877"></span></span><span class="hs-keyword">data</span><span> </span><span id="InvokeEndpointResponse"><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-var">InvokeEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InvokeEndpointResponse%27"><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-var">InvokeEndpointResponse'</span></a></span></span><span>
+</span><span id="line-351"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the production variant that was invoked.</span><span>
+</span><span id="line-352"></span><span>    </span><span id="%24sel%3AinvokedProductionVariant%3AInvokeEndpointResponse%27"><span class="annot"><span class="annottext">InvokeEndpointResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AinvokedProductionVariant%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var hs-var">invokedProductionVariant</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>    </span><span class="hs-comment">-- | Provides additional information in the response about the inference</span><span>
+</span><span id="line-354"></span><span>    </span><span class="hs-comment">-- returned by a model hosted at an Amazon SageMaker endpoint. The</span><span>
+</span><span id="line-355"></span><span>    </span><span class="hs-comment">-- information is an opaque value that is forwarded verbatim. You could use</span><span>
+</span><span id="line-356"></span><span>    </span><span class="hs-comment">-- this value, for example, to return an ID received in the</span><span>
+</span><span id="line-357"></span><span>    </span><span class="hs-comment">-- @CustomAttributes@ header of a request or other metadata that a service</span><span>
+</span><span id="line-358"></span><span>    </span><span class="hs-comment">-- endpoint was programmed to produce. The value must consist of no more</span><span>
+</span><span id="line-359"></span><span>    </span><span class="hs-comment">-- than 1024 visible US-ASCII characters as specified in</span><span>
+</span><span id="line-360"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components&gt;</span><span>
+</span><span id="line-361"></span><span>    </span><span class="hs-comment">-- of the Hypertext Transfer Protocol (HTTP\/1.1). If the customer wants</span><span>
+</span><span id="line-362"></span><span>    </span><span class="hs-comment">-- the custom attribute returned, the model must set the custom attribute</span><span>
+</span><span id="line-363"></span><span>    </span><span class="hs-comment">-- to be included on the way back.</span><span>
+</span><span id="line-364"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span>    </span><span class="hs-comment">-- The code in your model is responsible for setting or updating any custom</span><span>
+</span><span id="line-366"></span><span>    </span><span class="hs-comment">-- attributes in the response. If your code does not set this value in the</span><span>
+</span><span id="line-367"></span><span>    </span><span class="hs-comment">-- response, an empty value is returned. For example, if a custom attribute</span><span>
+</span><span id="line-368"></span><span>    </span><span class="hs-comment">-- represents the trace ID, your model can prepend the custom attribute</span><span>
+</span><span id="line-369"></span><span>    </span><span class="hs-comment">-- with @Trace ID:@ in your post-processing function.</span><span>
+</span><span id="line-370"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-371"></span><span>    </span><span class="hs-comment">-- This feature is currently supported in the AWS SDKs but not in the</span><span>
+</span><span id="line-372"></span><span>    </span><span class="hs-comment">-- Amazon SageMaker Python SDK.</span><span>
+</span><span id="line-373"></span><span>    </span><span id="%24sel%3AcustomAttributes%3AInvokeEndpointResponse%27"><span class="annot"><span class="annottext">InvokeEndpointResponse -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AcustomAttributes%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var hs-var">customAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>    </span><span class="hs-comment">-- | The MIME type of the inference returned in the response body.</span><span>
+</span><span id="line-375"></span><span>    </span><span id="%24sel%3AcontentType%3AInvokeEndpointResponse%27"><span class="annot"><span class="annottext">InvokeEndpointResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AcontentType%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-377"></span><span>    </span><span id="%24sel%3AhttpStatus%3AInvokeEndpointResponse%27"><span class="annot"><span class="annottext">InvokeEndpointResponse -&gt; Int
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AhttpStatus%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>    </span><span class="hs-comment">-- | Includes the inference provided by the model.</span><span>
+</span><span id="line-379"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-380"></span><span>    </span><span class="hs-comment">-- For information about the format of the response body, see</span><span>
+</span><span id="line-381"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference&gt;.</span><span>
+</span><span id="line-382"></span><span>    </span><span id="%24sel%3Abody%3AInvokeEndpointResponse%27"><span class="annot"><span class="annottext">InvokeEndpointResponse -&gt; Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3Abody%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-383"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-384"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679138867"><span id="local-6989586621679138869"><span class="annot"><span class="annottext">InvokeEndpointResponse -&gt; InvokeEndpointResponse -&gt; Bool
+(InvokeEndpointResponse -&gt; InvokeEndpointResponse -&gt; Bool)
+-&gt; (InvokeEndpointResponse -&gt; InvokeEndpointResponse -&gt; Bool)
+-&gt; Eq InvokeEndpointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InvokeEndpointResponse -&gt; InvokeEndpointResponse -&gt; Bool
+$c/= :: InvokeEndpointResponse -&gt; InvokeEndpointResponse -&gt; Bool
+== :: InvokeEndpointResponse -&gt; InvokeEndpointResponse -&gt; Bool
+$c== :: InvokeEndpointResponse -&gt; InvokeEndpointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679138861"><span id="local-6989586621679138863"><span id="local-6989586621679138865"><span class="annot"><span class="annottext">Int -&gt; InvokeEndpointResponse -&gt; ShowS
+[InvokeEndpointResponse] -&gt; ShowS
+InvokeEndpointResponse -&gt; String
+(Int -&gt; InvokeEndpointResponse -&gt; ShowS)
+-&gt; (InvokeEndpointResponse -&gt; String)
+-&gt; ([InvokeEndpointResponse] -&gt; ShowS)
+-&gt; Show InvokeEndpointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InvokeEndpointResponse] -&gt; ShowS
+$cshowList :: [InvokeEndpointResponse] -&gt; ShowS
+show :: InvokeEndpointResponse -&gt; String
+$cshow :: InvokeEndpointResponse -&gt; String
+showsPrec :: Int -&gt; InvokeEndpointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; InvokeEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InvokeEndpointResponse -&gt; Rep InvokeEndpointResponse x)
+-&gt; (forall x.
+    Rep InvokeEndpointResponse x -&gt; InvokeEndpointResponse)
+-&gt; Generic InvokeEndpointResponse
+forall x. Rep InvokeEndpointResponse x -&gt; InvokeEndpointResponse
+forall x. InvokeEndpointResponse -&gt; Rep InvokeEndpointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InvokeEndpointResponse x -&gt; InvokeEndpointResponse
+$cfrom :: forall x. InvokeEndpointResponse -&gt; Rep InvokeEndpointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-385"></span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- Create a value of 'InvokeEndpointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-388"></span><span class="hs-comment">--</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- 'invokedProductionVariant', 'invokeEndpointResponse_invokedProductionVariant' - Identifies the production variant that was invoked.</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- 'customAttributes', 'invokeEndpointResponse_customAttributes' - Provides additional information in the response about the inference</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- returned by a model hosted at an Amazon SageMaker endpoint. The</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- information is an opaque value that is forwarded verbatim. You could use</span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- this value, for example, to return an ID received in the</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- @CustomAttributes@ header of a request or other metadata that a service</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- endpoint was programmed to produce. The value must consist of no more</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- than 1024 visible US-ASCII characters as specified in</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components&gt;</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- of the Hypertext Transfer Protocol (HTTP\/1.1). If the customer wants</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- the custom attribute returned, the model must set the custom attribute</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- to be included on the way back.</span><span>
+</span><span id="line-407"></span><span class="hs-comment">--</span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- The code in your model is responsible for setting or updating any custom</span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- attributes in the response. If your code does not set this value in the</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- response, an empty value is returned. For example, if a custom attribute</span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- represents the trace ID, your model can prepend the custom attribute</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- with @Trace ID:@ in your post-processing function.</span><span>
+</span><span id="line-413"></span><span class="hs-comment">--</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- This feature is currently supported in the AWS SDKs but not in the</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- Amazon SageMaker Python SDK.</span><span>
+</span><span id="line-416"></span><span class="hs-comment">--</span><span>
+</span><span id="line-417"></span><span class="hs-comment">-- 'contentType', 'invokeEndpointResponse_contentType' - The MIME type of the inference returned in the response body.</span><span>
+</span><span id="line-418"></span><span class="hs-comment">--</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- 'httpStatus', 'invokeEndpointResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-420"></span><span class="hs-comment">--</span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- 'body', 'invokeEndpointResponse_body' - Includes the inference provided by the model.</span><span>
+</span><span id="line-422"></span><span class="hs-comment">--</span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- For information about the format of the response body, see</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference&gt;.</span><span>
+</span><span id="line-425"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#newInvokeEndpointResponse"><span class="hs-identifier hs-type">newInvokeEndpointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-426"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-427"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-428"></span><span>  </span><span class="hs-comment">-- | 'body'</span><span>
+</span><span id="line-429"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-430"></span><span>  </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span><span>
+</span><span id="line-431"></span><span id="newInvokeEndpointResponse"><span class="annot"><span class="annottext">newInvokeEndpointResponse :: Int -&gt; Text -&gt; InvokeEndpointResponse
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#newInvokeEndpointResponse"><span class="hs-identifier hs-var hs-var">newInvokeEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679138858"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138858"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679138857"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138857"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-432"></span><span>  </span><span class="annot"><span class="annottext">InvokeEndpointResponse' :: Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Int
+-&gt; Text
+-&gt; InvokeEndpointResponse
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-type">InvokeEndpointResponse'</span></a></span><span>
+</span><span id="line-433"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:invokedProductionVariant:InvokeEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AinvokedProductionVariant%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var">invokedProductionVariant</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-434"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-435"></span><span>      </span><span class="annot"><span class="annottext">$sel:customAttributes:InvokeEndpointResponse' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AcustomAttributes%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var">customAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-436"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:InvokeEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AcontentType%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-437"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:InvokeEndpointResponse' :: Int
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AhttpStatus%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138858"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-438"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:InvokeEndpointResponse' :: Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3Abody%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138857"><span class="hs-identifier hs-var">pBody_</span></a></span><span>
+</span><span id="line-439"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-440"></span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- | Identifies the production variant that was invoked.</span><span>
+</span><span id="line-442"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_invokedProductionVariant"><span class="hs-identifier hs-type">invokeEndpointResponse_invokedProductionVariant</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-443"></span><span id="invokeEndpointResponse_invokedProductionVariant"><span class="annot"><span class="annottext">invokeEndpointResponse_invokedProductionVariant :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeEndpointResponse -&gt; f InvokeEndpointResponse
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_invokedProductionVariant"><span class="hs-identifier hs-var hs-var">invokeEndpointResponse_invokedProductionVariant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpointResponse -&gt; Maybe Text)
+-&gt; (InvokeEndpointResponse -&gt; Maybe Text -&gt; InvokeEndpointResponse)
+-&gt; Lens
+     InvokeEndpointResponse
+     InvokeEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-type">InvokeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138856"><span class="annot"><span class="annottext">Maybe Text
+invokedProductionVariant :: Maybe Text
+$sel:invokedProductionVariant:InvokeEndpointResponse' :: InvokeEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679138856"><span class="hs-identifier hs-var hs-var">invokedProductionVariant</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138856"><span class="hs-identifier hs-var">invokedProductionVariant</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138855"><span class="annot"><span class="annottext">s :: InvokeEndpointResponse
+</span><a href="#local-6989586621679138855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-type">InvokeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138854"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpointResponse
+</span><a href="#local-6989586621679138855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invokedProductionVariant:InvokeEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AinvokedProductionVariant%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var">invokedProductionVariant</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-444"></span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- | Provides additional information in the response about the inference</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- returned by a model hosted at an Amazon SageMaker endpoint. The</span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- information is an opaque value that is forwarded verbatim. You could use</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- this value, for example, to return an ID received in the</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- @CustomAttributes@ header of a request or other metadata that a service</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- endpoint was programmed to produce. The value must consist of no more</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- than 1024 visible US-ASCII characters as specified in</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components&gt;</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- of the Hypertext Transfer Protocol (HTTP\/1.1). If the customer wants</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- the custom attribute returned, the model must set the custom attribute</span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- to be included on the way back.</span><span>
+</span><span id="line-456"></span><span class="hs-comment">--</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- The code in your model is responsible for setting or updating any custom</span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- attributes in the response. If your code does not set this value in the</span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- response, an empty value is returned. For example, if a custom attribute</span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- represents the trace ID, your model can prepend the custom attribute</span><span>
+</span><span id="line-461"></span><span class="hs-comment">-- with @Trace ID:@ in your post-processing function.</span><span>
+</span><span id="line-462"></span><span class="hs-comment">--</span><span>
+</span><span id="line-463"></span><span class="hs-comment">-- This feature is currently supported in the AWS SDKs but not in the</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- Amazon SageMaker Python SDK.</span><span>
+</span><span id="line-465"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_customAttributes"><span class="hs-identifier hs-type">invokeEndpointResponse_customAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-466"></span><span id="invokeEndpointResponse_customAttributes"><span class="annot"><span class="annottext">invokeEndpointResponse_customAttributes :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeEndpointResponse -&gt; f InvokeEndpointResponse
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_customAttributes"><span class="hs-identifier hs-var hs-var">invokeEndpointResponse_customAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpointResponse -&gt; Maybe (Sensitive Text))
+-&gt; (InvokeEndpointResponse
+    -&gt; Maybe (Sensitive Text) -&gt; InvokeEndpointResponse)
+-&gt; Lens
+     InvokeEndpointResponse
+     InvokeEndpointResponse
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-type">InvokeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138853"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+customAttributes :: Maybe (Sensitive Text)
+$sel:customAttributes:InvokeEndpointResponse' :: InvokeEndpointResponse -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679138853"><span class="hs-identifier hs-var hs-var">customAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679138853"><span class="hs-identifier hs-var">customAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138852"><span class="annot"><span class="annottext">s :: InvokeEndpointResponse
+</span><a href="#local-6989586621679138852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-type">InvokeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138851"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679138851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpointResponse
+</span><a href="#local-6989586621679138852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customAttributes:InvokeEndpointResponse' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AcustomAttributes%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var">customAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679138851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; InvokeEndpointResponse -&gt; f InvokeEndpointResponse)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeEndpointResponse
+-&gt; f InvokeEndpointResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-467"></span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- | The MIME type of the inference returned in the response body.</span><span>
+</span><span id="line-469"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_contentType"><span class="hs-identifier hs-type">invokeEndpointResponse_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-470"></span><span id="invokeEndpointResponse_contentType"><span class="annot"><span class="annottext">invokeEndpointResponse_contentType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeEndpointResponse -&gt; f InvokeEndpointResponse
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_contentType"><span class="hs-identifier hs-var hs-var">invokeEndpointResponse_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpointResponse -&gt; Maybe Text)
+-&gt; (InvokeEndpointResponse -&gt; Maybe Text -&gt; InvokeEndpointResponse)
+-&gt; Lens
+     InvokeEndpointResponse
+     InvokeEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-type">InvokeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138850"><span class="annot"><span class="annottext">Maybe Text
+contentType :: Maybe Text
+$sel:contentType:InvokeEndpointResponse' :: InvokeEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679138850"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138850"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138849"><span class="annot"><span class="annottext">s :: InvokeEndpointResponse
+</span><a href="#local-6989586621679138849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-type">InvokeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138848"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpointResponse
+</span><a href="#local-6989586621679138849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:InvokeEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AcontentType%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-471"></span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-473"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_httpStatus"><span class="hs-identifier hs-type">invokeEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-474"></span><span id="invokeEndpointResponse_httpStatus"><span class="annot"><span class="annottext">invokeEndpointResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; InvokeEndpointResponse -&gt; f InvokeEndpointResponse
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_httpStatus"><span class="hs-identifier hs-var hs-var">invokeEndpointResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpointResponse -&gt; Int)
+-&gt; (InvokeEndpointResponse -&gt; Int -&gt; InvokeEndpointResponse)
+-&gt; Lens InvokeEndpointResponse InvokeEndpointResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-type">InvokeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138847"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:InvokeEndpointResponse' :: InvokeEndpointResponse -&gt; Int
+</span><a href="#local-6989586621679138847"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138847"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138846"><span class="annot"><span class="annottext">s :: InvokeEndpointResponse
+</span><a href="#local-6989586621679138846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-type">InvokeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138845"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpointResponse
+</span><a href="#local-6989586621679138846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InvokeEndpointResponse' :: Int
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3AhttpStatus%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-475"></span><span>
+</span><span id="line-476"></span><span class="hs-comment">-- | Includes the inference provided by the model.</span><span>
+</span><span id="line-477"></span><span class="hs-comment">--</span><span>
+</span><span id="line-478"></span><span class="hs-comment">-- For information about the format of the response body, see</span><span>
+</span><span id="line-479"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference&gt;.</span><span>
+</span><span id="line-480"></span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_body"><span class="hs-identifier hs-type">invokeEndpointResponse_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-481"></span><span id="invokeEndpointResponse_body"><span class="annot"><span class="annottext">invokeEndpointResponse_body :: (Text -&gt; f Text)
+-&gt; InvokeEndpointResponse -&gt; f InvokeEndpointResponse
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#invokeEndpointResponse_body"><span class="hs-identifier hs-var hs-var">invokeEndpointResponse_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeEndpointResponse -&gt; Text)
+-&gt; (InvokeEndpointResponse -&gt; Text -&gt; InvokeEndpointResponse)
+-&gt; Lens InvokeEndpointResponse InvokeEndpointResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-type">InvokeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138844"><span class="annot"><span class="annottext">Text
+body :: Text
+$sel:body:InvokeEndpointResponse' :: InvokeEndpointResponse -&gt; Text
+</span><a href="#local-6989586621679138844"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138844"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138843"><span class="annot"><span class="annottext">s :: InvokeEndpointResponse
+</span><a href="#local-6989586621679138843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse%27"><span class="hs-identifier hs-type">InvokeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138842"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeEndpointResponse
+</span><a href="#local-6989586621679138843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:InvokeEndpointResponse' :: Text
+</span><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#%24sel%3Abody%3AInvokeEndpointResponse%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679138842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-482"></span><span>
+</span><span id="line-483"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerRuntime.InvokeEndpoint.html#InvokeEndpointResponse"><span class="hs-identifier hs-type">InvokeEndpointResponse</span></a></span></span><span>
+</span><span id="line-484"></span></pre></body></html>

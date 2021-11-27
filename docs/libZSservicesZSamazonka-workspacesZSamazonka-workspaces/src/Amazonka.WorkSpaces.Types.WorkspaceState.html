@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WorkSpaces.Types.WorkspaceState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkSpaces.Types.WorkspaceState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier">WorkspaceState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_ADMIN_MAINTENANCE"><span class="hs-identifier">WorkspaceState_ADMIN_MAINTENANCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_AVAILABLE"><span class="hs-identifier">WorkspaceState_AVAILABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_ERROR"><span class="hs-identifier">WorkspaceState_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_IMPAIRED"><span class="hs-identifier">WorkspaceState_IMPAIRED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_MAINTENANCE"><span class="hs-identifier">WorkspaceState_MAINTENANCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_PENDING"><span class="hs-identifier">WorkspaceState_PENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_REBOOTING"><span class="hs-identifier">WorkspaceState_REBOOTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_REBUILDING"><span class="hs-identifier">WorkspaceState_REBUILDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_RESTORING"><span class="hs-identifier">WorkspaceState_RESTORING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_STARTING"><span class="hs-identifier">WorkspaceState_STARTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_STOPPED"><span class="hs-identifier">WorkspaceState_STOPPED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_STOPPING"><span class="hs-identifier">WorkspaceState_STOPPING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_SUSPENDED"><span class="hs-identifier">WorkspaceState_SUSPENDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_TERMINATED"><span class="hs-identifier">WorkspaceState_TERMINATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_TERMINATING"><span class="hs-identifier">WorkspaceState_TERMINATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_UNHEALTHY"><span class="hs-identifier">WorkspaceState_UNHEALTHY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_UPDATING"><span class="hs-identifier">WorkspaceState_UPDATING</span></a></span><span>
+</span><span id="line-40"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679276773"><span id="local-6989586621679276774"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkspaceState"><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-var">WorkspaceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceState%27"><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-var">WorkspaceState'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorkspaceState"><span class="annot"><span class="annottext">WorkspaceState -&gt; Text
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#fromWorkspaceState"><span class="hs-identifier hs-var hs-var">fromWorkspaceState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276765"><span id="local-6989586621679276767"><span id="local-6989586621679276769"><span class="annot"><span class="annottext">Int -&gt; WorkspaceState -&gt; ShowS
+[WorkspaceState] -&gt; ShowS
+WorkspaceState -&gt; String
+(Int -&gt; WorkspaceState -&gt; ShowS)
+-&gt; (WorkspaceState -&gt; String)
+-&gt; ([WorkspaceState] -&gt; ShowS)
+-&gt; Show WorkspaceState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkspaceState] -&gt; ShowS
+$cshowList :: [WorkspaceState] -&gt; ShowS
+show :: WorkspaceState -&gt; String
+$cshow :: WorkspaceState -&gt; String
+showsPrec :: Int -&gt; WorkspaceState -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkspaceState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679276756"><span id="local-6989586621679276758"><span id="local-6989586621679276760"><span id="local-6989586621679276762"><span class="annot"><span class="annottext">ReadPrec [WorkspaceState]
+ReadPrec WorkspaceState
+Int -&gt; ReadS WorkspaceState
+ReadS [WorkspaceState]
+(Int -&gt; ReadS WorkspaceState)
+-&gt; ReadS [WorkspaceState]
+-&gt; ReadPrec WorkspaceState
+-&gt; ReadPrec [WorkspaceState]
+-&gt; Read WorkspaceState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorkspaceState]
+$creadListPrec :: ReadPrec [WorkspaceState]
+readPrec :: ReadPrec WorkspaceState
+$creadPrec :: ReadPrec WorkspaceState
+readList :: ReadS [WorkspaceState]
+$creadList :: ReadS [WorkspaceState]
+readsPrec :: Int -&gt; ReadS WorkspaceState
+$creadsPrec :: Int -&gt; ReadS WorkspaceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679276751"><span id="local-6989586621679276753"><span class="annot"><span class="annottext">WorkspaceState -&gt; WorkspaceState -&gt; Bool
+(WorkspaceState -&gt; WorkspaceState -&gt; Bool)
+-&gt; (WorkspaceState -&gt; WorkspaceState -&gt; Bool) -&gt; Eq WorkspaceState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
+$c/= :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
+== :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
+$c== :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679276735"><span id="local-6989586621679276737"><span id="local-6989586621679276739"><span id="local-6989586621679276741"><span id="local-6989586621679276743"><span id="local-6989586621679276745"><span id="local-6989586621679276747"><span class="annot"><span class="annottext">Eq WorkspaceState
+Eq WorkspaceState
+-&gt; (WorkspaceState -&gt; WorkspaceState -&gt; Ordering)
+-&gt; (WorkspaceState -&gt; WorkspaceState -&gt; Bool)
+-&gt; (WorkspaceState -&gt; WorkspaceState -&gt; Bool)
+-&gt; (WorkspaceState -&gt; WorkspaceState -&gt; Bool)
+-&gt; (WorkspaceState -&gt; WorkspaceState -&gt; Bool)
+-&gt; (WorkspaceState -&gt; WorkspaceState -&gt; WorkspaceState)
+-&gt; (WorkspaceState -&gt; WorkspaceState -&gt; WorkspaceState)
+-&gt; Ord WorkspaceState
+WorkspaceState -&gt; WorkspaceState -&gt; Bool
+WorkspaceState -&gt; WorkspaceState -&gt; Ordering
+WorkspaceState -&gt; WorkspaceState -&gt; WorkspaceState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WorkspaceState -&gt; WorkspaceState -&gt; WorkspaceState
+$cmin :: WorkspaceState -&gt; WorkspaceState -&gt; WorkspaceState
+max :: WorkspaceState -&gt; WorkspaceState -&gt; WorkspaceState
+$cmax :: WorkspaceState -&gt; WorkspaceState -&gt; WorkspaceState
+&gt;= :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
+$c&gt;= :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
+&gt; :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
+$c&gt; :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
+&lt;= :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
+$c&lt;= :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
+&lt; :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
+$c&lt; :: WorkspaceState -&gt; WorkspaceState -&gt; Bool
+compare :: WorkspaceState -&gt; WorkspaceState -&gt; Ordering
+$ccompare :: WorkspaceState -&gt; WorkspaceState -&gt; Ordering
+$cp1Ord :: Eq WorkspaceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">(forall x. WorkspaceState -&gt; Rep WorkspaceState x)
+-&gt; (forall x. Rep WorkspaceState x -&gt; WorkspaceState)
+-&gt; Generic WorkspaceState
+forall x. Rep WorkspaceState x -&gt; WorkspaceState
+forall x. WorkspaceState -&gt; Rep WorkspaceState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WorkspaceState x -&gt; WorkspaceState
+$cfrom :: forall x. WorkspaceState -&gt; Rep WorkspaceState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276727"><span id="local-6989586621679276729"><span class="annot"><span class="annottext">Int -&gt; WorkspaceState -&gt; Int
+WorkspaceState -&gt; Int
+(Int -&gt; WorkspaceState -&gt; Int)
+-&gt; (WorkspaceState -&gt; Int) -&gt; Hashable WorkspaceState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WorkspaceState -&gt; Int
+$chash :: WorkspaceState -&gt; Int
+hashWithSalt :: Int -&gt; WorkspaceState -&gt; Int
+$chashWithSalt :: Int -&gt; WorkspaceState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679276724"><span class="annot"><span class="annottext">WorkspaceState -&gt; ()
+(WorkspaceState -&gt; ()) -&gt; NFData WorkspaceState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WorkspaceState -&gt; ()
+$crnf :: WorkspaceState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679276721"><span class="annot"><span class="annottext">Text -&gt; Either String WorkspaceState
+(Text -&gt; Either String WorkspaceState) -&gt; FromText WorkspaceState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WorkspaceState
+$cfromText :: Text -&gt; Either String WorkspaceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679276718"><span class="annot"><span class="annottext">WorkspaceState -&gt; Text
+(WorkspaceState -&gt; Text) -&gt; ToText WorkspaceState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WorkspaceState -&gt; Text
+$ctoText :: WorkspaceState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679276715"><span class="annot"><span class="annottext">WorkspaceState -&gt; ByteString
+(WorkspaceState -&gt; ByteString) -&gt; ToByteString WorkspaceState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WorkspaceState -&gt; ByteString
+$ctoBS :: WorkspaceState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679276712"><span class="annot"><span class="annottext">WorkspaceState -&gt; ByteStringBuilder
+(WorkspaceState -&gt; ByteStringBuilder) -&gt; ToLog WorkspaceState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WorkspaceState -&gt; ByteStringBuilder
+$cbuild :: WorkspaceState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679276709"><span class="annot"><span class="annottext">HeaderName -&gt; WorkspaceState -&gt; [Header]
+(HeaderName -&gt; WorkspaceState -&gt; [Header])
+-&gt; ToHeader WorkspaceState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WorkspaceState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WorkspaceState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679276706"><span class="annot"><span class="annottext">WorkspaceState -&gt; QueryString
+(WorkspaceState -&gt; QueryString) -&gt; ToQuery WorkspaceState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WorkspaceState -&gt; QueryString
+$ctoQuery :: WorkspaceState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679276701"><span id="local-6989586621679276703"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkspaceState]
+Value -&gt; Parser WorkspaceState
+(Value -&gt; Parser WorkspaceState)
+-&gt; (Value -&gt; Parser [WorkspaceState]) -&gt; FromJSON WorkspaceState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WorkspaceState]
+$cparseJSONList :: Value -&gt; Parser [WorkspaceState]
+parseJSON :: Value -&gt; Parser WorkspaceState
+$cparseJSON :: Value -&gt; Parser WorkspaceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679276696"><span id="local-6989586621679276698"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkspaceState]
+FromJSONKeyFunction WorkspaceState
+FromJSONKeyFunction WorkspaceState
+-&gt; FromJSONKeyFunction [WorkspaceState]
+-&gt; FromJSONKey WorkspaceState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WorkspaceState]
+$cfromJSONKeyList :: FromJSONKeyFunction [WorkspaceState]
+fromJSONKey :: FromJSONKeyFunction WorkspaceState
+$cfromJSONKey :: FromJSONKeyFunction WorkspaceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679276687"><span id="local-6989586621679276689"><span id="local-6989586621679276691"><span id="local-6989586621679276693"><span class="annot"><span class="annottext">[WorkspaceState] -&gt; Encoding
+[WorkspaceState] -&gt; Value
+WorkspaceState -&gt; Encoding
+WorkspaceState -&gt; Value
+(WorkspaceState -&gt; Value)
+-&gt; (WorkspaceState -&gt; Encoding)
+-&gt; ([WorkspaceState] -&gt; Value)
+-&gt; ([WorkspaceState] -&gt; Encoding)
+-&gt; ToJSON WorkspaceState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WorkspaceState] -&gt; Encoding
+$ctoEncodingList :: [WorkspaceState] -&gt; Encoding
+toJSONList :: [WorkspaceState] -&gt; Value
+$ctoJSONList :: [WorkspaceState] -&gt; Value
+toEncoding :: WorkspaceState -&gt; Encoding
+$ctoEncoding :: WorkspaceState -&gt; Encoding
+toJSON :: WorkspaceState -&gt; Value
+$ctoJSON :: WorkspaceState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679276682"><span id="local-6989586621679276684"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkspaceState]
+ToJSONKeyFunction WorkspaceState
+ToJSONKeyFunction WorkspaceState
+-&gt; ToJSONKeyFunction [WorkspaceState] -&gt; ToJSONKey WorkspaceState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WorkspaceState]
+$ctoJSONKeyList :: ToJSONKeyFunction [WorkspaceState]
+toJSONKey :: ToJSONKeyFunction WorkspaceState
+$ctoJSONKey :: ToJSONKeyFunction WorkspaceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679276679"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkspaceState
+([Node] -&gt; Either String WorkspaceState) -&gt; FromXML WorkspaceState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WorkspaceState
+$cparseXML :: [Node] -&gt; Either String WorkspaceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679276676"><span class="annot"><span class="annottext">WorkspaceState -&gt; XML
+(WorkspaceState -&gt; XML) -&gt; ToXML WorkspaceState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WorkspaceState -&gt; XML
+$ctoXML :: WorkspaceState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_ADMIN_MAINTENANCE"><span class="hs-identifier hs-type">WorkspaceState_ADMIN_MAINTENANCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_ADMIN_MAINTENANCE"><span id="%24mWorkspaceState_ADMIN_MAINTENANCE"><span id="WorkspaceState_ADMIN_MAINTENANCE"><span class="annot"><span class="annottext">$bWorkspaceState_ADMIN_MAINTENANCE :: WorkspaceState
+$mWorkspaceState_ADMIN_MAINTENANCE :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_ADMIN_MAINTENANCE"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_ADMIN_MAINTENANCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADMIN_MAINTENANCE&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_AVAILABLE"><span class="hs-identifier hs-type">WorkspaceState_AVAILABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_AVAILABLE"><span id="%24mWorkspaceState_AVAILABLE"><span id="WorkspaceState_AVAILABLE"><span class="annot"><span class="annottext">$bWorkspaceState_AVAILABLE :: WorkspaceState
+$mWorkspaceState_AVAILABLE :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_AVAILABLE"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_AVAILABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AVAILABLE&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_ERROR"><span class="hs-identifier hs-type">WorkspaceState_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_ERROR"><span id="%24mWorkspaceState_ERROR"><span id="WorkspaceState_ERROR"><span class="annot"><span class="annottext">$bWorkspaceState_ERROR :: WorkspaceState
+$mWorkspaceState_ERROR :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_ERROR"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_IMPAIRED"><span class="hs-identifier hs-type">WorkspaceState_IMPAIRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_IMPAIRED"><span id="%24mWorkspaceState_IMPAIRED"><span id="WorkspaceState_IMPAIRED"><span class="annot"><span class="annottext">$bWorkspaceState_IMPAIRED :: WorkspaceState
+$mWorkspaceState_IMPAIRED :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_IMPAIRED"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_IMPAIRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMPAIRED&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_MAINTENANCE"><span class="hs-identifier hs-type">WorkspaceState_MAINTENANCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_MAINTENANCE"><span id="%24mWorkspaceState_MAINTENANCE"><span id="WorkspaceState_MAINTENANCE"><span class="annot"><span class="annottext">$bWorkspaceState_MAINTENANCE :: WorkspaceState
+$mWorkspaceState_MAINTENANCE :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_MAINTENANCE"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_MAINTENANCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MAINTENANCE&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_PENDING"><span class="hs-identifier hs-type">WorkspaceState_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_PENDING"><span id="%24mWorkspaceState_PENDING"><span id="WorkspaceState_PENDING"><span class="annot"><span class="annottext">$bWorkspaceState_PENDING :: WorkspaceState
+$mWorkspaceState_PENDING :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_PENDING"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_REBOOTING"><span class="hs-identifier hs-type">WorkspaceState_REBOOTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_REBOOTING"><span id="%24mWorkspaceState_REBOOTING"><span id="WorkspaceState_REBOOTING"><span class="annot"><span class="annottext">$bWorkspaceState_REBOOTING :: WorkspaceState
+$mWorkspaceState_REBOOTING :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_REBOOTING"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_REBOOTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REBOOTING&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_REBUILDING"><span class="hs-identifier hs-type">WorkspaceState_REBUILDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_REBUILDING"><span id="%24mWorkspaceState_REBUILDING"><span id="WorkspaceState_REBUILDING"><span class="annot"><span class="annottext">$bWorkspaceState_REBUILDING :: WorkspaceState
+$mWorkspaceState_REBUILDING :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_REBUILDING"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_REBUILDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REBUILDING&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_RESTORING"><span class="hs-identifier hs-type">WorkspaceState_RESTORING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_RESTORING"><span id="%24mWorkspaceState_RESTORING"><span id="WorkspaceState_RESTORING"><span class="annot"><span class="annottext">$bWorkspaceState_RESTORING :: WorkspaceState
+$mWorkspaceState_RESTORING :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_RESTORING"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_RESTORING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RESTORING&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_STARTING"><span class="hs-identifier hs-type">WorkspaceState_STARTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_STARTING"><span id="%24mWorkspaceState_STARTING"><span id="WorkspaceState_STARTING"><span class="annot"><span class="annottext">$bWorkspaceState_STARTING :: WorkspaceState
+$mWorkspaceState_STARTING :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_STARTING"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_STARTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STARTING&quot;</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_STOPPED"><span class="hs-identifier hs-type">WorkspaceState_STOPPED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_STOPPED"><span id="%24mWorkspaceState_STOPPED"><span id="WorkspaceState_STOPPED"><span class="annot"><span class="annottext">$bWorkspaceState_STOPPED :: WorkspaceState
+$mWorkspaceState_STOPPED :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_STOPPED"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_STOPPED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STOPPED&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_STOPPING"><span class="hs-identifier hs-type">WorkspaceState_STOPPING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_STOPPING"><span id="%24mWorkspaceState_STOPPING"><span id="WorkspaceState_STOPPING"><span class="annot"><span class="annottext">$bWorkspaceState_STOPPING :: WorkspaceState
+$mWorkspaceState_STOPPING :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_STOPPING"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_STOPPING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STOPPING&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_SUSPENDED"><span class="hs-identifier hs-type">WorkspaceState_SUSPENDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_SUSPENDED"><span id="%24mWorkspaceState_SUSPENDED"><span id="WorkspaceState_SUSPENDED"><span class="annot"><span class="annottext">$bWorkspaceState_SUSPENDED :: WorkspaceState
+$mWorkspaceState_SUSPENDED :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_SUSPENDED"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_SUSPENDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUSPENDED&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_TERMINATED"><span class="hs-identifier hs-type">WorkspaceState_TERMINATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_TERMINATED"><span id="%24mWorkspaceState_TERMINATED"><span id="WorkspaceState_TERMINATED"><span class="annot"><span class="annottext">$bWorkspaceState_TERMINATED :: WorkspaceState
+$mWorkspaceState_TERMINATED :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_TERMINATED"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_TERMINATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERMINATED&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_TERMINATING"><span class="hs-identifier hs-type">WorkspaceState_TERMINATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_TERMINATING"><span id="%24mWorkspaceState_TERMINATING"><span id="WorkspaceState_TERMINATING"><span class="annot"><span class="annottext">$bWorkspaceState_TERMINATING :: WorkspaceState
+$mWorkspaceState_TERMINATING :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_TERMINATING"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_TERMINATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERMINATING&quot;</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_UNHEALTHY"><span class="hs-identifier hs-type">WorkspaceState_UNHEALTHY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_UNHEALTHY"><span id="%24mWorkspaceState_UNHEALTHY"><span id="WorkspaceState_UNHEALTHY"><span class="annot"><span class="annottext">$bWorkspaceState_UNHEALTHY :: WorkspaceState
+$mWorkspaceState_UNHEALTHY :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_UNHEALTHY"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_UNHEALTHY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNHEALTHY&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_UPDATING"><span class="hs-identifier hs-type">WorkspaceState_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState"><span class="hs-identifier hs-type">WorkspaceState</span></a></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceState_UPDATING"><span id="%24mWorkspaceState_UPDATING"><span id="WorkspaceState_UPDATING"><span class="annot"><span class="annottext">$bWorkspaceState_UPDATING :: WorkspaceState
+$mWorkspaceState_UPDATING :: forall r. WorkspaceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#%24bWorkspaceState_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceState_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-identifier hs-type">WorkspaceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_ADMIN_MAINTENANCE"><span class="hs-pragma hs-type">WorkspaceState_ADMIN_MAINTENANCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_AVAILABLE"><span class="hs-pragma hs-type">WorkspaceState_AVAILABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_ERROR"><span class="hs-pragma hs-type">WorkspaceState_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_IMPAIRED"><span class="hs-pragma hs-type">WorkspaceState_IMPAIRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_MAINTENANCE"><span class="hs-pragma hs-type">WorkspaceState_MAINTENANCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_PENDING"><span class="hs-pragma hs-type">WorkspaceState_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_REBOOTING"><span class="hs-pragma hs-type">WorkspaceState_REBOOTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_REBUILDING"><span class="hs-pragma hs-type">WorkspaceState_REBUILDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_RESTORING"><span class="hs-pragma hs-type">WorkspaceState_RESTORING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_STARTING"><span class="hs-pragma hs-type">WorkspaceState_STARTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_STOPPED"><span class="hs-pragma hs-type">WorkspaceState_STOPPED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_STOPPING"><span class="hs-pragma hs-type">WorkspaceState_STOPPING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_SUSPENDED"><span class="hs-pragma hs-type">WorkspaceState_SUSPENDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_TERMINATED"><span class="hs-pragma hs-type">WorkspaceState_TERMINATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_TERMINATING"><span class="hs-pragma hs-type">WorkspaceState_TERMINATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_UNHEALTHY"><span class="hs-pragma hs-type">WorkspaceState_UNHEALTHY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState_UPDATING"><span class="hs-pragma hs-type">WorkspaceState_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.WorkspaceState.html#WorkspaceState%27"><span class="hs-pragma hs-type">WorkspaceState'</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-146"></span></pre></body></html>

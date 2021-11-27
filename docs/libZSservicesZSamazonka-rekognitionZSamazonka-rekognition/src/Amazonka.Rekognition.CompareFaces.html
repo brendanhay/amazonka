@@ -1,0 +1,1044 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Rekognition.CompareFaces</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Compares a face in the /source/ input image with each of the 100 largest</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- faces detected in the /target/ input image.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- If the source image contains multiple faces, the service detects the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- largest face and compares it with each face detected in the target</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- image.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- CompareFaces uses machine learning algorithms, which are probabilistic.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- A false negative is an incorrect prediction that a face in the target</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- image has a low similarity confidence score when compared to the face in</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- the source image. To reduce the probability of false negatives, we</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- recommend that you compare the target image against multiple source</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- images. If you plan to use @CompareFaces@ to make a decision that</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- impacts an individual\'s rights, privacy, or access to services, we</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- recommend that you pass the result to a human for review and further</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- validation before taking action.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- You pass the input and target images either as base64-encoded image</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- bytes or as references to images in an Amazon S3 bucket. If you use the</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing image bytes</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- isn\'t supported. The image must be formatted as a PNG or JPEG file.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- In response, the operation returns an array of face matches ordered by</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- similarity score in descending order. For each face match, the response</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- provides a bounding box of the face, facial landmarks, pose details</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- (pitch, role, and yaw), quality (brightness and sharpness), and</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- confidence value (indicating the level of confidence that the bounding</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- box contains a face). The response also provides a similarity score,</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- which indicates how closely the faces match.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- By default, only faces with a similarity score of greater than or equal</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- to 80% are returned in the response. You can change this value by</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- specifying the @SimilarityThreshold@ parameter.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- @CompareFaces@ also returns an array of faces that don\'t match the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- source image. For each face, it returns a bounding box, confidence</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- value, landmarks, pose details, and quality. The response also returns</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- information about the face in the source image, including the bounding</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- box of the face and confidence value.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The @QualityFilter@ input parameter allows you to filter out detected</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- faces that don&#8217;t meet a required quality bar. The quality bar is based</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- on a variety of common use cases. Use @QualityFilter@ to set the quality</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- bar by specifying @LOW@, @MEDIUM@, or @HIGH@. If you do not want to</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- filter detected faces, specify @NONE@. The default value is @NONE@.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- If the image doesn\'t contain Exif metadata, @CompareFaces@ returns</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- orientation information for the source and target images. Use these</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- values to display the images with the correct image orientation.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- If no faces are detected in the source or target images, @CompareFaces@</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- returns an @InvalidParameterException@ error.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- This is a stateless API operation. That is, data returned by this</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- operation doesn\'t persist.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- For an example, see Comparing Faces in Images in the Amazon Rekognition</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Developer Guide.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- This operation requires permissions to perform the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- @rekognition:CompareFaces@ action.</span><span>
+</span><span id="line-84"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Rekognition.CompareFaces</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier">CompareFaces</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#newCompareFaces"><span class="hs-identifier">newCompareFaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFaces_qualityFilter"><span class="hs-identifier">compareFaces_qualityFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFaces_similarityThreshold"><span class="hs-identifier">compareFaces_similarityThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFaces_sourceImage"><span class="hs-identifier">compareFaces_sourceImage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFaces_targetImage"><span class="hs-identifier">compareFaces_targetImage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#newCompareFacesResponse"><span class="hs-identifier">newCompareFacesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_faceMatches"><span class="hs-identifier">compareFacesResponse_faceMatches</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_unmatchedFaces"><span class="hs-identifier">compareFacesResponse_unmatchedFaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_targetImageOrientationCorrection"><span class="hs-identifier">compareFacesResponse_targetImageOrientationCorrection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageOrientationCorrection"><span class="hs-identifier">compareFacesResponse_sourceImageOrientationCorrection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageFace"><span class="hs-identifier">compareFacesResponse_sourceImageFace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_httpStatus"><span class="hs-identifier">compareFacesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.html"><span class="hs-identifier">Amazonka.Rekognition.Types</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | /See:/ 'newCompareFaces' smart constructor.</span><span>
+</span><span id="line-117"></span><span id="local-6989586621679348607"><span id="local-6989586621679348608"></span></span><span class="hs-keyword">data</span><span> </span><span id="CompareFaces"><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-var">CompareFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompareFaces%27"><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-var">CompareFaces'</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter that specifies a quality bar for how much filtering is done to</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- identify faces. Filtered faces aren\'t compared. If you specify @AUTO@,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition chooses the quality bar. If you specify @LOW@,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- @MEDIUM@, or @HIGH@, filtering removes all faces that don&#8217;t meet the</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- chosen quality bar. The quality bar is based on a variety of common use</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- cases. Low-quality detections can occur for a number of reasons. Some</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- examples are an object that\'s misidentified as a face, a face that\'s</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- too blurry, or a face with a pose that\'s too extreme to use. If you</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- specify @NONE@, no filtering is performed. The default value is @NONE@.</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- To use quality filtering, the collection you are using must be</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- associated with version 3 of the face model or higher.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AqualityFilter%3ACompareFaces%27"><span class="annot"><span class="annottext">CompareFaces -&gt; Maybe QualityFilter
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AqualityFilter%3ACompareFaces%27"><span class="hs-identifier hs-var hs-var">qualityFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.QualityFilter.html#QualityFilter"><span class="hs-identifier hs-type">QualityFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The minimum level of confidence in the face matches that a match must</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- meet to be included in the @FaceMatches@ array.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AsimilarityThreshold%3ACompareFaces%27"><span class="annot"><span class="annottext">CompareFaces -&gt; Maybe Double
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AsimilarityThreshold%3ACompareFaces%27"><span class="hs-identifier hs-var hs-var">similarityThreshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The input image as base64-encoded bytes or an S3 object. If you use the</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing base64-encoded</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- image bytes is not supported.</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- If you are using an AWS SDK to call Amazon Rekognition, you might not</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- need to base64-encode image bytes passed using the @Bytes@ field. For</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- more information, see Images in the Amazon Rekognition developer guide.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AsourceImage%3ACompareFaces%27"><span class="annot"><span class="annottext">CompareFaces -&gt; Image
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AsourceImage%3ACompareFaces%27"><span class="hs-identifier hs-var hs-var">sourceImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The target image as base64-encoded bytes or an S3 object. If you use the</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing base64-encoded</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- image bytes is not supported.</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- If you are using an AWS SDK to call Amazon Rekognition, you might not</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- need to base64-encode image bytes passed using the @Bytes@ field. For</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- more information, see Images in the Amazon Rekognition developer guide.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AtargetImage%3ACompareFaces%27"><span class="annot"><span class="annottext">CompareFaces -&gt; Image
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AtargetImage%3ACompareFaces%27"><span class="hs-identifier hs-var hs-var">targetImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348598"><span id="local-6989586621679348600"><span class="annot"><span class="annottext">CompareFaces -&gt; CompareFaces -&gt; Bool
+(CompareFaces -&gt; CompareFaces -&gt; Bool)
+-&gt; (CompareFaces -&gt; CompareFaces -&gt; Bool) -&gt; Eq CompareFaces
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CompareFaces -&gt; CompareFaces -&gt; Bool
+$c/= :: CompareFaces -&gt; CompareFaces -&gt; Bool
+== :: CompareFaces -&gt; CompareFaces -&gt; Bool
+$c== :: CompareFaces -&gt; CompareFaces -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348589"><span id="local-6989586621679348591"><span id="local-6989586621679348593"><span id="local-6989586621679348595"><span class="annot"><span class="annottext">ReadPrec [CompareFaces]
+ReadPrec CompareFaces
+Int -&gt; ReadS CompareFaces
+ReadS [CompareFaces]
+(Int -&gt; ReadS CompareFaces)
+-&gt; ReadS [CompareFaces]
+-&gt; ReadPrec CompareFaces
+-&gt; ReadPrec [CompareFaces]
+-&gt; Read CompareFaces
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CompareFaces]
+$creadListPrec :: ReadPrec [CompareFaces]
+readPrec :: ReadPrec CompareFaces
+$creadPrec :: ReadPrec CompareFaces
+readList :: ReadS [CompareFaces]
+$creadList :: ReadS [CompareFaces]
+readsPrec :: Int -&gt; ReadS CompareFaces
+$creadsPrec :: Int -&gt; ReadS CompareFaces
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348582"><span id="local-6989586621679348584"><span id="local-6989586621679348586"><span class="annot"><span class="annottext">Int -&gt; CompareFaces -&gt; ShowS
+[CompareFaces] -&gt; ShowS
+CompareFaces -&gt; String
+(Int -&gt; CompareFaces -&gt; ShowS)
+-&gt; (CompareFaces -&gt; String)
+-&gt; ([CompareFaces] -&gt; ShowS)
+-&gt; Show CompareFaces
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CompareFaces] -&gt; ShowS
+$cshowList :: [CompareFaces] -&gt; ShowS
+show :: CompareFaces -&gt; String
+$cshow :: CompareFaces -&gt; String
+showsPrec :: Int -&gt; CompareFaces -&gt; ShowS
+$cshowsPrec :: Int -&gt; CompareFaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CompareFaces -&gt; Rep CompareFaces x)
+-&gt; (forall x. Rep CompareFaces x -&gt; CompareFaces)
+-&gt; Generic CompareFaces
+forall x. Rep CompareFaces x -&gt; CompareFaces
+forall x. CompareFaces -&gt; Rep CompareFaces x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CompareFaces x -&gt; CompareFaces
+$cfrom :: forall x. CompareFaces -&gt; Rep CompareFaces x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Create a value of 'CompareFaces' with all optional fields omitted.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'qualityFilter', 'compareFaces_qualityFilter' - A filter that specifies a quality bar for how much filtering is done to</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- identify faces. Filtered faces aren\'t compared. If you specify @AUTO@,</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Amazon Rekognition chooses the quality bar. If you specify @LOW@,</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- @MEDIUM@, or @HIGH@, filtering removes all faces that don&#8217;t meet the</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- chosen quality bar. The quality bar is based on a variety of common use</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- cases. Low-quality detections can occur for a number of reasons. Some</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- examples are an object that\'s misidentified as a face, a face that\'s</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- too blurry, or a face with a pose that\'s too extreme to use. If you</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- specify @NONE@, no filtering is performed. The default value is @NONE@.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- To use quality filtering, the collection you are using must be</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- associated with version 3 of the face model or higher.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'similarityThreshold', 'compareFaces_similarityThreshold' - The minimum level of confidence in the face matches that a match must</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- meet to be included in the @FaceMatches@ array.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'sourceImage', 'compareFaces_sourceImage' - The input image as base64-encoded bytes or an S3 object. If you use the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing base64-encoded</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- image bytes is not supported.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- If you are using an AWS SDK to call Amazon Rekognition, you might not</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- need to base64-encode image bytes passed using the @Bytes@ field. For</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- more information, see Images in the Amazon Rekognition developer guide.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'targetImage', 'compareFaces_targetImage' - The target image as base64-encoded bytes or an S3 object. If you use the</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing base64-encoded</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- image bytes is not supported.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- If you are using an AWS SDK to call Amazon Rekognition, you might not</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- need to base64-encode image bytes passed using the @Bytes@ field. For</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- more information, see Images in the Amazon Rekognition developer guide.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#newCompareFaces"><span class="hs-identifier hs-type">newCompareFaces</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-comment">-- | 'sourceImage'</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'targetImage'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span>
+</span><span id="line-198"></span><span id="newCompareFaces"><span class="annot"><span class="annottext">newCompareFaces :: Image -&gt; Image -&gt; CompareFaces
+</span><a href="Amazonka.Rekognition.CompareFaces.html#newCompareFaces"><span class="hs-identifier hs-var hs-var">newCompareFaces</span></a></span></span><span> </span><span id="local-6989586621679348577"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348577"><span class="hs-identifier hs-var">pSourceImage_</span></a></span></span><span> </span><span id="local-6989586621679348576"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348576"><span class="hs-identifier hs-var">pTargetImage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">CompareFaces' :: Maybe QualityFilter
+-&gt; Maybe Double -&gt; Image -&gt; Image -&gt; CompareFaces
+</span><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:qualityFilter:CompareFaces' :: Maybe QualityFilter
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AqualityFilter%3ACompareFaces%27"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QualityFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:similarityThreshold:CompareFaces' :: Maybe Double
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AsimilarityThreshold%3ACompareFaces%27"><span class="hs-identifier hs-var">similarityThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceImage:CompareFaces' :: Image
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AsourceImage%3ACompareFaces%27"><span class="hs-identifier hs-var">sourceImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348577"><span class="hs-identifier hs-var">pSourceImage_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetImage:CompareFaces' :: Image
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AtargetImage%3ACompareFaces%27"><span class="hs-identifier hs-var">targetImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348576"><span class="hs-identifier hs-var">pTargetImage_</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | A filter that specifies a quality bar for how much filtering is done to</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- identify faces. Filtered faces aren\'t compared. If you specify @AUTO@,</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Amazon Rekognition chooses the quality bar. If you specify @LOW@,</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- @MEDIUM@, or @HIGH@, filtering removes all faces that don&#8217;t meet the</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- chosen quality bar. The quality bar is based on a variety of common use</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- cases. Low-quality detections can occur for a number of reasons. Some</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- examples are an object that\'s misidentified as a face, a face that\'s</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- too blurry, or a face with a pose that\'s too extreme to use. If you</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- specify @NONE@, no filtering is performed. The default value is @NONE@.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- To use quality filtering, the collection you are using must be</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- associated with version 3 of the face model or higher.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFaces_qualityFilter"><span class="hs-identifier hs-type">compareFaces_qualityFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.QualityFilter.html#QualityFilter"><span class="hs-identifier hs-type">QualityFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="compareFaces_qualityFilter"><span class="annot"><span class="annottext">compareFaces_qualityFilter :: (Maybe QualityFilter -&gt; f (Maybe QualityFilter))
+-&gt; CompareFaces -&gt; f CompareFaces
+</span><a href="Amazonka.Rekognition.CompareFaces.html#compareFaces_qualityFilter"><span class="hs-identifier hs-var hs-var">compareFaces_qualityFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFaces -&gt; Maybe QualityFilter)
+-&gt; (CompareFaces -&gt; Maybe QualityFilter -&gt; CompareFaces)
+-&gt; Lens
+     CompareFaces
+     CompareFaces
+     (Maybe QualityFilter)
+     (Maybe QualityFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348573"><span class="annot"><span class="annottext">Maybe QualityFilter
+qualityFilter :: Maybe QualityFilter
+$sel:qualityFilter:CompareFaces' :: CompareFaces -&gt; Maybe QualityFilter
+</span><a href="#local-6989586621679348573"><span class="hs-identifier hs-var hs-var">qualityFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QualityFilter
+</span><a href="#local-6989586621679348573"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348572"><span class="annot"><span class="annottext">s :: CompareFaces
+</span><a href="#local-6989586621679348572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348571"><span class="annot"><span class="annottext">Maybe QualityFilter
+</span><a href="#local-6989586621679348571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFaces
+</span><a href="#local-6989586621679348572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualityFilter:CompareFaces' :: Maybe QualityFilter
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AqualityFilter%3ACompareFaces%27"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QualityFilter
+</span><a href="#local-6989586621679348571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The minimum level of confidence in the face matches that a match must</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- meet to be included in the @FaceMatches@ array.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFaces_similarityThreshold"><span class="hs-identifier hs-type">compareFaces_similarityThreshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="compareFaces_similarityThreshold"><span class="annot"><span class="annottext">compareFaces_similarityThreshold :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; CompareFaces -&gt; f CompareFaces
+</span><a href="Amazonka.Rekognition.CompareFaces.html#compareFaces_similarityThreshold"><span class="hs-identifier hs-var hs-var">compareFaces_similarityThreshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFaces -&gt; Maybe Double)
+-&gt; (CompareFaces -&gt; Maybe Double -&gt; CompareFaces)
+-&gt; Lens CompareFaces CompareFaces (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348570"><span class="annot"><span class="annottext">Maybe Double
+similarityThreshold :: Maybe Double
+$sel:similarityThreshold:CompareFaces' :: CompareFaces -&gt; Maybe Double
+</span><a href="#local-6989586621679348570"><span class="hs-identifier hs-var hs-var">similarityThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679348570"><span class="hs-identifier hs-var">similarityThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348569"><span class="annot"><span class="annottext">s :: CompareFaces
+</span><a href="#local-6989586621679348569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348568"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679348568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFaces
+</span><a href="#local-6989586621679348569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:similarityThreshold:CompareFaces' :: Maybe Double
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AsimilarityThreshold%3ACompareFaces%27"><span class="hs-identifier hs-var">similarityThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679348568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The input image as base64-encoded bytes or an S3 object. If you use the</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing base64-encoded</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- image bytes is not supported.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- If you are using an AWS SDK to call Amazon Rekognition, you might not</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- need to base64-encode image bytes passed using the @Bytes@ field. For</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- more information, see Images in the Amazon Rekognition developer guide.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFaces_sourceImage"><span class="hs-identifier hs-type">compareFaces_sourceImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span>
+</span><span id="line-234"></span><span id="compareFaces_sourceImage"><span class="annot"><span class="annottext">compareFaces_sourceImage :: (Image -&gt; f Image) -&gt; CompareFaces -&gt; f CompareFaces
+</span><a href="Amazonka.Rekognition.CompareFaces.html#compareFaces_sourceImage"><span class="hs-identifier hs-var hs-var">compareFaces_sourceImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFaces -&gt; Image)
+-&gt; (CompareFaces -&gt; Image -&gt; CompareFaces)
+-&gt; Lens CompareFaces CompareFaces Image Image
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348567"><span class="annot"><span class="annottext">Image
+sourceImage :: Image
+$sel:sourceImage:CompareFaces' :: CompareFaces -&gt; Image
+</span><a href="#local-6989586621679348567"><span class="hs-identifier hs-var hs-var">sourceImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348567"><span class="hs-identifier hs-var">sourceImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348566"><span class="annot"><span class="annottext">s :: CompareFaces
+</span><a href="#local-6989586621679348566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348565"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFaces
+</span><a href="#local-6989586621679348566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImage:CompareFaces' :: Image
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AsourceImage%3ACompareFaces%27"><span class="hs-identifier hs-var">sourceImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The target image as base64-encoded bytes or an S3 object. If you use the</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing base64-encoded</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- image bytes is not supported.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- If you are using an AWS SDK to call Amazon Rekognition, you might not</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- need to base64-encode image bytes passed using the @Bytes@ field. For</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- more information, see Images in the Amazon Rekognition developer guide.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFaces_targetImage"><span class="hs-identifier hs-type">compareFaces_targetImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span>
+</span><span id="line-244"></span><span id="compareFaces_targetImage"><span class="annot"><span class="annottext">compareFaces_targetImage :: (Image -&gt; f Image) -&gt; CompareFaces -&gt; f CompareFaces
+</span><a href="Amazonka.Rekognition.CompareFaces.html#compareFaces_targetImage"><span class="hs-identifier hs-var hs-var">compareFaces_targetImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFaces -&gt; Image)
+-&gt; (CompareFaces -&gt; Image -&gt; CompareFaces)
+-&gt; Lens CompareFaces CompareFaces Image Image
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348564"><span class="annot"><span class="annottext">Image
+targetImage :: Image
+$sel:targetImage:CompareFaces' :: CompareFaces -&gt; Image
+</span><a href="#local-6989586621679348564"><span class="hs-identifier hs-var hs-var">targetImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348564"><span class="hs-identifier hs-var">targetImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348563"><span class="annot"><span class="annottext">s :: CompareFaces
+</span><a href="#local-6989586621679348563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348562"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFaces
+</span><a href="#local-6989586621679348563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetImage:CompareFaces' :: Image
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AtargetImage%3ACompareFaces%27"><span class="hs-identifier hs-var">targetImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679348558"><span class="annot"><span class="annottext">request :: CompareFaces -&gt; Request CompareFaces
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CompareFaces -&gt; Request CompareFaces
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679348554"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CompareFaces
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CompareFaces)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CompareFaces))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CompareFaces
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CompareFaces)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348551"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348551"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348550"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348550"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348549"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348549"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
+-&gt; Maybe [ComparedFace]
+-&gt; Maybe OrientationCorrection
+-&gt; Maybe OrientationCorrection
+-&gt; Maybe ComparedSourceImageFace
+-&gt; Int
+-&gt; CompareFacesResponse
+</span><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-var">CompareFacesResponse'</span></a></span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [CompareFacesMatch]
+ -&gt; Maybe [ComparedFace]
+ -&gt; Maybe OrientationCorrection
+ -&gt; Maybe OrientationCorrection
+ -&gt; Maybe ComparedSourceImageFace
+ -&gt; Int
+ -&gt; CompareFacesResponse)
+-&gt; Either String (Maybe [CompareFacesMatch])
+-&gt; Either
+     String
+     (Maybe [ComparedFace]
+      -&gt; Maybe OrientationCorrection
+      -&gt; Maybe OrientationCorrection
+      -&gt; Maybe ComparedSourceImageFace
+      -&gt; Int
+      -&gt; CompareFacesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe (Maybe [CompareFacesMatch]))
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;FaceMatches&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [CompareFacesMatch]))
+-&gt; Maybe [CompareFacesMatch]
+-&gt; Either String (Maybe [CompareFacesMatch])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ComparedFace]
+   -&gt; Maybe OrientationCorrection
+   -&gt; Maybe OrientationCorrection
+   -&gt; Maybe ComparedSourceImageFace
+   -&gt; Int
+   -&gt; CompareFacesResponse)
+-&gt; Either String (Maybe [ComparedFace])
+-&gt; Either
+     String
+     (Maybe OrientationCorrection
+      -&gt; Maybe OrientationCorrection
+      -&gt; Maybe ComparedSourceImageFace
+      -&gt; Int
+      -&gt; CompareFacesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe (Maybe [ComparedFace]))
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;UnmatchedFaces&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ComparedFace]))
+-&gt; Maybe [ComparedFace] -&gt; Either String (Maybe [ComparedFace])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe OrientationCorrection
+   -&gt; Maybe OrientationCorrection
+   -&gt; Maybe ComparedSourceImageFace
+   -&gt; Int
+   -&gt; CompareFacesResponse)
+-&gt; Either String (Maybe OrientationCorrection)
+-&gt; Either
+     String
+     (Maybe OrientationCorrection
+      -&gt; Maybe ComparedSourceImageFace -&gt; Int -&gt; CompareFacesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe OrientationCorrection)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;TargetImageOrientationCorrection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe OrientationCorrection
+   -&gt; Maybe ComparedSourceImageFace -&gt; Int -&gt; CompareFacesResponse)
+-&gt; Either String (Maybe OrientationCorrection)
+-&gt; Either
+     String
+     (Maybe ComparedSourceImageFace -&gt; Int -&gt; CompareFacesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe OrientationCorrection)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;SourceImageOrientationCorrection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ComparedSourceImageFace -&gt; Int -&gt; CompareFacesResponse)
+-&gt; Either String (Maybe ComparedSourceImageFace)
+-&gt; Either String (Int -&gt; CompareFacesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe ComparedSourceImageFace)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;SourceImageFace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CompareFacesResponse)
+-&gt; Either String Int -&gt; Either String CompareFacesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348551"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348540"><span id="local-6989586621679348542"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span></span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span></span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679348533"><span class="annot"><span class="annottext">toHeaders :: CompareFaces -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CompareFaces -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-269"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-270"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RekognitionService.CompareFaces&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-271"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-272"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-274"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-275"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-276"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-278"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348523"><span id="local-6989586621679348525"><span id="local-6989586621679348527"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679348521"><span class="annot"><span class="annottext">toJSON :: CompareFaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348516"><span id="local-6989586621679348517"><span id="local-6989586621679348518"><span id="local-6989586621679348519"><span class="annot"><span class="annottext">Maybe Double
+Maybe QualityFilter
+Image
+targetImage :: Image
+sourceImage :: Image
+similarityThreshold :: Maybe Double
+qualityFilter :: Maybe QualityFilter
+$sel:targetImage:CompareFaces' :: CompareFaces -&gt; Image
+$sel:sourceImage:CompareFaces' :: CompareFaces -&gt; Image
+$sel:similarityThreshold:CompareFaces' :: CompareFaces -&gt; Maybe Double
+$sel:qualityFilter:CompareFaces' :: CompareFaces -&gt; Maybe QualityFilter
+</span><a href="#local-6989586621679348516"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-284"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;QualityFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; QualityFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(QualityFilter -&gt; Pair) -&gt; Maybe QualityFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe QualityFilter
+</span><a href="#local-6989586621679348519"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;SimilarityThreshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679348518"><span class="hs-identifier hs-var">similarityThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;SourceImage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; Image -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348517"><span class="hs-identifier hs-var">sourceImage</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;TargetImage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; Image -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348516"><span class="hs-identifier hs-var">targetImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-290"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-293"></span><span>  </span><span id="local-6989586621679348510"><span class="annot"><span class="annottext">toPath :: CompareFaces -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CompareFaces -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621679348506"><span class="annot"><span class="annottext">toQuery :: CompareFaces -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CompareFaces -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | /See:/ 'newCompareFacesResponse' smart constructor.</span><span>
+</span><span id="line-299"></span><span id="local-6989586621679348503"><span id="local-6989586621679348504"></span></span><span class="hs-keyword">data</span><span> </span><span id="CompareFacesResponse"><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-var">CompareFacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompareFacesResponse%27"><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-var">CompareFacesResponse'</span></a></span></span><span>
+</span><span id="line-300"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of faces in the target image that match the source image face.</span><span>
+</span><span id="line-301"></span><span>    </span><span class="hs-comment">-- Each @CompareFacesMatch@ object provides the bounding box, the</span><span>
+</span><span id="line-302"></span><span>    </span><span class="hs-comment">-- confidence level that the bounding box contains a face, and the</span><span>
+</span><span id="line-303"></span><span>    </span><span class="hs-comment">-- similarity score for the face in the bounding box and the face in the</span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-comment">-- source image.</span><span>
+</span><span id="line-305"></span><span>    </span><span id="%24sel%3AfaceMatches%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe [CompareFacesMatch]
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AfaceMatches%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">faceMatches</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>    </span><span class="hs-comment">-- | An array of faces in the target image that did not match the source</span><span>
+</span><span id="line-307"></span><span>    </span><span class="hs-comment">-- image face.</span><span>
+</span><span id="line-308"></span><span>    </span><span id="%24sel%3AunmatchedFaces%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe [ComparedFace]
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AunmatchedFaces%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">unmatchedFaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Rekognition.Types.ComparedFace.html#ComparedFace"><span class="hs-identifier hs-type">ComparedFace</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="hs-comment">-- | The value of @TargetImageOrientationCorrection@ is always null.</span><span>
+</span><span id="line-310"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span>    </span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-312"></span><span>    </span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-313"></span><span>    </span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-314"></span><span>    </span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-315"></span><span>    </span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-316"></span><span>    </span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-317"></span><span>    </span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-318"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-319"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-320"></span><span>    </span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-321"></span><span>    </span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-322"></span><span>    </span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-323"></span><span>    </span><span id="%24sel%3AtargetImageOrientationCorrection%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe OrientationCorrection
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AtargetImageOrientationCorrection%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">targetImageOrientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-comment">-- | The value of @SourceImageOrientationCorrection@ is always null.</span><span>
+</span><span id="line-325"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-328"></span><span>    </span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-330"></span><span>    </span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-331"></span><span>    </span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-332"></span><span>    </span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-333"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-335"></span><span>    </span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-336"></span><span>    </span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-337"></span><span>    </span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-338"></span><span>    </span><span id="%24sel%3AsourceImageOrientationCorrection%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe OrientationCorrection
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AsourceImageOrientationCorrection%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">sourceImageOrientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>    </span><span class="hs-comment">-- | The face in the source image that was used for comparison.</span><span>
+</span><span id="line-340"></span><span>    </span><span id="%24sel%3AsourceImageFace%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe ComparedSourceImageFace
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AsourceImageFace%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">sourceImageFace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.ComparedSourceImageFace.html#ComparedSourceImageFace"><span class="hs-identifier hs-type">ComparedSourceImageFace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-342"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Int
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AhttpStatus%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-343"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-344"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348493"><span id="local-6989586621679348495"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool
+(CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool)
+-&gt; (CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool)
+-&gt; Eq CompareFacesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool
+$c/= :: CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool
+== :: CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool
+$c== :: CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348485"><span id="local-6989586621679348487"><span id="local-6989586621679348489"><span id="local-6989586621679348491"><span class="annot"><span class="annottext">ReadPrec [CompareFacesResponse]
+ReadPrec CompareFacesResponse
+Int -&gt; ReadS CompareFacesResponse
+ReadS [CompareFacesResponse]
+(Int -&gt; ReadS CompareFacesResponse)
+-&gt; ReadS [CompareFacesResponse]
+-&gt; ReadPrec CompareFacesResponse
+-&gt; ReadPrec [CompareFacesResponse]
+-&gt; Read CompareFacesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CompareFacesResponse]
+$creadListPrec :: ReadPrec [CompareFacesResponse]
+readPrec :: ReadPrec CompareFacesResponse
+$creadPrec :: ReadPrec CompareFacesResponse
+readList :: ReadS [CompareFacesResponse]
+$creadList :: ReadS [CompareFacesResponse]
+readsPrec :: Int -&gt; ReadS CompareFacesResponse
+$creadsPrec :: Int -&gt; ReadS CompareFacesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348479"><span id="local-6989586621679348481"><span id="local-6989586621679348483"><span class="annot"><span class="annottext">Int -&gt; CompareFacesResponse -&gt; ShowS
+[CompareFacesResponse] -&gt; ShowS
+CompareFacesResponse -&gt; String
+(Int -&gt; CompareFacesResponse -&gt; ShowS)
+-&gt; (CompareFacesResponse -&gt; String)
+-&gt; ([CompareFacesResponse] -&gt; ShowS)
+-&gt; Show CompareFacesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CompareFacesResponse] -&gt; ShowS
+$cshowList :: [CompareFacesResponse] -&gt; ShowS
+show :: CompareFacesResponse -&gt; String
+$cshow :: CompareFacesResponse -&gt; String
+showsPrec :: Int -&gt; CompareFacesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CompareFacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CompareFacesResponse -&gt; Rep CompareFacesResponse x)
+-&gt; (forall x. Rep CompareFacesResponse x -&gt; CompareFacesResponse)
+-&gt; Generic CompareFacesResponse
+forall x. Rep CompareFacesResponse x -&gt; CompareFacesResponse
+forall x. CompareFacesResponse -&gt; Rep CompareFacesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CompareFacesResponse x -&gt; CompareFacesResponse
+$cfrom :: forall x. CompareFacesResponse -&gt; Rep CompareFacesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- Create a value of 'CompareFacesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- 'faceMatches', 'compareFacesResponse_faceMatches' - An array of faces in the target image that match the source image face.</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- Each @CompareFacesMatch@ object provides the bounding box, the</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- confidence level that the bounding box contains a face, and the</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- similarity score for the face in the bounding box and the face in the</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- source image.</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- 'unmatchedFaces', 'compareFacesResponse_unmatchedFaces' - An array of faces in the target image that did not match the source</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- image face.</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- 'targetImageOrientationCorrection', 'compareFacesResponse_targetImageOrientationCorrection' - The value of @TargetImageOrientationCorrection@ is always null.</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-372"></span><span class="hs-comment">--</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- 'sourceImageOrientationCorrection', 'compareFacesResponse_sourceImageOrientationCorrection' - The value of @SourceImageOrientationCorrection@ is always null.</span><span>
+</span><span id="line-379"></span><span class="hs-comment">--</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-392"></span><span class="hs-comment">--</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- 'sourceImageFace', 'compareFacesResponse_sourceImageFace' - The face in the source image that was used for comparison.</span><span>
+</span><span id="line-394"></span><span class="hs-comment">--</span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- 'httpStatus', 'compareFacesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-396"></span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#newCompareFacesResponse"><span class="hs-identifier hs-type">newCompareFacesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-397"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-398"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-399"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span>
+</span><span id="line-400"></span><span id="newCompareFacesResponse"><span class="annot"><span class="annottext">newCompareFacesResponse :: Int -&gt; CompareFacesResponse
+</span><a href="Amazonka.Rekognition.CompareFaces.html#newCompareFacesResponse"><span class="hs-identifier hs-var hs-var">newCompareFacesResponse</span></a></span></span><span> </span><span id="local-6989586621679348476"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-401"></span><span>  </span><span class="annot"><span class="annottext">CompareFacesResponse' :: Maybe [CompareFacesMatch]
+-&gt; Maybe [ComparedFace]
+-&gt; Maybe OrientationCorrection
+-&gt; Maybe OrientationCorrection
+-&gt; Maybe ComparedSourceImageFace
+-&gt; Int
+-&gt; CompareFacesResponse
+</span><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span>
+</span><span id="line-402"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:faceMatches:CompareFacesResponse' :: Maybe [CompareFacesMatch]
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AfaceMatches%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">faceMatches</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-403"></span><span>        </span><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-404"></span><span>      </span><span class="annot"><span class="annottext">$sel:unmatchedFaces:CompareFacesResponse' :: Maybe [ComparedFace]
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AunmatchedFaces%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">unmatchedFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-405"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetImageOrientationCorrection:CompareFacesResponse' :: Maybe OrientationCorrection
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AtargetImageOrientationCorrection%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">targetImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceImageOrientationCorrection:CompareFacesResponse' :: Maybe OrientationCorrection
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AsourceImageOrientationCorrection%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">sourceImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-407"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceImageFace:CompareFacesResponse' :: Maybe ComparedSourceImageFace
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AsourceImageFace%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">sourceImageFace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CompareFacesResponse' :: Int
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AhttpStatus%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-409"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-410"></span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- | An array of faces in the target image that match the source image face.</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- Each @CompareFacesMatch@ object provides the bounding box, the</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- confidence level that the bounding box contains a face, and the</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- similarity score for the face in the bounding box and the face in the</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- source image.</span><span>
+</span><span id="line-416"></span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_faceMatches"><span class="hs-identifier hs-type">compareFacesResponse_faceMatches</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span id="compareFacesResponse_faceMatches"><span class="annot"><span class="annottext">compareFacesResponse_faceMatches :: (Maybe [CompareFacesMatch] -&gt; f (Maybe [CompareFacesMatch]))
+-&gt; CompareFacesResponse -&gt; f CompareFacesResponse
+</span><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_faceMatches"><span class="hs-identifier hs-var hs-var">compareFacesResponse_faceMatches</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Maybe [CompareFacesMatch])
+-&gt; (CompareFacesResponse
+    -&gt; Maybe [CompareFacesMatch] -&gt; CompareFacesResponse)
+-&gt; Lens
+     CompareFacesResponse
+     CompareFacesResponse
+     (Maybe [CompareFacesMatch])
+     (Maybe [CompareFacesMatch])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348475"><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
+faceMatches :: Maybe [CompareFacesMatch]
+$sel:faceMatches:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe [CompareFacesMatch]
+</span><a href="#local-6989586621679348475"><span class="hs-identifier hs-var hs-var">faceMatches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
+</span><a href="#local-6989586621679348475"><span class="hs-identifier hs-var">faceMatches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348474"><span class="annot"><span class="annottext">s :: CompareFacesResponse
+</span><a href="#local-6989586621679348474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348473"><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
+</span><a href="#local-6989586621679348473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
+</span><a href="#local-6989586621679348474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceMatches:CompareFacesResponse' :: Maybe [CompareFacesMatch]
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AfaceMatches%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">faceMatches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
+</span><a href="#local-6989586621679348473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CompareFacesMatch] -&gt; f (Maybe [CompareFacesMatch]))
+ -&gt; CompareFacesResponse -&gt; f CompareFacesResponse)
+-&gt; ((Maybe [CompareFacesMatch] -&gt; f (Maybe [CompareFacesMatch]))
+    -&gt; Maybe [CompareFacesMatch] -&gt; f (Maybe [CompareFacesMatch]))
+-&gt; (Maybe [CompareFacesMatch] -&gt; f (Maybe [CompareFacesMatch]))
+-&gt; CompareFacesResponse
+-&gt; f CompareFacesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CompareFacesMatch]
+  [CompareFacesMatch]
+  [CompareFacesMatch]
+  [CompareFacesMatch]
+-&gt; Iso
+     (Maybe [CompareFacesMatch])
+     (Maybe [CompareFacesMatch])
+     (Maybe [CompareFacesMatch])
+     (Maybe [CompareFacesMatch])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CompareFacesMatch]
+  [CompareFacesMatch]
+  [CompareFacesMatch]
+  [CompareFacesMatch]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-418"></span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- | An array of faces in the target image that did not match the source</span><span>
+</span><span id="line-420"></span><span class="hs-comment">-- image face.</span><span>
+</span><span id="line-421"></span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_unmatchedFaces"><span class="hs-identifier hs-type">compareFacesResponse_unmatchedFaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Rekognition.Types.ComparedFace.html#ComparedFace"><span class="hs-identifier hs-type">ComparedFace</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-422"></span><span id="compareFacesResponse_unmatchedFaces"><span class="annot"><span class="annottext">compareFacesResponse_unmatchedFaces :: (Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
+-&gt; CompareFacesResponse -&gt; f CompareFacesResponse
+</span><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_unmatchedFaces"><span class="hs-identifier hs-var hs-var">compareFacesResponse_unmatchedFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Maybe [ComparedFace])
+-&gt; (CompareFacesResponse
+    -&gt; Maybe [ComparedFace] -&gt; CompareFacesResponse)
+-&gt; Lens
+     CompareFacesResponse
+     CompareFacesResponse
+     (Maybe [ComparedFace])
+     (Maybe [ComparedFace])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348469"><span class="annot"><span class="annottext">Maybe [ComparedFace]
+unmatchedFaces :: Maybe [ComparedFace]
+$sel:unmatchedFaces:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe [ComparedFace]
+</span><a href="#local-6989586621679348469"><span class="hs-identifier hs-var hs-var">unmatchedFaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
+</span><a href="#local-6989586621679348469"><span class="hs-identifier hs-var">unmatchedFaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348468"><span class="annot"><span class="annottext">s :: CompareFacesResponse
+</span><a href="#local-6989586621679348468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348467"><span class="annot"><span class="annottext">Maybe [ComparedFace]
+</span><a href="#local-6989586621679348467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
+</span><a href="#local-6989586621679348468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unmatchedFaces:CompareFacesResponse' :: Maybe [ComparedFace]
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AunmatchedFaces%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">unmatchedFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
+</span><a href="#local-6989586621679348467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
+ -&gt; CompareFacesResponse -&gt; f CompareFacesResponse)
+-&gt; ((Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
+    -&gt; Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
+-&gt; (Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
+-&gt; CompareFacesResponse
+-&gt; f CompareFacesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ComparedFace] [ComparedFace] [ComparedFace] [ComparedFace]
+-&gt; Iso
+     (Maybe [ComparedFace])
+     (Maybe [ComparedFace])
+     (Maybe [ComparedFace])
+     (Maybe [ComparedFace])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ComparedFace] [ComparedFace] [ComparedFace] [ComparedFace]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-423"></span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- | The value of @TargetImageOrientationCorrection@ is always null.</span><span>
+</span><span id="line-425"></span><span class="hs-comment">--</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-430"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-431"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-432"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-433"></span><span class="hs-comment">--</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-438"></span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_targetImageOrientationCorrection"><span class="hs-identifier hs-type">compareFacesResponse_targetImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-439"></span><span id="compareFacesResponse_targetImageOrientationCorrection"><span class="annot"><span class="annottext">compareFacesResponse_targetImageOrientationCorrection :: (Maybe OrientationCorrection -&gt; f (Maybe OrientationCorrection))
+-&gt; CompareFacesResponse -&gt; f CompareFacesResponse
+</span><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_targetImageOrientationCorrection"><span class="hs-identifier hs-var hs-var">compareFacesResponse_targetImageOrientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Maybe OrientationCorrection)
+-&gt; (CompareFacesResponse
+    -&gt; Maybe OrientationCorrection -&gt; CompareFacesResponse)
+-&gt; Lens
+     CompareFacesResponse
+     CompareFacesResponse
+     (Maybe OrientationCorrection)
+     (Maybe OrientationCorrection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348466"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+targetImageOrientationCorrection :: Maybe OrientationCorrection
+$sel:targetImageOrientationCorrection:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe OrientationCorrection
+</span><a href="#local-6989586621679348466"><span class="hs-identifier hs-var hs-var">targetImageOrientationCorrection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679348466"><span class="hs-identifier hs-var">targetImageOrientationCorrection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348465"><span class="annot"><span class="annottext">s :: CompareFacesResponse
+</span><a href="#local-6989586621679348465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348464"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679348464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
+</span><a href="#local-6989586621679348465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetImageOrientationCorrection:CompareFacesResponse' :: Maybe OrientationCorrection
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AtargetImageOrientationCorrection%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">targetImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679348464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-440"></span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- | The value of @SourceImageOrientationCorrection@ is always null.</span><span>
+</span><span id="line-442"></span><span class="hs-comment">--</span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-450"></span><span class="hs-comment">--</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-455"></span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageOrientationCorrection"><span class="hs-identifier hs-type">compareFacesResponse_sourceImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-456"></span><span id="compareFacesResponse_sourceImageOrientationCorrection"><span class="annot"><span class="annottext">compareFacesResponse_sourceImageOrientationCorrection :: (Maybe OrientationCorrection -&gt; f (Maybe OrientationCorrection))
+-&gt; CompareFacesResponse -&gt; f CompareFacesResponse
+</span><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageOrientationCorrection"><span class="hs-identifier hs-var hs-var">compareFacesResponse_sourceImageOrientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Maybe OrientationCorrection)
+-&gt; (CompareFacesResponse
+    -&gt; Maybe OrientationCorrection -&gt; CompareFacesResponse)
+-&gt; Lens
+     CompareFacesResponse
+     CompareFacesResponse
+     (Maybe OrientationCorrection)
+     (Maybe OrientationCorrection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348463"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+sourceImageOrientationCorrection :: Maybe OrientationCorrection
+$sel:sourceImageOrientationCorrection:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe OrientationCorrection
+</span><a href="#local-6989586621679348463"><span class="hs-identifier hs-var hs-var">sourceImageOrientationCorrection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679348463"><span class="hs-identifier hs-var">sourceImageOrientationCorrection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348462"><span class="annot"><span class="annottext">s :: CompareFacesResponse
+</span><a href="#local-6989586621679348462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348461"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679348461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
+</span><a href="#local-6989586621679348462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImageOrientationCorrection:CompareFacesResponse' :: Maybe OrientationCorrection
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AsourceImageOrientationCorrection%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">sourceImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679348461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-457"></span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- | The face in the source image that was used for comparison.</span><span>
+</span><span id="line-459"></span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageFace"><span class="hs-identifier hs-type">compareFacesResponse_sourceImageFace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.ComparedSourceImageFace.html#ComparedSourceImageFace"><span class="hs-identifier hs-type">ComparedSourceImageFace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-460"></span><span id="compareFacesResponse_sourceImageFace"><span class="annot"><span class="annottext">compareFacesResponse_sourceImageFace :: (Maybe ComparedSourceImageFace
+ -&gt; f (Maybe ComparedSourceImageFace))
+-&gt; CompareFacesResponse -&gt; f CompareFacesResponse
+</span><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageFace"><span class="hs-identifier hs-var hs-var">compareFacesResponse_sourceImageFace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Maybe ComparedSourceImageFace)
+-&gt; (CompareFacesResponse
+    -&gt; Maybe ComparedSourceImageFace -&gt; CompareFacesResponse)
+-&gt; Lens
+     CompareFacesResponse
+     CompareFacesResponse
+     (Maybe ComparedSourceImageFace)
+     (Maybe ComparedSourceImageFace)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348460"><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
+sourceImageFace :: Maybe ComparedSourceImageFace
+$sel:sourceImageFace:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe ComparedSourceImageFace
+</span><a href="#local-6989586621679348460"><span class="hs-identifier hs-var hs-var">sourceImageFace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
+</span><a href="#local-6989586621679348460"><span class="hs-identifier hs-var">sourceImageFace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348459"><span class="annot"><span class="annottext">s :: CompareFacesResponse
+</span><a href="#local-6989586621679348459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348458"><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
+</span><a href="#local-6989586621679348458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
+</span><a href="#local-6989586621679348459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImageFace:CompareFacesResponse' :: Maybe ComparedSourceImageFace
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AsourceImageFace%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">sourceImageFace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
+</span><a href="#local-6989586621679348458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-461"></span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-463"></span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_httpStatus"><span class="hs-identifier hs-type">compareFacesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-464"></span><span id="compareFacesResponse_httpStatus"><span class="annot"><span class="annottext">compareFacesResponse_httpStatus :: (Int -&gt; f Int) -&gt; CompareFacesResponse -&gt; f CompareFacesResponse
+</span><a href="Amazonka.Rekognition.CompareFaces.html#compareFacesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">compareFacesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Int)
+-&gt; (CompareFacesResponse -&gt; Int -&gt; CompareFacesResponse)
+-&gt; Lens CompareFacesResponse CompareFacesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348457"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CompareFacesResponse' :: CompareFacesResponse -&gt; Int
+</span><a href="#local-6989586621679348457"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348457"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348456"><span class="annot"><span class="annottext">s :: CompareFacesResponse
+</span><a href="#local-6989586621679348456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348455"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
+</span><a href="#local-6989586621679348456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CompareFacesResponse' :: Int
+</span><a href="Amazonka.Rekognition.CompareFaces.html#%24sel%3AhttpStatus%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-465"></span><span>
+</span><span id="line-466"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span></span><span>
+</span><span id="line-467"></span></pre></body></html>

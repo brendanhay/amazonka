@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.JobPhase</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.JobPhase</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase"><span class="hs-identifier">JobPhase</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase_PROBING"><span class="hs-identifier">JobPhase_PROBING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase_TRANSCODING"><span class="hs-identifier">JobPhase_TRANSCODING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase_UPLOADING"><span class="hs-identifier">JobPhase_UPLOADING</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | A job\'s phase can be PROBING, TRANSCODING OR UPLOADING</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679983384"><span id="local-6989586621679983385"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobPhase"><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase"><span class="hs-identifier hs-var">JobPhase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobPhase%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase%27"><span class="hs-identifier hs-var">JobPhase'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromJobPhase"><span class="annot"><span class="annottext">JobPhase -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.JobPhase.html#fromJobPhase"><span class="hs-identifier hs-var hs-var">fromJobPhase</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679983376"><span id="local-6989586621679983378"><span id="local-6989586621679983380"><span class="annot"><span class="annottext">Int -&gt; JobPhase -&gt; ShowS
+[JobPhase] -&gt; ShowS
+JobPhase -&gt; String
+(Int -&gt; JobPhase -&gt; ShowS)
+-&gt; (JobPhase -&gt; String) -&gt; ([JobPhase] -&gt; ShowS) -&gt; Show JobPhase
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobPhase] -&gt; ShowS
+$cshowList :: [JobPhase] -&gt; ShowS
+show :: JobPhase -&gt; String
+$cshow :: JobPhase -&gt; String
+showsPrec :: Int -&gt; JobPhase -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobPhase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679983367"><span id="local-6989586621679983369"><span id="local-6989586621679983371"><span id="local-6989586621679983373"><span class="annot"><span class="annottext">ReadPrec [JobPhase]
+ReadPrec JobPhase
+Int -&gt; ReadS JobPhase
+ReadS [JobPhase]
+(Int -&gt; ReadS JobPhase)
+-&gt; ReadS [JobPhase]
+-&gt; ReadPrec JobPhase
+-&gt; ReadPrec [JobPhase]
+-&gt; Read JobPhase
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobPhase]
+$creadListPrec :: ReadPrec [JobPhase]
+readPrec :: ReadPrec JobPhase
+$creadPrec :: ReadPrec JobPhase
+readList :: ReadS [JobPhase]
+$creadList :: ReadS [JobPhase]
+readsPrec :: Int -&gt; ReadS JobPhase
+$creadsPrec :: Int -&gt; ReadS JobPhase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679983362"><span id="local-6989586621679983364"><span class="annot"><span class="annottext">JobPhase -&gt; JobPhase -&gt; Bool
+(JobPhase -&gt; JobPhase -&gt; Bool)
+-&gt; (JobPhase -&gt; JobPhase -&gt; Bool) -&gt; Eq JobPhase
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobPhase -&gt; JobPhase -&gt; Bool
+$c/= :: JobPhase -&gt; JobPhase -&gt; Bool
+== :: JobPhase -&gt; JobPhase -&gt; Bool
+$c== :: JobPhase -&gt; JobPhase -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679983346"><span id="local-6989586621679983348"><span id="local-6989586621679983350"><span id="local-6989586621679983352"><span id="local-6989586621679983354"><span id="local-6989586621679983356"><span id="local-6989586621679983358"><span class="annot"><span class="annottext">Eq JobPhase
+Eq JobPhase
+-&gt; (JobPhase -&gt; JobPhase -&gt; Ordering)
+-&gt; (JobPhase -&gt; JobPhase -&gt; Bool)
+-&gt; (JobPhase -&gt; JobPhase -&gt; Bool)
+-&gt; (JobPhase -&gt; JobPhase -&gt; Bool)
+-&gt; (JobPhase -&gt; JobPhase -&gt; Bool)
+-&gt; (JobPhase -&gt; JobPhase -&gt; JobPhase)
+-&gt; (JobPhase -&gt; JobPhase -&gt; JobPhase)
+-&gt; Ord JobPhase
+JobPhase -&gt; JobPhase -&gt; Bool
+JobPhase -&gt; JobPhase -&gt; Ordering
+JobPhase -&gt; JobPhase -&gt; JobPhase
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: JobPhase -&gt; JobPhase -&gt; JobPhase
+$cmin :: JobPhase -&gt; JobPhase -&gt; JobPhase
+max :: JobPhase -&gt; JobPhase -&gt; JobPhase
+$cmax :: JobPhase -&gt; JobPhase -&gt; JobPhase
+&gt;= :: JobPhase -&gt; JobPhase -&gt; Bool
+$c&gt;= :: JobPhase -&gt; JobPhase -&gt; Bool
+&gt; :: JobPhase -&gt; JobPhase -&gt; Bool
+$c&gt; :: JobPhase -&gt; JobPhase -&gt; Bool
+&lt;= :: JobPhase -&gt; JobPhase -&gt; Bool
+$c&lt;= :: JobPhase -&gt; JobPhase -&gt; Bool
+&lt; :: JobPhase -&gt; JobPhase -&gt; Bool
+$c&lt; :: JobPhase -&gt; JobPhase -&gt; Bool
+compare :: JobPhase -&gt; JobPhase -&gt; Ordering
+$ccompare :: JobPhase -&gt; JobPhase -&gt; Ordering
+$cp1Ord :: Eq JobPhase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. JobPhase -&gt; Rep JobPhase x)
+-&gt; (forall x. Rep JobPhase x -&gt; JobPhase) -&gt; Generic JobPhase
+forall x. Rep JobPhase x -&gt; JobPhase
+forall x. JobPhase -&gt; Rep JobPhase x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobPhase x -&gt; JobPhase
+$cfrom :: forall x. JobPhase -&gt; Rep JobPhase x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679983338"><span id="local-6989586621679983340"><span class="annot"><span class="annottext">Int -&gt; JobPhase -&gt; Int
+JobPhase -&gt; Int
+(Int -&gt; JobPhase -&gt; Int) -&gt; (JobPhase -&gt; Int) -&gt; Hashable JobPhase
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: JobPhase -&gt; Int
+$chash :: JobPhase -&gt; Int
+hashWithSalt :: Int -&gt; JobPhase -&gt; Int
+$chashWithSalt :: Int -&gt; JobPhase -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679983335"><span class="annot"><span class="annottext">JobPhase -&gt; ()
+(JobPhase -&gt; ()) -&gt; NFData JobPhase
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: JobPhase -&gt; ()
+$crnf :: JobPhase -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679983332"><span class="annot"><span class="annottext">Text -&gt; Either String JobPhase
+(Text -&gt; Either String JobPhase) -&gt; FromText JobPhase
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String JobPhase
+$cfromText :: Text -&gt; Either String JobPhase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679983329"><span class="annot"><span class="annottext">JobPhase -&gt; Text
+(JobPhase -&gt; Text) -&gt; ToText JobPhase
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: JobPhase -&gt; Text
+$ctoText :: JobPhase -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679983326"><span class="annot"><span class="annottext">JobPhase -&gt; ByteString
+(JobPhase -&gt; ByteString) -&gt; ToByteString JobPhase
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: JobPhase -&gt; ByteString
+$ctoBS :: JobPhase -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679983323"><span class="annot"><span class="annottext">JobPhase -&gt; ByteStringBuilder
+(JobPhase -&gt; ByteStringBuilder) -&gt; ToLog JobPhase
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: JobPhase -&gt; ByteStringBuilder
+$cbuild :: JobPhase -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679983320"><span class="annot"><span class="annottext">HeaderName -&gt; JobPhase -&gt; [Header]
+(HeaderName -&gt; JobPhase -&gt; [Header]) -&gt; ToHeader JobPhase
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; JobPhase -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; JobPhase -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679983317"><span class="annot"><span class="annottext">JobPhase -&gt; QueryString
+(JobPhase -&gt; QueryString) -&gt; ToQuery JobPhase
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: JobPhase -&gt; QueryString
+$ctoQuery :: JobPhase -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679983312"><span id="local-6989586621679983314"><span class="annot"><span class="annottext">Value -&gt; Parser [JobPhase]
+Value -&gt; Parser JobPhase
+(Value -&gt; Parser JobPhase)
+-&gt; (Value -&gt; Parser [JobPhase]) -&gt; FromJSON JobPhase
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [JobPhase]
+$cparseJSONList :: Value -&gt; Parser [JobPhase]
+parseJSON :: Value -&gt; Parser JobPhase
+$cparseJSON :: Value -&gt; Parser JobPhase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679983307"><span id="local-6989586621679983309"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobPhase]
+FromJSONKeyFunction JobPhase
+FromJSONKeyFunction JobPhase
+-&gt; FromJSONKeyFunction [JobPhase] -&gt; FromJSONKey JobPhase
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [JobPhase]
+$cfromJSONKeyList :: FromJSONKeyFunction [JobPhase]
+fromJSONKey :: FromJSONKeyFunction JobPhase
+$cfromJSONKey :: FromJSONKeyFunction JobPhase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679983298"><span id="local-6989586621679983300"><span id="local-6989586621679983302"><span id="local-6989586621679983304"><span class="annot"><span class="annottext">[JobPhase] -&gt; Encoding
+[JobPhase] -&gt; Value
+JobPhase -&gt; Encoding
+JobPhase -&gt; Value
+(JobPhase -&gt; Value)
+-&gt; (JobPhase -&gt; Encoding)
+-&gt; ([JobPhase] -&gt; Value)
+-&gt; ([JobPhase] -&gt; Encoding)
+-&gt; ToJSON JobPhase
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [JobPhase] -&gt; Encoding
+$ctoEncodingList :: [JobPhase] -&gt; Encoding
+toJSONList :: [JobPhase] -&gt; Value
+$ctoJSONList :: [JobPhase] -&gt; Value
+toEncoding :: JobPhase -&gt; Encoding
+$ctoEncoding :: JobPhase -&gt; Encoding
+toJSON :: JobPhase -&gt; Value
+$ctoJSON :: JobPhase -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679983293"><span id="local-6989586621679983295"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobPhase]
+ToJSONKeyFunction JobPhase
+ToJSONKeyFunction JobPhase
+-&gt; ToJSONKeyFunction [JobPhase] -&gt; ToJSONKey JobPhase
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [JobPhase]
+$ctoJSONKeyList :: ToJSONKeyFunction [JobPhase]
+toJSONKey :: ToJSONKeyFunction JobPhase
+$ctoJSONKey :: ToJSONKeyFunction JobPhase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679983290"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobPhase
+([Node] -&gt; Either String JobPhase) -&gt; FromXML JobPhase
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String JobPhase
+$cparseXML :: [Node] -&gt; Either String JobPhase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679983287"><span class="annot"><span class="annottext">JobPhase -&gt; XML
+(JobPhase -&gt; XML) -&gt; ToXML JobPhase
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: JobPhase -&gt; XML
+$ctoXML :: JobPhase -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase_PROBING"><span class="hs-identifier hs-type">JobPhase_PROBING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase"><span class="hs-identifier hs-type">JobPhase</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobPhase_PROBING"><span id="%24mJobPhase_PROBING"><span id="JobPhase_PROBING"><span class="annot"><span class="annottext">$bJobPhase_PROBING :: JobPhase
+$mJobPhase_PROBING :: forall r. JobPhase -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.JobPhase.html#%24bJobPhase_PROBING"><span class="hs-identifier hs-var hs-var hs-var">JobPhase_PROBING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase%27"><span class="hs-identifier hs-type">JobPhase'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROBING&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase_TRANSCODING"><span class="hs-identifier hs-type">JobPhase_TRANSCODING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase"><span class="hs-identifier hs-type">JobPhase</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobPhase_TRANSCODING"><span id="%24mJobPhase_TRANSCODING"><span id="JobPhase_TRANSCODING"><span class="annot"><span class="annottext">$bJobPhase_TRANSCODING :: JobPhase
+$mJobPhase_TRANSCODING :: forall r. JobPhase -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.JobPhase.html#%24bJobPhase_TRANSCODING"><span class="hs-identifier hs-var hs-var hs-var">JobPhase_TRANSCODING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase%27"><span class="hs-identifier hs-type">JobPhase'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TRANSCODING&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase_UPLOADING"><span class="hs-identifier hs-type">JobPhase_UPLOADING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase"><span class="hs-identifier hs-type">JobPhase</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobPhase_UPLOADING"><span id="%24mJobPhase_UPLOADING"><span id="JobPhase_UPLOADING"><span class="annot"><span class="annottext">$bJobPhase_UPLOADING :: JobPhase
+$mJobPhase_UPLOADING :: forall r. JobPhase -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.JobPhase.html#%24bJobPhase_UPLOADING"><span class="hs-identifier hs-var hs-var hs-var">JobPhase_UPLOADING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase%27"><span class="hs-identifier hs-type">JobPhase'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPLOADING&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase_PROBING"><span class="hs-pragma hs-type">JobPhase_PROBING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase_TRANSCODING"><span class="hs-pragma hs-type">JobPhase_TRANSCODING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase_UPLOADING"><span class="hs-pragma hs-type">JobPhase_UPLOADING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.JobPhase.html#JobPhase%27"><span class="hs-pragma hs-type">JobPhase'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

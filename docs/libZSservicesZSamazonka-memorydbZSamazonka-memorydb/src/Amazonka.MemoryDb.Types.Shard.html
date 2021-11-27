@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MemoryDb.Types.Shard</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MemoryDb.Types.Shard</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Node.html"><span class="hs-identifier">Amazonka.MemoryDb.Types.Node</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Represents a collection of nodes in a cluster. One node in the node</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- group is the read\/write primary node. All the other nodes are read-only</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Replica nodes.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newShard' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679243815"><span id="local-6989586621679243816"></span></span><span class="hs-keyword">data</span><span> </span><span id="Shard"><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-var">Shard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Shard%27"><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-var">Shard'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of this replication group - creating, available,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- modifying, deleting.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3AShard%27"><span class="annot"><span class="annottext">Shard -&gt; Maybe Text
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3Astatus%3AShard%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The keyspace for this shard.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aslots%3AShard%27"><span class="annot"><span class="annottext">Shard -&gt; Maybe Text
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3Aslots%3AShard%27"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of nodes in the shard</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AnumberOfNodes%3AShard%27"><span class="annot"><span class="annottext">Shard -&gt; Maybe Int
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3AnumberOfNodes%3AShard%27"><span class="hs-identifier hs-var hs-var">numberOfNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the shard</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3AShard%27"><span class="annot"><span class="annottext">Shard -&gt; Maybe Text
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3Aname%3AShard%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A list containing information about individual nodes within the shard</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Anodes%3AShard%27"><span class="annot"><span class="annottext">Shard -&gt; Maybe [Node]
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3Anodes%3AShard%27"><span class="hs-identifier hs-var hs-var">nodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MemoryDb.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243805"><span id="local-6989586621679243807"><span class="annot"><span class="annottext">Shard -&gt; Shard -&gt; Bool
+(Shard -&gt; Shard -&gt; Bool) -&gt; (Shard -&gt; Shard -&gt; Bool) -&gt; Eq Shard
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Shard -&gt; Shard -&gt; Bool
+$c/= :: Shard -&gt; Shard -&gt; Bool
+== :: Shard -&gt; Shard -&gt; Bool
+$c== :: Shard -&gt; Shard -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243796"><span id="local-6989586621679243798"><span id="local-6989586621679243800"><span id="local-6989586621679243802"><span class="annot"><span class="annottext">ReadPrec [Shard]
+ReadPrec Shard
+Int -&gt; ReadS Shard
+ReadS [Shard]
+(Int -&gt; ReadS Shard)
+-&gt; ReadS [Shard]
+-&gt; ReadPrec Shard
+-&gt; ReadPrec [Shard]
+-&gt; Read Shard
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Shard]
+$creadListPrec :: ReadPrec [Shard]
+readPrec :: ReadPrec Shard
+$creadPrec :: ReadPrec Shard
+readList :: ReadS [Shard]
+$creadList :: ReadS [Shard]
+readsPrec :: Int -&gt; ReadS Shard
+$creadsPrec :: Int -&gt; ReadS Shard
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243789"><span id="local-6989586621679243791"><span id="local-6989586621679243793"><span class="annot"><span class="annottext">Int -&gt; Shard -&gt; ShowS
+[Shard] -&gt; ShowS
+Shard -&gt; String
+(Int -&gt; Shard -&gt; ShowS)
+-&gt; (Shard -&gt; String) -&gt; ([Shard] -&gt; ShowS) -&gt; Show Shard
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Shard] -&gt; ShowS
+$cshowList :: [Shard] -&gt; ShowS
+show :: Shard -&gt; String
+$cshow :: Shard -&gt; String
+showsPrec :: Int -&gt; Shard -&gt; ShowS
+$cshowsPrec :: Int -&gt; Shard -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Shard -&gt; Rep Shard x)
+-&gt; (forall x. Rep Shard x -&gt; Shard) -&gt; Generic Shard
+forall x. Rep Shard x -&gt; Shard
+forall x. Shard -&gt; Rep Shard x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Shard x -&gt; Shard
+$cfrom :: forall x. Shard -&gt; Rep Shard x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'Shard' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'status', 'shard_status' - The current state of this replication group - creating, available,</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- modifying, deleting.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'slots', 'shard_slots' - The keyspace for this shard.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'numberOfNodes', 'shard_numberOfNodes' - The number of nodes in the shard</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'name', 'shard_name' - The name of the shard</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'nodes', 'shard_nodes' - A list containing information about individual nodes within the shard</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#newShard"><span class="hs-identifier hs-type">newShard</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span>
+</span><span id="line-67"></span><span id="newShard"><span class="annot"><span class="annottext">newShard :: Shard
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#newShard"><span class="hs-identifier hs-var hs-var">newShard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Shard' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe [Node] -&gt; Shard
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Shard' :: Maybe Text
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3Astatus%3AShard%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:slots:Shard' :: Maybe Text
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3Aslots%3AShard%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfNodes:Shard' :: Maybe Int
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3AnumberOfNodes%3AShard%27"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Shard' :: Maybe Text
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3Aname%3AShard%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodes:Shard' :: Maybe [Node]
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3Anodes%3AShard%27"><span class="hs-identifier hs-var">nodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The current state of this replication group - creating, available,</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- modifying, deleting.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#shard_status"><span class="hs-identifier hs-type">shard_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="shard_status"><span class="annot"><span class="annottext">shard_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Shard -&gt; f Shard
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#shard_status"><span class="hs-identifier hs-var hs-var">shard_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shard -&gt; Maybe Text)
+-&gt; (Shard -&gt; Maybe Text -&gt; Shard)
+-&gt; Lens Shard Shard (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243780"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:Shard' :: Shard -&gt; Maybe Text
+</span><a href="#local-6989586621679243780"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243780"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243779"><span class="annot"><span class="annottext">s :: Shard
+</span><a href="#local-6989586621679243779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243778"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shard
+</span><a href="#local-6989586621679243779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Shard' :: Maybe Text
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3Astatus%3AShard%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The keyspace for this shard.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#shard_slots"><span class="hs-identifier hs-type">shard_slots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="shard_slots"><span class="annot"><span class="annottext">shard_slots :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Shard -&gt; f Shard
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#shard_slots"><span class="hs-identifier hs-var hs-var">shard_slots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shard -&gt; Maybe Text)
+-&gt; (Shard -&gt; Maybe Text -&gt; Shard)
+-&gt; Lens Shard Shard (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243776"><span class="annot"><span class="annottext">Maybe Text
+slots :: Maybe Text
+$sel:slots:Shard' :: Shard -&gt; Maybe Text
+</span><a href="#local-6989586621679243776"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243776"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243775"><span class="annot"><span class="annottext">s :: Shard
+</span><a href="#local-6989586621679243775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243774"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shard
+</span><a href="#local-6989586621679243775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:Shard' :: Maybe Text
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3Aslots%3AShard%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The number of nodes in the shard</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#shard_numberOfNodes"><span class="hs-identifier hs-type">shard_numberOfNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="shard_numberOfNodes"><span class="annot"><span class="annottext">shard_numberOfNodes :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Shard -&gt; f Shard
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#shard_numberOfNodes"><span class="hs-identifier hs-var hs-var">shard_numberOfNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shard -&gt; Maybe Int)
+-&gt; (Shard -&gt; Maybe Int -&gt; Shard)
+-&gt; Lens Shard Shard (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243772"><span class="annot"><span class="annottext">Maybe Int
+numberOfNodes :: Maybe Int
+$sel:numberOfNodes:Shard' :: Shard -&gt; Maybe Int
+</span><a href="#local-6989586621679243772"><span class="hs-identifier hs-var hs-var">numberOfNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679243772"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243771"><span class="annot"><span class="annottext">s :: Shard
+</span><a href="#local-6989586621679243771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243770"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679243770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shard
+</span><a href="#local-6989586621679243771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNodes:Shard' :: Maybe Int
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3AnumberOfNodes%3AShard%27"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679243770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The name of the shard</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#shard_name"><span class="hs-identifier hs-type">shard_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="shard_name"><span class="annot"><span class="annottext">shard_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Shard -&gt; f Shard
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#shard_name"><span class="hs-identifier hs-var hs-var">shard_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shard -&gt; Maybe Text)
+-&gt; (Shard -&gt; Maybe Text -&gt; Shard)
+-&gt; Lens Shard Shard (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243768"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Shard' :: Shard -&gt; Maybe Text
+</span><a href="#local-6989586621679243768"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243768"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243767"><span class="annot"><span class="annottext">s :: Shard
+</span><a href="#local-6989586621679243767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243766"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shard
+</span><a href="#local-6989586621679243767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Shard' :: Maybe Text
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3Aname%3AShard%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | A list containing information about individual nodes within the shard</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#shard_nodes"><span class="hs-identifier hs-type">shard_nodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MemoryDb.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="shard_nodes"><span class="annot"><span class="annottext">shard_nodes :: (Maybe [Node] -&gt; f (Maybe [Node])) -&gt; Shard -&gt; f Shard
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#shard_nodes"><span class="hs-identifier hs-var hs-var">shard_nodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shard -&gt; Maybe [Node])
+-&gt; (Shard -&gt; Maybe [Node] -&gt; Shard)
+-&gt; Lens Shard Shard (Maybe [Node]) (Maybe [Node])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243764"><span class="annot"><span class="annottext">Maybe [Node]
+nodes :: Maybe [Node]
+$sel:nodes:Shard' :: Shard -&gt; Maybe [Node]
+</span><a href="#local-6989586621679243764"><span class="hs-identifier hs-var hs-var">nodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+</span><a href="#local-6989586621679243764"><span class="hs-identifier hs-var">nodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243763"><span class="annot"><span class="annottext">s :: Shard
+</span><a href="#local-6989586621679243763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243762"><span class="annot"><span class="annottext">Maybe [Node]
+</span><a href="#local-6989586621679243762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shard
+</span><a href="#local-6989586621679243763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodes:Shard' :: Maybe [Node]
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#%24sel%3Anodes%3AShard%27"><span class="hs-identifier hs-var">nodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+</span><a href="#local-6989586621679243762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Node] -&gt; f (Maybe [Node])) -&gt; Shard -&gt; f Shard)
+-&gt; ((Maybe [Node] -&gt; f (Maybe [Node]))
+    -&gt; Maybe [Node] -&gt; f (Maybe [Node]))
+-&gt; (Maybe [Node] -&gt; f (Maybe [Node]))
+-&gt; Shard
+-&gt; f Shard
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Node] [Node] [Node] [Node]
+-&gt; Iso (Maybe [Node]) (Maybe [Node]) (Maybe [Node]) (Maybe [Node])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Node] [Node] [Node] [Node]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243756"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679243754"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Shard
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Shard) -&gt; Value -&gt; Parser Shard
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Shard&quot;</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243751"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243751"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe [Node] -&gt; Shard
+</span><a href="Amazonka.MemoryDb.Types.Shard.html#Shard%27"><span class="hs-identifier hs-var">Shard'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe [Node] -&gt; Shard)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe [Node] -&gt; Shard)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe [Node] -&gt; Shard)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; Maybe Text -&gt; Maybe [Node] -&gt; Shard)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Slots&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Text -&gt; Maybe [Node] -&gt; Shard)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Text -&gt; Maybe [Node] -&gt; Shard)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumberOfNodes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Node] -&gt; Shard)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Node] -&gt; Shard)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Node] -&gt; Shard)
+-&gt; Parser (Maybe [Node]) -&gt; Parser Shard
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Node]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Nodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Node]))
+-&gt; Maybe [Node] -&gt; Parser (Maybe [Node])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243744"><span id="local-6989586621679243746"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243741"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MemoryDb.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span></span><span>
+</span><span id="line-113"></span></pre></body></html>

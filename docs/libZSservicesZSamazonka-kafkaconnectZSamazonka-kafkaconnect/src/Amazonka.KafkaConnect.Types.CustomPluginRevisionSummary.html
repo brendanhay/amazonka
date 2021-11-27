@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginContentType.html"><span class="hs-identifier">Amazonka.KafkaConnect.Types.CustomPluginContentType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginFileDescription.html"><span class="hs-identifier">Amazonka.KafkaConnect.Types.CustomPluginFileDescription</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginLocationDescription.html"><span class="hs-identifier">Amazonka.KafkaConnect.Types.CustomPluginLocationDescription</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Details about the revision of a custom plugin.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCustomPluginRevisionSummary' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679203086"><span id="local-6989586621679203087"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomPluginRevisionSummary"><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-var">CustomPluginRevisionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomPluginRevisionSummary%27"><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">CustomPluginRevisionSummary'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time that the custom plugin was created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreationTime%3ACustomPluginRevisionSummary%27"><span class="annot"><span class="annottext">CustomPluginRevisionSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3AcreationTime%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Information about the location of the custom plugin.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Alocation%3ACustomPluginRevisionSummary%27"><span class="annot"><span class="annottext">CustomPluginRevisionSummary
+-&gt; Maybe CustomPluginLocationDescription
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3Alocation%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginLocationDescription.html#CustomPluginLocationDescription"><span class="hs-identifier hs-type">CustomPluginLocationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Details about the custom plugin file.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AfileDescription%3ACustomPluginRevisionSummary%27"><span class="annot"><span class="annottext">CustomPluginRevisionSummary -&gt; Maybe CustomPluginFileDescription
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3AfileDescription%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var hs-var">fileDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginFileDescription.html#CustomPluginFileDescription"><span class="hs-identifier hs-type">CustomPluginFileDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The revision of the custom plugin.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Arevision%3ACustomPluginRevisionSummary%27"><span class="annot"><span class="annottext">CustomPluginRevisionSummary -&gt; Maybe Integer
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3Arevision%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The description of the custom plugin.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Adescription%3ACustomPluginRevisionSummary%27"><span class="annot"><span class="annottext">CustomPluginRevisionSummary -&gt; Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3Adescription%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The format of the plugin file.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcontentType%3ACustomPluginRevisionSummary%27"><span class="annot"><span class="annottext">CustomPluginRevisionSummary -&gt; Maybe CustomPluginContentType
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3AcontentType%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginContentType.html#CustomPluginContentType"><span class="hs-identifier hs-type">CustomPluginContentType</span></a></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203075"><span id="local-6989586621679203077"><span class="annot"><span class="annottext">CustomPluginRevisionSummary -&gt; CustomPluginRevisionSummary -&gt; Bool
+(CustomPluginRevisionSummary
+ -&gt; CustomPluginRevisionSummary -&gt; Bool)
+-&gt; (CustomPluginRevisionSummary
+    -&gt; CustomPluginRevisionSummary -&gt; Bool)
+-&gt; Eq CustomPluginRevisionSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CustomPluginRevisionSummary -&gt; CustomPluginRevisionSummary -&gt; Bool
+$c/= :: CustomPluginRevisionSummary -&gt; CustomPluginRevisionSummary -&gt; Bool
+== :: CustomPluginRevisionSummary -&gt; CustomPluginRevisionSummary -&gt; Bool
+$c== :: CustomPluginRevisionSummary -&gt; CustomPluginRevisionSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203066"><span id="local-6989586621679203068"><span id="local-6989586621679203070"><span id="local-6989586621679203072"><span class="annot"><span class="annottext">ReadPrec [CustomPluginRevisionSummary]
+ReadPrec CustomPluginRevisionSummary
+Int -&gt; ReadS CustomPluginRevisionSummary
+ReadS [CustomPluginRevisionSummary]
+(Int -&gt; ReadS CustomPluginRevisionSummary)
+-&gt; ReadS [CustomPluginRevisionSummary]
+-&gt; ReadPrec CustomPluginRevisionSummary
+-&gt; ReadPrec [CustomPluginRevisionSummary]
+-&gt; Read CustomPluginRevisionSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CustomPluginRevisionSummary]
+$creadListPrec :: ReadPrec [CustomPluginRevisionSummary]
+readPrec :: ReadPrec CustomPluginRevisionSummary
+$creadPrec :: ReadPrec CustomPluginRevisionSummary
+readList :: ReadS [CustomPluginRevisionSummary]
+$creadList :: ReadS [CustomPluginRevisionSummary]
+readsPrec :: Int -&gt; ReadS CustomPluginRevisionSummary
+$creadsPrec :: Int -&gt; ReadS CustomPluginRevisionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203059"><span id="local-6989586621679203061"><span id="local-6989586621679203063"><span class="annot"><span class="annottext">Int -&gt; CustomPluginRevisionSummary -&gt; ShowS
+[CustomPluginRevisionSummary] -&gt; ShowS
+CustomPluginRevisionSummary -&gt; String
+(Int -&gt; CustomPluginRevisionSummary -&gt; ShowS)
+-&gt; (CustomPluginRevisionSummary -&gt; String)
+-&gt; ([CustomPluginRevisionSummary] -&gt; ShowS)
+-&gt; Show CustomPluginRevisionSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CustomPluginRevisionSummary] -&gt; ShowS
+$cshowList :: [CustomPluginRevisionSummary] -&gt; ShowS
+show :: CustomPluginRevisionSummary -&gt; String
+$cshow :: CustomPluginRevisionSummary -&gt; String
+showsPrec :: Int -&gt; CustomPluginRevisionSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; CustomPluginRevisionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CustomPluginRevisionSummary -&gt; Rep CustomPluginRevisionSummary x)
+-&gt; (forall x.
+    Rep CustomPluginRevisionSummary x -&gt; CustomPluginRevisionSummary)
+-&gt; Generic CustomPluginRevisionSummary
+forall x.
+Rep CustomPluginRevisionSummary x -&gt; CustomPluginRevisionSummary
+forall x.
+CustomPluginRevisionSummary -&gt; Rep CustomPluginRevisionSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CustomPluginRevisionSummary x -&gt; CustomPluginRevisionSummary
+$cfrom :: forall x.
+CustomPluginRevisionSummary -&gt; Rep CustomPluginRevisionSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'CustomPluginRevisionSummary' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'creationTime', 'customPluginRevisionSummary_creationTime' - The time that the custom plugin was created.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'location', 'customPluginRevisionSummary_location' - Information about the location of the custom plugin.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'fileDescription', 'customPluginRevisionSummary_fileDescription' - Details about the custom plugin file.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'revision', 'customPluginRevisionSummary_revision' - The revision of the custom plugin.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'description', 'customPluginRevisionSummary_description' - The description of the custom plugin.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'contentType', 'customPluginRevisionSummary_contentType' - The format of the plugin file.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#newCustomPluginRevisionSummary"><span class="hs-identifier hs-type">newCustomPluginRevisionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span>
+</span><span id="line-69"></span><span id="newCustomPluginRevisionSummary"><span class="annot"><span class="annottext">newCustomPluginRevisionSummary :: CustomPluginRevisionSummary
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#newCustomPluginRevisionSummary"><span class="hs-identifier hs-var hs-var">newCustomPluginRevisionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">CustomPluginRevisionSummary' :: Maybe POSIX
+-&gt; Maybe CustomPluginLocationDescription
+-&gt; Maybe CustomPluginFileDescription
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe CustomPluginContentType
+-&gt; CustomPluginRevisionSummary
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:CustomPluginRevisionSummary' :: Maybe POSIX
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3AcreationTime%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:CustomPluginRevisionSummary' :: Maybe CustomPluginLocationDescription
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3Alocation%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomPluginLocationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileDescription:CustomPluginRevisionSummary' :: Maybe CustomPluginFileDescription
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3AfileDescription%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">fileDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomPluginFileDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:revision:CustomPluginRevisionSummary' :: Maybe Integer
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3Arevision%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CustomPluginRevisionSummary' :: Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3Adescription%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:CustomPluginRevisionSummary' :: Maybe CustomPluginContentType
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3AcontentType%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomPluginContentType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The time that the custom plugin was created.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#customPluginRevisionSummary_creationTime"><span class="hs-identifier hs-type">customPluginRevisionSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="customPluginRevisionSummary_creationTime"><span class="annot"><span class="annottext">customPluginRevisionSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CustomPluginRevisionSummary -&gt; f CustomPluginRevisionSummary
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#customPluginRevisionSummary_creationTime"><span class="hs-identifier hs-var hs-var">customPluginRevisionSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomPluginRevisionSummary -&gt; Maybe POSIX)
+-&gt; (CustomPluginRevisionSummary
+    -&gt; Maybe POSIX -&gt; CustomPluginRevisionSummary)
+-&gt; Lens
+     CustomPluginRevisionSummary
+     CustomPluginRevisionSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203050"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:CustomPluginRevisionSummary' :: CustomPluginRevisionSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679203050"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203050"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203049"><span class="annot"><span class="annottext">s :: CustomPluginRevisionSummary
+</span><a href="#local-6989586621679203049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203048"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomPluginRevisionSummary
+</span><a href="#local-6989586621679203049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:CustomPluginRevisionSummary' :: Maybe POSIX
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3AcreationTime%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CustomPluginRevisionSummary -&gt; f CustomPluginRevisionSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CustomPluginRevisionSummary
+-&gt; f CustomPluginRevisionSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Information about the location of the custom plugin.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#customPluginRevisionSummary_location"><span class="hs-identifier hs-type">customPluginRevisionSummary_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginLocationDescription.html#CustomPluginLocationDescription"><span class="hs-identifier hs-type">CustomPluginLocationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="customPluginRevisionSummary_location"><span class="annot"><span class="annottext">customPluginRevisionSummary_location :: (Maybe CustomPluginLocationDescription
+ -&gt; f (Maybe CustomPluginLocationDescription))
+-&gt; CustomPluginRevisionSummary -&gt; f CustomPluginRevisionSummary
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#customPluginRevisionSummary_location"><span class="hs-identifier hs-var hs-var">customPluginRevisionSummary_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomPluginRevisionSummary
+ -&gt; Maybe CustomPluginLocationDescription)
+-&gt; (CustomPluginRevisionSummary
+    -&gt; Maybe CustomPluginLocationDescription
+    -&gt; CustomPluginRevisionSummary)
+-&gt; Lens
+     CustomPluginRevisionSummary
+     CustomPluginRevisionSummary
+     (Maybe CustomPluginLocationDescription)
+     (Maybe CustomPluginLocationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203043"><span class="annot"><span class="annottext">Maybe CustomPluginLocationDescription
+location :: Maybe CustomPluginLocationDescription
+$sel:location:CustomPluginRevisionSummary' :: CustomPluginRevisionSummary
+-&gt; Maybe CustomPluginLocationDescription
+</span><a href="#local-6989586621679203043"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomPluginLocationDescription
+</span><a href="#local-6989586621679203043"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203042"><span class="annot"><span class="annottext">s :: CustomPluginRevisionSummary
+</span><a href="#local-6989586621679203042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203041"><span class="annot"><span class="annottext">Maybe CustomPluginLocationDescription
+</span><a href="#local-6989586621679203041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomPluginRevisionSummary
+</span><a href="#local-6989586621679203042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CustomPluginRevisionSummary' :: Maybe CustomPluginLocationDescription
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3Alocation%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomPluginLocationDescription
+</span><a href="#local-6989586621679203041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Details about the custom plugin file.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#customPluginRevisionSummary_fileDescription"><span class="hs-identifier hs-type">customPluginRevisionSummary_fileDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginFileDescription.html#CustomPluginFileDescription"><span class="hs-identifier hs-type">CustomPluginFileDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="customPluginRevisionSummary_fileDescription"><span class="annot"><span class="annottext">customPluginRevisionSummary_fileDescription :: (Maybe CustomPluginFileDescription
+ -&gt; f (Maybe CustomPluginFileDescription))
+-&gt; CustomPluginRevisionSummary -&gt; f CustomPluginRevisionSummary
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#customPluginRevisionSummary_fileDescription"><span class="hs-identifier hs-var hs-var">customPluginRevisionSummary_fileDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomPluginRevisionSummary -&gt; Maybe CustomPluginFileDescription)
+-&gt; (CustomPluginRevisionSummary
+    -&gt; Maybe CustomPluginFileDescription
+    -&gt; CustomPluginRevisionSummary)
+-&gt; Lens
+     CustomPluginRevisionSummary
+     CustomPluginRevisionSummary
+     (Maybe CustomPluginFileDescription)
+     (Maybe CustomPluginFileDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203039"><span class="annot"><span class="annottext">Maybe CustomPluginFileDescription
+fileDescription :: Maybe CustomPluginFileDescription
+$sel:fileDescription:CustomPluginRevisionSummary' :: CustomPluginRevisionSummary -&gt; Maybe CustomPluginFileDescription
+</span><a href="#local-6989586621679203039"><span class="hs-identifier hs-var hs-var">fileDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomPluginFileDescription
+</span><a href="#local-6989586621679203039"><span class="hs-identifier hs-var">fileDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203038"><span class="annot"><span class="annottext">s :: CustomPluginRevisionSummary
+</span><a href="#local-6989586621679203038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203037"><span class="annot"><span class="annottext">Maybe CustomPluginFileDescription
+</span><a href="#local-6989586621679203037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomPluginRevisionSummary
+</span><a href="#local-6989586621679203038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileDescription:CustomPluginRevisionSummary' :: Maybe CustomPluginFileDescription
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3AfileDescription%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">fileDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomPluginFileDescription
+</span><a href="#local-6989586621679203037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The revision of the custom plugin.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#customPluginRevisionSummary_revision"><span class="hs-identifier hs-type">customPluginRevisionSummary_revision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="customPluginRevisionSummary_revision"><span class="annot"><span class="annottext">customPluginRevisionSummary_revision :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; CustomPluginRevisionSummary -&gt; f CustomPluginRevisionSummary
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#customPluginRevisionSummary_revision"><span class="hs-identifier hs-var hs-var">customPluginRevisionSummary_revision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomPluginRevisionSummary -&gt; Maybe Integer)
+-&gt; (CustomPluginRevisionSummary
+    -&gt; Maybe Integer -&gt; CustomPluginRevisionSummary)
+-&gt; Lens
+     CustomPluginRevisionSummary
+     CustomPluginRevisionSummary
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203035"><span class="annot"><span class="annottext">Maybe Integer
+revision :: Maybe Integer
+$sel:revision:CustomPluginRevisionSummary' :: CustomPluginRevisionSummary -&gt; Maybe Integer
+</span><a href="#local-6989586621679203035"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679203035"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203034"><span class="annot"><span class="annottext">s :: CustomPluginRevisionSummary
+</span><a href="#local-6989586621679203034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203033"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679203033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomPluginRevisionSummary
+</span><a href="#local-6989586621679203034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:CustomPluginRevisionSummary' :: Maybe Integer
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3Arevision%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679203033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The description of the custom plugin.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#customPluginRevisionSummary_description"><span class="hs-identifier hs-type">customPluginRevisionSummary_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="customPluginRevisionSummary_description"><span class="annot"><span class="annottext">customPluginRevisionSummary_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomPluginRevisionSummary -&gt; f CustomPluginRevisionSummary
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#customPluginRevisionSummary_description"><span class="hs-identifier hs-var hs-var">customPluginRevisionSummary_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomPluginRevisionSummary -&gt; Maybe Text)
+-&gt; (CustomPluginRevisionSummary
+    -&gt; Maybe Text -&gt; CustomPluginRevisionSummary)
+-&gt; Lens
+     CustomPluginRevisionSummary
+     CustomPluginRevisionSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203031"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CustomPluginRevisionSummary' :: CustomPluginRevisionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679203031"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203031"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203030"><span class="annot"><span class="annottext">s :: CustomPluginRevisionSummary
+</span><a href="#local-6989586621679203030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203029"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomPluginRevisionSummary
+</span><a href="#local-6989586621679203030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CustomPluginRevisionSummary' :: Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3Adescription%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The format of the plugin file.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#customPluginRevisionSummary_contentType"><span class="hs-identifier hs-type">customPluginRevisionSummary_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginContentType.html#CustomPluginContentType"><span class="hs-identifier hs-type">CustomPluginContentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="customPluginRevisionSummary_contentType"><span class="annot"><span class="annottext">customPluginRevisionSummary_contentType :: (Maybe CustomPluginContentType
+ -&gt; f (Maybe CustomPluginContentType))
+-&gt; CustomPluginRevisionSummary -&gt; f CustomPluginRevisionSummary
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#customPluginRevisionSummary_contentType"><span class="hs-identifier hs-var hs-var">customPluginRevisionSummary_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomPluginRevisionSummary -&gt; Maybe CustomPluginContentType)
+-&gt; (CustomPluginRevisionSummary
+    -&gt; Maybe CustomPluginContentType -&gt; CustomPluginRevisionSummary)
+-&gt; Lens
+     CustomPluginRevisionSummary
+     CustomPluginRevisionSummary
+     (Maybe CustomPluginContentType)
+     (Maybe CustomPluginContentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203027"><span class="annot"><span class="annottext">Maybe CustomPluginContentType
+contentType :: Maybe CustomPluginContentType
+$sel:contentType:CustomPluginRevisionSummary' :: CustomPluginRevisionSummary -&gt; Maybe CustomPluginContentType
+</span><a href="#local-6989586621679203027"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomPluginContentType
+</span><a href="#local-6989586621679203027"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203026"><span class="annot"><span class="annottext">s :: CustomPluginRevisionSummary
+</span><a href="#local-6989586621679203026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-type">CustomPluginRevisionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203025"><span class="annot"><span class="annottext">Maybe CustomPluginContentType
+</span><a href="#local-6989586621679203025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomPluginRevisionSummary
+</span><a href="#local-6989586621679203026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:CustomPluginRevisionSummary' :: Maybe CustomPluginContentType
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#%24sel%3AcontentType%3ACustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomPluginContentType
+</span><a href="#local-6989586621679203025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203022"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679203020"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CustomPluginRevisionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CustomPluginRevisionSummary)
+-&gt; Value
+-&gt; Parser CustomPluginRevisionSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CustomPluginRevisionSummary&quot;</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203017"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe CustomPluginLocationDescription
+-&gt; Maybe CustomPluginFileDescription
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe CustomPluginContentType
+-&gt; CustomPluginRevisionSummary
+</span><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary%27"><span class="hs-identifier hs-var">CustomPluginRevisionSummary'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe CustomPluginLocationDescription
+ -&gt; Maybe CustomPluginFileDescription
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe CustomPluginContentType
+ -&gt; CustomPluginRevisionSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe CustomPluginLocationDescription
+      -&gt; Maybe CustomPluginFileDescription
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe CustomPluginContentType
+      -&gt; CustomPluginRevisionSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CustomPluginLocationDescription
+   -&gt; Maybe CustomPluginFileDescription
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe CustomPluginContentType
+   -&gt; CustomPluginRevisionSummary)
+-&gt; Parser (Maybe CustomPluginLocationDescription)
+-&gt; Parser
+     (Maybe CustomPluginFileDescription
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe CustomPluginContentType
+      -&gt; CustomPluginRevisionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomPluginLocationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CustomPluginFileDescription
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe CustomPluginContentType
+   -&gt; CustomPluginRevisionSummary)
+-&gt; Parser (Maybe CustomPluginFileDescription)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe CustomPluginContentType
+      -&gt; CustomPluginRevisionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomPluginFileDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fileDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe CustomPluginContentType
+   -&gt; CustomPluginRevisionSummary)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe CustomPluginContentType -&gt; CustomPluginRevisionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;revision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe CustomPluginContentType -&gt; CustomPluginRevisionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CustomPluginContentType -&gt; CustomPluginRevisionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CustomPluginContentType -&gt; CustomPluginRevisionSummary)
+-&gt; Parser (Maybe CustomPluginContentType)
+-&gt; Parser CustomPluginRevisionSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomPluginContentType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203011"><span id="local-6989586621679203013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.html#CustomPluginRevisionSummary"><span class="hs-identifier hs-type">CustomPluginRevisionSummary</span></a></span></span><span>
+</span><span id="line-121"></span></pre></body></html>

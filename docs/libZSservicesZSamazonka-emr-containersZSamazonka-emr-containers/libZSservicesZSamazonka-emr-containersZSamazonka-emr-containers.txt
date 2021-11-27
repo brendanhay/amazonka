@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.EMRContainers.Types.CloudWatchMonitoringConfiguration
+module Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration
 
 -- | A configuration for CloudWatch monitoring. You can configure your jobs
 --   to send log information to CloudWatch Logs.
@@ -44,17 +44,17 @@ cloudWatchMonitoringConfiguration_logStreamNamePrefix :: Lens' CloudWatchMonitor
 
 -- | The name of the log group for log publishing.
 cloudWatchMonitoringConfiguration_logGroupName :: Lens' CloudWatchMonitoringConfiguration Text
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
+instance GHC.Show.Show Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
+instance GHC.Read.Read Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration.CloudWatchMonitoringConfiguration
 
 
-module Network.AWS.EMRContainers.Types.Configuration
+module Amazonka.EMRContainers.Types.Configuration
 
 -- | A configuration specification to be used when provisioning virtual
 --   clusters, which can include configurations for applications and
@@ -107,42 +107,42 @@ configuration_properties :: Lens' Configuration (Maybe (HashMap Text Text))
 
 -- | The classification within a configuration.
 configuration_classification :: Lens' Configuration Text
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.Configuration.Configuration
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.Configuration.Configuration
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.Configuration.Configuration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.Configuration.Configuration
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.Configuration.Configuration
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.Configuration.Configuration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.Configuration.Configuration
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.Configuration.Configuration
+instance GHC.Show.Show Amazonka.EMRContainers.Types.Configuration.Configuration
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.Configuration.Configuration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.Configuration.Configuration
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.Configuration.Configuration
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.Configuration.Configuration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.Configuration.Configuration
 
 
-module Network.AWS.EMRContainers.Types.ContainerProviderType
+module Amazonka.EMRContainers.Types.ContainerProviderType
 newtype ContainerProviderType
 ContainerProviderType' :: Text -> ContainerProviderType
 [fromContainerProviderType] :: ContainerProviderType -> Text
 pattern ContainerProviderType_EKS :: ContainerProviderType
-instance Network.AWS.Data.XML.ToXML Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Network.AWS.Data.XML.FromXML Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Network.AWS.Data.Log.ToLog Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Network.AWS.Data.Text.ToText Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Network.AWS.Data.Text.FromText Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance GHC.Classes.Ord Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Amazonka.Data.XML.ToXML Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Amazonka.Data.XML.FromXML Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Amazonka.Data.Headers.ToHeader Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Amazonka.Data.Log.ToLog Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Amazonka.Data.Text.ToText Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Amazonka.Data.Text.FromText Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance GHC.Classes.Ord Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance GHC.Read.Read Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
+instance GHC.Show.Show Amazonka.EMRContainers.Types.ContainerProviderType.ContainerProviderType
 
 
-module Network.AWS.EMRContainers.Types.EksInfo
+module Amazonka.EMRContainers.Types.EksInfo
 
 -- | The information about the EKS cluster.
 --   
@@ -167,17 +167,17 @@ newEksInfo :: EksInfo
 
 -- | The namespaces of the EKS cluster.
 eksInfo_namespace :: Lens' EksInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.EksInfo.EksInfo
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.EksInfo.EksInfo
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.EksInfo.EksInfo
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.EksInfo.EksInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.EksInfo.EksInfo
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.EksInfo.EksInfo
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.EksInfo.EksInfo
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.EksInfo.EksInfo
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.EksInfo.EksInfo
+instance GHC.Show.Show Amazonka.EMRContainers.Types.EksInfo.EksInfo
+instance GHC.Read.Read Amazonka.EMRContainers.Types.EksInfo.EksInfo
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.EksInfo.EksInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.EksInfo.EksInfo
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.EksInfo.EksInfo
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.EksInfo.EksInfo
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.EksInfo.EksInfo
 
 
-module Network.AWS.EMRContainers.Types.ContainerInfo
+module Amazonka.EMRContainers.Types.ContainerInfo
 
 -- | The information about the container used for a job run or a managed
 --   endpoint.
@@ -204,17 +204,17 @@ newContainerInfo :: ContainerInfo
 
 -- | The information about the EKS cluster.
 containerInfo_eksInfo :: Lens' ContainerInfo (Maybe EksInfo)
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.ContainerInfo.ContainerInfo
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.ContainerInfo.ContainerInfo
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.ContainerInfo.ContainerInfo
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.ContainerInfo.ContainerInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.ContainerInfo.ContainerInfo
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.ContainerInfo.ContainerInfo
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.ContainerInfo.ContainerInfo
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.ContainerInfo.ContainerInfo
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.ContainerInfo.ContainerInfo
+instance GHC.Show.Show Amazonka.EMRContainers.Types.ContainerInfo.ContainerInfo
+instance GHC.Read.Read Amazonka.EMRContainers.Types.ContainerInfo.ContainerInfo
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.ContainerInfo.ContainerInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.ContainerInfo.ContainerInfo
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.ContainerInfo.ContainerInfo
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.ContainerInfo.ContainerInfo
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.ContainerInfo.ContainerInfo
 
 
-module Network.AWS.EMRContainers.Types.ContainerProvider
+module Amazonka.EMRContainers.Types.ContainerProvider
 
 -- | The information about the container provider.
 --   
@@ -261,17 +261,17 @@ containerProvider_type :: Lens' ContainerProvider ContainerProviderType
 
 -- | The ID of the container cluster.
 containerProvider_id :: Lens' ContainerProvider Text
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.ContainerProvider.ContainerProvider
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.ContainerProvider.ContainerProvider
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.ContainerProvider.ContainerProvider
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.ContainerProvider.ContainerProvider
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.ContainerProvider.ContainerProvider
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.ContainerProvider.ContainerProvider
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.ContainerProvider.ContainerProvider
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.ContainerProvider.ContainerProvider
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.ContainerProvider.ContainerProvider
+instance GHC.Show.Show Amazonka.EMRContainers.Types.ContainerProvider.ContainerProvider
+instance GHC.Read.Read Amazonka.EMRContainers.Types.ContainerProvider.ContainerProvider
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.ContainerProvider.ContainerProvider
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.ContainerProvider.ContainerProvider
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.ContainerProvider.ContainerProvider
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.ContainerProvider.ContainerProvider
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.ContainerProvider.ContainerProvider
 
 
-module Network.AWS.EMRContainers.Types.EndpointState
+module Amazonka.EMRContainers.Types.EndpointState
 newtype EndpointState
 EndpointState' :: Text -> EndpointState
 [fromEndpointState] :: EndpointState -> Text
@@ -280,28 +280,28 @@ pattern EndpointState_CREATING :: EndpointState
 pattern EndpointState_TERMINATED :: EndpointState
 pattern EndpointState_TERMINATED_WITH_ERRORS :: EndpointState
 pattern EndpointState_TERMINATING :: EndpointState
-instance Network.AWS.Data.XML.ToXML Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Network.AWS.Data.XML.FromXML Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Network.AWS.Data.Log.ToLog Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Network.AWS.Data.Text.ToText Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Network.AWS.Data.Text.FromText Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance GHC.Classes.Ord Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.EndpointState.EndpointState
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.EndpointState.EndpointState
+instance Amazonka.Data.XML.ToXML Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Amazonka.Data.XML.FromXML Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Amazonka.Data.Headers.ToHeader Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Amazonka.Data.Log.ToLog Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Amazonka.Data.Text.ToText Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Amazonka.Data.Text.FromText Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance GHC.Classes.Ord Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance GHC.Read.Read Amazonka.EMRContainers.Types.EndpointState.EndpointState
+instance GHC.Show.Show Amazonka.EMRContainers.Types.EndpointState.EndpointState
 
 
-module Network.AWS.EMRContainers.Types.FailureReason
+module Amazonka.EMRContainers.Types.FailureReason
 newtype FailureReason
 FailureReason' :: Text -> FailureReason
 [fromFailureReason] :: FailureReason -> Text
@@ -309,28 +309,28 @@ pattern FailureReason_CLUSTER_UNAVAILABLE :: FailureReason
 pattern FailureReason_INTERNAL_ERROR :: FailureReason
 pattern FailureReason_USER_ERROR :: FailureReason
 pattern FailureReason_VALIDATION_ERROR :: FailureReason
-instance Network.AWS.Data.XML.ToXML Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Network.AWS.Data.XML.FromXML Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Network.AWS.Data.Log.ToLog Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Network.AWS.Data.Text.ToText Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Network.AWS.Data.Text.FromText Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance GHC.Classes.Ord Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.FailureReason.FailureReason
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.FailureReason.FailureReason
+instance Amazonka.Data.XML.ToXML Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Amazonka.Data.XML.FromXML Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Amazonka.Data.Headers.ToHeader Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Amazonka.Data.Log.ToLog Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Amazonka.Data.Text.ToText Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Amazonka.Data.Text.FromText Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance GHC.Classes.Ord Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance GHC.Read.Read Amazonka.EMRContainers.Types.FailureReason.FailureReason
+instance GHC.Show.Show Amazonka.EMRContainers.Types.FailureReason.FailureReason
 
 
-module Network.AWS.EMRContainers.Types.JobRunState
+module Amazonka.EMRContainers.Types.JobRunState
 newtype JobRunState
 JobRunState' :: Text -> JobRunState
 [fromJobRunState] :: JobRunState -> Text
@@ -341,55 +341,55 @@ pattern JobRunState_FAILED :: JobRunState
 pattern JobRunState_PENDING :: JobRunState
 pattern JobRunState_RUNNING :: JobRunState
 pattern JobRunState_SUBMITTED :: JobRunState
-instance Network.AWS.Data.XML.ToXML Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Network.AWS.Data.XML.FromXML Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Network.AWS.Data.Log.ToLog Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Network.AWS.Data.Text.ToText Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Network.AWS.Data.Text.FromText Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance GHC.Classes.Ord Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.JobRunState.JobRunState
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.JobRunState.JobRunState
+instance Amazonka.Data.XML.ToXML Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Amazonka.Data.XML.FromXML Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Amazonka.Data.Headers.ToHeader Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Amazonka.Data.Log.ToLog Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Amazonka.Data.Text.ToText Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Amazonka.Data.Text.FromText Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance GHC.Classes.Ord Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance GHC.Read.Read Amazonka.EMRContainers.Types.JobRunState.JobRunState
+instance GHC.Show.Show Amazonka.EMRContainers.Types.JobRunState.JobRunState
 
 
-module Network.AWS.EMRContainers.Types.PersistentAppUI
+module Amazonka.EMRContainers.Types.PersistentAppUI
 newtype PersistentAppUI
 PersistentAppUI' :: Text -> PersistentAppUI
 [fromPersistentAppUI] :: PersistentAppUI -> Text
 pattern PersistentAppUI_DISABLED :: PersistentAppUI
 pattern PersistentAppUI_ENABLED :: PersistentAppUI
-instance Network.AWS.Data.XML.ToXML Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Network.AWS.Data.XML.FromXML Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Network.AWS.Data.Log.ToLog Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Network.AWS.Data.Text.ToText Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Network.AWS.Data.Text.FromText Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance GHC.Classes.Ord Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Amazonka.Data.XML.ToXML Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Amazonka.Data.XML.FromXML Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Amazonka.Data.Headers.ToHeader Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Amazonka.Data.Log.ToLog Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Amazonka.Data.Text.ToText Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Amazonka.Data.Text.FromText Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance GHC.Classes.Ord Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance GHC.Read.Read Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
+instance GHC.Show.Show Amazonka.EMRContainers.Types.PersistentAppUI.PersistentAppUI
 
 
-module Network.AWS.EMRContainers.Types.S3MonitoringConfiguration
+module Amazonka.EMRContainers.Types.S3MonitoringConfiguration
 
 -- | Amazon S3 configuration for monitoring log publishing. You can
 --   configure your jobs to send log information to Amazon S3.
@@ -417,17 +417,17 @@ newS3MonitoringConfiguration :: Text -> S3MonitoringConfiguration
 
 -- | Amazon S3 destination URI for log publishing.
 s3MonitoringConfiguration_logUri :: Lens' S3MonitoringConfiguration Text
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
+instance GHC.Show.Show Amazonka.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
+instance GHC.Read.Read Amazonka.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.S3MonitoringConfiguration.S3MonitoringConfiguration
 
 
-module Network.AWS.EMRContainers.Types.MonitoringConfiguration
+module Amazonka.EMRContainers.Types.MonitoringConfiguration
 
 -- | Configuration setting for monitoring.
 --   
@@ -475,17 +475,17 @@ monitoringConfiguration_s3MonitoringConfiguration :: Lens' MonitoringConfigurati
 
 -- | Monitoring configurations for CloudWatch.
 monitoringConfiguration_cloudWatchMonitoringConfiguration :: Lens' MonitoringConfiguration (Maybe CloudWatchMonitoringConfiguration)
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
+instance GHC.Show.Show Amazonka.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
+instance GHC.Read.Read Amazonka.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.MonitoringConfiguration.MonitoringConfiguration
 
 
-module Network.AWS.EMRContainers.Types.ConfigurationOverrides
+module Amazonka.EMRContainers.Types.ConfigurationOverrides
 
 -- | A configuration specification to be used to override existing
 --   configurations.
@@ -523,16 +523,16 @@ configurationOverrides_monitoringConfiguration :: Lens' ConfigurationOverrides (
 
 -- | The configurations for the application running by the job run.
 configurationOverrides_applicationConfiguration :: Lens' ConfigurationOverrides (Maybe [Configuration])
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
+instance GHC.Show.Show Amazonka.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.ConfigurationOverrides.ConfigurationOverrides
 
 
-module Network.AWS.EMRContainers.Types.Endpoint
+module Amazonka.EMRContainers.Types.Endpoint
 
 -- | This entity represents the endpoint that is managed by Amazon EMR on
 --   EKS.
@@ -706,15 +706,15 @@ endpoint_virtualClusterId :: Lens' Endpoint (Maybe Text)
 
 -- | The tags of the endpoint.
 endpoint_tags :: Lens' Endpoint (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.Endpoint.Endpoint
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.Endpoint.Endpoint
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.Endpoint.Endpoint
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.Endpoint.Endpoint
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.Endpoint.Endpoint
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.Endpoint.Endpoint
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.Endpoint.Endpoint
+instance GHC.Show.Show Amazonka.EMRContainers.Types.Endpoint.Endpoint
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.Endpoint.Endpoint
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.Endpoint.Endpoint
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.Endpoint.Endpoint
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.Endpoint.Endpoint
 
 
-module Network.AWS.EMRContainers.Types.SparkSubmitJobDriver
+module Amazonka.EMRContainers.Types.SparkSubmitJobDriver
 
 -- | The information about job driver for Spark submit.
 --   
@@ -761,16 +761,16 @@ sparkSubmitJobDriver_entryPointArguments :: Lens' SparkSubmitJobDriver (Maybe [T
 
 -- | The entry point of job application.
 sparkSubmitJobDriver_entryPoint :: Lens' SparkSubmitJobDriver Text
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
+instance GHC.Show.Show Amazonka.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.SparkSubmitJobDriver.SparkSubmitJobDriver
 
 
-module Network.AWS.EMRContainers.Types.JobDriver
+module Amazonka.EMRContainers.Types.JobDriver
 
 -- | Specify the driver that the job runs on.
 --   
@@ -796,16 +796,16 @@ newJobDriver :: JobDriver
 
 -- | The job driver parameters specified for spark submit.
 jobDriver_sparkSubmitJobDriver :: Lens' JobDriver (Maybe SparkSubmitJobDriver)
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.JobDriver.JobDriver
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.JobDriver.JobDriver
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.JobDriver.JobDriver
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.JobDriver.JobDriver
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.JobDriver.JobDriver
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.JobDriver.JobDriver
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.JobDriver.JobDriver
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.JobDriver.JobDriver
+instance GHC.Show.Show Amazonka.EMRContainers.Types.JobDriver.JobDriver
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.JobDriver.JobDriver
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.JobDriver.JobDriver
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.JobDriver.JobDriver
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.JobDriver.JobDriver
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.JobDriver.JobDriver
 
 
-module Network.AWS.EMRContainers.Types.JobRun
+module Amazonka.EMRContainers.Types.JobRun
 
 -- | This entity describes a job run. A job run is a unit of work, such as
 --   a Spark jar, PySpark script, or SparkSQL query, that you submit to
@@ -968,15 +968,15 @@ jobRun_virtualClusterId :: Lens' JobRun (Maybe Text)
 
 -- | The assigned tags of the job run.
 jobRun_tags :: Lens' JobRun (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.JobRun.JobRun
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.JobRun.JobRun
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.JobRun.JobRun
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.JobRun.JobRun
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.JobRun.JobRun
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.JobRun.JobRun
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.JobRun.JobRun
+instance GHC.Show.Show Amazonka.EMRContainers.Types.JobRun.JobRun
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.JobRun.JobRun
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.JobRun.JobRun
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.JobRun.JobRun
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.JobRun.JobRun
 
 
-module Network.AWS.EMRContainers.Types.VirtualClusterState
+module Amazonka.EMRContainers.Types.VirtualClusterState
 newtype VirtualClusterState
 VirtualClusterState' :: Text -> VirtualClusterState
 [fromVirtualClusterState] :: VirtualClusterState -> Text
@@ -984,28 +984,28 @@ pattern VirtualClusterState_ARRESTED :: VirtualClusterState
 pattern VirtualClusterState_RUNNING :: VirtualClusterState
 pattern VirtualClusterState_TERMINATED :: VirtualClusterState
 pattern VirtualClusterState_TERMINATING :: VirtualClusterState
-instance Network.AWS.Data.XML.ToXML Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Network.AWS.Data.XML.FromXML Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Network.AWS.Data.Log.ToLog Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Network.AWS.Data.Text.ToText Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Network.AWS.Data.Text.FromText Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance GHC.Classes.Ord Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Amazonka.Data.XML.ToXML Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Amazonka.Data.XML.FromXML Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Amazonka.Data.Headers.ToHeader Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Amazonka.Data.Log.ToLog Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Amazonka.Data.Text.ToText Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Amazonka.Data.Text.FromText Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance GHC.Classes.Ord Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance GHC.Read.Read Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
+instance GHC.Show.Show Amazonka.EMRContainers.Types.VirtualClusterState.VirtualClusterState
 
 
-module Network.AWS.EMRContainers.Types.VirtualCluster
+module Amazonka.EMRContainers.Types.VirtualCluster
 
 -- | This entity describes a virtual cluster. A virtual cluster is a
 --   Kubernetes namespace that Amazon EMR is registered with. Amazon EMR
@@ -1092,16 +1092,16 @@ virtualCluster_containerProvider :: Lens' VirtualCluster (Maybe ContainerProvide
 
 -- | The assigned tags of the virtual cluster.
 virtualCluster_tags :: Lens' VirtualCluster (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.EMRContainers.Types.VirtualCluster.VirtualCluster
-instance GHC.Show.Show Network.AWS.EMRContainers.Types.VirtualCluster.VirtualCluster
-instance GHC.Read.Read Network.AWS.EMRContainers.Types.VirtualCluster.VirtualCluster
-instance GHC.Classes.Eq Network.AWS.EMRContainers.Types.VirtualCluster.VirtualCluster
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.EMRContainers.Types.VirtualCluster.VirtualCluster
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.Types.VirtualCluster.VirtualCluster
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.Types.VirtualCluster.VirtualCluster
+instance GHC.Generics.Generic Amazonka.EMRContainers.Types.VirtualCluster.VirtualCluster
+instance GHC.Show.Show Amazonka.EMRContainers.Types.VirtualCluster.VirtualCluster
+instance GHC.Read.Read Amazonka.EMRContainers.Types.VirtualCluster.VirtualCluster
+instance GHC.Classes.Eq Amazonka.EMRContainers.Types.VirtualCluster.VirtualCluster
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.EMRContainers.Types.VirtualCluster.VirtualCluster
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.Types.VirtualCluster.VirtualCluster
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.Types.VirtualCluster.VirtualCluster
 
 
-module Network.AWS.EMRContainers.Types
+module Amazonka.EMRContainers.Types
 
 -- | API version <tt>2020-10-01</tt> of the Amazon EMR Containers SDK
 --   configuration.
@@ -1957,7 +1957,7 @@ virtualCluster_tags :: Lens' VirtualCluster (Maybe (HashMap Text Text))
 --   track each cluster's owner and stack level. We recommend that you
 --   devise a consistent set of tag keys for each resource type. You can
 --   then search and filter the resources based on the tags that you add.
-module Network.AWS.EMRContainers.TagResource
+module Amazonka.EMRContainers.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2013,28 +2013,28 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.EMRContainers.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.EMRContainers.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.EMRContainers.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.EMRContainers.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.EMRContainers.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.EMRContainers.TagResource.TagResource
+instance GHC.Show.Show Amazonka.EMRContainers.TagResource.TagResource
+instance GHC.Read.Read Amazonka.EMRContainers.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.EMRContainers.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.EMRContainers.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.EMRContainers.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.EMRContainers.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.TagResource.TagResource
 
 
 -- | Starts a job run. A job run is a unit of work, such as a Spark jar,
 --   PySpark script, or SparkSQL query, that you submit to Amazon EMR on
 --   EKS.
-module Network.AWS.EMRContainers.StartJobRun
+module Amazonka.EMRContainers.StartJobRun
 
 -- | <i>See:</i> <a>newStartJobRun</a> smart constructor.
 data StartJobRun
@@ -2186,21 +2186,21 @@ startJobRunResponse_virtualClusterId :: Lens' StartJobRunResponse (Maybe Text)
 
 -- | The response's http status code.
 startJobRunResponse_httpStatus :: Lens' StartJobRunResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.StartJobRun.StartJobRun
-instance GHC.Show.Show Network.AWS.EMRContainers.StartJobRun.StartJobRun
-instance GHC.Classes.Eq Network.AWS.EMRContainers.StartJobRun.StartJobRun
-instance GHC.Generics.Generic Network.AWS.EMRContainers.StartJobRun.StartJobRunResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.StartJobRun.StartJobRunResponse
-instance GHC.Read.Read Network.AWS.EMRContainers.StartJobRun.StartJobRunResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.StartJobRun.StartJobRunResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.StartJobRun.StartJobRun
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.StartJobRun.StartJobRunResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.StartJobRun.StartJobRun
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.StartJobRun.StartJobRun
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.StartJobRun.StartJobRun
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.StartJobRun.StartJobRun
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.StartJobRun.StartJobRun
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.StartJobRun.StartJobRun
+instance GHC.Generics.Generic Amazonka.EMRContainers.StartJobRun.StartJobRun
+instance GHC.Show.Show Amazonka.EMRContainers.StartJobRun.StartJobRun
+instance GHC.Classes.Eq Amazonka.EMRContainers.StartJobRun.StartJobRun
+instance GHC.Generics.Generic Amazonka.EMRContainers.StartJobRun.StartJobRunResponse
+instance GHC.Show.Show Amazonka.EMRContainers.StartJobRun.StartJobRunResponse
+instance GHC.Read.Read Amazonka.EMRContainers.StartJobRun.StartJobRunResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.StartJobRun.StartJobRunResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.StartJobRun.StartJobRun
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.StartJobRun.StartJobRunResponse
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.StartJobRun.StartJobRun
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.StartJobRun.StartJobRun
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.StartJobRun.StartJobRun
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.StartJobRun.StartJobRun
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.StartJobRun.StartJobRun
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.StartJobRun.StartJobRun
 
 
 -- | Lists information about the specified virtual cluster. Virtual cluster
@@ -2212,7 +2212,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.StartJobRun.St
 --   requirements.
 --   
 --   This operation returns paginated results.
-module Network.AWS.EMRContainers.ListVirtualClusters
+module Amazonka.EMRContainers.ListVirtualClusters
 
 -- | <i>See:</i> <a>newListVirtualClusters</a> smart constructor.
 data ListVirtualClusters
@@ -2344,26 +2344,26 @@ listVirtualClustersResponse_virtualClusters :: Lens' ListVirtualClustersResponse
 
 -- | The response's http status code.
 listVirtualClustersResponse_httpStatus :: Lens' ListVirtualClustersResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClusters
-instance GHC.Show.Show Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClusters
-instance GHC.Read.Read Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClusters
-instance GHC.Classes.Eq Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClusters
-instance GHC.Generics.Generic Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClustersResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClustersResponse
-instance GHC.Read.Read Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClustersResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClustersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClusters
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClustersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClusters
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClusters
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClusters
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClusters
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClusters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.ListVirtualClusters.ListVirtualClusters
+instance GHC.Generics.Generic Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClusters
+instance GHC.Show.Show Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClusters
+instance GHC.Read.Read Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClusters
+instance GHC.Classes.Eq Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClusters
+instance GHC.Generics.Generic Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClustersResponse
+instance GHC.Show.Show Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClustersResponse
+instance GHC.Read.Read Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClustersResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClustersResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClusters
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClustersResponse
+instance Amazonka.Pager.AWSPager Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClusters
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClusters
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClusters
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClusters
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClusters
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.ListVirtualClusters.ListVirtualClusters
 
 
 -- | Lists the tags assigned to the resources.
-module Network.AWS.EMRContainers.ListTagsForResource
+module Amazonka.EMRContainers.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2421,21 +2421,21 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.EMRContainers.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.EMRContainers.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.EMRContainers.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.EMRContainers.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.EMRContainers.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.EMRContainers.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.EMRContainers.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists managed endpoints based on a set of parameters. A managed
@@ -2443,7 +2443,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.ListTagsForRes
 --   that EMR Studio can communicate with your virtual cluster.
 --   
 --   This operation returns paginated results.
-module Network.AWS.EMRContainers.ListManagedEndpoints
+module Amazonka.EMRContainers.ListManagedEndpoints
 
 -- | <i>See:</i> <a>newListManagedEndpoints</a> smart constructor.
 data ListManagedEndpoints
@@ -2572,21 +2572,21 @@ listManagedEndpointsResponse_endpoints :: Lens' ListManagedEndpointsResponse (Ma
 
 -- | The response's http status code.
 listManagedEndpointsResponse_httpStatus :: Lens' ListManagedEndpointsResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
-instance GHC.Show.Show Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
-instance GHC.Read.Read Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
-instance GHC.Classes.Eq Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
-instance GHC.Generics.Generic Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpointsResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpointsResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpointsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpointsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
+instance GHC.Generics.Generic Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
+instance GHC.Show.Show Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
+instance GHC.Read.Read Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
+instance GHC.Classes.Eq Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
+instance GHC.Generics.Generic Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpointsResponse
+instance GHC.Show.Show Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpointsResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpointsResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpointsResponse
+instance Amazonka.Pager.AWSPager Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.ListManagedEndpoints.ListManagedEndpoints
 
 
 -- | Lists job runs based on a set of parameters. A job run is a unit of
@@ -2594,7 +2594,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.ListManagedEnd
 --   submit to Amazon EMR on EKS.
 --   
 --   This operation returns paginated results.
-module Network.AWS.EMRContainers.ListJobRuns
+module Amazonka.EMRContainers.ListJobRuns
 
 -- | <i>See:</i> <a>newListJobRuns</a> smart constructor.
 data ListJobRuns
@@ -2717,21 +2717,21 @@ listJobRunsResponse_jobRuns :: Lens' ListJobRunsResponse (Maybe [JobRun])
 
 -- | The response's http status code.
 listJobRunsResponse_httpStatus :: Lens' ListJobRunsResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.ListJobRuns.ListJobRuns
-instance GHC.Show.Show Network.AWS.EMRContainers.ListJobRuns.ListJobRuns
-instance GHC.Read.Read Network.AWS.EMRContainers.ListJobRuns.ListJobRuns
-instance GHC.Classes.Eq Network.AWS.EMRContainers.ListJobRuns.ListJobRuns
-instance GHC.Generics.Generic Network.AWS.EMRContainers.ListJobRuns.ListJobRunsResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.ListJobRuns.ListJobRunsResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.ListJobRuns.ListJobRunsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.ListJobRuns.ListJobRuns
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.ListJobRuns.ListJobRunsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.EMRContainers.ListJobRuns.ListJobRuns
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.ListJobRuns.ListJobRuns
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.ListJobRuns.ListJobRuns
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.ListJobRuns.ListJobRuns
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.ListJobRuns.ListJobRuns
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.ListJobRuns.ListJobRuns
+instance GHC.Generics.Generic Amazonka.EMRContainers.ListJobRuns.ListJobRuns
+instance GHC.Show.Show Amazonka.EMRContainers.ListJobRuns.ListJobRuns
+instance GHC.Read.Read Amazonka.EMRContainers.ListJobRuns.ListJobRuns
+instance GHC.Classes.Eq Amazonka.EMRContainers.ListJobRuns.ListJobRuns
+instance GHC.Generics.Generic Amazonka.EMRContainers.ListJobRuns.ListJobRunsResponse
+instance GHC.Show.Show Amazonka.EMRContainers.ListJobRuns.ListJobRunsResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.ListJobRuns.ListJobRunsResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.ListJobRuns.ListJobRuns
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.ListJobRuns.ListJobRunsResponse
+instance Amazonka.Pager.AWSPager Amazonka.EMRContainers.ListJobRuns.ListJobRuns
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.ListJobRuns.ListJobRuns
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.ListJobRuns.ListJobRuns
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.ListJobRuns.ListJobRuns
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.ListJobRuns.ListJobRuns
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.ListJobRuns.ListJobRuns
 
 
 -- | Displays detailed information about a specified virtual cluster.
@@ -2741,7 +2741,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.ListJobRuns.Li
 --   cluster maps to a single Kubernetes namespace. Given this
 --   relationship, you can model virtual clusters the same way you model
 --   Kubernetes namespaces to meet your requirements.
-module Network.AWS.EMRContainers.DescribeVirtualCluster
+module Amazonka.EMRContainers.DescribeVirtualCluster
 
 -- | <i>See:</i> <a>newDescribeVirtualCluster</a> smart constructor.
 data DescribeVirtualCluster
@@ -2801,27 +2801,27 @@ describeVirtualClusterResponse_virtualCluster :: Lens' DescribeVirtualClusterRes
 
 -- | The response's http status code.
 describeVirtualClusterResponse_httpStatus :: Lens' DescribeVirtualClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
-instance GHC.Show.Show Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
-instance GHC.Read.Read Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
-instance GHC.Classes.Eq Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
-instance GHC.Generics.Generic Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualClusterResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualClusterResponse
-instance GHC.Read.Read Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualClusterResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
+instance GHC.Generics.Generic Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
+instance GHC.Show.Show Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
+instance GHC.Read.Read Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
+instance GHC.Classes.Eq Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
+instance GHC.Generics.Generic Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualClusterResponse
+instance GHC.Show.Show Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualClusterResponse
+instance GHC.Read.Read Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualClusterResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.DescribeVirtualCluster.DescribeVirtualCluster
 
 
 -- | Displays detailed information about a managed endpoint. A managed
 --   endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so
 --   that EMR Studio can communicate with your virtual cluster.
-module Network.AWS.EMRContainers.DescribeManagedEndpoint
+module Amazonka.EMRContainers.DescribeManagedEndpoint
 
 -- | <i>See:</i> <a>newDescribeManagedEndpoint</a> smart constructor.
 data DescribeManagedEndpoint
@@ -2891,26 +2891,26 @@ describeManagedEndpointResponse_endpoint :: Lens' DescribeManagedEndpointRespons
 
 -- | The response's http status code.
 describeManagedEndpointResponse_httpStatus :: Lens' DescribeManagedEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
-instance GHC.Show.Show Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
-instance GHC.Read.Read Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
-instance GHC.Classes.Eq Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
-instance GHC.Generics.Generic Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpointResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpointResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
+instance GHC.Generics.Generic Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
+instance GHC.Show.Show Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
+instance GHC.Read.Read Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
+instance GHC.Classes.Eq Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
+instance GHC.Generics.Generic Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpointResponse
+instance GHC.Show.Show Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpointResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.DescribeManagedEndpoint.DescribeManagedEndpoint
 
 
 -- | Displays detailed information about a job run. A job run is a unit of
 --   work, such as a Spark jar, PySpark script, or SparkSQL query, that you
 --   submit to Amazon EMR on EKS.
-module Network.AWS.EMRContainers.DescribeJobRun
+module Amazonka.EMRContainers.DescribeJobRun
 
 -- | <i>See:</i> <a>newDescribeJobRun</a> smart constructor.
 data DescribeJobRun
@@ -2978,20 +2978,20 @@ describeJobRunResponse_jobRun :: Lens' DescribeJobRunResponse (Maybe JobRun)
 
 -- | The response's http status code.
 describeJobRunResponse_httpStatus :: Lens' DescribeJobRunResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRun
-instance GHC.Show.Show Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRun
-instance GHC.Read.Read Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRun
-instance GHC.Classes.Eq Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRun
-instance GHC.Generics.Generic Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRunResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRunResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRunResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRun
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRunResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRun
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRun
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRun
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRun
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.DescribeJobRun.DescribeJobRun
+instance GHC.Generics.Generic Amazonka.EMRContainers.DescribeJobRun.DescribeJobRun
+instance GHC.Show.Show Amazonka.EMRContainers.DescribeJobRun.DescribeJobRun
+instance GHC.Read.Read Amazonka.EMRContainers.DescribeJobRun.DescribeJobRun
+instance GHC.Classes.Eq Amazonka.EMRContainers.DescribeJobRun.DescribeJobRun
+instance GHC.Generics.Generic Amazonka.EMRContainers.DescribeJobRun.DescribeJobRunResponse
+instance GHC.Show.Show Amazonka.EMRContainers.DescribeJobRun.DescribeJobRunResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.DescribeJobRun.DescribeJobRunResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.DescribeJobRun.DescribeJobRun
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.DescribeJobRun.DescribeJobRunResponse
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.DescribeJobRun.DescribeJobRun
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.DescribeJobRun.DescribeJobRun
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.DescribeJobRun.DescribeJobRun
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.DescribeJobRun.DescribeJobRun
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.DescribeJobRun.DescribeJobRun
 
 
 -- | Deletes a virtual cluster. Virtual cluster is a managed entity on
@@ -3000,7 +3000,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.DescribeJobRun
 --   A single virtual cluster maps to a single Kubernetes namespace. Given
 --   this relationship, you can model virtual clusters the same way you
 --   model Kubernetes namespaces to meet your requirements.
-module Network.AWS.EMRContainers.DeleteVirtualCluster
+module Amazonka.EMRContainers.DeleteVirtualCluster
 
 -- | <i>See:</i> <a>newDeleteVirtualCluster</a> smart constructor.
 data DeleteVirtualCluster
@@ -3060,27 +3060,27 @@ deleteVirtualClusterResponse_id :: Lens' DeleteVirtualClusterResponse (Maybe Tex
 
 -- | The response's http status code.
 deleteVirtualClusterResponse_httpStatus :: Lens' DeleteVirtualClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
-instance GHC.Show.Show Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
-instance GHC.Read.Read Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
-instance GHC.Classes.Eq Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
-instance GHC.Generics.Generic Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualClusterResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualClusterResponse
-instance GHC.Read.Read Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualClusterResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
+instance GHC.Generics.Generic Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
+instance GHC.Show.Show Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
+instance GHC.Read.Read Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
+instance GHC.Classes.Eq Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
+instance GHC.Generics.Generic Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualClusterResponse
+instance GHC.Show.Show Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualClusterResponse
+instance GHC.Read.Read Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualClusterResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.DeleteVirtualCluster.DeleteVirtualCluster
 
 
 -- | Deletes a managed endpoint. A managed endpoint is a gateway that
 --   connects EMR Studio to Amazon EMR on EKS so that EMR Studio can
 --   communicate with your virtual cluster.
-module Network.AWS.EMRContainers.DeleteManagedEndpoint
+module Amazonka.EMRContainers.DeleteManagedEndpoint
 
 -- | <i>See:</i> <a>newDeleteManagedEndpoint</a> smart constructor.
 data DeleteManagedEndpoint
@@ -3158,21 +3158,21 @@ deleteManagedEndpointResponse_virtualClusterId :: Lens' DeleteManagedEndpointRes
 
 -- | The response's http status code.
 deleteManagedEndpointResponse_httpStatus :: Lens' DeleteManagedEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
-instance GHC.Show.Show Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
-instance GHC.Read.Read Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
-instance GHC.Classes.Eq Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
-instance GHC.Generics.Generic Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpointResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpointResponse
-instance GHC.Read.Read Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpointResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
+instance GHC.Generics.Generic Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
+instance GHC.Show.Show Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
+instance GHC.Read.Read Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
+instance GHC.Classes.Eq Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
+instance GHC.Generics.Generic Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpointResponse
+instance GHC.Show.Show Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpointResponse
+instance GHC.Read.Read Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpointResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.DeleteManagedEndpoint.DeleteManagedEndpoint
 
 
 -- | Creates a virtual cluster. Virtual cluster is a managed entity on
@@ -3181,7 +3181,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.DeleteManagedE
 --   A single virtual cluster maps to a single Kubernetes namespace. Given
 --   this relationship, you can model virtual clusters the same way you
 --   model Kubernetes namespaces to meet your requirements.
-module Network.AWS.EMRContainers.CreateVirtualCluster
+module Amazonka.EMRContainers.CreateVirtualCluster
 
 -- | <i>See:</i> <a>newCreateVirtualCluster</a> smart constructor.
 data CreateVirtualCluster
@@ -3290,28 +3290,28 @@ createVirtualClusterResponse_id :: Lens' CreateVirtualClusterResponse (Maybe Tex
 
 -- | The response's http status code.
 createVirtualClusterResponse_httpStatus :: Lens' CreateVirtualClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
-instance GHC.Show.Show Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
-instance GHC.Read.Read Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
-instance GHC.Classes.Eq Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
-instance GHC.Generics.Generic Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualClusterResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualClusterResponse
-instance GHC.Read.Read Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualClusterResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
+instance GHC.Generics.Generic Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
+instance GHC.Show.Show Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
+instance GHC.Read.Read Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
+instance GHC.Classes.Eq Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
+instance GHC.Generics.Generic Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualClusterResponse
+instance GHC.Show.Show Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualClusterResponse
+instance GHC.Read.Read Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualClusterResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.CreateVirtualCluster.CreateVirtualCluster
 
 
 -- | Creates a managed endpoint. A managed endpoint is a gateway that
 --   connects EMR Studio to Amazon EMR on EKS so that EMR Studio can
 --   communicate with your virtual cluster.
-module Network.AWS.EMRContainers.CreateManagedEndpoint
+module Amazonka.EMRContainers.CreateManagedEndpoint
 
 -- | <i>See:</i> <a>newCreateManagedEndpoint</a> smart constructor.
 data CreateManagedEndpoint
@@ -3480,27 +3480,27 @@ createManagedEndpointResponse_virtualClusterId :: Lens' CreateManagedEndpointRes
 
 -- | The response's http status code.
 createManagedEndpointResponse_httpStatus :: Lens' CreateManagedEndpointResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
-instance GHC.Show.Show Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
-instance GHC.Classes.Eq Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
-instance GHC.Generics.Generic Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpointResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpointResponse
-instance GHC.Read.Read Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpointResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpointResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpointResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
+instance GHC.Generics.Generic Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
+instance GHC.Show.Show Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
+instance GHC.Classes.Eq Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
+instance GHC.Generics.Generic Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpointResponse
+instance GHC.Show.Show Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpointResponse
+instance GHC.Read.Read Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpointResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpointResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpointResponse
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.CreateManagedEndpoint.CreateManagedEndpoint
 
 
 -- | Cancels a job run. A job run is a unit of work, such as a Spark jar,
 --   PySpark script, or SparkSQL query, that you submit to Amazon EMR on
 --   EKS.
-module Network.AWS.EMRContainers.CancelJobRun
+module Amazonka.EMRContainers.CancelJobRun
 
 -- | <i>See:</i> <a>newCancelJobRun</a> smart constructor.
 data CancelJobRun
@@ -3579,25 +3579,25 @@ cancelJobRunResponse_virtualClusterId :: Lens' CancelJobRunResponse (Maybe Text)
 
 -- | The response's http status code.
 cancelJobRunResponse_httpStatus :: Lens' CancelJobRunResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.CancelJobRun.CancelJobRun
-instance GHC.Show.Show Network.AWS.EMRContainers.CancelJobRun.CancelJobRun
-instance GHC.Read.Read Network.AWS.EMRContainers.CancelJobRun.CancelJobRun
-instance GHC.Classes.Eq Network.AWS.EMRContainers.CancelJobRun.CancelJobRun
-instance GHC.Generics.Generic Network.AWS.EMRContainers.CancelJobRun.CancelJobRunResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.CancelJobRun.CancelJobRunResponse
-instance GHC.Read.Read Network.AWS.EMRContainers.CancelJobRun.CancelJobRunResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.CancelJobRun.CancelJobRunResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.CancelJobRun.CancelJobRun
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.CancelJobRun.CancelJobRunResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.CancelJobRun.CancelJobRun
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.CancelJobRun.CancelJobRun
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.CancelJobRun.CancelJobRun
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.CancelJobRun.CancelJobRun
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.CancelJobRun.CancelJobRun
+instance GHC.Generics.Generic Amazonka.EMRContainers.CancelJobRun.CancelJobRun
+instance GHC.Show.Show Amazonka.EMRContainers.CancelJobRun.CancelJobRun
+instance GHC.Read.Read Amazonka.EMRContainers.CancelJobRun.CancelJobRun
+instance GHC.Classes.Eq Amazonka.EMRContainers.CancelJobRun.CancelJobRun
+instance GHC.Generics.Generic Amazonka.EMRContainers.CancelJobRun.CancelJobRunResponse
+instance GHC.Show.Show Amazonka.EMRContainers.CancelJobRun.CancelJobRunResponse
+instance GHC.Read.Read Amazonka.EMRContainers.CancelJobRun.CancelJobRunResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.CancelJobRun.CancelJobRunResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.CancelJobRun.CancelJobRun
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.CancelJobRun.CancelJobRunResponse
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.CancelJobRun.CancelJobRun
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.CancelJobRun.CancelJobRun
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.CancelJobRun.CancelJobRun
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.CancelJobRun.CancelJobRun
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.CancelJobRun.CancelJobRun
 
 
 -- | Removes tags from resources.
-module Network.AWS.EMRContainers.UntagResource
+module Amazonka.EMRContainers.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -3654,24 +3654,24 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.EMRContainers.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.EMRContainers.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.EMRContainers.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.EMRContainers.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.EMRContainers.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.EMRContainers.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.EMRContainers.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.EMRContainers.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.EMRContainers.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.EMRContainers.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.EMRContainers.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.EMRContainers.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.EMRContainers.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.EMRContainers.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.EMRContainers.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.EMRContainers.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.EMRContainers.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.EMRContainers.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.EMRContainers.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.EMRContainers.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.EMRContainers.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.EMRContainers.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.EMRContainers.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.EMRContainers.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.EMRContainers.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.EMRContainers.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.EMRContainers.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.EMRContainers.UntagResource.UntagResource
 
 
-module Network.AWS.EMRContainers.Lens
+module Amazonka.EMRContainers.Lens
 
 -- | The states of the managed endpoints.
 listManagedEndpoints_states :: Lens' ListManagedEndpoints (Maybe [EndpointState])
@@ -4157,7 +4157,7 @@ virtualCluster_containerProvider :: Lens' VirtualCluster (Maybe ContainerProvide
 virtualCluster_tags :: Lens' VirtualCluster (Maybe (HashMap Text Text))
 
 
-module Network.AWS.EMRContainers.Waiters
+module Amazonka.EMRContainers.Waiters
 
 
 -- | Derived from API version <tt>2020-10-01</tt> of the AWS service
@@ -4185,7 +4185,7 @@ module Network.AWS.EMRContainers.Waiters
 --   example, <tt>emr-containers.us-east-2.amazonaws.com</tt>. For more
 --   information, see <a>Amazon EMR on EKS Service Endpoints</a>.</li>
 --   </ul>
-module Network.AWS.EMRContainers
+module Amazonka.EMRContainers
 
 -- | API version <tt>2020-10-01</tt> of the Amazon EMR Containers SDK
 --   configuration.

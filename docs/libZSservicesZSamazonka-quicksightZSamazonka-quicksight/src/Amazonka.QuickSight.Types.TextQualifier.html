@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.TextQualifier</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.TextQualifier</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier"><span class="hs-identifier">TextQualifier</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier_DOUBLE_QUOTE"><span class="hs-identifier">TextQualifier_DOUBLE_QUOTE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier_SINGLE_QUOTE"><span class="hs-identifier">TextQualifier_SINGLE_QUOTE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679568523"><span id="local-6989586621679568524"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TextQualifier"><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier"><span class="hs-identifier hs-var">TextQualifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TextQualifier%27"><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier%27"><span class="hs-identifier hs-var">TextQualifier'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTextQualifier"><span class="annot"><span class="annottext">TextQualifier -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.TextQualifier.html#fromTextQualifier"><span class="hs-identifier hs-var hs-var">fromTextQualifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679568515"><span id="local-6989586621679568517"><span id="local-6989586621679568519"><span class="annot"><span class="annottext">Int -&gt; TextQualifier -&gt; ShowS
+[TextQualifier] -&gt; ShowS
+TextQualifier -&gt; String
+(Int -&gt; TextQualifier -&gt; ShowS)
+-&gt; (TextQualifier -&gt; String)
+-&gt; ([TextQualifier] -&gt; ShowS)
+-&gt; Show TextQualifier
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TextQualifier] -&gt; ShowS
+$cshowList :: [TextQualifier] -&gt; ShowS
+show :: TextQualifier -&gt; String
+$cshow :: TextQualifier -&gt; String
+showsPrec :: Int -&gt; TextQualifier -&gt; ShowS
+$cshowsPrec :: Int -&gt; TextQualifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679568506"><span id="local-6989586621679568508"><span id="local-6989586621679568510"><span id="local-6989586621679568512"><span class="annot"><span class="annottext">ReadPrec [TextQualifier]
+ReadPrec TextQualifier
+Int -&gt; ReadS TextQualifier
+ReadS [TextQualifier]
+(Int -&gt; ReadS TextQualifier)
+-&gt; ReadS [TextQualifier]
+-&gt; ReadPrec TextQualifier
+-&gt; ReadPrec [TextQualifier]
+-&gt; Read TextQualifier
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TextQualifier]
+$creadListPrec :: ReadPrec [TextQualifier]
+readPrec :: ReadPrec TextQualifier
+$creadPrec :: ReadPrec TextQualifier
+readList :: ReadS [TextQualifier]
+$creadList :: ReadS [TextQualifier]
+readsPrec :: Int -&gt; ReadS TextQualifier
+$creadsPrec :: Int -&gt; ReadS TextQualifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679568501"><span id="local-6989586621679568503"><span class="annot"><span class="annottext">TextQualifier -&gt; TextQualifier -&gt; Bool
+(TextQualifier -&gt; TextQualifier -&gt; Bool)
+-&gt; (TextQualifier -&gt; TextQualifier -&gt; Bool) -&gt; Eq TextQualifier
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TextQualifier -&gt; TextQualifier -&gt; Bool
+$c/= :: TextQualifier -&gt; TextQualifier -&gt; Bool
+== :: TextQualifier -&gt; TextQualifier -&gt; Bool
+$c== :: TextQualifier -&gt; TextQualifier -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679568485"><span id="local-6989586621679568487"><span id="local-6989586621679568489"><span id="local-6989586621679568491"><span id="local-6989586621679568493"><span id="local-6989586621679568495"><span id="local-6989586621679568497"><span class="annot"><span class="annottext">Eq TextQualifier
+Eq TextQualifier
+-&gt; (TextQualifier -&gt; TextQualifier -&gt; Ordering)
+-&gt; (TextQualifier -&gt; TextQualifier -&gt; Bool)
+-&gt; (TextQualifier -&gt; TextQualifier -&gt; Bool)
+-&gt; (TextQualifier -&gt; TextQualifier -&gt; Bool)
+-&gt; (TextQualifier -&gt; TextQualifier -&gt; Bool)
+-&gt; (TextQualifier -&gt; TextQualifier -&gt; TextQualifier)
+-&gt; (TextQualifier -&gt; TextQualifier -&gt; TextQualifier)
+-&gt; Ord TextQualifier
+TextQualifier -&gt; TextQualifier -&gt; Bool
+TextQualifier -&gt; TextQualifier -&gt; Ordering
+TextQualifier -&gt; TextQualifier -&gt; TextQualifier
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TextQualifier -&gt; TextQualifier -&gt; TextQualifier
+$cmin :: TextQualifier -&gt; TextQualifier -&gt; TextQualifier
+max :: TextQualifier -&gt; TextQualifier -&gt; TextQualifier
+$cmax :: TextQualifier -&gt; TextQualifier -&gt; TextQualifier
+&gt;= :: TextQualifier -&gt; TextQualifier -&gt; Bool
+$c&gt;= :: TextQualifier -&gt; TextQualifier -&gt; Bool
+&gt; :: TextQualifier -&gt; TextQualifier -&gt; Bool
+$c&gt; :: TextQualifier -&gt; TextQualifier -&gt; Bool
+&lt;= :: TextQualifier -&gt; TextQualifier -&gt; Bool
+$c&lt;= :: TextQualifier -&gt; TextQualifier -&gt; Bool
+&lt; :: TextQualifier -&gt; TextQualifier -&gt; Bool
+$c&lt; :: TextQualifier -&gt; TextQualifier -&gt; Bool
+compare :: TextQualifier -&gt; TextQualifier -&gt; Ordering
+$ccompare :: TextQualifier -&gt; TextQualifier -&gt; Ordering
+$cp1Ord :: Eq TextQualifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TextQualifier -&gt; Rep TextQualifier x)
+-&gt; (forall x. Rep TextQualifier x -&gt; TextQualifier)
+-&gt; Generic TextQualifier
+forall x. Rep TextQualifier x -&gt; TextQualifier
+forall x. TextQualifier -&gt; Rep TextQualifier x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TextQualifier x -&gt; TextQualifier
+$cfrom :: forall x. TextQualifier -&gt; Rep TextQualifier x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679568477"><span id="local-6989586621679568479"><span class="annot"><span class="annottext">Int -&gt; TextQualifier -&gt; Int
+TextQualifier -&gt; Int
+(Int -&gt; TextQualifier -&gt; Int)
+-&gt; (TextQualifier -&gt; Int) -&gt; Hashable TextQualifier
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TextQualifier -&gt; Int
+$chash :: TextQualifier -&gt; Int
+hashWithSalt :: Int -&gt; TextQualifier -&gt; Int
+$chashWithSalt :: Int -&gt; TextQualifier -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679568474"><span class="annot"><span class="annottext">TextQualifier -&gt; ()
+(TextQualifier -&gt; ()) -&gt; NFData TextQualifier
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TextQualifier -&gt; ()
+$crnf :: TextQualifier -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679568471"><span class="annot"><span class="annottext">Text -&gt; Either String TextQualifier
+(Text -&gt; Either String TextQualifier) -&gt; FromText TextQualifier
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TextQualifier
+$cfromText :: Text -&gt; Either String TextQualifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679568468"><span class="annot"><span class="annottext">TextQualifier -&gt; Text
+(TextQualifier -&gt; Text) -&gt; ToText TextQualifier
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TextQualifier -&gt; Text
+$ctoText :: TextQualifier -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679568465"><span class="annot"><span class="annottext">TextQualifier -&gt; ByteString
+(TextQualifier -&gt; ByteString) -&gt; ToByteString TextQualifier
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TextQualifier -&gt; ByteString
+$ctoBS :: TextQualifier -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679568462"><span class="annot"><span class="annottext">TextQualifier -&gt; ByteStringBuilder
+(TextQualifier -&gt; ByteStringBuilder) -&gt; ToLog TextQualifier
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TextQualifier -&gt; ByteStringBuilder
+$cbuild :: TextQualifier -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679568459"><span class="annot"><span class="annottext">HeaderName -&gt; TextQualifier -&gt; [Header]
+(HeaderName -&gt; TextQualifier -&gt; [Header]) -&gt; ToHeader TextQualifier
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TextQualifier -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TextQualifier -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679568456"><span class="annot"><span class="annottext">TextQualifier -&gt; QueryString
+(TextQualifier -&gt; QueryString) -&gt; ToQuery TextQualifier
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TextQualifier -&gt; QueryString
+$ctoQuery :: TextQualifier -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679568451"><span id="local-6989586621679568453"><span class="annot"><span class="annottext">Value -&gt; Parser [TextQualifier]
+Value -&gt; Parser TextQualifier
+(Value -&gt; Parser TextQualifier)
+-&gt; (Value -&gt; Parser [TextQualifier]) -&gt; FromJSON TextQualifier
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TextQualifier]
+$cparseJSONList :: Value -&gt; Parser [TextQualifier]
+parseJSON :: Value -&gt; Parser TextQualifier
+$cparseJSON :: Value -&gt; Parser TextQualifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679568446"><span id="local-6989586621679568448"><span class="annot"><span class="annottext">FromJSONKeyFunction [TextQualifier]
+FromJSONKeyFunction TextQualifier
+FromJSONKeyFunction TextQualifier
+-&gt; FromJSONKeyFunction [TextQualifier] -&gt; FromJSONKey TextQualifier
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TextQualifier]
+$cfromJSONKeyList :: FromJSONKeyFunction [TextQualifier]
+fromJSONKey :: FromJSONKeyFunction TextQualifier
+$cfromJSONKey :: FromJSONKeyFunction TextQualifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679568437"><span id="local-6989586621679568439"><span id="local-6989586621679568441"><span id="local-6989586621679568443"><span class="annot"><span class="annottext">[TextQualifier] -&gt; Encoding
+[TextQualifier] -&gt; Value
+TextQualifier -&gt; Encoding
+TextQualifier -&gt; Value
+(TextQualifier -&gt; Value)
+-&gt; (TextQualifier -&gt; Encoding)
+-&gt; ([TextQualifier] -&gt; Value)
+-&gt; ([TextQualifier] -&gt; Encoding)
+-&gt; ToJSON TextQualifier
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TextQualifier] -&gt; Encoding
+$ctoEncodingList :: [TextQualifier] -&gt; Encoding
+toJSONList :: [TextQualifier] -&gt; Value
+$ctoJSONList :: [TextQualifier] -&gt; Value
+toEncoding :: TextQualifier -&gt; Encoding
+$ctoEncoding :: TextQualifier -&gt; Encoding
+toJSON :: TextQualifier -&gt; Value
+$ctoJSON :: TextQualifier -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679568432"><span id="local-6989586621679568434"><span class="annot"><span class="annottext">ToJSONKeyFunction [TextQualifier]
+ToJSONKeyFunction TextQualifier
+ToJSONKeyFunction TextQualifier
+-&gt; ToJSONKeyFunction [TextQualifier] -&gt; ToJSONKey TextQualifier
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TextQualifier]
+$ctoJSONKeyList :: ToJSONKeyFunction [TextQualifier]
+toJSONKey :: ToJSONKeyFunction TextQualifier
+$ctoJSONKey :: ToJSONKeyFunction TextQualifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679568429"><span class="annot"><span class="annottext">[Node] -&gt; Either String TextQualifier
+([Node] -&gt; Either String TextQualifier) -&gt; FromXML TextQualifier
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TextQualifier
+$cparseXML :: [Node] -&gt; Either String TextQualifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679568426"><span class="annot"><span class="annottext">TextQualifier -&gt; XML
+(TextQualifier -&gt; XML) -&gt; ToXML TextQualifier
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TextQualifier -&gt; XML
+$ctoXML :: TextQualifier -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier_DOUBLE_QUOTE"><span class="hs-identifier hs-type">TextQualifier_DOUBLE_QUOTE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier"><span class="hs-identifier hs-type">TextQualifier</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTextQualifier_DOUBLE_QUOTE"><span id="%24mTextQualifier_DOUBLE_QUOTE"><span id="TextQualifier_DOUBLE_QUOTE"><span class="annot"><span class="annottext">$bTextQualifier_DOUBLE_QUOTE :: TextQualifier
+$mTextQualifier_DOUBLE_QUOTE :: forall r. TextQualifier -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.TextQualifier.html#%24bTextQualifier_DOUBLE_QUOTE"><span class="hs-identifier hs-var hs-var hs-var">TextQualifier_DOUBLE_QUOTE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier%27"><span class="hs-identifier hs-type">TextQualifier'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DOUBLE_QUOTE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier_SINGLE_QUOTE"><span class="hs-identifier hs-type">TextQualifier_SINGLE_QUOTE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier"><span class="hs-identifier hs-type">TextQualifier</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTextQualifier_SINGLE_QUOTE"><span id="%24mTextQualifier_SINGLE_QUOTE"><span id="TextQualifier_SINGLE_QUOTE"><span class="annot"><span class="annottext">$bTextQualifier_SINGLE_QUOTE :: TextQualifier
+$mTextQualifier_SINGLE_QUOTE :: forall r. TextQualifier -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.TextQualifier.html#%24bTextQualifier_SINGLE_QUOTE"><span class="hs-identifier hs-var hs-var hs-var">TextQualifier_SINGLE_QUOTE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier%27"><span class="hs-identifier hs-type">TextQualifier'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SINGLE_QUOTE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier_DOUBLE_QUOTE"><span class="hs-pragma hs-type">TextQualifier_DOUBLE_QUOTE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier_SINGLE_QUOTE"><span class="hs-pragma hs-type">TextQualifier_SINGLE_QUOTE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.TextQualifier.html#TextQualifier%27"><span class="hs-pragma hs-type">TextQualifier'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

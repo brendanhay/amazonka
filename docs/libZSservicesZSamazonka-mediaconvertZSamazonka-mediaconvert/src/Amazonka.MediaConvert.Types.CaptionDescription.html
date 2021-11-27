@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.CaptionDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.CaptionDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationSettings.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.CaptionDestinationSettings</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.LanguageCode.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.LanguageCode</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | This object holds groups of settings related to captions for one output.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- For each output that has captions, include one instance of</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- CaptionDescriptions.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newCaptionDescription' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621680018673"><span id="local-6989586621680018674"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaptionDescription"><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-var">CaptionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionDescription%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-var">CaptionDescription'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies which \&quot;Caption Selector\&quot;:#inputs-caption_selector to use</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- from each input when generating captions. The name should be of the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- format \&quot;Caption Selector \&quot;, which denotes that the Nth Caption</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Selector will be used from each input.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcaptionSelectorName%3ACaptionDescription%27"><span class="annot"><span class="annottext">CaptionDescription -&gt; Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AcaptionSelectorName%3ACaptionDescription%27"><span class="hs-identifier hs-var hs-var">captionSelectorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specify the language for this captions output track. For most captions</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- output formats, the encoder puts this language information in the output</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- captions metadata. If your output captions format is DVB-Sub or Burn in,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the encoder uses this language information when automatically selecting</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- the font script for rendering the captions text. For all outputs, you</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- can use an ISO 639-2 or ISO 639-3 code. For streaming outputs, you can</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- also use any other code in the full RFC-5646 specification. Streaming</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- outputs are those that are in one of the following output groups: CMAF,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- DASH ISO, Apple HLS, or Microsoft Smooth Streaming.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcustomLanguageCode%3ACaptionDescription%27"><span class="annot"><span class="annottext">CaptionDescription -&gt; Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AcustomLanguageCode%3ACaptionDescription%27"><span class="hs-identifier hs-var hs-var">customLanguageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Specify the language of this captions output track. For most captions</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- output formats, the encoder puts this language information in the output</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- captions metadata. If your output captions format is DVB-Sub or Burn in,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- the encoder uses this language information to choose the font language</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- for rendering the captions text.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AlanguageCode%3ACaptionDescription%27"><span class="annot"><span class="annottext">CaptionDescription -&gt; Maybe LanguageCode
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AlanguageCode%3ACaptionDescription%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Settings related to one captions tab on the MediaConvert console. In</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- your job JSON, an instance of captions DestinationSettings is equivalent</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- to one captions tab in the console. Usually, one captions tab</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- corresponds to one output captions track. Depending on your output</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- captions format, one tab might correspond to a set of output captions</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- tracks. For more information, see</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/including-captions.html.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdestinationSettings%3ACaptionDescription%27"><span class="annot"><span class="annottext">CaptionDescription -&gt; Maybe CaptionDestinationSettings
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AdestinationSettings%3ACaptionDescription%27"><span class="hs-identifier hs-var hs-var">destinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Specify a label for this set of output captions. For example,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- \&quot;English\&quot;, \&quot;Director commentary\&quot;, or \&quot;track_2\&quot;. For streaming</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- outputs, MediaConvert passes this information into destination manifests</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- for display on the end-viewer\'s player device. For outputs in other</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- output groups, the service ignores this setting.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AlanguageDescription%3ACaptionDescription%27"><span class="annot"><span class="annottext">CaptionDescription -&gt; Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AlanguageDescription%3ACaptionDescription%27"><span class="hs-identifier hs-var hs-var">languageDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680018663"><span id="local-6989586621680018665"><span class="annot"><span class="annottext">CaptionDescription -&gt; CaptionDescription -&gt; Bool
+(CaptionDescription -&gt; CaptionDescription -&gt; Bool)
+-&gt; (CaptionDescription -&gt; CaptionDescription -&gt; Bool)
+-&gt; Eq CaptionDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CaptionDescription -&gt; CaptionDescription -&gt; Bool
+$c/= :: CaptionDescription -&gt; CaptionDescription -&gt; Bool
+== :: CaptionDescription -&gt; CaptionDescription -&gt; Bool
+$c== :: CaptionDescription -&gt; CaptionDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680018654"><span id="local-6989586621680018656"><span id="local-6989586621680018658"><span id="local-6989586621680018660"><span class="annot"><span class="annottext">ReadPrec [CaptionDescription]
+ReadPrec CaptionDescription
+Int -&gt; ReadS CaptionDescription
+ReadS [CaptionDescription]
+(Int -&gt; ReadS CaptionDescription)
+-&gt; ReadS [CaptionDescription]
+-&gt; ReadPrec CaptionDescription
+-&gt; ReadPrec [CaptionDescription]
+-&gt; Read CaptionDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CaptionDescription]
+$creadListPrec :: ReadPrec [CaptionDescription]
+readPrec :: ReadPrec CaptionDescription
+$creadPrec :: ReadPrec CaptionDescription
+readList :: ReadS [CaptionDescription]
+$creadList :: ReadS [CaptionDescription]
+readsPrec :: Int -&gt; ReadS CaptionDescription
+$creadsPrec :: Int -&gt; ReadS CaptionDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680018647"><span id="local-6989586621680018649"><span id="local-6989586621680018651"><span class="annot"><span class="annottext">Int -&gt; CaptionDescription -&gt; ShowS
+[CaptionDescription] -&gt; ShowS
+CaptionDescription -&gt; String
+(Int -&gt; CaptionDescription -&gt; ShowS)
+-&gt; (CaptionDescription -&gt; String)
+-&gt; ([CaptionDescription] -&gt; ShowS)
+-&gt; Show CaptionDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CaptionDescription] -&gt; ShowS
+$cshowList :: [CaptionDescription] -&gt; ShowS
+show :: CaptionDescription -&gt; String
+$cshow :: CaptionDescription -&gt; String
+showsPrec :: Int -&gt; CaptionDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; CaptionDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CaptionDescription -&gt; Rep CaptionDescription x)
+-&gt; (forall x. Rep CaptionDescription x -&gt; CaptionDescription)
+-&gt; Generic CaptionDescription
+forall x. Rep CaptionDescription x -&gt; CaptionDescription
+forall x. CaptionDescription -&gt; Rep CaptionDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CaptionDescription x -&gt; CaptionDescription
+$cfrom :: forall x. CaptionDescription -&gt; Rep CaptionDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'CaptionDescription' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'captionSelectorName', 'captionDescription_captionSelectorName' - Specifies which \&quot;Caption Selector\&quot;:#inputs-caption_selector to use</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- from each input when generating captions. The name should be of the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- format \&quot;Caption Selector \&quot;, which denotes that the Nth Caption</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Selector will be used from each input.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'customLanguageCode', 'captionDescription_customLanguageCode' - Specify the language for this captions output track. For most captions</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- output formats, the encoder puts this language information in the output</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- captions metadata. If your output captions format is DVB-Sub or Burn in,</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- the encoder uses this language information when automatically selecting</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- the font script for rendering the captions text. For all outputs, you</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- can use an ISO 639-2 or ISO 639-3 code. For streaming outputs, you can</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- also use any other code in the full RFC-5646 specification. Streaming</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- outputs are those that are in one of the following output groups: CMAF,</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- DASH ISO, Apple HLS, or Microsoft Smooth Streaming.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'languageCode', 'captionDescription_languageCode' - Specify the language of this captions output track. For most captions</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- output formats, the encoder puts this language information in the output</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- captions metadata. If your output captions format is DVB-Sub or Burn in,</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- the encoder uses this language information to choose the font language</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for rendering the captions text.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'destinationSettings', 'captionDescription_destinationSettings' - Settings related to one captions tab on the MediaConvert console. In</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- your job JSON, an instance of captions DestinationSettings is equivalent</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- to one captions tab in the console. Usually, one captions tab</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- corresponds to one output captions track. Depending on your output</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- captions format, one tab might correspond to a set of output captions</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- tracks. For more information, see</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/including-captions.html.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'languageDescription', 'captionDescription_languageDescription' - Specify a label for this set of output captions. For example,</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- \&quot;English\&quot;, \&quot;Director commentary\&quot;, or \&quot;track_2\&quot;. For streaming</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- outputs, MediaConvert passes this information into destination manifests</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- for display on the end-viewer\'s player device. For outputs in other</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- output groups, the service ignores this setting.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#newCaptionDescription"><span class="hs-identifier hs-type">newCaptionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span>
+</span><span id="line-116"></span><span id="newCaptionDescription"><span class="annot"><span class="annottext">newCaptionDescription :: CaptionDescription
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#newCaptionDescription"><span class="hs-identifier hs-var hs-var">newCaptionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">CaptionDescription' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe LanguageCode
+-&gt; Maybe CaptionDestinationSettings
+-&gt; Maybe Text
+-&gt; CaptionDescription
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-type">CaptionDescription'</span></a></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:captionSelectorName:CaptionDescription' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AcaptionSelectorName%3ACaptionDescription%27"><span class="hs-identifier hs-var">captionSelectorName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:customLanguageCode:CaptionDescription' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AcustomLanguageCode%3ACaptionDescription%27"><span class="hs-identifier hs-var">customLanguageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:CaptionDescription' :: Maybe LanguageCode
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AlanguageCode%3ACaptionDescription%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationSettings:CaptionDescription' :: Maybe CaptionDestinationSettings
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AdestinationSettings%3ACaptionDescription%27"><span class="hs-identifier hs-var">destinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionDestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageDescription:CaptionDescription' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AlanguageDescription%3ACaptionDescription%27"><span class="hs-identifier hs-var">languageDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Specifies which \&quot;Caption Selector\&quot;:#inputs-caption_selector to use</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- from each input when generating captions. The name should be of the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- format \&quot;Caption Selector \&quot;, which denotes that the Nth Caption</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Selector will be used from each input.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#captionDescription_captionSelectorName"><span class="hs-identifier hs-type">captionDescription_captionSelectorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="captionDescription_captionSelectorName"><span class="annot"><span class="annottext">captionDescription_captionSelectorName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CaptionDescription -&gt; f CaptionDescription
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#captionDescription_captionSelectorName"><span class="hs-identifier hs-var hs-var">captionDescription_captionSelectorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDescription -&gt; Maybe Text)
+-&gt; (CaptionDescription -&gt; Maybe Text -&gt; CaptionDescription)
+-&gt; Lens
+     CaptionDescription CaptionDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-type">CaptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018638"><span class="annot"><span class="annottext">Maybe Text
+captionSelectorName :: Maybe Text
+$sel:captionSelectorName:CaptionDescription' :: CaptionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621680018638"><span class="hs-identifier hs-var hs-var">captionSelectorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680018638"><span class="hs-identifier hs-var">captionSelectorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018637"><span class="annot"><span class="annottext">s :: CaptionDescription
+</span><a href="#local-6989586621680018637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-type">CaptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018636"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680018636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDescription
+</span><a href="#local-6989586621680018637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionSelectorName:CaptionDescription' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AcaptionSelectorName%3ACaptionDescription%27"><span class="hs-identifier hs-var">captionSelectorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680018636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Specify the language for this captions output track. For most captions</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- output formats, the encoder puts this language information in the output</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- captions metadata. If your output captions format is DVB-Sub or Burn in,</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- the encoder uses this language information when automatically selecting</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- the font script for rendering the captions text. For all outputs, you</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- can use an ISO 639-2 or ISO 639-3 code. For streaming outputs, you can</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- also use any other code in the full RFC-5646 specification. Streaming</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- outputs are those that are in one of the following output groups: CMAF,</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- DASH ISO, Apple HLS, or Microsoft Smooth Streaming.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#captionDescription_customLanguageCode"><span class="hs-identifier hs-type">captionDescription_customLanguageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="captionDescription_customLanguageCode"><span class="annot"><span class="annottext">captionDescription_customLanguageCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CaptionDescription -&gt; f CaptionDescription
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#captionDescription_customLanguageCode"><span class="hs-identifier hs-var hs-var">captionDescription_customLanguageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDescription -&gt; Maybe Text)
+-&gt; (CaptionDescription -&gt; Maybe Text -&gt; CaptionDescription)
+-&gt; Lens
+     CaptionDescription CaptionDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-type">CaptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018634"><span class="annot"><span class="annottext">Maybe Text
+customLanguageCode :: Maybe Text
+$sel:customLanguageCode:CaptionDescription' :: CaptionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621680018634"><span class="hs-identifier hs-var hs-var">customLanguageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680018634"><span class="hs-identifier hs-var">customLanguageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018633"><span class="annot"><span class="annottext">s :: CaptionDescription
+</span><a href="#local-6989586621680018633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-type">CaptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018632"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680018632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDescription
+</span><a href="#local-6989586621680018633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customLanguageCode:CaptionDescription' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AcustomLanguageCode%3ACaptionDescription%27"><span class="hs-identifier hs-var">customLanguageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680018632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Specify the language of this captions output track. For most captions</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- output formats, the encoder puts this language information in the output</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- captions metadata. If your output captions format is DVB-Sub or Burn in,</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- the encoder uses this language information to choose the font language</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- for rendering the captions text.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#captionDescription_languageCode"><span class="hs-identifier hs-type">captionDescription_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="captionDescription_languageCode"><span class="annot"><span class="annottext">captionDescription_languageCode :: (Maybe LanguageCode -&gt; f (Maybe LanguageCode))
+-&gt; CaptionDescription -&gt; f CaptionDescription
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#captionDescription_languageCode"><span class="hs-identifier hs-var hs-var">captionDescription_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDescription -&gt; Maybe LanguageCode)
+-&gt; (CaptionDescription -&gt; Maybe LanguageCode -&gt; CaptionDescription)
+-&gt; Lens
+     CaptionDescription
+     CaptionDescription
+     (Maybe LanguageCode)
+     (Maybe LanguageCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-type">CaptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018630"><span class="annot"><span class="annottext">Maybe LanguageCode
+languageCode :: Maybe LanguageCode
+$sel:languageCode:CaptionDescription' :: CaptionDescription -&gt; Maybe LanguageCode
+</span><a href="#local-6989586621680018630"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621680018630"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018629"><span class="annot"><span class="annottext">s :: CaptionDescription
+</span><a href="#local-6989586621680018629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-type">CaptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018628"><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621680018628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDescription
+</span><a href="#local-6989586621680018629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:CaptionDescription' :: Maybe LanguageCode
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AlanguageCode%3ACaptionDescription%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621680018628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Settings related to one captions tab on the MediaConvert console. In</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- your job JSON, an instance of captions DestinationSettings is equivalent</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- to one captions tab in the console. Usually, one captions tab</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- corresponds to one output captions track. Depending on your output</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- captions format, one tab might correspond to a set of output captions</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- tracks. For more information, see</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/including-captions.html.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#captionDescription_destinationSettings"><span class="hs-identifier hs-type">captionDescription_destinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="captionDescription_destinationSettings"><span class="annot"><span class="annottext">captionDescription_destinationSettings :: (Maybe CaptionDestinationSettings
+ -&gt; f (Maybe CaptionDestinationSettings))
+-&gt; CaptionDescription -&gt; f CaptionDescription
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#captionDescription_destinationSettings"><span class="hs-identifier hs-var hs-var">captionDescription_destinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDescription -&gt; Maybe CaptionDestinationSettings)
+-&gt; (CaptionDescription
+    -&gt; Maybe CaptionDestinationSettings -&gt; CaptionDescription)
+-&gt; Lens
+     CaptionDescription
+     CaptionDescription
+     (Maybe CaptionDestinationSettings)
+     (Maybe CaptionDestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-type">CaptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018626"><span class="annot"><span class="annottext">Maybe CaptionDestinationSettings
+destinationSettings :: Maybe CaptionDestinationSettings
+$sel:destinationSettings:CaptionDescription' :: CaptionDescription -&gt; Maybe CaptionDestinationSettings
+</span><a href="#local-6989586621680018626"><span class="hs-identifier hs-var hs-var">destinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionDestinationSettings
+</span><a href="#local-6989586621680018626"><span class="hs-identifier hs-var">destinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018625"><span class="annot"><span class="annottext">s :: CaptionDescription
+</span><a href="#local-6989586621680018625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-type">CaptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018624"><span class="annot"><span class="annottext">Maybe CaptionDestinationSettings
+</span><a href="#local-6989586621680018624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDescription
+</span><a href="#local-6989586621680018625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationSettings:CaptionDescription' :: Maybe CaptionDestinationSettings
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AdestinationSettings%3ACaptionDescription%27"><span class="hs-identifier hs-var">destinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionDestinationSettings
+</span><a href="#local-6989586621680018624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Specify a label for this set of output captions. For example,</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- \&quot;English\&quot;, \&quot;Director commentary\&quot;, or \&quot;track_2\&quot;. For streaming</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- outputs, MediaConvert passes this information into destination manifests</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- for display on the end-viewer\'s player device. For outputs in other</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- output groups, the service ignores this setting.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#captionDescription_languageDescription"><span class="hs-identifier hs-type">captionDescription_languageDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="captionDescription_languageDescription"><span class="annot"><span class="annottext">captionDescription_languageDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CaptionDescription -&gt; f CaptionDescription
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#captionDescription_languageDescription"><span class="hs-identifier hs-var hs-var">captionDescription_languageDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDescription -&gt; Maybe Text)
+-&gt; (CaptionDescription -&gt; Maybe Text -&gt; CaptionDescription)
+-&gt; Lens
+     CaptionDescription CaptionDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-type">CaptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018622"><span class="annot"><span class="annottext">Maybe Text
+languageDescription :: Maybe Text
+$sel:languageDescription:CaptionDescription' :: CaptionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621680018622"><span class="hs-identifier hs-var hs-var">languageDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680018622"><span class="hs-identifier hs-var">languageDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680018621"><span class="annot"><span class="annottext">s :: CaptionDescription
+</span><a href="#local-6989586621680018621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-type">CaptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680018620"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680018620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDescription
+</span><a href="#local-6989586621680018621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageDescription:CaptionDescription' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#%24sel%3AlanguageDescription%3ACaptionDescription%27"><span class="hs-identifier hs-var">languageDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680018620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680018617"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621680018615"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaptionDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CaptionDescription)
+-&gt; Value
+-&gt; Parser CaptionDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CaptionDescription&quot;</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680018612"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018612"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe LanguageCode
+-&gt; Maybe CaptionDestinationSettings
+-&gt; Maybe Text
+-&gt; CaptionDescription
+</span><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-var">CaptionDescription'</span></a></span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe LanguageCode
+ -&gt; Maybe CaptionDestinationSettings
+ -&gt; Maybe Text
+ -&gt; CaptionDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe LanguageCode
+      -&gt; Maybe CaptionDestinationSettings
+      -&gt; Maybe Text
+      -&gt; CaptionDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;captionSelectorName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe LanguageCode
+   -&gt; Maybe CaptionDestinationSettings
+   -&gt; Maybe Text
+   -&gt; CaptionDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe LanguageCode
+      -&gt; Maybe CaptionDestinationSettings
+      -&gt; Maybe Text
+      -&gt; CaptionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customLanguageCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LanguageCode
+   -&gt; Maybe CaptionDestinationSettings
+   -&gt; Maybe Text
+   -&gt; CaptionDescription)
+-&gt; Parser (Maybe LanguageCode)
+-&gt; Parser
+     (Maybe CaptionDestinationSettings
+      -&gt; Maybe Text -&gt; CaptionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LanguageCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;languageCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CaptionDestinationSettings
+   -&gt; Maybe Text -&gt; CaptionDescription)
+-&gt; Parser (Maybe CaptionDestinationSettings)
+-&gt; Parser (Maybe Text -&gt; CaptionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CaptionDestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CaptionDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser CaptionDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680018612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;languageDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680018606"><span id="local-6989586621680018608"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span></span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680018603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680018595"><span id="local-6989586621680018597"><span id="local-6989586621680018599"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription"><span class="hs-identifier hs-type">CaptionDescription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621680018593"><span class="annot"><span class="annottext">toJSON :: CaptionDescription -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDescription.html#CaptionDescription%27"><span class="hs-identifier hs-type">CaptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680018587"><span id="local-6989586621680018588"><span id="local-6989586621680018589"><span id="local-6989586621680018590"><span id="local-6989586621680018591"><span class="annot"><span class="annottext">Maybe Text
+Maybe LanguageCode
+Maybe CaptionDestinationSettings
+languageDescription :: Maybe Text
+destinationSettings :: Maybe CaptionDestinationSettings
+languageCode :: Maybe LanguageCode
+customLanguageCode :: Maybe Text
+captionSelectorName :: Maybe Text
+$sel:languageDescription:CaptionDescription' :: CaptionDescription -&gt; Maybe Text
+$sel:destinationSettings:CaptionDescription' :: CaptionDescription -&gt; Maybe CaptionDestinationSettings
+$sel:languageCode:CaptionDescription' :: CaptionDescription -&gt; Maybe LanguageCode
+$sel:customLanguageCode:CaptionDescription' :: CaptionDescription -&gt; Maybe Text
+$sel:captionSelectorName:CaptionDescription' :: CaptionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621680018587"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;captionSelectorName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680018591"><span class="hs-identifier hs-var">captionSelectorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customLanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680018590"><span class="hs-identifier hs-var">customLanguageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;languageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LanguageCode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LanguageCode -&gt; Pair) -&gt; Maybe LanguageCode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621680018589"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CaptionDestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>              </span><span class="annot"><span class="annottext">(CaptionDestinationSettings -&gt; Pair)
+-&gt; Maybe CaptionDestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CaptionDestinationSettings
+</span><a href="#local-6989586621680018588"><span class="hs-identifier hs-var">destinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;languageDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680018587"><span class="hs-identifier hs-var">languageDescription</span></a></span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span></pre></body></html>

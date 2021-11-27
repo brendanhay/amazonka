@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConnect.Types.GrantEntitlementRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConnect.Types.GrantEntitlementRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Encryption.html"><span class="hs-identifier">Amazonka.MediaConnect.Types.Encryption</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EntitlementStatus.html"><span class="hs-identifier">Amazonka.MediaConnect.Types.EntitlementStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The entitlements that you want to grant on a flow.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newGrantEntitlementRequest' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679266896"><span id="local-6989586621679266897"></span></span><span class="hs-keyword">data</span><span> </span><span id="GrantEntitlementRequest"><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-var">GrantEntitlementRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantEntitlementRequest%27"><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-var">GrantEntitlementRequest'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Percentage from 0-100 of the data transfer cost to be billed to the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- subscriber.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdataTransferSubscriberFeePercent%3AGrantEntitlementRequest%27"><span class="annot"><span class="annottext">GrantEntitlementRequest -&gt; Maybe Int
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3AdataTransferSubscriberFeePercent%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var hs-var">dataTransferSubscriberFeePercent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of encryption that will be used on the output that is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- associated with this entitlement.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aencryption%3AGrantEntitlementRequest%27"><span class="annot"><span class="annottext">GrantEntitlementRequest -&gt; Maybe Encryption
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3Aencryption%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the entitlement. This value must be unique within the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- current flow.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aname%3AGrantEntitlementRequest%27"><span class="annot"><span class="annottext">GrantEntitlementRequest -&gt; Maybe Text
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3Aname%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | An indication of whether the new entitlement should be enabled or</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- disabled as soon as it is created. If you don&#8217;t specify the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- entitlementStatus field in your request, MediaConnect sets it to</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- ENABLED.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AentitlementStatus%3AGrantEntitlementRequest%27"><span class="annot"><span class="annottext">GrantEntitlementRequest -&gt; Maybe EntitlementStatus
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3AentitlementStatus%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var hs-var">entitlementStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EntitlementStatus.html#EntitlementStatus"><span class="hs-identifier hs-type">EntitlementStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A description of the entitlement. This description appears only on the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- AWS Elemental MediaConnect console and will not be seen by the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- subscriber or end user.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Adescription%3AGrantEntitlementRequest%27"><span class="annot"><span class="annottext">GrantEntitlementRequest -&gt; Maybe Text
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3Adescription%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The AWS account IDs that you want to share your content with. The</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- receiving accounts (subscribers) will be allowed to create their own</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- flows using your content as the source.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Asubscribers%3AGrantEntitlementRequest%27"><span class="annot"><span class="annottext">GrantEntitlementRequest -&gt; [Text]
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3Asubscribers%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var hs-var">subscribers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266885"><span id="local-6989586621679266887"><span class="annot"><span class="annottext">GrantEntitlementRequest -&gt; GrantEntitlementRequest -&gt; Bool
+(GrantEntitlementRequest -&gt; GrantEntitlementRequest -&gt; Bool)
+-&gt; (GrantEntitlementRequest -&gt; GrantEntitlementRequest -&gt; Bool)
+-&gt; Eq GrantEntitlementRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GrantEntitlementRequest -&gt; GrantEntitlementRequest -&gt; Bool
+$c/= :: GrantEntitlementRequest -&gt; GrantEntitlementRequest -&gt; Bool
+== :: GrantEntitlementRequest -&gt; GrantEntitlementRequest -&gt; Bool
+$c== :: GrantEntitlementRequest -&gt; GrantEntitlementRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266876"><span id="local-6989586621679266878"><span id="local-6989586621679266880"><span id="local-6989586621679266882"><span class="annot"><span class="annottext">ReadPrec [GrantEntitlementRequest]
+ReadPrec GrantEntitlementRequest
+Int -&gt; ReadS GrantEntitlementRequest
+ReadS [GrantEntitlementRequest]
+(Int -&gt; ReadS GrantEntitlementRequest)
+-&gt; ReadS [GrantEntitlementRequest]
+-&gt; ReadPrec GrantEntitlementRequest
+-&gt; ReadPrec [GrantEntitlementRequest]
+-&gt; Read GrantEntitlementRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GrantEntitlementRequest]
+$creadListPrec :: ReadPrec [GrantEntitlementRequest]
+readPrec :: ReadPrec GrantEntitlementRequest
+$creadPrec :: ReadPrec GrantEntitlementRequest
+readList :: ReadS [GrantEntitlementRequest]
+$creadList :: ReadS [GrantEntitlementRequest]
+readsPrec :: Int -&gt; ReadS GrantEntitlementRequest
+$creadsPrec :: Int -&gt; ReadS GrantEntitlementRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266869"><span id="local-6989586621679266871"><span id="local-6989586621679266873"><span class="annot"><span class="annottext">Int -&gt; GrantEntitlementRequest -&gt; ShowS
+[GrantEntitlementRequest] -&gt; ShowS
+GrantEntitlementRequest -&gt; String
+(Int -&gt; GrantEntitlementRequest -&gt; ShowS)
+-&gt; (GrantEntitlementRequest -&gt; String)
+-&gt; ([GrantEntitlementRequest] -&gt; ShowS)
+-&gt; Show GrantEntitlementRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GrantEntitlementRequest] -&gt; ShowS
+$cshowList :: [GrantEntitlementRequest] -&gt; ShowS
+show :: GrantEntitlementRequest -&gt; String
+$cshow :: GrantEntitlementRequest -&gt; String
+showsPrec :: Int -&gt; GrantEntitlementRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; GrantEntitlementRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GrantEntitlementRequest -&gt; Rep GrantEntitlementRequest x)
+-&gt; (forall x.
+    Rep GrantEntitlementRequest x -&gt; GrantEntitlementRequest)
+-&gt; Generic GrantEntitlementRequest
+forall x. Rep GrantEntitlementRequest x -&gt; GrantEntitlementRequest
+forall x. GrantEntitlementRequest -&gt; Rep GrantEntitlementRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GrantEntitlementRequest x -&gt; GrantEntitlementRequest
+$cfrom :: forall x. GrantEntitlementRequest -&gt; Rep GrantEntitlementRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'GrantEntitlementRequest' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'dataTransferSubscriberFeePercent', 'grantEntitlementRequest_dataTransferSubscriberFeePercent' - Percentage from 0-100 of the data transfer cost to be billed to the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- subscriber.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'encryption', 'grantEntitlementRequest_encryption' - The type of encryption that will be used on the output that is</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- associated with this entitlement.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'name', 'grantEntitlementRequest_name' - The name of the entitlement. This value must be unique within the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- current flow.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'entitlementStatus', 'grantEntitlementRequest_entitlementStatus' - An indication of whether the new entitlement should be enabled or</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- disabled as soon as it is created. If you don&#8217;t specify the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- entitlementStatus field in your request, MediaConnect sets it to</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- ENABLED.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'description', 'grantEntitlementRequest_description' - A description of the entitlement. This description appears only on the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- AWS Elemental MediaConnect console and will not be seen by the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- subscriber or end user.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'subscribers', 'grantEntitlementRequest_subscribers' - The AWS account IDs that you want to share your content with. The</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- receiving accounts (subscribers) will be allowed to create their own</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- flows using your content as the source.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#newGrantEntitlementRequest"><span class="hs-identifier hs-type">newGrantEntitlementRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span>
+</span><span id="line-88"></span><span id="newGrantEntitlementRequest"><span class="annot"><span class="annottext">newGrantEntitlementRequest :: GrantEntitlementRequest
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#newGrantEntitlementRequest"><span class="hs-identifier hs-var hs-var">newGrantEntitlementRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">GrantEntitlementRequest' :: Maybe Int
+-&gt; Maybe Encryption
+-&gt; Maybe Text
+-&gt; Maybe EntitlementStatus
+-&gt; Maybe Text
+-&gt; [Text]
+-&gt; GrantEntitlementRequest
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataTransferSubscriberFeePercent:GrantEntitlementRequest' :: Maybe Int
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3AdataTransferSubscriberFeePercent%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var">dataTransferSubscriberFeePercent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryption:GrantEntitlementRequest' :: Maybe Encryption
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3Aencryption%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GrantEntitlementRequest' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3Aname%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:entitlementStatus:GrantEntitlementRequest' :: Maybe EntitlementStatus
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3AentitlementStatus%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var">entitlementStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntitlementStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:GrantEntitlementRequest' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3Adescription%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:subscribers:GrantEntitlementRequest' :: [Text]
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3Asubscribers%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var">subscribers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Percentage from 0-100 of the data transfer cost to be billed to the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- subscriber.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#grantEntitlementRequest_dataTransferSubscriberFeePercent"><span class="hs-identifier hs-type">grantEntitlementRequest_dataTransferSubscriberFeePercent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="grantEntitlementRequest_dataTransferSubscriberFeePercent"><span class="annot"><span class="annottext">grantEntitlementRequest_dataTransferSubscriberFeePercent :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; GrantEntitlementRequest -&gt; f GrantEntitlementRequest
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#grantEntitlementRequest_dataTransferSubscriberFeePercent"><span class="hs-identifier hs-var hs-var">grantEntitlementRequest_dataTransferSubscriberFeePercent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrantEntitlementRequest -&gt; Maybe Int)
+-&gt; (GrantEntitlementRequest
+    -&gt; Maybe Int -&gt; GrantEntitlementRequest)
+-&gt; Lens
+     GrantEntitlementRequest
+     GrantEntitlementRequest
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266860"><span class="annot"><span class="annottext">Maybe Int
+dataTransferSubscriberFeePercent :: Maybe Int
+$sel:dataTransferSubscriberFeePercent:GrantEntitlementRequest' :: GrantEntitlementRequest -&gt; Maybe Int
+</span><a href="#local-6989586621679266860"><span class="hs-identifier hs-var hs-var">dataTransferSubscriberFeePercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679266860"><span class="hs-identifier hs-var">dataTransferSubscriberFeePercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266859"><span class="annot"><span class="annottext">s :: GrantEntitlementRequest
+</span><a href="#local-6989586621679266859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266858"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679266858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantEntitlementRequest
+</span><a href="#local-6989586621679266859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataTransferSubscriberFeePercent:GrantEntitlementRequest' :: Maybe Int
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3AdataTransferSubscriberFeePercent%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var">dataTransferSubscriberFeePercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679266858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The type of encryption that will be used on the output that is</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- associated with this entitlement.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#grantEntitlementRequest_encryption"><span class="hs-identifier hs-type">grantEntitlementRequest_encryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="grantEntitlementRequest_encryption"><span class="annot"><span class="annottext">grantEntitlementRequest_encryption :: (Maybe Encryption -&gt; f (Maybe Encryption))
+-&gt; GrantEntitlementRequest -&gt; f GrantEntitlementRequest
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#grantEntitlementRequest_encryption"><span class="hs-identifier hs-var hs-var">grantEntitlementRequest_encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrantEntitlementRequest -&gt; Maybe Encryption)
+-&gt; (GrantEntitlementRequest
+    -&gt; Maybe Encryption -&gt; GrantEntitlementRequest)
+-&gt; Lens
+     GrantEntitlementRequest
+     GrantEntitlementRequest
+     (Maybe Encryption)
+     (Maybe Encryption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266856"><span class="annot"><span class="annottext">Maybe Encryption
+encryption :: Maybe Encryption
+$sel:encryption:GrantEntitlementRequest' :: GrantEntitlementRequest -&gt; Maybe Encryption
+</span><a href="#local-6989586621679266856"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679266856"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266855"><span class="annot"><span class="annottext">s :: GrantEntitlementRequest
+</span><a href="#local-6989586621679266855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266854"><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679266854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantEntitlementRequest
+</span><a href="#local-6989586621679266855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:GrantEntitlementRequest' :: Maybe Encryption
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3Aencryption%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679266854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name of the entitlement. This value must be unique within the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- current flow.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#grantEntitlementRequest_name"><span class="hs-identifier hs-type">grantEntitlementRequest_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="grantEntitlementRequest_name"><span class="annot"><span class="annottext">grantEntitlementRequest_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GrantEntitlementRequest -&gt; f GrantEntitlementRequest
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#grantEntitlementRequest_name"><span class="hs-identifier hs-var hs-var">grantEntitlementRequest_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrantEntitlementRequest -&gt; Maybe Text)
+-&gt; (GrantEntitlementRequest
+    -&gt; Maybe Text -&gt; GrantEntitlementRequest)
+-&gt; Lens
+     GrantEntitlementRequest
+     GrantEntitlementRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266852"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:GrantEntitlementRequest' :: GrantEntitlementRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679266852"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266852"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266851"><span class="annot"><span class="annottext">s :: GrantEntitlementRequest
+</span><a href="#local-6989586621679266851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266850"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantEntitlementRequest
+</span><a href="#local-6989586621679266851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GrantEntitlementRequest' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3Aname%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | An indication of whether the new entitlement should be enabled or</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- disabled as soon as it is created. If you don&#8217;t specify the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- entitlementStatus field in your request, MediaConnect sets it to</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- ENABLED.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#grantEntitlementRequest_entitlementStatus"><span class="hs-identifier hs-type">grantEntitlementRequest_entitlementStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EntitlementStatus.html#EntitlementStatus"><span class="hs-identifier hs-type">EntitlementStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="grantEntitlementRequest_entitlementStatus"><span class="annot"><span class="annottext">grantEntitlementRequest_entitlementStatus :: (Maybe EntitlementStatus -&gt; f (Maybe EntitlementStatus))
+-&gt; GrantEntitlementRequest -&gt; f GrantEntitlementRequest
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#grantEntitlementRequest_entitlementStatus"><span class="hs-identifier hs-var hs-var">grantEntitlementRequest_entitlementStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrantEntitlementRequest -&gt; Maybe EntitlementStatus)
+-&gt; (GrantEntitlementRequest
+    -&gt; Maybe EntitlementStatus -&gt; GrantEntitlementRequest)
+-&gt; Lens
+     GrantEntitlementRequest
+     GrantEntitlementRequest
+     (Maybe EntitlementStatus)
+     (Maybe EntitlementStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266848"><span class="annot"><span class="annottext">Maybe EntitlementStatus
+entitlementStatus :: Maybe EntitlementStatus
+$sel:entitlementStatus:GrantEntitlementRequest' :: GrantEntitlementRequest -&gt; Maybe EntitlementStatus
+</span><a href="#local-6989586621679266848"><span class="hs-identifier hs-var hs-var">entitlementStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntitlementStatus
+</span><a href="#local-6989586621679266848"><span class="hs-identifier hs-var">entitlementStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266847"><span class="annot"><span class="annottext">s :: GrantEntitlementRequest
+</span><a href="#local-6989586621679266847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266846"><span class="annot"><span class="annottext">Maybe EntitlementStatus
+</span><a href="#local-6989586621679266846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantEntitlementRequest
+</span><a href="#local-6989586621679266847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entitlementStatus:GrantEntitlementRequest' :: Maybe EntitlementStatus
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3AentitlementStatus%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var">entitlementStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntitlementStatus
+</span><a href="#local-6989586621679266846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | A description of the entitlement. This description appears only on the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- AWS Elemental MediaConnect console and will not be seen by the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- subscriber or end user.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#grantEntitlementRequest_description"><span class="hs-identifier hs-type">grantEntitlementRequest_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="grantEntitlementRequest_description"><span class="annot"><span class="annottext">grantEntitlementRequest_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GrantEntitlementRequest -&gt; f GrantEntitlementRequest
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#grantEntitlementRequest_description"><span class="hs-identifier hs-var hs-var">grantEntitlementRequest_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrantEntitlementRequest -&gt; Maybe Text)
+-&gt; (GrantEntitlementRequest
+    -&gt; Maybe Text -&gt; GrantEntitlementRequest)
+-&gt; Lens
+     GrantEntitlementRequest
+     GrantEntitlementRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266844"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:GrantEntitlementRequest' :: GrantEntitlementRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679266844"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266844"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266843"><span class="annot"><span class="annottext">s :: GrantEntitlementRequest
+</span><a href="#local-6989586621679266843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266842"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantEntitlementRequest
+</span><a href="#local-6989586621679266843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:GrantEntitlementRequest' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3Adescription%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The AWS account IDs that you want to share your content with. The</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- receiving accounts (subscribers) will be allowed to create their own</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- flows using your content as the source.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#grantEntitlementRequest_subscribers"><span class="hs-identifier hs-type">grantEntitlementRequest_subscribers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span id="grantEntitlementRequest_subscribers"><span class="annot"><span class="annottext">grantEntitlementRequest_subscribers :: ([Text] -&gt; f [Text])
+-&gt; GrantEntitlementRequest -&gt; f GrantEntitlementRequest
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#grantEntitlementRequest_subscribers"><span class="hs-identifier hs-var hs-var">grantEntitlementRequest_subscribers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrantEntitlementRequest -&gt; [Text])
+-&gt; (GrantEntitlementRequest -&gt; [Text] -&gt; GrantEntitlementRequest)
+-&gt; Lens
+     GrantEntitlementRequest GrantEntitlementRequest [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266840"><span class="annot"><span class="annottext">[Text]
+subscribers :: [Text]
+$sel:subscribers:GrantEntitlementRequest' :: GrantEntitlementRequest -&gt; [Text]
+</span><a href="#local-6989586621679266840"><span class="hs-identifier hs-var hs-var">subscribers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679266840"><span class="hs-identifier hs-var">subscribers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266839"><span class="annot"><span class="annottext">s :: GrantEntitlementRequest
+</span><a href="#local-6989586621679266839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266838"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679266838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantEntitlementRequest
+</span><a href="#local-6989586621679266839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscribers:GrantEntitlementRequest' :: [Text]
+</span><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#%24sel%3Asubscribers%3AGrantEntitlementRequest%27"><span class="hs-identifier hs-var">subscribers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679266838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; GrantEntitlementRequest -&gt; f GrantEntitlementRequest)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; GrantEntitlementRequest
+-&gt; f GrantEntitlementRequest
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266832"><span id="local-6989586621679266834"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266821"><span id="local-6989586621679266823"><span id="local-6989586621679266825"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest"><span class="hs-identifier hs-type">GrantEntitlementRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679266819"><span class="annot"><span class="annottext">toJSON :: GrantEntitlementRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.GrantEntitlementRequest.html#GrantEntitlementRequest%27"><span class="hs-identifier hs-type">GrantEntitlementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266812"><span id="local-6989586621679266813"><span id="local-6989586621679266814"><span id="local-6989586621679266815"><span id="local-6989586621679266816"><span id="local-6989586621679266817"><span class="annot"><span class="annottext">[Text]
+Maybe Int
+Maybe Text
+Maybe EntitlementStatus
+Maybe Encryption
+subscribers :: [Text]
+description :: Maybe Text
+entitlementStatus :: Maybe EntitlementStatus
+name :: Maybe Text
+encryption :: Maybe Encryption
+dataTransferSubscriberFeePercent :: Maybe Int
+$sel:subscribers:GrantEntitlementRequest' :: GrantEntitlementRequest -&gt; [Text]
+$sel:description:GrantEntitlementRequest' :: GrantEntitlementRequest -&gt; Maybe Text
+$sel:entitlementStatus:GrantEntitlementRequest' :: GrantEntitlementRequest -&gt; Maybe EntitlementStatus
+$sel:name:GrantEntitlementRequest' :: GrantEntitlementRequest -&gt; Maybe Text
+$sel:encryption:GrantEntitlementRequest' :: GrantEntitlementRequest -&gt; Maybe Encryption
+$sel:dataTransferSubscriberFeePercent:GrantEntitlementRequest' :: GrantEntitlementRequest -&gt; Maybe Int
+</span><a href="#local-6989586621679266812"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataTransferSubscriberFeePercent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679266817"><span class="hs-identifier hs-var">dataTransferSubscriberFeePercent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Encryption -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Pair) -&gt; Maybe Encryption -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679266816"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266815"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entitlementStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EntitlementStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(EntitlementStatus -&gt; Pair)
+-&gt; Maybe EntitlementStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EntitlementStatus
+</span><a href="#local-6989586621679266814"><span class="hs-identifier hs-var">entitlementStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266813"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subscribers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679266812"><span class="hs-identifier hs-var">subscribers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span></pre></body></html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ScheduledInstancesPlacement</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ScheduledInstancesPlacement</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes the placement for a Scheduled Instance.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newScheduledInstancesPlacement' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621681147615"><span id="local-6989586621681147616"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduledInstancesPlacement"><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement"><span class="hs-identifier hs-var">ScheduledInstancesPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduledInstancesPlacement%27"><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement%27"><span class="hs-identifier hs-var">ScheduledInstancesPlacement'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Availability Zone.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AScheduledInstancesPlacement%27"><span class="annot"><span class="annottext">ScheduledInstancesPlacement -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#%24sel%3AavailabilityZone%3AScheduledInstancesPlacement%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the placement group.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AgroupName%3AScheduledInstancesPlacement%27"><span class="annot"><span class="annottext">ScheduledInstancesPlacement -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#%24sel%3AgroupName%3AScheduledInstancesPlacement%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681147608"><span id="local-6989586621681147610"><span class="annot"><span class="annottext">ScheduledInstancesPlacement -&gt; ScheduledInstancesPlacement -&gt; Bool
+(ScheduledInstancesPlacement
+ -&gt; ScheduledInstancesPlacement -&gt; Bool)
+-&gt; (ScheduledInstancesPlacement
+    -&gt; ScheduledInstancesPlacement -&gt; Bool)
+-&gt; Eq ScheduledInstancesPlacement
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScheduledInstancesPlacement -&gt; ScheduledInstancesPlacement -&gt; Bool
+$c/= :: ScheduledInstancesPlacement -&gt; ScheduledInstancesPlacement -&gt; Bool
+== :: ScheduledInstancesPlacement -&gt; ScheduledInstancesPlacement -&gt; Bool
+$c== :: ScheduledInstancesPlacement -&gt; ScheduledInstancesPlacement -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681147599"><span id="local-6989586621681147601"><span id="local-6989586621681147603"><span id="local-6989586621681147605"><span class="annot"><span class="annottext">ReadPrec [ScheduledInstancesPlacement]
+ReadPrec ScheduledInstancesPlacement
+Int -&gt; ReadS ScheduledInstancesPlacement
+ReadS [ScheduledInstancesPlacement]
+(Int -&gt; ReadS ScheduledInstancesPlacement)
+-&gt; ReadS [ScheduledInstancesPlacement]
+-&gt; ReadPrec ScheduledInstancesPlacement
+-&gt; ReadPrec [ScheduledInstancesPlacement]
+-&gt; Read ScheduledInstancesPlacement
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScheduledInstancesPlacement]
+$creadListPrec :: ReadPrec [ScheduledInstancesPlacement]
+readPrec :: ReadPrec ScheduledInstancesPlacement
+$creadPrec :: ReadPrec ScheduledInstancesPlacement
+readList :: ReadS [ScheduledInstancesPlacement]
+$creadList :: ReadS [ScheduledInstancesPlacement]
+readsPrec :: Int -&gt; ReadS ScheduledInstancesPlacement
+$creadsPrec :: Int -&gt; ReadS ScheduledInstancesPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681147592"><span id="local-6989586621681147594"><span id="local-6989586621681147596"><span class="annot"><span class="annottext">Int -&gt; ScheduledInstancesPlacement -&gt; ShowS
+[ScheduledInstancesPlacement] -&gt; ShowS
+ScheduledInstancesPlacement -&gt; String
+(Int -&gt; ScheduledInstancesPlacement -&gt; ShowS)
+-&gt; (ScheduledInstancesPlacement -&gt; String)
+-&gt; ([ScheduledInstancesPlacement] -&gt; ShowS)
+-&gt; Show ScheduledInstancesPlacement
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScheduledInstancesPlacement] -&gt; ShowS
+$cshowList :: [ScheduledInstancesPlacement] -&gt; ShowS
+show :: ScheduledInstancesPlacement -&gt; String
+$cshow :: ScheduledInstancesPlacement -&gt; String
+showsPrec :: Int -&gt; ScheduledInstancesPlacement -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScheduledInstancesPlacement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ScheduledInstancesPlacement -&gt; Rep ScheduledInstancesPlacement x)
+-&gt; (forall x.
+    Rep ScheduledInstancesPlacement x -&gt; ScheduledInstancesPlacement)
+-&gt; Generic ScheduledInstancesPlacement
+forall x.
+Rep ScheduledInstancesPlacement x -&gt; ScheduledInstancesPlacement
+forall x.
+ScheduledInstancesPlacement -&gt; Rep ScheduledInstancesPlacement x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ScheduledInstancesPlacement x -&gt; ScheduledInstancesPlacement
+$cfrom :: forall x.
+ScheduledInstancesPlacement -&gt; Rep ScheduledInstancesPlacement x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'ScheduledInstancesPlacement' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'availabilityZone', 'scheduledInstancesPlacement_availabilityZone' - The Availability Zone.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'groupName', 'scheduledInstancesPlacement_groupName' - The name of the placement group.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#newScheduledInstancesPlacement"><span class="hs-identifier hs-type">newScheduledInstancesPlacement</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement"><span class="hs-identifier hs-type">ScheduledInstancesPlacement</span></a></span><span>
+</span><span id="line-51"></span><span id="newScheduledInstancesPlacement"><span class="annot"><span class="annottext">newScheduledInstancesPlacement :: ScheduledInstancesPlacement
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#newScheduledInstancesPlacement"><span class="hs-identifier hs-var hs-var">newScheduledInstancesPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">ScheduledInstancesPlacement' :: Maybe Text -&gt; Maybe Text -&gt; ScheduledInstancesPlacement
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement%27"><span class="hs-identifier hs-type">ScheduledInstancesPlacement'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:availabilityZone:ScheduledInstancesPlacement' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#%24sel%3AavailabilityZone%3AScheduledInstancesPlacement%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:ScheduledInstancesPlacement' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#%24sel%3AgroupName%3AScheduledInstancesPlacement%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The Availability Zone.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#scheduledInstancesPlacement_availabilityZone"><span class="hs-identifier hs-type">scheduledInstancesPlacement_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement"><span class="hs-identifier hs-type">ScheduledInstancesPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="scheduledInstancesPlacement_availabilityZone"><span class="annot"><span class="annottext">scheduledInstancesPlacement_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledInstancesPlacement -&gt; f ScheduledInstancesPlacement
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#scheduledInstancesPlacement_availabilityZone"><span class="hs-identifier hs-var hs-var">scheduledInstancesPlacement_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstancesPlacement -&gt; Maybe Text)
+-&gt; (ScheduledInstancesPlacement
+    -&gt; Maybe Text -&gt; ScheduledInstancesPlacement)
+-&gt; Lens
+     ScheduledInstancesPlacement
+     ScheduledInstancesPlacement
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement%27"><span class="hs-identifier hs-type">ScheduledInstancesPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681147583"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:ScheduledInstancesPlacement' :: ScheduledInstancesPlacement -&gt; Maybe Text
+</span><a href="#local-6989586621681147583"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147583"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681147582"><span class="annot"><span class="annottext">s :: ScheduledInstancesPlacement
+</span><a href="#local-6989586621681147582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement%27"><span class="hs-identifier hs-type">ScheduledInstancesPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681147581"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstancesPlacement
+</span><a href="#local-6989586621681147582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:ScheduledInstancesPlacement' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#%24sel%3AavailabilityZone%3AScheduledInstancesPlacement%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement"><span class="hs-identifier hs-type">ScheduledInstancesPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The name of the placement group.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#scheduledInstancesPlacement_groupName"><span class="hs-identifier hs-type">scheduledInstancesPlacement_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement"><span class="hs-identifier hs-type">ScheduledInstancesPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="scheduledInstancesPlacement_groupName"><span class="annot"><span class="annottext">scheduledInstancesPlacement_groupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledInstancesPlacement -&gt; f ScheduledInstancesPlacement
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#scheduledInstancesPlacement_groupName"><span class="hs-identifier hs-var hs-var">scheduledInstancesPlacement_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstancesPlacement -&gt; Maybe Text)
+-&gt; (ScheduledInstancesPlacement
+    -&gt; Maybe Text -&gt; ScheduledInstancesPlacement)
+-&gt; Lens
+     ScheduledInstancesPlacement
+     ScheduledInstancesPlacement
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement%27"><span class="hs-identifier hs-type">ScheduledInstancesPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681147579"><span class="annot"><span class="annottext">Maybe Text
+groupName :: Maybe Text
+$sel:groupName:ScheduledInstancesPlacement' :: ScheduledInstancesPlacement -&gt; Maybe Text
+</span><a href="#local-6989586621681147579"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147579"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681147578"><span class="annot"><span class="annottext">s :: ScheduledInstancesPlacement
+</span><a href="#local-6989586621681147578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement%27"><span class="hs-identifier hs-type">ScheduledInstancesPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681147577"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstancesPlacement
+</span><a href="#local-6989586621681147578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:ScheduledInstancesPlacement' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#%24sel%3AgroupName%3AScheduledInstancesPlacement%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement"><span class="hs-identifier hs-type">ScheduledInstancesPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681147573"><span id="local-6989586621681147575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement"><span class="hs-identifier hs-type">ScheduledInstancesPlacement</span></a></span></span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681147570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement"><span class="hs-identifier hs-type">ScheduledInstancesPlacement</span></a></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement"><span class="hs-identifier hs-type">ScheduledInstancesPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621681147566"><span class="annot"><span class="annottext">toQuery :: ScheduledInstancesPlacement -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesPlacement.html#ScheduledInstancesPlacement%27"><span class="hs-identifier hs-type">ScheduledInstancesPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681147563"><span id="local-6989586621681147564"><span class="annot"><span class="annottext">Maybe Text
+groupName :: Maybe Text
+availabilityZone :: Maybe Text
+$sel:groupName:ScheduledInstancesPlacement' :: ScheduledInstancesPlacement -&gt; Maybe Text
+$sel:availabilityZone:ScheduledInstancesPlacement' :: ScheduledInstancesPlacement -&gt; Maybe Text
+</span><a href="#local-6989586621681147563"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147564"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147563"><span class="hs-identifier hs-var">groupName</span></a></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span></pre></body></html>

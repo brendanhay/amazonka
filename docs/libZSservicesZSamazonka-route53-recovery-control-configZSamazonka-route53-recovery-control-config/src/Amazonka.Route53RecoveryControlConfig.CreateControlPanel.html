@@ -1,0 +1,506 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53RecoveryControlConfig.CreateControlPanel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new control panel. A control panel represents a group of</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- routing controls that can be changed together in a single transaction.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can use a control panel to centrally view the operational status of</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- applications across your organization, and trigger multi-app failovers</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in a single transaction, for example, to fail over an Availability Zone</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- or AWS Region.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53RecoveryControlConfig.CreateControlPanel</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier">CreateControlPanel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#newCreateControlPanel"><span class="hs-identifier">newCreateControlPanel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanel_clientToken"><span class="hs-identifier">createControlPanel_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanel_clusterArn"><span class="hs-identifier">createControlPanel_clusterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanel_controlPanelName"><span class="hs-identifier">createControlPanel_controlPanelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse"><span class="hs-identifier">CreateControlPanelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#newCreateControlPanelResponse"><span class="hs-identifier">newCreateControlPanelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanelResponse_controlPanel"><span class="hs-identifier">createControlPanelResponse_controlPanel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanelResponse_httpStatus"><span class="hs-identifier">createControlPanelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.html"><span class="hs-identifier">Amazonka.Route53RecoveryControlConfig.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | The details of the control panel that you\'re creating.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newCreateControlPanel' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679179219"><span id="local-6989586621679179220"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateControlPanel"><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-var">CreateControlPanel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateControlPanel%27"><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel%27"><span class="hs-identifier hs-var">CreateControlPanel'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique client idempotency token.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateControlPanel%27"><span class="annot"><span class="annottext">CreateControlPanel -&gt; Maybe Text
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AclientToken%3ACreateControlPanel%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster for the control panel.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AclusterArn%3ACreateControlPanel%27"><span class="annot"><span class="annottext">CreateControlPanel -&gt; Text
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AclusterArn%3ACreateControlPanel%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The name of the control panel.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AcontrolPanelName%3ACreateControlPanel%27"><span class="annot"><span class="annottext">CreateControlPanel -&gt; Text
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AcontrolPanelName%3ACreateControlPanel%27"><span class="hs-identifier hs-var hs-var">controlPanelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179211"><span id="local-6989586621679179213"><span class="annot"><span class="annottext">CreateControlPanel -&gt; CreateControlPanel -&gt; Bool
+(CreateControlPanel -&gt; CreateControlPanel -&gt; Bool)
+-&gt; (CreateControlPanel -&gt; CreateControlPanel -&gt; Bool)
+-&gt; Eq CreateControlPanel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateControlPanel -&gt; CreateControlPanel -&gt; Bool
+$c/= :: CreateControlPanel -&gt; CreateControlPanel -&gt; Bool
+== :: CreateControlPanel -&gt; CreateControlPanel -&gt; Bool
+$c== :: CreateControlPanel -&gt; CreateControlPanel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179202"><span id="local-6989586621679179204"><span id="local-6989586621679179206"><span id="local-6989586621679179208"><span class="annot"><span class="annottext">ReadPrec [CreateControlPanel]
+ReadPrec CreateControlPanel
+Int -&gt; ReadS CreateControlPanel
+ReadS [CreateControlPanel]
+(Int -&gt; ReadS CreateControlPanel)
+-&gt; ReadS [CreateControlPanel]
+-&gt; ReadPrec CreateControlPanel
+-&gt; ReadPrec [CreateControlPanel]
+-&gt; Read CreateControlPanel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateControlPanel]
+$creadListPrec :: ReadPrec [CreateControlPanel]
+readPrec :: ReadPrec CreateControlPanel
+$creadPrec :: ReadPrec CreateControlPanel
+readList :: ReadS [CreateControlPanel]
+$creadList :: ReadS [CreateControlPanel]
+readsPrec :: Int -&gt; ReadS CreateControlPanel
+$creadsPrec :: Int -&gt; ReadS CreateControlPanel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179195"><span id="local-6989586621679179197"><span id="local-6989586621679179199"><span class="annot"><span class="annottext">Int -&gt; CreateControlPanel -&gt; ShowS
+[CreateControlPanel] -&gt; ShowS
+CreateControlPanel -&gt; String
+(Int -&gt; CreateControlPanel -&gt; ShowS)
+-&gt; (CreateControlPanel -&gt; String)
+-&gt; ([CreateControlPanel] -&gt; ShowS)
+-&gt; Show CreateControlPanel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateControlPanel] -&gt; ShowS
+$cshowList :: [CreateControlPanel] -&gt; ShowS
+show :: CreateControlPanel -&gt; String
+$cshow :: CreateControlPanel -&gt; String
+showsPrec :: Int -&gt; CreateControlPanel -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateControlPanel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateControlPanel -&gt; Rep CreateControlPanel x)
+-&gt; (forall x. Rep CreateControlPanel x -&gt; CreateControlPanel)
+-&gt; Generic CreateControlPanel
+forall x. Rep CreateControlPanel x -&gt; CreateControlPanel
+forall x. CreateControlPanel -&gt; Rep CreateControlPanel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateControlPanel x -&gt; CreateControlPanel
+$cfrom :: forall x. CreateControlPanel -&gt; Rep CreateControlPanel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'CreateControlPanel' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'clientToken', 'createControlPanel_clientToken' - Unique client idempotency token.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'clusterArn', 'createControlPanel_clusterArn' - The Amazon Resource Name (ARN) of the cluster for the control panel.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'controlPanelName', 'createControlPanel_controlPanelName' - The name of the control panel.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#newCreateControlPanel"><span class="hs-identifier hs-type">newCreateControlPanel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'clusterArn'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'controlPanelName'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span><span>
+</span><span id="line-88"></span><span id="newCreateControlPanel"><span class="annot"><span class="annottext">newCreateControlPanel :: Text -&gt; Text -&gt; CreateControlPanel
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#newCreateControlPanel"><span class="hs-identifier hs-var hs-var">newCreateControlPanel</span></a></span></span><span> </span><span id="local-6989586621679179190"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179190"><span class="hs-identifier hs-var">pClusterArn_</span></a></span></span><span> </span><span id="local-6989586621679179189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179189"><span class="hs-identifier hs-var">pControlPanelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">CreateControlPanel' :: Maybe Text -&gt; Text -&gt; Text -&gt; CreateControlPanel
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel%27"><span class="hs-identifier hs-type">CreateControlPanel'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:CreateControlPanel' :: Maybe Text
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AclientToken%3ACreateControlPanel%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterArn:CreateControlPanel' :: Text
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AclusterArn%3ACreateControlPanel%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179190"><span class="hs-identifier hs-var">pClusterArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:controlPanelName:CreateControlPanel' :: Text
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AcontrolPanelName%3ACreateControlPanel%27"><span class="hs-identifier hs-var">controlPanelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179189"><span class="hs-identifier hs-var">pControlPanelName_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Unique client idempotency token.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanel_clientToken"><span class="hs-identifier hs-type">createControlPanel_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="createControlPanel_clientToken"><span class="annot"><span class="annottext">createControlPanel_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateControlPanel -&gt; f CreateControlPanel
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanel_clientToken"><span class="hs-identifier hs-var hs-var">createControlPanel_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateControlPanel -&gt; Maybe Text)
+-&gt; (CreateControlPanel -&gt; Maybe Text -&gt; CreateControlPanel)
+-&gt; Lens
+     CreateControlPanel CreateControlPanel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel%27"><span class="hs-identifier hs-type">CreateControlPanel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179186"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateControlPanel' :: CreateControlPanel -&gt; Maybe Text
+</span><a href="#local-6989586621679179186"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179186"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179185"><span class="annot"><span class="annottext">s :: CreateControlPanel
+</span><a href="#local-6989586621679179185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel%27"><span class="hs-identifier hs-type">CreateControlPanel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179184"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateControlPanel
+</span><a href="#local-6989586621679179185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateControlPanel' :: Maybe Text
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AclientToken%3ACreateControlPanel%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster for the control panel.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanel_clusterArn"><span class="hs-identifier hs-type">createControlPanel_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="createControlPanel_clusterArn"><span class="annot"><span class="annottext">createControlPanel_clusterArn :: (Text -&gt; f Text) -&gt; CreateControlPanel -&gt; f CreateControlPanel
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanel_clusterArn"><span class="hs-identifier hs-var hs-var">createControlPanel_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateControlPanel -&gt; Text)
+-&gt; (CreateControlPanel -&gt; Text -&gt; CreateControlPanel)
+-&gt; Lens CreateControlPanel CreateControlPanel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel%27"><span class="hs-identifier hs-type">CreateControlPanel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179183"><span class="annot"><span class="annottext">Text
+clusterArn :: Text
+$sel:clusterArn:CreateControlPanel' :: CreateControlPanel -&gt; Text
+</span><a href="#local-6989586621679179183"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179183"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179182"><span class="annot"><span class="annottext">s :: CreateControlPanel
+</span><a href="#local-6989586621679179182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel%27"><span class="hs-identifier hs-type">CreateControlPanel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179181"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateControlPanel
+</span><a href="#local-6989586621679179182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:CreateControlPanel' :: Text
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AclusterArn%3ACreateControlPanel%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The name of the control panel.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanel_controlPanelName"><span class="hs-identifier hs-type">createControlPanel_controlPanelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="createControlPanel_controlPanelName"><span class="annot"><span class="annottext">createControlPanel_controlPanelName :: (Text -&gt; f Text) -&gt; CreateControlPanel -&gt; f CreateControlPanel
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanel_controlPanelName"><span class="hs-identifier hs-var hs-var">createControlPanel_controlPanelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateControlPanel -&gt; Text)
+-&gt; (CreateControlPanel -&gt; Text -&gt; CreateControlPanel)
+-&gt; Lens CreateControlPanel CreateControlPanel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel%27"><span class="hs-identifier hs-type">CreateControlPanel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179180"><span class="annot"><span class="annottext">Text
+controlPanelName :: Text
+$sel:controlPanelName:CreateControlPanel' :: CreateControlPanel -&gt; Text
+</span><a href="#local-6989586621679179180"><span class="hs-identifier hs-var hs-var">controlPanelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179180"><span class="hs-identifier hs-var">controlPanelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179179"><span class="annot"><span class="annottext">s :: CreateControlPanel
+</span><a href="#local-6989586621679179179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel%27"><span class="hs-identifier hs-type">CreateControlPanel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179178"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateControlPanel
+</span><a href="#local-6989586621679179179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlPanelName:CreateControlPanel' :: Text
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AcontrolPanelName%3ACreateControlPanel%27"><span class="hs-identifier hs-var">controlPanelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse"><span class="hs-identifier hs-type">CreateControlPanelResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679179174"><span class="annot"><span class="annottext">request :: CreateControlPanel -&gt; Request CreateControlPanel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateControlPanel -&gt; Request CreateControlPanel
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53RecoveryControlConfig.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679179170"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateControlPanel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateControlPanel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateControlPanel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateControlPanel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateControlPanel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179167"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179167"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179166"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179166"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179165"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179165"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe ControlPanel -&gt; Int -&gt; CreateControlPanelResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse%27"><span class="hs-identifier hs-var">CreateControlPanelResponse'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ControlPanel -&gt; Int -&gt; CreateControlPanelResponse)
+-&gt; Either String (Maybe ControlPanel)
+-&gt; Either String (Int -&gt; CreateControlPanelResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179165"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ControlPanel)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ControlPanel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateControlPanelResponse)
+-&gt; Either String Int -&gt; Either String CreateControlPanelResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179167"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179157"><span id="local-6989586621679179159"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179154"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679179150"><span class="annot"><span class="annottext">toHeaders :: CreateControlPanel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateControlPanel -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-131"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179140"><span id="local-6989586621679179142"><span id="local-6989586621679179144"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679179138"><span class="annot"><span class="annottext">toJSON :: CreateControlPanel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel%27"><span class="hs-identifier hs-type">CreateControlPanel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179134"><span id="local-6989586621679179135"><span id="local-6989586621679179136"><span class="annot"><span class="annottext">Maybe Text
+Text
+controlPanelName :: Text
+clusterArn :: Text
+clientToken :: Maybe Text
+$sel:controlPanelName:CreateControlPanel' :: CreateControlPanel -&gt; Text
+$sel:clusterArn:CreateControlPanel' :: CreateControlPanel -&gt; Text
+$sel:clientToken:CreateControlPanel' :: CreateControlPanel -&gt; Maybe Text
+</span><a href="#local-6989586621679179134"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179136"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179135"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-142"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ControlPanelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179134"><span class="hs-identifier hs-var">controlPanelName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679179128"><span class="annot"><span class="annottext">toPath :: CreateControlPanel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateControlPanel -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/controlpanel&quot;</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanel"><span class="hs-identifier hs-type">CreateControlPanel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679179124"><span class="annot"><span class="annottext">toQuery :: CreateControlPanel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateControlPanel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newCreateControlPanelResponse' smart constructor.</span><span>
+</span><span id="line-153"></span><span id="local-6989586621679179121"><span id="local-6989586621679179122"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateControlPanelResponse"><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse"><span class="hs-identifier hs-var">CreateControlPanelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateControlPanelResponse%27"><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse%27"><span class="hs-identifier hs-var">CreateControlPanelResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about a control panel.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AcontrolPanel%3ACreateControlPanelResponse%27"><span class="annot"><span class="annottext">CreateControlPanelResponse -&gt; Maybe ControlPanel
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AcontrolPanel%3ACreateControlPanelResponse%27"><span class="hs-identifier hs-var hs-var">controlPanel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.ControlPanel.html#ControlPanel"><span class="hs-identifier hs-type">ControlPanel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateControlPanelResponse%27"><span class="annot"><span class="annottext">CreateControlPanelResponse -&gt; Int
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AhttpStatus%3ACreateControlPanelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179115"><span id="local-6989586621679179117"><span class="annot"><span class="annottext">CreateControlPanelResponse -&gt; CreateControlPanelResponse -&gt; Bool
+(CreateControlPanelResponse -&gt; CreateControlPanelResponse -&gt; Bool)
+-&gt; (CreateControlPanelResponse
+    -&gt; CreateControlPanelResponse -&gt; Bool)
+-&gt; Eq CreateControlPanelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateControlPanelResponse -&gt; CreateControlPanelResponse -&gt; Bool
+$c/= :: CreateControlPanelResponse -&gt; CreateControlPanelResponse -&gt; Bool
+== :: CreateControlPanelResponse -&gt; CreateControlPanelResponse -&gt; Bool
+$c== :: CreateControlPanelResponse -&gt; CreateControlPanelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179107"><span id="local-6989586621679179109"><span id="local-6989586621679179111"><span id="local-6989586621679179113"><span class="annot"><span class="annottext">ReadPrec [CreateControlPanelResponse]
+ReadPrec CreateControlPanelResponse
+Int -&gt; ReadS CreateControlPanelResponse
+ReadS [CreateControlPanelResponse]
+(Int -&gt; ReadS CreateControlPanelResponse)
+-&gt; ReadS [CreateControlPanelResponse]
+-&gt; ReadPrec CreateControlPanelResponse
+-&gt; ReadPrec [CreateControlPanelResponse]
+-&gt; Read CreateControlPanelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateControlPanelResponse]
+$creadListPrec :: ReadPrec [CreateControlPanelResponse]
+readPrec :: ReadPrec CreateControlPanelResponse
+$creadPrec :: ReadPrec CreateControlPanelResponse
+readList :: ReadS [CreateControlPanelResponse]
+$creadList :: ReadS [CreateControlPanelResponse]
+readsPrec :: Int -&gt; ReadS CreateControlPanelResponse
+$creadsPrec :: Int -&gt; ReadS CreateControlPanelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179101"><span id="local-6989586621679179103"><span id="local-6989586621679179105"><span class="annot"><span class="annottext">Int -&gt; CreateControlPanelResponse -&gt; ShowS
+[CreateControlPanelResponse] -&gt; ShowS
+CreateControlPanelResponse -&gt; String
+(Int -&gt; CreateControlPanelResponse -&gt; ShowS)
+-&gt; (CreateControlPanelResponse -&gt; String)
+-&gt; ([CreateControlPanelResponse] -&gt; ShowS)
+-&gt; Show CreateControlPanelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateControlPanelResponse] -&gt; ShowS
+$cshowList :: [CreateControlPanelResponse] -&gt; ShowS
+show :: CreateControlPanelResponse -&gt; String
+$cshow :: CreateControlPanelResponse -&gt; String
+showsPrec :: Int -&gt; CreateControlPanelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateControlPanelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateControlPanelResponse -&gt; Rep CreateControlPanelResponse x)
+-&gt; (forall x.
+    Rep CreateControlPanelResponse x -&gt; CreateControlPanelResponse)
+-&gt; Generic CreateControlPanelResponse
+forall x.
+Rep CreateControlPanelResponse x -&gt; CreateControlPanelResponse
+forall x.
+CreateControlPanelResponse -&gt; Rep CreateControlPanelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateControlPanelResponse x -&gt; CreateControlPanelResponse
+$cfrom :: forall x.
+CreateControlPanelResponse -&gt; Rep CreateControlPanelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Create a value of 'CreateControlPanelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'controlPanel', 'createControlPanelResponse_controlPanel' - Information about a control panel.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'createControlPanelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#newCreateControlPanelResponse"><span class="hs-identifier hs-type">newCreateControlPanelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse"><span class="hs-identifier hs-type">CreateControlPanelResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newCreateControlPanelResponse"><span class="annot"><span class="annottext">newCreateControlPanelResponse :: Int -&gt; CreateControlPanelResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#newCreateControlPanelResponse"><span class="hs-identifier hs-var hs-var">newCreateControlPanelResponse</span></a></span></span><span> </span><span id="local-6989586621679179098"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179098"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">CreateControlPanelResponse' :: Maybe ControlPanel -&gt; Int -&gt; CreateControlPanelResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse%27"><span class="hs-identifier hs-type">CreateControlPanelResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:controlPanel:CreateControlPanelResponse' :: Maybe ControlPanel
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AcontrolPanel%3ACreateControlPanelResponse%27"><span class="hs-identifier hs-var">controlPanel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe ControlPanel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateControlPanelResponse' :: Int
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AhttpStatus%3ACreateControlPanelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179098"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Information about a control panel.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanelResponse_controlPanel"><span class="hs-identifier hs-type">createControlPanelResponse_controlPanel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse"><span class="hs-identifier hs-type">CreateControlPanelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.ControlPanel.html#ControlPanel"><span class="hs-identifier hs-type">ControlPanel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="createControlPanelResponse_controlPanel"><span class="annot"><span class="annottext">createControlPanelResponse_controlPanel :: (Maybe ControlPanel -&gt; f (Maybe ControlPanel))
+-&gt; CreateControlPanelResponse -&gt; f CreateControlPanelResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanelResponse_controlPanel"><span class="hs-identifier hs-var hs-var">createControlPanelResponse_controlPanel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateControlPanelResponse -&gt; Maybe ControlPanel)
+-&gt; (CreateControlPanelResponse
+    -&gt; Maybe ControlPanel -&gt; CreateControlPanelResponse)
+-&gt; Lens
+     CreateControlPanelResponse
+     CreateControlPanelResponse
+     (Maybe ControlPanel)
+     (Maybe ControlPanel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse%27"><span class="hs-identifier hs-type">CreateControlPanelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179097"><span class="annot"><span class="annottext">Maybe ControlPanel
+controlPanel :: Maybe ControlPanel
+$sel:controlPanel:CreateControlPanelResponse' :: CreateControlPanelResponse -&gt; Maybe ControlPanel
+</span><a href="#local-6989586621679179097"><span class="hs-identifier hs-var hs-var">controlPanel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ControlPanel
+</span><a href="#local-6989586621679179097"><span class="hs-identifier hs-var">controlPanel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179096"><span class="annot"><span class="annottext">s :: CreateControlPanelResponse
+</span><a href="#local-6989586621679179096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse%27"><span class="hs-identifier hs-type">CreateControlPanelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179095"><span class="annot"><span class="annottext">Maybe ControlPanel
+</span><a href="#local-6989586621679179095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateControlPanelResponse
+</span><a href="#local-6989586621679179096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlPanel:CreateControlPanelResponse' :: Maybe ControlPanel
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AcontrolPanel%3ACreateControlPanelResponse%27"><span class="hs-identifier hs-var">controlPanel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ControlPanel
+</span><a href="#local-6989586621679179095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse"><span class="hs-identifier hs-type">CreateControlPanelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanelResponse_httpStatus"><span class="hs-identifier hs-type">createControlPanelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse"><span class="hs-identifier hs-type">CreateControlPanelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-189"></span><span id="createControlPanelResponse_httpStatus"><span class="annot"><span class="annottext">createControlPanelResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateControlPanelResponse -&gt; f CreateControlPanelResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#createControlPanelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createControlPanelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateControlPanelResponse -&gt; Int)
+-&gt; (CreateControlPanelResponse
+    -&gt; Int -&gt; CreateControlPanelResponse)
+-&gt; Lens
+     CreateControlPanelResponse CreateControlPanelResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse%27"><span class="hs-identifier hs-type">CreateControlPanelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179094"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateControlPanelResponse' :: CreateControlPanelResponse -&gt; Int
+</span><a href="#local-6989586621679179094"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179094"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179093"><span class="annot"><span class="annottext">s :: CreateControlPanelResponse
+</span><a href="#local-6989586621679179093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse%27"><span class="hs-identifier hs-type">CreateControlPanelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179092"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateControlPanelResponse
+</span><a href="#local-6989586621679179093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateControlPanelResponse' :: Int
+</span><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#%24sel%3AhttpStatus%3ACreateControlPanelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse"><span class="hs-identifier hs-type">CreateControlPanelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.CreateControlPanel.html#CreateControlPanelResponse"><span class="hs-identifier hs-type">CreateControlPanelResponse</span></a></span></span><span>
+</span><span id="line-192"></span></pre></body></html>

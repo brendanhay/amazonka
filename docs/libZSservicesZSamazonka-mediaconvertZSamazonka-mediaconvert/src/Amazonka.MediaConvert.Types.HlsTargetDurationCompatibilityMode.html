@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode"><span class="hs-identifier">HlsTargetDurationCompatibilityMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode_LEGACY"><span class="hs-identifier">HlsTargetDurationCompatibilityMode_LEGACY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span class="hs-identifier">HlsTargetDurationCompatibilityMode_SPEC_COMPLIANT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | When set to LEGACY, the segment target duration is always rounded up to</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- the nearest integer value above its current value in seconds. When set</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- to SPEC\\\\_COMPLIANT, the segment target duration is rounded up to the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- nearest integer value if fraction seconds are greater than or equal to</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- 0.5 (&gt;= 0.5) and rounded down if less than 0.5 (\&lt; 0.5). You may need to</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- use LEGACY if your client needs to ensure that the target duration is</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- always longer than the actual duration of the segment. Some older</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- players may experience interrupted playback when the actual duration of</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- a track in a segment is longer than the target duration.</span><span>
+</span><span id="line-41"></span><span id="local-6989586621679980359"><span id="local-6989586621679980360"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsTargetDurationCompatibilityMode"><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode"><span class="hs-identifier hs-var">HlsTargetDurationCompatibilityMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsTargetDurationCompatibilityMode%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode%27"><span class="hs-identifier hs-var">HlsTargetDurationCompatibilityMode'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsTargetDurationCompatibilityMode"><span class="annot"><span class="annottext">HlsTargetDurationCompatibilityMode -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#fromHlsTargetDurationCompatibilityMode"><span class="hs-identifier hs-var hs-var">fromHlsTargetDurationCompatibilityMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679980351"><span id="local-6989586621679980353"><span id="local-6989586621679980355"><span class="annot"><span class="annottext">Int -&gt; HlsTargetDurationCompatibilityMode -&gt; ShowS
+[HlsTargetDurationCompatibilityMode] -&gt; ShowS
+HlsTargetDurationCompatibilityMode -&gt; String
+(Int -&gt; HlsTargetDurationCompatibilityMode -&gt; ShowS)
+-&gt; (HlsTargetDurationCompatibilityMode -&gt; String)
+-&gt; ([HlsTargetDurationCompatibilityMode] -&gt; ShowS)
+-&gt; Show HlsTargetDurationCompatibilityMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsTargetDurationCompatibilityMode] -&gt; ShowS
+$cshowList :: [HlsTargetDurationCompatibilityMode] -&gt; ShowS
+show :: HlsTargetDurationCompatibilityMode -&gt; String
+$cshow :: HlsTargetDurationCompatibilityMode -&gt; String
+showsPrec :: Int -&gt; HlsTargetDurationCompatibilityMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsTargetDurationCompatibilityMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679980342"><span id="local-6989586621679980344"><span id="local-6989586621679980346"><span id="local-6989586621679980348"><span class="annot"><span class="annottext">ReadPrec [HlsTargetDurationCompatibilityMode]
+ReadPrec HlsTargetDurationCompatibilityMode
+Int -&gt; ReadS HlsTargetDurationCompatibilityMode
+ReadS [HlsTargetDurationCompatibilityMode]
+(Int -&gt; ReadS HlsTargetDurationCompatibilityMode)
+-&gt; ReadS [HlsTargetDurationCompatibilityMode]
+-&gt; ReadPrec HlsTargetDurationCompatibilityMode
+-&gt; ReadPrec [HlsTargetDurationCompatibilityMode]
+-&gt; Read HlsTargetDurationCompatibilityMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsTargetDurationCompatibilityMode]
+$creadListPrec :: ReadPrec [HlsTargetDurationCompatibilityMode]
+readPrec :: ReadPrec HlsTargetDurationCompatibilityMode
+$creadPrec :: ReadPrec HlsTargetDurationCompatibilityMode
+readList :: ReadS [HlsTargetDurationCompatibilityMode]
+$creadList :: ReadS [HlsTargetDurationCompatibilityMode]
+readsPrec :: Int -&gt; ReadS HlsTargetDurationCompatibilityMode
+$creadsPrec :: Int -&gt; ReadS HlsTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679980337"><span id="local-6989586621679980339"><span class="annot"><span class="annottext">HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+(HlsTargetDurationCompatibilityMode
+ -&gt; HlsTargetDurationCompatibilityMode -&gt; Bool)
+-&gt; (HlsTargetDurationCompatibilityMode
+    -&gt; HlsTargetDurationCompatibilityMode -&gt; Bool)
+-&gt; Eq HlsTargetDurationCompatibilityMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+$c/= :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+== :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+$c== :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679980321"><span id="local-6989586621679980323"><span id="local-6989586621679980325"><span id="local-6989586621679980327"><span id="local-6989586621679980329"><span id="local-6989586621679980331"><span id="local-6989586621679980333"><span class="annot"><span class="annottext">Eq HlsTargetDurationCompatibilityMode
+Eq HlsTargetDurationCompatibilityMode
+-&gt; (HlsTargetDurationCompatibilityMode
+    -&gt; HlsTargetDurationCompatibilityMode -&gt; Ordering)
+-&gt; (HlsTargetDurationCompatibilityMode
+    -&gt; HlsTargetDurationCompatibilityMode -&gt; Bool)
+-&gt; (HlsTargetDurationCompatibilityMode
+    -&gt; HlsTargetDurationCompatibilityMode -&gt; Bool)
+-&gt; (HlsTargetDurationCompatibilityMode
+    -&gt; HlsTargetDurationCompatibilityMode -&gt; Bool)
+-&gt; (HlsTargetDurationCompatibilityMode
+    -&gt; HlsTargetDurationCompatibilityMode -&gt; Bool)
+-&gt; (HlsTargetDurationCompatibilityMode
+    -&gt; HlsTargetDurationCompatibilityMode
+    -&gt; HlsTargetDurationCompatibilityMode)
+-&gt; (HlsTargetDurationCompatibilityMode
+    -&gt; HlsTargetDurationCompatibilityMode
+    -&gt; HlsTargetDurationCompatibilityMode)
+-&gt; Ord HlsTargetDurationCompatibilityMode
+HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Ordering
+HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode
+$cmin :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode
+max :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode
+$cmax :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode
+&gt;= :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+$c&gt;= :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+&gt; :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+$c&gt; :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+&lt;= :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+$c&lt;= :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+&lt; :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+$c&lt; :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Bool
+compare :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Ordering
+$ccompare :: HlsTargetDurationCompatibilityMode
+-&gt; HlsTargetDurationCompatibilityMode -&gt; Ordering
+$cp1Ord :: Eq HlsTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ HlsTargetDurationCompatibilityMode
+ -&gt; Rep HlsTargetDurationCompatibilityMode x)
+-&gt; (forall x.
+    Rep HlsTargetDurationCompatibilityMode x
+    -&gt; HlsTargetDurationCompatibilityMode)
+-&gt; Generic HlsTargetDurationCompatibilityMode
+forall x.
+Rep HlsTargetDurationCompatibilityMode x
+-&gt; HlsTargetDurationCompatibilityMode
+forall x.
+HlsTargetDurationCompatibilityMode
+-&gt; Rep HlsTargetDurationCompatibilityMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep HlsTargetDurationCompatibilityMode x
+-&gt; HlsTargetDurationCompatibilityMode
+$cfrom :: forall x.
+HlsTargetDurationCompatibilityMode
+-&gt; Rep HlsTargetDurationCompatibilityMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679980313"><span id="local-6989586621679980315"><span class="annot"><span class="annottext">Int -&gt; HlsTargetDurationCompatibilityMode -&gt; Int
+HlsTargetDurationCompatibilityMode -&gt; Int
+(Int -&gt; HlsTargetDurationCompatibilityMode -&gt; Int)
+-&gt; (HlsTargetDurationCompatibilityMode -&gt; Int)
+-&gt; Hashable HlsTargetDurationCompatibilityMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HlsTargetDurationCompatibilityMode -&gt; Int
+$chash :: HlsTargetDurationCompatibilityMode -&gt; Int
+hashWithSalt :: Int -&gt; HlsTargetDurationCompatibilityMode -&gt; Int
+$chashWithSalt :: Int -&gt; HlsTargetDurationCompatibilityMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679980310"><span class="annot"><span class="annottext">HlsTargetDurationCompatibilityMode -&gt; ()
+(HlsTargetDurationCompatibilityMode -&gt; ())
+-&gt; NFData HlsTargetDurationCompatibilityMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HlsTargetDurationCompatibilityMode -&gt; ()
+$crnf :: HlsTargetDurationCompatibilityMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679980307"><span class="annot"><span class="annottext">Text -&gt; Either String HlsTargetDurationCompatibilityMode
+(Text -&gt; Either String HlsTargetDurationCompatibilityMode)
+-&gt; FromText HlsTargetDurationCompatibilityMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HlsTargetDurationCompatibilityMode
+$cfromText :: Text -&gt; Either String HlsTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679980304"><span class="annot"><span class="annottext">HlsTargetDurationCompatibilityMode -&gt; Text
+(HlsTargetDurationCompatibilityMode -&gt; Text)
+-&gt; ToText HlsTargetDurationCompatibilityMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HlsTargetDurationCompatibilityMode -&gt; Text
+$ctoText :: HlsTargetDurationCompatibilityMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679980301"><span class="annot"><span class="annottext">HlsTargetDurationCompatibilityMode -&gt; ByteString
+(HlsTargetDurationCompatibilityMode -&gt; ByteString)
+-&gt; ToByteString HlsTargetDurationCompatibilityMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HlsTargetDurationCompatibilityMode -&gt; ByteString
+$ctoBS :: HlsTargetDurationCompatibilityMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679980298"><span class="annot"><span class="annottext">HlsTargetDurationCompatibilityMode -&gt; ByteStringBuilder
+(HlsTargetDurationCompatibilityMode -&gt; ByteStringBuilder)
+-&gt; ToLog HlsTargetDurationCompatibilityMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HlsTargetDurationCompatibilityMode -&gt; ByteStringBuilder
+$cbuild :: HlsTargetDurationCompatibilityMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679980295"><span class="annot"><span class="annottext">HeaderName -&gt; HlsTargetDurationCompatibilityMode -&gt; [Header]
+(HeaderName -&gt; HlsTargetDurationCompatibilityMode -&gt; [Header])
+-&gt; ToHeader HlsTargetDurationCompatibilityMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HlsTargetDurationCompatibilityMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HlsTargetDurationCompatibilityMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679980292"><span class="annot"><span class="annottext">HlsTargetDurationCompatibilityMode -&gt; QueryString
+(HlsTargetDurationCompatibilityMode -&gt; QueryString)
+-&gt; ToQuery HlsTargetDurationCompatibilityMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HlsTargetDurationCompatibilityMode -&gt; QueryString
+$ctoQuery :: HlsTargetDurationCompatibilityMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679980287"><span id="local-6989586621679980289"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsTargetDurationCompatibilityMode]
+Value -&gt; Parser HlsTargetDurationCompatibilityMode
+(Value -&gt; Parser HlsTargetDurationCompatibilityMode)
+-&gt; (Value -&gt; Parser [HlsTargetDurationCompatibilityMode])
+-&gt; FromJSON HlsTargetDurationCompatibilityMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HlsTargetDurationCompatibilityMode]
+$cparseJSONList :: Value -&gt; Parser [HlsTargetDurationCompatibilityMode]
+parseJSON :: Value -&gt; Parser HlsTargetDurationCompatibilityMode
+$cparseJSON :: Value -&gt; Parser HlsTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679980282"><span id="local-6989586621679980284"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsTargetDurationCompatibilityMode]
+FromJSONKeyFunction HlsTargetDurationCompatibilityMode
+FromJSONKeyFunction HlsTargetDurationCompatibilityMode
+-&gt; FromJSONKeyFunction [HlsTargetDurationCompatibilityMode]
+-&gt; FromJSONKey HlsTargetDurationCompatibilityMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HlsTargetDurationCompatibilityMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [HlsTargetDurationCompatibilityMode]
+fromJSONKey :: FromJSONKeyFunction HlsTargetDurationCompatibilityMode
+$cfromJSONKey :: FromJSONKeyFunction HlsTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679980273"><span id="local-6989586621679980275"><span id="local-6989586621679980277"><span id="local-6989586621679980279"><span class="annot"><span class="annottext">[HlsTargetDurationCompatibilityMode] -&gt; Encoding
+[HlsTargetDurationCompatibilityMode] -&gt; Value
+HlsTargetDurationCompatibilityMode -&gt; Encoding
+HlsTargetDurationCompatibilityMode -&gt; Value
+(HlsTargetDurationCompatibilityMode -&gt; Value)
+-&gt; (HlsTargetDurationCompatibilityMode -&gt; Encoding)
+-&gt; ([HlsTargetDurationCompatibilityMode] -&gt; Value)
+-&gt; ([HlsTargetDurationCompatibilityMode] -&gt; Encoding)
+-&gt; ToJSON HlsTargetDurationCompatibilityMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HlsTargetDurationCompatibilityMode] -&gt; Encoding
+$ctoEncodingList :: [HlsTargetDurationCompatibilityMode] -&gt; Encoding
+toJSONList :: [HlsTargetDurationCompatibilityMode] -&gt; Value
+$ctoJSONList :: [HlsTargetDurationCompatibilityMode] -&gt; Value
+toEncoding :: HlsTargetDurationCompatibilityMode -&gt; Encoding
+$ctoEncoding :: HlsTargetDurationCompatibilityMode -&gt; Encoding
+toJSON :: HlsTargetDurationCompatibilityMode -&gt; Value
+$ctoJSON :: HlsTargetDurationCompatibilityMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679980268"><span id="local-6989586621679980270"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsTargetDurationCompatibilityMode]
+ToJSONKeyFunction HlsTargetDurationCompatibilityMode
+ToJSONKeyFunction HlsTargetDurationCompatibilityMode
+-&gt; ToJSONKeyFunction [HlsTargetDurationCompatibilityMode]
+-&gt; ToJSONKey HlsTargetDurationCompatibilityMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HlsTargetDurationCompatibilityMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [HlsTargetDurationCompatibilityMode]
+toJSONKey :: ToJSONKeyFunction HlsTargetDurationCompatibilityMode
+$ctoJSONKey :: ToJSONKeyFunction HlsTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679980265"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsTargetDurationCompatibilityMode
+([Node] -&gt; Either String HlsTargetDurationCompatibilityMode)
+-&gt; FromXML HlsTargetDurationCompatibilityMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HlsTargetDurationCompatibilityMode
+$cparseXML :: [Node] -&gt; Either String HlsTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679980262"><span class="annot"><span class="annottext">HlsTargetDurationCompatibilityMode -&gt; XML
+(HlsTargetDurationCompatibilityMode -&gt; XML)
+-&gt; ToXML HlsTargetDurationCompatibilityMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HlsTargetDurationCompatibilityMode -&gt; XML
+$ctoXML :: HlsTargetDurationCompatibilityMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode_LEGACY"><span class="hs-identifier hs-type">HlsTargetDurationCompatibilityMode_LEGACY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode"><span class="hs-identifier hs-type">HlsTargetDurationCompatibilityMode</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsTargetDurationCompatibilityMode_LEGACY"><span id="%24mHlsTargetDurationCompatibilityMode_LEGACY"><span id="HlsTargetDurationCompatibilityMode_LEGACY"><span class="annot"><span class="annottext">$bHlsTargetDurationCompatibilityMode_LEGACY :: HlsTargetDurationCompatibilityMode
+$mHlsTargetDurationCompatibilityMode_LEGACY :: forall r.
+HlsTargetDurationCompatibilityMode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#%24bHlsTargetDurationCompatibilityMode_LEGACY"><span class="hs-identifier hs-var hs-var hs-var">HlsTargetDurationCompatibilityMode_LEGACY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode%27"><span class="hs-identifier hs-type">HlsTargetDurationCompatibilityMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEGACY&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span class="hs-identifier hs-type">HlsTargetDurationCompatibilityMode_SPEC_COMPLIANT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode"><span class="hs-identifier hs-type">HlsTargetDurationCompatibilityMode</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span id="%24mHlsTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span id="HlsTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span class="annot"><span class="annottext">$bHlsTargetDurationCompatibilityMode_SPEC_COMPLIANT :: HlsTargetDurationCompatibilityMode
+$mHlsTargetDurationCompatibilityMode_SPEC_COMPLIANT :: forall r.
+HlsTargetDurationCompatibilityMode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#%24bHlsTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span class="hs-identifier hs-var hs-var hs-var">HlsTargetDurationCompatibilityMode_SPEC_COMPLIANT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode%27"><span class="hs-identifier hs-type">HlsTargetDurationCompatibilityMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPEC_COMPLIANT&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode_LEGACY"><span class="hs-pragma hs-type">HlsTargetDurationCompatibilityMode_LEGACY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span class="hs-pragma hs-type">HlsTargetDurationCompatibilityMode_SPEC_COMPLIANT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode.html#HlsTargetDurationCompatibilityMode%27"><span class="hs-pragma hs-type">HlsTargetDurationCompatibilityMode'</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-80"></span></pre></body></html>

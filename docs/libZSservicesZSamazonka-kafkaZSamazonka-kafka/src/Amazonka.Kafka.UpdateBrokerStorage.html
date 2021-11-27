@@ -1,0 +1,577 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Kafka.UpdateBrokerStorage</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the EBS storage associated with MSK brokers.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Kafka.UpdateBrokerStorage</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier">UpdateBrokerStorage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#newUpdateBrokerStorage"><span class="hs-identifier">newUpdateBrokerStorage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorage_clusterArn"><span class="hs-identifier">updateBrokerStorage_clusterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorage_targetBrokerEBSVolumeInfo"><span class="hs-identifier">updateBrokerStorage_targetBrokerEBSVolumeInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorage_currentVersion"><span class="hs-identifier">updateBrokerStorage_currentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse"><span class="hs-identifier">UpdateBrokerStorageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#newUpdateBrokerStorageResponse"><span class="hs-identifier">newUpdateBrokerStorageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorageResponse_clusterArn"><span class="hs-identifier">updateBrokerStorageResponse_clusterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorageResponse_clusterOperationArn"><span class="hs-identifier">updateBrokerStorageResponse_clusterOperationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorageResponse_httpStatus"><span class="hs-identifier">updateBrokerStorageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.html"><span class="hs-identifier">Amazonka.Kafka.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateBrokerStorage' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679240526"><span id="local-6989586621679240527"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateBrokerStorage"><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-var">UpdateBrokerStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateBrokerStorage%27"><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage%27"><span class="hs-identifier hs-var">UpdateBrokerStorage'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AclusterArn%3AUpdateBrokerStorage%27"><span class="annot"><span class="annottext">UpdateBrokerStorage -&gt; Text
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AclusterArn%3AUpdateBrokerStorage%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Describes the target volume size and the ID of the broker to apply the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- update to.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtargetBrokerEBSVolumeInfo%3AUpdateBrokerStorage%27"><span class="annot"><span class="annottext">UpdateBrokerStorage -&gt; [BrokerEBSVolumeInfo]
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AtargetBrokerEBSVolumeInfo%3AUpdateBrokerStorage%27"><span class="hs-identifier hs-var hs-var">targetBrokerEBSVolumeInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Kafka.Types.BrokerEBSVolumeInfo.html#BrokerEBSVolumeInfo"><span class="hs-identifier hs-type">BrokerEBSVolumeInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The version of cluster to update from. A successful operation will then</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- generate a new version.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AcurrentVersion%3AUpdateBrokerStorage%27"><span class="annot"><span class="annottext">UpdateBrokerStorage -&gt; Text
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AcurrentVersion%3AUpdateBrokerStorage%27"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679240518"><span id="local-6989586621679240520"><span class="annot"><span class="annottext">UpdateBrokerStorage -&gt; UpdateBrokerStorage -&gt; Bool
+(UpdateBrokerStorage -&gt; UpdateBrokerStorage -&gt; Bool)
+-&gt; (UpdateBrokerStorage -&gt; UpdateBrokerStorage -&gt; Bool)
+-&gt; Eq UpdateBrokerStorage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateBrokerStorage -&gt; UpdateBrokerStorage -&gt; Bool
+$c/= :: UpdateBrokerStorage -&gt; UpdateBrokerStorage -&gt; Bool
+== :: UpdateBrokerStorage -&gt; UpdateBrokerStorage -&gt; Bool
+$c== :: UpdateBrokerStorage -&gt; UpdateBrokerStorage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240509"><span id="local-6989586621679240511"><span id="local-6989586621679240513"><span id="local-6989586621679240515"><span class="annot"><span class="annottext">ReadPrec [UpdateBrokerStorage]
+ReadPrec UpdateBrokerStorage
+Int -&gt; ReadS UpdateBrokerStorage
+ReadS [UpdateBrokerStorage]
+(Int -&gt; ReadS UpdateBrokerStorage)
+-&gt; ReadS [UpdateBrokerStorage]
+-&gt; ReadPrec UpdateBrokerStorage
+-&gt; ReadPrec [UpdateBrokerStorage]
+-&gt; Read UpdateBrokerStorage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateBrokerStorage]
+$creadListPrec :: ReadPrec [UpdateBrokerStorage]
+readPrec :: ReadPrec UpdateBrokerStorage
+$creadPrec :: ReadPrec UpdateBrokerStorage
+readList :: ReadS [UpdateBrokerStorage]
+$creadList :: ReadS [UpdateBrokerStorage]
+readsPrec :: Int -&gt; ReadS UpdateBrokerStorage
+$creadsPrec :: Int -&gt; ReadS UpdateBrokerStorage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240502"><span id="local-6989586621679240504"><span id="local-6989586621679240506"><span class="annot"><span class="annottext">Int -&gt; UpdateBrokerStorage -&gt; ShowS
+[UpdateBrokerStorage] -&gt; ShowS
+UpdateBrokerStorage -&gt; String
+(Int -&gt; UpdateBrokerStorage -&gt; ShowS)
+-&gt; (UpdateBrokerStorage -&gt; String)
+-&gt; ([UpdateBrokerStorage] -&gt; ShowS)
+-&gt; Show UpdateBrokerStorage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateBrokerStorage] -&gt; ShowS
+$cshowList :: [UpdateBrokerStorage] -&gt; ShowS
+show :: UpdateBrokerStorage -&gt; String
+$cshow :: UpdateBrokerStorage -&gt; String
+showsPrec :: Int -&gt; UpdateBrokerStorage -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateBrokerStorage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateBrokerStorage -&gt; Rep UpdateBrokerStorage x)
+-&gt; (forall x. Rep UpdateBrokerStorage x -&gt; UpdateBrokerStorage)
+-&gt; Generic UpdateBrokerStorage
+forall x. Rep UpdateBrokerStorage x -&gt; UpdateBrokerStorage
+forall x. UpdateBrokerStorage -&gt; Rep UpdateBrokerStorage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateBrokerStorage x -&gt; UpdateBrokerStorage
+$cfrom :: forall x. UpdateBrokerStorage -&gt; Rep UpdateBrokerStorage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'UpdateBrokerStorage' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'clusterArn', 'updateBrokerStorage_clusterArn' - The Amazon Resource Name (ARN) that uniquely identifies the cluster.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'targetBrokerEBSVolumeInfo', 'updateBrokerStorage_targetBrokerEBSVolumeInfo' - Describes the target volume size and the ID of the broker to apply the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- update to.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'currentVersion', 'updateBrokerStorage_currentVersion' - The version of cluster to update from. A successful operation will then</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- generate a new version.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#newUpdateBrokerStorage"><span class="hs-identifier hs-type">newUpdateBrokerStorage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'clusterArn'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'currentVersion'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span><span>
+</span><span id="line-86"></span><span id="newUpdateBrokerStorage"><span class="annot"><span class="annottext">newUpdateBrokerStorage :: Text -&gt; Text -&gt; UpdateBrokerStorage
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#newUpdateBrokerStorage"><span class="hs-identifier hs-var hs-var">newUpdateBrokerStorage</span></a></span></span><span> </span><span id="local-6989586621679240497"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240497"><span class="hs-identifier hs-var">pClusterArn_</span></a></span></span><span> </span><span id="local-6989586621679240496"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240496"><span class="hs-identifier hs-var">pCurrentVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">UpdateBrokerStorage' :: Text -&gt; [BrokerEBSVolumeInfo] -&gt; Text -&gt; UpdateBrokerStorage
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage%27"><span class="hs-identifier hs-type">UpdateBrokerStorage'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterArn:UpdateBrokerStorage' :: Text
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AclusterArn%3AUpdateBrokerStorage%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240497"><span class="hs-identifier hs-var">pClusterArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetBrokerEBSVolumeInfo:UpdateBrokerStorage' :: [BrokerEBSVolumeInfo]
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AtargetBrokerEBSVolumeInfo%3AUpdateBrokerStorage%27"><span class="hs-identifier hs-var">targetBrokerEBSVolumeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BrokerEBSVolumeInfo]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentVersion:UpdateBrokerStorage' :: Text
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AcurrentVersion%3AUpdateBrokerStorage%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240496"><span class="hs-identifier hs-var">pCurrentVersion_</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorage_clusterArn"><span class="hs-identifier hs-type">updateBrokerStorage_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="updateBrokerStorage_clusterArn"><span class="annot"><span class="annottext">updateBrokerStorage_clusterArn :: (Text -&gt; f Text) -&gt; UpdateBrokerStorage -&gt; f UpdateBrokerStorage
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorage_clusterArn"><span class="hs-identifier hs-var hs-var">updateBrokerStorage_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBrokerStorage -&gt; Text)
+-&gt; (UpdateBrokerStorage -&gt; Text -&gt; UpdateBrokerStorage)
+-&gt; Lens UpdateBrokerStorage UpdateBrokerStorage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage%27"><span class="hs-identifier hs-type">UpdateBrokerStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240493"><span class="annot"><span class="annottext">Text
+clusterArn :: Text
+$sel:clusterArn:UpdateBrokerStorage' :: UpdateBrokerStorage -&gt; Text
+</span><a href="#local-6989586621679240493"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240493"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240492"><span class="annot"><span class="annottext">s :: UpdateBrokerStorage
+</span><a href="#local-6989586621679240492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage%27"><span class="hs-identifier hs-type">UpdateBrokerStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240491"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBrokerStorage
+</span><a href="#local-6989586621679240492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:UpdateBrokerStorage' :: Text
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AclusterArn%3AUpdateBrokerStorage%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Describes the target volume size and the ID of the broker to apply the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- update to.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorage_targetBrokerEBSVolumeInfo"><span class="hs-identifier hs-type">updateBrokerStorage_targetBrokerEBSVolumeInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Kafka.Types.BrokerEBSVolumeInfo.html#BrokerEBSVolumeInfo"><span class="hs-identifier hs-type">BrokerEBSVolumeInfo</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span id="updateBrokerStorage_targetBrokerEBSVolumeInfo"><span class="annot"><span class="annottext">updateBrokerStorage_targetBrokerEBSVolumeInfo :: ([BrokerEBSVolumeInfo] -&gt; f [BrokerEBSVolumeInfo])
+-&gt; UpdateBrokerStorage -&gt; f UpdateBrokerStorage
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorage_targetBrokerEBSVolumeInfo"><span class="hs-identifier hs-var hs-var">updateBrokerStorage_targetBrokerEBSVolumeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBrokerStorage -&gt; [BrokerEBSVolumeInfo])
+-&gt; (UpdateBrokerStorage
+    -&gt; [BrokerEBSVolumeInfo] -&gt; UpdateBrokerStorage)
+-&gt; Lens
+     UpdateBrokerStorage
+     UpdateBrokerStorage
+     [BrokerEBSVolumeInfo]
+     [BrokerEBSVolumeInfo]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage%27"><span class="hs-identifier hs-type">UpdateBrokerStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240490"><span class="annot"><span class="annottext">[BrokerEBSVolumeInfo]
+targetBrokerEBSVolumeInfo :: [BrokerEBSVolumeInfo]
+$sel:targetBrokerEBSVolumeInfo:UpdateBrokerStorage' :: UpdateBrokerStorage -&gt; [BrokerEBSVolumeInfo]
+</span><a href="#local-6989586621679240490"><span class="hs-identifier hs-var hs-var">targetBrokerEBSVolumeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BrokerEBSVolumeInfo]
+</span><a href="#local-6989586621679240490"><span class="hs-identifier hs-var">targetBrokerEBSVolumeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240489"><span class="annot"><span class="annottext">s :: UpdateBrokerStorage
+</span><a href="#local-6989586621679240489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage%27"><span class="hs-identifier hs-type">UpdateBrokerStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240488"><span class="annot"><span class="annottext">[BrokerEBSVolumeInfo]
+</span><a href="#local-6989586621679240488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBrokerStorage
+</span><a href="#local-6989586621679240489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetBrokerEBSVolumeInfo:UpdateBrokerStorage' :: [BrokerEBSVolumeInfo]
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AtargetBrokerEBSVolumeInfo%3AUpdateBrokerStorage%27"><span class="hs-identifier hs-var">targetBrokerEBSVolumeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BrokerEBSVolumeInfo]
+</span><a href="#local-6989586621679240488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BrokerEBSVolumeInfo] -&gt; f [BrokerEBSVolumeInfo])
+ -&gt; UpdateBrokerStorage -&gt; f UpdateBrokerStorage)
+-&gt; (([BrokerEBSVolumeInfo] -&gt; f [BrokerEBSVolumeInfo])
+    -&gt; [BrokerEBSVolumeInfo] -&gt; f [BrokerEBSVolumeInfo])
+-&gt; ([BrokerEBSVolumeInfo] -&gt; f [BrokerEBSVolumeInfo])
+-&gt; UpdateBrokerStorage
+-&gt; f UpdateBrokerStorage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BrokerEBSVolumeInfo] -&gt; f [BrokerEBSVolumeInfo])
+-&gt; [BrokerEBSVolumeInfo] -&gt; f [BrokerEBSVolumeInfo]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The version of cluster to update from. A successful operation will then</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- generate a new version.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorage_currentVersion"><span class="hs-identifier hs-type">updateBrokerStorage_currentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="updateBrokerStorage_currentVersion"><span class="annot"><span class="annottext">updateBrokerStorage_currentVersion :: (Text -&gt; f Text) -&gt; UpdateBrokerStorage -&gt; f UpdateBrokerStorage
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorage_currentVersion"><span class="hs-identifier hs-var hs-var">updateBrokerStorage_currentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBrokerStorage -&gt; Text)
+-&gt; (UpdateBrokerStorage -&gt; Text -&gt; UpdateBrokerStorage)
+-&gt; Lens UpdateBrokerStorage UpdateBrokerStorage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage%27"><span class="hs-identifier hs-type">UpdateBrokerStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240485"><span class="annot"><span class="annottext">Text
+currentVersion :: Text
+$sel:currentVersion:UpdateBrokerStorage' :: UpdateBrokerStorage -&gt; Text
+</span><a href="#local-6989586621679240485"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240485"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240484"><span class="annot"><span class="annottext">s :: UpdateBrokerStorage
+</span><a href="#local-6989586621679240484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage%27"><span class="hs-identifier hs-type">UpdateBrokerStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240483"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBrokerStorage
+</span><a href="#local-6989586621679240484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:UpdateBrokerStorage' :: Text
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AcurrentVersion%3AUpdateBrokerStorage%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679240479"><span class="annot"><span class="annottext">request :: UpdateBrokerStorage -&gt; Request UpdateBrokerStorage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateBrokerStorage -&gt; Request UpdateBrokerStorage
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Kafka.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679240475"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateBrokerStorage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateBrokerStorage)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateBrokerStorage))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateBrokerStorage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateBrokerStorage)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679240472"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240472"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679240471"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679240471"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679240470"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240470"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateBrokerStorageResponse
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse%27"><span class="hs-identifier hs-var">UpdateBrokerStorageResponse'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateBrokerStorageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateBrokerStorageResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240470"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clusterArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateBrokerStorageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateBrokerStorageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240470"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clusterOperationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateBrokerStorageResponse)
+-&gt; Either String Int -&gt; Either String UpdateBrokerStorageResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240472"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240462"><span id="local-6989586621679240464"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240459"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679240455"><span class="annot"><span class="annottext">toHeaders :: UpdateBrokerStorage -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateBrokerStorage -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240445"><span id="local-6989586621679240447"><span id="local-6989586621679240449"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679240443"><span class="annot"><span class="annottext">toJSON :: UpdateBrokerStorage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage%27"><span class="hs-identifier hs-type">UpdateBrokerStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240439"><span id="local-6989586621679240440"><span id="local-6989586621679240441"><span class="annot"><span class="annottext">[BrokerEBSVolumeInfo]
+Text
+currentVersion :: Text
+targetBrokerEBSVolumeInfo :: [BrokerEBSVolumeInfo]
+clusterArn :: Text
+$sel:currentVersion:UpdateBrokerStorage' :: UpdateBrokerStorage -&gt; Text
+$sel:targetBrokerEBSVolumeInfo:UpdateBrokerStorage' :: UpdateBrokerStorage -&gt; [BrokerEBSVolumeInfo]
+$sel:clusterArn:UpdateBrokerStorage' :: UpdateBrokerStorage -&gt; Text
+</span><a href="#local-6989586621679240439"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetBrokerEBSVolumeInfo&quot;</span></span><span>
+</span><span id="line-142"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [BrokerEBSVolumeInfo] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[BrokerEBSVolumeInfo]
+</span><a href="#local-6989586621679240440"><span class="hs-identifier hs-var">targetBrokerEBSVolumeInfo</span></a></span><span>
+</span><span id="line-143"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;currentVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240439"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679240433"><span class="annot"><span class="annottext">toPath :: UpdateBrokerStorage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage%27"><span class="hs-identifier hs-type">UpdateBrokerStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240429"><span id="local-6989586621679240430"><span id="local-6989586621679240431"><span class="annot"><span class="annottext">[BrokerEBSVolumeInfo]
+Text
+currentVersion :: Text
+targetBrokerEBSVolumeInfo :: [BrokerEBSVolumeInfo]
+clusterArn :: Text
+$sel:currentVersion:UpdateBrokerStorage' :: UpdateBrokerStorage -&gt; Text
+$sel:targetBrokerEBSVolumeInfo:UpdateBrokerStorage' :: UpdateBrokerStorage -&gt; [BrokerEBSVolumeInfo]
+$sel:clusterArn:UpdateBrokerStorage' :: UpdateBrokerStorage -&gt; Text
+</span><a href="#local-6989586621679240429"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/clusters/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240431"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/nodes/storage&quot;</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorage"><span class="hs-identifier hs-type">UpdateBrokerStorage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679240425"><span class="annot"><span class="annottext">toQuery :: UpdateBrokerStorage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateBrokerStorage -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newUpdateBrokerStorageResponse' smart constructor.</span><span>
+</span><span id="line-161"></span><span id="local-6989586621679240422"><span id="local-6989586621679240423"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateBrokerStorageResponse"><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse"><span class="hs-identifier hs-var">UpdateBrokerStorageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateBrokerStorageResponse%27"><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse%27"><span class="hs-identifier hs-var">UpdateBrokerStorageResponse'</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AclusterArn%3AUpdateBrokerStorageResponse%27"><span class="annot"><span class="annottext">UpdateBrokerStorageResponse -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AclusterArn%3AUpdateBrokerStorageResponse%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster operation.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AclusterOperationArn%3AUpdateBrokerStorageResponse%27"><span class="annot"><span class="annottext">UpdateBrokerStorageResponse -&gt; Maybe Text
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AclusterOperationArn%3AUpdateBrokerStorageResponse%27"><span class="hs-identifier hs-var hs-var">clusterOperationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateBrokerStorageResponse%27"><span class="annot"><span class="annottext">UpdateBrokerStorageResponse -&gt; Int
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AhttpStatus%3AUpdateBrokerStorageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679240415"><span id="local-6989586621679240417"><span class="annot"><span class="annottext">UpdateBrokerStorageResponse -&gt; UpdateBrokerStorageResponse -&gt; Bool
+(UpdateBrokerStorageResponse
+ -&gt; UpdateBrokerStorageResponse -&gt; Bool)
+-&gt; (UpdateBrokerStorageResponse
+    -&gt; UpdateBrokerStorageResponse -&gt; Bool)
+-&gt; Eq UpdateBrokerStorageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateBrokerStorageResponse -&gt; UpdateBrokerStorageResponse -&gt; Bool
+$c/= :: UpdateBrokerStorageResponse -&gt; UpdateBrokerStorageResponse -&gt; Bool
+== :: UpdateBrokerStorageResponse -&gt; UpdateBrokerStorageResponse -&gt; Bool
+$c== :: UpdateBrokerStorageResponse -&gt; UpdateBrokerStorageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240407"><span id="local-6989586621679240409"><span id="local-6989586621679240411"><span id="local-6989586621679240413"><span class="annot"><span class="annottext">ReadPrec [UpdateBrokerStorageResponse]
+ReadPrec UpdateBrokerStorageResponse
+Int -&gt; ReadS UpdateBrokerStorageResponse
+ReadS [UpdateBrokerStorageResponse]
+(Int -&gt; ReadS UpdateBrokerStorageResponse)
+-&gt; ReadS [UpdateBrokerStorageResponse]
+-&gt; ReadPrec UpdateBrokerStorageResponse
+-&gt; ReadPrec [UpdateBrokerStorageResponse]
+-&gt; Read UpdateBrokerStorageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateBrokerStorageResponse]
+$creadListPrec :: ReadPrec [UpdateBrokerStorageResponse]
+readPrec :: ReadPrec UpdateBrokerStorageResponse
+$creadPrec :: ReadPrec UpdateBrokerStorageResponse
+readList :: ReadS [UpdateBrokerStorageResponse]
+$creadList :: ReadS [UpdateBrokerStorageResponse]
+readsPrec :: Int -&gt; ReadS UpdateBrokerStorageResponse
+$creadsPrec :: Int -&gt; ReadS UpdateBrokerStorageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240401"><span id="local-6989586621679240403"><span id="local-6989586621679240405"><span class="annot"><span class="annottext">Int -&gt; UpdateBrokerStorageResponse -&gt; ShowS
+[UpdateBrokerStorageResponse] -&gt; ShowS
+UpdateBrokerStorageResponse -&gt; String
+(Int -&gt; UpdateBrokerStorageResponse -&gt; ShowS)
+-&gt; (UpdateBrokerStorageResponse -&gt; String)
+-&gt; ([UpdateBrokerStorageResponse] -&gt; ShowS)
+-&gt; Show UpdateBrokerStorageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateBrokerStorageResponse] -&gt; ShowS
+$cshowList :: [UpdateBrokerStorageResponse] -&gt; ShowS
+show :: UpdateBrokerStorageResponse -&gt; String
+$cshow :: UpdateBrokerStorageResponse -&gt; String
+showsPrec :: Int -&gt; UpdateBrokerStorageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateBrokerStorageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateBrokerStorageResponse -&gt; Rep UpdateBrokerStorageResponse x)
+-&gt; (forall x.
+    Rep UpdateBrokerStorageResponse x -&gt; UpdateBrokerStorageResponse)
+-&gt; Generic UpdateBrokerStorageResponse
+forall x.
+Rep UpdateBrokerStorageResponse x -&gt; UpdateBrokerStorageResponse
+forall x.
+UpdateBrokerStorageResponse -&gt; Rep UpdateBrokerStorageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateBrokerStorageResponse x -&gt; UpdateBrokerStorageResponse
+$cfrom :: forall x.
+UpdateBrokerStorageResponse -&gt; Rep UpdateBrokerStorageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'UpdateBrokerStorageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'clusterArn', 'updateBrokerStorageResponse_clusterArn' - The Amazon Resource Name (ARN) of the cluster.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'clusterOperationArn', 'updateBrokerStorageResponse_clusterOperationArn' - The Amazon Resource Name (ARN) of the cluster operation.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'httpStatus', 'updateBrokerStorageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#newUpdateBrokerStorageResponse"><span class="hs-identifier hs-type">newUpdateBrokerStorageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse</span></a></span><span>
+</span><span id="line-188"></span><span id="newUpdateBrokerStorageResponse"><span class="annot"><span class="annottext">newUpdateBrokerStorageResponse :: Int -&gt; UpdateBrokerStorageResponse
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#newUpdateBrokerStorageResponse"><span class="hs-identifier hs-var hs-var">newUpdateBrokerStorageResponse</span></a></span></span><span> </span><span id="local-6989586621679240398"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">UpdateBrokerStorageResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateBrokerStorageResponse
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse%27"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterArn:UpdateBrokerStorageResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AclusterArn%3AUpdateBrokerStorageResponse%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterOperationArn:UpdateBrokerStorageResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AclusterOperationArn%3AUpdateBrokerStorageResponse%27"><span class="hs-identifier hs-var">clusterOperationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateBrokerStorageResponse' :: Int
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AhttpStatus%3AUpdateBrokerStorageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorageResponse_clusterArn"><span class="hs-identifier hs-type">updateBrokerStorageResponse_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="updateBrokerStorageResponse_clusterArn"><span class="annot"><span class="annottext">updateBrokerStorageResponse_clusterArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateBrokerStorageResponse -&gt; f UpdateBrokerStorageResponse
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorageResponse_clusterArn"><span class="hs-identifier hs-var hs-var">updateBrokerStorageResponse_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBrokerStorageResponse -&gt; Maybe Text)
+-&gt; (UpdateBrokerStorageResponse
+    -&gt; Maybe Text -&gt; UpdateBrokerStorageResponse)
+-&gt; Lens
+     UpdateBrokerStorageResponse
+     UpdateBrokerStorageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse%27"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240397"><span class="annot"><span class="annottext">Maybe Text
+clusterArn :: Maybe Text
+$sel:clusterArn:UpdateBrokerStorageResponse' :: UpdateBrokerStorageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679240397"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240397"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240396"><span class="annot"><span class="annottext">s :: UpdateBrokerStorageResponse
+</span><a href="#local-6989586621679240396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse%27"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240395"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBrokerStorageResponse
+</span><a href="#local-6989586621679240396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:UpdateBrokerStorageResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AclusterArn%3AUpdateBrokerStorageResponse%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the cluster operation.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorageResponse_clusterOperationArn"><span class="hs-identifier hs-type">updateBrokerStorageResponse_clusterOperationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="updateBrokerStorageResponse_clusterOperationArn"><span class="annot"><span class="annottext">updateBrokerStorageResponse_clusterOperationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateBrokerStorageResponse -&gt; f UpdateBrokerStorageResponse
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorageResponse_clusterOperationArn"><span class="hs-identifier hs-var hs-var">updateBrokerStorageResponse_clusterOperationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBrokerStorageResponse -&gt; Maybe Text)
+-&gt; (UpdateBrokerStorageResponse
+    -&gt; Maybe Text -&gt; UpdateBrokerStorageResponse)
+-&gt; Lens
+     UpdateBrokerStorageResponse
+     UpdateBrokerStorageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse%27"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240394"><span class="annot"><span class="annottext">Maybe Text
+clusterOperationArn :: Maybe Text
+$sel:clusterOperationArn:UpdateBrokerStorageResponse' :: UpdateBrokerStorageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679240394"><span class="hs-identifier hs-var hs-var">clusterOperationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240394"><span class="hs-identifier hs-var">clusterOperationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240393"><span class="annot"><span class="annottext">s :: UpdateBrokerStorageResponse
+</span><a href="#local-6989586621679240393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse%27"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240392"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBrokerStorageResponse
+</span><a href="#local-6989586621679240393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterOperationArn:UpdateBrokerStorageResponse' :: Maybe Text
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AclusterOperationArn%3AUpdateBrokerStorageResponse%27"><span class="hs-identifier hs-var">clusterOperationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorageResponse_httpStatus"><span class="hs-identifier hs-type">updateBrokerStorageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-206"></span><span id="updateBrokerStorageResponse_httpStatus"><span class="annot"><span class="annottext">updateBrokerStorageResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateBrokerStorageResponse -&gt; f UpdateBrokerStorageResponse
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#updateBrokerStorageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateBrokerStorageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBrokerStorageResponse -&gt; Int)
+-&gt; (UpdateBrokerStorageResponse
+    -&gt; Int -&gt; UpdateBrokerStorageResponse)
+-&gt; Lens
+     UpdateBrokerStorageResponse UpdateBrokerStorageResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse%27"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240391"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateBrokerStorageResponse' :: UpdateBrokerStorageResponse -&gt; Int
+</span><a href="#local-6989586621679240391"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240391"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240390"><span class="annot"><span class="annottext">s :: UpdateBrokerStorageResponse
+</span><a href="#local-6989586621679240390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse%27"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240389"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBrokerStorageResponse
+</span><a href="#local-6989586621679240390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateBrokerStorageResponse' :: Int
+</span><a href="Amazonka.Kafka.UpdateBrokerStorage.html#%24sel%3AhttpStatus%3AUpdateBrokerStorageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240387"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kafka.UpdateBrokerStorage.html#UpdateBrokerStorageResponse"><span class="hs-identifier hs-type">UpdateBrokerStorageResponse</span></a></span></span><span>
+</span><span id="line-209"></span></pre></body></html>

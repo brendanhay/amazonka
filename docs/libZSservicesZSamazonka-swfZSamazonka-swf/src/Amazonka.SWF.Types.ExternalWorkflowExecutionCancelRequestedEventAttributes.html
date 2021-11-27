@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html"><span class="hs-identifier">Amazonka.SWF.Types.WorkflowExecution</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides the details of the @ExternalWorkflowExecutionCancelRequested@</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- event.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newExternalWorkflowExecutionCancelRequestedEventAttributes' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679352320"><span id="local-6989586621679352321"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="hs-identifier hs-var">ExternalWorkflowExecutionCancelRequestedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-var">ExternalWorkflowExecutionCancelRequestedEventAttributes'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The external workflow execution to which the cancellation request was</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- delivered.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AworkflowExecution%3AExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="annot"><span class="annottext">ExternalWorkflowExecutionCancelRequestedEventAttributes
+-&gt; WorkflowExecution
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#%24sel%3AworkflowExecution%3AExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-var hs-var">workflowExecution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- corresponding to the @RequestCancelExternalWorkflowExecution@ decision</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- to cancel this external workflow execution. This information can be</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- useful for diagnosing problems by tracing back the chain of events</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- leading up to this event.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AinitiatedEventId%3AExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="annot"><span class="annottext">ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; Integer
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#%24sel%3AinitiatedEventId%3AExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352313"><span id="local-6989586621679352315"><span class="annot"><span class="annottext">ExternalWorkflowExecutionCancelRequestedEventAttributes
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; Bool
+(ExternalWorkflowExecutionCancelRequestedEventAttributes
+ -&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; Bool)
+-&gt; (ExternalWorkflowExecutionCancelRequestedEventAttributes
+    -&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; Bool)
+-&gt; Eq ExternalWorkflowExecutionCancelRequestedEventAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExternalWorkflowExecutionCancelRequestedEventAttributes
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; Bool
+$c/= :: ExternalWorkflowExecutionCancelRequestedEventAttributes
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; Bool
+== :: ExternalWorkflowExecutionCancelRequestedEventAttributes
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; Bool
+$c== :: ExternalWorkflowExecutionCancelRequestedEventAttributes
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352304"><span id="local-6989586621679352306"><span id="local-6989586621679352308"><span id="local-6989586621679352310"><span class="annot"><span class="annottext">ReadPrec [ExternalWorkflowExecutionCancelRequestedEventAttributes]
+ReadPrec ExternalWorkflowExecutionCancelRequestedEventAttributes
+Int
+-&gt; ReadS ExternalWorkflowExecutionCancelRequestedEventAttributes
+ReadS [ExternalWorkflowExecutionCancelRequestedEventAttributes]
+(Int
+ -&gt; ReadS ExternalWorkflowExecutionCancelRequestedEventAttributes)
+-&gt; ReadS [ExternalWorkflowExecutionCancelRequestedEventAttributes]
+-&gt; ReadPrec ExternalWorkflowExecutionCancelRequestedEventAttributes
+-&gt; ReadPrec
+     [ExternalWorkflowExecutionCancelRequestedEventAttributes]
+-&gt; Read ExternalWorkflowExecutionCancelRequestedEventAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExternalWorkflowExecutionCancelRequestedEventAttributes]
+$creadListPrec :: ReadPrec [ExternalWorkflowExecutionCancelRequestedEventAttributes]
+readPrec :: ReadPrec ExternalWorkflowExecutionCancelRequestedEventAttributes
+$creadPrec :: ReadPrec ExternalWorkflowExecutionCancelRequestedEventAttributes
+readList :: ReadS [ExternalWorkflowExecutionCancelRequestedEventAttributes]
+$creadList :: ReadS [ExternalWorkflowExecutionCancelRequestedEventAttributes]
+readsPrec :: Int
+-&gt; ReadS ExternalWorkflowExecutionCancelRequestedEventAttributes
+$creadsPrec :: Int
+-&gt; ReadS ExternalWorkflowExecutionCancelRequestedEventAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352297"><span id="local-6989586621679352299"><span id="local-6989586621679352301"><span class="annot"><span class="annottext">Int
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; ShowS
+[ExternalWorkflowExecutionCancelRequestedEventAttributes] -&gt; ShowS
+ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; String
+(Int
+ -&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes
+ -&gt; ShowS)
+-&gt; (ExternalWorkflowExecutionCancelRequestedEventAttributes
+    -&gt; String)
+-&gt; ([ExternalWorkflowExecutionCancelRequestedEventAttributes]
+    -&gt; ShowS)
+-&gt; Show ExternalWorkflowExecutionCancelRequestedEventAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExternalWorkflowExecutionCancelRequestedEventAttributes] -&gt; ShowS
+$cshowList :: [ExternalWorkflowExecutionCancelRequestedEventAttributes] -&gt; ShowS
+show :: ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; String
+$cshow :: ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; String
+showsPrec :: Int
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; ShowS
+$cshowsPrec :: Int
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExternalWorkflowExecutionCancelRequestedEventAttributes
+ -&gt; Rep ExternalWorkflowExecutionCancelRequestedEventAttributes x)
+-&gt; (forall x.
+    Rep ExternalWorkflowExecutionCancelRequestedEventAttributes x
+    -&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes)
+-&gt; Generic ExternalWorkflowExecutionCancelRequestedEventAttributes
+forall x.
+Rep ExternalWorkflowExecutionCancelRequestedEventAttributes x
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes
+forall x.
+ExternalWorkflowExecutionCancelRequestedEventAttributes
+-&gt; Rep ExternalWorkflowExecutionCancelRequestedEventAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExternalWorkflowExecutionCancelRequestedEventAttributes x
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes
+$cfrom :: forall x.
+ExternalWorkflowExecutionCancelRequestedEventAttributes
+-&gt; Rep ExternalWorkflowExecutionCancelRequestedEventAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'ExternalWorkflowExecutionCancelRequestedEventAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'workflowExecution', 'externalWorkflowExecutionCancelRequestedEventAttributes_workflowExecution' - The external workflow execution to which the cancellation request was</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- delivered.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'initiatedEventId', 'externalWorkflowExecutionCancelRequestedEventAttributes_initiatedEventId' - The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- corresponding to the @RequestCancelExternalWorkflowExecution@ decision</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- to cancel this external workflow execution. This information can be</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- useful for diagnosing problems by tracing back the chain of events</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- leading up to this event.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#newExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="hs-identifier hs-type">newExternalWorkflowExecutionCancelRequestedEventAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'workflowExecution'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'initiatedEventId'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes</span></a></span><span>
+</span><span id="line-66"></span><span id="newExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="annot"><span class="annottext">newExternalWorkflowExecutionCancelRequestedEventAttributes :: WorkflowExecution
+-&gt; Integer
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#newExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="hs-identifier hs-var hs-var">newExternalWorkflowExecutionCancelRequestedEventAttributes</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679352291"><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679352291"><span class="hs-identifier hs-var">pWorkflowExecution_</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679352290"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352290"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">ExternalWorkflowExecutionCancelRequestedEventAttributes' :: WorkflowExecution
+-&gt; Integer
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes'</span></a></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workflowExecution:ExternalWorkflowExecutionCancelRequestedEventAttributes' :: WorkflowExecution
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#%24sel%3AworkflowExecution%3AExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679352291"><span class="hs-identifier hs-var">pWorkflowExecution_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">$sel:initiatedEventId:ExternalWorkflowExecutionCancelRequestedEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#%24sel%3AinitiatedEventId%3AExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352290"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The external workflow execution to which the cancellation request was</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- delivered.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#externalWorkflowExecutionCancelRequestedEventAttributes_workflowExecution"><span class="hs-identifier hs-type">externalWorkflowExecutionCancelRequestedEventAttributes_workflowExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes</span></a></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span>
+</span><span id="line-79"></span><span id="externalWorkflowExecutionCancelRequestedEventAttributes_workflowExecution"><span class="annot"><span class="annottext">externalWorkflowExecutionCancelRequestedEventAttributes_workflowExecution :: (WorkflowExecution -&gt; f WorkflowExecution)
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes
+-&gt; f ExternalWorkflowExecutionCancelRequestedEventAttributes
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#externalWorkflowExecutionCancelRequestedEventAttributes_workflowExecution"><span class="hs-identifier hs-var hs-var">externalWorkflowExecutionCancelRequestedEventAttributes_workflowExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExternalWorkflowExecutionCancelRequestedEventAttributes
+ -&gt; WorkflowExecution)
+-&gt; (ExternalWorkflowExecutionCancelRequestedEventAttributes
+    -&gt; WorkflowExecution
+    -&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes)
+-&gt; Lens
+     ExternalWorkflowExecutionCancelRequestedEventAttributes
+     ExternalWorkflowExecutionCancelRequestedEventAttributes
+     WorkflowExecution
+     WorkflowExecution
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352286"><span class="annot"><span class="annottext">WorkflowExecution
+workflowExecution :: WorkflowExecution
+$sel:workflowExecution:ExternalWorkflowExecutionCancelRequestedEventAttributes' :: ExternalWorkflowExecutionCancelRequestedEventAttributes
+-&gt; WorkflowExecution
+</span><a href="#local-6989586621679352286"><span class="hs-identifier hs-var hs-var">workflowExecution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679352286"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352285"><span class="annot"><span class="annottext">s :: ExternalWorkflowExecutionCancelRequestedEventAttributes
+</span><a href="#local-6989586621679352285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352284"><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679352284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalWorkflowExecutionCancelRequestedEventAttributes
+</span><a href="#local-6989586621679352285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowExecution:ExternalWorkflowExecutionCancelRequestedEventAttributes' :: WorkflowExecution
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#%24sel%3AworkflowExecution%3AExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679352284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- corresponding to the @RequestCancelExternalWorkflowExecution@ decision</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- to cancel this external workflow execution. This information can be</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- useful for diagnosing problems by tracing back the chain of events</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- leading up to this event.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#externalWorkflowExecutionCancelRequestedEventAttributes_initiatedEventId"><span class="hs-identifier hs-type">externalWorkflowExecutionCancelRequestedEventAttributes_initiatedEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-87"></span><span id="externalWorkflowExecutionCancelRequestedEventAttributes_initiatedEventId"><span class="annot"><span class="annottext">externalWorkflowExecutionCancelRequestedEventAttributes_initiatedEventId :: (Integer -&gt; f Integer)
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes
+-&gt; f ExternalWorkflowExecutionCancelRequestedEventAttributes
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#externalWorkflowExecutionCancelRequestedEventAttributes_initiatedEventId"><span class="hs-identifier hs-var hs-var">externalWorkflowExecutionCancelRequestedEventAttributes_initiatedEventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExternalWorkflowExecutionCancelRequestedEventAttributes
+ -&gt; Integer)
+-&gt; (ExternalWorkflowExecutionCancelRequestedEventAttributes
+    -&gt; Integer
+    -&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes)
+-&gt; Lens
+     ExternalWorkflowExecutionCancelRequestedEventAttributes
+     ExternalWorkflowExecutionCancelRequestedEventAttributes
+     Integer
+     Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352282"><span class="annot"><span class="annottext">Integer
+initiatedEventId :: Integer
+$sel:initiatedEventId:ExternalWorkflowExecutionCancelRequestedEventAttributes' :: ExternalWorkflowExecutionCancelRequestedEventAttributes -&gt; Integer
+</span><a href="#local-6989586621679352282"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352282"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352281"><span class="annot"><span class="annottext">s :: ExternalWorkflowExecutionCancelRequestedEventAttributes
+</span><a href="#local-6989586621679352281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352280"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalWorkflowExecutionCancelRequestedEventAttributes
+</span><a href="#local-6989586621679352281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiatedEventId:ExternalWorkflowExecutionCancelRequestedEventAttributes' :: Integer
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#%24sel%3AinitiatedEventId%3AExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679352277"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679352275"><span class="annot"><span class="annottext">parseJSON :: Value
+-&gt; Parser ExternalWorkflowExecutionCancelRequestedEventAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object
+    -&gt; Parser ExternalWorkflowExecutionCancelRequestedEventAttributes)
+-&gt; Value
+-&gt; Parser ExternalWorkflowExecutionCancelRequestedEventAttributes
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ExternalWorkflowExecutionCancelRequestedEventAttributes&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679352272"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352272"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">WorkflowExecution
+-&gt; Integer
+-&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes
+</span><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes%27"><span class="hs-identifier hs-var">ExternalWorkflowExecutionCancelRequestedEventAttributes'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(WorkflowExecution
+ -&gt; Integer
+ -&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes)
+-&gt; Parser WorkflowExecution
+-&gt; Parser
+     (Integer
+      -&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowExecution
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workflowExecution&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Integer
+   -&gt; ExternalWorkflowExecutionCancelRequestedEventAttributes)
+-&gt; Parser Integer
+-&gt; Parser ExternalWorkflowExecutionCancelRequestedEventAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initiatedEventId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679352266"><span id="local-6989586621679352268"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679352263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes.html#ExternalWorkflowExecutionCancelRequestedEventAttributes"><span class="hs-identifier hs-type">ExternalWorkflowExecutionCancelRequestedEventAttributes</span></a></span></span><span>
+</span><span id="line-109"></span></pre></body></html>

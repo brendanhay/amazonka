@@ -1,0 +1,622 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AppSync.ListGraphqlApis</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists your GraphQL APIs.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppSync.ListGraphqlApis</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier">ListGraphqlApis</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#newListGraphqlApis"><span class="hs-identifier">newListGraphqlApis</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApis_nextToken"><span class="hs-identifier">listGraphqlApis_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApis_maxResults"><span class="hs-identifier">listGraphqlApis_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse"><span class="hs-identifier">ListGraphqlApisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#newListGraphqlApisResponse"><span class="hs-identifier">newListGraphqlApisResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApisResponse_nextToken"><span class="hs-identifier">listGraphqlApisResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApisResponse_graphqlApis"><span class="hs-identifier">listGraphqlApisResponse_graphqlApis</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApisResponse_httpStatus"><span class="hs-identifier">listGraphqlApisResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppSync.Types.html"><span class="hs-identifier">Amazonka.AppSync.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListGraphqlApis' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679254822"><span id="local-6989586621679254823"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGraphqlApis"><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-var">ListGraphqlApis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGraphqlApis%27"><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis%27"><span class="hs-identifier hs-var">ListGraphqlApis'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListGraphqlApis%27"><span class="annot"><span class="annottext">ListGraphqlApis -&gt; Maybe Text
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AnextToken%3AListGraphqlApis%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of results you want the request to return.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListGraphqlApis%27"><span class="annot"><span class="annottext">ListGraphqlApis -&gt; Maybe Natural
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AmaxResults%3AListGraphqlApis%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254815"><span id="local-6989586621679254817"><span class="annot"><span class="annottext">ListGraphqlApis -&gt; ListGraphqlApis -&gt; Bool
+(ListGraphqlApis -&gt; ListGraphqlApis -&gt; Bool)
+-&gt; (ListGraphqlApis -&gt; ListGraphqlApis -&gt; Bool)
+-&gt; Eq ListGraphqlApis
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListGraphqlApis -&gt; ListGraphqlApis -&gt; Bool
+$c/= :: ListGraphqlApis -&gt; ListGraphqlApis -&gt; Bool
+== :: ListGraphqlApis -&gt; ListGraphqlApis -&gt; Bool
+$c== :: ListGraphqlApis -&gt; ListGraphqlApis -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254806"><span id="local-6989586621679254808"><span id="local-6989586621679254810"><span id="local-6989586621679254812"><span class="annot"><span class="annottext">ReadPrec [ListGraphqlApis]
+ReadPrec ListGraphqlApis
+Int -&gt; ReadS ListGraphqlApis
+ReadS [ListGraphqlApis]
+(Int -&gt; ReadS ListGraphqlApis)
+-&gt; ReadS [ListGraphqlApis]
+-&gt; ReadPrec ListGraphqlApis
+-&gt; ReadPrec [ListGraphqlApis]
+-&gt; Read ListGraphqlApis
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListGraphqlApis]
+$creadListPrec :: ReadPrec [ListGraphqlApis]
+readPrec :: ReadPrec ListGraphqlApis
+$creadPrec :: ReadPrec ListGraphqlApis
+readList :: ReadS [ListGraphqlApis]
+$creadList :: ReadS [ListGraphqlApis]
+readsPrec :: Int -&gt; ReadS ListGraphqlApis
+$creadsPrec :: Int -&gt; ReadS ListGraphqlApis
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254799"><span id="local-6989586621679254801"><span id="local-6989586621679254803"><span class="annot"><span class="annottext">Int -&gt; ListGraphqlApis -&gt; ShowS
+[ListGraphqlApis] -&gt; ShowS
+ListGraphqlApis -&gt; String
+(Int -&gt; ListGraphqlApis -&gt; ShowS)
+-&gt; (ListGraphqlApis -&gt; String)
+-&gt; ([ListGraphqlApis] -&gt; ShowS)
+-&gt; Show ListGraphqlApis
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListGraphqlApis] -&gt; ShowS
+$cshowList :: [ListGraphqlApis] -&gt; ShowS
+show :: ListGraphqlApis -&gt; String
+$cshow :: ListGraphqlApis -&gt; String
+showsPrec :: Int -&gt; ListGraphqlApis -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListGraphqlApis -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListGraphqlApis -&gt; Rep ListGraphqlApis x)
+-&gt; (forall x. Rep ListGraphqlApis x -&gt; ListGraphqlApis)
+-&gt; Generic ListGraphqlApis
+forall x. Rep ListGraphqlApis x -&gt; ListGraphqlApis
+forall x. ListGraphqlApis -&gt; Rep ListGraphqlApis x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListGraphqlApis x -&gt; ListGraphqlApis
+$cfrom :: forall x. ListGraphqlApis -&gt; Rep ListGraphqlApis x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'ListGraphqlApis' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'nextToken', 'listGraphqlApis_nextToken' - An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'maxResults', 'listGraphqlApis_maxResults' - The maximum number of results you want the request to return.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#newListGraphqlApis"><span class="hs-identifier hs-type">newListGraphqlApis</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span><span>
+</span><span id="line-79"></span><span id="newListGraphqlApis"><span class="annot"><span class="annottext">newListGraphqlApis :: ListGraphqlApis
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#newListGraphqlApis"><span class="hs-identifier hs-var hs-var">newListGraphqlApis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ListGraphqlApis' :: Maybe Text -&gt; Maybe Natural -&gt; ListGraphqlApis
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis%27"><span class="hs-identifier hs-type">ListGraphqlApis'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListGraphqlApis' :: Maybe Text
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AnextToken%3AListGraphqlApis%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListGraphqlApis' :: Maybe Natural
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AmaxResults%3AListGraphqlApis%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApis_nextToken"><span class="hs-identifier hs-type">listGraphqlApis_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="listGraphqlApis_nextToken"><span class="annot"><span class="annottext">listGraphqlApis_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGraphqlApis -&gt; f ListGraphqlApis
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApis_nextToken"><span class="hs-identifier hs-var hs-var">listGraphqlApis_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGraphqlApis -&gt; Maybe Text)
+-&gt; (ListGraphqlApis -&gt; Maybe Text -&gt; ListGraphqlApis)
+-&gt; Lens ListGraphqlApis ListGraphqlApis (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis%27"><span class="hs-identifier hs-type">ListGraphqlApis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254793"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListGraphqlApis' :: ListGraphqlApis -&gt; Maybe Text
+</span><a href="#local-6989586621679254793"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254793"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254792"><span class="annot"><span class="annottext">s :: ListGraphqlApis
+</span><a href="#local-6989586621679254792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis%27"><span class="hs-identifier hs-type">ListGraphqlApis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254791"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGraphqlApis
+</span><a href="#local-6989586621679254792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGraphqlApis' :: Maybe Text
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AnextToken%3AListGraphqlApis%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The maximum number of results you want the request to return.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApis_maxResults"><span class="hs-identifier hs-type">listGraphqlApis_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listGraphqlApis_maxResults"><span class="annot"><span class="annottext">listGraphqlApis_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListGraphqlApis -&gt; f ListGraphqlApis
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApis_maxResults"><span class="hs-identifier hs-var hs-var">listGraphqlApis_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGraphqlApis -&gt; Maybe Natural)
+-&gt; (ListGraphqlApis -&gt; Maybe Natural -&gt; ListGraphqlApis)
+-&gt; Lens
+     ListGraphqlApis ListGraphqlApis (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis%27"><span class="hs-identifier hs-type">ListGraphqlApis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254790"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListGraphqlApis' :: ListGraphqlApis -&gt; Maybe Natural
+</span><a href="#local-6989586621679254790"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679254790"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254789"><span class="annot"><span class="annottext">s :: ListGraphqlApis
+</span><a href="#local-6989586621679254789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis%27"><span class="hs-identifier hs-type">ListGraphqlApis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254788"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679254788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGraphqlApis
+</span><a href="#local-6989586621679254789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListGraphqlApis' :: Maybe Natural
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AmaxResults%3AListGraphqlApis%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679254788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679254784"><span class="annot"><span class="annottext">page :: ListGraphqlApis
+-&gt; AWSResponse ListGraphqlApis -&gt; Maybe ListGraphqlApis
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679254782"><span class="annot"><span class="annottext">ListGraphqlApis
+</span><a href="#local-6989586621679254782"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679254781"><span class="annot"><span class="annottext">AWSResponse ListGraphqlApis
+</span><a href="#local-6989586621679254781"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGraphqlApis
+ListGraphqlApisResponse
+</span><a href="#local-6989586621679254781"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListGraphqlApisResponse
+-&gt; Getting (First Text) ListGraphqlApisResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListGraphqlApisResponse
+-&gt; Const (First Text) ListGraphqlApisResponse
+Lens' ListGraphqlApisResponse (Maybe Text)
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApisResponse_nextToken"><span class="hs-identifier hs-var">listGraphqlApisResponse_nextToken</span></a></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListGraphqlApisResponse
+ -&gt; Const (First Text) ListGraphqlApisResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListGraphqlApisResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-101"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListGraphqlApis
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [GraphqlApi] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGraphqlApis
+ListGraphqlApisResponse
+</span><a href="#local-6989586621679254781"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListGraphqlApisResponse
+-&gt; Getting
+     (First [GraphqlApi]) ListGraphqlApisResponse [GraphqlApi]
+-&gt; Maybe [GraphqlApi]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [GraphqlApi]
+ -&gt; Const (First [GraphqlApi]) (Maybe [GraphqlApi]))
+-&gt; ListGraphqlApisResponse
+-&gt; Const (First [GraphqlApi]) ListGraphqlApisResponse
+Lens' ListGraphqlApisResponse (Maybe [GraphqlApi])
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApisResponse_graphqlApis"><span class="hs-identifier hs-var">listGraphqlApisResponse_graphqlApis</span></a></span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [GraphqlApi]
+  -&gt; Const (First [GraphqlApi]) (Maybe [GraphqlApi]))
+ -&gt; ListGraphqlApisResponse
+ -&gt; Const (First [GraphqlApi]) ListGraphqlApisResponse)
+-&gt; (([GraphqlApi] -&gt; Const (First [GraphqlApi]) [GraphqlApi])
+    -&gt; Maybe [GraphqlApi]
+    -&gt; Const (First [GraphqlApi]) (Maybe [GraphqlApi]))
+-&gt; Getting
+     (First [GraphqlApi]) ListGraphqlApisResponse [GraphqlApi]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([GraphqlApi] -&gt; Const (First [GraphqlApi]) [GraphqlApi])
+-&gt; Maybe [GraphqlApi]
+-&gt; Const (First [GraphqlApi]) (Maybe [GraphqlApi])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-107"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListGraphqlApis
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">ListGraphqlApis -&gt; Maybe ListGraphqlApis
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListGraphqlApis -&gt; Maybe ListGraphqlApis)
+-&gt; ListGraphqlApis -&gt; Maybe ListGraphqlApis
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ListGraphqlApis
+</span><a href="#local-6989586621679254782"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListGraphqlApis
+-&gt; (ListGraphqlApis -&gt; ListGraphqlApis) -&gt; ListGraphqlApis
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListGraphqlApis -&gt; Identity ListGraphqlApis
+Lens ListGraphqlApis ListGraphqlApis (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApis_nextToken"><span class="hs-identifier hs-var">listGraphqlApis_nextToken</span></a></span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListGraphqlApis -&gt; Identity ListGraphqlApis)
+-&gt; Maybe Text -&gt; ListGraphqlApis -&gt; ListGraphqlApis
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGraphqlApis
+ListGraphqlApisResponse
+</span><a href="#local-6989586621679254781"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ListGraphqlApisResponse
+-&gt; Getting (First Text) ListGraphqlApisResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListGraphqlApisResponse
+-&gt; Const (First Text) ListGraphqlApisResponse
+Lens' ListGraphqlApisResponse (Maybe Text)
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApisResponse_nextToken"><span class="hs-identifier hs-var">listGraphqlApisResponse_nextToken</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListGraphqlApisResponse
+ -&gt; Const (First Text) ListGraphqlApisResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListGraphqlApisResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse"><span class="hs-identifier hs-type">ListGraphqlApisResponse</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679254771"><span class="annot"><span class="annottext">request :: ListGraphqlApis -&gt; Request ListGraphqlApis
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListGraphqlApis -&gt; Request ListGraphqlApis
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679254767"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListGraphqlApis
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListGraphqlApis)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListGraphqlApis))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListGraphqlApis
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListGraphqlApis)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254764"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254764"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679254763"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679254763"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679254762"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254762"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [GraphqlApi] -&gt; Int -&gt; ListGraphqlApisResponse
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse%27"><span class="hs-identifier hs-var">ListGraphqlApisResponse'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [GraphqlApi] -&gt; Int -&gt; ListGraphqlApisResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [GraphqlApi] -&gt; Int -&gt; ListGraphqlApisResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [GraphqlApi] -&gt; Int -&gt; ListGraphqlApisResponse)
+-&gt; Either String (Maybe [GraphqlApi])
+-&gt; Either String (Int -&gt; ListGraphqlApisResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [GraphqlApi]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;graphqlApis&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [GraphqlApi]))
+-&gt; Maybe [GraphqlApi] -&gt; Either String (Maybe [GraphqlApi])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GraphqlApi]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListGraphqlApisResponse)
+-&gt; Either String Int -&gt; Either String ListGraphqlApisResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254764"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254753"><span id="local-6989586621679254755"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679254746"><span class="annot"><span class="annottext">toHeaders :: ListGraphqlApis -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListGraphqlApis -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-142"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679254740"><span class="annot"><span class="annottext">toPath :: ListGraphqlApis -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListGraphqlApis -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apis&quot;</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis"><span class="hs-identifier hs-type">ListGraphqlApis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679254736"><span class="annot"><span class="annottext">toQuery :: ListGraphqlApis -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApis%27"><span class="hs-identifier hs-type">ListGraphqlApis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254733"><span id="local-6989586621679254734"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListGraphqlApis' :: ListGraphqlApis -&gt; Maybe Natural
+$sel:nextToken:ListGraphqlApis' :: ListGraphqlApis -&gt; Maybe Text
+</span><a href="#local-6989586621679254733"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254734"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679254733"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newListGraphqlApisResponse' smart constructor.</span><span>
+</span><span id="line-157"></span><span id="local-6989586621679254730"><span id="local-6989586621679254731"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGraphqlApisResponse"><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse"><span class="hs-identifier hs-var">ListGraphqlApisResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGraphqlApisResponse%27"><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse%27"><span class="hs-identifier hs-var">ListGraphqlApisResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier to be passed in the next request to this operation to</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- return the next set of items in the list.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AnextToken%3AListGraphqlApisResponse%27"><span class="annot"><span class="annottext">ListGraphqlApisResponse -&gt; Maybe Text
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AnextToken%3AListGraphqlApisResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The @GraphqlApi@ objects.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AgraphqlApis%3AListGraphqlApisResponse%27"><span class="annot"><span class="annottext">ListGraphqlApisResponse -&gt; Maybe [GraphqlApi]
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AgraphqlApis%3AListGraphqlApisResponse%27"><span class="hs-identifier hs-var hs-var">graphqlApis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppSync.Types.GraphqlApi.html#GraphqlApi"><span class="hs-identifier hs-type">GraphqlApi</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListGraphqlApisResponse%27"><span class="annot"><span class="annottext">ListGraphqlApisResponse -&gt; Int
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AhttpStatus%3AListGraphqlApisResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254723"><span id="local-6989586621679254725"><span class="annot"><span class="annottext">ListGraphqlApisResponse -&gt; ListGraphqlApisResponse -&gt; Bool
+(ListGraphqlApisResponse -&gt; ListGraphqlApisResponse -&gt; Bool)
+-&gt; (ListGraphqlApisResponse -&gt; ListGraphqlApisResponse -&gt; Bool)
+-&gt; Eq ListGraphqlApisResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListGraphqlApisResponse -&gt; ListGraphqlApisResponse -&gt; Bool
+$c/= :: ListGraphqlApisResponse -&gt; ListGraphqlApisResponse -&gt; Bool
+== :: ListGraphqlApisResponse -&gt; ListGraphqlApisResponse -&gt; Bool
+$c== :: ListGraphqlApisResponse -&gt; ListGraphqlApisResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254715"><span id="local-6989586621679254717"><span id="local-6989586621679254719"><span id="local-6989586621679254721"><span class="annot"><span class="annottext">ReadPrec [ListGraphqlApisResponse]
+ReadPrec ListGraphqlApisResponse
+Int -&gt; ReadS ListGraphqlApisResponse
+ReadS [ListGraphqlApisResponse]
+(Int -&gt; ReadS ListGraphqlApisResponse)
+-&gt; ReadS [ListGraphqlApisResponse]
+-&gt; ReadPrec ListGraphqlApisResponse
+-&gt; ReadPrec [ListGraphqlApisResponse]
+-&gt; Read ListGraphqlApisResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListGraphqlApisResponse]
+$creadListPrec :: ReadPrec [ListGraphqlApisResponse]
+readPrec :: ReadPrec ListGraphqlApisResponse
+$creadPrec :: ReadPrec ListGraphqlApisResponse
+readList :: ReadS [ListGraphqlApisResponse]
+$creadList :: ReadS [ListGraphqlApisResponse]
+readsPrec :: Int -&gt; ReadS ListGraphqlApisResponse
+$creadsPrec :: Int -&gt; ReadS ListGraphqlApisResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254709"><span id="local-6989586621679254711"><span id="local-6989586621679254713"><span class="annot"><span class="annottext">Int -&gt; ListGraphqlApisResponse -&gt; ShowS
+[ListGraphqlApisResponse] -&gt; ShowS
+ListGraphqlApisResponse -&gt; String
+(Int -&gt; ListGraphqlApisResponse -&gt; ShowS)
+-&gt; (ListGraphqlApisResponse -&gt; String)
+-&gt; ([ListGraphqlApisResponse] -&gt; ShowS)
+-&gt; Show ListGraphqlApisResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListGraphqlApisResponse] -&gt; ShowS
+$cshowList :: [ListGraphqlApisResponse] -&gt; ShowS
+show :: ListGraphqlApisResponse -&gt; String
+$cshow :: ListGraphqlApisResponse -&gt; String
+showsPrec :: Int -&gt; ListGraphqlApisResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListGraphqlApisResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListGraphqlApisResponse -&gt; Rep ListGraphqlApisResponse x)
+-&gt; (forall x.
+    Rep ListGraphqlApisResponse x -&gt; ListGraphqlApisResponse)
+-&gt; Generic ListGraphqlApisResponse
+forall x. Rep ListGraphqlApisResponse x -&gt; ListGraphqlApisResponse
+forall x. ListGraphqlApisResponse -&gt; Rep ListGraphqlApisResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListGraphqlApisResponse x -&gt; ListGraphqlApisResponse
+$cfrom :: forall x. ListGraphqlApisResponse -&gt; Rep ListGraphqlApisResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Create a value of 'ListGraphqlApisResponse' with all optional fields omitted.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'nextToken', 'listGraphqlApisResponse_nextToken' - An identifier to be passed in the next request to this operation to</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- return the next set of items in the list.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'graphqlApis', 'listGraphqlApisResponse_graphqlApis' - The @GraphqlApi@ objects.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'httpStatus', 'listGraphqlApisResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#newListGraphqlApisResponse"><span class="hs-identifier hs-type">newListGraphqlApisResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse"><span class="hs-identifier hs-type">ListGraphqlApisResponse</span></a></span><span>
+</span><span id="line-186"></span><span id="newListGraphqlApisResponse"><span class="annot"><span class="annottext">newListGraphqlApisResponse :: Int -&gt; ListGraphqlApisResponse
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#newListGraphqlApisResponse"><span class="hs-identifier hs-var hs-var">newListGraphqlApisResponse</span></a></span></span><span> </span><span id="local-6989586621679254706"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254706"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="annottext">ListGraphqlApisResponse' :: Maybe Text -&gt; Maybe [GraphqlApi] -&gt; Int -&gt; ListGraphqlApisResponse
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse%27"><span class="hs-identifier hs-type">ListGraphqlApisResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListGraphqlApisResponse' :: Maybe Text
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AnextToken%3AListGraphqlApisResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:graphqlApis:ListGraphqlApisResponse' :: Maybe [GraphqlApi]
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AgraphqlApis%3AListGraphqlApisResponse%27"><span class="hs-identifier hs-var">graphqlApis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GraphqlApi]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListGraphqlApisResponse' :: Int
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AhttpStatus%3AListGraphqlApisResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254706"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | An identifier to be passed in the next request to this operation to</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- return the next set of items in the list.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApisResponse_nextToken"><span class="hs-identifier hs-type">listGraphqlApisResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse"><span class="hs-identifier hs-type">ListGraphqlApisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="listGraphqlApisResponse_nextToken"><span class="annot"><span class="annottext">listGraphqlApisResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGraphqlApisResponse -&gt; f ListGraphqlApisResponse
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApisResponse_nextToken"><span class="hs-identifier hs-var hs-var">listGraphqlApisResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGraphqlApisResponse -&gt; Maybe Text)
+-&gt; (ListGraphqlApisResponse
+    -&gt; Maybe Text -&gt; ListGraphqlApisResponse)
+-&gt; Lens' ListGraphqlApisResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse%27"><span class="hs-identifier hs-type">ListGraphqlApisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254705"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListGraphqlApisResponse' :: ListGraphqlApisResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679254705"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254705"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254704"><span class="annot"><span class="annottext">s :: ListGraphqlApisResponse
+</span><a href="#local-6989586621679254704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse%27"><span class="hs-identifier hs-type">ListGraphqlApisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254703"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGraphqlApisResponse
+</span><a href="#local-6989586621679254704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGraphqlApisResponse' :: Maybe Text
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AnextToken%3AListGraphqlApisResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse"><span class="hs-identifier hs-type">ListGraphqlApisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The @GraphqlApi@ objects.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApisResponse_graphqlApis"><span class="hs-identifier hs-type">listGraphqlApisResponse_graphqlApis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse"><span class="hs-identifier hs-type">ListGraphqlApisResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppSync.Types.GraphqlApi.html#GraphqlApi"><span class="hs-identifier hs-type">GraphqlApi</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="listGraphqlApisResponse_graphqlApis"><span class="annot"><span class="annottext">listGraphqlApisResponse_graphqlApis :: (Maybe [GraphqlApi] -&gt; f (Maybe [GraphqlApi]))
+-&gt; ListGraphqlApisResponse -&gt; f ListGraphqlApisResponse
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApisResponse_graphqlApis"><span class="hs-identifier hs-var hs-var">listGraphqlApisResponse_graphqlApis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGraphqlApisResponse -&gt; Maybe [GraphqlApi])
+-&gt; (ListGraphqlApisResponse
+    -&gt; Maybe [GraphqlApi] -&gt; ListGraphqlApisResponse)
+-&gt; Lens' ListGraphqlApisResponse (Maybe [GraphqlApi])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse%27"><span class="hs-identifier hs-type">ListGraphqlApisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254702"><span class="annot"><span class="annottext">Maybe [GraphqlApi]
+graphqlApis :: Maybe [GraphqlApi]
+$sel:graphqlApis:ListGraphqlApisResponse' :: ListGraphqlApisResponse -&gt; Maybe [GraphqlApi]
+</span><a href="#local-6989586621679254702"><span class="hs-identifier hs-var hs-var">graphqlApis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GraphqlApi]
+</span><a href="#local-6989586621679254702"><span class="hs-identifier hs-var">graphqlApis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254701"><span class="annot"><span class="annottext">s :: ListGraphqlApisResponse
+</span><a href="#local-6989586621679254701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse%27"><span class="hs-identifier hs-type">ListGraphqlApisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254700"><span class="annot"><span class="annottext">Maybe [GraphqlApi]
+</span><a href="#local-6989586621679254700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGraphqlApisResponse
+</span><a href="#local-6989586621679254701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:graphqlApis:ListGraphqlApisResponse' :: Maybe [GraphqlApi]
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AgraphqlApis%3AListGraphqlApisResponse%27"><span class="hs-identifier hs-var">graphqlApis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GraphqlApi]
+</span><a href="#local-6989586621679254700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse"><span class="hs-identifier hs-type">ListGraphqlApisResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GraphqlApi] -&gt; f (Maybe [GraphqlApi]))
+ -&gt; ListGraphqlApisResponse -&gt; f ListGraphqlApisResponse)
+-&gt; ((Maybe [GraphqlApi] -&gt; f (Maybe [GraphqlApi]))
+    -&gt; Maybe [GraphqlApi] -&gt; f (Maybe [GraphqlApi]))
+-&gt; (Maybe [GraphqlApi] -&gt; f (Maybe [GraphqlApi]))
+-&gt; ListGraphqlApisResponse
+-&gt; f ListGraphqlApisResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [GraphqlApi] [GraphqlApi] [GraphqlApi] [GraphqlApi]
+-&gt; Iso
+     (Maybe [GraphqlApi])
+     (Maybe [GraphqlApi])
+     (Maybe [GraphqlApi])
+     (Maybe [GraphqlApi])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [GraphqlApi] [GraphqlApi] [GraphqlApi] [GraphqlApi]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApisResponse_httpStatus"><span class="hs-identifier hs-type">listGraphqlApisResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse"><span class="hs-identifier hs-type">ListGraphqlApisResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-205"></span><span id="listGraphqlApisResponse_httpStatus"><span class="annot"><span class="annottext">listGraphqlApisResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListGraphqlApisResponse -&gt; f ListGraphqlApisResponse
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#listGraphqlApisResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listGraphqlApisResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGraphqlApisResponse -&gt; Int)
+-&gt; (ListGraphqlApisResponse -&gt; Int -&gt; ListGraphqlApisResponse)
+-&gt; Lens ListGraphqlApisResponse ListGraphqlApisResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse%27"><span class="hs-identifier hs-type">ListGraphqlApisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254697"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListGraphqlApisResponse' :: ListGraphqlApisResponse -&gt; Int
+</span><a href="#local-6989586621679254697"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254697"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254696"><span class="annot"><span class="annottext">s :: ListGraphqlApisResponse
+</span><a href="#local-6989586621679254696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse%27"><span class="hs-identifier hs-type">ListGraphqlApisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254695"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGraphqlApisResponse
+</span><a href="#local-6989586621679254696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGraphqlApisResponse' :: Int
+</span><a href="Amazonka.AppSync.ListGraphqlApis.html#%24sel%3AhttpStatus%3AListGraphqlApisResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse"><span class="hs-identifier hs-type">ListGraphqlApisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254693"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppSync.ListGraphqlApis.html#ListGraphqlApisResponse"><span class="hs-identifier hs-type">ListGraphqlApisResponse</span></a></span></span><span>
+</span><span id="line-208"></span></pre></body></html>

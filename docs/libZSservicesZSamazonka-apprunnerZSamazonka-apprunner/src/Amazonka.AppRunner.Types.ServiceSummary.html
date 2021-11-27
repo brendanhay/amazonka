@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppRunner.Types.ServiceSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppRunner.Types.ServiceSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceStatus.html"><span class="hs-identifier">Amazonka.AppRunner.Types.ServiceStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides summary information for an App Runner service.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This type contains limited information about a service. It doesn\'t</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- include configuration details. It\'s returned by the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apprunner/latest/api/API_ListServices.html ListServices&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- action. Complete service information is returned by the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html CreateService&gt;,</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeService.html DescribeService&gt;,</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteService.html DeleteService&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- actions using the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apprunner/latest/api/API_Service.html Service&gt;</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newServiceSummary' smart constructor.</span><span>
+</span><span id="line-42"></span><span id="local-6989586621679206181"><span id="local-6989586621679206182"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceSummary"><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-var">ServiceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceSummary%27"><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-var">ServiceSummary'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the App Runner service. These particular values</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- mean the following.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @CREATE_FAILED@ &#8211; The service failed to create. Read the failure</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     events and logs, change any parameters that need to be fixed, and</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     retry the call to create the service.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     The failed service isn\'t usable, and still counts towards your</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     service quota. When you\'re done analyzing the failure, delete the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   @DELETE_FAILED@ &#8211; The service failed to delete and can\'t be</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     successfully recovered. Retry the service deletion call to ensure</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     that all related resources are removed.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Astatus%3AServiceSummary%27"><span class="annot"><span class="annottext">ServiceSummary -&gt; Maybe ServiceStatus
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3Astatus%3AServiceSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The time when the App Runner service was created. It\'s in the Unix time</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- stamp format.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AcreatedAt%3AServiceSummary%27"><span class="annot"><span class="annottext">ServiceSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AcreatedAt%3AServiceSummary%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A subdomain URL that App Runner generated for this service. You can use</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- this URL to access your service web application.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AserviceUrl%3AServiceSummary%27"><span class="annot"><span class="annottext">ServiceSummary -&gt; Maybe Text
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AserviceUrl%3AServiceSummary%27"><span class="hs-identifier hs-var hs-var">serviceUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The customer-provided service name.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AserviceName%3AServiceSummary%27"><span class="annot"><span class="annottext">ServiceSummary -&gt; Maybe Text
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AserviceName%3AServiceSummary%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The time when the App Runner service was last updated. It\'s in theUnix</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AupdatedAt%3AServiceSummary%27"><span class="annot"><span class="annottext">ServiceSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AupdatedAt%3AServiceSummary%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this service.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AserviceArn%3AServiceSummary%27"><span class="annot"><span class="annottext">ServiceSummary -&gt; Maybe Text
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AserviceArn%3AServiceSummary%27"><span class="hs-identifier hs-var hs-var">serviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | An ID that App Runner generated for this service. It\'s unique within</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the Amazon Web Services Region.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AserviceId%3AServiceSummary%27"><span class="annot"><span class="annottext">ServiceSummary -&gt; Maybe Text
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AserviceId%3AServiceSummary%27"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206169"><span id="local-6989586621679206171"><span class="annot"><span class="annottext">ServiceSummary -&gt; ServiceSummary -&gt; Bool
+(ServiceSummary -&gt; ServiceSummary -&gt; Bool)
+-&gt; (ServiceSummary -&gt; ServiceSummary -&gt; Bool) -&gt; Eq ServiceSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ServiceSummary -&gt; ServiceSummary -&gt; Bool
+$c/= :: ServiceSummary -&gt; ServiceSummary -&gt; Bool
+== :: ServiceSummary -&gt; ServiceSummary -&gt; Bool
+$c== :: ServiceSummary -&gt; ServiceSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206160"><span id="local-6989586621679206162"><span id="local-6989586621679206164"><span id="local-6989586621679206166"><span class="annot"><span class="annottext">ReadPrec [ServiceSummary]
+ReadPrec ServiceSummary
+Int -&gt; ReadS ServiceSummary
+ReadS [ServiceSummary]
+(Int -&gt; ReadS ServiceSummary)
+-&gt; ReadS [ServiceSummary]
+-&gt; ReadPrec ServiceSummary
+-&gt; ReadPrec [ServiceSummary]
+-&gt; Read ServiceSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ServiceSummary]
+$creadListPrec :: ReadPrec [ServiceSummary]
+readPrec :: ReadPrec ServiceSummary
+$creadPrec :: ReadPrec ServiceSummary
+readList :: ReadS [ServiceSummary]
+$creadList :: ReadS [ServiceSummary]
+readsPrec :: Int -&gt; ReadS ServiceSummary
+$creadsPrec :: Int -&gt; ReadS ServiceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206153"><span id="local-6989586621679206155"><span id="local-6989586621679206157"><span class="annot"><span class="annottext">Int -&gt; ServiceSummary -&gt; ShowS
+[ServiceSummary] -&gt; ShowS
+ServiceSummary -&gt; String
+(Int -&gt; ServiceSummary -&gt; ShowS)
+-&gt; (ServiceSummary -&gt; String)
+-&gt; ([ServiceSummary] -&gt; ShowS)
+-&gt; Show ServiceSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ServiceSummary] -&gt; ShowS
+$cshowList :: [ServiceSummary] -&gt; ShowS
+show :: ServiceSummary -&gt; String
+$cshow :: ServiceSummary -&gt; String
+showsPrec :: Int -&gt; ServiceSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ServiceSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ServiceSummary -&gt; Rep ServiceSummary x)
+-&gt; (forall x. Rep ServiceSummary x -&gt; ServiceSummary)
+-&gt; Generic ServiceSummary
+forall x. Rep ServiceSummary x -&gt; ServiceSummary
+forall x. ServiceSummary -&gt; Rep ServiceSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ServiceSummary x -&gt; ServiceSummary
+$cfrom :: forall x. ServiceSummary -&gt; Rep ServiceSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'ServiceSummary' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'status', 'serviceSummary_status' - The current state of the App Runner service. These particular values</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- mean the following.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   @CREATE_FAILED@ &#8211; The service failed to create. Read the failure</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--     events and logs, change any parameters that need to be fixed, and</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--     retry the call to create the service.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     The failed service isn\'t usable, and still counts towards your</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--     service quota. When you\'re done analyzing the failure, delete the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   @DELETE_FAILED@ &#8211; The service failed to delete and can\'t be</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     successfully recovered. Retry the service deletion call to ensure</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     that all related resources are removed.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'createdAt', 'serviceSummary_createdAt' - The time when the App Runner service was created. It\'s in the Unix time</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- stamp format.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'serviceUrl', 'serviceSummary_serviceUrl' - A subdomain URL that App Runner generated for this service. You can use</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- this URL to access your service web application.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'serviceName', 'serviceSummary_serviceName' - The customer-provided service name.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'updatedAt', 'serviceSummary_updatedAt' - The time when the App Runner service was last updated. It\'s in theUnix</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'serviceArn', 'serviceSummary_serviceArn' - The Amazon Resource Name (ARN) of this service.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'serviceId', 'serviceSummary_serviceId' - An ID that App Runner generated for this service. It\'s unique within</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the Amazon Web Services Region.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#newServiceSummary"><span class="hs-identifier hs-type">newServiceSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span>
+</span><span id="line-117"></span><span id="newServiceSummary"><span class="annot"><span class="annottext">newServiceSummary :: ServiceSummary
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#newServiceSummary"><span class="hs-identifier hs-var hs-var">newServiceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">ServiceSummary' :: Maybe ServiceStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ServiceSummary
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ServiceSummary' :: Maybe ServiceStatus
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3Astatus%3AServiceSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:ServiceSummary' :: Maybe POSIX
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AcreatedAt%3AServiceSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceUrl:ServiceSummary' :: Maybe Text
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AserviceUrl%3AServiceSummary%27"><span class="hs-identifier hs-var">serviceUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceName:ServiceSummary' :: Maybe Text
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AserviceName%3AServiceSummary%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:updatedAt:ServiceSummary' :: Maybe POSIX
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AupdatedAt%3AServiceSummary%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceArn:ServiceSummary' :: Maybe Text
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AserviceArn%3AServiceSummary%27"><span class="hs-identifier hs-var">serviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceId:ServiceSummary' :: Maybe Text
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AserviceId%3AServiceSummary%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The current state of the App Runner service. These particular values</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- mean the following.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   @CREATE_FAILED@ &#8211; The service failed to create. Read the failure</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     events and logs, change any parameters that need to be fixed, and</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--     retry the call to create the service.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     The failed service isn\'t usable, and still counts towards your</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--     service quota. When you\'re done analyzing the failure, delete the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   @DELETE_FAILED@ &#8211; The service failed to delete and can\'t be</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     successfully recovered. Retry the service deletion call to ensure</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     that all related resources are removed.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_status"><span class="hs-identifier hs-type">serviceSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="serviceSummary_status"><span class="annot"><span class="annottext">serviceSummary_status :: (Maybe ServiceStatus -&gt; f (Maybe ServiceStatus))
+-&gt; ServiceSummary -&gt; f ServiceSummary
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_status"><span class="hs-identifier hs-var hs-var">serviceSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSummary -&gt; Maybe ServiceStatus)
+-&gt; (ServiceSummary -&gt; Maybe ServiceStatus -&gt; ServiceSummary)
+-&gt; Lens
+     ServiceSummary
+     ServiceSummary
+     (Maybe ServiceStatus)
+     (Maybe ServiceStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206144"><span class="annot"><span class="annottext">Maybe ServiceStatus
+status :: Maybe ServiceStatus
+$sel:status:ServiceSummary' :: ServiceSummary -&gt; Maybe ServiceStatus
+</span><a href="#local-6989586621679206144"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceStatus
+</span><a href="#local-6989586621679206144"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206143"><span class="annot"><span class="annottext">s :: ServiceSummary
+</span><a href="#local-6989586621679206143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206142"><span class="annot"><span class="annottext">Maybe ServiceStatus
+</span><a href="#local-6989586621679206142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSummary
+</span><a href="#local-6989586621679206143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ServiceSummary' :: Maybe ServiceStatus
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3Astatus%3AServiceSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceStatus
+</span><a href="#local-6989586621679206142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The time when the App Runner service was created. It\'s in the Unix time</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- stamp format.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_createdAt"><span class="hs-identifier hs-type">serviceSummary_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="serviceSummary_createdAt"><span class="annot"><span class="annottext">serviceSummary_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ServiceSummary -&gt; f ServiceSummary
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_createdAt"><span class="hs-identifier hs-var hs-var">serviceSummary_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSummary -&gt; Maybe POSIX)
+-&gt; (ServiceSummary -&gt; Maybe POSIX -&gt; ServiceSummary)
+-&gt; Lens ServiceSummary ServiceSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206140"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:ServiceSummary' :: ServiceSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679206140"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679206140"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206139"><span class="annot"><span class="annottext">s :: ServiceSummary
+</span><a href="#local-6989586621679206139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206138"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679206138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSummary
+</span><a href="#local-6989586621679206139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:ServiceSummary' :: Maybe POSIX
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AcreatedAt%3AServiceSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679206138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ServiceSummary -&gt; f ServiceSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ServiceSummary
+-&gt; f ServiceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | A subdomain URL that App Runner generated for this service. You can use</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- this URL to access your service web application.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_serviceUrl"><span class="hs-identifier hs-type">serviceSummary_serviceUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="serviceSummary_serviceUrl"><span class="annot"><span class="annottext">serviceSummary_serviceUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ServiceSummary -&gt; f ServiceSummary
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_serviceUrl"><span class="hs-identifier hs-var hs-var">serviceSummary_serviceUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSummary -&gt; Maybe Text)
+-&gt; (ServiceSummary -&gt; Maybe Text -&gt; ServiceSummary)
+-&gt; Lens ServiceSummary ServiceSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206133"><span class="annot"><span class="annottext">Maybe Text
+serviceUrl :: Maybe Text
+$sel:serviceUrl:ServiceSummary' :: ServiceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679206133"><span class="hs-identifier hs-var hs-var">serviceUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206133"><span class="hs-identifier hs-var">serviceUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206132"><span class="annot"><span class="annottext">s :: ServiceSummary
+</span><a href="#local-6989586621679206132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206131"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSummary
+</span><a href="#local-6989586621679206132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceUrl:ServiceSummary' :: Maybe Text
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AserviceUrl%3AServiceSummary%27"><span class="hs-identifier hs-var">serviceUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The customer-provided service name.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_serviceName"><span class="hs-identifier hs-type">serviceSummary_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="serviceSummary_serviceName"><span class="annot"><span class="annottext">serviceSummary_serviceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ServiceSummary -&gt; f ServiceSummary
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_serviceName"><span class="hs-identifier hs-var hs-var">serviceSummary_serviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSummary -&gt; Maybe Text)
+-&gt; (ServiceSummary -&gt; Maybe Text -&gt; ServiceSummary)
+-&gt; Lens ServiceSummary ServiceSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206129"><span class="annot"><span class="annottext">Maybe Text
+serviceName :: Maybe Text
+$sel:serviceName:ServiceSummary' :: ServiceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679206129"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206129"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206128"><span class="annot"><span class="annottext">s :: ServiceSummary
+</span><a href="#local-6989586621679206128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206127"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSummary
+</span><a href="#local-6989586621679206128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:ServiceSummary' :: Maybe Text
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AserviceName%3AServiceSummary%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The time when the App Runner service was last updated. It\'s in theUnix</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_updatedAt"><span class="hs-identifier hs-type">serviceSummary_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="serviceSummary_updatedAt"><span class="annot"><span class="annottext">serviceSummary_updatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ServiceSummary -&gt; f ServiceSummary
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_updatedAt"><span class="hs-identifier hs-var hs-var">serviceSummary_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSummary -&gt; Maybe POSIX)
+-&gt; (ServiceSummary -&gt; Maybe POSIX -&gt; ServiceSummary)
+-&gt; Lens ServiceSummary ServiceSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206125"><span class="annot"><span class="annottext">Maybe POSIX
+updatedAt :: Maybe POSIX
+$sel:updatedAt:ServiceSummary' :: ServiceSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679206125"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679206125"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206124"><span class="annot"><span class="annottext">s :: ServiceSummary
+</span><a href="#local-6989586621679206124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206123"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679206123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSummary
+</span><a href="#local-6989586621679206124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:ServiceSummary' :: Maybe POSIX
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AupdatedAt%3AServiceSummary%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679206123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ServiceSummary -&gt; f ServiceSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ServiceSummary
+-&gt; f ServiceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this service.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_serviceArn"><span class="hs-identifier hs-type">serviceSummary_serviceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="serviceSummary_serviceArn"><span class="annot"><span class="annottext">serviceSummary_serviceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ServiceSummary -&gt; f ServiceSummary
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_serviceArn"><span class="hs-identifier hs-var hs-var">serviceSummary_serviceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSummary -&gt; Maybe Text)
+-&gt; (ServiceSummary -&gt; Maybe Text -&gt; ServiceSummary)
+-&gt; Lens ServiceSummary ServiceSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206121"><span class="annot"><span class="annottext">Maybe Text
+serviceArn :: Maybe Text
+$sel:serviceArn:ServiceSummary' :: ServiceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679206121"><span class="hs-identifier hs-var hs-var">serviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206121"><span class="hs-identifier hs-var">serviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206120"><span class="annot"><span class="annottext">s :: ServiceSummary
+</span><a href="#local-6989586621679206120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206119"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSummary
+</span><a href="#local-6989586621679206120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceArn:ServiceSummary' :: Maybe Text
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AserviceArn%3AServiceSummary%27"><span class="hs-identifier hs-var">serviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | An ID that App Runner generated for this service. It\'s unique within</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- the Amazon Web Services Region.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_serviceId"><span class="hs-identifier hs-type">serviceSummary_serviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="serviceSummary_serviceId"><span class="annot"><span class="annottext">serviceSummary_serviceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ServiceSummary -&gt; f ServiceSummary
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#serviceSummary_serviceId"><span class="hs-identifier hs-var hs-var">serviceSummary_serviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSummary -&gt; Maybe Text)
+-&gt; (ServiceSummary -&gt; Maybe Text -&gt; ServiceSummary)
+-&gt; Lens ServiceSummary ServiceSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206117"><span class="annot"><span class="annottext">Maybe Text
+serviceId :: Maybe Text
+$sel:serviceId:ServiceSummary' :: ServiceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679206117"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206117"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206116"><span class="annot"><span class="annottext">s :: ServiceSummary
+</span><a href="#local-6989586621679206116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-type">ServiceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206115"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSummary
+</span><a href="#local-6989586621679206116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceId:ServiceSummary' :: Maybe Text
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#%24sel%3AserviceId%3AServiceSummary%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206112"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679206110"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServiceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ServiceSummary)
+-&gt; Value
+-&gt; Parser ServiceSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ServiceSummary&quot;</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206107"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206107"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ServiceSummary
+</span><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary%27"><span class="hs-identifier hs-var">ServiceSummary'</span></a></span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServiceStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ServiceSummary)
+-&gt; Parser (Maybe ServiceStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ServiceSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ServiceSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ServiceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ServiceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; ServiceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; ServiceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; ServiceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; ServiceSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ServiceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ServiceSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ServiceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ServiceSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser ServiceSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206101"><span id="local-6989586621679206103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span></span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ServiceSummary.html#ServiceSummary"><span class="hs-identifier hs-type">ServiceSummary</span></a></span></span><span>
+</span><span id="line-191"></span></pre></body></html>

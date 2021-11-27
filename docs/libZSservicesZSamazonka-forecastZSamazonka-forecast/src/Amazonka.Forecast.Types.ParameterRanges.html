@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Forecast.Types.ParameterRanges</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Forecast.Types.ParameterRanges</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.CategoricalParameterRange.html"><span class="hs-identifier">Amazonka.Forecast.Types.CategoricalParameterRange</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ContinuousParameterRange.html"><span class="hs-identifier">Amazonka.Forecast.Types.ContinuousParameterRange</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.IntegerParameterRange.html"><span class="hs-identifier">Amazonka.Forecast.Types.IntegerParameterRange</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Specifies the categorical, continuous, and integer hyperparameters, and</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- their ranges of tunable values. The range of tunable values determines</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- which values that a hyperparameter tuning job can choose for the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- specified hyperparameter. This object is part of the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- HyperParameterTuningJobConfig object.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newParameterRanges' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679249145"><span id="local-6989586621679249146"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParameterRanges"><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-var">ParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterRanges%27"><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-var">ParameterRanges'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the tunable range for each categorical hyperparameter.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcategoricalParameterRanges%3AParameterRanges%27"><span class="annot"><span class="annottext">ParameterRanges -&gt; Maybe (NonEmpty CategoricalParameterRange)
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#%24sel%3AcategoricalParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var hs-var">categoricalParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies the tunable range for each integer hyperparameter.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AintegerParameterRanges%3AParameterRanges%27"><span class="annot"><span class="annottext">ParameterRanges -&gt; Maybe (NonEmpty IntegerParameterRange)
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#%24sel%3AintegerParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var hs-var">integerParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specifies the tunable range for each continuous hyperparameter.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcontinuousParameterRanges%3AParameterRanges%27"><span class="annot"><span class="annottext">ParameterRanges -&gt; Maybe (NonEmpty ContinuousParameterRange)
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#%24sel%3AcontinuousParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var hs-var">continuousParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ContinuousParameterRange.html#ContinuousParameterRange"><span class="hs-identifier hs-type">ContinuousParameterRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249137"><span id="local-6989586621679249139"><span class="annot"><span class="annottext">ParameterRanges -&gt; ParameterRanges -&gt; Bool
+(ParameterRanges -&gt; ParameterRanges -&gt; Bool)
+-&gt; (ParameterRanges -&gt; ParameterRanges -&gt; Bool)
+-&gt; Eq ParameterRanges
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ParameterRanges -&gt; ParameterRanges -&gt; Bool
+$c/= :: ParameterRanges -&gt; ParameterRanges -&gt; Bool
+== :: ParameterRanges -&gt; ParameterRanges -&gt; Bool
+$c== :: ParameterRanges -&gt; ParameterRanges -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249128"><span id="local-6989586621679249130"><span id="local-6989586621679249132"><span id="local-6989586621679249134"><span class="annot"><span class="annottext">ReadPrec [ParameterRanges]
+ReadPrec ParameterRanges
+Int -&gt; ReadS ParameterRanges
+ReadS [ParameterRanges]
+(Int -&gt; ReadS ParameterRanges)
+-&gt; ReadS [ParameterRanges]
+-&gt; ReadPrec ParameterRanges
+-&gt; ReadPrec [ParameterRanges]
+-&gt; Read ParameterRanges
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ParameterRanges]
+$creadListPrec :: ReadPrec [ParameterRanges]
+readPrec :: ReadPrec ParameterRanges
+$creadPrec :: ReadPrec ParameterRanges
+readList :: ReadS [ParameterRanges]
+$creadList :: ReadS [ParameterRanges]
+readsPrec :: Int -&gt; ReadS ParameterRanges
+$creadsPrec :: Int -&gt; ReadS ParameterRanges
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249121"><span id="local-6989586621679249123"><span id="local-6989586621679249125"><span class="annot"><span class="annottext">Int -&gt; ParameterRanges -&gt; ShowS
+[ParameterRanges] -&gt; ShowS
+ParameterRanges -&gt; String
+(Int -&gt; ParameterRanges -&gt; ShowS)
+-&gt; (ParameterRanges -&gt; String)
+-&gt; ([ParameterRanges] -&gt; ShowS)
+-&gt; Show ParameterRanges
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ParameterRanges] -&gt; ShowS
+$cshowList :: [ParameterRanges] -&gt; ShowS
+show :: ParameterRanges -&gt; String
+$cshow :: ParameterRanges -&gt; String
+showsPrec :: Int -&gt; ParameterRanges -&gt; ShowS
+$cshowsPrec :: Int -&gt; ParameterRanges -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ParameterRanges -&gt; Rep ParameterRanges x)
+-&gt; (forall x. Rep ParameterRanges x -&gt; ParameterRanges)
+-&gt; Generic ParameterRanges
+forall x. Rep ParameterRanges x -&gt; ParameterRanges
+forall x. ParameterRanges -&gt; Rep ParameterRanges x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ParameterRanges x -&gt; ParameterRanges
+$cfrom :: forall x. ParameterRanges -&gt; Rep ParameterRanges x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'ParameterRanges' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'categoricalParameterRanges', 'parameterRanges_categoricalParameterRanges' - Specifies the tunable range for each categorical hyperparameter.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'integerParameterRanges', 'parameterRanges_integerParameterRanges' - Specifies the tunable range for each integer hyperparameter.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'continuousParameterRanges', 'parameterRanges_continuousParameterRanges' - Specifies the tunable range for each continuous hyperparameter.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#newParameterRanges"><span class="hs-identifier hs-type">newParameterRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span>
+</span><span id="line-61"></span><span id="newParameterRanges"><span class="annot"><span class="annottext">newParameterRanges :: ParameterRanges
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#newParameterRanges"><span class="hs-identifier hs-var hs-var">newParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">ParameterRanges' :: Maybe (NonEmpty CategoricalParameterRange)
+-&gt; Maybe (NonEmpty IntegerParameterRange)
+-&gt; Maybe (NonEmpty ContinuousParameterRange)
+-&gt; ParameterRanges
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:categoricalParameterRanges:ParameterRanges' :: Maybe (NonEmpty CategoricalParameterRange)
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#%24sel%3AcategoricalParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var">categoricalParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty CategoricalParameterRange)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:integerParameterRanges:ParameterRanges' :: Maybe (NonEmpty IntegerParameterRange)
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#%24sel%3AintegerParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var">integerParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty IntegerParameterRange)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:continuousParameterRanges:ParameterRanges' :: Maybe (NonEmpty ContinuousParameterRange)
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#%24sel%3AcontinuousParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var">continuousParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ContinuousParameterRange)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | Specifies the tunable range for each categorical hyperparameter.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#parameterRanges_categoricalParameterRanges"><span class="hs-identifier hs-type">parameterRanges_categoricalParameterRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="parameterRanges_categoricalParameterRanges"><span class="annot"><span class="annottext">parameterRanges_categoricalParameterRanges :: (Maybe (NonEmpty CategoricalParameterRange)
+ -&gt; f (Maybe (NonEmpty CategoricalParameterRange)))
+-&gt; ParameterRanges -&gt; f ParameterRanges
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#parameterRanges_categoricalParameterRanges"><span class="hs-identifier hs-var hs-var">parameterRanges_categoricalParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParameterRanges -&gt; Maybe (NonEmpty CategoricalParameterRange))
+-&gt; (ParameterRanges
+    -&gt; Maybe (NonEmpty CategoricalParameterRange) -&gt; ParameterRanges)
+-&gt; Lens
+     ParameterRanges
+     ParameterRanges
+     (Maybe (NonEmpty CategoricalParameterRange))
+     (Maybe (NonEmpty CategoricalParameterRange))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249112"><span class="annot"><span class="annottext">Maybe (NonEmpty CategoricalParameterRange)
+categoricalParameterRanges :: Maybe (NonEmpty CategoricalParameterRange)
+$sel:categoricalParameterRanges:ParameterRanges' :: ParameterRanges -&gt; Maybe (NonEmpty CategoricalParameterRange)
+</span><a href="#local-6989586621679249112"><span class="hs-identifier hs-var hs-var">categoricalParameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CategoricalParameterRange)
+</span><a href="#local-6989586621679249112"><span class="hs-identifier hs-var">categoricalParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249111"><span class="annot"><span class="annottext">s :: ParameterRanges
+</span><a href="#local-6989586621679249111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249110"><span class="annot"><span class="annottext">Maybe (NonEmpty CategoricalParameterRange)
+</span><a href="#local-6989586621679249110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterRanges
+</span><a href="#local-6989586621679249111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categoricalParameterRanges:ParameterRanges' :: Maybe (NonEmpty CategoricalParameterRange)
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#%24sel%3AcategoricalParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var">categoricalParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CategoricalParameterRange)
+</span><a href="#local-6989586621679249110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty CategoricalParameterRange)
+  -&gt; f (Maybe (NonEmpty CategoricalParameterRange)))
+ -&gt; ParameterRanges -&gt; f ParameterRanges)
+-&gt; ((Maybe (NonEmpty CategoricalParameterRange)
+     -&gt; f (Maybe (NonEmpty CategoricalParameterRange)))
+    -&gt; Maybe (NonEmpty CategoricalParameterRange)
+    -&gt; f (Maybe (NonEmpty CategoricalParameterRange)))
+-&gt; (Maybe (NonEmpty CategoricalParameterRange)
+    -&gt; f (Maybe (NonEmpty CategoricalParameterRange)))
+-&gt; ParameterRanges
+-&gt; f ParameterRanges
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty CategoricalParameterRange)
+  (NonEmpty CategoricalParameterRange)
+  (NonEmpty CategoricalParameterRange)
+  (NonEmpty CategoricalParameterRange)
+-&gt; Iso
+     (Maybe (NonEmpty CategoricalParameterRange))
+     (Maybe (NonEmpty CategoricalParameterRange))
+     (Maybe (NonEmpty CategoricalParameterRange))
+     (Maybe (NonEmpty CategoricalParameterRange))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty CategoricalParameterRange)
+  (NonEmpty CategoricalParameterRange)
+  (NonEmpty CategoricalParameterRange)
+  (NonEmpty CategoricalParameterRange)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | Specifies the tunable range for each integer hyperparameter.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#parameterRanges_integerParameterRanges"><span class="hs-identifier hs-type">parameterRanges_integerParameterRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.IntegerParameterRange.html#IntegerParameterRange"><span class="hs-identifier hs-type">IntegerParameterRange</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="parameterRanges_integerParameterRanges"><span class="annot"><span class="annottext">parameterRanges_integerParameterRanges :: (Maybe (NonEmpty IntegerParameterRange)
+ -&gt; f (Maybe (NonEmpty IntegerParameterRange)))
+-&gt; ParameterRanges -&gt; f ParameterRanges
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#parameterRanges_integerParameterRanges"><span class="hs-identifier hs-var hs-var">parameterRanges_integerParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParameterRanges -&gt; Maybe (NonEmpty IntegerParameterRange))
+-&gt; (ParameterRanges
+    -&gt; Maybe (NonEmpty IntegerParameterRange) -&gt; ParameterRanges)
+-&gt; Lens
+     ParameterRanges
+     ParameterRanges
+     (Maybe (NonEmpty IntegerParameterRange))
+     (Maybe (NonEmpty IntegerParameterRange))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249105"><span class="annot"><span class="annottext">Maybe (NonEmpty IntegerParameterRange)
+integerParameterRanges :: Maybe (NonEmpty IntegerParameterRange)
+$sel:integerParameterRanges:ParameterRanges' :: ParameterRanges -&gt; Maybe (NonEmpty IntegerParameterRange)
+</span><a href="#local-6989586621679249105"><span class="hs-identifier hs-var hs-var">integerParameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty IntegerParameterRange)
+</span><a href="#local-6989586621679249105"><span class="hs-identifier hs-var">integerParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249104"><span class="annot"><span class="annottext">s :: ParameterRanges
+</span><a href="#local-6989586621679249104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249103"><span class="annot"><span class="annottext">Maybe (NonEmpty IntegerParameterRange)
+</span><a href="#local-6989586621679249103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterRanges
+</span><a href="#local-6989586621679249104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integerParameterRanges:ParameterRanges' :: Maybe (NonEmpty IntegerParameterRange)
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#%24sel%3AintegerParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var">integerParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty IntegerParameterRange)
+</span><a href="#local-6989586621679249103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty IntegerParameterRange)
+  -&gt; f (Maybe (NonEmpty IntegerParameterRange)))
+ -&gt; ParameterRanges -&gt; f ParameterRanges)
+-&gt; ((Maybe (NonEmpty IntegerParameterRange)
+     -&gt; f (Maybe (NonEmpty IntegerParameterRange)))
+    -&gt; Maybe (NonEmpty IntegerParameterRange)
+    -&gt; f (Maybe (NonEmpty IntegerParameterRange)))
+-&gt; (Maybe (NonEmpty IntegerParameterRange)
+    -&gt; f (Maybe (NonEmpty IntegerParameterRange)))
+-&gt; ParameterRanges
+-&gt; f ParameterRanges
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty IntegerParameterRange)
+  (NonEmpty IntegerParameterRange)
+  (NonEmpty IntegerParameterRange)
+  (NonEmpty IntegerParameterRange)
+-&gt; Iso
+     (Maybe (NonEmpty IntegerParameterRange))
+     (Maybe (NonEmpty IntegerParameterRange))
+     (Maybe (NonEmpty IntegerParameterRange))
+     (Maybe (NonEmpty IntegerParameterRange))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty IntegerParameterRange)
+  (NonEmpty IntegerParameterRange)
+  (NonEmpty IntegerParameterRange)
+  (NonEmpty IntegerParameterRange)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Specifies the tunable range for each continuous hyperparameter.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#parameterRanges_continuousParameterRanges"><span class="hs-identifier hs-type">parameterRanges_continuousParameterRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ContinuousParameterRange.html#ContinuousParameterRange"><span class="hs-identifier hs-type">ContinuousParameterRange</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="parameterRanges_continuousParameterRanges"><span class="annot"><span class="annottext">parameterRanges_continuousParameterRanges :: (Maybe (NonEmpty ContinuousParameterRange)
+ -&gt; f (Maybe (NonEmpty ContinuousParameterRange)))
+-&gt; ParameterRanges -&gt; f ParameterRanges
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#parameterRanges_continuousParameterRanges"><span class="hs-identifier hs-var hs-var">parameterRanges_continuousParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParameterRanges -&gt; Maybe (NonEmpty ContinuousParameterRange))
+-&gt; (ParameterRanges
+    -&gt; Maybe (NonEmpty ContinuousParameterRange) -&gt; ParameterRanges)
+-&gt; Lens
+     ParameterRanges
+     ParameterRanges
+     (Maybe (NonEmpty ContinuousParameterRange))
+     (Maybe (NonEmpty ContinuousParameterRange))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249101"><span class="annot"><span class="annottext">Maybe (NonEmpty ContinuousParameterRange)
+continuousParameterRanges :: Maybe (NonEmpty ContinuousParameterRange)
+$sel:continuousParameterRanges:ParameterRanges' :: ParameterRanges -&gt; Maybe (NonEmpty ContinuousParameterRange)
+</span><a href="#local-6989586621679249101"><span class="hs-identifier hs-var hs-var">continuousParameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ContinuousParameterRange)
+</span><a href="#local-6989586621679249101"><span class="hs-identifier hs-var">continuousParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249100"><span class="annot"><span class="annottext">s :: ParameterRanges
+</span><a href="#local-6989586621679249100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249099"><span class="annot"><span class="annottext">Maybe (NonEmpty ContinuousParameterRange)
+</span><a href="#local-6989586621679249099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterRanges
+</span><a href="#local-6989586621679249100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuousParameterRanges:ParameterRanges' :: Maybe (NonEmpty ContinuousParameterRange)
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#%24sel%3AcontinuousParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var">continuousParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ContinuousParameterRange)
+</span><a href="#local-6989586621679249099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ContinuousParameterRange)
+  -&gt; f (Maybe (NonEmpty ContinuousParameterRange)))
+ -&gt; ParameterRanges -&gt; f ParameterRanges)
+-&gt; ((Maybe (NonEmpty ContinuousParameterRange)
+     -&gt; f (Maybe (NonEmpty ContinuousParameterRange)))
+    -&gt; Maybe (NonEmpty ContinuousParameterRange)
+    -&gt; f (Maybe (NonEmpty ContinuousParameterRange)))
+-&gt; (Maybe (NonEmpty ContinuousParameterRange)
+    -&gt; f (Maybe (NonEmpty ContinuousParameterRange)))
+-&gt; ParameterRanges
+-&gt; f ParameterRanges
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ContinuousParameterRange)
+  (NonEmpty ContinuousParameterRange)
+  (NonEmpty ContinuousParameterRange)
+  (NonEmpty ContinuousParameterRange)
+-&gt; Iso
+     (Maybe (NonEmpty ContinuousParameterRange))
+     (Maybe (NonEmpty ContinuousParameterRange))
+     (Maybe (NonEmpty ContinuousParameterRange))
+     (Maybe (NonEmpty ContinuousParameterRange))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ContinuousParameterRange)
+  (NonEmpty ContinuousParameterRange)
+  (NonEmpty ContinuousParameterRange)
+  (NonEmpty ContinuousParameterRange)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249096"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679249094"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParameterRanges
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ParameterRanges)
+-&gt; Value
+-&gt; Parser ParameterRanges
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ParameterRanges&quot;</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249091"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249091"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty CategoricalParameterRange)
+-&gt; Maybe (NonEmpty IntegerParameterRange)
+-&gt; Maybe (NonEmpty ContinuousParameterRange)
+-&gt; ParameterRanges
+</span><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-var">ParameterRanges'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty CategoricalParameterRange)
+ -&gt; Maybe (NonEmpty IntegerParameterRange)
+ -&gt; Maybe (NonEmpty ContinuousParameterRange)
+ -&gt; ParameterRanges)
+-&gt; Parser (Maybe (NonEmpty CategoricalParameterRange))
+-&gt; Parser
+     (Maybe (NonEmpty IntegerParameterRange)
+      -&gt; Maybe (NonEmpty ContinuousParameterRange) -&gt; ParameterRanges)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (NonEmpty CategoricalParameterRange))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CategoricalParameterRanges&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty IntegerParameterRange)
+   -&gt; Maybe (NonEmpty ContinuousParameterRange) -&gt; ParameterRanges)
+-&gt; Parser (Maybe (NonEmpty IntegerParameterRange))
+-&gt; Parser
+     (Maybe (NonEmpty ContinuousParameterRange) -&gt; ParameterRanges)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty IntegerParameterRange))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IntegerParameterRanges&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty ContinuousParameterRange) -&gt; ParameterRanges)
+-&gt; Parser (Maybe (NonEmpty ContinuousParameterRange))
+-&gt; Parser ParameterRanges
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (NonEmpty ContinuousParameterRange))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContinuousParameterRanges&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249085"><span id="local-6989586621679249087"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249082"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249074"><span id="local-6989586621679249076"><span id="local-6989586621679249078"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679249072"><span class="annot"><span class="annottext">toJSON :: ParameterRanges -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249068"><span id="local-6989586621679249069"><span id="local-6989586621679249070"><span class="annot"><span class="annottext">Maybe (NonEmpty CategoricalParameterRange)
+Maybe (NonEmpty IntegerParameterRange)
+Maybe (NonEmpty ContinuousParameterRange)
+continuousParameterRanges :: Maybe (NonEmpty ContinuousParameterRange)
+integerParameterRanges :: Maybe (NonEmpty IntegerParameterRange)
+categoricalParameterRanges :: Maybe (NonEmpty CategoricalParameterRange)
+$sel:continuousParameterRanges:ParameterRanges' :: ParameterRanges -&gt; Maybe (NonEmpty ContinuousParameterRange)
+$sel:integerParameterRanges:ParameterRanges' :: ParameterRanges -&gt; Maybe (NonEmpty IntegerParameterRange)
+$sel:categoricalParameterRanges:ParameterRanges' :: ParameterRanges -&gt; Maybe (NonEmpty CategoricalParameterRange)
+</span><a href="#local-6989586621679249068"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CategoricalParameterRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty CategoricalParameterRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty CategoricalParameterRange -&gt; Pair)
+-&gt; Maybe (NonEmpty CategoricalParameterRange) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CategoricalParameterRange)
+</span><a href="#local-6989586621679249070"><span class="hs-identifier hs-var">categoricalParameterRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IntegerParameterRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty IntegerParameterRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty IntegerParameterRange -&gt; Pair)
+-&gt; Maybe (NonEmpty IntegerParameterRange) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty IntegerParameterRange)
+</span><a href="#local-6989586621679249069"><span class="hs-identifier hs-var">integerParameterRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContinuousParameterRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ContinuousParameterRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty ContinuousParameterRange -&gt; Pair)
+-&gt; Maybe (NonEmpty ContinuousParameterRange) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ContinuousParameterRange)
+</span><a href="#local-6989586621679249068"><span class="hs-identifier hs-var">continuousParameterRanges</span></a></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span></pre></body></html>

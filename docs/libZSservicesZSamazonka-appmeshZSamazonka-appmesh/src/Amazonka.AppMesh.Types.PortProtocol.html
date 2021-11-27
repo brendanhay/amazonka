@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.PortProtocol</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.PortProtocol</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol"><span class="hs-identifier">PortProtocol</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol_Grpc"><span class="hs-identifier">PortProtocol_Grpc</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol_Http"><span class="hs-identifier">PortProtocol_Http</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol_Http2"><span class="hs-identifier">PortProtocol_Http2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol_Tcp"><span class="hs-identifier">PortProtocol_Tcp</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679329720"><span id="local-6989586621679329721"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PortProtocol"><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol"><span class="hs-identifier hs-var">PortProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PortProtocol%27"><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol%27"><span class="hs-identifier hs-var">PortProtocol'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPortProtocol"><span class="annot"><span class="annottext">PortProtocol -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.PortProtocol.html#fromPortProtocol"><span class="hs-identifier hs-var hs-var">fromPortProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329712"><span id="local-6989586621679329714"><span id="local-6989586621679329716"><span class="annot"><span class="annottext">Int -&gt; PortProtocol -&gt; ShowS
+[PortProtocol] -&gt; ShowS
+PortProtocol -&gt; String
+(Int -&gt; PortProtocol -&gt; ShowS)
+-&gt; (PortProtocol -&gt; String)
+-&gt; ([PortProtocol] -&gt; ShowS)
+-&gt; Show PortProtocol
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PortProtocol] -&gt; ShowS
+$cshowList :: [PortProtocol] -&gt; ShowS
+show :: PortProtocol -&gt; String
+$cshow :: PortProtocol -&gt; String
+showsPrec :: Int -&gt; PortProtocol -&gt; ShowS
+$cshowsPrec :: Int -&gt; PortProtocol -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679329703"><span id="local-6989586621679329705"><span id="local-6989586621679329707"><span id="local-6989586621679329709"><span class="annot"><span class="annottext">ReadPrec [PortProtocol]
+ReadPrec PortProtocol
+Int -&gt; ReadS PortProtocol
+ReadS [PortProtocol]
+(Int -&gt; ReadS PortProtocol)
+-&gt; ReadS [PortProtocol]
+-&gt; ReadPrec PortProtocol
+-&gt; ReadPrec [PortProtocol]
+-&gt; Read PortProtocol
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PortProtocol]
+$creadListPrec :: ReadPrec [PortProtocol]
+readPrec :: ReadPrec PortProtocol
+$creadPrec :: ReadPrec PortProtocol
+readList :: ReadS [PortProtocol]
+$creadList :: ReadS [PortProtocol]
+readsPrec :: Int -&gt; ReadS PortProtocol
+$creadsPrec :: Int -&gt; ReadS PortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679329698"><span id="local-6989586621679329700"><span class="annot"><span class="annottext">PortProtocol -&gt; PortProtocol -&gt; Bool
+(PortProtocol -&gt; PortProtocol -&gt; Bool)
+-&gt; (PortProtocol -&gt; PortProtocol -&gt; Bool) -&gt; Eq PortProtocol
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PortProtocol -&gt; PortProtocol -&gt; Bool
+$c/= :: PortProtocol -&gt; PortProtocol -&gt; Bool
+== :: PortProtocol -&gt; PortProtocol -&gt; Bool
+$c== :: PortProtocol -&gt; PortProtocol -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679329682"><span id="local-6989586621679329684"><span id="local-6989586621679329686"><span id="local-6989586621679329688"><span id="local-6989586621679329690"><span id="local-6989586621679329692"><span id="local-6989586621679329694"><span class="annot"><span class="annottext">Eq PortProtocol
+Eq PortProtocol
+-&gt; (PortProtocol -&gt; PortProtocol -&gt; Ordering)
+-&gt; (PortProtocol -&gt; PortProtocol -&gt; Bool)
+-&gt; (PortProtocol -&gt; PortProtocol -&gt; Bool)
+-&gt; (PortProtocol -&gt; PortProtocol -&gt; Bool)
+-&gt; (PortProtocol -&gt; PortProtocol -&gt; Bool)
+-&gt; (PortProtocol -&gt; PortProtocol -&gt; PortProtocol)
+-&gt; (PortProtocol -&gt; PortProtocol -&gt; PortProtocol)
+-&gt; Ord PortProtocol
+PortProtocol -&gt; PortProtocol -&gt; Bool
+PortProtocol -&gt; PortProtocol -&gt; Ordering
+PortProtocol -&gt; PortProtocol -&gt; PortProtocol
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PortProtocol -&gt; PortProtocol -&gt; PortProtocol
+$cmin :: PortProtocol -&gt; PortProtocol -&gt; PortProtocol
+max :: PortProtocol -&gt; PortProtocol -&gt; PortProtocol
+$cmax :: PortProtocol -&gt; PortProtocol -&gt; PortProtocol
+&gt;= :: PortProtocol -&gt; PortProtocol -&gt; Bool
+$c&gt;= :: PortProtocol -&gt; PortProtocol -&gt; Bool
+&gt; :: PortProtocol -&gt; PortProtocol -&gt; Bool
+$c&gt; :: PortProtocol -&gt; PortProtocol -&gt; Bool
+&lt;= :: PortProtocol -&gt; PortProtocol -&gt; Bool
+$c&lt;= :: PortProtocol -&gt; PortProtocol -&gt; Bool
+&lt; :: PortProtocol -&gt; PortProtocol -&gt; Bool
+$c&lt; :: PortProtocol -&gt; PortProtocol -&gt; Bool
+compare :: PortProtocol -&gt; PortProtocol -&gt; Ordering
+$ccompare :: PortProtocol -&gt; PortProtocol -&gt; Ordering
+$cp1Ord :: Eq PortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PortProtocol -&gt; Rep PortProtocol x)
+-&gt; (forall x. Rep PortProtocol x -&gt; PortProtocol)
+-&gt; Generic PortProtocol
+forall x. Rep PortProtocol x -&gt; PortProtocol
+forall x. PortProtocol -&gt; Rep PortProtocol x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PortProtocol x -&gt; PortProtocol
+$cfrom :: forall x. PortProtocol -&gt; Rep PortProtocol x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329674"><span id="local-6989586621679329676"><span class="annot"><span class="annottext">Int -&gt; PortProtocol -&gt; Int
+PortProtocol -&gt; Int
+(Int -&gt; PortProtocol -&gt; Int)
+-&gt; (PortProtocol -&gt; Int) -&gt; Hashable PortProtocol
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PortProtocol -&gt; Int
+$chash :: PortProtocol -&gt; Int
+hashWithSalt :: Int -&gt; PortProtocol -&gt; Int
+$chashWithSalt :: Int -&gt; PortProtocol -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679329671"><span class="annot"><span class="annottext">PortProtocol -&gt; ()
+(PortProtocol -&gt; ()) -&gt; NFData PortProtocol
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PortProtocol -&gt; ()
+$crnf :: PortProtocol -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329668"><span class="annot"><span class="annottext">Text -&gt; Either String PortProtocol
+(Text -&gt; Either String PortProtocol) -&gt; FromText PortProtocol
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PortProtocol
+$cfromText :: Text -&gt; Either String PortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329665"><span class="annot"><span class="annottext">PortProtocol -&gt; Text
+(PortProtocol -&gt; Text) -&gt; ToText PortProtocol
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PortProtocol -&gt; Text
+$ctoText :: PortProtocol -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329662"><span class="annot"><span class="annottext">PortProtocol -&gt; ByteString
+(PortProtocol -&gt; ByteString) -&gt; ToByteString PortProtocol
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PortProtocol -&gt; ByteString
+$ctoBS :: PortProtocol -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329659"><span class="annot"><span class="annottext">PortProtocol -&gt; ByteStringBuilder
+(PortProtocol -&gt; ByteStringBuilder) -&gt; ToLog PortProtocol
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PortProtocol -&gt; ByteStringBuilder
+$cbuild :: PortProtocol -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329656"><span class="annot"><span class="annottext">HeaderName -&gt; PortProtocol -&gt; [Header]
+(HeaderName -&gt; PortProtocol -&gt; [Header]) -&gt; ToHeader PortProtocol
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PortProtocol -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PortProtocol -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329653"><span class="annot"><span class="annottext">PortProtocol -&gt; QueryString
+(PortProtocol -&gt; QueryString) -&gt; ToQuery PortProtocol
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PortProtocol -&gt; QueryString
+$ctoQuery :: PortProtocol -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329648"><span id="local-6989586621679329650"><span class="annot"><span class="annottext">Value -&gt; Parser [PortProtocol]
+Value -&gt; Parser PortProtocol
+(Value -&gt; Parser PortProtocol)
+-&gt; (Value -&gt; Parser [PortProtocol]) -&gt; FromJSON PortProtocol
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PortProtocol]
+$cparseJSONList :: Value -&gt; Parser [PortProtocol]
+parseJSON :: Value -&gt; Parser PortProtocol
+$cparseJSON :: Value -&gt; Parser PortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329643"><span id="local-6989586621679329645"><span class="annot"><span class="annottext">FromJSONKeyFunction [PortProtocol]
+FromJSONKeyFunction PortProtocol
+FromJSONKeyFunction PortProtocol
+-&gt; FromJSONKeyFunction [PortProtocol] -&gt; FromJSONKey PortProtocol
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PortProtocol]
+$cfromJSONKeyList :: FromJSONKeyFunction [PortProtocol]
+fromJSONKey :: FromJSONKeyFunction PortProtocol
+$cfromJSONKey :: FromJSONKeyFunction PortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329634"><span id="local-6989586621679329636"><span id="local-6989586621679329638"><span id="local-6989586621679329640"><span class="annot"><span class="annottext">[PortProtocol] -&gt; Encoding
+[PortProtocol] -&gt; Value
+PortProtocol -&gt; Encoding
+PortProtocol -&gt; Value
+(PortProtocol -&gt; Value)
+-&gt; (PortProtocol -&gt; Encoding)
+-&gt; ([PortProtocol] -&gt; Value)
+-&gt; ([PortProtocol] -&gt; Encoding)
+-&gt; ToJSON PortProtocol
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PortProtocol] -&gt; Encoding
+$ctoEncodingList :: [PortProtocol] -&gt; Encoding
+toJSONList :: [PortProtocol] -&gt; Value
+$ctoJSONList :: [PortProtocol] -&gt; Value
+toEncoding :: PortProtocol -&gt; Encoding
+$ctoEncoding :: PortProtocol -&gt; Encoding
+toJSON :: PortProtocol -&gt; Value
+$ctoJSON :: PortProtocol -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329629"><span id="local-6989586621679329631"><span class="annot"><span class="annottext">ToJSONKeyFunction [PortProtocol]
+ToJSONKeyFunction PortProtocol
+ToJSONKeyFunction PortProtocol
+-&gt; ToJSONKeyFunction [PortProtocol] -&gt; ToJSONKey PortProtocol
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PortProtocol]
+$ctoJSONKeyList :: ToJSONKeyFunction [PortProtocol]
+toJSONKey :: ToJSONKeyFunction PortProtocol
+$ctoJSONKey :: ToJSONKeyFunction PortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679329626"><span class="annot"><span class="annottext">[Node] -&gt; Either String PortProtocol
+([Node] -&gt; Either String PortProtocol) -&gt; FromXML PortProtocol
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PortProtocol
+$cparseXML :: [Node] -&gt; Either String PortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679329623"><span class="annot"><span class="annottext">PortProtocol -&gt; XML
+(PortProtocol -&gt; XML) -&gt; ToXML PortProtocol
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PortProtocol -&gt; XML
+$ctoXML :: PortProtocol -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol_Grpc"><span class="hs-identifier hs-type">PortProtocol_Grpc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol"><span class="hs-identifier hs-type">PortProtocol</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPortProtocol_Grpc"><span id="%24mPortProtocol_Grpc"><span id="PortProtocol_Grpc"><span class="annot"><span class="annottext">$bPortProtocol_Grpc :: PortProtocol
+$mPortProtocol_Grpc :: forall r. PortProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.PortProtocol.html#%24bPortProtocol_Grpc"><span class="hs-identifier hs-var hs-var hs-var">PortProtocol_Grpc</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol%27"><span class="hs-identifier hs-type">PortProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;grpc&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol_Http"><span class="hs-identifier hs-type">PortProtocol_Http</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol"><span class="hs-identifier hs-type">PortProtocol</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPortProtocol_Http"><span id="%24mPortProtocol_Http"><span id="PortProtocol_Http"><span class="annot"><span class="annottext">$bPortProtocol_Http :: PortProtocol
+$mPortProtocol_Http :: forall r. PortProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.PortProtocol.html#%24bPortProtocol_Http"><span class="hs-identifier hs-var hs-var hs-var">PortProtocol_Http</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol%27"><span class="hs-identifier hs-type">PortProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;http&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol_Http2"><span class="hs-identifier hs-type">PortProtocol_Http2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol"><span class="hs-identifier hs-type">PortProtocol</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPortProtocol_Http2"><span id="%24mPortProtocol_Http2"><span id="PortProtocol_Http2"><span class="annot"><span class="annottext">$bPortProtocol_Http2 :: PortProtocol
+$mPortProtocol_Http2 :: forall r. PortProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.PortProtocol.html#%24bPortProtocol_Http2"><span class="hs-identifier hs-var hs-var hs-var">PortProtocol_Http2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol%27"><span class="hs-identifier hs-type">PortProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;http2&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol_Tcp"><span class="hs-identifier hs-type">PortProtocol_Tcp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol"><span class="hs-identifier hs-type">PortProtocol</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPortProtocol_Tcp"><span id="%24mPortProtocol_Tcp"><span id="PortProtocol_Tcp"><span class="annot"><span class="annottext">$bPortProtocol_Tcp :: PortProtocol
+$mPortProtocol_Tcp :: forall r. PortProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.PortProtocol.html#%24bPortProtocol_Tcp"><span class="hs-identifier hs-var hs-var hs-var">PortProtocol_Tcp</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol%27"><span class="hs-identifier hs-type">PortProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;tcp&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol_Grpc"><span class="hs-pragma hs-type">PortProtocol_Grpc</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol_Http"><span class="hs-pragma hs-type">PortProtocol_Http</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol_Http2"><span class="hs-pragma hs-type">PortProtocol_Http2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol_Tcp"><span class="hs-pragma hs-type">PortProtocol_Tcp</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.PortProtocol.html#PortProtocol%27"><span class="hs-pragma hs-type">PortProtocol'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

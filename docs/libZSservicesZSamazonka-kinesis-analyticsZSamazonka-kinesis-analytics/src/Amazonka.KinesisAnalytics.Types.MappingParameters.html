@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalytics.Types.MappingParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.MappingParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.CSVMappingParameters.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.CSVMappingParameters</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.JSONMappingParameters.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.JSONMappingParameters</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | When configuring application input at the time of creating or updating</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- an application, provides additional mapping information specific to the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- record format (such as JSON, CSV, or record fields delimited by some</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- delimiter) on the streaming source.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newMappingParameters' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679207869"><span id="local-6989586621679207870"></span></span><span class="hs-keyword">data</span><span> </span><span id="MappingParameters"><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters"><span class="hs-identifier hs-var">MappingParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MappingParameters%27"><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters%27"><span class="hs-identifier hs-var">MappingParameters'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides additional mapping information when the record format uses</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- delimiters (for example, CSV).</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcSVMappingParameters%3AMappingParameters%27"><span class="annot"><span class="annottext">MappingParameters -&gt; Maybe CSVMappingParameters
+</span><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#%24sel%3AcSVMappingParameters%3AMappingParameters%27"><span class="hs-identifier hs-var hs-var">cSVMappingParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters"><span class="hs-identifier hs-type">CSVMappingParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Provides additional mapping information when JSON is the record format</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- on the streaming source.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AjSONMappingParameters%3AMappingParameters%27"><span class="annot"><span class="annottext">MappingParameters -&gt; Maybe JSONMappingParameters
+</span><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#%24sel%3AjSONMappingParameters%3AMappingParameters%27"><span class="hs-identifier hs-var hs-var">jSONMappingParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.JSONMappingParameters.html#JSONMappingParameters"><span class="hs-identifier hs-type">JSONMappingParameters</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207862"><span id="local-6989586621679207864"><span class="annot"><span class="annottext">MappingParameters -&gt; MappingParameters -&gt; Bool
+(MappingParameters -&gt; MappingParameters -&gt; Bool)
+-&gt; (MappingParameters -&gt; MappingParameters -&gt; Bool)
+-&gt; Eq MappingParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MappingParameters -&gt; MappingParameters -&gt; Bool
+$c/= :: MappingParameters -&gt; MappingParameters -&gt; Bool
+== :: MappingParameters -&gt; MappingParameters -&gt; Bool
+$c== :: MappingParameters -&gt; MappingParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207853"><span id="local-6989586621679207855"><span id="local-6989586621679207857"><span id="local-6989586621679207859"><span class="annot"><span class="annottext">ReadPrec [MappingParameters]
+ReadPrec MappingParameters
+Int -&gt; ReadS MappingParameters
+ReadS [MappingParameters]
+(Int -&gt; ReadS MappingParameters)
+-&gt; ReadS [MappingParameters]
+-&gt; ReadPrec MappingParameters
+-&gt; ReadPrec [MappingParameters]
+-&gt; Read MappingParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MappingParameters]
+$creadListPrec :: ReadPrec [MappingParameters]
+readPrec :: ReadPrec MappingParameters
+$creadPrec :: ReadPrec MappingParameters
+readList :: ReadS [MappingParameters]
+$creadList :: ReadS [MappingParameters]
+readsPrec :: Int -&gt; ReadS MappingParameters
+$creadsPrec :: Int -&gt; ReadS MappingParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207846"><span id="local-6989586621679207848"><span id="local-6989586621679207850"><span class="annot"><span class="annottext">Int -&gt; MappingParameters -&gt; ShowS
+[MappingParameters] -&gt; ShowS
+MappingParameters -&gt; String
+(Int -&gt; MappingParameters -&gt; ShowS)
+-&gt; (MappingParameters -&gt; String)
+-&gt; ([MappingParameters] -&gt; ShowS)
+-&gt; Show MappingParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MappingParameters] -&gt; ShowS
+$cshowList :: [MappingParameters] -&gt; ShowS
+show :: MappingParameters -&gt; String
+$cshow :: MappingParameters -&gt; String
+showsPrec :: Int -&gt; MappingParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; MappingParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MappingParameters -&gt; Rep MappingParameters x)
+-&gt; (forall x. Rep MappingParameters x -&gt; MappingParameters)
+-&gt; Generic MappingParameters
+forall x. Rep MappingParameters x -&gt; MappingParameters
+forall x. MappingParameters -&gt; Rep MappingParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MappingParameters x -&gt; MappingParameters
+$cfrom :: forall x. MappingParameters -&gt; Rep MappingParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'MappingParameters' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'cSVMappingParameters', 'mappingParameters_cSVMappingParameters' - Provides additional mapping information when the record format uses</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- delimiters (for example, CSV).</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'jSONMappingParameters', 'mappingParameters_jSONMappingParameters' - Provides additional mapping information when JSON is the record format</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- on the streaming source.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#newMappingParameters"><span class="hs-identifier hs-type">newMappingParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters"><span class="hs-identifier hs-type">MappingParameters</span></a></span><span>
+</span><span id="line-59"></span><span id="newMappingParameters"><span class="annot"><span class="annottext">newMappingParameters :: MappingParameters
+</span><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#newMappingParameters"><span class="hs-identifier hs-var hs-var">newMappingParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">MappingParameters' :: Maybe CSVMappingParameters
+-&gt; Maybe JSONMappingParameters -&gt; MappingParameters
+</span><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters%27"><span class="hs-identifier hs-type">MappingParameters'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cSVMappingParameters:MappingParameters' :: Maybe CSVMappingParameters
+</span><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#%24sel%3AcSVMappingParameters%3AMappingParameters%27"><span class="hs-identifier hs-var">cSVMappingParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe CSVMappingParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:jSONMappingParameters:MappingParameters' :: Maybe JSONMappingParameters
+</span><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#%24sel%3AjSONMappingParameters%3AMappingParameters%27"><span class="hs-identifier hs-var">jSONMappingParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JSONMappingParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Provides additional mapping information when the record format uses</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- delimiters (for example, CSV).</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#mappingParameters_cSVMappingParameters"><span class="hs-identifier hs-type">mappingParameters_cSVMappingParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters"><span class="hs-identifier hs-type">MappingParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.CSVMappingParameters.html#CSVMappingParameters"><span class="hs-identifier hs-type">CSVMappingParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="mappingParameters_cSVMappingParameters"><span class="annot"><span class="annottext">mappingParameters_cSVMappingParameters :: (Maybe CSVMappingParameters -&gt; f (Maybe CSVMappingParameters))
+-&gt; MappingParameters -&gt; f MappingParameters
+</span><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#mappingParameters_cSVMappingParameters"><span class="hs-identifier hs-var hs-var">mappingParameters_cSVMappingParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MappingParameters -&gt; Maybe CSVMappingParameters)
+-&gt; (MappingParameters
+    -&gt; Maybe CSVMappingParameters -&gt; MappingParameters)
+-&gt; Lens
+     MappingParameters
+     MappingParameters
+     (Maybe CSVMappingParameters)
+     (Maybe CSVMappingParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters%27"><span class="hs-identifier hs-type">MappingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207837"><span class="annot"><span class="annottext">Maybe CSVMappingParameters
+cSVMappingParameters :: Maybe CSVMappingParameters
+$sel:cSVMappingParameters:MappingParameters' :: MappingParameters -&gt; Maybe CSVMappingParameters
+</span><a href="#local-6989586621679207837"><span class="hs-identifier hs-var hs-var">cSVMappingParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CSVMappingParameters
+</span><a href="#local-6989586621679207837"><span class="hs-identifier hs-var">cSVMappingParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207836"><span class="annot"><span class="annottext">s :: MappingParameters
+</span><a href="#local-6989586621679207836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters%27"><span class="hs-identifier hs-type">MappingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207835"><span class="annot"><span class="annottext">Maybe CSVMappingParameters
+</span><a href="#local-6989586621679207835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingParameters
+</span><a href="#local-6989586621679207836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cSVMappingParameters:MappingParameters' :: Maybe CSVMappingParameters
+</span><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#%24sel%3AcSVMappingParameters%3AMappingParameters%27"><span class="hs-identifier hs-var">cSVMappingParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CSVMappingParameters
+</span><a href="#local-6989586621679207835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters"><span class="hs-identifier hs-type">MappingParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Provides additional mapping information when JSON is the record format</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- on the streaming source.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#mappingParameters_jSONMappingParameters"><span class="hs-identifier hs-type">mappingParameters_jSONMappingParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters"><span class="hs-identifier hs-type">MappingParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.JSONMappingParameters.html#JSONMappingParameters"><span class="hs-identifier hs-type">JSONMappingParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="mappingParameters_jSONMappingParameters"><span class="annot"><span class="annottext">mappingParameters_jSONMappingParameters :: (Maybe JSONMappingParameters -&gt; f (Maybe JSONMappingParameters))
+-&gt; MappingParameters -&gt; f MappingParameters
+</span><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#mappingParameters_jSONMappingParameters"><span class="hs-identifier hs-var hs-var">mappingParameters_jSONMappingParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MappingParameters -&gt; Maybe JSONMappingParameters)
+-&gt; (MappingParameters
+    -&gt; Maybe JSONMappingParameters -&gt; MappingParameters)
+-&gt; Lens
+     MappingParameters
+     MappingParameters
+     (Maybe JSONMappingParameters)
+     (Maybe JSONMappingParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters%27"><span class="hs-identifier hs-type">MappingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207833"><span class="annot"><span class="annottext">Maybe JSONMappingParameters
+jSONMappingParameters :: Maybe JSONMappingParameters
+$sel:jSONMappingParameters:MappingParameters' :: MappingParameters -&gt; Maybe JSONMappingParameters
+</span><a href="#local-6989586621679207833"><span class="hs-identifier hs-var hs-var">jSONMappingParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JSONMappingParameters
+</span><a href="#local-6989586621679207833"><span class="hs-identifier hs-var">jSONMappingParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207832"><span class="annot"><span class="annottext">s :: MappingParameters
+</span><a href="#local-6989586621679207832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters%27"><span class="hs-identifier hs-type">MappingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207831"><span class="annot"><span class="annottext">Maybe JSONMappingParameters
+</span><a href="#local-6989586621679207831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingParameters
+</span><a href="#local-6989586621679207832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jSONMappingParameters:MappingParameters' :: Maybe JSONMappingParameters
+</span><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#%24sel%3AjSONMappingParameters%3AMappingParameters%27"><span class="hs-identifier hs-var">jSONMappingParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JSONMappingParameters
+</span><a href="#local-6989586621679207831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters"><span class="hs-identifier hs-type">MappingParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207828"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters"><span class="hs-identifier hs-type">MappingParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679207826"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MappingParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MappingParameters)
+-&gt; Value
+-&gt; Parser MappingParameters
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MappingParameters&quot;</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207823"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207823"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe CSVMappingParameters
+-&gt; Maybe JSONMappingParameters -&gt; MappingParameters
+</span><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters%27"><span class="hs-identifier hs-var">MappingParameters'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CSVMappingParameters
+ -&gt; Maybe JSONMappingParameters -&gt; MappingParameters)
+-&gt; Parser (Maybe CSVMappingParameters)
+-&gt; Parser (Maybe JSONMappingParameters -&gt; MappingParameters)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CSVMappingParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CSVMappingParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe JSONMappingParameters -&gt; MappingParameters)
+-&gt; Parser (Maybe JSONMappingParameters) -&gt; Parser MappingParameters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JSONMappingParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JSONMappingParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207817"><span id="local-6989586621679207819"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters"><span class="hs-identifier hs-type">MappingParameters</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters"><span class="hs-identifier hs-type">MappingParameters</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207806"><span id="local-6989586621679207808"><span id="local-6989586621679207810"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters"><span class="hs-identifier hs-type">MappingParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679207804"><span class="annot"><span class="annottext">toJSON :: MappingParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.MappingParameters.html#MappingParameters%27"><span class="hs-identifier hs-type">MappingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207801"><span id="local-6989586621679207802"><span class="annot"><span class="annottext">Maybe CSVMappingParameters
+Maybe JSONMappingParameters
+jSONMappingParameters :: Maybe JSONMappingParameters
+cSVMappingParameters :: Maybe CSVMappingParameters
+$sel:jSONMappingParameters:MappingParameters' :: MappingParameters -&gt; Maybe JSONMappingParameters
+$sel:cSVMappingParameters:MappingParameters' :: MappingParameters -&gt; Maybe CSVMappingParameters
+</span><a href="#local-6989586621679207801"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CSVMappingParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CSVMappingParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(CSVMappingParameters -&gt; Pair)
+-&gt; Maybe CSVMappingParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CSVMappingParameters
+</span><a href="#local-6989586621679207802"><span class="hs-identifier hs-var">cSVMappingParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JSONMappingParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JSONMappingParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(JSONMappingParameters -&gt; Pair)
+-&gt; Maybe JSONMappingParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JSONMappingParameters
+</span><a href="#local-6989586621679207801"><span class="hs-identifier hs-var">jSONMappingParameters</span></a></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span></pre></body></html>

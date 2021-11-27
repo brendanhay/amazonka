@@ -1,0 +1,742 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MigrationHub.ListMigrationTasks</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all, or filtered by resource name, migration tasks associated with</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the user account making this call. This API has the following traits:</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- -   Can show a summary list of the most recent migration tasks.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- -   Can show a summary list of migration tasks associated with a given</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--     discovered resource.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   Lists migration tasks in a paginated interface.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MigrationHub.ListMigrationTasks</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier">ListMigrationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#newListMigrationTasks"><span class="hs-identifier">newListMigrationTasks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasks_resourceName"><span class="hs-identifier">listMigrationTasks_resourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasks_nextToken"><span class="hs-identifier">listMigrationTasks_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasks_maxResults"><span class="hs-identifier">listMigrationTasks_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse"><span class="hs-identifier">ListMigrationTasksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#newListMigrationTasksResponse"><span class="hs-identifier">newListMigrationTasksResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasksResponse_migrationTaskSummaryList"><span class="hs-identifier">listMigrationTasksResponse_migrationTaskSummaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasksResponse_nextToken"><span class="hs-identifier">listMigrationTasksResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasksResponse_httpStatus"><span class="hs-identifier">listMigrationTasksResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.Types.html"><span class="hs-identifier">Amazonka.MigrationHub.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newListMigrationTasks' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679171656"><span id="local-6989586621679171657"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMigrationTasks"><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-var">ListMigrationTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMigrationTasks%27"><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks%27"><span class="hs-identifier hs-var">ListMigrationTasks'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filter migration tasks by discovered resource name.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AresourceName%3AListMigrationTasks%27"><span class="annot"><span class="annottext">ListMigrationTasks -&gt; Maybe Text
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AresourceName%3AListMigrationTasks%27"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | If a @NextToken@ was returned by a previous call, there are more results</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AnextToken%3AListMigrationTasks%27"><span class="annot"><span class="annottext">ListMigrationTasks -&gt; Maybe Text
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AnextToken%3AListMigrationTasks%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Value to specify how many results are returned per page.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmaxResults%3AListMigrationTasks%27"><span class="annot"><span class="annottext">ListMigrationTasks -&gt; Maybe Natural
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AmaxResults%3AListMigrationTasks%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171648"><span id="local-6989586621679171650"><span class="annot"><span class="annottext">ListMigrationTasks -&gt; ListMigrationTasks -&gt; Bool
+(ListMigrationTasks -&gt; ListMigrationTasks -&gt; Bool)
+-&gt; (ListMigrationTasks -&gt; ListMigrationTasks -&gt; Bool)
+-&gt; Eq ListMigrationTasks
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListMigrationTasks -&gt; ListMigrationTasks -&gt; Bool
+$c/= :: ListMigrationTasks -&gt; ListMigrationTasks -&gt; Bool
+== :: ListMigrationTasks -&gt; ListMigrationTasks -&gt; Bool
+$c== :: ListMigrationTasks -&gt; ListMigrationTasks -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171639"><span id="local-6989586621679171641"><span id="local-6989586621679171643"><span id="local-6989586621679171645"><span class="annot"><span class="annottext">ReadPrec [ListMigrationTasks]
+ReadPrec ListMigrationTasks
+Int -&gt; ReadS ListMigrationTasks
+ReadS [ListMigrationTasks]
+(Int -&gt; ReadS ListMigrationTasks)
+-&gt; ReadS [ListMigrationTasks]
+-&gt; ReadPrec ListMigrationTasks
+-&gt; ReadPrec [ListMigrationTasks]
+-&gt; Read ListMigrationTasks
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListMigrationTasks]
+$creadListPrec :: ReadPrec [ListMigrationTasks]
+readPrec :: ReadPrec ListMigrationTasks
+$creadPrec :: ReadPrec ListMigrationTasks
+readList :: ReadS [ListMigrationTasks]
+$creadList :: ReadS [ListMigrationTasks]
+readsPrec :: Int -&gt; ReadS ListMigrationTasks
+$creadsPrec :: Int -&gt; ReadS ListMigrationTasks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171632"><span id="local-6989586621679171634"><span id="local-6989586621679171636"><span class="annot"><span class="annottext">Int -&gt; ListMigrationTasks -&gt; ShowS
+[ListMigrationTasks] -&gt; ShowS
+ListMigrationTasks -&gt; String
+(Int -&gt; ListMigrationTasks -&gt; ShowS)
+-&gt; (ListMigrationTasks -&gt; String)
+-&gt; ([ListMigrationTasks] -&gt; ShowS)
+-&gt; Show ListMigrationTasks
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListMigrationTasks] -&gt; ShowS
+$cshowList :: [ListMigrationTasks] -&gt; ShowS
+show :: ListMigrationTasks -&gt; String
+$cshow :: ListMigrationTasks -&gt; String
+showsPrec :: Int -&gt; ListMigrationTasks -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListMigrationTasks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListMigrationTasks -&gt; Rep ListMigrationTasks x)
+-&gt; (forall x. Rep ListMigrationTasks x -&gt; ListMigrationTasks)
+-&gt; Generic ListMigrationTasks
+forall x. Rep ListMigrationTasks x -&gt; ListMigrationTasks
+forall x. ListMigrationTasks -&gt; Rep ListMigrationTasks x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListMigrationTasks x -&gt; ListMigrationTasks
+$cfrom :: forall x. ListMigrationTasks -&gt; Rep ListMigrationTasks x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'ListMigrationTasks' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'resourceName', 'listMigrationTasks_resourceName' - Filter migration tasks by discovered resource name.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'nextToken', 'listMigrationTasks_nextToken' - If a @NextToken@ was returned by a previous call, there are more results</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'maxResults', 'listMigrationTasks_maxResults' - Value to specify how many results are returned per page.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#newListMigrationTasks"><span class="hs-identifier hs-type">newListMigrationTasks</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span>
+</span><span id="line-92"></span><span id="newListMigrationTasks"><span class="annot"><span class="annottext">newListMigrationTasks :: ListMigrationTasks
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#newListMigrationTasks"><span class="hs-identifier hs-var hs-var">newListMigrationTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">ListMigrationTasks' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; ListMigrationTasks
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks%27"><span class="hs-identifier hs-type">ListMigrationTasks'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceName:ListMigrationTasks' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AresourceName%3AListMigrationTasks%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListMigrationTasks' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AnextToken%3AListMigrationTasks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListMigrationTasks' :: Maybe Natural
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AmaxResults%3AListMigrationTasks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Filter migration tasks by discovered resource name.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasks_resourceName"><span class="hs-identifier hs-type">listMigrationTasks_resourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="listMigrationTasks_resourceName"><span class="annot"><span class="annottext">listMigrationTasks_resourceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListMigrationTasks -&gt; f ListMigrationTasks
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasks_resourceName"><span class="hs-identifier hs-var hs-var">listMigrationTasks_resourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMigrationTasks -&gt; Maybe Text)
+-&gt; (ListMigrationTasks -&gt; Maybe Text -&gt; ListMigrationTasks)
+-&gt; Lens
+     ListMigrationTasks ListMigrationTasks (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks%27"><span class="hs-identifier hs-type">ListMigrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171626"><span class="annot"><span class="annottext">Maybe Text
+resourceName :: Maybe Text
+$sel:resourceName:ListMigrationTasks' :: ListMigrationTasks -&gt; Maybe Text
+</span><a href="#local-6989586621679171626"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171626"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171625"><span class="annot"><span class="annottext">s :: ListMigrationTasks
+</span><a href="#local-6989586621679171625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks%27"><span class="hs-identifier hs-type">ListMigrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171624"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMigrationTasks
+</span><a href="#local-6989586621679171625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:ListMigrationTasks' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AresourceName%3AListMigrationTasks%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | If a @NextToken@ was returned by a previous call, there are more results</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- available. To retrieve the next page of results, make the call again</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- using the returned token in @NextToken@.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasks_nextToken"><span class="hs-identifier hs-type">listMigrationTasks_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="listMigrationTasks_nextToken"><span class="annot"><span class="annottext">listMigrationTasks_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListMigrationTasks -&gt; f ListMigrationTasks
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasks_nextToken"><span class="hs-identifier hs-var hs-var">listMigrationTasks_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMigrationTasks -&gt; Maybe Text)
+-&gt; (ListMigrationTasks -&gt; Maybe Text -&gt; ListMigrationTasks)
+-&gt; Lens
+     ListMigrationTasks ListMigrationTasks (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks%27"><span class="hs-identifier hs-type">ListMigrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171623"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListMigrationTasks' :: ListMigrationTasks -&gt; Maybe Text
+</span><a href="#local-6989586621679171623"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171623"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171622"><span class="annot"><span class="annottext">s :: ListMigrationTasks
+</span><a href="#local-6989586621679171622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks%27"><span class="hs-identifier hs-type">ListMigrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171621"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMigrationTasks
+</span><a href="#local-6989586621679171622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListMigrationTasks' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AnextToken%3AListMigrationTasks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Value to specify how many results are returned per page.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasks_maxResults"><span class="hs-identifier hs-type">listMigrationTasks_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="listMigrationTasks_maxResults"><span class="annot"><span class="annottext">listMigrationTasks_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListMigrationTasks -&gt; f ListMigrationTasks
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasks_maxResults"><span class="hs-identifier hs-var hs-var">listMigrationTasks_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMigrationTasks -&gt; Maybe Natural)
+-&gt; (ListMigrationTasks -&gt; Maybe Natural -&gt; ListMigrationTasks)
+-&gt; Lens
+     ListMigrationTasks
+     ListMigrationTasks
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks%27"><span class="hs-identifier hs-type">ListMigrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171620"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListMigrationTasks' :: ListMigrationTasks -&gt; Maybe Natural
+</span><a href="#local-6989586621679171620"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679171620"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171619"><span class="annot"><span class="annottext">s :: ListMigrationTasks
+</span><a href="#local-6989586621679171619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks%27"><span class="hs-identifier hs-type">ListMigrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171618"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679171618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMigrationTasks
+</span><a href="#local-6989586621679171619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListMigrationTasks' :: Maybe Natural
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AmaxResults%3AListMigrationTasks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679171618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679171614"><span class="annot"><span class="annottext">page :: ListMigrationTasks
+-&gt; AWSResponse ListMigrationTasks -&gt; Maybe ListMigrationTasks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679171612"><span class="annot"><span class="annottext">ListMigrationTasks
+</span><a href="#local-6989586621679171612"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679171611"><span class="annot"><span class="annottext">AWSResponse ListMigrationTasks
+</span><a href="#local-6989586621679171611"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListMigrationTasks
+ListMigrationTasksResponse
+</span><a href="#local-6989586621679171611"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">ListMigrationTasksResponse
+-&gt; Getting (First Text) ListMigrationTasksResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListMigrationTasksResponse
+-&gt; Const (First Text) ListMigrationTasksResponse
+Lens' ListMigrationTasksResponse (Maybe Text)
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasksResponse_nextToken"><span class="hs-identifier hs-var">listMigrationTasksResponse_nextToken</span></a></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListMigrationTasksResponse
+ -&gt; Const (First Text) ListMigrationTasksResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListMigrationTasksResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-119"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListMigrationTasks
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [MigrationTaskSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListMigrationTasks
+ListMigrationTasksResponse
+</span><a href="#local-6989586621679171611"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">ListMigrationTasksResponse
+-&gt; Getting
+     (First [MigrationTaskSummary])
+     ListMigrationTasksResponse
+     [MigrationTaskSummary]
+-&gt; Maybe [MigrationTaskSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [MigrationTaskSummary]
+ -&gt; Const
+      (First [MigrationTaskSummary]) (Maybe [MigrationTaskSummary]))
+-&gt; ListMigrationTasksResponse
+-&gt; Const (First [MigrationTaskSummary]) ListMigrationTasksResponse
+Lens' ListMigrationTasksResponse (Maybe [MigrationTaskSummary])
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasksResponse_migrationTaskSummaryList"><span class="hs-identifier hs-var">listMigrationTasksResponse_migrationTaskSummaryList</span></a></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [MigrationTaskSummary]
+  -&gt; Const
+       (First [MigrationTaskSummary]) (Maybe [MigrationTaskSummary]))
+ -&gt; ListMigrationTasksResponse
+ -&gt; Const (First [MigrationTaskSummary]) ListMigrationTasksResponse)
+-&gt; (([MigrationTaskSummary]
+     -&gt; Const (First [MigrationTaskSummary]) [MigrationTaskSummary])
+    -&gt; Maybe [MigrationTaskSummary]
+    -&gt; Const
+         (First [MigrationTaskSummary]) (Maybe [MigrationTaskSummary]))
+-&gt; Getting
+     (First [MigrationTaskSummary])
+     ListMigrationTasksResponse
+     [MigrationTaskSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([MigrationTaskSummary]
+ -&gt; Const (First [MigrationTaskSummary]) [MigrationTaskSummary])
+-&gt; Maybe [MigrationTaskSummary]
+-&gt; Const
+     (First [MigrationTaskSummary]) (Maybe [MigrationTaskSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-125"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListMigrationTasks
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">ListMigrationTasks -&gt; Maybe ListMigrationTasks
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListMigrationTasks -&gt; Maybe ListMigrationTasks)
+-&gt; ListMigrationTasks -&gt; Maybe ListMigrationTasks
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ListMigrationTasks
+</span><a href="#local-6989586621679171612"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">ListMigrationTasks
+-&gt; (ListMigrationTasks -&gt; ListMigrationTasks) -&gt; ListMigrationTasks
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListMigrationTasks -&gt; Identity ListMigrationTasks
+Lens
+  ListMigrationTasks ListMigrationTasks (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasks_nextToken"><span class="hs-identifier hs-var">listMigrationTasks_nextToken</span></a></span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListMigrationTasks -&gt; Identity ListMigrationTasks)
+-&gt; Maybe Text -&gt; ListMigrationTasks -&gt; ListMigrationTasks
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListMigrationTasks
+ListMigrationTasksResponse
+</span><a href="#local-6989586621679171611"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">ListMigrationTasksResponse
+-&gt; Getting (First Text) ListMigrationTasksResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListMigrationTasksResponse
+-&gt; Const (First Text) ListMigrationTasksResponse
+Lens' ListMigrationTasksResponse (Maybe Text)
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasksResponse_nextToken"><span class="hs-identifier hs-var">listMigrationTasksResponse_nextToken</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListMigrationTasksResponse
+ -&gt; Const (First Text) ListMigrationTasksResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListMigrationTasksResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-137"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse"><span class="hs-identifier hs-type">ListMigrationTasksResponse</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679171601"><span class="annot"><span class="annottext">request :: ListMigrationTasks -&gt; Request ListMigrationTasks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListMigrationTasks -&gt; Request ListMigrationTasks
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MigrationHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679171597"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListMigrationTasks
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListMigrationTasks)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListMigrationTasks))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListMigrationTasks
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListMigrationTasks)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171594"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171594"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679171593"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679171593"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679171592"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171592"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MigrationTaskSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListMigrationTasksResponse
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse%27"><span class="hs-identifier hs-var">ListMigrationTasksResponse'</span></a></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [MigrationTaskSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListMigrationTasksResponse)
+-&gt; Either String (Maybe [MigrationTaskSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListMigrationTasksResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [MigrationTaskSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MigrationTaskSummaryList&quot;</span></span><span>
+</span><span id="line-145"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [MigrationTaskSummary]))
+-&gt; Maybe [MigrationTaskSummary]
+-&gt; Either String (Maybe [MigrationTaskSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MigrationTaskSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-146"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListMigrationTasksResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListMigrationTasksResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListMigrationTasksResponse)
+-&gt; Either String Int -&gt; Either String ListMigrationTasksResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171594"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171583"><span id="local-6989586621679171585"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171580"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679171576"><span class="annot"><span class="annottext">toHeaders :: ListMigrationTasks -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListMigrationTasks -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSMigrationHub.ListMigrationTasks&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-162"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-166"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171566"><span id="local-6989586621679171568"><span id="local-6989586621679171570"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679171564"><span class="annot"><span class="annottext">toJSON :: ListMigrationTasks -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks%27"><span class="hs-identifier hs-type">ListMigrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171560"><span id="local-6989586621679171561"><span id="local-6989586621679171562"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+resourceName :: Maybe Text
+$sel:maxResults:ListMigrationTasks' :: ListMigrationTasks -&gt; Maybe Natural
+$sel:nextToken:ListMigrationTasks' :: ListMigrationTasks -&gt; Maybe Text
+$sel:resourceName:ListMigrationTasks' :: ListMigrationTasks -&gt; Maybe Text
+</span><a href="#local-6989586621679171560"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171562"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171561"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679171560"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679171554"><span class="annot"><span class="annottext">toPath :: ListMigrationTasks -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListMigrationTasks -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasks"><span class="hs-identifier hs-type">ListMigrationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679171550"><span class="annot"><span class="annottext">toQuery :: ListMigrationTasks -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListMigrationTasks -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | /See:/ 'newListMigrationTasksResponse' smart constructor.</span><span>
+</span><span id="line-187"></span><span id="local-6989586621679171547"><span id="local-6989586621679171548"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMigrationTasksResponse"><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse"><span class="hs-identifier hs-var">ListMigrationTasksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMigrationTasksResponse%27"><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse%27"><span class="hs-identifier hs-var">ListMigrationTasksResponse'</span></a></span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Lists the migration task\'s summary which includes: @MigrationTaskName@,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- @ProgressPercent@, @ProgressUpdateStream@, @Status@, and the</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- @UpdateDateTime@ for each task.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AmigrationTaskSummaryList%3AListMigrationTasksResponse%27"><span class="annot"><span class="annottext">ListMigrationTasksResponse -&gt; Maybe [MigrationTaskSummary]
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AmigrationTaskSummaryList%3AListMigrationTasksResponse%27"><span class="hs-identifier hs-var hs-var">migrationTaskSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MigrationHub.Types.MigrationTaskSummary.html#MigrationTaskSummary"><span class="hs-identifier hs-type">MigrationTaskSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | If there are more migration tasks than the max result, return the next</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- token to be passed to the next call as a bookmark of where to start</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- from.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AnextToken%3AListMigrationTasksResponse%27"><span class="annot"><span class="annottext">ListMigrationTasksResponse -&gt; Maybe Text
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AnextToken%3AListMigrationTasksResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListMigrationTasksResponse%27"><span class="annot"><span class="annottext">ListMigrationTasksResponse -&gt; Int
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AhttpStatus%3AListMigrationTasksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171540"><span id="local-6989586621679171542"><span class="annot"><span class="annottext">ListMigrationTasksResponse -&gt; ListMigrationTasksResponse -&gt; Bool
+(ListMigrationTasksResponse -&gt; ListMigrationTasksResponse -&gt; Bool)
+-&gt; (ListMigrationTasksResponse
+    -&gt; ListMigrationTasksResponse -&gt; Bool)
+-&gt; Eq ListMigrationTasksResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListMigrationTasksResponse -&gt; ListMigrationTasksResponse -&gt; Bool
+$c/= :: ListMigrationTasksResponse -&gt; ListMigrationTasksResponse -&gt; Bool
+== :: ListMigrationTasksResponse -&gt; ListMigrationTasksResponse -&gt; Bool
+$c== :: ListMigrationTasksResponse -&gt; ListMigrationTasksResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171532"><span id="local-6989586621679171534"><span id="local-6989586621679171536"><span id="local-6989586621679171538"><span class="annot"><span class="annottext">ReadPrec [ListMigrationTasksResponse]
+ReadPrec ListMigrationTasksResponse
+Int -&gt; ReadS ListMigrationTasksResponse
+ReadS [ListMigrationTasksResponse]
+(Int -&gt; ReadS ListMigrationTasksResponse)
+-&gt; ReadS [ListMigrationTasksResponse]
+-&gt; ReadPrec ListMigrationTasksResponse
+-&gt; ReadPrec [ListMigrationTasksResponse]
+-&gt; Read ListMigrationTasksResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListMigrationTasksResponse]
+$creadListPrec :: ReadPrec [ListMigrationTasksResponse]
+readPrec :: ReadPrec ListMigrationTasksResponse
+$creadPrec :: ReadPrec ListMigrationTasksResponse
+readList :: ReadS [ListMigrationTasksResponse]
+$creadList :: ReadS [ListMigrationTasksResponse]
+readsPrec :: Int -&gt; ReadS ListMigrationTasksResponse
+$creadsPrec :: Int -&gt; ReadS ListMigrationTasksResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171526"><span id="local-6989586621679171528"><span id="local-6989586621679171530"><span class="annot"><span class="annottext">Int -&gt; ListMigrationTasksResponse -&gt; ShowS
+[ListMigrationTasksResponse] -&gt; ShowS
+ListMigrationTasksResponse -&gt; String
+(Int -&gt; ListMigrationTasksResponse -&gt; ShowS)
+-&gt; (ListMigrationTasksResponse -&gt; String)
+-&gt; ([ListMigrationTasksResponse] -&gt; ShowS)
+-&gt; Show ListMigrationTasksResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListMigrationTasksResponse] -&gt; ShowS
+$cshowList :: [ListMigrationTasksResponse] -&gt; ShowS
+show :: ListMigrationTasksResponse -&gt; String
+$cshow :: ListMigrationTasksResponse -&gt; String
+showsPrec :: Int -&gt; ListMigrationTasksResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListMigrationTasksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListMigrationTasksResponse -&gt; Rep ListMigrationTasksResponse x)
+-&gt; (forall x.
+    Rep ListMigrationTasksResponse x -&gt; ListMigrationTasksResponse)
+-&gt; Generic ListMigrationTasksResponse
+forall x.
+Rep ListMigrationTasksResponse x -&gt; ListMigrationTasksResponse
+forall x.
+ListMigrationTasksResponse -&gt; Rep ListMigrationTasksResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListMigrationTasksResponse x -&gt; ListMigrationTasksResponse
+$cfrom :: forall x.
+ListMigrationTasksResponse -&gt; Rep ListMigrationTasksResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Create a value of 'ListMigrationTasksResponse' with all optional fields omitted.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'migrationTaskSummaryList', 'listMigrationTasksResponse_migrationTaskSummaryList' - Lists the migration task\'s summary which includes: @MigrationTaskName@,</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- @ProgressPercent@, @ProgressUpdateStream@, @Status@, and the</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- @UpdateDateTime@ for each task.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'nextToken', 'listMigrationTasksResponse_nextToken' - If there are more migration tasks than the max result, return the next</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- token to be passed to the next call as a bookmark of where to start</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- from.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'httpStatus', 'listMigrationTasksResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#newListMigrationTasksResponse"><span class="hs-identifier hs-type">newListMigrationTasksResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse"><span class="hs-identifier hs-type">ListMigrationTasksResponse</span></a></span><span>
+</span><span id="line-222"></span><span id="newListMigrationTasksResponse"><span class="annot"><span class="annottext">newListMigrationTasksResponse :: Int -&gt; ListMigrationTasksResponse
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#newListMigrationTasksResponse"><span class="hs-identifier hs-var hs-var">newListMigrationTasksResponse</span></a></span></span><span> </span><span id="local-6989586621679171523"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171523"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><span class="annottext">ListMigrationTasksResponse' :: Maybe [MigrationTaskSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListMigrationTasksResponse
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse%27"><span class="hs-identifier hs-type">ListMigrationTasksResponse'</span></a></span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:migrationTaskSummaryList:ListMigrationTasksResponse' :: Maybe [MigrationTaskSummary]
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AmigrationTaskSummaryList%3AListMigrationTasksResponse%27"><span class="hs-identifier hs-var">migrationTaskSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">Maybe [MigrationTaskSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListMigrationTasksResponse' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AnextToken%3AListMigrationTasksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListMigrationTasksResponse' :: Int
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AhttpStatus%3AListMigrationTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171523"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | Lists the migration task\'s summary which includes: @MigrationTaskName@,</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- @ProgressPercent@, @ProgressUpdateStream@, @Status@, and the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- @UpdateDateTime@ for each task.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasksResponse_migrationTaskSummaryList"><span class="hs-identifier hs-type">listMigrationTasksResponse_migrationTaskSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse"><span class="hs-identifier hs-type">ListMigrationTasksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MigrationHub.Types.MigrationTaskSummary.html#MigrationTaskSummary"><span class="hs-identifier hs-type">MigrationTaskSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="listMigrationTasksResponse_migrationTaskSummaryList"><span class="annot"><span class="annottext">listMigrationTasksResponse_migrationTaskSummaryList :: (Maybe [MigrationTaskSummary] -&gt; f (Maybe [MigrationTaskSummary]))
+-&gt; ListMigrationTasksResponse -&gt; f ListMigrationTasksResponse
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasksResponse_migrationTaskSummaryList"><span class="hs-identifier hs-var hs-var">listMigrationTasksResponse_migrationTaskSummaryList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMigrationTasksResponse -&gt; Maybe [MigrationTaskSummary])
+-&gt; (ListMigrationTasksResponse
+    -&gt; Maybe [MigrationTaskSummary] -&gt; ListMigrationTasksResponse)
+-&gt; Lens' ListMigrationTasksResponse (Maybe [MigrationTaskSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse%27"><span class="hs-identifier hs-type">ListMigrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171522"><span class="annot"><span class="annottext">Maybe [MigrationTaskSummary]
+migrationTaskSummaryList :: Maybe [MigrationTaskSummary]
+$sel:migrationTaskSummaryList:ListMigrationTasksResponse' :: ListMigrationTasksResponse -&gt; Maybe [MigrationTaskSummary]
+</span><a href="#local-6989586621679171522"><span class="hs-identifier hs-var hs-var">migrationTaskSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MigrationTaskSummary]
+</span><a href="#local-6989586621679171522"><span class="hs-identifier hs-var">migrationTaskSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171521"><span class="annot"><span class="annottext">s :: ListMigrationTasksResponse
+</span><a href="#local-6989586621679171521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse%27"><span class="hs-identifier hs-type">ListMigrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171520"><span class="annot"><span class="annottext">Maybe [MigrationTaskSummary]
+</span><a href="#local-6989586621679171520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMigrationTasksResponse
+</span><a href="#local-6989586621679171521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationTaskSummaryList:ListMigrationTasksResponse' :: Maybe [MigrationTaskSummary]
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AmigrationTaskSummaryList%3AListMigrationTasksResponse%27"><span class="hs-identifier hs-var">migrationTaskSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MigrationTaskSummary]
+</span><a href="#local-6989586621679171520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse"><span class="hs-identifier hs-type">ListMigrationTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MigrationTaskSummary] -&gt; f (Maybe [MigrationTaskSummary]))
+ -&gt; ListMigrationTasksResponse -&gt; f ListMigrationTasksResponse)
+-&gt; ((Maybe [MigrationTaskSummary]
+     -&gt; f (Maybe [MigrationTaskSummary]))
+    -&gt; Maybe [MigrationTaskSummary]
+    -&gt; f (Maybe [MigrationTaskSummary]))
+-&gt; (Maybe [MigrationTaskSummary]
+    -&gt; f (Maybe [MigrationTaskSummary]))
+-&gt; ListMigrationTasksResponse
+-&gt; f ListMigrationTasksResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MigrationTaskSummary]
+  [MigrationTaskSummary]
+  [MigrationTaskSummary]
+  [MigrationTaskSummary]
+-&gt; Iso
+     (Maybe [MigrationTaskSummary])
+     (Maybe [MigrationTaskSummary])
+     (Maybe [MigrationTaskSummary])
+     (Maybe [MigrationTaskSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MigrationTaskSummary]
+  [MigrationTaskSummary]
+  [MigrationTaskSummary]
+  [MigrationTaskSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | If there are more migration tasks than the max result, return the next</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- token to be passed to the next call as a bookmark of where to start</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- from.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasksResponse_nextToken"><span class="hs-identifier hs-type">listMigrationTasksResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse"><span class="hs-identifier hs-type">ListMigrationTasksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="listMigrationTasksResponse_nextToken"><span class="annot"><span class="annottext">listMigrationTasksResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListMigrationTasksResponse -&gt; f ListMigrationTasksResponse
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasksResponse_nextToken"><span class="hs-identifier hs-var hs-var">listMigrationTasksResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMigrationTasksResponse -&gt; Maybe Text)
+-&gt; (ListMigrationTasksResponse
+    -&gt; Maybe Text -&gt; ListMigrationTasksResponse)
+-&gt; Lens' ListMigrationTasksResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse%27"><span class="hs-identifier hs-type">ListMigrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171517"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListMigrationTasksResponse' :: ListMigrationTasksResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679171517"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171517"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171516"><span class="annot"><span class="annottext">s :: ListMigrationTasksResponse
+</span><a href="#local-6989586621679171516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse%27"><span class="hs-identifier hs-type">ListMigrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171515"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMigrationTasksResponse
+</span><a href="#local-6989586621679171516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListMigrationTasksResponse' :: Maybe Text
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AnextToken%3AListMigrationTasksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse"><span class="hs-identifier hs-type">ListMigrationTasksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasksResponse_httpStatus"><span class="hs-identifier hs-type">listMigrationTasksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse"><span class="hs-identifier hs-type">ListMigrationTasksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-244"></span><span id="listMigrationTasksResponse_httpStatus"><span class="annot"><span class="annottext">listMigrationTasksResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListMigrationTasksResponse -&gt; f ListMigrationTasksResponse
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#listMigrationTasksResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listMigrationTasksResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListMigrationTasksResponse -&gt; Int)
+-&gt; (ListMigrationTasksResponse
+    -&gt; Int -&gt; ListMigrationTasksResponse)
+-&gt; Lens
+     ListMigrationTasksResponse ListMigrationTasksResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse%27"><span class="hs-identifier hs-type">ListMigrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171514"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListMigrationTasksResponse' :: ListMigrationTasksResponse -&gt; Int
+</span><a href="#local-6989586621679171514"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171514"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171513"><span class="annot"><span class="annottext">s :: ListMigrationTasksResponse
+</span><a href="#local-6989586621679171513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse%27"><span class="hs-identifier hs-type">ListMigrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171512"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMigrationTasksResponse
+</span><a href="#local-6989586621679171513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListMigrationTasksResponse' :: Int
+</span><a href="Amazonka.MigrationHub.ListMigrationTasks.html#%24sel%3AhttpStatus%3AListMigrationTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse"><span class="hs-identifier hs-type">ListMigrationTasksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MigrationHub.ListMigrationTasks.html#ListMigrationTasksResponse"><span class="hs-identifier hs-type">ListMigrationTasksResponse</span></a></span></span><span>
+</span><span id="line-247"></span></pre></body></html>

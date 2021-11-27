@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.DeleteOptionGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an existing option group.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.DeleteOptionGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier">DeleteOptionGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#newDeleteOptionGroup"><span class="hs-identifier">newDeleteOptionGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#deleteOptionGroup_optionGroupName"><span class="hs-identifier">deleteOptionGroup_optionGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse"><span class="hs-identifier">DeleteOptionGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#newDeleteOptionGroupResponse"><span class="hs-identifier">newDeleteOptionGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newDeleteOptionGroup' smart constructor.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679796878"><span id="local-6989586621679796879"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOptionGroup"><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-var">DeleteOptionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOptionGroup%27"><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-var">DeleteOptionGroup'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the option group to be deleted.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- You can\'t delete default option groups.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AoptionGroupName%3ADeleteOptionGroup%27"><span class="annot"><span class="annottext">DeleteOptionGroup -&gt; Text
+</span><a href="Amazonka.RDS.DeleteOptionGroup.html#%24sel%3AoptionGroupName%3ADeleteOptionGroup%27"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679796872"><span id="local-6989586621679796874"><span class="annot"><span class="annottext">DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool
+(DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool)
+-&gt; (DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool)
+-&gt; Eq DeleteOptionGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool
+$c/= :: DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool
+== :: DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool
+$c== :: DeleteOptionGroup -&gt; DeleteOptionGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796863"><span id="local-6989586621679796865"><span id="local-6989586621679796867"><span id="local-6989586621679796869"><span class="annot"><span class="annottext">ReadPrec [DeleteOptionGroup]
+ReadPrec DeleteOptionGroup
+Int -&gt; ReadS DeleteOptionGroup
+ReadS [DeleteOptionGroup]
+(Int -&gt; ReadS DeleteOptionGroup)
+-&gt; ReadS [DeleteOptionGroup]
+-&gt; ReadPrec DeleteOptionGroup
+-&gt; ReadPrec [DeleteOptionGroup]
+-&gt; Read DeleteOptionGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteOptionGroup]
+$creadListPrec :: ReadPrec [DeleteOptionGroup]
+readPrec :: ReadPrec DeleteOptionGroup
+$creadPrec :: ReadPrec DeleteOptionGroup
+readList :: ReadS [DeleteOptionGroup]
+$creadList :: ReadS [DeleteOptionGroup]
+readsPrec :: Int -&gt; ReadS DeleteOptionGroup
+$creadsPrec :: Int -&gt; ReadS DeleteOptionGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796856"><span id="local-6989586621679796858"><span id="local-6989586621679796860"><span class="annot"><span class="annottext">Int -&gt; DeleteOptionGroup -&gt; ShowS
+[DeleteOptionGroup] -&gt; ShowS
+DeleteOptionGroup -&gt; String
+(Int -&gt; DeleteOptionGroup -&gt; ShowS)
+-&gt; (DeleteOptionGroup -&gt; String)
+-&gt; ([DeleteOptionGroup] -&gt; ShowS)
+-&gt; Show DeleteOptionGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteOptionGroup] -&gt; ShowS
+$cshowList :: [DeleteOptionGroup] -&gt; ShowS
+show :: DeleteOptionGroup -&gt; String
+$cshow :: DeleteOptionGroup -&gt; String
+showsPrec :: Int -&gt; DeleteOptionGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteOptionGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteOptionGroup -&gt; Rep DeleteOptionGroup x)
+-&gt; (forall x. Rep DeleteOptionGroup x -&gt; DeleteOptionGroup)
+-&gt; Generic DeleteOptionGroup
+forall x. Rep DeleteOptionGroup x -&gt; DeleteOptionGroup
+forall x. DeleteOptionGroup -&gt; Rep DeleteOptionGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteOptionGroup x -&gt; DeleteOptionGroup
+$cfrom :: forall x. DeleteOptionGroup -&gt; Rep DeleteOptionGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'DeleteOptionGroup' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'optionGroupName', 'deleteOptionGroup_optionGroupName' - The name of the option group to be deleted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- You can\'t delete default option groups.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#newDeleteOptionGroup"><span class="hs-identifier hs-type">newDeleteOptionGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'optionGroupName'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span>
+</span><span id="line-71"></span><span id="newDeleteOptionGroup"><span class="annot"><span class="annottext">newDeleteOptionGroup :: Text -&gt; DeleteOptionGroup
+</span><a href="Amazonka.RDS.DeleteOptionGroup.html#newDeleteOptionGroup"><span class="hs-identifier hs-var hs-var">newDeleteOptionGroup</span></a></span></span><span> </span><span id="local-6989586621679796851"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796851"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteOptionGroup' :: Text -&gt; DeleteOptionGroup
+</span><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-type">DeleteOptionGroup'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:optionGroupName:DeleteOptionGroup' :: Text
+</span><a href="Amazonka.RDS.DeleteOptionGroup.html#%24sel%3AoptionGroupName%3ADeleteOptionGroup%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796851"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The name of the option group to be deleted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- You can\'t delete default option groups.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#deleteOptionGroup_optionGroupName"><span class="hs-identifier hs-type">deleteOptionGroup_optionGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="deleteOptionGroup_optionGroupName"><span class="annot"><span class="annottext">deleteOptionGroup_optionGroupName :: (Text -&gt; f Text) -&gt; DeleteOptionGroup -&gt; f DeleteOptionGroup
+</span><a href="Amazonka.RDS.DeleteOptionGroup.html#deleteOptionGroup_optionGroupName"><span class="hs-identifier hs-var hs-var">deleteOptionGroup_optionGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteOptionGroup -&gt; Text)
+-&gt; (DeleteOptionGroup -&gt; Text -&gt; DeleteOptionGroup)
+-&gt; Lens DeleteOptionGroup DeleteOptionGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-type">DeleteOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796848"><span class="annot"><span class="annottext">Text
+optionGroupName :: Text
+$sel:optionGroupName:DeleteOptionGroup' :: DeleteOptionGroup -&gt; Text
+</span><a href="#local-6989586621679796848"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796848"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796847"><span class="annot"><span class="annottext">s :: DeleteOptionGroup
+</span><a href="#local-6989586621679796847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-type">DeleteOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796846"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOptionGroup
+</span><a href="#local-6989586621679796847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupName:DeleteOptionGroup' :: Text
+</span><a href="Amazonka.RDS.DeleteOptionGroup.html#%24sel%3AoptionGroupName%3ADeleteOptionGroup%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse"><span class="hs-identifier hs-type">DeleteOptionGroupResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679796842"><span class="annot"><span class="annottext">request :: DeleteOptionGroup -&gt; Request DeleteOptionGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteOptionGroup -&gt; Request DeleteOptionGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679796838"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteOptionGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteOptionGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteOptionGroup
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteOptionGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteOptionGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteOptionGroup
+DeleteOptionGroupResponse
+</span><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse%27"><span class="hs-identifier hs-var">DeleteOptionGroupResponse'</span></a></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796831"><span id="local-6989586621679796833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679796824"><span class="annot"><span class="annottext">toHeaders :: DeleteOptionGroup -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteOptionGroup -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679796819"><span class="annot"><span class="annottext">toPath :: DeleteOptionGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteOptionGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup"><span class="hs-identifier hs-type">DeleteOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679796815"><span class="annot"><span class="annottext">toQuery :: DeleteOptionGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroup%27"><span class="hs-identifier hs-type">DeleteOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796813"><span class="annot"><span class="annottext">Text
+optionGroupName :: Text
+$sel:optionGroupName:DeleteOptionGroup' :: DeleteOptionGroup -&gt; Text
+</span><a href="#local-6989586621679796813"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteOptionGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OptionGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796813"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newDeleteOptionGroupResponse' smart constructor.</span><span>
+</span><span id="line-112"></span><span id="local-6989586621679796810"><span id="local-6989586621679796811"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOptionGroupResponse"><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse"><span class="hs-identifier hs-var">DeleteOptionGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOptionGroupResponse%27"><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse%27"><span class="hs-identifier hs-var">DeleteOptionGroupResponse'</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679796806"><span id="local-6989586621679796808"><span class="annot"><span class="annottext">DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool
+(DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool)
+-&gt; (DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool)
+-&gt; Eq DeleteOptionGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool
+$c/= :: DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool
+== :: DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool
+$c== :: DeleteOptionGroupResponse -&gt; DeleteOptionGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796798"><span id="local-6989586621679796800"><span id="local-6989586621679796802"><span id="local-6989586621679796804"><span class="annot"><span class="annottext">ReadPrec [DeleteOptionGroupResponse]
+ReadPrec DeleteOptionGroupResponse
+Int -&gt; ReadS DeleteOptionGroupResponse
+ReadS [DeleteOptionGroupResponse]
+(Int -&gt; ReadS DeleteOptionGroupResponse)
+-&gt; ReadS [DeleteOptionGroupResponse]
+-&gt; ReadPrec DeleteOptionGroupResponse
+-&gt; ReadPrec [DeleteOptionGroupResponse]
+-&gt; Read DeleteOptionGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteOptionGroupResponse]
+$creadListPrec :: ReadPrec [DeleteOptionGroupResponse]
+readPrec :: ReadPrec DeleteOptionGroupResponse
+$creadPrec :: ReadPrec DeleteOptionGroupResponse
+readList :: ReadS [DeleteOptionGroupResponse]
+$creadList :: ReadS [DeleteOptionGroupResponse]
+readsPrec :: Int -&gt; ReadS DeleteOptionGroupResponse
+$creadsPrec :: Int -&gt; ReadS DeleteOptionGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796792"><span id="local-6989586621679796794"><span id="local-6989586621679796796"><span class="annot"><span class="annottext">Int -&gt; DeleteOptionGroupResponse -&gt; ShowS
+[DeleteOptionGroupResponse] -&gt; ShowS
+DeleteOptionGroupResponse -&gt; String
+(Int -&gt; DeleteOptionGroupResponse -&gt; ShowS)
+-&gt; (DeleteOptionGroupResponse -&gt; String)
+-&gt; ([DeleteOptionGroupResponse] -&gt; ShowS)
+-&gt; Show DeleteOptionGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteOptionGroupResponse] -&gt; ShowS
+$cshowList :: [DeleteOptionGroupResponse] -&gt; ShowS
+show :: DeleteOptionGroupResponse -&gt; String
+$cshow :: DeleteOptionGroupResponse -&gt; String
+showsPrec :: Int -&gt; DeleteOptionGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteOptionGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteOptionGroupResponse -&gt; Rep DeleteOptionGroupResponse x)
+-&gt; (forall x.
+    Rep DeleteOptionGroupResponse x -&gt; DeleteOptionGroupResponse)
+-&gt; Generic DeleteOptionGroupResponse
+forall x.
+Rep DeleteOptionGroupResponse x -&gt; DeleteOptionGroupResponse
+forall x.
+DeleteOptionGroupResponse -&gt; Rep DeleteOptionGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteOptionGroupResponse x -&gt; DeleteOptionGroupResponse
+$cfrom :: forall x.
+DeleteOptionGroupResponse -&gt; Rep DeleteOptionGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Create a value of 'DeleteOptionGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#newDeleteOptionGroupResponse"><span class="hs-identifier hs-type">newDeleteOptionGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse"><span class="hs-identifier hs-type">DeleteOptionGroupResponse</span></a></span><span>
+</span><span id="line-123"></span><span id="newDeleteOptionGroupResponse"><span class="annot"><span class="annottext">newDeleteOptionGroupResponse :: DeleteOptionGroupResponse
+</span><a href="Amazonka.RDS.DeleteOptionGroup.html#newDeleteOptionGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteOptionGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">DeleteOptionGroupResponse
+</span><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse%27"><span class="hs-identifier hs-var">DeleteOptionGroupResponse'</span></a></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796788"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DeleteOptionGroup.html#DeleteOptionGroupResponse"><span class="hs-identifier hs-type">DeleteOptionGroupResponse</span></a></span></span><span>
+</span><span id="line-127"></span></pre></body></html>

@@ -5,34 +5,34 @@
 @version 2.0
 
 
-module Network.AWS.CodeGuruReviewer.Types.AnalysisType
+module Amazonka.CodeGuruReviewer.Types.AnalysisType
 newtype AnalysisType
 AnalysisType' :: Text -> AnalysisType
 [fromAnalysisType] :: AnalysisType -> Text
 pattern AnalysisType_CodeQuality :: AnalysisType
 pattern AnalysisType_Security :: AnalysisType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance GHC.Classes.Ord Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance GHC.Classes.Ord Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.AnalysisType.AnalysisType
 
 
-module Network.AWS.CodeGuruReviewer.Types.BranchDiffSourceCodeType
+module Amazonka.CodeGuruReviewer.Types.BranchDiffSourceCodeType
 
 -- | A type of <a>SourceCodeType</a> that specifies a code diff between a
 --   source and destination branch in an associated repository.
@@ -70,17 +70,17 @@ branchDiffSourceCodeType_sourceBranchName :: Lens' BranchDiffSourceCodeType Text
 
 -- | The destination branch for a diff in an associated repository.
 branchDiffSourceCodeType_destinationBranchName :: Lens' BranchDiffSourceCodeType Text
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.BranchDiffSourceCodeType.BranchDiffSourceCodeType
 
 
-module Network.AWS.CodeGuruReviewer.Types.CodeArtifacts
+module Amazonka.CodeGuruReviewer.Types.CodeArtifacts
 
 -- | Code artifacts are source code artifacts and build artifacts used in a
 --   repository analysis or a pull request review.
@@ -138,17 +138,17 @@ codeArtifacts_buildArtifactsObjectKey :: Lens' CodeArtifacts (Maybe Text)
 -- | The S3 object key for a source code .zip file. This is required for
 --   all code reviews.
 codeArtifacts_sourceCodeArtifactsObjectKey :: Lens' CodeArtifacts Text
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.CodeArtifacts.CodeArtifacts
 
 
-module Network.AWS.CodeGuruReviewer.Types.CodeCommitRepository
+module Amazonka.CodeGuruReviewer.Types.CodeCommitRepository
 
 -- | Information about an Amazon Web Services CodeCommit repository. The
 --   CodeCommit repository must be in the same Amazon Web Services Region
@@ -183,16 +183,16 @@ newCodeCommitRepository :: Text -> CodeCommitRepository
 --   information, see <a>repositoryName</a> in the <i>Amazon Web Services
 --   CodeCommit API Reference</i>.
 codeCommitRepository_name :: Lens' CodeCommitRepository Text
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.CodeCommitRepository.CodeCommitRepository
 
 
-module Network.AWS.CodeGuruReviewer.Types.CommitDiffSourceCodeType
+module Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType
 
 -- | A type of <a>SourceCodeType</a> that specifies the commit diff for a
 --   pull request on an associated repository. The <tt>SourceCommit</tt>
@@ -248,44 +248,44 @@ commitDiffSourceCodeType_mergeBaseCommit :: Lens' CommitDiffSourceCodeType (Mayb
 -- | The SHA of the destination commit used to generate a commit diff. This
 --   field is required for a pull request code review.
 commitDiffSourceCodeType_destinationCommit :: Lens' CommitDiffSourceCodeType (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType.CommitDiffSourceCodeType
 
 
-module Network.AWS.CodeGuruReviewer.Types.EncryptionOption
+module Amazonka.CodeGuruReviewer.Types.EncryptionOption
 newtype EncryptionOption
 EncryptionOption' :: Text -> EncryptionOption
 [fromEncryptionOption] :: EncryptionOption -> Text
 pattern EncryptionOption_AWS_OWNED_CMK :: EncryptionOption
 pattern EncryptionOption_CUSTOMER_MANAGED_CMK :: EncryptionOption
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance GHC.Classes.Ord Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance GHC.Classes.Ord Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.EncryptionOption.EncryptionOption
 
 
-module Network.AWS.CodeGuruReviewer.Types.EventInfo
+module Amazonka.CodeGuruReviewer.Types.EventInfo
 
 -- | Information about an event. The event might be a push, pull request,
 --   scheduled request, or another type of event.
@@ -325,17 +325,17 @@ eventInfo_state :: Lens' EventInfo (Maybe Text)
 -- | The name of the event. The possible names are <tt>pull_request</tt>,
 --   <tt>workflow_dispatch</tt>, <tt>schedule</tt>, and <tt>push</tt>
 eventInfo_name :: Lens' EventInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.EventInfo.EventInfo
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.EventInfo.EventInfo
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.EventInfo.EventInfo
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.EventInfo.EventInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.EventInfo.EventInfo
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.EventInfo.EventInfo
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.EventInfo.EventInfo
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.EventInfo.EventInfo
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.EventInfo.EventInfo
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.EventInfo.EventInfo
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.EventInfo.EventInfo
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.EventInfo.EventInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.EventInfo.EventInfo
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.EventInfo.EventInfo
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.EventInfo.EventInfo
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.EventInfo.EventInfo
 
 
-module Network.AWS.CodeGuruReviewer.Types.JobState
+module Amazonka.CodeGuruReviewer.Types.JobState
 newtype JobState
 JobState' :: Text -> JobState
 [fromJobState] :: JobState -> Text
@@ -343,28 +343,28 @@ pattern JobState_Completed :: JobState
 pattern JobState_Deleting :: JobState
 pattern JobState_Failed :: JobState
 pattern JobState_Pending :: JobState
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance GHC.Classes.Ord Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.JobState.JobState
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.JobState.JobState
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance GHC.Classes.Ord Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.JobState.JobState
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.JobState.JobState
 
 
-module Network.AWS.CodeGuruReviewer.Types.KMSKeyDetails
+module Amazonka.CodeGuruReviewer.Types.KMSKeyDetails
 
 -- | An object that contains:
 --   
@@ -420,17 +420,17 @@ kmsKeyDetails_encryptionOption :: Lens' KMSKeyDetails (Maybe EncryptionOption)
 -- | The ID of the Amazon Web Services KMS key that is associated with a
 --   respository association.
 kmsKeyDetails_kmsKeyId :: Lens' KMSKeyDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.KMSKeyDetails.KMSKeyDetails
 
 
-module Network.AWS.CodeGuruReviewer.Types.Metrics
+module Amazonka.CodeGuruReviewer.Types.Metrics
 
 -- | Information about the statistics from the code review.
 --   
@@ -471,16 +471,16 @@ metrics_findingsCount :: Lens' Metrics (Maybe Integer)
 --   repository where the code review happened. This does not include
 --   non-code lines such as comments and blank lines.
 metrics_meteredLinesOfCodeCount :: Lens' Metrics (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.Metrics.Metrics
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.Metrics.Metrics
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.Metrics.Metrics
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.Metrics.Metrics
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.Metrics.Metrics
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.Metrics.Metrics
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.Metrics.Metrics
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.Metrics.Metrics
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.Metrics.Metrics
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.Metrics.Metrics
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.Metrics.Metrics
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.Metrics.Metrics
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.Metrics.Metrics
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.Metrics.Metrics
 
 
-module Network.AWS.CodeGuruReviewer.Types.MetricsSummary
+module Amazonka.CodeGuruReviewer.Types.MetricsSummary
 
 -- | Information about metrics summaries.
 --   
@@ -550,16 +550,16 @@ metricsSummary_findingsCount :: Lens' MetricsSummary (Maybe Integer)
 --   * 500 = 2,500 lines), the new file (200 lines) and the 25 changed
 --   lines of code for a total of 2,725 lines of code.
 metricsSummary_meteredLinesOfCodeCount :: Lens' MetricsSummary (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.MetricsSummary.MetricsSummary
 
 
-module Network.AWS.CodeGuruReviewer.Types.ProviderType
+module Amazonka.CodeGuruReviewer.Types.ProviderType
 newtype ProviderType
 ProviderType' :: Text -> ProviderType
 [fromProviderType] :: ProviderType -> Text
@@ -568,55 +568,55 @@ pattern ProviderType_CodeCommit :: ProviderType
 pattern ProviderType_GitHub :: ProviderType
 pattern ProviderType_GitHubEnterpriseServer :: ProviderType
 pattern ProviderType_S3Bucket :: ProviderType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance GHC.Classes.Ord Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance GHC.Classes.Ord Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.ProviderType.ProviderType
 
 
-module Network.AWS.CodeGuruReviewer.Types.Reaction
+module Amazonka.CodeGuruReviewer.Types.Reaction
 newtype Reaction
 Reaction' :: Text -> Reaction
 [fromReaction] :: Reaction -> Text
 pattern Reaction_ThumbsDown :: Reaction
 pattern Reaction_ThumbsUp :: Reaction
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance GHC.Classes.Ord Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.Reaction.Reaction
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance GHC.Classes.Ord Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.Reaction.Reaction
 
 
-module Network.AWS.CodeGuruReviewer.Types.RecommendationCategory
+module Amazonka.CodeGuruReviewer.Types.RecommendationCategory
 newtype RecommendationCategory
 RecommendationCategory' :: Text -> RecommendationCategory
 [fromRecommendationCategory] :: RecommendationCategory -> Text
@@ -631,28 +631,28 @@ pattern RecommendationCategory_JavaBestPractices :: RecommendationCategory
 pattern RecommendationCategory_PythonBestPractices :: RecommendationCategory
 pattern RecommendationCategory_ResourceLeaks :: RecommendationCategory
 pattern RecommendationCategory_SecurityIssues :: RecommendationCategory
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance GHC.Classes.Ord Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance GHC.Classes.Ord Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.RecommendationCategory.RecommendationCategory
 
 
-module Network.AWS.CodeGuruReviewer.Types.RecommendationFeedback
+module Amazonka.CodeGuruReviewer.Types.RecommendationFeedback
 
 -- | Information about the recommendation feedback.
 --   
@@ -750,16 +750,16 @@ recommendationFeedback_createdTimeStamp :: Lens' RecommendationFeedback (Maybe U
 
 -- | The time at which the feedback was last updated.
 recommendationFeedback_lastUpdatedTimeStamp :: Lens' RecommendationFeedback (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.RecommendationFeedback.RecommendationFeedback
 
 
-module Network.AWS.CodeGuruReviewer.Types.RecommendationFeedbackSummary
+module Amazonka.CodeGuruReviewer.Types.RecommendationFeedbackSummary
 
 -- | Information about recommendation feedback summaries.
 --   
@@ -824,16 +824,16 @@ recommendationFeedbackSummary_userId :: Lens' RecommendationFeedbackSummary (May
 
 -- | List for storing reactions. Reactions are utf-8 text code for emojis.
 recommendationFeedbackSummary_reactions :: Lens' RecommendationFeedbackSummary (Maybe [Reaction])
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.RecommendationFeedbackSummary.RecommendationFeedbackSummary
 
 
-module Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState
+module Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState
 newtype RepositoryAssociationState
 RepositoryAssociationState' :: Text -> RepositoryAssociationState
 [fromRepositoryAssociationState] :: RepositoryAssociationState -> Text
@@ -842,28 +842,28 @@ pattern RepositoryAssociationState_Associating :: RepositoryAssociationState
 pattern RepositoryAssociationState_Disassociated :: RepositoryAssociationState
 pattern RepositoryAssociationState_Disassociating :: RepositoryAssociationState
 pattern RepositoryAssociationState_Failed :: RepositoryAssociationState
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance GHC.Classes.Ord Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance GHC.Classes.Ord Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState.RepositoryAssociationState
 
 
-module Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationSummary
+module Amazonka.CodeGuruReviewer.Types.RepositoryAssociationSummary
 
 -- | Summary information about a repository association. The
 --   <a>ListRepositoryAssociations</a> operation returns a list of
@@ -1078,16 +1078,16 @@ repositoryAssociationSummary_connectionArn :: Lens' RepositoryAssociationSummary
 -- | The time, in milliseconds since the epoch, since the repository
 --   association was last updated.
 repositoryAssociationSummary_lastUpdatedTimeStamp :: Lens' RepositoryAssociationSummary (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.RepositoryAssociationSummary.RepositoryAssociationSummary
 
 
-module Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType
+module Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType
 
 -- | A <a>SourceCodeType</a> that specifies the tip of a branch in an
 --   associated repository.
@@ -1121,17 +1121,17 @@ newRepositoryHeadSourceCodeType :: Text -> RepositoryHeadSourceCodeType
 --   <tt>RepositoryHeadSourceCodeType</tt> specifies the tip of this
 --   branch.
 repositoryHeadSourceCodeType_branchName :: Lens' RepositoryHeadSourceCodeType Text
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.RepositoryHeadSourceCodeType
 
 
-module Network.AWS.CodeGuruReviewer.Types.RuleMetadata
+module Amazonka.CodeGuruReviewer.Types.RuleMetadata
 
 -- | Metadata about a rule. Rule metadata includes an ID, a name, a list of
 --   tags, and a short and long description. CodeGuru Reviewer uses rules
@@ -1197,16 +1197,16 @@ ruleMetadata_ruleName :: Lens' RuleMetadata (Maybe Text)
 
 -- | A short description of the rule.
 ruleMetadata_shortDescription :: Lens' RuleMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.RuleMetadata.RuleMetadata
 
 
-module Network.AWS.CodeGuruReviewer.Types.S3Repository
+module Amazonka.CodeGuruReviewer.Types.S3Repository
 
 -- | Information about a repository in an S3 bucket.
 --   
@@ -1244,16 +1244,16 @@ s3Repository_name :: Lens' S3Repository Text
 -- | The name of the S3 bucket used for associating a new S3 repository. It
 --   must begin with <tt>codeguru-reviewer-</tt>.
 s3Repository_bucketName :: Lens' S3Repository Text
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.S3Repository.S3Repository
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.S3Repository.S3Repository
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.S3Repository.S3Repository
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.S3Repository.S3Repository
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.S3Repository.S3Repository
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.S3Repository.S3Repository
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.S3Repository.S3Repository
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.S3Repository.S3Repository
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.S3Repository.S3Repository
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.S3Repository.S3Repository
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.S3Repository.S3Repository
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.S3Repository.S3Repository
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.S3Repository.S3Repository
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.S3Repository.S3Repository
 
 
-module Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails
+module Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails
 
 -- | Specifies the name of an S3 bucket and a <tt>CodeArtifacts</tt> object
 --   that contains the S3 object keys for a source code .zip file and for a
@@ -1301,17 +1301,17 @@ s3RepositoryDetails_codeArtifacts :: Lens' S3RepositoryDetails (Maybe CodeArtifa
 -- | The name of the S3 bucket used for associating a new S3 repository. It
 --   must begin with <tt>codeguru-reviewer-</tt>.
 s3RepositoryDetails_bucketName :: Lens' S3RepositoryDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails.S3RepositoryDetails
 
 
-module Network.AWS.CodeGuruReviewer.Types.S3BucketRepository
+module Amazonka.CodeGuruReviewer.Types.S3BucketRepository
 
 -- | Information about an associated repository in an S3 bucket. The
 --   associated repository contains a source code .zip file and a build
@@ -1361,17 +1361,17 @@ s3BucketRepository_details :: Lens' S3BucketRepository (Maybe S3RepositoryDetail
 -- | The name of the repository when the <tt>ProviderType</tt> is
 --   <tt>S3Bucket</tt>.
 s3BucketRepository_name :: Lens' S3BucketRepository Text
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.S3BucketRepository.S3BucketRepository
 
 
-module Network.AWS.CodeGuruReviewer.Types.RepositoryAssociation
+module Amazonka.CodeGuruReviewer.Types.RepositoryAssociation
 
 -- | Information about a repository association. The
 --   <a>DescribeRepositoryAssociation</a> operation returns a
@@ -1649,16 +1649,16 @@ repositoryAssociation_createdTimeStamp :: Lens' RepositoryAssociation (Maybe UTC
 -- | The time, in milliseconds since the epoch, when the repository
 --   association was last updated.
 repositoryAssociation_lastUpdatedTimeStamp :: Lens' RepositoryAssociation (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.RepositoryAssociation.RepositoryAssociation
 
 
-module Network.AWS.CodeGuruReviewer.Types.Severity
+module Amazonka.CodeGuruReviewer.Types.Severity
 newtype Severity
 Severity' :: Text -> Severity
 [fromSeverity] :: Severity -> Text
@@ -1667,28 +1667,28 @@ pattern Severity_High :: Severity
 pattern Severity_Info :: Severity
 pattern Severity_Low :: Severity
 pattern Severity_Medium :: Severity
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance GHC.Classes.Ord Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.Severity.Severity
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.Severity.Severity
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance GHC.Classes.Ord Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.Severity.Severity
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.Severity.Severity
 
 
-module Network.AWS.CodeGuruReviewer.Types.RecommendationSummary
+module Amazonka.CodeGuruReviewer.Types.RecommendationSummary
 
 -- | Information about recommendations.
 --   
@@ -1810,16 +1810,16 @@ recommendationSummary_description :: Lens' RecommendationSummary (Maybe Text)
 
 -- | The type of a recommendation.
 recommendationSummary_recommendationCategory :: Lens' RecommendationSummary (Maybe RecommendationCategory)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.RecommendationSummary.RecommendationSummary
 
 
-module Network.AWS.CodeGuruReviewer.Types.ThirdPartySourceRepository
+module Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository
 
 -- | Information about a third-party source repository connected to
 --   CodeGuru Reviewer.
@@ -1888,16 +1888,16 @@ thirdPartySourceRepository_connectionArn :: Lens' ThirdPartySourceRepository Tex
 --   the repository. For an S3 repository, this can be the username or
 --   Amazon Web Services account ID.
 thirdPartySourceRepository_owner :: Lens' ThirdPartySourceRepository Text
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository.ThirdPartySourceRepository
 
 
-module Network.AWS.CodeGuruReviewer.Types.Repository
+module Amazonka.CodeGuruReviewer.Types.Repository
 
 -- | Information about an associated Amazon Web Services CodeCommit
 --   repository or an associated repository that is managed by Amazon Web
@@ -1952,71 +1952,71 @@ repository_s3Bucket :: Lens' Repository (Maybe S3Repository)
 
 -- | Information about a Bitbucket repository.
 repository_bitbucket :: Lens' Repository (Maybe ThirdPartySourceRepository)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.Repository.Repository
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.Repository.Repository
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.Repository.Repository
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.Repository.Repository
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.Repository.Repository
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.Repository.Repository
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.Repository.Repository
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.Repository.Repository
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.Repository.Repository
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.Repository.Repository
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.Repository.Repository
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.Repository.Repository
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.Repository.Repository
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.Repository.Repository
 
 
-module Network.AWS.CodeGuruReviewer.Types.Type
+module Amazonka.CodeGuruReviewer.Types.Type
 newtype Type
 Type' :: Text -> Type
 [fromType] :: Type -> Text
 pattern Type_PullRequest :: Type
 pattern Type_RepositoryAnalysis :: Type
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance GHC.Classes.Ord Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.Type.Type
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.Type.Type
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.Type.Type
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.Type.Type
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.Type.Type
+instance GHC.Classes.Ord Amazonka.CodeGuruReviewer.Types.Type.Type
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.Type.Type
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.Type.Type
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.Type.Type
 
 
-module Network.AWS.CodeGuruReviewer.Types.VendorName
+module Amazonka.CodeGuruReviewer.Types.VendorName
 newtype VendorName
 VendorName' :: Text -> VendorName
 [fromVendorName] :: VendorName -> Text
 pattern VendorName_GitHub :: VendorName
 pattern VendorName_GitLab :: VendorName
 pattern VendorName_NativeS3 :: VendorName
-instance Network.AWS.Data.XML.ToXML Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Network.AWS.Data.XML.FromXML Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Network.AWS.Data.Log.ToLog Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Network.AWS.Data.Text.ToText Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Network.AWS.Data.Text.FromText Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance GHC.Classes.Ord Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.VendorName.VendorName
+instance Amazonka.Data.XML.ToXML Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Amazonka.Data.XML.FromXML Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Amazonka.Data.Headers.ToHeader Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Amazonka.Data.Log.ToLog Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Amazonka.Data.Text.ToText Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Amazonka.Data.Text.FromText Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance GHC.Classes.Ord Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.VendorName.VendorName
 
 
-module Network.AWS.CodeGuruReviewer.Types.RequestMetadata
+module Amazonka.CodeGuruReviewer.Types.RequestMetadata
 
 -- | Metadata that is associated with a code review. This applies to both
 --   pull request and repository analysis code reviews.
@@ -2100,17 +2100,17 @@ requestMetadata_vendorName :: Lens' RequestMetadata (Maybe VendorName)
 --   the requester. The <tt>Requester</tt> is used to capture the
 --   <tt>author/actor</tt> name of the event request.
 requestMetadata_requester :: Lens' RequestMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.RequestMetadata.RequestMetadata
 
 
-module Network.AWS.CodeGuruReviewer.Types.SourceCodeType
+module Amazonka.CodeGuruReviewer.Types.SourceCodeType
 
 -- | Specifies the source code that is analyzed in a code review.
 --   
@@ -2208,17 +2208,17 @@ sourceCodeType_commitDiff :: Lens' SourceCodeType (Maybe CommitDiffSourceCodeTyp
 -- | A type of <a>SourceCodeType</a> that specifies a source branch name
 --   and a destination branch name in an associated repository.
 sourceCodeType_branchDiff :: Lens' SourceCodeType (Maybe BranchDiffSourceCodeType)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.SourceCodeType.SourceCodeType
 
 
-module Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis
+module Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis
 
 -- | A code review type that analyzes all code under a specified branch in
 --   an associated repository. The associated repository is specified using
@@ -2256,16 +2256,16 @@ repositoryAnalysis_repositoryHead :: Lens' RepositoryAnalysis (Maybe RepositoryH
 
 -- | Undocumented member.
 repositoryAnalysis_sourceCodeType :: Lens' RepositoryAnalysis (Maybe SourceCodeType)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis.RepositoryAnalysis
 
 
-module Network.AWS.CodeGuruReviewer.Types.CodeReviewType
+module Amazonka.CodeGuruReviewer.Types.CodeReviewType
 
 -- | The type of a code review. There are two code review types:
 --   
@@ -2322,16 +2322,16 @@ codeReviewType_analysisTypes :: Lens' CodeReviewType (Maybe [AnalysisType])
 --   associated repository. The associated repository is specified using
 --   its ARN in <a>CreateCodeReview</a> .
 codeReviewType_repositoryAnalysis :: Lens' CodeReviewType RepositoryAnalysis
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.Types.CodeReviewType.CodeReviewType
 
 
-module Network.AWS.CodeGuruReviewer.Types.CodeReviewSummary
+module Amazonka.CodeGuruReviewer.Types.CodeReviewSummary
 
 -- | Information about the summary of the code review.
 --   
@@ -2509,16 +2509,16 @@ codeReviewSummary_createdTimeStamp :: Lens' CodeReviewSummary (Maybe UTCTime)
 -- | The time, in milliseconds since the epoch, when the code review was
 --   last updated.
 codeReviewSummary_lastUpdatedTimeStamp :: Lens' CodeReviewSummary (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.CodeReviewSummary.CodeReviewSummary
 
 
-module Network.AWS.CodeGuruReviewer.Types.CodeReview
+module Amazonka.CodeGuruReviewer.Types.CodeReview
 
 -- | Information about a code review. A code review belongs to the
 --   associated repository that contains the reviewed code.
@@ -2732,16 +2732,16 @@ codeReview_analysisTypes :: Lens' CodeReview (Maybe [AnalysisType])
 -- | The time, in milliseconds since the epoch, when the code review was
 --   last updated.
 codeReview_lastUpdatedTimeStamp :: Lens' CodeReview (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.Types.CodeReview.CodeReview
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.Types.CodeReview.CodeReview
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.Types.CodeReview.CodeReview
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.Types.CodeReview.CodeReview
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeGuruReviewer.Types.CodeReview.CodeReview
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.Types.CodeReview.CodeReview
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.Types.CodeReview.CodeReview
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.Types.CodeReview.CodeReview
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.Types.CodeReview.CodeReview
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.Types.CodeReview.CodeReview
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.Types.CodeReview.CodeReview
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeGuruReviewer.Types.CodeReview.CodeReview
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.Types.CodeReview.CodeReview
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.Types.CodeReview.CodeReview
 
 
-module Network.AWS.CodeGuruReviewer.Types
+module Amazonka.CodeGuruReviewer.Types
 
 -- | API version <tt>2019-09-19</tt> of the Amazon CodeGuru Reviewer SDK
 --   configuration.
@@ -5019,7 +5019,7 @@ thirdPartySourceRepository_owner :: Lens' ThirdPartySourceRepository Text
 
 
 -- | Adds one or more tags to an associated repository.
-module Network.AWS.CodeGuruReviewer.TagResource
+module Amazonka.CodeGuruReviewer.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -5114,28 +5114,28 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.TagResource.TagResource
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.TagResource.TagResource
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.TagResource.TagResource
 
 
 -- | Stores customer feedback for a CodeGuru Reviewer recommendation. When
 --   this API is called again with different reactions the previous
 --   feedback is overwritten.
-module Network.AWS.CodeGuruReviewer.PutRecommendationFeedback
+module Amazonka.CodeGuruReviewer.PutRecommendationFeedback
 
 -- | <i>See:</i> <a>newPutRecommendationFeedback</a> smart constructor.
 data PutRecommendationFeedback
@@ -5211,27 +5211,27 @@ newPutRecommendationFeedbackResponse :: Int -> PutRecommendationFeedbackResponse
 
 -- | The response's http status code.
 putRecommendationFeedbackResponse_httpStatus :: Lens' PutRecommendationFeedbackResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedbackResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedbackResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedbackResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedbackResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedbackResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedbackResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedbackResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedbackResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedbackResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedbackResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.PutRecommendationFeedback.PutRecommendationFeedback
 
 
 -- | Returns the list of tags associated with an associated repository
 --   resource.
-module Network.AWS.CodeGuruReviewer.ListTagsForResource
+module Amazonka.CodeGuruReviewer.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -5328,21 +5328,21 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns a list of <a>RepositoryAssociationSummary</a> objects that
@@ -5351,7 +5351,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.ListTagsFor
 --   <a>State</a> , and <a>Owner</a> .
 --   
 --   This operation returns paginated results.
-module Network.AWS.CodeGuruReviewer.ListRepositoryAssociations
+module Amazonka.CodeGuruReviewer.ListRepositoryAssociations
 
 -- | <i>See:</i> <a>newListRepositoryAssociations</a> smart constructor.
 data ListRepositoryAssociations
@@ -5628,26 +5628,26 @@ listRepositoryAssociationsResponse_repositoryAssociationSummaries :: Lens' ListR
 
 -- | The response's http status code.
 listRepositoryAssociationsResponse_httpStatus :: Lens' ListRepositoryAssociationsResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociationsResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociationsResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociationsResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociationsResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociationsResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociationsResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.ListRepositoryAssociations.ListRepositoryAssociations
 
 
 -- | Returns the list of all recommendations for a completed code review.
-module Network.AWS.CodeGuruReviewer.ListRecommendations
+module Amazonka.CodeGuruReviewer.ListRecommendations
 
 -- | <i>See:</i> <a>newListRecommendations</a> smart constructor.
 data ListRecommendations
@@ -5736,27 +5736,27 @@ listRecommendationsResponse_recommendationSummaries :: Lens' ListRecommendations
 
 -- | The response's http status code.
 listRecommendationsResponse_httpStatus :: Lens' ListRecommendationsResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendations
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendations
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendations
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendations
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendationsResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendationsResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendationsResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendations
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendations
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendations
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.ListRecommendations.ListRecommendations
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendations
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendations
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendations
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendations
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendationsResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendationsResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendationsResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendations
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendations
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendations
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendations
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.ListRecommendations.ListRecommendations
 
 
 -- | Returns a list of <a>RecommendationFeedbackSummary</a> objects that
 --   contain customer recommendation feedback for all CodeGuru Reviewer
 --   users.
-module Network.AWS.CodeGuruReviewer.ListRecommendationFeedback
+module Amazonka.CodeGuruReviewer.ListRecommendationFeedback
 
 -- | <i>See:</i> <a>newListRecommendationFeedback</a> smart constructor.
 data ListRecommendationFeedback
@@ -5910,26 +5910,26 @@ listRecommendationFeedbackResponse_recommendationFeedbackSummaries :: Lens' List
 
 -- | The response's http status code.
 listRecommendationFeedbackResponse_httpStatus :: Lens' ListRecommendationFeedbackResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedbackResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedbackResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedbackResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedbackResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedbackResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedbackResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedbackResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedbackResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedbackResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedbackResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.ListRecommendationFeedback.ListRecommendationFeedback
 
 
 -- | Lists all the code reviews that the customer has created in the past
 --   90 days.
-module Network.AWS.CodeGuruReviewer.ListCodeReviews
+module Amazonka.CodeGuruReviewer.ListCodeReviews
 
 -- | <i>See:</i> <a>newListCodeReviews</a> smart constructor.
 data ListCodeReviews
@@ -6099,26 +6099,26 @@ listCodeReviewsResponse_nextToken :: Lens' ListCodeReviewsResponse (Maybe Text)
 
 -- | The response's http status code.
 listCodeReviewsResponse_httpStatus :: Lens' ListCodeReviewsResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviewsResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviewsResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviewsResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviewsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviewsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviewsResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviewsResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviewsResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviewsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviewsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.ListCodeReviews.ListCodeReviews
 
 
 -- | Removes the association between Amazon CodeGuru Reviewer and a
 --   repository.
-module Network.AWS.CodeGuruReviewer.DisassociateRepository
+module Amazonka.CodeGuruReviewer.DisassociateRepository
 
 -- | <i>See:</i> <a>newDisassociateRepository</a> smart constructor.
 data DisassociateRepository
@@ -6226,26 +6226,26 @@ disassociateRepositoryResponse_tags :: Lens' DisassociateRepositoryResponse (May
 
 -- | The response's http status code.
 disassociateRepositoryResponse_httpStatus :: Lens' DisassociateRepositoryResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepositoryResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepositoryResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepositoryResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepositoryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepositoryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepositoryResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepositoryResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepositoryResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepositoryResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepositoryResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.DisassociateRepository.DisassociateRepository
 
 
 -- | Returns a <a>RepositoryAssociation</a> object that contains
 --   information about the requested repository association.
-module Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation
+module Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation
 
 -- | <i>See:</i> <a>newDescribeRepositoryAssociation</a> smart constructor.
 data DescribeRepositoryAssociation
@@ -6354,26 +6354,26 @@ describeRepositoryAssociationResponse_tags :: Lens' DescribeRepositoryAssociatio
 
 -- | The response's http status code.
 describeRepositoryAssociationResponse_httpStatus :: Lens' DescribeRepositoryAssociationResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociationResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociationResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociationResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociationResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociationResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociationResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociationResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociationResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation.DescribeRepositoryAssociation
 
 
 -- | Describes the customer feedback for a CodeGuru Reviewer
 --   recommendation.
-module Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback
+module Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback
 
 -- | <i>See:</i> <a>newDescribeRecommendationFeedback</a> smart
 --   constructor.
@@ -6476,26 +6476,26 @@ describeRecommendationFeedbackResponse_recommendationFeedback :: Lens' DescribeR
 
 -- | The response's http status code.
 describeRecommendationFeedbackResponse_httpStatus :: Lens' DescribeRecommendationFeedbackResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedbackResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedbackResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedbackResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedbackResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedbackResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedbackResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedbackResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedbackResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedbackResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedbackResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback.DescribeRecommendationFeedback
 
 
 -- | Returns the metadata associated with the code review along with its
 --   status.
-module Network.AWS.CodeGuruReviewer.DescribeCodeReview
+module Amazonka.CodeGuruReviewer.DescribeCodeReview
 
 -- | <i>See:</i> <a>newDescribeCodeReview</a> smart constructor.
 data DescribeCodeReview
@@ -6554,21 +6554,21 @@ describeCodeReviewResponse_codeReview :: Lens' DescribeCodeReviewResponse (Maybe
 
 -- | The response's http status code.
 describeCodeReviewResponse_httpStatus :: Lens' DescribeCodeReviewResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReviewResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReviewResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReviewResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReviewResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReviewResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReviewResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReviewResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReviewResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReviewResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReviewResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.DescribeCodeReview.DescribeCodeReview
 
 
 -- | Use to create a code review with a <a>CodeReviewType</a> of
@@ -6576,7 +6576,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.DescribeCod
 --   code under a specified branch in an associated repository.
 --   <tt>PullRequest</tt> code reviews are automatically triggered by a
 --   pull request.
-module Network.AWS.CodeGuruReviewer.CreateCodeReview
+module Amazonka.CodeGuruReviewer.CreateCodeReview
 
 -- | <i>See:</i> <a>newCreateCodeReview</a> smart constructor.
 data CreateCodeReview
@@ -6686,22 +6686,22 @@ createCodeReviewResponse_codeReview :: Lens' CreateCodeReviewResponse (Maybe Cod
 
 -- | The response's http status code.
 createCodeReviewResponse_httpStatus :: Lens' CreateCodeReviewResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReviewResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReviewResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReviewResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReviewResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReviewResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReviewResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReviewResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReviewResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReviewResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReviewResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.CreateCodeReview.CreateCodeReview
 
 
 -- | Use to associate an Amazon Web Services CodeCommit repository or a
@@ -6727,7 +6727,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.CreateCodeR
 --   associate a GitHub repository, use the console. For more information,
 --   see <a>Getting started with CodeGuru Reviewer</a> in the <i>CodeGuru
 --   Reviewer User Guide.</i>
-module Network.AWS.CodeGuruReviewer.AssociateRepository
+module Amazonka.CodeGuruReviewer.AssociateRepository
 
 -- | <i>See:</i> <a>newAssociateRepository</a> smart constructor.
 data AssociateRepository
@@ -6922,26 +6922,26 @@ associateRepositoryResponse_tags :: Lens' AssociateRepositoryResponse (Maybe (Ha
 
 -- | The response's http status code.
 associateRepositoryResponse_httpStatus :: Lens' AssociateRepositoryResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepository
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepository
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepository
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepository
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepositoryResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepositoryResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepositoryResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepositoryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepository
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepositoryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepository
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepository
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepository
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepository
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepository
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.AssociateRepository.AssociateRepository
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepository
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepository
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepository
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepository
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepositoryResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepositoryResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepositoryResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepositoryResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepository
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepositoryResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepository
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepository
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepository
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepository
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepository
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.AssociateRepository.AssociateRepository
 
 
 -- | Removes a tag from an associated repository.
-module Network.AWS.CodeGuruReviewer.UntagResource
+module Amazonka.CodeGuruReviewer.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -7007,24 +7007,24 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.CodeGuruReviewer.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.CodeGuruReviewer.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.CodeGuruReviewer.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.CodeGuruReviewer.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeGuruReviewer.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeGuruReviewer.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.CodeGuruReviewer.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeGuruReviewer.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeGuruReviewer.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeGuruReviewer.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.CodeGuruReviewer.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.CodeGuruReviewer.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.CodeGuruReviewer.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.CodeGuruReviewer.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeGuruReviewer.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeGuruReviewer.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.CodeGuruReviewer.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeGuruReviewer.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.CodeGuruReviewer.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeGuruReviewer.UntagResource.UntagResource
 
 
-module Network.AWS.CodeGuruReviewer.Lens
+module Amazonka.CodeGuruReviewer.Lens
 
 -- | An Amazon Web Services user's account ID or Amazon Resource Name
 --   (ARN). Use this ID to query the recommendation feedback for a code
@@ -7995,7 +7995,7 @@ thirdPartySourceRepository_connectionArn :: Lens' ThirdPartySourceRepository Tex
 thirdPartySourceRepository_owner :: Lens' ThirdPartySourceRepository Text
 
 
-module Network.AWS.CodeGuruReviewer.Waiters
+module Amazonka.CodeGuruReviewer.Waiters
 
 -- | Polls <a>DescribeCodeReview</a> every 10 seconds until a successful
 --   state is reached. An error is returned after 60 failed checks.
@@ -8030,7 +8030,7 @@ newRepositoryAssociationSucceeded :: Wait DescribeRepositoryAssociation
 --   see <a>CodeGuru Reviewer and interface VPC endpoints (Amazon Web
 --   Services PrivateLink)</a> in the <i>Amazon CodeGuru Reviewer User
 --   Guide</i>.
-module Network.AWS.CodeGuruReviewer
+module Amazonka.CodeGuruReviewer
 
 -- | API version <tt>2019-09-19</tt> of the Amazon CodeGuru Reviewer SDK
 --   configuration.

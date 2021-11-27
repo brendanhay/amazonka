@@ -1,0 +1,985 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalytics.CreateApplication</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This documentation is for version 1 of the Amazon Kinesis Data Analytics</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- API, which only supports SQL applications. Version 2 of the API supports</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- SQL and Java applications. For more information about version 2, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;/kinesisanalytics/latest/apiv2/Welcome.html Amazon Kinesis Data Analytics API V2 Documentation&gt;.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Creates an Amazon Kinesis Analytics application. You can configure each</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- application with one streaming source as input, application code to</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- process the input, and up to three destinations where you want Amazon</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Kinesis Analytics to write the output data from your application. For an</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- overview, see</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html How it Works&gt;.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- In the input configuration, you map the streaming source to an</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- in-application stream, which you can think of as a constantly updating</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- table. In the mapping, you must provide a schema for the in-application</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- stream and map each data column in the in-application stream to a data</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- element in the streaming source.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Your application code is one or more SQL statements that read input</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- data, transform it, and generate output. Your application code can</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- create one or more SQL artifacts like SQL streams or pumps.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- In the output configuration, you can configure the application to write</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- data from in-application streams created in your applications to up to</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- three destinations.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- To read data from your source stream or write data to destination</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- streams, Amazon Kinesis Analytics needs your permissions. You grant</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- these permissions by creating IAM roles. This operation requires</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- permissions to perform the @kinesisanalytics:CreateApplication@ action.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- For introductory exercises to create an Amazon Kinesis Analytics</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- application, see</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/getting-started.html Getting Started&gt;.</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalytics.CreateApplication</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier">CreateApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#newCreateApplication"><span class="hs-identifier">newCreateApplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_applicationDescription"><span class="hs-identifier">createApplication_applicationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_inputs"><span class="hs-identifier">createApplication_inputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_cloudWatchLoggingOptions"><span class="hs-identifier">createApplication_cloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_outputs"><span class="hs-identifier">createApplication_outputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_applicationCode"><span class="hs-identifier">createApplication_applicationCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_tags"><span class="hs-identifier">createApplication_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_applicationName"><span class="hs-identifier">createApplication_applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse"><span class="hs-identifier">CreateApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#newCreateApplicationResponse"><span class="hs-identifier">newCreateApplicationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplicationResponse_httpStatus"><span class="hs-identifier">createApplicationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplicationResponse_applicationSummary"><span class="hs-identifier">createApplicationResponse_applicationSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | TBD</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- /See:/ 'newCreateApplication' smart constructor.</span><span>
+</span><span id="line-91"></span><span id="local-6989586621679214185"><span id="local-6989586621679214186"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApplication"><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-var">CreateApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApplication%27"><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-var">CreateApplication'</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Summary description of the application.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AapplicationDescription%3ACreateApplication%27"><span class="annot"><span class="annottext">CreateApplication -&gt; Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AapplicationDescription%3ACreateApplication%27"><span class="hs-identifier hs-var hs-var">applicationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | Use this parameter to configure the application input.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- You can configure your application to receive input from a single</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- streaming source. In this configuration, you map this streaming source</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- to an in-application stream that is created. Your application code can</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- then query the in-application stream like a table (you can think of it</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- as a constantly updating table).</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- For the streaming source, you provide its Amazon Resource Name (ARN) and</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- format of data on the stream (for example, JSON, CSV, etc.). You also</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- must provide an IAM role that Amazon Kinesis Analytics can assume to</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- read this stream on your behalf.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- To create the in-application stream, you need to specify a schema to</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- transform your data into a schematized version used in SQL. In the</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- schema, you provide the necessary mapping of the data elements in the</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- streaming source to record columns in the in-app stream.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3Ainputs%3ACreateApplication%27"><span class="annot"><span class="annottext">CreateApplication -&gt; Maybe [Input]
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3Ainputs%3ACreateApplication%27"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.Input.html#Input"><span class="hs-identifier hs-type">Input</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | Use this parameter to configure a CloudWatch log stream to monitor</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- application configuration errors. For more information, see</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs&gt;.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AcloudWatchLoggingOptions%3ACreateApplication%27"><span class="annot"><span class="annottext">CreateApplication -&gt; Maybe [CloudWatchLoggingOption]
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AcloudWatchLoggingOptions%3ACreateApplication%27"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOption.html#CloudWatchLoggingOption"><span class="hs-identifier hs-type">CloudWatchLoggingOption</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | You can configure application output to write data from any of the</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- in-application streams to up to three destinations.</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- These destinations can be Amazon Kinesis streams, Amazon Kinesis</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- Firehose delivery streams, AWS Lambda destinations, or any combination</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- of the three.</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- In the configuration, you specify the in-application stream name, the</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- destination stream or Lambda function Amazon Resource Name (ARN), and</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- the format to use when writing data. You must also provide an IAM role</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- that Amazon Kinesis Analytics can assume to write to the destination</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- stream or Lambda function on your behalf.</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- In the output configuration, you also provide the output stream or</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- Lambda function ARN. For stream destinations, you provide the format of</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- data in the stream (for example, JSON, CSV). You also must provide an</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- IAM role that Amazon Kinesis Analytics can assume to write to the stream</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- or Lambda function on your behalf.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3Aoutputs%3ACreateApplication%27"><span class="annot"><span class="annottext">CreateApplication -&gt; Maybe [Output]
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3Aoutputs%3ACreateApplication%27"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | One or more SQL statements that read input data, transform it, and</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- generate output. For example, you can write a SQL statement that reads</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- data from one in-application stream, generates a running average of the</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- number of advertisement clicks by vendor, and insert resulting rows in</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- another in-application stream using pumps. For more information about</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- the typical pattern, see</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html Application Code&gt;.</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- You can provide such series of SQL statements, where output of one</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- statement can be used as the input for the next statement. You store</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- intermediate results by creating in-application streams and pumps.</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- Note that the application code must create the streams with names</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- specified in the @Outputs@. For example, if your @Outputs@ defines</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- output streams named @ExampleOutputStream1@ and @ExampleOutputStream2@,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- then your application code must create these streams.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AapplicationCode%3ACreateApplication%27"><span class="annot"><span class="annottext">CreateApplication -&gt; Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AapplicationCode%3ACreateApplication%27"><span class="hs-identifier hs-var hs-var">applicationCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | A list of one or more tags to assign to the application. A tag is a</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- key-value pair that identifies an application. Note that the maximum</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- number of application tags includes system tags. The maximum number of</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- user-defined application tags is 50. For more information, see</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html Using Tagging&gt;.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3Atags%3ACreateApplication%27"><span class="annot"><span class="annottext">CreateApplication -&gt; Maybe (NonEmpty Tag)
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3Atags%3ACreateApplication%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | Name of your Amazon Kinesis Analytics application (for example,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- @sample-app@).</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AapplicationName%3ACreateApplication%27"><span class="annot"><span class="annottext">CreateApplication -&gt; Text
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AapplicationName%3ACreateApplication%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214173"><span id="local-6989586621679214175"><span class="annot"><span class="annottext">CreateApplication -&gt; CreateApplication -&gt; Bool
+(CreateApplication -&gt; CreateApplication -&gt; Bool)
+-&gt; (CreateApplication -&gt; CreateApplication -&gt; Bool)
+-&gt; Eq CreateApplication
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateApplication -&gt; CreateApplication -&gt; Bool
+$c/= :: CreateApplication -&gt; CreateApplication -&gt; Bool
+== :: CreateApplication -&gt; CreateApplication -&gt; Bool
+$c== :: CreateApplication -&gt; CreateApplication -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214164"><span id="local-6989586621679214166"><span id="local-6989586621679214168"><span id="local-6989586621679214170"><span class="annot"><span class="annottext">ReadPrec [CreateApplication]
+ReadPrec CreateApplication
+Int -&gt; ReadS CreateApplication
+ReadS [CreateApplication]
+(Int -&gt; ReadS CreateApplication)
+-&gt; ReadS [CreateApplication]
+-&gt; ReadPrec CreateApplication
+-&gt; ReadPrec [CreateApplication]
+-&gt; Read CreateApplication
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateApplication]
+$creadListPrec :: ReadPrec [CreateApplication]
+readPrec :: ReadPrec CreateApplication
+$creadPrec :: ReadPrec CreateApplication
+readList :: ReadS [CreateApplication]
+$creadList :: ReadS [CreateApplication]
+readsPrec :: Int -&gt; ReadS CreateApplication
+$creadsPrec :: Int -&gt; ReadS CreateApplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214157"><span id="local-6989586621679214159"><span id="local-6989586621679214161"><span class="annot"><span class="annottext">Int -&gt; CreateApplication -&gt; ShowS
+[CreateApplication] -&gt; ShowS
+CreateApplication -&gt; String
+(Int -&gt; CreateApplication -&gt; ShowS)
+-&gt; (CreateApplication -&gt; String)
+-&gt; ([CreateApplication] -&gt; ShowS)
+-&gt; Show CreateApplication
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateApplication] -&gt; ShowS
+$cshowList :: [CreateApplication] -&gt; ShowS
+show :: CreateApplication -&gt; String
+$cshow :: CreateApplication -&gt; String
+showsPrec :: Int -&gt; CreateApplication -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateApplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateApplication -&gt; Rep CreateApplication x)
+-&gt; (forall x. Rep CreateApplication x -&gt; CreateApplication)
+-&gt; Generic CreateApplication
+forall x. Rep CreateApplication x -&gt; CreateApplication
+forall x. CreateApplication -&gt; Rep CreateApplication x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateApplication x -&gt; CreateApplication
+$cfrom :: forall x. CreateApplication -&gt; Rep CreateApplication x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Create a value of 'CreateApplication' with all optional fields omitted.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'applicationDescription', 'createApplication_applicationDescription' - Summary description of the application.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'inputs', 'createApplication_inputs' - Use this parameter to configure the application input.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- You can configure your application to receive input from a single</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- streaming source. In this configuration, you map this streaming source</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- to an in-application stream that is created. Your application code can</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- then query the in-application stream like a table (you can think of it</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- as a constantly updating table).</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- For the streaming source, you provide its Amazon Resource Name (ARN) and</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- format of data on the stream (for example, JSON, CSV, etc.). You also</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- must provide an IAM role that Amazon Kinesis Analytics can assume to</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- read this stream on your behalf.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- To create the in-application stream, you need to specify a schema to</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- transform your data into a schematized version used in SQL. In the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- schema, you provide the necessary mapping of the data elements in the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- streaming source to record columns in the in-app stream.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'cloudWatchLoggingOptions', 'createApplication_cloudWatchLoggingOptions' - Use this parameter to configure a CloudWatch log stream to monitor</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- application configuration errors. For more information, see</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs&gt;.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'outputs', 'createApplication_outputs' - You can configure application output to write data from any of the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- in-application streams to up to three destinations.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- These destinations can be Amazon Kinesis streams, Amazon Kinesis</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Firehose delivery streams, AWS Lambda destinations, or any combination</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- of the three.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- In the configuration, you specify the in-application stream name, the</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- destination stream or Lambda function Amazon Resource Name (ARN), and</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- the format to use when writing data. You must also provide an IAM role</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- that Amazon Kinesis Analytics can assume to write to the destination</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- stream or Lambda function on your behalf.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- In the output configuration, you also provide the output stream or</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Lambda function ARN. For stream destinations, you provide the format of</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- data in the stream (for example, JSON, CSV). You also must provide an</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- IAM role that Amazon Kinesis Analytics can assume to write to the stream</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- or Lambda function on your behalf.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'applicationCode', 'createApplication_applicationCode' - One or more SQL statements that read input data, transform it, and</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- generate output. For example, you can write a SQL statement that reads</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- data from one in-application stream, generates a running average of the</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- number of advertisement clicks by vendor, and insert resulting rows in</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- another in-application stream using pumps. For more information about</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- the typical pattern, see</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html Application Code&gt;.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- You can provide such series of SQL statements, where output of one</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- statement can be used as the input for the next statement. You store</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- intermediate results by creating in-application streams and pumps.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- Note that the application code must create the streams with names</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- specified in the @Outputs@. For example, if your @Outputs@ defines</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- output streams named @ExampleOutputStream1@ and @ExampleOutputStream2@,</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- then your application code must create these streams.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'tags', 'createApplication_tags' - A list of one or more tags to assign to the application. A tag is a</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- key-value pair that identifies an application. Note that the maximum</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- number of application tags includes system tags. The maximum number of</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- user-defined application tags is 50. For more information, see</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html Using Tagging&gt;.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'applicationName', 'createApplication_applicationName' - Name of your Amazon Kinesis Analytics application (for example,</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- @sample-app@).</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#newCreateApplication"><span class="hs-identifier hs-type">newCreateApplication</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-comment">-- | 'applicationName'</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span>
+</span><span id="line-244"></span><span id="newCreateApplication"><span class="annot"><span class="annottext">newCreateApplication :: Text -&gt; CreateApplication
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#newCreateApplication"><span class="hs-identifier hs-var hs-var">newCreateApplication</span></a></span></span><span> </span><span id="local-6989586621679214152"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214152"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><span class="annottext">CreateApplication' :: Maybe Text
+-&gt; Maybe [Input]
+-&gt; Maybe [CloudWatchLoggingOption]
+-&gt; Maybe [Output]
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Tag)
+-&gt; Text
+-&gt; CreateApplication
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationDescription:CreateApplication' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AapplicationDescription%3ACreateApplication%27"><span class="hs-identifier hs-var">applicationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputs:CreateApplication' :: Maybe [Input]
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3Ainputs%3ACreateApplication%27"><span class="hs-identifier hs-var">inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Input]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:CreateApplication' :: Maybe [CloudWatchLoggingOption]
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AcloudWatchLoggingOptions%3ACreateApplication%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOption]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputs:CreateApplication' :: Maybe [Output]
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3Aoutputs%3ACreateApplication%27"><span class="hs-identifier hs-var">outputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Output]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationCode:CreateApplication' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AapplicationCode%3ACreateApplication%27"><span class="hs-identifier hs-var">applicationCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateApplication' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3Atags%3ACreateApplication%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationName:CreateApplication' :: Text
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AapplicationName%3ACreateApplication%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214152"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | Summary description of the application.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_applicationDescription"><span class="hs-identifier hs-type">createApplication_applicationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="createApplication_applicationDescription"><span class="annot"><span class="annottext">createApplication_applicationDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateApplication -&gt; f CreateApplication
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_applicationDescription"><span class="hs-identifier hs-var hs-var">createApplication_applicationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApplication -&gt; Maybe Text)
+-&gt; (CreateApplication -&gt; Maybe Text -&gt; CreateApplication)
+-&gt; Lens
+     CreateApplication CreateApplication (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214149"><span class="annot"><span class="annottext">Maybe Text
+applicationDescription :: Maybe Text
+$sel:applicationDescription:CreateApplication' :: CreateApplication -&gt; Maybe Text
+</span><a href="#local-6989586621679214149"><span class="hs-identifier hs-var hs-var">applicationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214149"><span class="hs-identifier hs-var">applicationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214148"><span class="annot"><span class="annottext">s :: CreateApplication
+</span><a href="#local-6989586621679214148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
+</span><a href="#local-6989586621679214148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationDescription:CreateApplication' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AapplicationDescription%3ACreateApplication%27"><span class="hs-identifier hs-var">applicationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | Use this parameter to configure the application input.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- You can configure your application to receive input from a single</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- streaming source. In this configuration, you map this streaming source</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- to an in-application stream that is created. Your application code can</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- then query the in-application stream like a table (you can think of it</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- as a constantly updating table).</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- For the streaming source, you provide its Amazon Resource Name (ARN) and</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- format of data on the stream (for example, JSON, CSV, etc.). You also</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- must provide an IAM role that Amazon Kinesis Analytics can assume to</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- read this stream on your behalf.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- To create the in-application stream, you need to specify a schema to</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- transform your data into a schematized version used in SQL. In the</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- schema, you provide the necessary mapping of the data elements in the</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- streaming source to record columns in the in-app stream.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_inputs"><span class="hs-identifier hs-type">createApplication_inputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.Input.html#Input"><span class="hs-identifier hs-type">Input</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="createApplication_inputs"><span class="annot"><span class="annottext">createApplication_inputs :: (Maybe [Input] -&gt; f (Maybe [Input]))
+-&gt; CreateApplication -&gt; f CreateApplication
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_inputs"><span class="hs-identifier hs-var hs-var">createApplication_inputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApplication -&gt; Maybe [Input])
+-&gt; (CreateApplication -&gt; Maybe [Input] -&gt; CreateApplication)
+-&gt; Lens
+     CreateApplication CreateApplication (Maybe [Input]) (Maybe [Input])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214146"><span class="annot"><span class="annottext">Maybe [Input]
+inputs :: Maybe [Input]
+$sel:inputs:CreateApplication' :: CreateApplication -&gt; Maybe [Input]
+</span><a href="#local-6989586621679214146"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Input]
+</span><a href="#local-6989586621679214146"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214145"><span class="annot"><span class="annottext">s :: CreateApplication
+</span><a href="#local-6989586621679214145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214144"><span class="annot"><span class="annottext">Maybe [Input]
+</span><a href="#local-6989586621679214144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
+</span><a href="#local-6989586621679214145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputs:CreateApplication' :: Maybe [Input]
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3Ainputs%3ACreateApplication%27"><span class="hs-identifier hs-var">inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Input]
+</span><a href="#local-6989586621679214144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Input] -&gt; f (Maybe [Input]))
+ -&gt; CreateApplication -&gt; f CreateApplication)
+-&gt; ((Maybe [Input] -&gt; f (Maybe [Input]))
+    -&gt; Maybe [Input] -&gt; f (Maybe [Input]))
+-&gt; (Maybe [Input] -&gt; f (Maybe [Input]))
+-&gt; CreateApplication
+-&gt; f CreateApplication
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Input] [Input] [Input] [Input]
+-&gt; Iso
+     (Maybe [Input]) (Maybe [Input]) (Maybe [Input]) (Maybe [Input])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Input] [Input] [Input] [Input]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | Use this parameter to configure a CloudWatch log stream to monitor</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- application configuration errors. For more information, see</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs&gt;.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_cloudWatchLoggingOptions"><span class="hs-identifier hs-type">createApplication_cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOption.html#CloudWatchLoggingOption"><span class="hs-identifier hs-type">CloudWatchLoggingOption</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="createApplication_cloudWatchLoggingOptions"><span class="annot"><span class="annottext">createApplication_cloudWatchLoggingOptions :: (Maybe [CloudWatchLoggingOption]
+ -&gt; f (Maybe [CloudWatchLoggingOption]))
+-&gt; CreateApplication -&gt; f CreateApplication
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_cloudWatchLoggingOptions"><span class="hs-identifier hs-var hs-var">createApplication_cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApplication -&gt; Maybe [CloudWatchLoggingOption])
+-&gt; (CreateApplication
+    -&gt; Maybe [CloudWatchLoggingOption] -&gt; CreateApplication)
+-&gt; Lens
+     CreateApplication
+     CreateApplication
+     (Maybe [CloudWatchLoggingOption])
+     (Maybe [CloudWatchLoggingOption])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214140"><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOption]
+cloudWatchLoggingOptions :: Maybe [CloudWatchLoggingOption]
+$sel:cloudWatchLoggingOptions:CreateApplication' :: CreateApplication -&gt; Maybe [CloudWatchLoggingOption]
+</span><a href="#local-6989586621679214140"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOption]
+</span><a href="#local-6989586621679214140"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214139"><span class="annot"><span class="annottext">s :: CreateApplication
+</span><a href="#local-6989586621679214139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214138"><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOption]
+</span><a href="#local-6989586621679214138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
+</span><a href="#local-6989586621679214139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:CreateApplication' :: Maybe [CloudWatchLoggingOption]
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AcloudWatchLoggingOptions%3ACreateApplication%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOption]
+</span><a href="#local-6989586621679214138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CloudWatchLoggingOption]
+  -&gt; f (Maybe [CloudWatchLoggingOption]))
+ -&gt; CreateApplication -&gt; f CreateApplication)
+-&gt; ((Maybe [CloudWatchLoggingOption]
+     -&gt; f (Maybe [CloudWatchLoggingOption]))
+    -&gt; Maybe [CloudWatchLoggingOption]
+    -&gt; f (Maybe [CloudWatchLoggingOption]))
+-&gt; (Maybe [CloudWatchLoggingOption]
+    -&gt; f (Maybe [CloudWatchLoggingOption]))
+-&gt; CreateApplication
+-&gt; f CreateApplication
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CloudWatchLoggingOption]
+  [CloudWatchLoggingOption]
+  [CloudWatchLoggingOption]
+  [CloudWatchLoggingOption]
+-&gt; Iso
+     (Maybe [CloudWatchLoggingOption])
+     (Maybe [CloudWatchLoggingOption])
+     (Maybe [CloudWatchLoggingOption])
+     (Maybe [CloudWatchLoggingOption])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CloudWatchLoggingOption]
+  [CloudWatchLoggingOption]
+  [CloudWatchLoggingOption]
+  [CloudWatchLoggingOption]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | You can configure application output to write data from any of the</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- in-application streams to up to three destinations.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- These destinations can be Amazon Kinesis streams, Amazon Kinesis</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- Firehose delivery streams, AWS Lambda destinations, or any combination</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- of the three.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- In the configuration, you specify the in-application stream name, the</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- destination stream or Lambda function Amazon Resource Name (ARN), and</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- the format to use when writing data. You must also provide an IAM role</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- that Amazon Kinesis Analytics can assume to write to the destination</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- stream or Lambda function on your behalf.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- In the output configuration, you also provide the output stream or</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- Lambda function ARN. For stream destinations, you provide the format of</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- data in the stream (for example, JSON, CSV). You also must provide an</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- IAM role that Amazon Kinesis Analytics can assume to write to the stream</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- or Lambda function on your behalf.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_outputs"><span class="hs-identifier hs-type">createApplication_outputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span id="createApplication_outputs"><span class="annot"><span class="annottext">createApplication_outputs :: (Maybe [Output] -&gt; f (Maybe [Output]))
+-&gt; CreateApplication -&gt; f CreateApplication
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_outputs"><span class="hs-identifier hs-var hs-var">createApplication_outputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApplication -&gt; Maybe [Output])
+-&gt; (CreateApplication -&gt; Maybe [Output] -&gt; CreateApplication)
+-&gt; Lens
+     CreateApplication
+     CreateApplication
+     (Maybe [Output])
+     (Maybe [Output])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214137"><span class="annot"><span class="annottext">Maybe [Output]
+outputs :: Maybe [Output]
+$sel:outputs:CreateApplication' :: CreateApplication -&gt; Maybe [Output]
+</span><a href="#local-6989586621679214137"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Output]
+</span><a href="#local-6989586621679214137"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214136"><span class="annot"><span class="annottext">s :: CreateApplication
+</span><a href="#local-6989586621679214136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214135"><span class="annot"><span class="annottext">Maybe [Output]
+</span><a href="#local-6989586621679214135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
+</span><a href="#local-6989586621679214136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputs:CreateApplication' :: Maybe [Output]
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3Aoutputs%3ACreateApplication%27"><span class="hs-identifier hs-var">outputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Output]
+</span><a href="#local-6989586621679214135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Output] -&gt; f (Maybe [Output]))
+ -&gt; CreateApplication -&gt; f CreateApplication)
+-&gt; ((Maybe [Output] -&gt; f (Maybe [Output]))
+    -&gt; Maybe [Output] -&gt; f (Maybe [Output]))
+-&gt; (Maybe [Output] -&gt; f (Maybe [Output]))
+-&gt; CreateApplication
+-&gt; f CreateApplication
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Output] [Output] [Output] [Output]
+-&gt; Iso
+     (Maybe [Output]) (Maybe [Output]) (Maybe [Output]) (Maybe [Output])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Output] [Output] [Output] [Output]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- | One or more SQL statements that read input data, transform it, and</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- generate output. For example, you can write a SQL statement that reads</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- data from one in-application stream, generates a running average of the</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- number of advertisement clicks by vendor, and insert resulting rows in</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- another in-application stream using pumps. For more information about</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- the typical pattern, see</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html Application Code&gt;.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- You can provide such series of SQL statements, where output of one</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- statement can be used as the input for the next statement. You store</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- intermediate results by creating in-application streams and pumps.</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- Note that the application code must create the streams with names</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- specified in the @Outputs@. For example, if your @Outputs@ defines</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- output streams named @ExampleOutputStream1@ and @ExampleOutputStream2@,</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- then your application code must create these streams.</span><span>
+</span><span id="line-323"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_applicationCode"><span class="hs-identifier hs-type">createApplication_applicationCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span id="createApplication_applicationCode"><span class="annot"><span class="annottext">createApplication_applicationCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateApplication -&gt; f CreateApplication
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_applicationCode"><span class="hs-identifier hs-var hs-var">createApplication_applicationCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApplication -&gt; Maybe Text)
+-&gt; (CreateApplication -&gt; Maybe Text -&gt; CreateApplication)
+-&gt; Lens
+     CreateApplication CreateApplication (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214134"><span class="annot"><span class="annottext">Maybe Text
+applicationCode :: Maybe Text
+$sel:applicationCode:CreateApplication' :: CreateApplication -&gt; Maybe Text
+</span><a href="#local-6989586621679214134"><span class="hs-identifier hs-var hs-var">applicationCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214134"><span class="hs-identifier hs-var">applicationCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214133"><span class="annot"><span class="annottext">s :: CreateApplication
+</span><a href="#local-6989586621679214133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214132"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
+</span><a href="#local-6989586621679214133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationCode:CreateApplication' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AapplicationCode%3ACreateApplication%27"><span class="hs-identifier hs-var">applicationCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | A list of one or more tags to assign to the application. A tag is a</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- key-value pair that identifies an application. Note that the maximum</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- number of application tags includes system tags. The maximum number of</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- user-defined application tags is 50. For more information, see</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html Using Tagging&gt;.</span><span>
+</span><span id="line-331"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_tags"><span class="hs-identifier hs-type">createApplication_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span id="createApplication_tags"><span class="annot"><span class="annottext">createApplication_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateApplication -&gt; f CreateApplication
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_tags"><span class="hs-identifier hs-var hs-var">createApplication_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApplication -&gt; Maybe (NonEmpty Tag))
+-&gt; (CreateApplication -&gt; Maybe (NonEmpty Tag) -&gt; CreateApplication)
+-&gt; Lens
+     CreateApplication
+     CreateApplication
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214131"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+tags :: Maybe (NonEmpty Tag)
+$sel:tags:CreateApplication' :: CreateApplication -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679214131"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679214131"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214130"><span class="annot"><span class="annottext">s :: CreateApplication
+</span><a href="#local-6989586621679214130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214129"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679214129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
+</span><a href="#local-6989586621679214130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateApplication' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3Atags%3ACreateApplication%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679214129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+ -&gt; CreateApplication -&gt; f CreateApplication)
+-&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+    -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateApplication
+-&gt; f CreateApplication
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+-&gt; Iso
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-333"></span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- | Name of your Amazon Kinesis Analytics application (for example,</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- @sample-app@).</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_applicationName"><span class="hs-identifier hs-type">createApplication_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-337"></span><span id="createApplication_applicationName"><span class="annot"><span class="annottext">createApplication_applicationName :: (Text -&gt; f Text) -&gt; CreateApplication -&gt; f CreateApplication
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplication_applicationName"><span class="hs-identifier hs-var hs-var">createApplication_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApplication -&gt; Text)
+-&gt; (CreateApplication -&gt; Text -&gt; CreateApplication)
+-&gt; Lens CreateApplication CreateApplication Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214128"><span class="annot"><span class="annottext">Text
+applicationName :: Text
+$sel:applicationName:CreateApplication' :: CreateApplication -&gt; Text
+</span><a href="#local-6989586621679214128"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214128"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214127"><span class="annot"><span class="annottext">s :: CreateApplication
+</span><a href="#local-6989586621679214127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214126"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplication
+</span><a href="#local-6989586621679214127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:CreateApplication' :: Text
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AapplicationName%3ACreateApplication%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-340"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-341"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-342"></span><span>      </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse"><span class="hs-identifier hs-type">CreateApplicationResponse</span></a></span><span>
+</span><span id="line-343"></span><span>  </span><span id="local-6989586621679214122"><span class="annot"><span class="annottext">request :: CreateApplication -&gt; Request CreateApplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateApplication -&gt; Request CreateApplication
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.KinesisAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-344"></span><span>  </span><span id="local-6989586621679214118"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateApplication
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateApplication)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-345"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateApplication))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateApplication
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateApplication)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-346"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679214115"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214115"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679214114"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679214114"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679214113"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679214113"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-347"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ApplicationSummary -&gt; CreateApplicationResponse
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse%27"><span class="hs-identifier hs-var">CreateApplicationResponse'</span></a></span><span>
+</span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ApplicationSummary -&gt; CreateApplicationResponse)
+-&gt; Either String Int
+-&gt; Either String (ApplicationSummary -&gt; CreateApplicationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214115"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>            </span><span class="annot"><span class="annottext">Either String (ApplicationSummary -&gt; CreateApplicationResponse)
+-&gt; Either String ApplicationSummary
+-&gt; Either String CreateApplicationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679214113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ApplicationSummary
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214105"><span id="local-6989586621679214107"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span></span></span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span></span><span>
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-357"></span><span>  </span><span id="local-6989586621679214098"><span class="annot"><span class="annottext">toHeaders :: CreateApplication -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-358"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateApplication -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-359"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-360"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-361"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;KinesisAnalytics_20150814.CreateApplication&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-362"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-363"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-365"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-366"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-367"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-369"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span>
+</span><span id="line-371"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214088"><span id="local-6989586621679214090"><span id="local-6989586621679214092"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-372"></span><span>  </span><span id="local-6989586621679214086"><span class="annot"><span class="annottext">toJSON :: CreateApplication -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication%27"><span class="hs-identifier hs-type">CreateApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214078"><span id="local-6989586621679214079"><span id="local-6989586621679214080"><span id="local-6989586621679214081"><span id="local-6989586621679214082"><span id="local-6989586621679214083"><span id="local-6989586621679214084"><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOption]
+Maybe [Output]
+Maybe [Input]
+Maybe (NonEmpty Tag)
+Maybe Text
+Text
+applicationName :: Text
+tags :: Maybe (NonEmpty Tag)
+applicationCode :: Maybe Text
+outputs :: Maybe [Output]
+cloudWatchLoggingOptions :: Maybe [CloudWatchLoggingOption]
+inputs :: Maybe [Input]
+applicationDescription :: Maybe Text
+$sel:applicationName:CreateApplication' :: CreateApplication -&gt; Text
+$sel:tags:CreateApplication' :: CreateApplication -&gt; Maybe (NonEmpty Tag)
+$sel:applicationCode:CreateApplication' :: CreateApplication -&gt; Maybe Text
+$sel:outputs:CreateApplication' :: CreateApplication -&gt; Maybe [Output]
+$sel:cloudWatchLoggingOptions:CreateApplication' :: CreateApplication -&gt; Maybe [CloudWatchLoggingOption]
+$sel:inputs:CreateApplication' :: CreateApplication -&gt; Maybe [Input]
+$sel:applicationDescription:CreateApplication' :: CreateApplication -&gt; Maybe Text
+</span><a href="#local-6989586621679214078"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-373"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-374"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-375"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214084"><span class="hs-identifier hs-var">applicationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Inputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Input] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Input] -&gt; Pair) -&gt; Maybe [Input] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Input]
+</span><a href="#local-6989586621679214083"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLoggingOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CloudWatchLoggingOption] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-379"></span><span>              </span><span class="annot"><span class="annottext">([CloudWatchLoggingOption] -&gt; Pair)
+-&gt; Maybe [CloudWatchLoggingOption] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOption]
+</span><a href="#local-6989586621679214082"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-380"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Outputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Output] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Output] -&gt; Pair) -&gt; Maybe [Output] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Output]
+</span><a href="#local-6989586621679214081"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679214080"><span class="hs-identifier hs-var">applicationCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679214079"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-385"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214078"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-387"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-388"></span><span>
+</span><span id="line-389"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-390"></span><span>  </span><span id="local-6989586621679214072"><span class="annot"><span class="annottext">toPath :: CreateApplication -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateApplication -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-391"></span><span>
+</span><span id="line-392"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplication"><span class="hs-identifier hs-type">CreateApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-393"></span><span>  </span><span id="local-6989586621679214068"><span class="annot"><span class="annottext">toQuery :: CreateApplication -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateApplication -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-394"></span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- | TBD</span><span>
+</span><span id="line-396"></span><span class="hs-comment">--</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- /See:/ 'newCreateApplicationResponse' smart constructor.</span><span>
+</span><span id="line-398"></span><span id="local-6989586621679214065"><span id="local-6989586621679214066"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApplicationResponse"><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse"><span class="hs-identifier hs-var">CreateApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApplicationResponse%27"><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse%27"><span class="hs-identifier hs-var">CreateApplicationResponse'</span></a></span></span><span>
+</span><span id="line-399"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-400"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateApplicationResponse%27"><span class="annot"><span class="annottext">CreateApplicationResponse -&gt; Int
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AhttpStatus%3ACreateApplicationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-401"></span><span>    </span><span class="hs-comment">-- | In response to your @CreateApplication@ request, Amazon Kinesis</span><span>
+</span><span id="line-402"></span><span>    </span><span class="hs-comment">-- Analytics returns a response with a summary of the application it</span><span>
+</span><span id="line-403"></span><span>    </span><span class="hs-comment">-- created, including the application Amazon Resource Name (ARN), name, and</span><span>
+</span><span id="line-404"></span><span>    </span><span class="hs-comment">-- status.</span><span>
+</span><span id="line-405"></span><span>    </span><span id="%24sel%3AapplicationSummary%3ACreateApplicationResponse%27"><span class="annot"><span class="annottext">CreateApplicationResponse -&gt; ApplicationSummary
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AapplicationSummary%3ACreateApplicationResponse%27"><span class="hs-identifier hs-var hs-var">applicationSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span>
+</span><span id="line-406"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-407"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214059"><span id="local-6989586621679214061"><span class="annot"><span class="annottext">CreateApplicationResponse -&gt; CreateApplicationResponse -&gt; Bool
+(CreateApplicationResponse -&gt; CreateApplicationResponse -&gt; Bool)
+-&gt; (CreateApplicationResponse -&gt; CreateApplicationResponse -&gt; Bool)
+-&gt; Eq CreateApplicationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateApplicationResponse -&gt; CreateApplicationResponse -&gt; Bool
+$c/= :: CreateApplicationResponse -&gt; CreateApplicationResponse -&gt; Bool
+== :: CreateApplicationResponse -&gt; CreateApplicationResponse -&gt; Bool
+$c== :: CreateApplicationResponse -&gt; CreateApplicationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214051"><span id="local-6989586621679214053"><span id="local-6989586621679214055"><span id="local-6989586621679214057"><span class="annot"><span class="annottext">ReadPrec [CreateApplicationResponse]
+ReadPrec CreateApplicationResponse
+Int -&gt; ReadS CreateApplicationResponse
+ReadS [CreateApplicationResponse]
+(Int -&gt; ReadS CreateApplicationResponse)
+-&gt; ReadS [CreateApplicationResponse]
+-&gt; ReadPrec CreateApplicationResponse
+-&gt; ReadPrec [CreateApplicationResponse]
+-&gt; Read CreateApplicationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateApplicationResponse]
+$creadListPrec :: ReadPrec [CreateApplicationResponse]
+readPrec :: ReadPrec CreateApplicationResponse
+$creadPrec :: ReadPrec CreateApplicationResponse
+readList :: ReadS [CreateApplicationResponse]
+$creadList :: ReadS [CreateApplicationResponse]
+readsPrec :: Int -&gt; ReadS CreateApplicationResponse
+$creadsPrec :: Int -&gt; ReadS CreateApplicationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214045"><span id="local-6989586621679214047"><span id="local-6989586621679214049"><span class="annot"><span class="annottext">Int -&gt; CreateApplicationResponse -&gt; ShowS
+[CreateApplicationResponse] -&gt; ShowS
+CreateApplicationResponse -&gt; String
+(Int -&gt; CreateApplicationResponse -&gt; ShowS)
+-&gt; (CreateApplicationResponse -&gt; String)
+-&gt; ([CreateApplicationResponse] -&gt; ShowS)
+-&gt; Show CreateApplicationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateApplicationResponse] -&gt; ShowS
+$cshowList :: [CreateApplicationResponse] -&gt; ShowS
+show :: CreateApplicationResponse -&gt; String
+$cshow :: CreateApplicationResponse -&gt; String
+showsPrec :: Int -&gt; CreateApplicationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateApplicationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateApplicationResponse -&gt; Rep CreateApplicationResponse x)
+-&gt; (forall x.
+    Rep CreateApplicationResponse x -&gt; CreateApplicationResponse)
+-&gt; Generic CreateApplicationResponse
+forall x.
+Rep CreateApplicationResponse x -&gt; CreateApplicationResponse
+forall x.
+CreateApplicationResponse -&gt; Rep CreateApplicationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateApplicationResponse x -&gt; CreateApplicationResponse
+$cfrom :: forall x.
+CreateApplicationResponse -&gt; Rep CreateApplicationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-408"></span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- Create a value of 'CreateApplicationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-411"></span><span class="hs-comment">--</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-413"></span><span class="hs-comment">--</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-416"></span><span class="hs-comment">--</span><span>
+</span><span id="line-417"></span><span class="hs-comment">-- 'httpStatus', 'createApplicationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-418"></span><span class="hs-comment">--</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- 'applicationSummary', 'createApplicationResponse_applicationSummary' - In response to your @CreateApplication@ request, Amazon Kinesis</span><span>
+</span><span id="line-420"></span><span class="hs-comment">-- Analytics returns a response with a summary of the application it</span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- created, including the application Amazon Resource Name (ARN), name, and</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- status.</span><span>
+</span><span id="line-423"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#newCreateApplicationResponse"><span class="hs-identifier hs-type">newCreateApplicationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-424"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-425"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-426"></span><span>  </span><span class="hs-comment">-- | 'applicationSummary'</span><span>
+</span><span id="line-427"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-428"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse"><span class="hs-identifier hs-type">CreateApplicationResponse</span></a></span><span>
+</span><span id="line-429"></span><span id="newCreateApplicationResponse"><span class="annot"><span class="annottext">newCreateApplicationResponse :: Int -&gt; ApplicationSummary -&gt; CreateApplicationResponse
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#newCreateApplicationResponse"><span class="hs-identifier hs-var hs-var">newCreateApplicationResponse</span></a></span></span><span>
+</span><span id="line-430"></span><span>  </span><span id="local-6989586621679214042"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214042"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-431"></span><span>  </span><span id="local-6989586621679214041"><span class="annot"><span class="annottext">ApplicationSummary
+</span><a href="#local-6989586621679214041"><span class="hs-identifier hs-var">pApplicationSummary_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-432"></span><span>    </span><span class="annot"><span class="annottext">CreateApplicationResponse' :: Int -&gt; ApplicationSummary -&gt; CreateApplicationResponse
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse%27"><span class="hs-identifier hs-type">CreateApplicationResponse'</span></a></span><span>
+</span><span id="line-433"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateApplicationResponse' :: Int
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AhttpStatus%3ACreateApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-434"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214042"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-435"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationSummary:CreateApplicationResponse' :: ApplicationSummary
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AapplicationSummary%3ACreateApplicationResponse%27"><span class="hs-identifier hs-var">applicationSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApplicationSummary
+</span><a href="#local-6989586621679214041"><span class="hs-identifier hs-var">pApplicationSummary_</span></a></span><span>
+</span><span id="line-436"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-437"></span><span>
+</span><span id="line-438"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-439"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplicationResponse_httpStatus"><span class="hs-identifier hs-type">createApplicationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse"><span class="hs-identifier hs-type">CreateApplicationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-440"></span><span id="createApplicationResponse_httpStatus"><span class="annot"><span class="annottext">createApplicationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateApplicationResponse -&gt; f CreateApplicationResponse
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplicationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createApplicationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApplicationResponse -&gt; Int)
+-&gt; (CreateApplicationResponse -&gt; Int -&gt; CreateApplicationResponse)
+-&gt; Lens CreateApplicationResponse CreateApplicationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse%27"><span class="hs-identifier hs-type">CreateApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214040"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateApplicationResponse' :: CreateApplicationResponse -&gt; Int
+</span><a href="#local-6989586621679214040"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214040"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214039"><span class="annot"><span class="annottext">s :: CreateApplicationResponse
+</span><a href="#local-6989586621679214039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse%27"><span class="hs-identifier hs-type">CreateApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214038"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplicationResponse
+</span><a href="#local-6989586621679214039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateApplicationResponse' :: Int
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AhttpStatus%3ACreateApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse"><span class="hs-identifier hs-type">CreateApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-441"></span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- | In response to your @CreateApplication@ request, Amazon Kinesis</span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- Analytics returns a response with a summary of the application it</span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- created, including the application Amazon Resource Name (ARN), name, and</span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- status.</span><span>
+</span><span id="line-446"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplicationResponse_applicationSummary"><span class="hs-identifier hs-type">createApplicationResponse_applicationSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse"><span class="hs-identifier hs-type">CreateApplicationResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span>
+</span><span id="line-447"></span><span id="createApplicationResponse_applicationSummary"><span class="annot"><span class="annottext">createApplicationResponse_applicationSummary :: (ApplicationSummary -&gt; f ApplicationSummary)
+-&gt; CreateApplicationResponse -&gt; f CreateApplicationResponse
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#createApplicationResponse_applicationSummary"><span class="hs-identifier hs-var hs-var">createApplicationResponse_applicationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApplicationResponse -&gt; ApplicationSummary)
+-&gt; (CreateApplicationResponse
+    -&gt; ApplicationSummary -&gt; CreateApplicationResponse)
+-&gt; Lens
+     CreateApplicationResponse
+     CreateApplicationResponse
+     ApplicationSummary
+     ApplicationSummary
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse%27"><span class="hs-identifier hs-type">CreateApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214037"><span class="annot"><span class="annottext">ApplicationSummary
+applicationSummary :: ApplicationSummary
+$sel:applicationSummary:CreateApplicationResponse' :: CreateApplicationResponse -&gt; ApplicationSummary
+</span><a href="#local-6989586621679214037"><span class="hs-identifier hs-var hs-var">applicationSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSummary
+</span><a href="#local-6989586621679214037"><span class="hs-identifier hs-var">applicationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214036"><span class="annot"><span class="annottext">s :: CreateApplicationResponse
+</span><a href="#local-6989586621679214036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse%27"><span class="hs-identifier hs-type">CreateApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214035"><span class="annot"><span class="annottext">ApplicationSummary
+</span><a href="#local-6989586621679214035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApplicationResponse
+</span><a href="#local-6989586621679214036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationSummary:CreateApplicationResponse' :: ApplicationSummary
+</span><a href="Amazonka.KinesisAnalytics.CreateApplication.html#%24sel%3AapplicationSummary%3ACreateApplicationResponse%27"><span class="hs-identifier hs-var">applicationSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApplicationSummary
+</span><a href="#local-6989586621679214035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse"><span class="hs-identifier hs-type">CreateApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-448"></span><span>
+</span><span id="line-449"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.CreateApplication.html#CreateApplicationResponse"><span class="hs-identifier hs-type">CreateApplicationResponse</span></a></span></span><span>
+</span><span id="line-450"></span></pre></body></html>

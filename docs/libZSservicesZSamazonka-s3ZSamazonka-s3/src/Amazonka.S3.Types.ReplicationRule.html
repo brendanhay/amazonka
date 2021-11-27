@@ -1,0 +1,746 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.S3.Types.ReplicationRule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.Types.ReplicationRule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html"><span class="hs-identifier">Amazonka.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.DeleteMarkerReplication.html"><span class="hs-identifier">Amazonka.S3.Types.DeleteMarkerReplication</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Destination.html"><span class="hs-identifier">Amazonka.S3.Types.Destination</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ExistingObjectReplication.html"><span class="hs-identifier">Amazonka.S3.Types.ExistingObjectReplication</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRuleFilter.html"><span class="hs-identifier">Amazonka.S3.Types.ReplicationRuleFilter</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRuleStatus.html"><span class="hs-identifier">Amazonka.S3.Types.ReplicationRuleStatus</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.SourceSelectionCriteria.html"><span class="hs-identifier">Amazonka.S3.Types.SourceSelectionCriteria</span></a></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Specifies which Amazon S3 objects to replicate and where to store the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- replicas.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newReplicationRule' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679555257"><span id="local-6989586621679555258"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationRule"><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-var">ReplicationRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationRule%27"><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-var">ReplicationRule'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdeleteMarkerReplication%3AReplicationRule%27"><span class="annot"><span class="annottext">ReplicationRule -&gt; Maybe DeleteMarkerReplication
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3AdeleteMarkerReplication%3AReplicationRule%27"><span class="hs-identifier hs-var hs-var">deleteMarkerReplication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.DeleteMarkerReplication.html#DeleteMarkerReplication"><span class="hs-identifier hs-type">DeleteMarkerReplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The priority indicates which rule has precedence whenever two or more</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- replication rules conflict. Amazon S3 will attempt to replicate objects</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- according to all replication rules. However, if there are two or more</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- rules with the same destination bucket, then objects will be replicated</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- according to the rule with the highest priority. The higher the number,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the higher the priority.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication&gt;</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Apriority%3AReplicationRule%27"><span class="annot"><span class="annottext">ReplicationRule -&gt; Maybe Int
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Apriority%3AReplicationRule%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | An object key name prefix that identifies the object or objects to which</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- the rule applies. The maximum prefix length is 1,024 characters. To</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- include all objects in a bucket, specify an empty string.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aprefix%3AReplicationRule%27"><span class="annot"><span class="annottext">ReplicationRule -&gt; Maybe Text
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Aprefix%3AReplicationRule%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AexistingObjectReplication%3AReplicationRule%27"><span class="annot"><span class="annottext">ReplicationRule -&gt; Maybe ExistingObjectReplication
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3AexistingObjectReplication%3AReplicationRule%27"><span class="hs-identifier hs-var hs-var">existingObjectReplication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ExistingObjectReplication.html#ExistingObjectReplication"><span class="hs-identifier hs-type">ExistingObjectReplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the rule. The maximum value is 255 characters.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aid%3AReplicationRule%27"><span class="annot"><span class="annottext">ReplicationRule -&gt; Maybe Text
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Aid%3AReplicationRule%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Afilter%27%3AReplicationRule%27"><span class="annot"><span class="annottext">ReplicationRule -&gt; Maybe ReplicationRuleFilter
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Afilter%27%3AReplicationRule%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRuleFilter.html#ReplicationRuleFilter"><span class="hs-identifier hs-type">ReplicationRuleFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A container that describes additional filters for identifying the source</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- objects that you want to replicate. You can choose to enable or disable</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the replication of these objects. Currently, Amazon S3 supports only the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- filter that you can specify for objects created with server-side</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- encryption using a customer managed key stored in Amazon Web Services</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Key Management Service (SSE-KMS).</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AsourceSelectionCriteria%3AReplicationRule%27"><span class="annot"><span class="annottext">ReplicationRule -&gt; Maybe SourceSelectionCriteria
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3AsourceSelectionCriteria%3AReplicationRule%27"><span class="hs-identifier hs-var hs-var">sourceSelectionCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-type">SourceSelectionCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Specifies whether the rule is enabled.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Astatus%3AReplicationRule%27"><span class="annot"><span class="annottext">ReplicationRule -&gt; ReplicationRuleStatus
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Astatus%3AReplicationRule%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRuleStatus.html#ReplicationRuleStatus"><span class="hs-identifier hs-type">ReplicationRuleStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A container for information about the replication destination and its</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- configurations including enabling the S3 Replication Time Control (S3</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- RTC).</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Adestination%3AReplicationRule%27"><span class="annot"><span class="annottext">ReplicationRule -&gt; Destination
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Adestination%3AReplicationRule%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679555243"><span id="local-6989586621679555245"><span class="annot"><span class="annottext">ReplicationRule -&gt; ReplicationRule -&gt; Bool
+(ReplicationRule -&gt; ReplicationRule -&gt; Bool)
+-&gt; (ReplicationRule -&gt; ReplicationRule -&gt; Bool)
+-&gt; Eq ReplicationRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplicationRule -&gt; ReplicationRule -&gt; Bool
+$c/= :: ReplicationRule -&gt; ReplicationRule -&gt; Bool
+== :: ReplicationRule -&gt; ReplicationRule -&gt; Bool
+$c== :: ReplicationRule -&gt; ReplicationRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555234"><span id="local-6989586621679555236"><span id="local-6989586621679555238"><span id="local-6989586621679555240"><span class="annot"><span class="annottext">ReadPrec [ReplicationRule]
+ReadPrec ReplicationRule
+Int -&gt; ReadS ReplicationRule
+ReadS [ReplicationRule]
+(Int -&gt; ReadS ReplicationRule)
+-&gt; ReadS [ReplicationRule]
+-&gt; ReadPrec ReplicationRule
+-&gt; ReadPrec [ReplicationRule]
+-&gt; Read ReplicationRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplicationRule]
+$creadListPrec :: ReadPrec [ReplicationRule]
+readPrec :: ReadPrec ReplicationRule
+$creadPrec :: ReadPrec ReplicationRule
+readList :: ReadS [ReplicationRule]
+$creadList :: ReadS [ReplicationRule]
+readsPrec :: Int -&gt; ReadS ReplicationRule
+$creadsPrec :: Int -&gt; ReadS ReplicationRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555227"><span id="local-6989586621679555229"><span id="local-6989586621679555231"><span class="annot"><span class="annottext">Int -&gt; ReplicationRule -&gt; ShowS
+[ReplicationRule] -&gt; ShowS
+ReplicationRule -&gt; String
+(Int -&gt; ReplicationRule -&gt; ShowS)
+-&gt; (ReplicationRule -&gt; String)
+-&gt; ([ReplicationRule] -&gt; ShowS)
+-&gt; Show ReplicationRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplicationRule] -&gt; ShowS
+$cshowList :: [ReplicationRule] -&gt; ShowS
+show :: ReplicationRule -&gt; String
+$cshow :: ReplicationRule -&gt; String
+showsPrec :: Int -&gt; ReplicationRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplicationRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ReplicationRule -&gt; Rep ReplicationRule x)
+-&gt; (forall x. Rep ReplicationRule x -&gt; ReplicationRule)
+-&gt; Generic ReplicationRule
+forall x. Rep ReplicationRule x -&gt; ReplicationRule
+forall x. ReplicationRule -&gt; Rep ReplicationRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReplicationRule x -&gt; ReplicationRule
+$cfrom :: forall x. ReplicationRule -&gt; Rep ReplicationRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'ReplicationRule' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'deleteMarkerReplication', 'replicationRule_deleteMarkerReplication' - Undocumented member.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'priority', 'replicationRule_priority' - The priority indicates which rule has precedence whenever two or more</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- replication rules conflict. Amazon S3 will attempt to replicate objects</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- according to all replication rules. However, if there are two or more</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- rules with the same destination bucket, then objects will be replicated</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- according to the rule with the highest priority. The higher the number,</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- the higher the priority.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication&gt;</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'prefix', 'replicationRule_prefix' - An object key name prefix that identifies the object or objects to which</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the rule applies. The maximum prefix length is 1,024 characters. To</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- include all objects in a bucket, specify an empty string.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'existingObjectReplication', 'replicationRule_existingObjectReplication' -</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'id', 'replicationRule_id' - A unique identifier for the rule. The maximum value is 255 characters.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'filter'', 'replicationRule_filter' - Undocumented member.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'sourceSelectionCriteria', 'replicationRule_sourceSelectionCriteria' - A container that describes additional filters for identifying the source</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- objects that you want to replicate. You can choose to enable or disable</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- the replication of these objects. Currently, Amazon S3 supports only the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- filter that you can specify for objects created with server-side</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- encryption using a customer managed key stored in Amazon Web Services</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Key Management Service (SSE-KMS).</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'status', 'replicationRule_status' - Specifies whether the rule is enabled.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'destination', 'replicationRule_destination' - A container for information about the replication destination and its</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- configurations including enabling the S3 Replication Time Control (S3</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- RTC).</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#newReplicationRule"><span class="hs-identifier hs-type">newReplicationRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRuleStatus.html#ReplicationRuleStatus"><span class="hs-identifier hs-type">ReplicationRuleStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'destination'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span>
+</span><span id="line-133"></span><span id="newReplicationRule"><span class="annot"><span class="annottext">newReplicationRule :: ReplicationRuleStatus -&gt; Destination -&gt; ReplicationRule
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#newReplicationRule"><span class="hs-identifier hs-var hs-var">newReplicationRule</span></a></span></span><span> </span><span id="local-6989586621679555221"><span class="annot"><span class="annottext">ReplicationRuleStatus
+</span><a href="#local-6989586621679555221"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span id="local-6989586621679555220"><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679555220"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">ReplicationRule' :: Maybe DeleteMarkerReplication
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe ExistingObjectReplication
+-&gt; Maybe Text
+-&gt; Maybe ReplicationRuleFilter
+-&gt; Maybe SourceSelectionCriteria
+-&gt; ReplicationRuleStatus
+-&gt; Destination
+-&gt; ReplicationRule
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deleteMarkerReplication:ReplicationRule' :: Maybe DeleteMarkerReplication
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3AdeleteMarkerReplication%3AReplicationRule%27"><span class="hs-identifier hs-var">deleteMarkerReplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Maybe DeleteMarkerReplication
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:priority:ReplicationRule' :: Maybe Int
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Apriority%3AReplicationRule%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefix:ReplicationRule' :: Maybe Text
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Aprefix%3AReplicationRule%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:existingObjectReplication:ReplicationRule' :: Maybe ExistingObjectReplication
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3AexistingObjectReplication%3AReplicationRule%27"><span class="hs-identifier hs-var">existingObjectReplication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExistingObjectReplication
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ReplicationRule' :: Maybe Text
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Aid%3AReplicationRule%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':ReplicationRule' :: Maybe ReplicationRuleFilter
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Afilter%27%3AReplicationRule%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationRuleFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceSelectionCriteria:ReplicationRule' :: Maybe SourceSelectionCriteria
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3AsourceSelectionCriteria%3AReplicationRule%27"><span class="hs-identifier hs-var">sourceSelectionCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceSelectionCriteria
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ReplicationRule' :: ReplicationRuleStatus
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Astatus%3AReplicationRule%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicationRuleStatus
+</span><a href="#local-6989586621679555221"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:destination:ReplicationRule' :: Destination
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Adestination%3AReplicationRule%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679555220"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_deleteMarkerReplication"><span class="hs-identifier hs-type">replicationRule_deleteMarkerReplication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.DeleteMarkerReplication.html#DeleteMarkerReplication"><span class="hs-identifier hs-type">DeleteMarkerReplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="replicationRule_deleteMarkerReplication"><span class="annot"><span class="annottext">replicationRule_deleteMarkerReplication :: (Maybe DeleteMarkerReplication
+ -&gt; f (Maybe DeleteMarkerReplication))
+-&gt; ReplicationRule -&gt; f ReplicationRule
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_deleteMarkerReplication"><span class="hs-identifier hs-var hs-var">replicationRule_deleteMarkerReplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationRule -&gt; Maybe DeleteMarkerReplication)
+-&gt; (ReplicationRule
+    -&gt; Maybe DeleteMarkerReplication -&gt; ReplicationRule)
+-&gt; Lens
+     ReplicationRule
+     ReplicationRule
+     (Maybe DeleteMarkerReplication)
+     (Maybe DeleteMarkerReplication)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555216"><span class="annot"><span class="annottext">Maybe DeleteMarkerReplication
+deleteMarkerReplication :: Maybe DeleteMarkerReplication
+$sel:deleteMarkerReplication:ReplicationRule' :: ReplicationRule -&gt; Maybe DeleteMarkerReplication
+</span><a href="#local-6989586621679555216"><span class="hs-identifier hs-var hs-var">deleteMarkerReplication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteMarkerReplication
+</span><a href="#local-6989586621679555216"><span class="hs-identifier hs-var">deleteMarkerReplication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555215"><span class="annot"><span class="annottext">s :: ReplicationRule
+</span><a href="#local-6989586621679555215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555214"><span class="annot"><span class="annottext">Maybe DeleteMarkerReplication
+</span><a href="#local-6989586621679555214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationRule
+</span><a href="#local-6989586621679555215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteMarkerReplication:ReplicationRule' :: Maybe DeleteMarkerReplication
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3AdeleteMarkerReplication%3AReplicationRule%27"><span class="hs-identifier hs-var">deleteMarkerReplication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteMarkerReplication
+</span><a href="#local-6989586621679555214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The priority indicates which rule has precedence whenever two or more</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- replication rules conflict. Amazon S3 will attempt to replicate objects</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- according to all replication rules. However, if there are two or more</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- rules with the same destination bucket, then objects will be replicated</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- according to the rule with the highest priority. The higher the number,</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- the higher the priority.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication&gt;</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_priority"><span class="hs-identifier hs-type">replicationRule_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="replicationRule_priority"><span class="annot"><span class="annottext">replicationRule_priority :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ReplicationRule -&gt; f ReplicationRule
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_priority"><span class="hs-identifier hs-var hs-var">replicationRule_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationRule -&gt; Maybe Int)
+-&gt; (ReplicationRule -&gt; Maybe Int -&gt; ReplicationRule)
+-&gt; Lens ReplicationRule ReplicationRule (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555212"><span class="annot"><span class="annottext">Maybe Int
+priority :: Maybe Int
+$sel:priority:ReplicationRule' :: ReplicationRule -&gt; Maybe Int
+</span><a href="#local-6989586621679555212"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679555212"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555211"><span class="annot"><span class="annottext">s :: ReplicationRule
+</span><a href="#local-6989586621679555211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555210"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679555210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationRule
+</span><a href="#local-6989586621679555211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:ReplicationRule' :: Maybe Int
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Apriority%3AReplicationRule%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679555210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | An object key name prefix that identifies the object or objects to which</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- the rule applies. The maximum prefix length is 1,024 characters. To</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- include all objects in a bucket, specify an empty string.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_prefix"><span class="hs-identifier hs-type">replicationRule_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="replicationRule_prefix"><span class="annot"><span class="annottext">replicationRule_prefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationRule -&gt; f ReplicationRule
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_prefix"><span class="hs-identifier hs-var hs-var">replicationRule_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationRule -&gt; Maybe Text)
+-&gt; (ReplicationRule -&gt; Maybe Text -&gt; ReplicationRule)
+-&gt; Lens ReplicationRule ReplicationRule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555208"><span class="annot"><span class="annottext">Maybe Text
+prefix :: Maybe Text
+$sel:prefix:ReplicationRule' :: ReplicationRule -&gt; Maybe Text
+</span><a href="#local-6989586621679555208"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555208"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555207"><span class="annot"><span class="annottext">s :: ReplicationRule
+</span><a href="#local-6989586621679555207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555206"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationRule
+</span><a href="#local-6989586621679555207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:ReplicationRule' :: Maybe Text
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Aprefix%3AReplicationRule%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_existingObjectReplication"><span class="hs-identifier hs-type">replicationRule_existingObjectReplication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ExistingObjectReplication.html#ExistingObjectReplication"><span class="hs-identifier hs-type">ExistingObjectReplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="replicationRule_existingObjectReplication"><span class="annot"><span class="annottext">replicationRule_existingObjectReplication :: (Maybe ExistingObjectReplication
+ -&gt; f (Maybe ExistingObjectReplication))
+-&gt; ReplicationRule -&gt; f ReplicationRule
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_existingObjectReplication"><span class="hs-identifier hs-var hs-var">replicationRule_existingObjectReplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationRule -&gt; Maybe ExistingObjectReplication)
+-&gt; (ReplicationRule
+    -&gt; Maybe ExistingObjectReplication -&gt; ReplicationRule)
+-&gt; Lens
+     ReplicationRule
+     ReplicationRule
+     (Maybe ExistingObjectReplication)
+     (Maybe ExistingObjectReplication)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555204"><span class="annot"><span class="annottext">Maybe ExistingObjectReplication
+existingObjectReplication :: Maybe ExistingObjectReplication
+$sel:existingObjectReplication:ReplicationRule' :: ReplicationRule -&gt; Maybe ExistingObjectReplication
+</span><a href="#local-6989586621679555204"><span class="hs-identifier hs-var hs-var">existingObjectReplication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExistingObjectReplication
+</span><a href="#local-6989586621679555204"><span class="hs-identifier hs-var">existingObjectReplication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555203"><span class="annot"><span class="annottext">s :: ReplicationRule
+</span><a href="#local-6989586621679555203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555202"><span class="annot"><span class="annottext">Maybe ExistingObjectReplication
+</span><a href="#local-6989586621679555202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationRule
+</span><a href="#local-6989586621679555203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:existingObjectReplication:ReplicationRule' :: Maybe ExistingObjectReplication
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3AexistingObjectReplication%3AReplicationRule%27"><span class="hs-identifier hs-var">existingObjectReplication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExistingObjectReplication
+</span><a href="#local-6989586621679555202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | A unique identifier for the rule. The maximum value is 255 characters.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_id"><span class="hs-identifier hs-type">replicationRule_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="replicationRule_id"><span class="annot"><span class="annottext">replicationRule_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationRule -&gt; f ReplicationRule
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_id"><span class="hs-identifier hs-var hs-var">replicationRule_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationRule -&gt; Maybe Text)
+-&gt; (ReplicationRule -&gt; Maybe Text -&gt; ReplicationRule)
+-&gt; Lens ReplicationRule ReplicationRule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555200"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:ReplicationRule' :: ReplicationRule -&gt; Maybe Text
+</span><a href="#local-6989586621679555200"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555200"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555199"><span class="annot"><span class="annottext">s :: ReplicationRule
+</span><a href="#local-6989586621679555199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555198"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationRule
+</span><a href="#local-6989586621679555199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReplicationRule' :: Maybe Text
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Aid%3AReplicationRule%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_filter"><span class="hs-identifier hs-type">replicationRule_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRuleFilter.html#ReplicationRuleFilter"><span class="hs-identifier hs-type">ReplicationRuleFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="replicationRule_filter"><span class="annot"><span class="annottext">replicationRule_filter :: (Maybe ReplicationRuleFilter -&gt; f (Maybe ReplicationRuleFilter))
+-&gt; ReplicationRule -&gt; f ReplicationRule
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_filter"><span class="hs-identifier hs-var hs-var">replicationRule_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationRule -&gt; Maybe ReplicationRuleFilter)
+-&gt; (ReplicationRule
+    -&gt; Maybe ReplicationRuleFilter -&gt; ReplicationRule)
+-&gt; Lens
+     ReplicationRule
+     ReplicationRule
+     (Maybe ReplicationRuleFilter)
+     (Maybe ReplicationRuleFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555196"><span class="annot"><span class="annottext">Maybe ReplicationRuleFilter
+filter' :: Maybe ReplicationRuleFilter
+$sel:filter':ReplicationRule' :: ReplicationRule -&gt; Maybe ReplicationRuleFilter
+</span><a href="#local-6989586621679555196"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationRuleFilter
+</span><a href="#local-6989586621679555196"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555195"><span class="annot"><span class="annottext">s :: ReplicationRule
+</span><a href="#local-6989586621679555195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555194"><span class="annot"><span class="annottext">Maybe ReplicationRuleFilter
+</span><a href="#local-6989586621679555194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationRule
+</span><a href="#local-6989586621679555195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':ReplicationRule' :: Maybe ReplicationRuleFilter
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Afilter%27%3AReplicationRule%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationRuleFilter
+</span><a href="#local-6989586621679555194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | A container that describes additional filters for identifying the source</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- objects that you want to replicate. You can choose to enable or disable</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- the replication of these objects. Currently, Amazon S3 supports only the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- filter that you can specify for objects created with server-side</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- encryption using a customer managed key stored in Amazon Web Services</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Key Management Service (SSE-KMS).</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_sourceSelectionCriteria"><span class="hs-identifier hs-type">replicationRule_sourceSelectionCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-type">SourceSelectionCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="replicationRule_sourceSelectionCriteria"><span class="annot"><span class="annottext">replicationRule_sourceSelectionCriteria :: (Maybe SourceSelectionCriteria
+ -&gt; f (Maybe SourceSelectionCriteria))
+-&gt; ReplicationRule -&gt; f ReplicationRule
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_sourceSelectionCriteria"><span class="hs-identifier hs-var hs-var">replicationRule_sourceSelectionCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationRule -&gt; Maybe SourceSelectionCriteria)
+-&gt; (ReplicationRule
+    -&gt; Maybe SourceSelectionCriteria -&gt; ReplicationRule)
+-&gt; Lens
+     ReplicationRule
+     ReplicationRule
+     (Maybe SourceSelectionCriteria)
+     (Maybe SourceSelectionCriteria)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555192"><span class="annot"><span class="annottext">Maybe SourceSelectionCriteria
+sourceSelectionCriteria :: Maybe SourceSelectionCriteria
+$sel:sourceSelectionCriteria:ReplicationRule' :: ReplicationRule -&gt; Maybe SourceSelectionCriteria
+</span><a href="#local-6989586621679555192"><span class="hs-identifier hs-var hs-var">sourceSelectionCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceSelectionCriteria
+</span><a href="#local-6989586621679555192"><span class="hs-identifier hs-var">sourceSelectionCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555191"><span class="annot"><span class="annottext">s :: ReplicationRule
+</span><a href="#local-6989586621679555191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555190"><span class="annot"><span class="annottext">Maybe SourceSelectionCriteria
+</span><a href="#local-6989586621679555190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationRule
+</span><a href="#local-6989586621679555191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceSelectionCriteria:ReplicationRule' :: Maybe SourceSelectionCriteria
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3AsourceSelectionCriteria%3AReplicationRule%27"><span class="hs-identifier hs-var">sourceSelectionCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceSelectionCriteria
+</span><a href="#local-6989586621679555190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Specifies whether the rule is enabled.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_status"><span class="hs-identifier hs-type">replicationRule_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRuleStatus.html#ReplicationRuleStatus"><span class="hs-identifier hs-type">ReplicationRuleStatus</span></a></span><span>
+</span><span id="line-198"></span><span id="replicationRule_status"><span class="annot"><span class="annottext">replicationRule_status :: (ReplicationRuleStatus -&gt; f ReplicationRuleStatus)
+-&gt; ReplicationRule -&gt; f ReplicationRule
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_status"><span class="hs-identifier hs-var hs-var">replicationRule_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationRule -&gt; ReplicationRuleStatus)
+-&gt; (ReplicationRule -&gt; ReplicationRuleStatus -&gt; ReplicationRule)
+-&gt; Lens
+     ReplicationRule
+     ReplicationRule
+     ReplicationRuleStatus
+     ReplicationRuleStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555188"><span class="annot"><span class="annottext">ReplicationRuleStatus
+status :: ReplicationRuleStatus
+$sel:status:ReplicationRule' :: ReplicationRule -&gt; ReplicationRuleStatus
+</span><a href="#local-6989586621679555188"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationRuleStatus
+</span><a href="#local-6989586621679555188"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555187"><span class="annot"><span class="annottext">s :: ReplicationRule
+</span><a href="#local-6989586621679555187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555186"><span class="annot"><span class="annottext">ReplicationRuleStatus
+</span><a href="#local-6989586621679555186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationRule
+</span><a href="#local-6989586621679555187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReplicationRule' :: ReplicationRuleStatus
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Astatus%3AReplicationRule%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicationRuleStatus
+</span><a href="#local-6989586621679555186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | A container for information about the replication destination and its</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- configurations including enabling the S3 Replication Time Control (S3</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- RTC).</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_destination"><span class="hs-identifier hs-type">replicationRule_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span>
+</span><span id="line-204"></span><span id="replicationRule_destination"><span class="annot"><span class="annottext">replicationRule_destination :: (Destination -&gt; f Destination)
+-&gt; ReplicationRule -&gt; f ReplicationRule
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#replicationRule_destination"><span class="hs-identifier hs-var hs-var">replicationRule_destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationRule -&gt; Destination)
+-&gt; (ReplicationRule -&gt; Destination -&gt; ReplicationRule)
+-&gt; Lens ReplicationRule ReplicationRule Destination Destination
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555184"><span class="annot"><span class="annottext">Destination
+destination :: Destination
+$sel:destination:ReplicationRule' :: ReplicationRule -&gt; Destination
+</span><a href="#local-6989586621679555184"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679555184"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555183"><span class="annot"><span class="annottext">s :: ReplicationRule
+</span><a href="#local-6989586621679555183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555182"><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679555182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationRule
+</span><a href="#local-6989586621679555183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:ReplicationRule' :: Destination
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#%24sel%3Adestination%3AReplicationRule%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679555182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679555179"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReplicationRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679555177"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555177"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">Maybe DeleteMarkerReplication
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe ExistingObjectReplication
+-&gt; Maybe Text
+-&gt; Maybe ReplicationRuleFilter
+-&gt; Maybe SourceSelectionCriteria
+-&gt; ReplicationRuleStatus
+-&gt; Destination
+-&gt; ReplicationRule
+</span><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-var">ReplicationRule'</span></a></span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">(Maybe DeleteMarkerReplication
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe ExistingObjectReplication
+ -&gt; Maybe Text
+ -&gt; Maybe ReplicationRuleFilter
+ -&gt; Maybe SourceSelectionCriteria
+ -&gt; ReplicationRuleStatus
+ -&gt; Destination
+ -&gt; ReplicationRule)
+-&gt; Either String (Maybe DeleteMarkerReplication)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ExistingObjectReplication
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationRuleFilter
+      -&gt; Maybe SourceSelectionCriteria
+      -&gt; ReplicationRuleStatus
+      -&gt; Destination
+      -&gt; ReplicationRule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DeleteMarkerReplication)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeleteMarkerReplication&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ExistingObjectReplication
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationRuleFilter
+   -&gt; Maybe SourceSelectionCriteria
+   -&gt; ReplicationRuleStatus
+   -&gt; Destination
+   -&gt; ReplicationRule)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ExistingObjectReplication
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationRuleFilter
+      -&gt; Maybe SourceSelectionCriteria
+      -&gt; ReplicationRuleStatus
+      -&gt; Destination
+      -&gt; ReplicationRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Priority&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ExistingObjectReplication
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationRuleFilter
+   -&gt; Maybe SourceSelectionCriteria
+   -&gt; ReplicationRuleStatus
+   -&gt; Destination
+   -&gt; ReplicationRule)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ExistingObjectReplication
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationRuleFilter
+      -&gt; Maybe SourceSelectionCriteria
+      -&gt; ReplicationRuleStatus
+      -&gt; Destination
+      -&gt; ReplicationRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ExistingObjectReplication
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationRuleFilter
+   -&gt; Maybe SourceSelectionCriteria
+   -&gt; ReplicationRuleStatus
+   -&gt; Destination
+   -&gt; ReplicationRule)
+-&gt; Either String (Maybe ExistingObjectReplication)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ReplicationRuleFilter
+      -&gt; Maybe SourceSelectionCriteria
+      -&gt; ReplicationRuleStatus
+      -&gt; Destination
+      -&gt; ReplicationRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ExistingObjectReplication)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExistingObjectReplication&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ReplicationRuleFilter
+   -&gt; Maybe SourceSelectionCriteria
+   -&gt; ReplicationRuleStatus
+   -&gt; Destination
+   -&gt; ReplicationRule)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ReplicationRuleFilter
+      -&gt; Maybe SourceSelectionCriteria
+      -&gt; ReplicationRuleStatus
+      -&gt; Destination
+      -&gt; ReplicationRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ID&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ReplicationRuleFilter
+   -&gt; Maybe SourceSelectionCriteria
+   -&gt; ReplicationRuleStatus
+   -&gt; Destination
+   -&gt; ReplicationRule)
+-&gt; Either String (Maybe ReplicationRuleFilter)
+-&gt; Either
+     String
+     (Maybe SourceSelectionCriteria
+      -&gt; ReplicationRuleStatus -&gt; Destination -&gt; ReplicationRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReplicationRuleFilter)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe SourceSelectionCriteria
+   -&gt; ReplicationRuleStatus -&gt; Destination -&gt; ReplicationRule)
+-&gt; Either String (Maybe SourceSelectionCriteria)
+-&gt; Either
+     String (ReplicationRuleStatus -&gt; Destination -&gt; ReplicationRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SourceSelectionCriteria)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceSelectionCriteria&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (ReplicationRuleStatus -&gt; Destination -&gt; ReplicationRule)
+-&gt; Either String ReplicationRuleStatus
+-&gt; Either String (Destination -&gt; ReplicationRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ReplicationRuleStatus
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">Either String (Destination -&gt; ReplicationRule)
+-&gt; Either String Destination -&gt; Either String ReplicationRule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Destination
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Destination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555170"><span id="local-6989586621679555172"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span></span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679555163"><span class="annot"><span class="annottext">toXML :: ReplicationRule -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.ReplicationRule.html#ReplicationRule%27"><span class="hs-identifier hs-type">ReplicationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555153"><span id="local-6989586621679555154"><span id="local-6989586621679555155"><span id="local-6989586621679555156"><span id="local-6989586621679555157"><span id="local-6989586621679555158"><span id="local-6989586621679555159"><span id="local-6989586621679555160"><span id="local-6989586621679555161"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Maybe DeleteMarkerReplication
+Maybe ExistingObjectReplication
+Maybe SourceSelectionCriteria
+Maybe ReplicationRuleFilter
+ReplicationRuleStatus
+Destination
+destination :: Destination
+status :: ReplicationRuleStatus
+sourceSelectionCriteria :: Maybe SourceSelectionCriteria
+filter' :: Maybe ReplicationRuleFilter
+id :: Maybe Text
+existingObjectReplication :: Maybe ExistingObjectReplication
+prefix :: Maybe Text
+priority :: Maybe Int
+deleteMarkerReplication :: Maybe DeleteMarkerReplication
+$sel:destination:ReplicationRule' :: ReplicationRule -&gt; Destination
+$sel:status:ReplicationRule' :: ReplicationRule -&gt; ReplicationRuleStatus
+$sel:sourceSelectionCriteria:ReplicationRule' :: ReplicationRule -&gt; Maybe SourceSelectionCriteria
+$sel:filter':ReplicationRule' :: ReplicationRule -&gt; Maybe ReplicationRuleFilter
+$sel:id:ReplicationRule' :: ReplicationRule -&gt; Maybe Text
+$sel:existingObjectReplication:ReplicationRule' :: ReplicationRule -&gt; Maybe ExistingObjectReplication
+$sel:prefix:ReplicationRule' :: ReplicationRule -&gt; Maybe Text
+$sel:priority:ReplicationRule' :: ReplicationRule -&gt; Maybe Int
+$sel:deleteMarkerReplication:ReplicationRule' :: ReplicationRule -&gt; Maybe DeleteMarkerReplication
+</span><a href="#local-6989586621679555153"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;DeleteMarkerReplication&quot;</span></span><span>
+</span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe DeleteMarkerReplication -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeleteMarkerReplication
+</span><a href="#local-6989586621679555161"><span class="hs-identifier hs-var">deleteMarkerReplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Priority&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679555160"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555159"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;ExistingObjectReplication&quot;</span></span><span>
+</span><span id="line-231"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe ExistingObjectReplication -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExistingObjectReplication
+</span><a href="#local-6989586621679555158"><span class="hs-identifier hs-var">existingObjectReplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;ID&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555157"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ReplicationRuleFilter -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationRuleFilter
+</span><a href="#local-6989586621679555156"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;SourceSelectionCriteria&quot;</span></span><span>
+</span><span id="line-235"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe SourceSelectionCriteria -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe SourceSelectionCriteria
+</span><a href="#local-6989586621679555155"><span class="hs-identifier hs-var">sourceSelectionCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ReplicationRuleStatus -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ReplicationRuleStatus
+</span><a href="#local-6989586621679555154"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Destination -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679555153"><span class="hs-identifier hs-var">destination</span></a></span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-239"></span></pre></body></html>

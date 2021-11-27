@@ -1,0 +1,860 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSM.DescribeInstanceAssociationsStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- The status of the associations for the instance(s).</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.DescribeInstanceAssociationsStatus</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier">DescribeInstanceAssociationsStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#newDescribeInstanceAssociationsStatus"><span class="hs-identifier">newDescribeInstanceAssociationsStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatus_nextToken"><span class="hs-identifier">describeInstanceAssociationsStatus_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatus_maxResults"><span class="hs-identifier">describeInstanceAssociationsStatus_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatus_instanceId"><span class="hs-identifier">describeInstanceAssociationsStatus_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse"><span class="hs-identifier">DescribeInstanceAssociationsStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#newDescribeInstanceAssociationsStatusResponse"><span class="hs-identifier">newDescribeInstanceAssociationsStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos"><span class="hs-identifier">describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatusResponse_nextToken"><span class="hs-identifier">describeInstanceAssociationsStatusResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatusResponse_httpStatus"><span class="hs-identifier">describeInstanceAssociationsStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.html"><span class="hs-identifier">Amazonka.SSM.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeInstanceAssociationsStatus' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679846070"><span id="local-6989586621679846071"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceAssociationsStatus"><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-var">DescribeInstanceAssociationsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceAssociationsStatus%27"><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-var">DescribeInstanceAssociationsStatus'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstanceAssociationsStatus%27"><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatus -&gt; Maybe Text
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AnextToken%3ADescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeInstanceAssociationsStatus%27"><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatus -&gt; Maybe Natural
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AmaxResults%3ADescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The instance IDs for which you want association status information.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AinstanceId%3ADescribeInstanceAssociationsStatus%27"><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatus -&gt; Text
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AinstanceId%3ADescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679846062"><span id="local-6989586621679846064"><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatus
+-&gt; DescribeInstanceAssociationsStatus -&gt; Bool
+(DescribeInstanceAssociationsStatus
+ -&gt; DescribeInstanceAssociationsStatus -&gt; Bool)
+-&gt; (DescribeInstanceAssociationsStatus
+    -&gt; DescribeInstanceAssociationsStatus -&gt; Bool)
+-&gt; Eq DescribeInstanceAssociationsStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeInstanceAssociationsStatus
+-&gt; DescribeInstanceAssociationsStatus -&gt; Bool
+$c/= :: DescribeInstanceAssociationsStatus
+-&gt; DescribeInstanceAssociationsStatus -&gt; Bool
+== :: DescribeInstanceAssociationsStatus
+-&gt; DescribeInstanceAssociationsStatus -&gt; Bool
+$c== :: DescribeInstanceAssociationsStatus
+-&gt; DescribeInstanceAssociationsStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846053"><span id="local-6989586621679846055"><span id="local-6989586621679846057"><span id="local-6989586621679846059"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceAssociationsStatus]
+ReadPrec DescribeInstanceAssociationsStatus
+Int -&gt; ReadS DescribeInstanceAssociationsStatus
+ReadS [DescribeInstanceAssociationsStatus]
+(Int -&gt; ReadS DescribeInstanceAssociationsStatus)
+-&gt; ReadS [DescribeInstanceAssociationsStatus]
+-&gt; ReadPrec DescribeInstanceAssociationsStatus
+-&gt; ReadPrec [DescribeInstanceAssociationsStatus]
+-&gt; Read DescribeInstanceAssociationsStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeInstanceAssociationsStatus]
+$creadListPrec :: ReadPrec [DescribeInstanceAssociationsStatus]
+readPrec :: ReadPrec DescribeInstanceAssociationsStatus
+$creadPrec :: ReadPrec DescribeInstanceAssociationsStatus
+readList :: ReadS [DescribeInstanceAssociationsStatus]
+$creadList :: ReadS [DescribeInstanceAssociationsStatus]
+readsPrec :: Int -&gt; ReadS DescribeInstanceAssociationsStatus
+$creadsPrec :: Int -&gt; ReadS DescribeInstanceAssociationsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846046"><span id="local-6989586621679846048"><span id="local-6989586621679846050"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceAssociationsStatus -&gt; ShowS
+[DescribeInstanceAssociationsStatus] -&gt; ShowS
+DescribeInstanceAssociationsStatus -&gt; String
+(Int -&gt; DescribeInstanceAssociationsStatus -&gt; ShowS)
+-&gt; (DescribeInstanceAssociationsStatus -&gt; String)
+-&gt; ([DescribeInstanceAssociationsStatus] -&gt; ShowS)
+-&gt; Show DescribeInstanceAssociationsStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeInstanceAssociationsStatus] -&gt; ShowS
+$cshowList :: [DescribeInstanceAssociationsStatus] -&gt; ShowS
+show :: DescribeInstanceAssociationsStatus -&gt; String
+$cshow :: DescribeInstanceAssociationsStatus -&gt; String
+showsPrec :: Int -&gt; DescribeInstanceAssociationsStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeInstanceAssociationsStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeInstanceAssociationsStatus
+ -&gt; Rep DescribeInstanceAssociationsStatus x)
+-&gt; (forall x.
+    Rep DescribeInstanceAssociationsStatus x
+    -&gt; DescribeInstanceAssociationsStatus)
+-&gt; Generic DescribeInstanceAssociationsStatus
+forall x.
+Rep DescribeInstanceAssociationsStatus x
+-&gt; DescribeInstanceAssociationsStatus
+forall x.
+DescribeInstanceAssociationsStatus
+-&gt; Rep DescribeInstanceAssociationsStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeInstanceAssociationsStatus x
+-&gt; DescribeInstanceAssociationsStatus
+$cfrom :: forall x.
+DescribeInstanceAssociationsStatus
+-&gt; Rep DescribeInstanceAssociationsStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'DescribeInstanceAssociationsStatus' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'describeInstanceAssociationsStatus_nextToken' - The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxResults', 'describeInstanceAssociationsStatus_maxResults' - The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'instanceId', 'describeInstanceAssociationsStatus_instanceId' - The instance IDs for which you want association status information.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#newDescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">newDescribeInstanceAssociationsStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span>
+</span><span id="line-88"></span><span id="newDescribeInstanceAssociationsStatus"><span class="annot"><span class="annottext">newDescribeInstanceAssociationsStatus :: Text -&gt; DescribeInstanceAssociationsStatus
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#newDescribeInstanceAssociationsStatus"><span class="hs-identifier hs-var hs-var">newDescribeInstanceAssociationsStatus</span></a></span></span><span> </span><span id="local-6989586621679846041"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679846041"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatus' :: Maybe Text
+-&gt; Maybe Natural -&gt; Text -&gt; DescribeInstanceAssociationsStatus
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceAssociationsStatus' :: Maybe Text
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AnextToken%3ADescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstanceAssociationsStatus' :: Maybe Natural
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AmaxResults%3ADescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:DescribeInstanceAssociationsStatus' :: Text
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AinstanceId%3ADescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679846041"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatus_nextToken"><span class="hs-identifier hs-type">describeInstanceAssociationsStatus_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="describeInstanceAssociationsStatus_nextToken"><span class="annot"><span class="annottext">describeInstanceAssociationsStatus_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeInstanceAssociationsStatus
+-&gt; f DescribeInstanceAssociationsStatus
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatus_nextToken"><span class="hs-identifier hs-var hs-var">describeInstanceAssociationsStatus_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceAssociationsStatus -&gt; Maybe Text)
+-&gt; (DescribeInstanceAssociationsStatus
+    -&gt; Maybe Text -&gt; DescribeInstanceAssociationsStatus)
+-&gt; Lens
+     DescribeInstanceAssociationsStatus
+     DescribeInstanceAssociationsStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846039"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeInstanceAssociationsStatus' :: DescribeInstanceAssociationsStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679846039"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679846039"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846038"><span class="annot"><span class="annottext">s :: DescribeInstanceAssociationsStatus
+</span><a href="#local-6989586621679846038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846037"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679846037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatus
+</span><a href="#local-6989586621679846038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceAssociationsStatus' :: Maybe Text
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AnextToken%3ADescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679846037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatus_maxResults"><span class="hs-identifier hs-type">describeInstanceAssociationsStatus_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="describeInstanceAssociationsStatus_maxResults"><span class="annot"><span class="annottext">describeInstanceAssociationsStatus_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeInstanceAssociationsStatus
+-&gt; f DescribeInstanceAssociationsStatus
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatus_maxResults"><span class="hs-identifier hs-var hs-var">describeInstanceAssociationsStatus_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceAssociationsStatus -&gt; Maybe Natural)
+-&gt; (DescribeInstanceAssociationsStatus
+    -&gt; Maybe Natural -&gt; DescribeInstanceAssociationsStatus)
+-&gt; Lens
+     DescribeInstanceAssociationsStatus
+     DescribeInstanceAssociationsStatus
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846036"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeInstanceAssociationsStatus' :: DescribeInstanceAssociationsStatus -&gt; Maybe Natural
+</span><a href="#local-6989586621679846036"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679846036"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846035"><span class="annot"><span class="annottext">s :: DescribeInstanceAssociationsStatus
+</span><a href="#local-6989586621679846035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846034"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679846034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatus
+</span><a href="#local-6989586621679846035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstanceAssociationsStatus' :: Maybe Natural
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AmaxResults%3ADescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679846034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The instance IDs for which you want association status information.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatus_instanceId"><span class="hs-identifier hs-type">describeInstanceAssociationsStatus_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="describeInstanceAssociationsStatus_instanceId"><span class="annot"><span class="annottext">describeInstanceAssociationsStatus_instanceId :: (Text -&gt; f Text)
+-&gt; DescribeInstanceAssociationsStatus
+-&gt; f DescribeInstanceAssociationsStatus
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatus_instanceId"><span class="hs-identifier hs-var hs-var">describeInstanceAssociationsStatus_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceAssociationsStatus -&gt; Text)
+-&gt; (DescribeInstanceAssociationsStatus
+    -&gt; Text -&gt; DescribeInstanceAssociationsStatus)
+-&gt; Lens
+     DescribeInstanceAssociationsStatus
+     DescribeInstanceAssociationsStatus
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846033"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:DescribeInstanceAssociationsStatus' :: DescribeInstanceAssociationsStatus -&gt; Text
+</span><a href="#local-6989586621679846033"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679846033"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846032"><span class="annot"><span class="annottext">s :: DescribeInstanceAssociationsStatus
+</span><a href="#local-6989586621679846032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846031"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679846031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatus
+</span><a href="#local-6989586621679846032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DescribeInstanceAssociationsStatus' :: Text
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AinstanceId%3ADescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679846031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679846027"><span class="annot"><span class="annottext">page :: DescribeInstanceAssociationsStatus
+-&gt; AWSResponse DescribeInstanceAssociationsStatus
+-&gt; Maybe DescribeInstanceAssociationsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679846025"><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatus
+</span><a href="#local-6989586621679846025"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679846024"><span class="annot"><span class="annottext">AWSResponse DescribeInstanceAssociationsStatus
+</span><a href="#local-6989586621679846024"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstanceAssociationsStatus
+DescribeInstanceAssociationsStatusResponse
+</span><a href="#local-6989586621679846024"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatusResponse
+-&gt; Getting
+     (First Text) DescribeInstanceAssociationsStatusResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeInstanceAssociationsStatusResponse
+-&gt; Const (First Text) DescribeInstanceAssociationsStatusResponse
+Lens' DescribeInstanceAssociationsStatusResponse (Maybe Text)
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatusResponse_nextToken"><span class="hs-identifier hs-var">describeInstanceAssociationsStatusResponse_nextToken</span></a></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeInstanceAssociationsStatusResponse
+ -&gt; Const (First Text) DescribeInstanceAssociationsStatusResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) DescribeInstanceAssociationsStatusResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeInstanceAssociationsStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceAssociationStatusInfo] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstanceAssociationsStatus
+DescribeInstanceAssociationsStatusResponse
+</span><a href="#local-6989586621679846024"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatusResponse
+-&gt; Getting
+     (First [InstanceAssociationStatusInfo])
+     DescribeInstanceAssociationsStatusResponse
+     [InstanceAssociationStatusInfo]
+-&gt; Maybe [InstanceAssociationStatusInfo]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [InstanceAssociationStatusInfo]
+ -&gt; Const
+      (First [InstanceAssociationStatusInfo])
+      (Maybe [InstanceAssociationStatusInfo]))
+-&gt; DescribeInstanceAssociationsStatusResponse
+-&gt; Const
+     (First [InstanceAssociationStatusInfo])
+     DescribeInstanceAssociationsStatusResponse
+Lens'
+  DescribeInstanceAssociationsStatusResponse
+  (Maybe [InstanceAssociationStatusInfo])
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos"><span class="hs-identifier hs-var">describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos</span></a></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [InstanceAssociationStatusInfo]
+  -&gt; Const
+       (First [InstanceAssociationStatusInfo])
+       (Maybe [InstanceAssociationStatusInfo]))
+ -&gt; DescribeInstanceAssociationsStatusResponse
+ -&gt; Const
+      (First [InstanceAssociationStatusInfo])
+      DescribeInstanceAssociationsStatusResponse)
+-&gt; (([InstanceAssociationStatusInfo]
+     -&gt; Const
+          (First [InstanceAssociationStatusInfo])
+          [InstanceAssociationStatusInfo])
+    -&gt; Maybe [InstanceAssociationStatusInfo]
+    -&gt; Const
+         (First [InstanceAssociationStatusInfo])
+         (Maybe [InstanceAssociationStatusInfo]))
+-&gt; Getting
+     (First [InstanceAssociationStatusInfo])
+     DescribeInstanceAssociationsStatusResponse
+     [InstanceAssociationStatusInfo]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([InstanceAssociationStatusInfo]
+ -&gt; Const
+      (First [InstanceAssociationStatusInfo])
+      [InstanceAssociationStatusInfo])
+-&gt; Maybe [InstanceAssociationStatusInfo]
+-&gt; Const
+     (First [InstanceAssociationStatusInfo])
+     (Maybe [InstanceAssociationStatusInfo])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeInstanceAssociationsStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatus
+-&gt; Maybe DescribeInstanceAssociationsStatus
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceAssociationsStatus
+ -&gt; Maybe DescribeInstanceAssociationsStatus)
+-&gt; DescribeInstanceAssociationsStatus
+-&gt; Maybe DescribeInstanceAssociationsStatus
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatus
+</span><a href="#local-6989586621679846025"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatus
+-&gt; (DescribeInstanceAssociationsStatus
+    -&gt; DescribeInstanceAssociationsStatus)
+-&gt; DescribeInstanceAssociationsStatus
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeInstanceAssociationsStatus
+-&gt; Identity DescribeInstanceAssociationsStatus
+Lens
+  DescribeInstanceAssociationsStatus
+  DescribeInstanceAssociationsStatus
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatus_nextToken"><span class="hs-identifier hs-var">describeInstanceAssociationsStatus_nextToken</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeInstanceAssociationsStatus
+ -&gt; Identity DescribeInstanceAssociationsStatus)
+-&gt; Maybe Text
+-&gt; DescribeInstanceAssociationsStatus
+-&gt; DescribeInstanceAssociationsStatus
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstanceAssociationsStatus
+DescribeInstanceAssociationsStatusResponse
+</span><a href="#local-6989586621679846024"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatusResponse
+-&gt; Getting
+     (First Text) DescribeInstanceAssociationsStatusResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeInstanceAssociationsStatusResponse
+-&gt; Const (First Text) DescribeInstanceAssociationsStatusResponse
+Lens' DescribeInstanceAssociationsStatusResponse (Maybe Text)
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatusResponse_nextToken"><span class="hs-identifier hs-var">describeInstanceAssociationsStatusResponse_nextToken</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeInstanceAssociationsStatusResponse
+ -&gt; Const (First Text) DescribeInstanceAssociationsStatusResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) DescribeInstanceAssociationsStatusResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679846014"><span class="annot"><span class="annottext">request :: DescribeInstanceAssociationsStatus
+-&gt; Request DescribeInstanceAssociationsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeInstanceAssociationsStatus
+-&gt; Request DescribeInstanceAssociationsStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679846010"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeInstanceAssociationsStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeInstanceAssociationsStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeInstanceAssociationsStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeInstanceAssociationsStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeInstanceAssociationsStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679846007"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846007"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679846006"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679846006"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679846005"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679846005"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InstanceAssociationStatusInfo]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeInstanceAssociationsStatusResponse
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-var">DescribeInstanceAssociationsStatusResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [InstanceAssociationStatusInfo]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeInstanceAssociationsStatusResponse)
+-&gt; Either String (Maybe [InstanceAssociationStatusInfo])
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; DescribeInstanceAssociationsStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679846005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [InstanceAssociationStatusInfo]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceAssociationStatusInfos&quot;</span></span><span>
+</span><span id="line-149"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InstanceAssociationStatusInfo]))
+-&gt; Maybe [InstanceAssociationStatusInfo]
+-&gt; Either String (Maybe [InstanceAssociationStatusInfo])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceAssociationStatusInfo]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-150"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; DescribeInstanceAssociationsStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; DescribeInstanceAssociationsStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679846005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeInstanceAssociationsStatusResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeInstanceAssociationsStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846007"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679845996"><span id="local-6989586621679845998"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679845993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679845989"><span class="annot"><span class="annottext">toHeaders :: DescribeInstanceAssociationsStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeInstanceAssociationsStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonSSM.DescribeInstanceAssociationsStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-173"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-177"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679845979"><span id="local-6989586621679845981"><span id="local-6989586621679845983"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span></span></span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679845977"><span class="annot"><span class="annottext">toJSON :: DescribeInstanceAssociationsStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845973"><span id="local-6989586621679845974"><span id="local-6989586621679845975"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+instanceId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:instanceId:DescribeInstanceAssociationsStatus' :: DescribeInstanceAssociationsStatus -&gt; Text
+$sel:maxResults:DescribeInstanceAssociationsStatus' :: DescribeInstanceAssociationsStatus -&gt; Maybe Natural
+$sel:nextToken:DescribeInstanceAssociationsStatus' :: DescribeInstanceAssociationsStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679845973"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845975"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679845974"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679845973"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679845967"><span class="annot"><span class="annottext">toPath :: DescribeInstanceAssociationsStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeInstanceAssociationsStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatus"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatus</span></a></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679845963"><span class="annot"><span class="annottext">toQuery :: DescribeInstanceAssociationsStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeInstanceAssociationsStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | /See:/ 'newDescribeInstanceAssociationsStatusResponse' smart constructor.</span><span>
+</span><span id="line-207"></span><span id="local-6989586621679845960"><span id="local-6989586621679845961"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceAssociationsStatusResponse"><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse"><span class="hs-identifier hs-var">DescribeInstanceAssociationsStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceAssociationsStatusResponse%27"><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-var">DescribeInstanceAssociationsStatusResponse'</span></a></span></span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Status information about the association.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AinstanceAssociationStatusInfos%3ADescribeInstanceAssociationsStatusResponse%27"><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatusResponse
+-&gt; Maybe [InstanceAssociationStatusInfo]
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AinstanceAssociationStatusInfos%3ADescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfos</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstanceAssociationsStatusResponse%27"><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatusResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AnextToken%3ADescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeInstanceAssociationsStatusResponse%27"><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatusResponse -&gt; Int
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AhttpStatus%3ADescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845953"><span id="local-6989586621679845955"><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatusResponse
+-&gt; DescribeInstanceAssociationsStatusResponse -&gt; Bool
+(DescribeInstanceAssociationsStatusResponse
+ -&gt; DescribeInstanceAssociationsStatusResponse -&gt; Bool)
+-&gt; (DescribeInstanceAssociationsStatusResponse
+    -&gt; DescribeInstanceAssociationsStatusResponse -&gt; Bool)
+-&gt; Eq DescribeInstanceAssociationsStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeInstanceAssociationsStatusResponse
+-&gt; DescribeInstanceAssociationsStatusResponse -&gt; Bool
+$c/= :: DescribeInstanceAssociationsStatusResponse
+-&gt; DescribeInstanceAssociationsStatusResponse -&gt; Bool
+== :: DescribeInstanceAssociationsStatusResponse
+-&gt; DescribeInstanceAssociationsStatusResponse -&gt; Bool
+$c== :: DescribeInstanceAssociationsStatusResponse
+-&gt; DescribeInstanceAssociationsStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845945"><span id="local-6989586621679845947"><span id="local-6989586621679845949"><span id="local-6989586621679845951"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceAssociationsStatusResponse]
+ReadPrec DescribeInstanceAssociationsStatusResponse
+Int -&gt; ReadS DescribeInstanceAssociationsStatusResponse
+ReadS [DescribeInstanceAssociationsStatusResponse]
+(Int -&gt; ReadS DescribeInstanceAssociationsStatusResponse)
+-&gt; ReadS [DescribeInstanceAssociationsStatusResponse]
+-&gt; ReadPrec DescribeInstanceAssociationsStatusResponse
+-&gt; ReadPrec [DescribeInstanceAssociationsStatusResponse]
+-&gt; Read DescribeInstanceAssociationsStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeInstanceAssociationsStatusResponse]
+$creadListPrec :: ReadPrec [DescribeInstanceAssociationsStatusResponse]
+readPrec :: ReadPrec DescribeInstanceAssociationsStatusResponse
+$creadPrec :: ReadPrec DescribeInstanceAssociationsStatusResponse
+readList :: ReadS [DescribeInstanceAssociationsStatusResponse]
+$creadList :: ReadS [DescribeInstanceAssociationsStatusResponse]
+readsPrec :: Int -&gt; ReadS DescribeInstanceAssociationsStatusResponse
+$creadsPrec :: Int -&gt; ReadS DescribeInstanceAssociationsStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845939"><span id="local-6989586621679845941"><span id="local-6989586621679845943"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceAssociationsStatusResponse -&gt; ShowS
+[DescribeInstanceAssociationsStatusResponse] -&gt; ShowS
+DescribeInstanceAssociationsStatusResponse -&gt; String
+(Int -&gt; DescribeInstanceAssociationsStatusResponse -&gt; ShowS)
+-&gt; (DescribeInstanceAssociationsStatusResponse -&gt; String)
+-&gt; ([DescribeInstanceAssociationsStatusResponse] -&gt; ShowS)
+-&gt; Show DescribeInstanceAssociationsStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeInstanceAssociationsStatusResponse] -&gt; ShowS
+$cshowList :: [DescribeInstanceAssociationsStatusResponse] -&gt; ShowS
+show :: DescribeInstanceAssociationsStatusResponse -&gt; String
+$cshow :: DescribeInstanceAssociationsStatusResponse -&gt; String
+showsPrec :: Int -&gt; DescribeInstanceAssociationsStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeInstanceAssociationsStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeInstanceAssociationsStatusResponse
+ -&gt; Rep DescribeInstanceAssociationsStatusResponse x)
+-&gt; (forall x.
+    Rep DescribeInstanceAssociationsStatusResponse x
+    -&gt; DescribeInstanceAssociationsStatusResponse)
+-&gt; Generic DescribeInstanceAssociationsStatusResponse
+forall x.
+Rep DescribeInstanceAssociationsStatusResponse x
+-&gt; DescribeInstanceAssociationsStatusResponse
+forall x.
+DescribeInstanceAssociationsStatusResponse
+-&gt; Rep DescribeInstanceAssociationsStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeInstanceAssociationsStatusResponse x
+-&gt; DescribeInstanceAssociationsStatusResponse
+$cfrom :: forall x.
+DescribeInstanceAssociationsStatusResponse
+-&gt; Rep DescribeInstanceAssociationsStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Create a value of 'DescribeInstanceAssociationsStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'instanceAssociationStatusInfos', 'describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos' - Status information about the association.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'nextToken', 'describeInstanceAssociationsStatusResponse_nextToken' - The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'httpStatus', 'describeInstanceAssociationsStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#newDescribeInstanceAssociationsStatusResponse"><span class="hs-identifier hs-type">newDescribeInstanceAssociationsStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse</span></a></span><span>
+</span><span id="line-236"></span><span id="newDescribeInstanceAssociationsStatusResponse"><span class="annot"><span class="annottext">newDescribeInstanceAssociationsStatusResponse :: Int -&gt; DescribeInstanceAssociationsStatusResponse
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#newDescribeInstanceAssociationsStatusResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstanceAssociationsStatusResponse</span></a></span></span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679845936"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845936"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatusResponse' :: Maybe [InstanceAssociationStatusInfo]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeInstanceAssociationsStatusResponse
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse'</span></a></span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceAssociationStatusInfos:DescribeInstanceAssociationsStatusResponse' :: Maybe [InstanceAssociationStatusInfo]
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AinstanceAssociationStatusInfos%3ADescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-var">instanceAssociationStatusInfos</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InstanceAssociationStatusInfo]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceAssociationsStatusResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AnextToken%3ADescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstanceAssociationsStatusResponse' :: Int
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AhttpStatus%3ADescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845936"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | Status information about the association.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos"><span class="hs-identifier hs-type">describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos"><span class="annot"><span class="annottext">describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos :: (Maybe [InstanceAssociationStatusInfo]
+ -&gt; f (Maybe [InstanceAssociationStatusInfo]))
+-&gt; DescribeInstanceAssociationsStatusResponse
+-&gt; f DescribeInstanceAssociationsStatusResponse
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos"><span class="hs-identifier hs-var hs-var">describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceAssociationsStatusResponse
+ -&gt; Maybe [InstanceAssociationStatusInfo])
+-&gt; (DescribeInstanceAssociationsStatusResponse
+    -&gt; Maybe [InstanceAssociationStatusInfo]
+    -&gt; DescribeInstanceAssociationsStatusResponse)
+-&gt; Lens'
+     DescribeInstanceAssociationsStatusResponse
+     (Maybe [InstanceAssociationStatusInfo])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845935"><span class="annot"><span class="annottext">Maybe [InstanceAssociationStatusInfo]
+instanceAssociationStatusInfos :: Maybe [InstanceAssociationStatusInfo]
+$sel:instanceAssociationStatusInfos:DescribeInstanceAssociationsStatusResponse' :: DescribeInstanceAssociationsStatusResponse
+-&gt; Maybe [InstanceAssociationStatusInfo]
+</span><a href="#local-6989586621679845935"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceAssociationStatusInfo]
+</span><a href="#local-6989586621679845935"><span class="hs-identifier hs-var">instanceAssociationStatusInfos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845934"><span class="annot"><span class="annottext">s :: DescribeInstanceAssociationsStatusResponse
+</span><a href="#local-6989586621679845934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845933"><span class="annot"><span class="annottext">Maybe [InstanceAssociationStatusInfo]
+</span><a href="#local-6989586621679845933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatusResponse
+</span><a href="#local-6989586621679845934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceAssociationStatusInfos:DescribeInstanceAssociationsStatusResponse' :: Maybe [InstanceAssociationStatusInfo]
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AinstanceAssociationStatusInfos%3ADescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-var">instanceAssociationStatusInfos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceAssociationStatusInfo]
+</span><a href="#local-6989586621679845933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceAssociationStatusInfo]
+  -&gt; f (Maybe [InstanceAssociationStatusInfo]))
+ -&gt; DescribeInstanceAssociationsStatusResponse
+ -&gt; f DescribeInstanceAssociationsStatusResponse)
+-&gt; ((Maybe [InstanceAssociationStatusInfo]
+     -&gt; f (Maybe [InstanceAssociationStatusInfo]))
+    -&gt; Maybe [InstanceAssociationStatusInfo]
+    -&gt; f (Maybe [InstanceAssociationStatusInfo]))
+-&gt; (Maybe [InstanceAssociationStatusInfo]
+    -&gt; f (Maybe [InstanceAssociationStatusInfo]))
+-&gt; DescribeInstanceAssociationsStatusResponse
+-&gt; f DescribeInstanceAssociationsStatusResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceAssociationStatusInfo]
+  [InstanceAssociationStatusInfo]
+  [InstanceAssociationStatusInfo]
+  [InstanceAssociationStatusInfo]
+-&gt; Iso
+     (Maybe [InstanceAssociationStatusInfo])
+     (Maybe [InstanceAssociationStatusInfo])
+     (Maybe [InstanceAssociationStatusInfo])
+     (Maybe [InstanceAssociationStatusInfo])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceAssociationStatusInfo]
+  [InstanceAssociationStatusInfo]
+  [InstanceAssociationStatusInfo]
+  [InstanceAssociationStatusInfo]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatusResponse_nextToken"><span class="hs-identifier hs-type">describeInstanceAssociationsStatusResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="describeInstanceAssociationsStatusResponse_nextToken"><span class="annot"><span class="annottext">describeInstanceAssociationsStatusResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeInstanceAssociationsStatusResponse
+-&gt; f DescribeInstanceAssociationsStatusResponse
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatusResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeInstanceAssociationsStatusResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceAssociationsStatusResponse -&gt; Maybe Text)
+-&gt; (DescribeInstanceAssociationsStatusResponse
+    -&gt; Maybe Text -&gt; DescribeInstanceAssociationsStatusResponse)
+-&gt; Lens' DescribeInstanceAssociationsStatusResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845930"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeInstanceAssociationsStatusResponse' :: DescribeInstanceAssociationsStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679845930"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845930"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845929"><span class="annot"><span class="annottext">s :: DescribeInstanceAssociationsStatusResponse
+</span><a href="#local-6989586621679845929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845928"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatusResponse
+</span><a href="#local-6989586621679845929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceAssociationsStatusResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AnextToken%3ADescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatusResponse_httpStatus"><span class="hs-identifier hs-type">describeInstanceAssociationsStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-256"></span><span id="describeInstanceAssociationsStatusResponse_httpStatus"><span class="annot"><span class="annottext">describeInstanceAssociationsStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeInstanceAssociationsStatusResponse
+-&gt; f DescribeInstanceAssociationsStatusResponse
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#describeInstanceAssociationsStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeInstanceAssociationsStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceAssociationsStatusResponse -&gt; Int)
+-&gt; (DescribeInstanceAssociationsStatusResponse
+    -&gt; Int -&gt; DescribeInstanceAssociationsStatusResponse)
+-&gt; Lens
+     DescribeInstanceAssociationsStatusResponse
+     DescribeInstanceAssociationsStatusResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845927"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeInstanceAssociationsStatusResponse' :: DescribeInstanceAssociationsStatusResponse -&gt; Int
+</span><a href="#local-6989586621679845927"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845927"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845926"><span class="annot"><span class="annottext">s :: DescribeInstanceAssociationsStatusResponse
+</span><a href="#local-6989586621679845926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845925"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceAssociationsStatusResponse
+</span><a href="#local-6989586621679845926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstanceAssociationsStatusResponse' :: Int
+</span><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#%24sel%3AhttpStatus%3ADescribeInstanceAssociationsStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621679845923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DescribeInstanceAssociationsStatus.html#DescribeInstanceAssociationsStatusResponse"><span class="hs-identifier hs-type">DescribeInstanceAssociationsStatusResponse</span></a></span></span><span>
+</span><span id="line-261"></span></pre></body></html>

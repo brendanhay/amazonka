@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An object that represents a local file certificate. The certificate must</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- meet specific requirements and you must have proxy authorization</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- enabled. For more information, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites Transport Layer Security (TLS)&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newVirtualGatewayListenerTlsFileCertificate' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679335182"><span id="local-6989586621679335183"></span></span><span class="hs-keyword">data</span><span> </span><span id="VirtualGatewayListenerTlsFileCertificate"><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate"><span class="hs-identifier hs-var">VirtualGatewayListenerTlsFileCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualGatewayListenerTlsFileCertificate%27"><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-var">VirtualGatewayListenerTlsFileCertificate'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The certificate chain for the certificate.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcertificateChain%3AVirtualGatewayListenerTlsFileCertificate%27"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsFileCertificate -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#%24sel%3AcertificateChain%3AVirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-var hs-var">certificateChain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The private key for a certificate stored on the file system of the mesh</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- endpoint that the proxy is running on.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AprivateKey%3AVirtualGatewayListenerTlsFileCertificate%27"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsFileCertificate -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#%24sel%3AprivateKey%3AVirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335175"><span id="local-6989586621679335177"><span class="annot"><span class="annottext">VirtualGatewayListenerTlsFileCertificate
+-&gt; VirtualGatewayListenerTlsFileCertificate -&gt; Bool
+(VirtualGatewayListenerTlsFileCertificate
+ -&gt; VirtualGatewayListenerTlsFileCertificate -&gt; Bool)
+-&gt; (VirtualGatewayListenerTlsFileCertificate
+    -&gt; VirtualGatewayListenerTlsFileCertificate -&gt; Bool)
+-&gt; Eq VirtualGatewayListenerTlsFileCertificate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VirtualGatewayListenerTlsFileCertificate
+-&gt; VirtualGatewayListenerTlsFileCertificate -&gt; Bool
+$c/= :: VirtualGatewayListenerTlsFileCertificate
+-&gt; VirtualGatewayListenerTlsFileCertificate -&gt; Bool
+== :: VirtualGatewayListenerTlsFileCertificate
+-&gt; VirtualGatewayListenerTlsFileCertificate -&gt; Bool
+$c== :: VirtualGatewayListenerTlsFileCertificate
+-&gt; VirtualGatewayListenerTlsFileCertificate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335166"><span id="local-6989586621679335168"><span id="local-6989586621679335170"><span id="local-6989586621679335172"><span class="annot"><span class="annottext">ReadPrec [VirtualGatewayListenerTlsFileCertificate]
+ReadPrec VirtualGatewayListenerTlsFileCertificate
+Int -&gt; ReadS VirtualGatewayListenerTlsFileCertificate
+ReadS [VirtualGatewayListenerTlsFileCertificate]
+(Int -&gt; ReadS VirtualGatewayListenerTlsFileCertificate)
+-&gt; ReadS [VirtualGatewayListenerTlsFileCertificate]
+-&gt; ReadPrec VirtualGatewayListenerTlsFileCertificate
+-&gt; ReadPrec [VirtualGatewayListenerTlsFileCertificate]
+-&gt; Read VirtualGatewayListenerTlsFileCertificate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VirtualGatewayListenerTlsFileCertificate]
+$creadListPrec :: ReadPrec [VirtualGatewayListenerTlsFileCertificate]
+readPrec :: ReadPrec VirtualGatewayListenerTlsFileCertificate
+$creadPrec :: ReadPrec VirtualGatewayListenerTlsFileCertificate
+readList :: ReadS [VirtualGatewayListenerTlsFileCertificate]
+$creadList :: ReadS [VirtualGatewayListenerTlsFileCertificate]
+readsPrec :: Int -&gt; ReadS VirtualGatewayListenerTlsFileCertificate
+$creadsPrec :: Int -&gt; ReadS VirtualGatewayListenerTlsFileCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335159"><span id="local-6989586621679335161"><span id="local-6989586621679335163"><span class="annot"><span class="annottext">Int -&gt; VirtualGatewayListenerTlsFileCertificate -&gt; ShowS
+[VirtualGatewayListenerTlsFileCertificate] -&gt; ShowS
+VirtualGatewayListenerTlsFileCertificate -&gt; String
+(Int -&gt; VirtualGatewayListenerTlsFileCertificate -&gt; ShowS)
+-&gt; (VirtualGatewayListenerTlsFileCertificate -&gt; String)
+-&gt; ([VirtualGatewayListenerTlsFileCertificate] -&gt; ShowS)
+-&gt; Show VirtualGatewayListenerTlsFileCertificate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VirtualGatewayListenerTlsFileCertificate] -&gt; ShowS
+$cshowList :: [VirtualGatewayListenerTlsFileCertificate] -&gt; ShowS
+show :: VirtualGatewayListenerTlsFileCertificate -&gt; String
+$cshow :: VirtualGatewayListenerTlsFileCertificate -&gt; String
+showsPrec :: Int -&gt; VirtualGatewayListenerTlsFileCertificate -&gt; ShowS
+$cshowsPrec :: Int -&gt; VirtualGatewayListenerTlsFileCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ VirtualGatewayListenerTlsFileCertificate
+ -&gt; Rep VirtualGatewayListenerTlsFileCertificate x)
+-&gt; (forall x.
+    Rep VirtualGatewayListenerTlsFileCertificate x
+    -&gt; VirtualGatewayListenerTlsFileCertificate)
+-&gt; Generic VirtualGatewayListenerTlsFileCertificate
+forall x.
+Rep VirtualGatewayListenerTlsFileCertificate x
+-&gt; VirtualGatewayListenerTlsFileCertificate
+forall x.
+VirtualGatewayListenerTlsFileCertificate
+-&gt; Rep VirtualGatewayListenerTlsFileCertificate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep VirtualGatewayListenerTlsFileCertificate x
+-&gt; VirtualGatewayListenerTlsFileCertificate
+$cfrom :: forall x.
+VirtualGatewayListenerTlsFileCertificate
+-&gt; Rep VirtualGatewayListenerTlsFileCertificate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'VirtualGatewayListenerTlsFileCertificate' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'certificateChain', 'virtualGatewayListenerTlsFileCertificate_certificateChain' - The certificate chain for the certificate.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'privateKey', 'virtualGatewayListenerTlsFileCertificate_privateKey' - The private key for a certificate stored on the file system of the mesh</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- endpoint that the proxy is running on.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#newVirtualGatewayListenerTlsFileCertificate"><span class="hs-identifier hs-type">newVirtualGatewayListenerTlsFileCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'certificateChain'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-comment">-- | 'privateKey'</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate</span></a></span><span>
+</span><span id="line-59"></span><span id="newVirtualGatewayListenerTlsFileCertificate"><span class="annot"><span class="annottext">newVirtualGatewayListenerTlsFileCertificate :: Text -&gt; Text -&gt; VirtualGatewayListenerTlsFileCertificate
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#newVirtualGatewayListenerTlsFileCertificate"><span class="hs-identifier hs-var hs-var">newVirtualGatewayListenerTlsFileCertificate</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679335153"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335153"><span class="hs-identifier hs-var">pCertificateChain_</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679335152"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335152"><span class="hs-identifier hs-var">pPrivateKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">VirtualGatewayListenerTlsFileCertificate' :: Text -&gt; Text -&gt; VirtualGatewayListenerTlsFileCertificate
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate'</span></a></span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateChain:VirtualGatewayListenerTlsFileCertificate' :: Text
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#%24sel%3AcertificateChain%3AVirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-var">certificateChain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335153"><span class="hs-identifier hs-var">pCertificateChain_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">$sel:privateKey:VirtualGatewayListenerTlsFileCertificate' :: Text
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#%24sel%3AprivateKey%3AVirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-var">privateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335152"><span class="hs-identifier hs-var">pPrivateKey_</span></a></span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The certificate chain for the certificate.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#virtualGatewayListenerTlsFileCertificate_certificateChain"><span class="hs-identifier hs-type">virtualGatewayListenerTlsFileCertificate_certificateChain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span id="virtualGatewayListenerTlsFileCertificate_certificateChain"><span class="annot"><span class="annottext">virtualGatewayListenerTlsFileCertificate_certificateChain :: (Text -&gt; f Text)
+-&gt; VirtualGatewayListenerTlsFileCertificate
+-&gt; f VirtualGatewayListenerTlsFileCertificate
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#virtualGatewayListenerTlsFileCertificate_certificateChain"><span class="hs-identifier hs-var hs-var">virtualGatewayListenerTlsFileCertificate_certificateChain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayListenerTlsFileCertificate -&gt; Text)
+-&gt; (VirtualGatewayListenerTlsFileCertificate
+    -&gt; Text -&gt; VirtualGatewayListenerTlsFileCertificate)
+-&gt; Lens
+     VirtualGatewayListenerTlsFileCertificate
+     VirtualGatewayListenerTlsFileCertificate
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335148"><span class="annot"><span class="annottext">Text
+certificateChain :: Text
+$sel:certificateChain:VirtualGatewayListenerTlsFileCertificate' :: VirtualGatewayListenerTlsFileCertificate -&gt; Text
+</span><a href="#local-6989586621679335148"><span class="hs-identifier hs-var hs-var">certificateChain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335148"><span class="hs-identifier hs-var">certificateChain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335147"><span class="annot"><span class="annottext">s :: VirtualGatewayListenerTlsFileCertificate
+</span><a href="#local-6989586621679335147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335146"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayListenerTlsFileCertificate
+</span><a href="#local-6989586621679335147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateChain:VirtualGatewayListenerTlsFileCertificate' :: Text
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#%24sel%3AcertificateChain%3AVirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-var">certificateChain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The private key for a certificate stored on the file system of the mesh</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- endpoint that the proxy is running on.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#virtualGatewayListenerTlsFileCertificate_privateKey"><span class="hs-identifier hs-type">virtualGatewayListenerTlsFileCertificate_privateKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="virtualGatewayListenerTlsFileCertificate_privateKey"><span class="annot"><span class="annottext">virtualGatewayListenerTlsFileCertificate_privateKey :: (Text -&gt; f Text)
+-&gt; VirtualGatewayListenerTlsFileCertificate
+-&gt; f VirtualGatewayListenerTlsFileCertificate
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#virtualGatewayListenerTlsFileCertificate_privateKey"><span class="hs-identifier hs-var hs-var">virtualGatewayListenerTlsFileCertificate_privateKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayListenerTlsFileCertificate -&gt; Text)
+-&gt; (VirtualGatewayListenerTlsFileCertificate
+    -&gt; Text -&gt; VirtualGatewayListenerTlsFileCertificate)
+-&gt; Lens
+     VirtualGatewayListenerTlsFileCertificate
+     VirtualGatewayListenerTlsFileCertificate
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335144"><span class="annot"><span class="annottext">Text
+privateKey :: Text
+$sel:privateKey:VirtualGatewayListenerTlsFileCertificate' :: VirtualGatewayListenerTlsFileCertificate -&gt; Text
+</span><a href="#local-6989586621679335144"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335144"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335143"><span class="annot"><span class="annottext">s :: VirtualGatewayListenerTlsFileCertificate
+</span><a href="#local-6989586621679335143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335142"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayListenerTlsFileCertificate
+</span><a href="#local-6989586621679335143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateKey:VirtualGatewayListenerTlsFileCertificate' :: Text
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#%24sel%3AprivateKey%3AVirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-var">privateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679335139"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679335137"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VirtualGatewayListenerTlsFileCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VirtualGatewayListenerTlsFileCertificate)
+-&gt; Value
+-&gt; Parser VirtualGatewayListenerTlsFileCertificate
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VirtualGatewayListenerTlsFileCertificate&quot;</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679335134"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335134"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; VirtualGatewayListenerTlsFileCertificate
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-var">VirtualGatewayListenerTlsFileCertificate'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; VirtualGatewayListenerTlsFileCertificate)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; VirtualGatewayListenerTlsFileCertificate)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateChain&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; VirtualGatewayListenerTlsFileCertificate)
+-&gt; Parser Text -&gt; Parser VirtualGatewayListenerTlsFileCertificate
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;privateKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679335128"><span id="local-6989586621679335130"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679335125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679335117"><span id="local-6989586621679335119"><span id="local-6989586621679335121"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate</span></a></span></span></span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679335115"><span class="annot"><span class="annottext">toJSON :: VirtualGatewayListenerTlsFileCertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayListenerTlsFileCertificate.html#VirtualGatewayListenerTlsFileCertificate%27"><span class="hs-identifier hs-type">VirtualGatewayListenerTlsFileCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335112"><span id="local-6989586621679335113"><span class="annot"><span class="annottext">Text
+privateKey :: Text
+certificateChain :: Text
+$sel:privateKey:VirtualGatewayListenerTlsFileCertificate' :: VirtualGatewayListenerTlsFileCertificate -&gt; Text
+$sel:certificateChain:VirtualGatewayListenerTlsFileCertificate' :: VirtualGatewayListenerTlsFileCertificate -&gt; Text
+</span><a href="#local-6989586621679335112"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-106"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateChain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335113"><span class="hs-identifier hs-var">certificateChain</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;privateKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335112"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span></pre></body></html>

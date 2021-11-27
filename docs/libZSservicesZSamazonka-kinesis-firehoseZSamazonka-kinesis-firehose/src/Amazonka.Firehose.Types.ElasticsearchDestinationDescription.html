@@ -1,0 +1,993 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Firehose.Types.ElasticsearchDestinationDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Firehose.Types.ElasticsearchDestinationDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.CloudWatchLoggingOptions.html"><span class="hs-identifier">Amazonka.Firehose.Types.CloudWatchLoggingOptions</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchBufferingHints.html"><span class="hs-identifier">Amazonka.Firehose.Types.ElasticsearchBufferingHints</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchIndexRotationPeriod.html"><span class="hs-identifier">Amazonka.Firehose.Types.ElasticsearchIndexRotationPeriod</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchRetryOptions.html"><span class="hs-identifier">Amazonka.Firehose.Types.ElasticsearchRetryOptions</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchS3BackupMode.html"><span class="hs-identifier">Amazonka.Firehose.Types.ElasticsearchS3BackupMode</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ProcessingConfiguration.html"><span class="hs-identifier">Amazonka.Firehose.Types.ProcessingConfiguration</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.S3DestinationDescription.html"><span class="hs-identifier">Amazonka.Firehose.Types.S3DestinationDescription</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.VpcConfigurationDescription.html"><span class="hs-identifier">Amazonka.Firehose.Types.VpcConfigurationDescription</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | The destination description in Amazon ES.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newElasticsearchDestinationDescription' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679280301"><span id="local-6989586621679280302"></span></span><span class="hs-keyword">data</span><span> </span><span id="ElasticsearchDestinationDescription"><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-var">ElasticsearchDestinationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticsearchDestinationDescription%27"><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">ElasticsearchDestinationDescription'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Elasticsearch index rotation period</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AindexRotationPeriod%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+-&gt; Maybe ElasticsearchIndexRotationPeriod
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AindexRotationPeriod%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">indexRotationPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchIndexRotationPeriod.html#ElasticsearchIndexRotationPeriod"><span class="hs-identifier hs-type">ElasticsearchIndexRotationPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Elasticsearch type name. This applies to Elasticsearch 6.x and lower</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- versions. For Elasticsearch 7.x, there\'s no value for @TypeName@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AtypeName%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription -&gt; Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AtypeName%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 backup mode.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3As3BackupMode%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+-&gt; Maybe ElasticsearchS3BackupMode
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3As3BackupMode%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchS3BackupMode.html#ElasticsearchS3BackupMode"><span class="hs-identifier hs-type">ElasticsearchS3BackupMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ARN of the Amazon ES domain. For more information, see</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- Kinesis Data Firehose uses either @ClusterEndpoint@ or @DomainARN@ to</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- send data to Amazon ES.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdomainARN%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription -&gt; Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AdomainARN%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">domainARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The details of the VPC of the Amazon ES destination.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AvpcConfigurationDescription%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+-&gt; Maybe VpcConfigurationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AvpcConfigurationDescription%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">vpcConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The Amazon CloudWatch logging options.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcloudWatchLoggingOptions%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+-&gt; Maybe CloudWatchLoggingOptions
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AcloudWatchLoggingOptions%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 destination.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3As3DestinationDescription%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+-&gt; Maybe S3DestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3As3DestinationDescription%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">s3DestinationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.S3DestinationDescription.html#S3DestinationDescription"><span class="hs-identifier hs-type">S3DestinationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The buffering options.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AbufferingHints%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+-&gt; Maybe ElasticsearchBufferingHints
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AbufferingHints%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The Amazon ES retry options.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AretryOptions%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+-&gt; Maybe ElasticsearchRetryOptions
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AretryOptions%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchRetryOptions.html#ElasticsearchRetryOptions"><span class="hs-identifier hs-type">ElasticsearchRetryOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The data processing configuration.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AprocessingConfiguration%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+-&gt; Maybe ProcessingConfiguration
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AprocessingConfiguration%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS credentials. For more</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AroleARN%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription -&gt; Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AroleARN%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The endpoint to use when communicating with the cluster. Kinesis Data</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Firehose uses either this @ClusterEndpoint@ or the @DomainARN@ field to</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- send data to Amazon ES.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AclusterEndpoint%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription -&gt; Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AclusterEndpoint%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">clusterEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The Elasticsearch index name.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AindexName%3AElasticsearchDestinationDescription%27"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription -&gt; Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AindexName%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280283"><span id="local-6989586621679280285"><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+-&gt; ElasticsearchDestinationDescription -&gt; Bool
+(ElasticsearchDestinationDescription
+ -&gt; ElasticsearchDestinationDescription -&gt; Bool)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; ElasticsearchDestinationDescription -&gt; Bool)
+-&gt; Eq ElasticsearchDestinationDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ElasticsearchDestinationDescription
+-&gt; ElasticsearchDestinationDescription -&gt; Bool
+$c/= :: ElasticsearchDestinationDescription
+-&gt; ElasticsearchDestinationDescription -&gt; Bool
+== :: ElasticsearchDestinationDescription
+-&gt; ElasticsearchDestinationDescription -&gt; Bool
+$c== :: ElasticsearchDestinationDescription
+-&gt; ElasticsearchDestinationDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280274"><span id="local-6989586621679280276"><span id="local-6989586621679280278"><span id="local-6989586621679280280"><span class="annot"><span class="annottext">ReadPrec [ElasticsearchDestinationDescription]
+ReadPrec ElasticsearchDestinationDescription
+Int -&gt; ReadS ElasticsearchDestinationDescription
+ReadS [ElasticsearchDestinationDescription]
+(Int -&gt; ReadS ElasticsearchDestinationDescription)
+-&gt; ReadS [ElasticsearchDestinationDescription]
+-&gt; ReadPrec ElasticsearchDestinationDescription
+-&gt; ReadPrec [ElasticsearchDestinationDescription]
+-&gt; Read ElasticsearchDestinationDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ElasticsearchDestinationDescription]
+$creadListPrec :: ReadPrec [ElasticsearchDestinationDescription]
+readPrec :: ReadPrec ElasticsearchDestinationDescription
+$creadPrec :: ReadPrec ElasticsearchDestinationDescription
+readList :: ReadS [ElasticsearchDestinationDescription]
+$creadList :: ReadS [ElasticsearchDestinationDescription]
+readsPrec :: Int -&gt; ReadS ElasticsearchDestinationDescription
+$creadsPrec :: Int -&gt; ReadS ElasticsearchDestinationDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280267"><span id="local-6989586621679280269"><span id="local-6989586621679280271"><span class="annot"><span class="annottext">Int -&gt; ElasticsearchDestinationDescription -&gt; ShowS
+[ElasticsearchDestinationDescription] -&gt; ShowS
+ElasticsearchDestinationDescription -&gt; String
+(Int -&gt; ElasticsearchDestinationDescription -&gt; ShowS)
+-&gt; (ElasticsearchDestinationDescription -&gt; String)
+-&gt; ([ElasticsearchDestinationDescription] -&gt; ShowS)
+-&gt; Show ElasticsearchDestinationDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ElasticsearchDestinationDescription] -&gt; ShowS
+$cshowList :: [ElasticsearchDestinationDescription] -&gt; ShowS
+show :: ElasticsearchDestinationDescription -&gt; String
+$cshow :: ElasticsearchDestinationDescription -&gt; String
+showsPrec :: Int -&gt; ElasticsearchDestinationDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; ElasticsearchDestinationDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ElasticsearchDestinationDescription
+ -&gt; Rep ElasticsearchDestinationDescription x)
+-&gt; (forall x.
+    Rep ElasticsearchDestinationDescription x
+    -&gt; ElasticsearchDestinationDescription)
+-&gt; Generic ElasticsearchDestinationDescription
+forall x.
+Rep ElasticsearchDestinationDescription x
+-&gt; ElasticsearchDestinationDescription
+forall x.
+ElasticsearchDestinationDescription
+-&gt; Rep ElasticsearchDestinationDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ElasticsearchDestinationDescription x
+-&gt; ElasticsearchDestinationDescription
+$cfrom :: forall x.
+ElasticsearchDestinationDescription
+-&gt; Rep ElasticsearchDestinationDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'ElasticsearchDestinationDescription' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'indexRotationPeriod', 'elasticsearchDestinationDescription_indexRotationPeriod' - The Elasticsearch index rotation period</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'typeName', 'elasticsearchDestinationDescription_typeName' - The Elasticsearch type name. This applies to Elasticsearch 6.x and lower</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- versions. For Elasticsearch 7.x, there\'s no value for @TypeName@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 's3BackupMode', 'elasticsearchDestinationDescription_s3BackupMode' - The Amazon S3 backup mode.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'domainARN', 'elasticsearchDestinationDescription_domainARN' - The ARN of the Amazon ES domain. For more information, see</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Kinesis Data Firehose uses either @ClusterEndpoint@ or @DomainARN@ to</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- send data to Amazon ES.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'vpcConfigurationDescription', 'elasticsearchDestinationDescription_vpcConfigurationDescription' - The details of the VPC of the Amazon ES destination.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'cloudWatchLoggingOptions', 'elasticsearchDestinationDescription_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 's3DestinationDescription', 'elasticsearchDestinationDescription_s3DestinationDescription' - The Amazon S3 destination.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'bufferingHints', 'elasticsearchDestinationDescription_bufferingHints' - The buffering options.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'retryOptions', 'elasticsearchDestinationDescription_retryOptions' - The Amazon ES retry options.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'processingConfiguration', 'elasticsearchDestinationDescription_processingConfiguration' - The data processing configuration.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'roleARN', 'elasticsearchDestinationDescription_roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'clusterEndpoint', 'elasticsearchDestinationDescription_clusterEndpoint' - The endpoint to use when communicating with the cluster. Kinesis Data</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Firehose uses either this @ClusterEndpoint@ or the @DomainARN@ field to</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- send data to Amazon ES.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'indexName', 'elasticsearchDestinationDescription_indexName' - The Elasticsearch index name.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#newElasticsearchDestinationDescription"><span class="hs-identifier hs-type">newElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span>
+</span><span id="line-120"></span><span id="newElasticsearchDestinationDescription"><span class="annot"><span class="annottext">newElasticsearchDestinationDescription :: ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#newElasticsearchDestinationDescription"><span class="hs-identifier hs-var hs-var">newElasticsearchDestinationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription' :: Maybe ElasticsearchIndexRotationPeriod
+-&gt; Maybe Text
+-&gt; Maybe ElasticsearchS3BackupMode
+-&gt; Maybe Text
+-&gt; Maybe VpcConfigurationDescription
+-&gt; Maybe CloudWatchLoggingOptions
+-&gt; Maybe S3DestinationDescription
+-&gt; Maybe ElasticsearchBufferingHints
+-&gt; Maybe ElasticsearchRetryOptions
+-&gt; Maybe ProcessingConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:indexRotationPeriod:ElasticsearchDestinationDescription' :: Maybe ElasticsearchIndexRotationPeriod
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AindexRotationPeriod%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">indexRotationPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Maybe ElasticsearchIndexRotationPeriod
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeName:ElasticsearchDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AtypeName%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BackupMode:ElasticsearchDestinationDescription' :: Maybe ElasticsearchS3BackupMode
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3As3BackupMode%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchS3BackupMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainARN:ElasticsearchDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AdomainARN%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">domainARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcConfigurationDescription:ElasticsearchDestinationDescription' :: Maybe VpcConfigurationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AvpcConfigurationDescription%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">vpcConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Maybe VpcConfigurationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:ElasticsearchDestinationDescription' :: Maybe CloudWatchLoggingOptions
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AcloudWatchLoggingOptions%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3DestinationDescription:ElasticsearchDestinationDescription' :: Maybe S3DestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3As3DestinationDescription%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">s3DestinationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:bufferingHints:ElasticsearchDestinationDescription' :: Maybe ElasticsearchBufferingHints
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AbufferingHints%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchBufferingHints
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:retryOptions:ElasticsearchDestinationDescription' :: Maybe ElasticsearchRetryOptions
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AretryOptions%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchRetryOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:processingConfiguration:ElasticsearchDestinationDescription' :: Maybe ProcessingConfiguration
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AprocessingConfiguration%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleARN:ElasticsearchDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AroleARN%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterEndpoint:ElasticsearchDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AclusterEndpoint%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">clusterEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:indexName:ElasticsearchDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AindexName%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The Elasticsearch index rotation period</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_indexRotationPeriod"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_indexRotationPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchIndexRotationPeriod.html#ElasticsearchIndexRotationPeriod"><span class="hs-identifier hs-type">ElasticsearchIndexRotationPeriod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="elasticsearchDestinationDescription_indexRotationPeriod"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_indexRotationPeriod :: (Maybe ElasticsearchIndexRotationPeriod
+ -&gt; f (Maybe ElasticsearchIndexRotationPeriod))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_indexRotationPeriod"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_indexRotationPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription
+ -&gt; Maybe ElasticsearchIndexRotationPeriod)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe ElasticsearchIndexRotationPeriod
+    -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe ElasticsearchIndexRotationPeriod)
+     (Maybe ElasticsearchIndexRotationPeriod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280258"><span class="annot"><span class="annottext">Maybe ElasticsearchIndexRotationPeriod
+indexRotationPeriod :: Maybe ElasticsearchIndexRotationPeriod
+$sel:indexRotationPeriod:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription
+-&gt; Maybe ElasticsearchIndexRotationPeriod
+</span><a href="#local-6989586621679280258"><span class="hs-identifier hs-var hs-var">indexRotationPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchIndexRotationPeriod
+</span><a href="#local-6989586621679280258"><span class="hs-identifier hs-var">indexRotationPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280257"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280256"><span class="annot"><span class="annottext">Maybe ElasticsearchIndexRotationPeriod
+</span><a href="#local-6989586621679280256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexRotationPeriod:ElasticsearchDestinationDescription' :: Maybe ElasticsearchIndexRotationPeriod
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AindexRotationPeriod%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">indexRotationPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchIndexRotationPeriod
+</span><a href="#local-6989586621679280256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The Elasticsearch type name. This applies to Elasticsearch 6.x and lower</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- versions. For Elasticsearch 7.x, there\'s no value for @TypeName@.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_typeName"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="elasticsearchDestinationDescription_typeName"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_typeName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_typeName"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription -&gt; Maybe Text)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe Text -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280254"><span class="annot"><span class="annottext">Maybe Text
+typeName :: Maybe Text
+$sel:typeName:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679280254"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280254"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280253"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280252"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:ElasticsearchDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AtypeName%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The Amazon S3 backup mode.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_s3BackupMode"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_s3BackupMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchS3BackupMode.html#ElasticsearchS3BackupMode"><span class="hs-identifier hs-type">ElasticsearchS3BackupMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="elasticsearchDestinationDescription_s3BackupMode"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_s3BackupMode :: (Maybe ElasticsearchS3BackupMode
+ -&gt; f (Maybe ElasticsearchS3BackupMode))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_s3BackupMode"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_s3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription
+ -&gt; Maybe ElasticsearchS3BackupMode)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe ElasticsearchS3BackupMode
+    -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe ElasticsearchS3BackupMode)
+     (Maybe ElasticsearchS3BackupMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280250"><span class="annot"><span class="annottext">Maybe ElasticsearchS3BackupMode
+s3BackupMode :: Maybe ElasticsearchS3BackupMode
+$sel:s3BackupMode:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription
+-&gt; Maybe ElasticsearchS3BackupMode
+</span><a href="#local-6989586621679280250"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchS3BackupMode
+</span><a href="#local-6989586621679280250"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280249"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280248"><span class="annot"><span class="annottext">Maybe ElasticsearchS3BackupMode
+</span><a href="#local-6989586621679280248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BackupMode:ElasticsearchDestinationDescription' :: Maybe ElasticsearchS3BackupMode
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3As3BackupMode%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchS3BackupMode
+</span><a href="#local-6989586621679280248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The ARN of the Amazon ES domain. For more information, see</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Kinesis Data Firehose uses either @ClusterEndpoint@ or @DomainARN@ to</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- send data to Amazon ES.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_domainARN"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_domainARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="elasticsearchDestinationDescription_domainARN"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_domainARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_domainARN"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_domainARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription -&gt; Maybe Text)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe Text -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280246"><span class="annot"><span class="annottext">Maybe Text
+domainARN :: Maybe Text
+$sel:domainARN:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679280246"><span class="hs-identifier hs-var hs-var">domainARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280246"><span class="hs-identifier hs-var">domainARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280245"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280244"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainARN:ElasticsearchDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AdomainARN%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">domainARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The details of the VPC of the Amazon ES destination.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_vpcConfigurationDescription"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_vpcConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="elasticsearchDestinationDescription_vpcConfigurationDescription"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_vpcConfigurationDescription :: (Maybe VpcConfigurationDescription
+ -&gt; f (Maybe VpcConfigurationDescription))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_vpcConfigurationDescription"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_vpcConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription
+ -&gt; Maybe VpcConfigurationDescription)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe VpcConfigurationDescription
+    -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe VpcConfigurationDescription)
+     (Maybe VpcConfigurationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280242"><span class="annot"><span class="annottext">Maybe VpcConfigurationDescription
+vpcConfigurationDescription :: Maybe VpcConfigurationDescription
+$sel:vpcConfigurationDescription:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription
+-&gt; Maybe VpcConfigurationDescription
+</span><a href="#local-6989586621679280242"><span class="hs-identifier hs-var hs-var">vpcConfigurationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfigurationDescription
+</span><a href="#local-6989586621679280242"><span class="hs-identifier hs-var">vpcConfigurationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280241"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280240"><span class="annot"><span class="annottext">Maybe VpcConfigurationDescription
+</span><a href="#local-6989586621679280240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfigurationDescription:ElasticsearchDestinationDescription' :: Maybe VpcConfigurationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AvpcConfigurationDescription%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">vpcConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfigurationDescription
+</span><a href="#local-6989586621679280240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The Amazon CloudWatch logging options.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_cloudWatchLoggingOptions"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="elasticsearchDestinationDescription_cloudWatchLoggingOptions"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_cloudWatchLoggingOptions :: (Maybe CloudWatchLoggingOptions
+ -&gt; f (Maybe CloudWatchLoggingOptions))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_cloudWatchLoggingOptions"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription
+ -&gt; Maybe CloudWatchLoggingOptions)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe CloudWatchLoggingOptions
+    -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe CloudWatchLoggingOptions)
+     (Maybe CloudWatchLoggingOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280238"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
+$sel:cloudWatchLoggingOptions:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription
+-&gt; Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679280238"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679280238"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280237"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280236"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679280236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:ElasticsearchDestinationDescription' :: Maybe CloudWatchLoggingOptions
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AcloudWatchLoggingOptions%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679280236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The Amazon S3 destination.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_s3DestinationDescription"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_s3DestinationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.S3DestinationDescription.html#S3DestinationDescription"><span class="hs-identifier hs-type">S3DestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="elasticsearchDestinationDescription_s3DestinationDescription"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_s3DestinationDescription :: (Maybe S3DestinationDescription
+ -&gt; f (Maybe S3DestinationDescription))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_s3DestinationDescription"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_s3DestinationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription
+ -&gt; Maybe S3DestinationDescription)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe S3DestinationDescription
+    -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe S3DestinationDescription)
+     (Maybe S3DestinationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280234"><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+s3DestinationDescription :: Maybe S3DestinationDescription
+$sel:s3DestinationDescription:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription
+-&gt; Maybe S3DestinationDescription
+</span><a href="#local-6989586621679280234"><span class="hs-identifier hs-var hs-var">s3DestinationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+</span><a href="#local-6989586621679280234"><span class="hs-identifier hs-var">s3DestinationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280233"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280232"><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+</span><a href="#local-6989586621679280232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DestinationDescription:ElasticsearchDestinationDescription' :: Maybe S3DestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3As3DestinationDescription%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">s3DestinationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationDescription
+</span><a href="#local-6989586621679280232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The buffering options.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_bufferingHints"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_bufferingHints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="elasticsearchDestinationDescription_bufferingHints"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_bufferingHints :: (Maybe ElasticsearchBufferingHints
+ -&gt; f (Maybe ElasticsearchBufferingHints))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_bufferingHints"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription
+ -&gt; Maybe ElasticsearchBufferingHints)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe ElasticsearchBufferingHints
+    -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe ElasticsearchBufferingHints)
+     (Maybe ElasticsearchBufferingHints)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280230"><span class="annot"><span class="annottext">Maybe ElasticsearchBufferingHints
+bufferingHints :: Maybe ElasticsearchBufferingHints
+$sel:bufferingHints:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription
+-&gt; Maybe ElasticsearchBufferingHints
+</span><a href="#local-6989586621679280230"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchBufferingHints
+</span><a href="#local-6989586621679280230"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280229"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280228"><span class="annot"><span class="annottext">Maybe ElasticsearchBufferingHints
+</span><a href="#local-6989586621679280228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferingHints:ElasticsearchDestinationDescription' :: Maybe ElasticsearchBufferingHints
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AbufferingHints%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchBufferingHints
+</span><a href="#local-6989586621679280228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The Amazon ES retry options.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_retryOptions"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_retryOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchRetryOptions.html#ElasticsearchRetryOptions"><span class="hs-identifier hs-type">ElasticsearchRetryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="elasticsearchDestinationDescription_retryOptions"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_retryOptions :: (Maybe ElasticsearchRetryOptions
+ -&gt; f (Maybe ElasticsearchRetryOptions))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_retryOptions"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_retryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription
+ -&gt; Maybe ElasticsearchRetryOptions)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe ElasticsearchRetryOptions
+    -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe ElasticsearchRetryOptions)
+     (Maybe ElasticsearchRetryOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280226"><span class="annot"><span class="annottext">Maybe ElasticsearchRetryOptions
+retryOptions :: Maybe ElasticsearchRetryOptions
+$sel:retryOptions:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription
+-&gt; Maybe ElasticsearchRetryOptions
+</span><a href="#local-6989586621679280226"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchRetryOptions
+</span><a href="#local-6989586621679280226"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280225"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280224"><span class="annot"><span class="annottext">Maybe ElasticsearchRetryOptions
+</span><a href="#local-6989586621679280224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryOptions:ElasticsearchDestinationDescription' :: Maybe ElasticsearchRetryOptions
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AretryOptions%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchRetryOptions
+</span><a href="#local-6989586621679280224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The data processing configuration.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_processingConfiguration"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_processingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="elasticsearchDestinationDescription_processingConfiguration"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_processingConfiguration :: (Maybe ProcessingConfiguration
+ -&gt; f (Maybe ProcessingConfiguration))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_processingConfiguration"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription
+ -&gt; Maybe ProcessingConfiguration)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe ProcessingConfiguration
+    -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe ProcessingConfiguration)
+     (Maybe ProcessingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280222"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+processingConfiguration :: Maybe ProcessingConfiguration
+$sel:processingConfiguration:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription
+-&gt; Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679280222"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679280222"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280221"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280220"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679280220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingConfiguration:ElasticsearchDestinationDescription' :: Maybe ProcessingConfiguration
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AprocessingConfiguration%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679280220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS credentials. For more</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_roleARN"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="elasticsearchDestinationDescription_roleARN"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_roleARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_roleARN"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription -&gt; Maybe Text)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe Text -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280218"><span class="annot"><span class="annottext">Maybe Text
+roleARN :: Maybe Text
+$sel:roleARN:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679280218"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280218"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280217"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280216"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:ElasticsearchDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AroleARN%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The endpoint to use when communicating with the cluster. Kinesis Data</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Firehose uses either this @ClusterEndpoint@ or the @DomainARN@ field to</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- send data to Amazon ES.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_clusterEndpoint"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_clusterEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="elasticsearchDestinationDescription_clusterEndpoint"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_clusterEndpoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_clusterEndpoint"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_clusterEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription -&gt; Maybe Text)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe Text -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280214"><span class="annot"><span class="annottext">Maybe Text
+clusterEndpoint :: Maybe Text
+$sel:clusterEndpoint:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679280214"><span class="hs-identifier hs-var hs-var">clusterEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280214"><span class="hs-identifier hs-var">clusterEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280213"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280212"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterEndpoint:ElasticsearchDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AclusterEndpoint%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">clusterEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The Elasticsearch index name.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_indexName"><span class="hs-identifier hs-type">elasticsearchDestinationDescription_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="elasticsearchDestinationDescription_indexName"><span class="annot"><span class="annottext">elasticsearchDestinationDescription_indexName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticsearchDestinationDescription
+-&gt; f ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#elasticsearchDestinationDescription_indexName"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationDescription_indexName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationDescription -&gt; Maybe Text)
+-&gt; (ElasticsearchDestinationDescription
+    -&gt; Maybe Text -&gt; ElasticsearchDestinationDescription)
+-&gt; Lens
+     ElasticsearchDestinationDescription
+     ElasticsearchDestinationDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280210"><span class="annot"><span class="annottext">Maybe Text
+indexName :: Maybe Text
+$sel:indexName:ElasticsearchDestinationDescription' :: ElasticsearchDestinationDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679280210"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280210"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280209"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280208"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationDescription
+</span><a href="#local-6989586621679280209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:ElasticsearchDestinationDescription' :: Maybe Text
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#%24sel%3AindexName%3AElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679280205"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679280203"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ElasticsearchDestinationDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ElasticsearchDestinationDescription)
+-&gt; Value
+-&gt; Parser ElasticsearchDestinationDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ElasticsearchDestinationDescription&quot;</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280200"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">Maybe ElasticsearchIndexRotationPeriod
+-&gt; Maybe Text
+-&gt; Maybe ElasticsearchS3BackupMode
+-&gt; Maybe Text
+-&gt; Maybe VpcConfigurationDescription
+-&gt; Maybe CloudWatchLoggingOptions
+-&gt; Maybe S3DestinationDescription
+-&gt; Maybe ElasticsearchBufferingHints
+-&gt; Maybe ElasticsearchRetryOptions
+-&gt; Maybe ProcessingConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ElasticsearchDestinationDescription
+</span><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription%27"><span class="hs-identifier hs-var">ElasticsearchDestinationDescription'</span></a></span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ElasticsearchIndexRotationPeriod
+ -&gt; Maybe Text
+ -&gt; Maybe ElasticsearchS3BackupMode
+ -&gt; Maybe Text
+ -&gt; Maybe VpcConfigurationDescription
+ -&gt; Maybe CloudWatchLoggingOptions
+ -&gt; Maybe S3DestinationDescription
+ -&gt; Maybe ElasticsearchBufferingHints
+ -&gt; Maybe ElasticsearchRetryOptions
+ -&gt; Maybe ProcessingConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe ElasticsearchIndexRotationPeriod)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ElasticsearchS3BackupMode
+      -&gt; Maybe Text
+      -&gt; Maybe VpcConfigurationDescription
+      -&gt; Maybe CloudWatchLoggingOptions
+      -&gt; Maybe S3DestinationDescription
+      -&gt; Maybe ElasticsearchBufferingHints
+      -&gt; Maybe ElasticsearchRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ElasticsearchDestinationDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ElasticsearchIndexRotationPeriod)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexRotationPeriod&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ElasticsearchS3BackupMode
+   -&gt; Maybe Text
+   -&gt; Maybe VpcConfigurationDescription
+   -&gt; Maybe CloudWatchLoggingOptions
+   -&gt; Maybe S3DestinationDescription
+   -&gt; Maybe ElasticsearchBufferingHints
+   -&gt; Maybe ElasticsearchRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ElasticsearchS3BackupMode
+      -&gt; Maybe Text
+      -&gt; Maybe VpcConfigurationDescription
+      -&gt; Maybe CloudWatchLoggingOptions
+      -&gt; Maybe S3DestinationDescription
+      -&gt; Maybe ElasticsearchBufferingHints
+      -&gt; Maybe ElasticsearchRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ElasticsearchDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ElasticsearchS3BackupMode
+   -&gt; Maybe Text
+   -&gt; Maybe VpcConfigurationDescription
+   -&gt; Maybe CloudWatchLoggingOptions
+   -&gt; Maybe S3DestinationDescription
+   -&gt; Maybe ElasticsearchBufferingHints
+   -&gt; Maybe ElasticsearchRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe ElasticsearchS3BackupMode)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe VpcConfigurationDescription
+      -&gt; Maybe CloudWatchLoggingOptions
+      -&gt; Maybe S3DestinationDescription
+      -&gt; Maybe ElasticsearchBufferingHints
+      -&gt; Maybe ElasticsearchRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ElasticsearchDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ElasticsearchS3BackupMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3BackupMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe VpcConfigurationDescription
+   -&gt; Maybe CloudWatchLoggingOptions
+   -&gt; Maybe S3DestinationDescription
+   -&gt; Maybe ElasticsearchBufferingHints
+   -&gt; Maybe ElasticsearchRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe VpcConfigurationDescription
+      -&gt; Maybe CloudWatchLoggingOptions
+      -&gt; Maybe S3DestinationDescription
+      -&gt; Maybe ElasticsearchBufferingHints
+      -&gt; Maybe ElasticsearchRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ElasticsearchDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VpcConfigurationDescription
+   -&gt; Maybe CloudWatchLoggingOptions
+   -&gt; Maybe S3DestinationDescription
+   -&gt; Maybe ElasticsearchBufferingHints
+   -&gt; Maybe ElasticsearchRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe VpcConfigurationDescription)
+-&gt; Parser
+     (Maybe CloudWatchLoggingOptions
+      -&gt; Maybe S3DestinationDescription
+      -&gt; Maybe ElasticsearchBufferingHints
+      -&gt; Maybe ElasticsearchRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ElasticsearchDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VpcConfigurationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfigurationDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CloudWatchLoggingOptions
+   -&gt; Maybe S3DestinationDescription
+   -&gt; Maybe ElasticsearchBufferingHints
+   -&gt; Maybe ElasticsearchRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe CloudWatchLoggingOptions)
+-&gt; Parser
+     (Maybe S3DestinationDescription
+      -&gt; Maybe ElasticsearchBufferingHints
+      -&gt; Maybe ElasticsearchRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ElasticsearchDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchLoggingOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLoggingOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe S3DestinationDescription
+   -&gt; Maybe ElasticsearchBufferingHints
+   -&gt; Maybe ElasticsearchRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe S3DestinationDescription)
+-&gt; Parser
+     (Maybe ElasticsearchBufferingHints
+      -&gt; Maybe ElasticsearchRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ElasticsearchDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3DestinationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3DestinationDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ElasticsearchBufferingHints
+   -&gt; Maybe ElasticsearchRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe ElasticsearchBufferingHints)
+-&gt; Parser
+     (Maybe ElasticsearchRetryOptions
+      -&gt; Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ElasticsearchDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ElasticsearchBufferingHints)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BufferingHints&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ElasticsearchRetryOptions
+   -&gt; Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe ElasticsearchRetryOptions)
+-&gt; Parser
+     (Maybe ProcessingConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ElasticsearchDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ElasticsearchRetryOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetryOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProcessingConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe ProcessingConfiguration)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ElasticsearchDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProcessingConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; ElasticsearchDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; ElasticsearchDestinationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ElasticsearchDestinationDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser ElasticsearchDestinationDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679280194"><span id="local-6989586621679280196"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span></span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679280191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Amazonka.Firehose.Types.ElasticsearchDestinationDescription.html#ElasticsearchDestinationDescription"><span class="hs-identifier hs-type">ElasticsearchDestinationDescription</span></a></span></span><span>
+</span><span id="line-234"></span></pre></body></html>

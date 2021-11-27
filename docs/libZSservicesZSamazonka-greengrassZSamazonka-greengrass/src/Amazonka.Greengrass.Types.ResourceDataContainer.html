@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Greengrass.Types.ResourceDataContainer</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Greengrass.Types.ResourceDataContainer</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.LocalDeviceResourceData.html"><span class="hs-identifier">Amazonka.Greengrass.Types.LocalDeviceResourceData</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.LocalVolumeResourceData.html"><span class="hs-identifier">Amazonka.Greengrass.Types.LocalVolumeResourceData</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.S3MachineLearningModelResourceData.html"><span class="hs-identifier">Amazonka.Greengrass.Types.S3MachineLearningModelResourceData</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.SageMakerMachineLearningModelResourceData.html"><span class="hs-identifier">Amazonka.Greengrass.Types.SageMakerMachineLearningModelResourceData</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.SecretsManagerSecretResourceData.html"><span class="hs-identifier">Amazonka.Greengrass.Types.SecretsManagerSecretResourceData</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | A container for resource data. The container takes only one of the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- following supported resource data types:</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- \'\'LocalDeviceResourceData\'\', \'\'LocalVolumeResourceData\'\',</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- \'\'SageMakerMachineLearningModelResourceData\'\',</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- \'\'S3MachineLearningModelResourceData\'\',</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- \'\'SecretsManagerSecretResourceData\'\'.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newResourceDataContainer' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679346391"><span id="local-6989586621679346392"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceDataContainer"><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-var">ResourceDataContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceDataContainer%27"><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-var">ResourceDataContainer'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Attributes that define an Amazon S3 machine learning resource.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3As3MachineLearningModelResourceData%3AResourceDataContainer%27"><span class="annot"><span class="annottext">ResourceDataContainer -&gt; Maybe S3MachineLearningModelResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3As3MachineLearningModelResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var hs-var">s3MachineLearningModelResourceData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Attributes that define an Amazon SageMaker machine learning resource.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AsageMakerMachineLearningModelResourceData%3AResourceDataContainer%27"><span class="annot"><span class="annottext">ResourceDataContainer
+-&gt; Maybe SageMakerMachineLearningModelResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3AsageMakerMachineLearningModelResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var hs-var">sageMakerMachineLearningModelResourceData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.SageMakerMachineLearningModelResourceData.html#SageMakerMachineLearningModelResourceData"><span class="hs-identifier hs-type">SageMakerMachineLearningModelResourceData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Attributes that define the local volume resource.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AlocalVolumeResourceData%3AResourceDataContainer%27"><span class="annot"><span class="annottext">ResourceDataContainer -&gt; Maybe LocalVolumeResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3AlocalVolumeResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var hs-var">localVolumeResourceData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Attributes that define the local device resource.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AlocalDeviceResourceData%3AResourceDataContainer%27"><span class="annot"><span class="annottext">ResourceDataContainer -&gt; Maybe LocalDeviceResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3AlocalDeviceResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var hs-var">localDeviceResourceData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.LocalDeviceResourceData.html#LocalDeviceResourceData"><span class="hs-identifier hs-type">LocalDeviceResourceData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Attributes that define a secret resource, which references a secret from</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- AWS Secrets Manager.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AsecretsManagerSecretResourceData%3AResourceDataContainer%27"><span class="annot"><span class="annottext">ResourceDataContainer -&gt; Maybe SecretsManagerSecretResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3AsecretsManagerSecretResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var hs-var">secretsManagerSecretResourceData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.SecretsManagerSecretResourceData.html#SecretsManagerSecretResourceData"><span class="hs-identifier hs-type">SecretsManagerSecretResourceData</span></a></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346381"><span id="local-6989586621679346383"><span class="annot"><span class="annottext">ResourceDataContainer -&gt; ResourceDataContainer -&gt; Bool
+(ResourceDataContainer -&gt; ResourceDataContainer -&gt; Bool)
+-&gt; (ResourceDataContainer -&gt; ResourceDataContainer -&gt; Bool)
+-&gt; Eq ResourceDataContainer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceDataContainer -&gt; ResourceDataContainer -&gt; Bool
+$c/= :: ResourceDataContainer -&gt; ResourceDataContainer -&gt; Bool
+== :: ResourceDataContainer -&gt; ResourceDataContainer -&gt; Bool
+$c== :: ResourceDataContainer -&gt; ResourceDataContainer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346372"><span id="local-6989586621679346374"><span id="local-6989586621679346376"><span id="local-6989586621679346378"><span class="annot"><span class="annottext">ReadPrec [ResourceDataContainer]
+ReadPrec ResourceDataContainer
+Int -&gt; ReadS ResourceDataContainer
+ReadS [ResourceDataContainer]
+(Int -&gt; ReadS ResourceDataContainer)
+-&gt; ReadS [ResourceDataContainer]
+-&gt; ReadPrec ResourceDataContainer
+-&gt; ReadPrec [ResourceDataContainer]
+-&gt; Read ResourceDataContainer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceDataContainer]
+$creadListPrec :: ReadPrec [ResourceDataContainer]
+readPrec :: ReadPrec ResourceDataContainer
+$creadPrec :: ReadPrec ResourceDataContainer
+readList :: ReadS [ResourceDataContainer]
+$creadList :: ReadS [ResourceDataContainer]
+readsPrec :: Int -&gt; ReadS ResourceDataContainer
+$creadsPrec :: Int -&gt; ReadS ResourceDataContainer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346365"><span id="local-6989586621679346367"><span id="local-6989586621679346369"><span class="annot"><span class="annottext">Int -&gt; ResourceDataContainer -&gt; ShowS
+[ResourceDataContainer] -&gt; ShowS
+ResourceDataContainer -&gt; String
+(Int -&gt; ResourceDataContainer -&gt; ShowS)
+-&gt; (ResourceDataContainer -&gt; String)
+-&gt; ([ResourceDataContainer] -&gt; ShowS)
+-&gt; Show ResourceDataContainer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceDataContainer] -&gt; ShowS
+$cshowList :: [ResourceDataContainer] -&gt; ShowS
+show :: ResourceDataContainer -&gt; String
+$cshow :: ResourceDataContainer -&gt; String
+showsPrec :: Int -&gt; ResourceDataContainer -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceDataContainer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ResourceDataContainer -&gt; Rep ResourceDataContainer x)
+-&gt; (forall x. Rep ResourceDataContainer x -&gt; ResourceDataContainer)
+-&gt; Generic ResourceDataContainer
+forall x. Rep ResourceDataContainer x -&gt; ResourceDataContainer
+forall x. ResourceDataContainer -&gt; Rep ResourceDataContainer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResourceDataContainer x -&gt; ResourceDataContainer
+$cfrom :: forall x. ResourceDataContainer -&gt; Rep ResourceDataContainer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'ResourceDataContainer' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 's3MachineLearningModelResourceData', 'resourceDataContainer_s3MachineLearningModelResourceData' - Attributes that define an Amazon S3 machine learning resource.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'sageMakerMachineLearningModelResourceData', 'resourceDataContainer_sageMakerMachineLearningModelResourceData' - Attributes that define an Amazon SageMaker machine learning resource.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'localVolumeResourceData', 'resourceDataContainer_localVolumeResourceData' - Attributes that define the local volume resource.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'localDeviceResourceData', 'resourceDataContainer_localDeviceResourceData' - Attributes that define the local device resource.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'secretsManagerSecretResourceData', 'resourceDataContainer_secretsManagerSecretResourceData' - Attributes that define a secret resource, which references a secret from</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- AWS Secrets Manager.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#newResourceDataContainer"><span class="hs-identifier hs-type">newResourceDataContainer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span><span>
+</span><span id="line-74"></span><span id="newResourceDataContainer"><span class="annot"><span class="annottext">newResourceDataContainer :: ResourceDataContainer
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#newResourceDataContainer"><span class="hs-identifier hs-var hs-var">newResourceDataContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">ResourceDataContainer' :: Maybe S3MachineLearningModelResourceData
+-&gt; Maybe SageMakerMachineLearningModelResourceData
+-&gt; Maybe LocalVolumeResourceData
+-&gt; Maybe LocalDeviceResourceData
+-&gt; Maybe SecretsManagerSecretResourceData
+-&gt; ResourceDataContainer
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-type">ResourceDataContainer'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3MachineLearningModelResourceData:ResourceDataContainer' :: Maybe S3MachineLearningModelResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3As3MachineLearningModelResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var">s3MachineLearningModelResourceData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe S3MachineLearningModelResourceData
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:sageMakerMachineLearningModelResourceData:ResourceDataContainer' :: Maybe SageMakerMachineLearningModelResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3AsageMakerMachineLearningModelResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var">sageMakerMachineLearningModelResourceData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe SageMakerMachineLearningModelResourceData
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:localVolumeResourceData:ResourceDataContainer' :: Maybe LocalVolumeResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3AlocalVolumeResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var">localVolumeResourceData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocalVolumeResourceData
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:localDeviceResourceData:ResourceDataContainer' :: Maybe LocalDeviceResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3AlocalDeviceResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var">localDeviceResourceData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocalDeviceResourceData
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretsManagerSecretResourceData:ResourceDataContainer' :: Maybe SecretsManagerSecretResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3AsecretsManagerSecretResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var">secretsManagerSecretResourceData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SecretsManagerSecretResourceData
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Attributes that define an Amazon S3 machine learning resource.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#resourceDataContainer_s3MachineLearningModelResourceData"><span class="hs-identifier hs-type">resourceDataContainer_s3MachineLearningModelResourceData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.S3MachineLearningModelResourceData.html#S3MachineLearningModelResourceData"><span class="hs-identifier hs-type">S3MachineLearningModelResourceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="resourceDataContainer_s3MachineLearningModelResourceData"><span class="annot"><span class="annottext">resourceDataContainer_s3MachineLearningModelResourceData :: (Maybe S3MachineLearningModelResourceData
+ -&gt; f (Maybe S3MachineLearningModelResourceData))
+-&gt; ResourceDataContainer -&gt; f ResourceDataContainer
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#resourceDataContainer_s3MachineLearningModelResourceData"><span class="hs-identifier hs-var hs-var">resourceDataContainer_s3MachineLearningModelResourceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataContainer -&gt; Maybe S3MachineLearningModelResourceData)
+-&gt; (ResourceDataContainer
+    -&gt; Maybe S3MachineLearningModelResourceData
+    -&gt; ResourceDataContainer)
+-&gt; Lens
+     ResourceDataContainer
+     ResourceDataContainer
+     (Maybe S3MachineLearningModelResourceData)
+     (Maybe S3MachineLearningModelResourceData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-type">ResourceDataContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346356"><span class="annot"><span class="annottext">Maybe S3MachineLearningModelResourceData
+s3MachineLearningModelResourceData :: Maybe S3MachineLearningModelResourceData
+$sel:s3MachineLearningModelResourceData:ResourceDataContainer' :: ResourceDataContainer -&gt; Maybe S3MachineLearningModelResourceData
+</span><a href="#local-6989586621679346356"><span class="hs-identifier hs-var hs-var">s3MachineLearningModelResourceData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3MachineLearningModelResourceData
+</span><a href="#local-6989586621679346356"><span class="hs-identifier hs-var">s3MachineLearningModelResourceData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346355"><span class="annot"><span class="annottext">s :: ResourceDataContainer
+</span><a href="#local-6989586621679346355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-type">ResourceDataContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346354"><span class="annot"><span class="annottext">Maybe S3MachineLearningModelResourceData
+</span><a href="#local-6989586621679346354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataContainer
+</span><a href="#local-6989586621679346355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3MachineLearningModelResourceData:ResourceDataContainer' :: Maybe S3MachineLearningModelResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3As3MachineLearningModelResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var">s3MachineLearningModelResourceData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3MachineLearningModelResourceData
+</span><a href="#local-6989586621679346354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Attributes that define an Amazon SageMaker machine learning resource.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#resourceDataContainer_sageMakerMachineLearningModelResourceData"><span class="hs-identifier hs-type">resourceDataContainer_sageMakerMachineLearningModelResourceData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.SageMakerMachineLearningModelResourceData.html#SageMakerMachineLearningModelResourceData"><span class="hs-identifier hs-type">SageMakerMachineLearningModelResourceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="resourceDataContainer_sageMakerMachineLearningModelResourceData"><span class="annot"><span class="annottext">resourceDataContainer_sageMakerMachineLearningModelResourceData :: (Maybe SageMakerMachineLearningModelResourceData
+ -&gt; f (Maybe SageMakerMachineLearningModelResourceData))
+-&gt; ResourceDataContainer -&gt; f ResourceDataContainer
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#resourceDataContainer_sageMakerMachineLearningModelResourceData"><span class="hs-identifier hs-var hs-var">resourceDataContainer_sageMakerMachineLearningModelResourceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataContainer
+ -&gt; Maybe SageMakerMachineLearningModelResourceData)
+-&gt; (ResourceDataContainer
+    -&gt; Maybe SageMakerMachineLearningModelResourceData
+    -&gt; ResourceDataContainer)
+-&gt; Lens
+     ResourceDataContainer
+     ResourceDataContainer
+     (Maybe SageMakerMachineLearningModelResourceData)
+     (Maybe SageMakerMachineLearningModelResourceData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-type">ResourceDataContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346352"><span class="annot"><span class="annottext">Maybe SageMakerMachineLearningModelResourceData
+sageMakerMachineLearningModelResourceData :: Maybe SageMakerMachineLearningModelResourceData
+$sel:sageMakerMachineLearningModelResourceData:ResourceDataContainer' :: ResourceDataContainer
+-&gt; Maybe SageMakerMachineLearningModelResourceData
+</span><a href="#local-6989586621679346352"><span class="hs-identifier hs-var hs-var">sageMakerMachineLearningModelResourceData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SageMakerMachineLearningModelResourceData
+</span><a href="#local-6989586621679346352"><span class="hs-identifier hs-var">sageMakerMachineLearningModelResourceData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346351"><span class="annot"><span class="annottext">s :: ResourceDataContainer
+</span><a href="#local-6989586621679346351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-type">ResourceDataContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346350"><span class="annot"><span class="annottext">Maybe SageMakerMachineLearningModelResourceData
+</span><a href="#local-6989586621679346350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataContainer
+</span><a href="#local-6989586621679346351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sageMakerMachineLearningModelResourceData:ResourceDataContainer' :: Maybe SageMakerMachineLearningModelResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3AsageMakerMachineLearningModelResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var">sageMakerMachineLearningModelResourceData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SageMakerMachineLearningModelResourceData
+</span><a href="#local-6989586621679346350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Attributes that define the local volume resource.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#resourceDataContainer_localVolumeResourceData"><span class="hs-identifier hs-type">resourceDataContainer_localVolumeResourceData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="resourceDataContainer_localVolumeResourceData"><span class="annot"><span class="annottext">resourceDataContainer_localVolumeResourceData :: (Maybe LocalVolumeResourceData
+ -&gt; f (Maybe LocalVolumeResourceData))
+-&gt; ResourceDataContainer -&gt; f ResourceDataContainer
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#resourceDataContainer_localVolumeResourceData"><span class="hs-identifier hs-var hs-var">resourceDataContainer_localVolumeResourceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataContainer -&gt; Maybe LocalVolumeResourceData)
+-&gt; (ResourceDataContainer
+    -&gt; Maybe LocalVolumeResourceData -&gt; ResourceDataContainer)
+-&gt; Lens
+     ResourceDataContainer
+     ResourceDataContainer
+     (Maybe LocalVolumeResourceData)
+     (Maybe LocalVolumeResourceData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-type">ResourceDataContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346348"><span class="annot"><span class="annottext">Maybe LocalVolumeResourceData
+localVolumeResourceData :: Maybe LocalVolumeResourceData
+$sel:localVolumeResourceData:ResourceDataContainer' :: ResourceDataContainer -&gt; Maybe LocalVolumeResourceData
+</span><a href="#local-6989586621679346348"><span class="hs-identifier hs-var hs-var">localVolumeResourceData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LocalVolumeResourceData
+</span><a href="#local-6989586621679346348"><span class="hs-identifier hs-var">localVolumeResourceData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346347"><span class="annot"><span class="annottext">s :: ResourceDataContainer
+</span><a href="#local-6989586621679346347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-type">ResourceDataContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346346"><span class="annot"><span class="annottext">Maybe LocalVolumeResourceData
+</span><a href="#local-6989586621679346346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataContainer
+</span><a href="#local-6989586621679346347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localVolumeResourceData:ResourceDataContainer' :: Maybe LocalVolumeResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3AlocalVolumeResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var">localVolumeResourceData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocalVolumeResourceData
+</span><a href="#local-6989586621679346346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Attributes that define the local device resource.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#resourceDataContainer_localDeviceResourceData"><span class="hs-identifier hs-type">resourceDataContainer_localDeviceResourceData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.LocalDeviceResourceData.html#LocalDeviceResourceData"><span class="hs-identifier hs-type">LocalDeviceResourceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="resourceDataContainer_localDeviceResourceData"><span class="annot"><span class="annottext">resourceDataContainer_localDeviceResourceData :: (Maybe LocalDeviceResourceData
+ -&gt; f (Maybe LocalDeviceResourceData))
+-&gt; ResourceDataContainer -&gt; f ResourceDataContainer
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#resourceDataContainer_localDeviceResourceData"><span class="hs-identifier hs-var hs-var">resourceDataContainer_localDeviceResourceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataContainer -&gt; Maybe LocalDeviceResourceData)
+-&gt; (ResourceDataContainer
+    -&gt; Maybe LocalDeviceResourceData -&gt; ResourceDataContainer)
+-&gt; Lens
+     ResourceDataContainer
+     ResourceDataContainer
+     (Maybe LocalDeviceResourceData)
+     (Maybe LocalDeviceResourceData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-type">ResourceDataContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346344"><span class="annot"><span class="annottext">Maybe LocalDeviceResourceData
+localDeviceResourceData :: Maybe LocalDeviceResourceData
+$sel:localDeviceResourceData:ResourceDataContainer' :: ResourceDataContainer -&gt; Maybe LocalDeviceResourceData
+</span><a href="#local-6989586621679346344"><span class="hs-identifier hs-var hs-var">localDeviceResourceData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LocalDeviceResourceData
+</span><a href="#local-6989586621679346344"><span class="hs-identifier hs-var">localDeviceResourceData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346343"><span class="annot"><span class="annottext">s :: ResourceDataContainer
+</span><a href="#local-6989586621679346343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-type">ResourceDataContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346342"><span class="annot"><span class="annottext">Maybe LocalDeviceResourceData
+</span><a href="#local-6989586621679346342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataContainer
+</span><a href="#local-6989586621679346343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localDeviceResourceData:ResourceDataContainer' :: Maybe LocalDeviceResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3AlocalDeviceResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var">localDeviceResourceData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocalDeviceResourceData
+</span><a href="#local-6989586621679346342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Attributes that define a secret resource, which references a secret from</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- AWS Secrets Manager.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#resourceDataContainer_secretsManagerSecretResourceData"><span class="hs-identifier hs-type">resourceDataContainer_secretsManagerSecretResourceData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.SecretsManagerSecretResourceData.html#SecretsManagerSecretResourceData"><span class="hs-identifier hs-type">SecretsManagerSecretResourceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="resourceDataContainer_secretsManagerSecretResourceData"><span class="annot"><span class="annottext">resourceDataContainer_secretsManagerSecretResourceData :: (Maybe SecretsManagerSecretResourceData
+ -&gt; f (Maybe SecretsManagerSecretResourceData))
+-&gt; ResourceDataContainer -&gt; f ResourceDataContainer
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#resourceDataContainer_secretsManagerSecretResourceData"><span class="hs-identifier hs-var hs-var">resourceDataContainer_secretsManagerSecretResourceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataContainer -&gt; Maybe SecretsManagerSecretResourceData)
+-&gt; (ResourceDataContainer
+    -&gt; Maybe SecretsManagerSecretResourceData -&gt; ResourceDataContainer)
+-&gt; Lens
+     ResourceDataContainer
+     ResourceDataContainer
+     (Maybe SecretsManagerSecretResourceData)
+     (Maybe SecretsManagerSecretResourceData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-type">ResourceDataContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346340"><span class="annot"><span class="annottext">Maybe SecretsManagerSecretResourceData
+secretsManagerSecretResourceData :: Maybe SecretsManagerSecretResourceData
+$sel:secretsManagerSecretResourceData:ResourceDataContainer' :: ResourceDataContainer -&gt; Maybe SecretsManagerSecretResourceData
+</span><a href="#local-6989586621679346340"><span class="hs-identifier hs-var hs-var">secretsManagerSecretResourceData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SecretsManagerSecretResourceData
+</span><a href="#local-6989586621679346340"><span class="hs-identifier hs-var">secretsManagerSecretResourceData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346339"><span class="annot"><span class="annottext">s :: ResourceDataContainer
+</span><a href="#local-6989586621679346339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-type">ResourceDataContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346338"><span class="annot"><span class="annottext">Maybe SecretsManagerSecretResourceData
+</span><a href="#local-6989586621679346338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataContainer
+</span><a href="#local-6989586621679346339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerSecretResourceData:ResourceDataContainer' :: Maybe SecretsManagerSecretResourceData
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#%24sel%3AsecretsManagerSecretResourceData%3AResourceDataContainer%27"><span class="hs-identifier hs-var">secretsManagerSecretResourceData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SecretsManagerSecretResourceData
+</span><a href="#local-6989586621679346338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346335"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679346333"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceDataContainer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ResourceDataContainer)
+-&gt; Value
+-&gt; Parser ResourceDataContainer
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ResourceDataContainer&quot;</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346330"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346330"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3MachineLearningModelResourceData
+-&gt; Maybe SageMakerMachineLearningModelResourceData
+-&gt; Maybe LocalVolumeResourceData
+-&gt; Maybe LocalDeviceResourceData
+-&gt; Maybe SecretsManagerSecretResourceData
+-&gt; ResourceDataContainer
+</span><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-var">ResourceDataContainer'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe S3MachineLearningModelResourceData
+ -&gt; Maybe SageMakerMachineLearningModelResourceData
+ -&gt; Maybe LocalVolumeResourceData
+ -&gt; Maybe LocalDeviceResourceData
+ -&gt; Maybe SecretsManagerSecretResourceData
+ -&gt; ResourceDataContainer)
+-&gt; Parser (Maybe S3MachineLearningModelResourceData)
+-&gt; Parser
+     (Maybe SageMakerMachineLearningModelResourceData
+      -&gt; Maybe LocalVolumeResourceData
+      -&gt; Maybe LocalDeviceResourceData
+      -&gt; Maybe SecretsManagerSecretResourceData
+      -&gt; ResourceDataContainer)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3MachineLearningModelResourceData)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3MachineLearningModelResourceData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SageMakerMachineLearningModelResourceData
+   -&gt; Maybe LocalVolumeResourceData
+   -&gt; Maybe LocalDeviceResourceData
+   -&gt; Maybe SecretsManagerSecretResourceData
+   -&gt; ResourceDataContainer)
+-&gt; Parser (Maybe SageMakerMachineLearningModelResourceData)
+-&gt; Parser
+     (Maybe LocalVolumeResourceData
+      -&gt; Maybe LocalDeviceResourceData
+      -&gt; Maybe SecretsManagerSecretResourceData
+      -&gt; ResourceDataContainer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346330"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-114"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe SageMakerMachineLearningModelResourceData)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SageMakerMachineLearningModelResourceData&quot;</span></span><span>
+</span><span id="line-115"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LocalVolumeResourceData
+   -&gt; Maybe LocalDeviceResourceData
+   -&gt; Maybe SecretsManagerSecretResourceData
+   -&gt; ResourceDataContainer)
+-&gt; Parser (Maybe LocalVolumeResourceData)
+-&gt; Parser
+     (Maybe LocalDeviceResourceData
+      -&gt; Maybe SecretsManagerSecretResourceData -&gt; ResourceDataContainer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LocalVolumeResourceData)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocalVolumeResourceData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LocalDeviceResourceData
+   -&gt; Maybe SecretsManagerSecretResourceData -&gt; ResourceDataContainer)
+-&gt; Parser (Maybe LocalDeviceResourceData)
+-&gt; Parser
+     (Maybe SecretsManagerSecretResourceData -&gt; ResourceDataContainer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LocalDeviceResourceData)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocalDeviceResourceData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SecretsManagerSecretResourceData -&gt; ResourceDataContainer)
+-&gt; Parser (Maybe SecretsManagerSecretResourceData)
+-&gt; Parser ResourceDataContainer
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SecretsManagerSecretResourceData)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretsManagerSecretResourceData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346324"><span id="local-6989586621679346326"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346313"><span id="local-6989586621679346315"><span id="local-6989586621679346317"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679346311"><span class="annot"><span class="annottext">toJSON :: ResourceDataContainer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer%27"><span class="hs-identifier hs-type">ResourceDataContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346305"><span id="local-6989586621679346306"><span id="local-6989586621679346307"><span id="local-6989586621679346308"><span id="local-6989586621679346309"><span class="annot"><span class="annottext">Maybe LocalDeviceResourceData
+Maybe LocalVolumeResourceData
+Maybe S3MachineLearningModelResourceData
+Maybe SageMakerMachineLearningModelResourceData
+Maybe SecretsManagerSecretResourceData
+secretsManagerSecretResourceData :: Maybe SecretsManagerSecretResourceData
+localDeviceResourceData :: Maybe LocalDeviceResourceData
+localVolumeResourceData :: Maybe LocalVolumeResourceData
+sageMakerMachineLearningModelResourceData :: Maybe SageMakerMachineLearningModelResourceData
+s3MachineLearningModelResourceData :: Maybe S3MachineLearningModelResourceData
+$sel:secretsManagerSecretResourceData:ResourceDataContainer' :: ResourceDataContainer -&gt; Maybe SecretsManagerSecretResourceData
+$sel:localDeviceResourceData:ResourceDataContainer' :: ResourceDataContainer -&gt; Maybe LocalDeviceResourceData
+$sel:localVolumeResourceData:ResourceDataContainer' :: ResourceDataContainer -&gt; Maybe LocalVolumeResourceData
+$sel:sageMakerMachineLearningModelResourceData:ResourceDataContainer' :: ResourceDataContainer
+-&gt; Maybe SageMakerMachineLearningModelResourceData
+$sel:s3MachineLearningModelResourceData:ResourceDataContainer' :: ResourceDataContainer -&gt; Maybe S3MachineLearningModelResourceData
+</span><a href="#local-6989586621679346305"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3MachineLearningModelResourceData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3MachineLearningModelResourceData -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">(S3MachineLearningModelResourceData -&gt; Pair)
+-&gt; Maybe S3MachineLearningModelResourceData -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3MachineLearningModelResourceData
+</span><a href="#local-6989586621679346309"><span class="hs-identifier hs-var">s3MachineLearningModelResourceData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SageMakerMachineLearningModelResourceData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SageMakerMachineLearningModelResourceData -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(SageMakerMachineLearningModelResourceData -&gt; Pair)
+-&gt; Maybe SageMakerMachineLearningModelResourceData -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SageMakerMachineLearningModelResourceData
+</span><a href="#local-6989586621679346308"><span class="hs-identifier hs-var">sageMakerMachineLearningModelResourceData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocalVolumeResourceData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LocalVolumeResourceData -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(LocalVolumeResourceData -&gt; Pair)
+-&gt; Maybe LocalVolumeResourceData -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LocalVolumeResourceData
+</span><a href="#local-6989586621679346307"><span class="hs-identifier hs-var">localVolumeResourceData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocalDeviceResourceData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LocalDeviceResourceData -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">(LocalDeviceResourceData -&gt; Pair)
+-&gt; Maybe LocalDeviceResourceData -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LocalDeviceResourceData
+</span><a href="#local-6989586621679346306"><span class="hs-identifier hs-var">localDeviceResourceData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretsManagerSecretResourceData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SecretsManagerSecretResourceData -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(SecretsManagerSecretResourceData -&gt; Pair)
+-&gt; Maybe SecretsManagerSecretResourceData -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SecretsManagerSecretResourceData
+</span><a href="#local-6989586621679346305"><span class="hs-identifier hs-var">secretsManagerSecretResourceData</span></a></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span></pre></body></html>

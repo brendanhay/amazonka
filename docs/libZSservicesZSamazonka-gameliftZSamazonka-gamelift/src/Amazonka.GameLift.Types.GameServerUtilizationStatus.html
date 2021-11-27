@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GameLift.Types.GameServerUtilizationStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GameLift.Types.GameServerUtilizationStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus"><span class="hs-identifier">GameServerUtilizationStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus_AVAILABLE"><span class="hs-identifier">GameServerUtilizationStatus_AVAILABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus_UTILIZED"><span class="hs-identifier">GameServerUtilizationStatus_UTILIZED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679432857"><span id="local-6989586621679432858"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerUtilizationStatus"><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus"><span class="hs-identifier hs-var">GameServerUtilizationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerUtilizationStatus%27"><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus%27"><span class="hs-identifier hs-var">GameServerUtilizationStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGameServerUtilizationStatus"><span class="annot"><span class="annottext">GameServerUtilizationStatus -&gt; Text
+</span><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#fromGameServerUtilizationStatus"><span class="hs-identifier hs-var hs-var">fromGameServerUtilizationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432849"><span id="local-6989586621679432851"><span id="local-6989586621679432853"><span class="annot"><span class="annottext">Int -&gt; GameServerUtilizationStatus -&gt; ShowS
+[GameServerUtilizationStatus] -&gt; ShowS
+GameServerUtilizationStatus -&gt; String
+(Int -&gt; GameServerUtilizationStatus -&gt; ShowS)
+-&gt; (GameServerUtilizationStatus -&gt; String)
+-&gt; ([GameServerUtilizationStatus] -&gt; ShowS)
+-&gt; Show GameServerUtilizationStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GameServerUtilizationStatus] -&gt; ShowS
+$cshowList :: [GameServerUtilizationStatus] -&gt; ShowS
+show :: GameServerUtilizationStatus -&gt; String
+$cshow :: GameServerUtilizationStatus -&gt; String
+showsPrec :: Int -&gt; GameServerUtilizationStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; GameServerUtilizationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679432840"><span id="local-6989586621679432842"><span id="local-6989586621679432844"><span id="local-6989586621679432846"><span class="annot"><span class="annottext">ReadPrec [GameServerUtilizationStatus]
+ReadPrec GameServerUtilizationStatus
+Int -&gt; ReadS GameServerUtilizationStatus
+ReadS [GameServerUtilizationStatus]
+(Int -&gt; ReadS GameServerUtilizationStatus)
+-&gt; ReadS [GameServerUtilizationStatus]
+-&gt; ReadPrec GameServerUtilizationStatus
+-&gt; ReadPrec [GameServerUtilizationStatus]
+-&gt; Read GameServerUtilizationStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GameServerUtilizationStatus]
+$creadListPrec :: ReadPrec [GameServerUtilizationStatus]
+readPrec :: ReadPrec GameServerUtilizationStatus
+$creadPrec :: ReadPrec GameServerUtilizationStatus
+readList :: ReadS [GameServerUtilizationStatus]
+$creadList :: ReadS [GameServerUtilizationStatus]
+readsPrec :: Int -&gt; ReadS GameServerUtilizationStatus
+$creadsPrec :: Int -&gt; ReadS GameServerUtilizationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679432835"><span id="local-6989586621679432837"><span class="annot"><span class="annottext">GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+(GameServerUtilizationStatus
+ -&gt; GameServerUtilizationStatus -&gt; Bool)
+-&gt; (GameServerUtilizationStatus
+    -&gt; GameServerUtilizationStatus -&gt; Bool)
+-&gt; Eq GameServerUtilizationStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+$c/= :: GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+== :: GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+$c== :: GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679432819"><span id="local-6989586621679432821"><span id="local-6989586621679432823"><span id="local-6989586621679432825"><span id="local-6989586621679432827"><span id="local-6989586621679432829"><span id="local-6989586621679432831"><span class="annot"><span class="annottext">Eq GameServerUtilizationStatus
+Eq GameServerUtilizationStatus
+-&gt; (GameServerUtilizationStatus
+    -&gt; GameServerUtilizationStatus -&gt; Ordering)
+-&gt; (GameServerUtilizationStatus
+    -&gt; GameServerUtilizationStatus -&gt; Bool)
+-&gt; (GameServerUtilizationStatus
+    -&gt; GameServerUtilizationStatus -&gt; Bool)
+-&gt; (GameServerUtilizationStatus
+    -&gt; GameServerUtilizationStatus -&gt; Bool)
+-&gt; (GameServerUtilizationStatus
+    -&gt; GameServerUtilizationStatus -&gt; Bool)
+-&gt; (GameServerUtilizationStatus
+    -&gt; GameServerUtilizationStatus -&gt; GameServerUtilizationStatus)
+-&gt; (GameServerUtilizationStatus
+    -&gt; GameServerUtilizationStatus -&gt; GameServerUtilizationStatus)
+-&gt; Ord GameServerUtilizationStatus
+GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+GameServerUtilizationStatus
+-&gt; GameServerUtilizationStatus -&gt; Ordering
+GameServerUtilizationStatus
+-&gt; GameServerUtilizationStatus -&gt; GameServerUtilizationStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: GameServerUtilizationStatus
+-&gt; GameServerUtilizationStatus -&gt; GameServerUtilizationStatus
+$cmin :: GameServerUtilizationStatus
+-&gt; GameServerUtilizationStatus -&gt; GameServerUtilizationStatus
+max :: GameServerUtilizationStatus
+-&gt; GameServerUtilizationStatus -&gt; GameServerUtilizationStatus
+$cmax :: GameServerUtilizationStatus
+-&gt; GameServerUtilizationStatus -&gt; GameServerUtilizationStatus
+&gt;= :: GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+$c&gt;= :: GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+&gt; :: GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+$c&gt; :: GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+&lt;= :: GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+$c&lt;= :: GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+&lt; :: GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+$c&lt; :: GameServerUtilizationStatus -&gt; GameServerUtilizationStatus -&gt; Bool
+compare :: GameServerUtilizationStatus
+-&gt; GameServerUtilizationStatus -&gt; Ordering
+$ccompare :: GameServerUtilizationStatus
+-&gt; GameServerUtilizationStatus -&gt; Ordering
+$cp1Ord :: Eq GameServerUtilizationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ GameServerUtilizationStatus -&gt; Rep GameServerUtilizationStatus x)
+-&gt; (forall x.
+    Rep GameServerUtilizationStatus x -&gt; GameServerUtilizationStatus)
+-&gt; Generic GameServerUtilizationStatus
+forall x.
+Rep GameServerUtilizationStatus x -&gt; GameServerUtilizationStatus
+forall x.
+GameServerUtilizationStatus -&gt; Rep GameServerUtilizationStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GameServerUtilizationStatus x -&gt; GameServerUtilizationStatus
+$cfrom :: forall x.
+GameServerUtilizationStatus -&gt; Rep GameServerUtilizationStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432811"><span id="local-6989586621679432813"><span class="annot"><span class="annottext">Int -&gt; GameServerUtilizationStatus -&gt; Int
+GameServerUtilizationStatus -&gt; Int
+(Int -&gt; GameServerUtilizationStatus -&gt; Int)
+-&gt; (GameServerUtilizationStatus -&gt; Int)
+-&gt; Hashable GameServerUtilizationStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: GameServerUtilizationStatus -&gt; Int
+$chash :: GameServerUtilizationStatus -&gt; Int
+hashWithSalt :: Int -&gt; GameServerUtilizationStatus -&gt; Int
+$chashWithSalt :: Int -&gt; GameServerUtilizationStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679432808"><span class="annot"><span class="annottext">GameServerUtilizationStatus -&gt; ()
+(GameServerUtilizationStatus -&gt; ())
+-&gt; NFData GameServerUtilizationStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: GameServerUtilizationStatus -&gt; ()
+$crnf :: GameServerUtilizationStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679432805"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerUtilizationStatus
+(Text -&gt; Either String GameServerUtilizationStatus)
+-&gt; FromText GameServerUtilizationStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String GameServerUtilizationStatus
+$cfromText :: Text -&gt; Either String GameServerUtilizationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679432802"><span class="annot"><span class="annottext">GameServerUtilizationStatus -&gt; Text
+(GameServerUtilizationStatus -&gt; Text)
+-&gt; ToText GameServerUtilizationStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: GameServerUtilizationStatus -&gt; Text
+$ctoText :: GameServerUtilizationStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679432799"><span class="annot"><span class="annottext">GameServerUtilizationStatus -&gt; ByteString
+(GameServerUtilizationStatus -&gt; ByteString)
+-&gt; ToByteString GameServerUtilizationStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: GameServerUtilizationStatus -&gt; ByteString
+$ctoBS :: GameServerUtilizationStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679432796"><span class="annot"><span class="annottext">GameServerUtilizationStatus -&gt; ByteStringBuilder
+(GameServerUtilizationStatus -&gt; ByteStringBuilder)
+-&gt; ToLog GameServerUtilizationStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: GameServerUtilizationStatus -&gt; ByteStringBuilder
+$cbuild :: GameServerUtilizationStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679432793"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerUtilizationStatus -&gt; [Header]
+(HeaderName -&gt; GameServerUtilizationStatus -&gt; [Header])
+-&gt; ToHeader GameServerUtilizationStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; GameServerUtilizationStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; GameServerUtilizationStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679432790"><span class="annot"><span class="annottext">GameServerUtilizationStatus -&gt; QueryString
+(GameServerUtilizationStatus -&gt; QueryString)
+-&gt; ToQuery GameServerUtilizationStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: GameServerUtilizationStatus -&gt; QueryString
+$ctoQuery :: GameServerUtilizationStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679432785"><span id="local-6989586621679432787"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerUtilizationStatus]
+Value -&gt; Parser GameServerUtilizationStatus
+(Value -&gt; Parser GameServerUtilizationStatus)
+-&gt; (Value -&gt; Parser [GameServerUtilizationStatus])
+-&gt; FromJSON GameServerUtilizationStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [GameServerUtilizationStatus]
+$cparseJSONList :: Value -&gt; Parser [GameServerUtilizationStatus]
+parseJSON :: Value -&gt; Parser GameServerUtilizationStatus
+$cparseJSON :: Value -&gt; Parser GameServerUtilizationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679432780"><span id="local-6989586621679432782"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerUtilizationStatus]
+FromJSONKeyFunction GameServerUtilizationStatus
+FromJSONKeyFunction GameServerUtilizationStatus
+-&gt; FromJSONKeyFunction [GameServerUtilizationStatus]
+-&gt; FromJSONKey GameServerUtilizationStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [GameServerUtilizationStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [GameServerUtilizationStatus]
+fromJSONKey :: FromJSONKeyFunction GameServerUtilizationStatus
+$cfromJSONKey :: FromJSONKeyFunction GameServerUtilizationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679432771"><span id="local-6989586621679432773"><span id="local-6989586621679432775"><span id="local-6989586621679432777"><span class="annot"><span class="annottext">[GameServerUtilizationStatus] -&gt; Encoding
+[GameServerUtilizationStatus] -&gt; Value
+GameServerUtilizationStatus -&gt; Encoding
+GameServerUtilizationStatus -&gt; Value
+(GameServerUtilizationStatus -&gt; Value)
+-&gt; (GameServerUtilizationStatus -&gt; Encoding)
+-&gt; ([GameServerUtilizationStatus] -&gt; Value)
+-&gt; ([GameServerUtilizationStatus] -&gt; Encoding)
+-&gt; ToJSON GameServerUtilizationStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [GameServerUtilizationStatus] -&gt; Encoding
+$ctoEncodingList :: [GameServerUtilizationStatus] -&gt; Encoding
+toJSONList :: [GameServerUtilizationStatus] -&gt; Value
+$ctoJSONList :: [GameServerUtilizationStatus] -&gt; Value
+toEncoding :: GameServerUtilizationStatus -&gt; Encoding
+$ctoEncoding :: GameServerUtilizationStatus -&gt; Encoding
+toJSON :: GameServerUtilizationStatus -&gt; Value
+$ctoJSON :: GameServerUtilizationStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679432766"><span id="local-6989586621679432768"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerUtilizationStatus]
+ToJSONKeyFunction GameServerUtilizationStatus
+ToJSONKeyFunction GameServerUtilizationStatus
+-&gt; ToJSONKeyFunction [GameServerUtilizationStatus]
+-&gt; ToJSONKey GameServerUtilizationStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [GameServerUtilizationStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [GameServerUtilizationStatus]
+toJSONKey :: ToJSONKeyFunction GameServerUtilizationStatus
+$ctoJSONKey :: ToJSONKeyFunction GameServerUtilizationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679432763"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerUtilizationStatus
+([Node] -&gt; Either String GameServerUtilizationStatus)
+-&gt; FromXML GameServerUtilizationStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String GameServerUtilizationStatus
+$cparseXML :: [Node] -&gt; Either String GameServerUtilizationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679432760"><span class="annot"><span class="annottext">GameServerUtilizationStatus -&gt; XML
+(GameServerUtilizationStatus -&gt; XML)
+-&gt; ToXML GameServerUtilizationStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: GameServerUtilizationStatus -&gt; XML
+$ctoXML :: GameServerUtilizationStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus_AVAILABLE"><span class="hs-identifier hs-type">GameServerUtilizationStatus_AVAILABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus"><span class="hs-identifier hs-type">GameServerUtilizationStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameServerUtilizationStatus_AVAILABLE"><span id="%24mGameServerUtilizationStatus_AVAILABLE"><span id="GameServerUtilizationStatus_AVAILABLE"><span class="annot"><span class="annottext">$bGameServerUtilizationStatus_AVAILABLE :: GameServerUtilizationStatus
+$mGameServerUtilizationStatus_AVAILABLE :: forall r.
+GameServerUtilizationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#%24bGameServerUtilizationStatus_AVAILABLE"><span class="hs-identifier hs-var hs-var hs-var">GameServerUtilizationStatus_AVAILABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus%27"><span class="hs-identifier hs-type">GameServerUtilizationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AVAILABLE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus_UTILIZED"><span class="hs-identifier hs-type">GameServerUtilizationStatus_UTILIZED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus"><span class="hs-identifier hs-type">GameServerUtilizationStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGameServerUtilizationStatus_UTILIZED"><span id="%24mGameServerUtilizationStatus_UTILIZED"><span id="GameServerUtilizationStatus_UTILIZED"><span class="annot"><span class="annottext">$bGameServerUtilizationStatus_UTILIZED :: GameServerUtilizationStatus
+$mGameServerUtilizationStatus_UTILIZED :: forall r.
+GameServerUtilizationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#%24bGameServerUtilizationStatus_UTILIZED"><span class="hs-identifier hs-var hs-var hs-var">GameServerUtilizationStatus_UTILIZED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus%27"><span class="hs-identifier hs-type">GameServerUtilizationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UTILIZED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus_AVAILABLE"><span class="hs-pragma hs-type">GameServerUtilizationStatus_AVAILABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus_UTILIZED"><span class="hs-pragma hs-type">GameServerUtilizationStatus_UTILIZED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.GameServerUtilizationStatus.html#GameServerUtilizationStatus%27"><span class="hs-pragma hs-type">GameServerUtilizationStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Connect.Types.Grouping</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Connect.Types.Grouping</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping"><span class="hs-identifier">Grouping</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping_CHANNEL"><span class="hs-identifier">Grouping_CHANNEL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping_QUEUE"><span class="hs-identifier">Grouping_QUEUE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679396098"><span id="local-6989586621679396099"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Grouping"><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping"><span class="hs-identifier hs-var">Grouping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Grouping%27"><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping%27"><span class="hs-identifier hs-var">Grouping'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGrouping"><span class="annot"><span class="annottext">Grouping -&gt; Text
+</span><a href="Amazonka.Connect.Types.Grouping.html#fromGrouping"><span class="hs-identifier hs-var hs-var">fromGrouping</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396090"><span id="local-6989586621679396092"><span id="local-6989586621679396094"><span class="annot"><span class="annottext">Int -&gt; Grouping -&gt; ShowS
+[Grouping] -&gt; ShowS
+Grouping -&gt; String
+(Int -&gt; Grouping -&gt; ShowS)
+-&gt; (Grouping -&gt; String) -&gt; ([Grouping] -&gt; ShowS) -&gt; Show Grouping
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Grouping] -&gt; ShowS
+$cshowList :: [Grouping] -&gt; ShowS
+show :: Grouping -&gt; String
+$cshow :: Grouping -&gt; String
+showsPrec :: Int -&gt; Grouping -&gt; ShowS
+$cshowsPrec :: Int -&gt; Grouping -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679396081"><span id="local-6989586621679396083"><span id="local-6989586621679396085"><span id="local-6989586621679396087"><span class="annot"><span class="annottext">ReadPrec [Grouping]
+ReadPrec Grouping
+Int -&gt; ReadS Grouping
+ReadS [Grouping]
+(Int -&gt; ReadS Grouping)
+-&gt; ReadS [Grouping]
+-&gt; ReadPrec Grouping
+-&gt; ReadPrec [Grouping]
+-&gt; Read Grouping
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Grouping]
+$creadListPrec :: ReadPrec [Grouping]
+readPrec :: ReadPrec Grouping
+$creadPrec :: ReadPrec Grouping
+readList :: ReadS [Grouping]
+$creadList :: ReadS [Grouping]
+readsPrec :: Int -&gt; ReadS Grouping
+$creadsPrec :: Int -&gt; ReadS Grouping
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679396076"><span id="local-6989586621679396078"><span class="annot"><span class="annottext">Grouping -&gt; Grouping -&gt; Bool
+(Grouping -&gt; Grouping -&gt; Bool)
+-&gt; (Grouping -&gt; Grouping -&gt; Bool) -&gt; Eq Grouping
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Grouping -&gt; Grouping -&gt; Bool
+$c/= :: Grouping -&gt; Grouping -&gt; Bool
+== :: Grouping -&gt; Grouping -&gt; Bool
+$c== :: Grouping -&gt; Grouping -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679396060"><span id="local-6989586621679396062"><span id="local-6989586621679396064"><span id="local-6989586621679396066"><span id="local-6989586621679396068"><span id="local-6989586621679396070"><span id="local-6989586621679396072"><span class="annot"><span class="annottext">Eq Grouping
+Eq Grouping
+-&gt; (Grouping -&gt; Grouping -&gt; Ordering)
+-&gt; (Grouping -&gt; Grouping -&gt; Bool)
+-&gt; (Grouping -&gt; Grouping -&gt; Bool)
+-&gt; (Grouping -&gt; Grouping -&gt; Bool)
+-&gt; (Grouping -&gt; Grouping -&gt; Bool)
+-&gt; (Grouping -&gt; Grouping -&gt; Grouping)
+-&gt; (Grouping -&gt; Grouping -&gt; Grouping)
+-&gt; Ord Grouping
+Grouping -&gt; Grouping -&gt; Bool
+Grouping -&gt; Grouping -&gt; Ordering
+Grouping -&gt; Grouping -&gt; Grouping
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Grouping -&gt; Grouping -&gt; Grouping
+$cmin :: Grouping -&gt; Grouping -&gt; Grouping
+max :: Grouping -&gt; Grouping -&gt; Grouping
+$cmax :: Grouping -&gt; Grouping -&gt; Grouping
+&gt;= :: Grouping -&gt; Grouping -&gt; Bool
+$c&gt;= :: Grouping -&gt; Grouping -&gt; Bool
+&gt; :: Grouping -&gt; Grouping -&gt; Bool
+$c&gt; :: Grouping -&gt; Grouping -&gt; Bool
+&lt;= :: Grouping -&gt; Grouping -&gt; Bool
+$c&lt;= :: Grouping -&gt; Grouping -&gt; Bool
+&lt; :: Grouping -&gt; Grouping -&gt; Bool
+$c&lt; :: Grouping -&gt; Grouping -&gt; Bool
+compare :: Grouping -&gt; Grouping -&gt; Ordering
+$ccompare :: Grouping -&gt; Grouping -&gt; Ordering
+$cp1Ord :: Eq Grouping
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Grouping -&gt; Rep Grouping x)
+-&gt; (forall x. Rep Grouping x -&gt; Grouping) -&gt; Generic Grouping
+forall x. Rep Grouping x -&gt; Grouping
+forall x. Grouping -&gt; Rep Grouping x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Grouping x -&gt; Grouping
+$cfrom :: forall x. Grouping -&gt; Rep Grouping x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396052"><span id="local-6989586621679396054"><span class="annot"><span class="annottext">Int -&gt; Grouping -&gt; Int
+Grouping -&gt; Int
+(Int -&gt; Grouping -&gt; Int) -&gt; (Grouping -&gt; Int) -&gt; Hashable Grouping
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Grouping -&gt; Int
+$chash :: Grouping -&gt; Int
+hashWithSalt :: Int -&gt; Grouping -&gt; Int
+$chashWithSalt :: Int -&gt; Grouping -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679396049"><span class="annot"><span class="annottext">Grouping -&gt; ()
+(Grouping -&gt; ()) -&gt; NFData Grouping
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Grouping -&gt; ()
+$crnf :: Grouping -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679396046"><span class="annot"><span class="annottext">Text -&gt; Either String Grouping
+(Text -&gt; Either String Grouping) -&gt; FromText Grouping
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Grouping
+$cfromText :: Text -&gt; Either String Grouping
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679396043"><span class="annot"><span class="annottext">Grouping -&gt; Text
+(Grouping -&gt; Text) -&gt; ToText Grouping
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Grouping -&gt; Text
+$ctoText :: Grouping -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679396040"><span class="annot"><span class="annottext">Grouping -&gt; ByteString
+(Grouping -&gt; ByteString) -&gt; ToByteString Grouping
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Grouping -&gt; ByteString
+$ctoBS :: Grouping -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679396037"><span class="annot"><span class="annottext">Grouping -&gt; ByteStringBuilder
+(Grouping -&gt; ByteStringBuilder) -&gt; ToLog Grouping
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Grouping -&gt; ByteStringBuilder
+$cbuild :: Grouping -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679396034"><span class="annot"><span class="annottext">HeaderName -&gt; Grouping -&gt; [Header]
+(HeaderName -&gt; Grouping -&gt; [Header]) -&gt; ToHeader Grouping
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Grouping -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Grouping -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679396031"><span class="annot"><span class="annottext">Grouping -&gt; QueryString
+(Grouping -&gt; QueryString) -&gt; ToQuery Grouping
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Grouping -&gt; QueryString
+$ctoQuery :: Grouping -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679396026"><span id="local-6989586621679396028"><span class="annot"><span class="annottext">Value -&gt; Parser [Grouping]
+Value -&gt; Parser Grouping
+(Value -&gt; Parser Grouping)
+-&gt; (Value -&gt; Parser [Grouping]) -&gt; FromJSON Grouping
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Grouping]
+$cparseJSONList :: Value -&gt; Parser [Grouping]
+parseJSON :: Value -&gt; Parser Grouping
+$cparseJSON :: Value -&gt; Parser Grouping
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679396021"><span id="local-6989586621679396023"><span class="annot"><span class="annottext">FromJSONKeyFunction [Grouping]
+FromJSONKeyFunction Grouping
+FromJSONKeyFunction Grouping
+-&gt; FromJSONKeyFunction [Grouping] -&gt; FromJSONKey Grouping
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Grouping]
+$cfromJSONKeyList :: FromJSONKeyFunction [Grouping]
+fromJSONKey :: FromJSONKeyFunction Grouping
+$cfromJSONKey :: FromJSONKeyFunction Grouping
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679396012"><span id="local-6989586621679396014"><span id="local-6989586621679396016"><span id="local-6989586621679396018"><span class="annot"><span class="annottext">[Grouping] -&gt; Encoding
+[Grouping] -&gt; Value
+Grouping -&gt; Encoding
+Grouping -&gt; Value
+(Grouping -&gt; Value)
+-&gt; (Grouping -&gt; Encoding)
+-&gt; ([Grouping] -&gt; Value)
+-&gt; ([Grouping] -&gt; Encoding)
+-&gt; ToJSON Grouping
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Grouping] -&gt; Encoding
+$ctoEncodingList :: [Grouping] -&gt; Encoding
+toJSONList :: [Grouping] -&gt; Value
+$ctoJSONList :: [Grouping] -&gt; Value
+toEncoding :: Grouping -&gt; Encoding
+$ctoEncoding :: Grouping -&gt; Encoding
+toJSON :: Grouping -&gt; Value
+$ctoJSON :: Grouping -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679396007"><span id="local-6989586621679396009"><span class="annot"><span class="annottext">ToJSONKeyFunction [Grouping]
+ToJSONKeyFunction Grouping
+ToJSONKeyFunction Grouping
+-&gt; ToJSONKeyFunction [Grouping] -&gt; ToJSONKey Grouping
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Grouping]
+$ctoJSONKeyList :: ToJSONKeyFunction [Grouping]
+toJSONKey :: ToJSONKeyFunction Grouping
+$ctoJSONKey :: ToJSONKeyFunction Grouping
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679396004"><span class="annot"><span class="annottext">[Node] -&gt; Either String Grouping
+([Node] -&gt; Either String Grouping) -&gt; FromXML Grouping
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Grouping
+$cparseXML :: [Node] -&gt; Either String Grouping
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679396001"><span class="annot"><span class="annottext">Grouping -&gt; XML
+(Grouping -&gt; XML) -&gt; ToXML Grouping
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Grouping -&gt; XML
+$ctoXML :: Grouping -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping_CHANNEL"><span class="hs-identifier hs-type">Grouping_CHANNEL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping"><span class="hs-identifier hs-type">Grouping</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrouping_CHANNEL"><span id="%24mGrouping_CHANNEL"><span id="Grouping_CHANNEL"><span class="annot"><span class="annottext">$bGrouping_CHANNEL :: Grouping
+$mGrouping_CHANNEL :: forall r. Grouping -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.Grouping.html#%24bGrouping_CHANNEL"><span class="hs-identifier hs-var hs-var hs-var">Grouping_CHANNEL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping%27"><span class="hs-identifier hs-type">Grouping'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CHANNEL&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping_QUEUE"><span class="hs-identifier hs-type">Grouping_QUEUE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping"><span class="hs-identifier hs-type">Grouping</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrouping_QUEUE"><span id="%24mGrouping_QUEUE"><span id="Grouping_QUEUE"><span class="annot"><span class="annottext">$bGrouping_QUEUE :: Grouping
+$mGrouping_QUEUE :: forall r. Grouping -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.Grouping.html#%24bGrouping_QUEUE"><span class="hs-identifier hs-var hs-var hs-var">Grouping_QUEUE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping%27"><span class="hs-identifier hs-type">Grouping'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUEUE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping_CHANNEL"><span class="hs-pragma hs-type">Grouping_CHANNEL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping_QUEUE"><span class="hs-pragma hs-type">Grouping_QUEUE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.Grouping.html#Grouping%27"><span class="hs-pragma hs-type">Grouping'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

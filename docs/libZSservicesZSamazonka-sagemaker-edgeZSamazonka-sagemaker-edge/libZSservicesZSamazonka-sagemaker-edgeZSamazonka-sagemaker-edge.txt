@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.SageMakerEdge.Types.EdgeMetric
+module Amazonka.SageMakerEdge.Types.EdgeMetric
 
 -- | Information required for edge device metrics.
 --   
@@ -57,16 +57,16 @@ edgeMetric_value :: Lens' EdgeMetric (Maybe Double)
 
 -- | Timestamp of when the metric was requested.
 edgeMetric_timestamp :: Lens' EdgeMetric (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.SageMakerEdge.Types.EdgeMetric.EdgeMetric
-instance GHC.Show.Show Network.AWS.SageMakerEdge.Types.EdgeMetric.EdgeMetric
-instance GHC.Read.Read Network.AWS.SageMakerEdge.Types.EdgeMetric.EdgeMetric
-instance GHC.Classes.Eq Network.AWS.SageMakerEdge.Types.EdgeMetric.EdgeMetric
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerEdge.Types.EdgeMetric.EdgeMetric
-instance Control.DeepSeq.NFData Network.AWS.SageMakerEdge.Types.EdgeMetric.EdgeMetric
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerEdge.Types.EdgeMetric.EdgeMetric
+instance GHC.Generics.Generic Amazonka.SageMakerEdge.Types.EdgeMetric.EdgeMetric
+instance GHC.Show.Show Amazonka.SageMakerEdge.Types.EdgeMetric.EdgeMetric
+instance GHC.Read.Read Amazonka.SageMakerEdge.Types.EdgeMetric.EdgeMetric
+instance GHC.Classes.Eq Amazonka.SageMakerEdge.Types.EdgeMetric.EdgeMetric
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerEdge.Types.EdgeMetric.EdgeMetric
+instance Control.DeepSeq.NFData Amazonka.SageMakerEdge.Types.EdgeMetric.EdgeMetric
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerEdge.Types.EdgeMetric.EdgeMetric
 
 
-module Network.AWS.SageMakerEdge.Types.Model
+module Amazonka.SageMakerEdge.Types.Model
 
 -- | Information about a model deployed on an edge device that is
 --   registered with SageMaker Edge Manager.
@@ -128,16 +128,16 @@ model_latestInference :: Lens' Model (Maybe UTCTime)
 
 -- | The timestamp of the last data sample taken.
 model_latestSampleTime :: Lens' Model (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.SageMakerEdge.Types.Model.Model
-instance GHC.Show.Show Network.AWS.SageMakerEdge.Types.Model.Model
-instance GHC.Read.Read Network.AWS.SageMakerEdge.Types.Model.Model
-instance GHC.Classes.Eq Network.AWS.SageMakerEdge.Types.Model.Model
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerEdge.Types.Model.Model
-instance Control.DeepSeq.NFData Network.AWS.SageMakerEdge.Types.Model.Model
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerEdge.Types.Model.Model
+instance GHC.Generics.Generic Amazonka.SageMakerEdge.Types.Model.Model
+instance GHC.Show.Show Amazonka.SageMakerEdge.Types.Model.Model
+instance GHC.Read.Read Amazonka.SageMakerEdge.Types.Model.Model
+instance GHC.Classes.Eq Amazonka.SageMakerEdge.Types.Model.Model
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerEdge.Types.Model.Model
+instance Control.DeepSeq.NFData Amazonka.SageMakerEdge.Types.Model.Model
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerEdge.Types.Model.Model
 
 
-module Network.AWS.SageMakerEdge.Types
+module Amazonka.SageMakerEdge.Types
 
 -- | API version <tt>2020-09-23</tt> of the Amazon Sagemaker Edge Manager
 --   SDK configuration.
@@ -262,7 +262,7 @@ model_latestSampleTime :: Lens' Model (Maybe UTCTime)
 
 -- | Use to get the current status of devices registered on SageMaker Edge
 --   Manager.
-module Network.AWS.SageMakerEdge.SendHeartbeat
+module Amazonka.SageMakerEdge.SendHeartbeat
 
 -- | <i>See:</i> <a>newSendHeartbeat</a> smart constructor.
 data SendHeartbeat
@@ -337,26 +337,26 @@ SendHeartbeatResponse' :: SendHeartbeatResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSendHeartbeatResponse :: SendHeartbeatResponse
-instance GHC.Generics.Generic Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeat
-instance GHC.Show.Show Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeat
-instance GHC.Read.Read Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeat
-instance GHC.Classes.Eq Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeat
-instance GHC.Generics.Generic Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeatResponse
-instance GHC.Show.Show Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeatResponse
-instance GHC.Read.Read Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeatResponse
-instance GHC.Classes.Eq Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeatResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeat
-instance Control.DeepSeq.NFData Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeatResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeat
-instance Control.DeepSeq.NFData Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeat
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeat
-instance Network.AWS.Data.Path.ToPath Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerEdge.SendHeartbeat.SendHeartbeat
+instance GHC.Generics.Generic Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeat
+instance GHC.Show.Show Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeat
+instance GHC.Read.Read Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeat
+instance GHC.Classes.Eq Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeat
+instance GHC.Generics.Generic Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeatResponse
+instance GHC.Show.Show Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeatResponse
+instance GHC.Read.Read Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeatResponse
+instance GHC.Classes.Eq Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeatResponse
+instance Amazonka.Types.AWSRequest Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeat
+instance Control.DeepSeq.NFData Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeatResponse
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeat
+instance Control.DeepSeq.NFData Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeat
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeat
+instance Amazonka.Data.Path.ToPath Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeat
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerEdge.SendHeartbeat.SendHeartbeat
 
 
 -- | Use to check if a device is registered with SageMaker Edge Manager.
-module Network.AWS.SageMakerEdge.GetDeviceRegistration
+module Amazonka.SageMakerEdge.GetDeviceRegistration
 
 -- | <i>See:</i> <a>newGetDeviceRegistration</a> smart constructor.
 data GetDeviceRegistration
@@ -442,25 +442,25 @@ getDeviceRegistrationResponse_deviceRegistration :: Lens' GetDeviceRegistrationR
 
 -- | The response's http status code.
 getDeviceRegistrationResponse_httpStatus :: Lens' GetDeviceRegistrationResponse Int
-instance GHC.Generics.Generic Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
-instance GHC.Show.Show Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
-instance GHC.Read.Read Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
-instance GHC.Classes.Eq Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
-instance GHC.Generics.Generic Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistrationResponse
-instance GHC.Show.Show Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistrationResponse
-instance GHC.Read.Read Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistrationResponse
-instance GHC.Classes.Eq Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistrationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
-instance Control.DeepSeq.NFData Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistrationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
-instance Control.DeepSeq.NFData Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
-instance Network.AWS.Data.Path.ToPath Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
+instance GHC.Generics.Generic Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
+instance GHC.Show.Show Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
+instance GHC.Read.Read Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
+instance GHC.Classes.Eq Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
+instance GHC.Generics.Generic Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistrationResponse
+instance GHC.Show.Show Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistrationResponse
+instance GHC.Read.Read Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistrationResponse
+instance GHC.Classes.Eq Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistrationResponse
+instance Amazonka.Types.AWSRequest Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
+instance Control.DeepSeq.NFData Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistrationResponse
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
+instance Control.DeepSeq.NFData Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
+instance Amazonka.Data.Path.ToPath Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerEdge.GetDeviceRegistration.GetDeviceRegistration
 
 
-module Network.AWS.SageMakerEdge.Lens
+module Amazonka.SageMakerEdge.Lens
 
 -- | For internal use. Returns a list of SageMaker Edge Manager agent
 --   operating metrics.
@@ -524,7 +524,7 @@ model_latestInference :: Lens' Model (Maybe UTCTime)
 model_latestSampleTime :: Lens' Model (Maybe UTCTime)
 
 
-module Network.AWS.SageMakerEdge.Waiters
+module Amazonka.SageMakerEdge.Waiters
 
 
 -- | Derived from API version <tt>2020-09-23</tt> of the AWS service
@@ -532,7 +532,7 @@ module Network.AWS.SageMakerEdge.Waiters
 --   
 --   SageMaker Edge Manager dataplane service for communicating with active
 --   agents.
-module Network.AWS.SageMakerEdge
+module Amazonka.SageMakerEdge
 
 -- | API version <tt>2020-09-23</tt> of the Amazon Sagemaker Edge Manager
 --   SDK configuration.

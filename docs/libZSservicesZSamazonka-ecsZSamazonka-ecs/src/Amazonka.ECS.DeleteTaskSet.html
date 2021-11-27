@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ECS.DeleteTaskSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a specified task set within a service. This is used when a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- service uses the @EXTERNAL@ deployment controller type. For more</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html Amazon ECS Deployment Types&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECS.DeleteTaskSet</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier">DeleteTaskSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#newDeleteTaskSet"><span class="hs-identifier">newDeleteTaskSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSet_force"><span class="hs-identifier">deleteTaskSet_force</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSet_cluster"><span class="hs-identifier">deleteTaskSet_cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSet_service"><span class="hs-identifier">deleteTaskSet_service</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSet_taskSet"><span class="hs-identifier">deleteTaskSet_taskSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse"><span class="hs-identifier">DeleteTaskSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#newDeleteTaskSetResponse"><span class="hs-identifier">newDeleteTaskSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSetResponse_taskSet"><span class="hs-identifier">deleteTaskSetResponse_taskSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSetResponse_httpStatus"><span class="hs-identifier">deleteTaskSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.html"><span class="hs-identifier">Amazonka.ECS.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDeleteTaskSet' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679477813"><span id="local-6989586621679477814"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTaskSet"><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-var">DeleteTaskSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTaskSet%27"><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet%27"><span class="hs-identifier hs-var">DeleteTaskSet'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If @true@, this allows you to delete a task set even if it hasn\'t been</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- scaled down to zero.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aforce%3ADeleteTaskSet%27"><span class="annot"><span class="annottext">DeleteTaskSet -&gt; Maybe Bool
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3Aforce%3ADeleteTaskSet%27"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- hosts the service that the task set exists in to delete.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Acluster%3ADeleteTaskSet%27"><span class="annot"><span class="annottext">DeleteTaskSet -&gt; Text
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3Acluster%3ADeleteTaskSet%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the service that</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- hosts the task set to delete.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aservice%3ADeleteTaskSet%27"><span class="annot"><span class="annottext">DeleteTaskSet -&gt; Text
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3Aservice%3ADeleteTaskSet%27"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The task set ID or full Amazon Resource Name (ARN) of the task set to</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AtaskSet%3ADeleteTaskSet%27"><span class="annot"><span class="annottext">DeleteTaskSet -&gt; Text
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3AtaskSet%3ADeleteTaskSet%27"><span class="hs-identifier hs-var hs-var">taskSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679477804"><span id="local-6989586621679477806"><span class="annot"><span class="annottext">DeleteTaskSet -&gt; DeleteTaskSet -&gt; Bool
+(DeleteTaskSet -&gt; DeleteTaskSet -&gt; Bool)
+-&gt; (DeleteTaskSet -&gt; DeleteTaskSet -&gt; Bool) -&gt; Eq DeleteTaskSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteTaskSet -&gt; DeleteTaskSet -&gt; Bool
+$c/= :: DeleteTaskSet -&gt; DeleteTaskSet -&gt; Bool
+== :: DeleteTaskSet -&gt; DeleteTaskSet -&gt; Bool
+$c== :: DeleteTaskSet -&gt; DeleteTaskSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477795"><span id="local-6989586621679477797"><span id="local-6989586621679477799"><span id="local-6989586621679477801"><span class="annot"><span class="annottext">ReadPrec [DeleteTaskSet]
+ReadPrec DeleteTaskSet
+Int -&gt; ReadS DeleteTaskSet
+ReadS [DeleteTaskSet]
+(Int -&gt; ReadS DeleteTaskSet)
+-&gt; ReadS [DeleteTaskSet]
+-&gt; ReadPrec DeleteTaskSet
+-&gt; ReadPrec [DeleteTaskSet]
+-&gt; Read DeleteTaskSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteTaskSet]
+$creadListPrec :: ReadPrec [DeleteTaskSet]
+readPrec :: ReadPrec DeleteTaskSet
+$creadPrec :: ReadPrec DeleteTaskSet
+readList :: ReadS [DeleteTaskSet]
+$creadList :: ReadS [DeleteTaskSet]
+readsPrec :: Int -&gt; ReadS DeleteTaskSet
+$creadsPrec :: Int -&gt; ReadS DeleteTaskSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477788"><span id="local-6989586621679477790"><span id="local-6989586621679477792"><span class="annot"><span class="annottext">Int -&gt; DeleteTaskSet -&gt; ShowS
+[DeleteTaskSet] -&gt; ShowS
+DeleteTaskSet -&gt; String
+(Int -&gt; DeleteTaskSet -&gt; ShowS)
+-&gt; (DeleteTaskSet -&gt; String)
+-&gt; ([DeleteTaskSet] -&gt; ShowS)
+-&gt; Show DeleteTaskSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteTaskSet] -&gt; ShowS
+$cshowList :: [DeleteTaskSet] -&gt; ShowS
+show :: DeleteTaskSet -&gt; String
+$cshow :: DeleteTaskSet -&gt; String
+showsPrec :: Int -&gt; DeleteTaskSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteTaskSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteTaskSet -&gt; Rep DeleteTaskSet x)
+-&gt; (forall x. Rep DeleteTaskSet x -&gt; DeleteTaskSet)
+-&gt; Generic DeleteTaskSet
+forall x. Rep DeleteTaskSet x -&gt; DeleteTaskSet
+forall x. DeleteTaskSet -&gt; Rep DeleteTaskSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteTaskSet x -&gt; DeleteTaskSet
+$cfrom :: forall x. DeleteTaskSet -&gt; Rep DeleteTaskSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'DeleteTaskSet' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'force', 'deleteTaskSet_force' - If @true@, this allows you to delete a task set even if it hasn\'t been</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- scaled down to zero.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'cluster', 'deleteTaskSet_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- hosts the service that the task set exists in to delete.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'service', 'deleteTaskSet_service' - The short name or full Amazon Resource Name (ARN) of the service that</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- hosts the task set to delete.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'taskSet', 'deleteTaskSet_taskSet' - The task set ID or full Amazon Resource Name (ARN) of the task set to</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#newDeleteTaskSet"><span class="hs-identifier hs-type">newDeleteTaskSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'cluster'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'service'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'taskSet'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span>
+</span><span id="line-100"></span><span id="newDeleteTaskSet"><span class="annot"><span class="annottext">newDeleteTaskSet :: Text -&gt; Text -&gt; Text -&gt; DeleteTaskSet
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#newDeleteTaskSet"><span class="hs-identifier hs-var hs-var">newDeleteTaskSet</span></a></span></span><span> </span><span id="local-6989586621679477783"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477783"><span class="hs-identifier hs-var">pCluster_</span></a></span></span><span> </span><span id="local-6989586621679477782"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477782"><span class="hs-identifier hs-var">pService_</span></a></span></span><span> </span><span id="local-6989586621679477781"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477781"><span class="hs-identifier hs-var">pTaskSet_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">DeleteTaskSet' :: Maybe Bool -&gt; Text -&gt; Text -&gt; Text -&gt; DeleteTaskSet
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet%27"><span class="hs-identifier hs-type">DeleteTaskSet'</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:force:DeleteTaskSet' :: Maybe Bool
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3Aforce%3ADeleteTaskSet%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:cluster:DeleteTaskSet' :: Text
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3Acluster%3ADeleteTaskSet%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477783"><span class="hs-identifier hs-var">pCluster_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:service:DeleteTaskSet' :: Text
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3Aservice%3ADeleteTaskSet%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477782"><span class="hs-identifier hs-var">pService_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskSet:DeleteTaskSet' :: Text
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3AtaskSet%3ADeleteTaskSet%27"><span class="hs-identifier hs-var">taskSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477781"><span class="hs-identifier hs-var">pTaskSet_</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | If @true@, this allows you to delete a task set even if it hasn\'t been</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- scaled down to zero.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSet_force"><span class="hs-identifier hs-type">deleteTaskSet_force</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="deleteTaskSet_force"><span class="annot"><span class="annottext">deleteTaskSet_force :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DeleteTaskSet -&gt; f DeleteTaskSet
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSet_force"><span class="hs-identifier hs-var hs-var">deleteTaskSet_force</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTaskSet -&gt; Maybe Bool)
+-&gt; (DeleteTaskSet -&gt; Maybe Bool -&gt; DeleteTaskSet)
+-&gt; Lens DeleteTaskSet DeleteTaskSet (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet%27"><span class="hs-identifier hs-type">DeleteTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477778"><span class="annot"><span class="annottext">Maybe Bool
+force :: Maybe Bool
+$sel:force:DeleteTaskSet' :: DeleteTaskSet -&gt; Maybe Bool
+</span><a href="#local-6989586621679477778"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679477778"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477777"><span class="annot"><span class="annottext">s :: DeleteTaskSet
+</span><a href="#local-6989586621679477777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet%27"><span class="hs-identifier hs-type">DeleteTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477776"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679477776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTaskSet
+</span><a href="#local-6989586621679477777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:DeleteTaskSet' :: Maybe Bool
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3Aforce%3ADeleteTaskSet%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679477776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- hosts the service that the task set exists in to delete.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSet_cluster"><span class="hs-identifier hs-type">deleteTaskSet_cluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="deleteTaskSet_cluster"><span class="annot"><span class="annottext">deleteTaskSet_cluster :: (Text -&gt; f Text) -&gt; DeleteTaskSet -&gt; f DeleteTaskSet
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSet_cluster"><span class="hs-identifier hs-var hs-var">deleteTaskSet_cluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTaskSet -&gt; Text)
+-&gt; (DeleteTaskSet -&gt; Text -&gt; DeleteTaskSet)
+-&gt; Lens DeleteTaskSet DeleteTaskSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet%27"><span class="hs-identifier hs-type">DeleteTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477775"><span class="annot"><span class="annottext">Text
+cluster :: Text
+$sel:cluster:DeleteTaskSet' :: DeleteTaskSet -&gt; Text
+</span><a href="#local-6989586621679477775"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477775"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477774"><span class="annot"><span class="annottext">s :: DeleteTaskSet
+</span><a href="#local-6989586621679477774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet%27"><span class="hs-identifier hs-type">DeleteTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477773"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTaskSet
+</span><a href="#local-6989586621679477774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DeleteTaskSet' :: Text
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3Acluster%3ADeleteTaskSet%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the service that</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- hosts the task set to delete.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSet_service"><span class="hs-identifier hs-type">deleteTaskSet_service</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span id="deleteTaskSet_service"><span class="annot"><span class="annottext">deleteTaskSet_service :: (Text -&gt; f Text) -&gt; DeleteTaskSet -&gt; f DeleteTaskSet
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSet_service"><span class="hs-identifier hs-var hs-var">deleteTaskSet_service</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTaskSet -&gt; Text)
+-&gt; (DeleteTaskSet -&gt; Text -&gt; DeleteTaskSet)
+-&gt; Lens DeleteTaskSet DeleteTaskSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet%27"><span class="hs-identifier hs-type">DeleteTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477772"><span class="annot"><span class="annottext">Text
+service :: Text
+$sel:service:DeleteTaskSet' :: DeleteTaskSet -&gt; Text
+</span><a href="#local-6989586621679477772"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477772"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477771"><span class="annot"><span class="annottext">s :: DeleteTaskSet
+</span><a href="#local-6989586621679477771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet%27"><span class="hs-identifier hs-type">DeleteTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477770"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTaskSet
+</span><a href="#local-6989586621679477771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:service:DeleteTaskSet' :: Text
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3Aservice%3ADeleteTaskSet%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The task set ID or full Amazon Resource Name (ARN) of the task set to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- delete.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSet_taskSet"><span class="hs-identifier hs-type">deleteTaskSet_taskSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-126"></span><span id="deleteTaskSet_taskSet"><span class="annot"><span class="annottext">deleteTaskSet_taskSet :: (Text -&gt; f Text) -&gt; DeleteTaskSet -&gt; f DeleteTaskSet
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSet_taskSet"><span class="hs-identifier hs-var hs-var">deleteTaskSet_taskSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTaskSet -&gt; Text)
+-&gt; (DeleteTaskSet -&gt; Text -&gt; DeleteTaskSet)
+-&gt; Lens DeleteTaskSet DeleteTaskSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet%27"><span class="hs-identifier hs-type">DeleteTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477769"><span class="annot"><span class="annottext">Text
+taskSet :: Text
+$sel:taskSet:DeleteTaskSet' :: DeleteTaskSet -&gt; Text
+</span><a href="#local-6989586621679477769"><span class="hs-identifier hs-var hs-var">taskSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477769"><span class="hs-identifier hs-var">taskSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477768"><span class="annot"><span class="annottext">s :: DeleteTaskSet
+</span><a href="#local-6989586621679477768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet%27"><span class="hs-identifier hs-type">DeleteTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477767"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTaskSet
+</span><a href="#local-6989586621679477768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskSet:DeleteTaskSet' :: Text
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3AtaskSet%3ADeleteTaskSet%27"><span class="hs-identifier hs-var">taskSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-130"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse"><span class="hs-identifier hs-type">DeleteTaskSetResponse</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679477763"><span class="annot"><span class="annottext">request :: DeleteTaskSet -&gt; Request DeleteTaskSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTaskSet -&gt; Request DeleteTaskSet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679477759"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteTaskSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteTaskSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteTaskSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteTaskSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteTaskSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679477756"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477756"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679477755"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679477755"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679477754"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679477754"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe TaskSet -&gt; Int -&gt; DeleteTaskSetResponse
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse%27"><span class="hs-identifier hs-var">DeleteTaskSetResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TaskSet -&gt; Int -&gt; DeleteTaskSetResponse)
+-&gt; Either String (Maybe TaskSet)
+-&gt; Either String (Int -&gt; DeleteTaskSetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679477754"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TaskSet)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskSet&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteTaskSetResponse)
+-&gt; Either String Int -&gt; Either String DeleteTaskSetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477756"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477746"><span id="local-6989586621679477748"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477743"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679477739"><span class="annot"><span class="annottext">toHeaders :: DeleteTaskSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteTaskSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonEC2ContainerServiceV20141113.DeleteTaskSet&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-152"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-156"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477729"><span id="local-6989586621679477731"><span id="local-6989586621679477733"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679477727"><span class="annot"><span class="annottext">toJSON :: DeleteTaskSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet%27"><span class="hs-identifier hs-type">DeleteTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477722"><span id="local-6989586621679477723"><span id="local-6989586621679477724"><span id="local-6989586621679477725"><span class="annot"><span class="annottext">Maybe Bool
+Text
+taskSet :: Text
+service :: Text
+cluster :: Text
+force :: Maybe Bool
+$sel:taskSet:DeleteTaskSet' :: DeleteTaskSet -&gt; Text
+$sel:service:DeleteTaskSet' :: DeleteTaskSet -&gt; Text
+$sel:cluster:DeleteTaskSet' :: DeleteTaskSet -&gt; Text
+$sel:force:DeleteTaskSet' :: DeleteTaskSet -&gt; Maybe Bool
+</span><a href="#local-6989586621679477722"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;force&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679477725"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477724"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;service&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477723"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477722"><span class="hs-identifier hs-var">taskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679477716"><span class="annot"><span class="annottext">toPath :: DeleteTaskSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTaskSet -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSet"><span class="hs-identifier hs-type">DeleteTaskSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679477712"><span class="annot"><span class="annottext">toQuery :: DeleteTaskSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteTaskSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newDeleteTaskSetResponse' smart constructor.</span><span>
+</span><span id="line-178"></span><span id="local-6989586621679477709"><span id="local-6989586621679477710"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTaskSetResponse"><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse"><span class="hs-identifier hs-var">DeleteTaskSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTaskSetResponse%27"><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse%27"><span class="hs-identifier hs-var">DeleteTaskSetResponse'</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the task set.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AtaskSet%3ADeleteTaskSetResponse%27"><span class="annot"><span class="annottext">DeleteTaskSetResponse -&gt; Maybe TaskSet
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3AtaskSet%3ADeleteTaskSetResponse%27"><span class="hs-identifier hs-var hs-var">taskSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.TaskSet.html#TaskSet"><span class="hs-identifier hs-type">TaskSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteTaskSetResponse%27"><span class="annot"><span class="annottext">DeleteTaskSetResponse -&gt; Int
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3AhttpStatus%3ADeleteTaskSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679477703"><span id="local-6989586621679477705"><span class="annot"><span class="annottext">DeleteTaskSetResponse -&gt; DeleteTaskSetResponse -&gt; Bool
+(DeleteTaskSetResponse -&gt; DeleteTaskSetResponse -&gt; Bool)
+-&gt; (DeleteTaskSetResponse -&gt; DeleteTaskSetResponse -&gt; Bool)
+-&gt; Eq DeleteTaskSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteTaskSetResponse -&gt; DeleteTaskSetResponse -&gt; Bool
+$c/= :: DeleteTaskSetResponse -&gt; DeleteTaskSetResponse -&gt; Bool
+== :: DeleteTaskSetResponse -&gt; DeleteTaskSetResponse -&gt; Bool
+$c== :: DeleteTaskSetResponse -&gt; DeleteTaskSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477695"><span id="local-6989586621679477697"><span id="local-6989586621679477699"><span id="local-6989586621679477701"><span class="annot"><span class="annottext">ReadPrec [DeleteTaskSetResponse]
+ReadPrec DeleteTaskSetResponse
+Int -&gt; ReadS DeleteTaskSetResponse
+ReadS [DeleteTaskSetResponse]
+(Int -&gt; ReadS DeleteTaskSetResponse)
+-&gt; ReadS [DeleteTaskSetResponse]
+-&gt; ReadPrec DeleteTaskSetResponse
+-&gt; ReadPrec [DeleteTaskSetResponse]
+-&gt; Read DeleteTaskSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteTaskSetResponse]
+$creadListPrec :: ReadPrec [DeleteTaskSetResponse]
+readPrec :: ReadPrec DeleteTaskSetResponse
+$creadPrec :: ReadPrec DeleteTaskSetResponse
+readList :: ReadS [DeleteTaskSetResponse]
+$creadList :: ReadS [DeleteTaskSetResponse]
+readsPrec :: Int -&gt; ReadS DeleteTaskSetResponse
+$creadsPrec :: Int -&gt; ReadS DeleteTaskSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477689"><span id="local-6989586621679477691"><span id="local-6989586621679477693"><span class="annot"><span class="annottext">Int -&gt; DeleteTaskSetResponse -&gt; ShowS
+[DeleteTaskSetResponse] -&gt; ShowS
+DeleteTaskSetResponse -&gt; String
+(Int -&gt; DeleteTaskSetResponse -&gt; ShowS)
+-&gt; (DeleteTaskSetResponse -&gt; String)
+-&gt; ([DeleteTaskSetResponse] -&gt; ShowS)
+-&gt; Show DeleteTaskSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteTaskSetResponse] -&gt; ShowS
+$cshowList :: [DeleteTaskSetResponse] -&gt; ShowS
+show :: DeleteTaskSetResponse -&gt; String
+$cshow :: DeleteTaskSetResponse -&gt; String
+showsPrec :: Int -&gt; DeleteTaskSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteTaskSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteTaskSetResponse -&gt; Rep DeleteTaskSetResponse x)
+-&gt; (forall x. Rep DeleteTaskSetResponse x -&gt; DeleteTaskSetResponse)
+-&gt; Generic DeleteTaskSetResponse
+forall x. Rep DeleteTaskSetResponse x -&gt; DeleteTaskSetResponse
+forall x. DeleteTaskSetResponse -&gt; Rep DeleteTaskSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteTaskSetResponse x -&gt; DeleteTaskSetResponse
+$cfrom :: forall x. DeleteTaskSetResponse -&gt; Rep DeleteTaskSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Create a value of 'DeleteTaskSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'taskSet', 'deleteTaskSetResponse_taskSet' - Details about the task set.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'httpStatus', 'deleteTaskSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#newDeleteTaskSetResponse"><span class="hs-identifier hs-type">newDeleteTaskSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse"><span class="hs-identifier hs-type">DeleteTaskSetResponse</span></a></span><span>
+</span><span id="line-201"></span><span id="newDeleteTaskSetResponse"><span class="annot"><span class="annottext">newDeleteTaskSetResponse :: Int -&gt; DeleteTaskSetResponse
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#newDeleteTaskSetResponse"><span class="hs-identifier hs-var hs-var">newDeleteTaskSetResponse</span></a></span></span><span> </span><span id="local-6989586621679477686"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477686"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">DeleteTaskSetResponse' :: Maybe TaskSet -&gt; Int -&gt; DeleteTaskSetResponse
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse%27"><span class="hs-identifier hs-type">DeleteTaskSetResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:taskSet:DeleteTaskSetResponse' :: Maybe TaskSet
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3AtaskSet%3ADeleteTaskSetResponse%27"><span class="hs-identifier hs-var">taskSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskSet
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTaskSetResponse' :: Int
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3AhttpStatus%3ADeleteTaskSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477686"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | Details about the task set.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSetResponse_taskSet"><span class="hs-identifier hs-type">deleteTaskSetResponse_taskSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse"><span class="hs-identifier hs-type">DeleteTaskSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.Types.TaskSet.html#TaskSet"><span class="hs-identifier hs-type">TaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="deleteTaskSetResponse_taskSet"><span class="annot"><span class="annottext">deleteTaskSetResponse_taskSet :: (Maybe TaskSet -&gt; f (Maybe TaskSet))
+-&gt; DeleteTaskSetResponse -&gt; f DeleteTaskSetResponse
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSetResponse_taskSet"><span class="hs-identifier hs-var hs-var">deleteTaskSetResponse_taskSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTaskSetResponse -&gt; Maybe TaskSet)
+-&gt; (DeleteTaskSetResponse
+    -&gt; Maybe TaskSet -&gt; DeleteTaskSetResponse)
+-&gt; Lens
+     DeleteTaskSetResponse
+     DeleteTaskSetResponse
+     (Maybe TaskSet)
+     (Maybe TaskSet)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse%27"><span class="hs-identifier hs-type">DeleteTaskSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477685"><span class="annot"><span class="annottext">Maybe TaskSet
+taskSet :: Maybe TaskSet
+$sel:taskSet:DeleteTaskSetResponse' :: DeleteTaskSetResponse -&gt; Maybe TaskSet
+</span><a href="#local-6989586621679477685"><span class="hs-identifier hs-var hs-var">taskSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskSet
+</span><a href="#local-6989586621679477685"><span class="hs-identifier hs-var">taskSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477684"><span class="annot"><span class="annottext">s :: DeleteTaskSetResponse
+</span><a href="#local-6989586621679477684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse%27"><span class="hs-identifier hs-type">DeleteTaskSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477683"><span class="annot"><span class="annottext">Maybe TaskSet
+</span><a href="#local-6989586621679477683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTaskSetResponse
+</span><a href="#local-6989586621679477684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskSet:DeleteTaskSetResponse' :: Maybe TaskSet
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3AtaskSet%3ADeleteTaskSetResponse%27"><span class="hs-identifier hs-var">taskSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskSet
+</span><a href="#local-6989586621679477683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse"><span class="hs-identifier hs-type">DeleteTaskSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSetResponse_httpStatus"><span class="hs-identifier hs-type">deleteTaskSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse"><span class="hs-identifier hs-type">DeleteTaskSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-213"></span><span id="deleteTaskSetResponse_httpStatus"><span class="annot"><span class="annottext">deleteTaskSetResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteTaskSetResponse -&gt; f DeleteTaskSetResponse
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#deleteTaskSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteTaskSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTaskSetResponse -&gt; Int)
+-&gt; (DeleteTaskSetResponse -&gt; Int -&gt; DeleteTaskSetResponse)
+-&gt; Lens DeleteTaskSetResponse DeleteTaskSetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse%27"><span class="hs-identifier hs-type">DeleteTaskSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477682"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteTaskSetResponse' :: DeleteTaskSetResponse -&gt; Int
+</span><a href="#local-6989586621679477682"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477682"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477681"><span class="annot"><span class="annottext">s :: DeleteTaskSetResponse
+</span><a href="#local-6989586621679477681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse%27"><span class="hs-identifier hs-type">DeleteTaskSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477680"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTaskSetResponse
+</span><a href="#local-6989586621679477681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTaskSetResponse' :: Int
+</span><a href="Amazonka.ECS.DeleteTaskSet.html#%24sel%3AhttpStatus%3ADeleteTaskSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse"><span class="hs-identifier hs-type">DeleteTaskSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECS.DeleteTaskSet.html#DeleteTaskSetResponse"><span class="hs-identifier hs-type">DeleteTaskSetResponse</span></a></span></span><span>
+</span><span id="line-216"></span></pre></body></html>

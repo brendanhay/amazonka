@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.IdentityStore.Types.Filter
+module Amazonka.IdentityStore.Types.Filter
 
 -- | A query filter used by <tt>ListUsers</tt> and <tt>ListGroup</tt>. This
 --   filter object provides the attribute name and attribute value to
@@ -56,15 +56,15 @@ filter_attributePath :: Lens' Filter Text
 -- | Represents the data for an attribute. Each attribute value is
 --   described as a name-value pair.
 filter_attributeValue :: Lens' Filter Text
-instance GHC.Generics.Generic Network.AWS.IdentityStore.Types.Filter.Filter
-instance GHC.Show.Show Network.AWS.IdentityStore.Types.Filter.Filter
-instance GHC.Classes.Eq Network.AWS.IdentityStore.Types.Filter.Filter
-instance Data.Hashable.Class.Hashable Network.AWS.IdentityStore.Types.Filter.Filter
-instance Control.DeepSeq.NFData Network.AWS.IdentityStore.Types.Filter.Filter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IdentityStore.Types.Filter.Filter
+instance GHC.Generics.Generic Amazonka.IdentityStore.Types.Filter.Filter
+instance GHC.Show.Show Amazonka.IdentityStore.Types.Filter.Filter
+instance GHC.Classes.Eq Amazonka.IdentityStore.Types.Filter.Filter
+instance Data.Hashable.Class.Hashable Amazonka.IdentityStore.Types.Filter.Filter
+instance Control.DeepSeq.NFData Amazonka.IdentityStore.Types.Filter.Filter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IdentityStore.Types.Filter.Filter
 
 
-module Network.AWS.IdentityStore.Types.Group
+module Amazonka.IdentityStore.Types.Group
 
 -- | A group object, which contains a specified group’s metadata and
 --   attributes.
@@ -117,16 +117,16 @@ group_groupId :: Lens' Group Text
 --   the group is created and stored as an attribute of the group object in
 --   the identity store.
 group_displayName :: Lens' Group Text
-instance GHC.Generics.Generic Network.AWS.IdentityStore.Types.Group.Group
-instance GHC.Show.Show Network.AWS.IdentityStore.Types.Group.Group
-instance GHC.Read.Read Network.AWS.IdentityStore.Types.Group.Group
-instance GHC.Classes.Eq Network.AWS.IdentityStore.Types.Group.Group
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IdentityStore.Types.Group.Group
-instance Data.Hashable.Class.Hashable Network.AWS.IdentityStore.Types.Group.Group
-instance Control.DeepSeq.NFData Network.AWS.IdentityStore.Types.Group.Group
+instance GHC.Generics.Generic Amazonka.IdentityStore.Types.Group.Group
+instance GHC.Show.Show Amazonka.IdentityStore.Types.Group.Group
+instance GHC.Read.Read Amazonka.IdentityStore.Types.Group.Group
+instance GHC.Classes.Eq Amazonka.IdentityStore.Types.Group.Group
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IdentityStore.Types.Group.Group
+instance Data.Hashable.Class.Hashable Amazonka.IdentityStore.Types.Group.Group
+instance Control.DeepSeq.NFData Amazonka.IdentityStore.Types.Group.Group
 
 
-module Network.AWS.IdentityStore.Types.User
+module Amazonka.IdentityStore.Types.User
 
 -- | A user object, which contains a specified user’s metadata and
 --   attributes.
@@ -173,15 +173,15 @@ user_userName :: Lens' User Text
 
 -- | The identifier for a user in the identity store.
 user_userId :: Lens' User Text
-instance GHC.Generics.Generic Network.AWS.IdentityStore.Types.User.User
-instance GHC.Show.Show Network.AWS.IdentityStore.Types.User.User
-instance GHC.Classes.Eq Network.AWS.IdentityStore.Types.User.User
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IdentityStore.Types.User.User
-instance Data.Hashable.Class.Hashable Network.AWS.IdentityStore.Types.User.User
-instance Control.DeepSeq.NFData Network.AWS.IdentityStore.Types.User.User
+instance GHC.Generics.Generic Amazonka.IdentityStore.Types.User.User
+instance GHC.Show.Show Amazonka.IdentityStore.Types.User.User
+instance GHC.Classes.Eq Amazonka.IdentityStore.Types.User.User
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IdentityStore.Types.User.User
+instance Data.Hashable.Class.Hashable Amazonka.IdentityStore.Types.User.User
+instance Control.DeepSeq.NFData Amazonka.IdentityStore.Types.User.User
 
 
-module Network.AWS.IdentityStore.Types
+module Amazonka.IdentityStore.Types
 
 -- | API version <tt>2020-06-15</tt> of the Amazon SSO Identity Store SDK
 --   configuration.
@@ -358,7 +358,7 @@ user_userId :: Lens' User Text
 --   attribute path currently, and filter is required. This API returns
 --   minimum attributes, including <tt>UserId</tt> and <tt>UserName</tt> in
 --   the response.
-module Network.AWS.IdentityStore.ListUsers
+module Amazonka.IdentityStore.ListUsers
 
 -- | <i>See:</i> <a>newListUsers</a> smart constructor.
 data ListUsers
@@ -503,20 +503,20 @@ listUsersResponse_httpStatus :: Lens' ListUsersResponse Int
 
 -- | A list of <tt>User</tt> objects in the identity store.
 listUsersResponse_users :: Lens' ListUsersResponse [User]
-instance GHC.Generics.Generic Network.AWS.IdentityStore.ListUsers.ListUsers
-instance GHC.Show.Show Network.AWS.IdentityStore.ListUsers.ListUsers
-instance GHC.Classes.Eq Network.AWS.IdentityStore.ListUsers.ListUsers
-instance GHC.Generics.Generic Network.AWS.IdentityStore.ListUsers.ListUsersResponse
-instance GHC.Show.Show Network.AWS.IdentityStore.ListUsers.ListUsersResponse
-instance GHC.Classes.Eq Network.AWS.IdentityStore.ListUsers.ListUsersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IdentityStore.ListUsers.ListUsers
-instance Control.DeepSeq.NFData Network.AWS.IdentityStore.ListUsers.ListUsersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IdentityStore.ListUsers.ListUsers
-instance Control.DeepSeq.NFData Network.AWS.IdentityStore.ListUsers.ListUsers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IdentityStore.ListUsers.ListUsers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IdentityStore.ListUsers.ListUsers
-instance Network.AWS.Data.Path.ToPath Network.AWS.IdentityStore.ListUsers.ListUsers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IdentityStore.ListUsers.ListUsers
+instance GHC.Generics.Generic Amazonka.IdentityStore.ListUsers.ListUsers
+instance GHC.Show.Show Amazonka.IdentityStore.ListUsers.ListUsers
+instance GHC.Classes.Eq Amazonka.IdentityStore.ListUsers.ListUsers
+instance GHC.Generics.Generic Amazonka.IdentityStore.ListUsers.ListUsersResponse
+instance GHC.Show.Show Amazonka.IdentityStore.ListUsers.ListUsersResponse
+instance GHC.Classes.Eq Amazonka.IdentityStore.ListUsers.ListUsersResponse
+instance Amazonka.Types.AWSRequest Amazonka.IdentityStore.ListUsers.ListUsers
+instance Control.DeepSeq.NFData Amazonka.IdentityStore.ListUsers.ListUsersResponse
+instance Data.Hashable.Class.Hashable Amazonka.IdentityStore.ListUsers.ListUsers
+instance Control.DeepSeq.NFData Amazonka.IdentityStore.ListUsers.ListUsers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IdentityStore.ListUsers.ListUsers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IdentityStore.ListUsers.ListUsers
+instance Amazonka.Data.Path.ToPath Amazonka.IdentityStore.ListUsers.ListUsers
+instance Amazonka.Data.Query.ToQuery Amazonka.IdentityStore.ListUsers.ListUsers
 
 
 -- | Lists the attribute name and value of the group that you specified in
@@ -524,7 +524,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IdentityStore.ListUsers.List
 --   attribute path currently, and filter is required. This API returns
 --   minimum attributes, including <tt>GroupId</tt> and group
 --   <tt>DisplayName</tt> in the response.
-module Network.AWS.IdentityStore.ListGroups
+module Amazonka.IdentityStore.ListGroups
 
 -- | <i>See:</i> <a>newListGroups</a> smart constructor.
 data ListGroups
@@ -671,26 +671,26 @@ listGroupsResponse_httpStatus :: Lens' ListGroupsResponse Int
 
 -- | A list of <tt>Group</tt> objects in the identity store.
 listGroupsResponse_groups :: Lens' ListGroupsResponse [Group]
-instance GHC.Generics.Generic Network.AWS.IdentityStore.ListGroups.ListGroups
-instance GHC.Show.Show Network.AWS.IdentityStore.ListGroups.ListGroups
-instance GHC.Classes.Eq Network.AWS.IdentityStore.ListGroups.ListGroups
-instance GHC.Generics.Generic Network.AWS.IdentityStore.ListGroups.ListGroupsResponse
-instance GHC.Show.Show Network.AWS.IdentityStore.ListGroups.ListGroupsResponse
-instance GHC.Read.Read Network.AWS.IdentityStore.ListGroups.ListGroupsResponse
-instance GHC.Classes.Eq Network.AWS.IdentityStore.ListGroups.ListGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IdentityStore.ListGroups.ListGroups
-instance Control.DeepSeq.NFData Network.AWS.IdentityStore.ListGroups.ListGroupsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IdentityStore.ListGroups.ListGroups
-instance Control.DeepSeq.NFData Network.AWS.IdentityStore.ListGroups.ListGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IdentityStore.ListGroups.ListGroups
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IdentityStore.ListGroups.ListGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.IdentityStore.ListGroups.ListGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IdentityStore.ListGroups.ListGroups
+instance GHC.Generics.Generic Amazonka.IdentityStore.ListGroups.ListGroups
+instance GHC.Show.Show Amazonka.IdentityStore.ListGroups.ListGroups
+instance GHC.Classes.Eq Amazonka.IdentityStore.ListGroups.ListGroups
+instance GHC.Generics.Generic Amazonka.IdentityStore.ListGroups.ListGroupsResponse
+instance GHC.Show.Show Amazonka.IdentityStore.ListGroups.ListGroupsResponse
+instance GHC.Read.Read Amazonka.IdentityStore.ListGroups.ListGroupsResponse
+instance GHC.Classes.Eq Amazonka.IdentityStore.ListGroups.ListGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IdentityStore.ListGroups.ListGroups
+instance Control.DeepSeq.NFData Amazonka.IdentityStore.ListGroups.ListGroupsResponse
+instance Data.Hashable.Class.Hashable Amazonka.IdentityStore.ListGroups.ListGroups
+instance Control.DeepSeq.NFData Amazonka.IdentityStore.ListGroups.ListGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IdentityStore.ListGroups.ListGroups
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IdentityStore.ListGroups.ListGroups
+instance Amazonka.Data.Path.ToPath Amazonka.IdentityStore.ListGroups.ListGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.IdentityStore.ListGroups.ListGroups
 
 
 -- | Retrieves the user metadata and attributes from <tt>UserId</tt> in an
 --   identity store.
-module Network.AWS.IdentityStore.DescribeUser
+module Amazonka.IdentityStore.DescribeUser
 
 -- | <i>See:</i> <a>newDescribeUser</a> smart constructor.
 data DescribeUser
@@ -791,26 +791,26 @@ describeUserResponse_userName :: Lens' DescribeUserResponse Text
 
 -- | The identifier for a user in the identity store.
 describeUserResponse_userId :: Lens' DescribeUserResponse Text
-instance GHC.Generics.Generic Network.AWS.IdentityStore.DescribeUser.DescribeUser
-instance GHC.Show.Show Network.AWS.IdentityStore.DescribeUser.DescribeUser
-instance GHC.Read.Read Network.AWS.IdentityStore.DescribeUser.DescribeUser
-instance GHC.Classes.Eq Network.AWS.IdentityStore.DescribeUser.DescribeUser
-instance GHC.Generics.Generic Network.AWS.IdentityStore.DescribeUser.DescribeUserResponse
-instance GHC.Show.Show Network.AWS.IdentityStore.DescribeUser.DescribeUserResponse
-instance GHC.Classes.Eq Network.AWS.IdentityStore.DescribeUser.DescribeUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IdentityStore.DescribeUser.DescribeUser
-instance Control.DeepSeq.NFData Network.AWS.IdentityStore.DescribeUser.DescribeUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IdentityStore.DescribeUser.DescribeUser
-instance Control.DeepSeq.NFData Network.AWS.IdentityStore.DescribeUser.DescribeUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IdentityStore.DescribeUser.DescribeUser
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IdentityStore.DescribeUser.DescribeUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.IdentityStore.DescribeUser.DescribeUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IdentityStore.DescribeUser.DescribeUser
+instance GHC.Generics.Generic Amazonka.IdentityStore.DescribeUser.DescribeUser
+instance GHC.Show.Show Amazonka.IdentityStore.DescribeUser.DescribeUser
+instance GHC.Read.Read Amazonka.IdentityStore.DescribeUser.DescribeUser
+instance GHC.Classes.Eq Amazonka.IdentityStore.DescribeUser.DescribeUser
+instance GHC.Generics.Generic Amazonka.IdentityStore.DescribeUser.DescribeUserResponse
+instance GHC.Show.Show Amazonka.IdentityStore.DescribeUser.DescribeUserResponse
+instance GHC.Classes.Eq Amazonka.IdentityStore.DescribeUser.DescribeUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.IdentityStore.DescribeUser.DescribeUser
+instance Control.DeepSeq.NFData Amazonka.IdentityStore.DescribeUser.DescribeUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.IdentityStore.DescribeUser.DescribeUser
+instance Control.DeepSeq.NFData Amazonka.IdentityStore.DescribeUser.DescribeUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IdentityStore.DescribeUser.DescribeUser
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IdentityStore.DescribeUser.DescribeUser
+instance Amazonka.Data.Path.ToPath Amazonka.IdentityStore.DescribeUser.DescribeUser
+instance Amazonka.Data.Query.ToQuery Amazonka.IdentityStore.DescribeUser.DescribeUser
 
 
 -- | Retrieves the group metadata and attributes from <tt>GroupId</tt> in
 --   an identity store.
-module Network.AWS.IdentityStore.DescribeGroup
+module Amazonka.IdentityStore.DescribeGroup
 
 -- | <i>See:</i> <a>newDescribeGroup</a> smart constructor.
 data DescribeGroup
@@ -918,25 +918,25 @@ describeGroupResponse_groupId :: Lens' DescribeGroupResponse Text
 --   that the group is created and stored as an attribute of the group
 --   object in the identity store.
 describeGroupResponse_displayName :: Lens' DescribeGroupResponse Text
-instance GHC.Generics.Generic Network.AWS.IdentityStore.DescribeGroup.DescribeGroup
-instance GHC.Show.Show Network.AWS.IdentityStore.DescribeGroup.DescribeGroup
-instance GHC.Read.Read Network.AWS.IdentityStore.DescribeGroup.DescribeGroup
-instance GHC.Classes.Eq Network.AWS.IdentityStore.DescribeGroup.DescribeGroup
-instance GHC.Generics.Generic Network.AWS.IdentityStore.DescribeGroup.DescribeGroupResponse
-instance GHC.Show.Show Network.AWS.IdentityStore.DescribeGroup.DescribeGroupResponse
-instance GHC.Read.Read Network.AWS.IdentityStore.DescribeGroup.DescribeGroupResponse
-instance GHC.Classes.Eq Network.AWS.IdentityStore.DescribeGroup.DescribeGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IdentityStore.DescribeGroup.DescribeGroup
-instance Control.DeepSeq.NFData Network.AWS.IdentityStore.DescribeGroup.DescribeGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IdentityStore.DescribeGroup.DescribeGroup
-instance Control.DeepSeq.NFData Network.AWS.IdentityStore.DescribeGroup.DescribeGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IdentityStore.DescribeGroup.DescribeGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IdentityStore.DescribeGroup.DescribeGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.IdentityStore.DescribeGroup.DescribeGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IdentityStore.DescribeGroup.DescribeGroup
+instance GHC.Generics.Generic Amazonka.IdentityStore.DescribeGroup.DescribeGroup
+instance GHC.Show.Show Amazonka.IdentityStore.DescribeGroup.DescribeGroup
+instance GHC.Read.Read Amazonka.IdentityStore.DescribeGroup.DescribeGroup
+instance GHC.Classes.Eq Amazonka.IdentityStore.DescribeGroup.DescribeGroup
+instance GHC.Generics.Generic Amazonka.IdentityStore.DescribeGroup.DescribeGroupResponse
+instance GHC.Show.Show Amazonka.IdentityStore.DescribeGroup.DescribeGroupResponse
+instance GHC.Read.Read Amazonka.IdentityStore.DescribeGroup.DescribeGroupResponse
+instance GHC.Classes.Eq Amazonka.IdentityStore.DescribeGroup.DescribeGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.IdentityStore.DescribeGroup.DescribeGroup
+instance Control.DeepSeq.NFData Amazonka.IdentityStore.DescribeGroup.DescribeGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.IdentityStore.DescribeGroup.DescribeGroup
+instance Control.DeepSeq.NFData Amazonka.IdentityStore.DescribeGroup.DescribeGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IdentityStore.DescribeGroup.DescribeGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IdentityStore.DescribeGroup.DescribeGroup
+instance Amazonka.Data.Path.ToPath Amazonka.IdentityStore.DescribeGroup.DescribeGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.IdentityStore.DescribeGroup.DescribeGroup
 
 
-module Network.AWS.IdentityStore.Lens
+module Amazonka.IdentityStore.Lens
 
 -- | The globally unique identifier for the identity store, such as
 --   <tt>d-1234567890</tt>. In this example, <tt>d-</tt> is a fixed prefix,
@@ -1098,7 +1098,7 @@ user_userName :: Lens' User Text
 user_userId :: Lens' User Text
 
 
-module Network.AWS.IdentityStore.Waiters
+module Amazonka.IdentityStore.Waiters
 
 
 -- | Derived from API version <tt>2020-06-15</tt> of the AWS service
@@ -1107,7 +1107,7 @@ module Network.AWS.IdentityStore.Waiters
 --   The AWS Single Sign-On (SSO) Identity Store service provides a single
 --   place to retrieve all of your identities (users and groups). For more
 --   information about AWS, see the <a>AWS Single Sign-On User Guide</a>.
-module Network.AWS.IdentityStore
+module Amazonka.IdentityStore
 
 -- | API version <tt>2020-06-15</tt> of the Amazon SSO Identity Store SDK
 --   configuration.

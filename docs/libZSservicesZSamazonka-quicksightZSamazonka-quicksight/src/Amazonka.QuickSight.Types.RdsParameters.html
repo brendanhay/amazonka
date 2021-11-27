@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.RdsParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.RdsParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The parameters for Amazon RDS.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRdsParameters' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679562062"><span id="local-6989586621679562063"></span></span><span class="hs-keyword">data</span><span> </span><span id="RdsParameters"><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters"><span class="hs-identifier hs-var">RdsParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RdsParameters%27"><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters%27"><span class="hs-identifier hs-var">RdsParameters'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Instance ID.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AinstanceId%3ARdsParameters%27"><span class="annot"><span class="annottext">RdsParameters -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.RdsParameters.html#%24sel%3AinstanceId%3ARdsParameters%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Database.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Adatabase%3ARdsParameters%27"><span class="annot"><span class="annottext">RdsParameters -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.RdsParameters.html#%24sel%3Adatabase%3ARdsParameters%27"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679562055"><span id="local-6989586621679562057"><span class="annot"><span class="annottext">RdsParameters -&gt; RdsParameters -&gt; Bool
+(RdsParameters -&gt; RdsParameters -&gt; Bool)
+-&gt; (RdsParameters -&gt; RdsParameters -&gt; Bool) -&gt; Eq RdsParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RdsParameters -&gt; RdsParameters -&gt; Bool
+$c/= :: RdsParameters -&gt; RdsParameters -&gt; Bool
+== :: RdsParameters -&gt; RdsParameters -&gt; Bool
+$c== :: RdsParameters -&gt; RdsParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679562046"><span id="local-6989586621679562048"><span id="local-6989586621679562050"><span id="local-6989586621679562052"><span class="annot"><span class="annottext">ReadPrec [RdsParameters]
+ReadPrec RdsParameters
+Int -&gt; ReadS RdsParameters
+ReadS [RdsParameters]
+(Int -&gt; ReadS RdsParameters)
+-&gt; ReadS [RdsParameters]
+-&gt; ReadPrec RdsParameters
+-&gt; ReadPrec [RdsParameters]
+-&gt; Read RdsParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RdsParameters]
+$creadListPrec :: ReadPrec [RdsParameters]
+readPrec :: ReadPrec RdsParameters
+$creadPrec :: ReadPrec RdsParameters
+readList :: ReadS [RdsParameters]
+$creadList :: ReadS [RdsParameters]
+readsPrec :: Int -&gt; ReadS RdsParameters
+$creadsPrec :: Int -&gt; ReadS RdsParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679562039"><span id="local-6989586621679562041"><span id="local-6989586621679562043"><span class="annot"><span class="annottext">Int -&gt; RdsParameters -&gt; ShowS
+[RdsParameters] -&gt; ShowS
+RdsParameters -&gt; String
+(Int -&gt; RdsParameters -&gt; ShowS)
+-&gt; (RdsParameters -&gt; String)
+-&gt; ([RdsParameters] -&gt; ShowS)
+-&gt; Show RdsParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RdsParameters] -&gt; ShowS
+$cshowList :: [RdsParameters] -&gt; ShowS
+show :: RdsParameters -&gt; String
+$cshow :: RdsParameters -&gt; String
+showsPrec :: Int -&gt; RdsParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; RdsParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RdsParameters -&gt; Rep RdsParameters x)
+-&gt; (forall x. Rep RdsParameters x -&gt; RdsParameters)
+-&gt; Generic RdsParameters
+forall x. Rep RdsParameters x -&gt; RdsParameters
+forall x. RdsParameters -&gt; Rep RdsParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RdsParameters x -&gt; RdsParameters
+$cfrom :: forall x. RdsParameters -&gt; Rep RdsParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'RdsParameters' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'instanceId', 'rdsParameters_instanceId' - Instance ID.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'database', 'rdsParameters_database' - Database.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#newRdsParameters"><span class="hs-identifier hs-type">newRdsParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-comment">-- | 'database'</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters"><span class="hs-identifier hs-type">RdsParameters</span></a></span><span>
+</span><span id="line-54"></span><span id="newRdsParameters"><span class="annot"><span class="annottext">newRdsParameters :: Text -&gt; Text -&gt; RdsParameters
+</span><a href="Amazonka.QuickSight.Types.RdsParameters.html#newRdsParameters"><span class="hs-identifier hs-var hs-var">newRdsParameters</span></a></span></span><span> </span><span id="local-6989586621679562033"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679562033"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621679562032"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679562032"><span class="hs-identifier hs-var">pDatabase_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">RdsParameters' :: Text -&gt; Text -&gt; RdsParameters
+</span><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters%27"><span class="hs-identifier hs-type">RdsParameters'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:RdsParameters' :: Text
+</span><a href="Amazonka.QuickSight.Types.RdsParameters.html#%24sel%3AinstanceId%3ARdsParameters%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679562033"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:database:RdsParameters' :: Text
+</span><a href="Amazonka.QuickSight.Types.RdsParameters.html#%24sel%3Adatabase%3ARdsParameters%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679562032"><span class="hs-identifier hs-var">pDatabase_</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | Instance ID.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#rdsParameters_instanceId"><span class="hs-identifier hs-type">rdsParameters_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters"><span class="hs-identifier hs-type">RdsParameters</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span id="rdsParameters_instanceId"><span class="annot"><span class="annottext">rdsParameters_instanceId :: (Text -&gt; f Text) -&gt; RdsParameters -&gt; f RdsParameters
+</span><a href="Amazonka.QuickSight.Types.RdsParameters.html#rdsParameters_instanceId"><span class="hs-identifier hs-var hs-var">rdsParameters_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsParameters -&gt; Text)
+-&gt; (RdsParameters -&gt; Text -&gt; RdsParameters)
+-&gt; Lens RdsParameters RdsParameters Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters%27"><span class="hs-identifier hs-type">RdsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679562028"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:RdsParameters' :: RdsParameters -&gt; Text
+</span><a href="#local-6989586621679562028"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679562028"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679562027"><span class="annot"><span class="annottext">s :: RdsParameters
+</span><a href="#local-6989586621679562027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters%27"><span class="hs-identifier hs-type">RdsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679562026"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679562026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsParameters
+</span><a href="#local-6989586621679562027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:RdsParameters' :: Text
+</span><a href="Amazonka.QuickSight.Types.RdsParameters.html#%24sel%3AinstanceId%3ARdsParameters%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679562026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters"><span class="hs-identifier hs-type">RdsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Database.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#rdsParameters_database"><span class="hs-identifier hs-type">rdsParameters_database</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters"><span class="hs-identifier hs-type">RdsParameters</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span id="rdsParameters_database"><span class="annot"><span class="annottext">rdsParameters_database :: (Text -&gt; f Text) -&gt; RdsParameters -&gt; f RdsParameters
+</span><a href="Amazonka.QuickSight.Types.RdsParameters.html#rdsParameters_database"><span class="hs-identifier hs-var hs-var">rdsParameters_database</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsParameters -&gt; Text)
+-&gt; (RdsParameters -&gt; Text -&gt; RdsParameters)
+-&gt; Lens RdsParameters RdsParameters Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters%27"><span class="hs-identifier hs-type">RdsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679562024"><span class="annot"><span class="annottext">Text
+database :: Text
+$sel:database:RdsParameters' :: RdsParameters -&gt; Text
+</span><a href="#local-6989586621679562024"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679562024"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679562023"><span class="annot"><span class="annottext">s :: RdsParameters
+</span><a href="#local-6989586621679562023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters%27"><span class="hs-identifier hs-type">RdsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679562022"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679562022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsParameters
+</span><a href="#local-6989586621679562023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:database:RdsParameters' :: Text
+</span><a href="Amazonka.QuickSight.Types.RdsParameters.html#%24sel%3Adatabase%3ARdsParameters%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679562022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters"><span class="hs-identifier hs-type">RdsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679562019"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters"><span class="hs-identifier hs-type">RdsParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679562017"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RdsParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RdsParameters)
+-&gt; Value
+-&gt; Parser RdsParameters
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RdsParameters&quot;</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679562014"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679562014"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; RdsParameters
+</span><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters%27"><span class="hs-identifier hs-var">RdsParameters'</span></a></span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; RdsParameters)
+-&gt; Parser Text -&gt; Parser (Text -&gt; RdsParameters)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679562014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; RdsParameters)
+-&gt; Parser Text -&gt; Parser RdsParameters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679562014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Database&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679562008"><span id="local-6989586621679562010"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters"><span class="hs-identifier hs-type">RdsParameters</span></a></span></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679562005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters"><span class="hs-identifier hs-type">RdsParameters</span></a></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679561997"><span id="local-6989586621679561999"><span id="local-6989586621679562001"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters"><span class="hs-identifier hs-type">RdsParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679561995"><span class="annot"><span class="annottext">toJSON :: RdsParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.RdsParameters.html#RdsParameters%27"><span class="hs-identifier hs-type">RdsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561992"><span id="local-6989586621679561993"><span class="annot"><span class="annottext">Text
+database :: Text
+instanceId :: Text
+$sel:database:RdsParameters' :: RdsParameters -&gt; Text
+$sel:instanceId:RdsParameters' :: RdsParameters -&gt; Text
+</span><a href="#local-6989586621679561992"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-86"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679561993"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Database&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679561992"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span></pre></body></html>

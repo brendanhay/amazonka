@@ -1,0 +1,535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoT.Types.MetricValue</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.Types.MetricValue</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The value to be compared with the @metric@.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMetricValue' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679790184"><span id="local-6989586621679790185"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricValue"><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-var">MetricValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricValue%27"><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-var">MetricValue'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the @comparisonOperator@ calls for a set of CIDRs, use this to</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- specify that set to be compared with the @metric@.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Acidrs%3AMetricValue%27"><span class="annot"><span class="annottext">MetricValue -&gt; Maybe [Text]
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Acidrs%3AMetricValue%27"><span class="hs-identifier hs-var hs-var">cidrs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | If the @comparisonOperator@ calls for a numeric value, use this to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- specify that numeric value to be compared with the @metric@.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acount%3AMetricValue%27"><span class="annot"><span class="annottext">MetricValue -&gt; Maybe Natural
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Acount%3AMetricValue%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | If the @comparisonOperator@ calls for a set of ports, use this to</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- specify that set to be compared with the @metric@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aports%3AMetricValue%27"><span class="annot"><span class="annottext">MetricValue -&gt; Maybe [Natural]
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Aports%3AMetricValue%27"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The numeral values of a metric.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Anumbers%3AMetricValue%27"><span class="annot"><span class="annottext">MetricValue -&gt; Maybe [Double]
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Anumbers%3AMetricValue%27"><span class="hs-identifier hs-var hs-var">numbers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The numeral value of a metric.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Anumber%3AMetricValue%27"><span class="annot"><span class="annottext">MetricValue -&gt; Maybe Double
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Anumber%3AMetricValue%27"><span class="hs-identifier hs-var hs-var">number</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The string values of a metric.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Astrings%3AMetricValue%27"><span class="annot"><span class="annottext">MetricValue -&gt; Maybe [Text]
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Astrings%3AMetricValue%27"><span class="hs-identifier hs-var hs-var">strings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790173"><span id="local-6989586621679790175"><span class="annot"><span class="annottext">MetricValue -&gt; MetricValue -&gt; Bool
+(MetricValue -&gt; MetricValue -&gt; Bool)
+-&gt; (MetricValue -&gt; MetricValue -&gt; Bool) -&gt; Eq MetricValue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MetricValue -&gt; MetricValue -&gt; Bool
+$c/= :: MetricValue -&gt; MetricValue -&gt; Bool
+== :: MetricValue -&gt; MetricValue -&gt; Bool
+$c== :: MetricValue -&gt; MetricValue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790164"><span id="local-6989586621679790166"><span id="local-6989586621679790168"><span id="local-6989586621679790170"><span class="annot"><span class="annottext">ReadPrec [MetricValue]
+ReadPrec MetricValue
+Int -&gt; ReadS MetricValue
+ReadS [MetricValue]
+(Int -&gt; ReadS MetricValue)
+-&gt; ReadS [MetricValue]
+-&gt; ReadPrec MetricValue
+-&gt; ReadPrec [MetricValue]
+-&gt; Read MetricValue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MetricValue]
+$creadListPrec :: ReadPrec [MetricValue]
+readPrec :: ReadPrec MetricValue
+$creadPrec :: ReadPrec MetricValue
+readList :: ReadS [MetricValue]
+$creadList :: ReadS [MetricValue]
+readsPrec :: Int -&gt; ReadS MetricValue
+$creadsPrec :: Int -&gt; ReadS MetricValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790157"><span id="local-6989586621679790159"><span id="local-6989586621679790161"><span class="annot"><span class="annottext">Int -&gt; MetricValue -&gt; ShowS
+[MetricValue] -&gt; ShowS
+MetricValue -&gt; String
+(Int -&gt; MetricValue -&gt; ShowS)
+-&gt; (MetricValue -&gt; String)
+-&gt; ([MetricValue] -&gt; ShowS)
+-&gt; Show MetricValue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MetricValue] -&gt; ShowS
+$cshowList :: [MetricValue] -&gt; ShowS
+show :: MetricValue -&gt; String
+$cshow :: MetricValue -&gt; String
+showsPrec :: Int -&gt; MetricValue -&gt; ShowS
+$cshowsPrec :: Int -&gt; MetricValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MetricValue -&gt; Rep MetricValue x)
+-&gt; (forall x. Rep MetricValue x -&gt; MetricValue)
+-&gt; Generic MetricValue
+forall x. Rep MetricValue x -&gt; MetricValue
+forall x. MetricValue -&gt; Rep MetricValue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MetricValue x -&gt; MetricValue
+$cfrom :: forall x. MetricValue -&gt; Rep MetricValue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'MetricValue' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'cidrs', 'metricValue_cidrs' - If the @comparisonOperator@ calls for a set of CIDRs, use this to</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- specify that set to be compared with the @metric@.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'count', 'metricValue_count' - If the @comparisonOperator@ calls for a numeric value, use this to</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- specify that numeric value to be compared with the @metric@.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'ports', 'metricValue_ports' - If the @comparisonOperator@ calls for a set of ports, use this to</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- specify that set to be compared with the @metric@.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'numbers', 'metricValue_numbers' - The numeral values of a metric.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'number', 'metricValue_number' - The numeral value of a metric.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'strings', 'metricValue_strings' - The string values of a metric.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#newMetricValue"><span class="hs-identifier hs-type">newMetricValue</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span>
+</span><span id="line-72"></span><span id="newMetricValue"><span class="annot"><span class="annottext">newMetricValue :: MetricValue
+</span><a href="Amazonka.IoT.Types.MetricValue.html#newMetricValue"><span class="hs-identifier hs-var hs-var">newMetricValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">MetricValue' :: Maybe [Text]
+-&gt; Maybe Natural
+-&gt; Maybe [Natural]
+-&gt; Maybe [Double]
+-&gt; Maybe Double
+-&gt; Maybe [Text]
+-&gt; MetricValue
+</span><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cidrs:MetricValue' :: Maybe [Text]
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Acidrs%3AMetricValue%27"><span class="hs-identifier hs-var">cidrs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:count:MetricValue' :: Maybe Natural
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Acount%3AMetricValue%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:ports:MetricValue' :: Maybe [Natural]
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Aports%3AMetricValue%27"><span class="hs-identifier hs-var">ports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:numbers:MetricValue' :: Maybe [Double]
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Anumbers%3AMetricValue%27"><span class="hs-identifier hs-var">numbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:number:MetricValue' :: Maybe Double
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Anumber%3AMetricValue%27"><span class="hs-identifier hs-var">number</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:strings:MetricValue' :: Maybe [Text]
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Astrings%3AMetricValue%27"><span class="hs-identifier hs-var">strings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | If the @comparisonOperator@ calls for a set of CIDRs, use this to</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- specify that set to be compared with the @metric@.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#metricValue_cidrs"><span class="hs-identifier hs-type">metricValue_cidrs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="metricValue_cidrs"><span class="annot"><span class="annottext">metricValue_cidrs :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; MetricValue -&gt; f MetricValue
+</span><a href="Amazonka.IoT.Types.MetricValue.html#metricValue_cidrs"><span class="hs-identifier hs-var hs-var">metricValue_cidrs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricValue -&gt; Maybe [Text])
+-&gt; (MetricValue -&gt; Maybe [Text] -&gt; MetricValue)
+-&gt; Lens MetricValue MetricValue (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790148"><span class="annot"><span class="annottext">Maybe [Text]
+cidrs :: Maybe [Text]
+$sel:cidrs:MetricValue' :: MetricValue -&gt; Maybe [Text]
+</span><a href="#local-6989586621679790148"><span class="hs-identifier hs-var hs-var">cidrs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679790148"><span class="hs-identifier hs-var">cidrs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790147"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679790147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790146"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679790146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679790147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrs:MetricValue' :: Maybe [Text]
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Acidrs%3AMetricValue%27"><span class="hs-identifier hs-var">cidrs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679790146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; MetricValue -&gt; f MetricValue)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; MetricValue
+-&gt; f MetricValue
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | If the @comparisonOperator@ calls for a numeric value, use this to</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- specify that numeric value to be compared with the @metric@.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#metricValue_count"><span class="hs-identifier hs-type">metricValue_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="metricValue_count"><span class="annot"><span class="annottext">metricValue_count :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; MetricValue -&gt; f MetricValue
+</span><a href="Amazonka.IoT.Types.MetricValue.html#metricValue_count"><span class="hs-identifier hs-var hs-var">metricValue_count</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricValue -&gt; Maybe Natural)
+-&gt; (MetricValue -&gt; Maybe Natural -&gt; MetricValue)
+-&gt; Lens MetricValue MetricValue (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790141"><span class="annot"><span class="annottext">Maybe Natural
+count :: Maybe Natural
+$sel:count:MetricValue' :: MetricValue -&gt; Maybe Natural
+</span><a href="#local-6989586621679790141"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679790141"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790140"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679790140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790139"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679790139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679790140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:MetricValue' :: Maybe Natural
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Acount%3AMetricValue%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679790139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | If the @comparisonOperator@ calls for a set of ports, use this to</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- specify that set to be compared with the @metric@.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#metricValue_ports"><span class="hs-identifier hs-type">metricValue_ports</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="metricValue_ports"><span class="annot"><span class="annottext">metricValue_ports :: (Maybe [Natural] -&gt; f (Maybe [Natural]))
+-&gt; MetricValue -&gt; f MetricValue
+</span><a href="Amazonka.IoT.Types.MetricValue.html#metricValue_ports"><span class="hs-identifier hs-var hs-var">metricValue_ports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricValue -&gt; Maybe [Natural])
+-&gt; (MetricValue -&gt; Maybe [Natural] -&gt; MetricValue)
+-&gt; Lens MetricValue MetricValue (Maybe [Natural]) (Maybe [Natural])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790137"><span class="annot"><span class="annottext">Maybe [Natural]
+ports :: Maybe [Natural]
+$sel:ports:MetricValue' :: MetricValue -&gt; Maybe [Natural]
+</span><a href="#local-6989586621679790137"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679790137"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790136"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679790136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790135"><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679790135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679790136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ports:MetricValue' :: Maybe [Natural]
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Aports%3AMetricValue%27"><span class="hs-identifier hs-var">ports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679790135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Natural] -&gt; f (Maybe [Natural]))
+ -&gt; MetricValue -&gt; f MetricValue)
+-&gt; ((Maybe [Natural] -&gt; f (Maybe [Natural]))
+    -&gt; Maybe [Natural] -&gt; f (Maybe [Natural]))
+-&gt; (Maybe [Natural] -&gt; f (Maybe [Natural]))
+-&gt; MetricValue
+-&gt; f MetricValue
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Natural] [Natural] [Natural] [Natural]
+-&gt; Iso
+     (Maybe [Natural])
+     (Maybe [Natural])
+     (Maybe [Natural])
+     (Maybe [Natural])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Natural] [Natural] [Natural] [Natural]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The numeral values of a metric.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#metricValue_numbers"><span class="hs-identifier hs-type">metricValue_numbers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="metricValue_numbers"><span class="annot"><span class="annottext">metricValue_numbers :: (Maybe [Double] -&gt; f (Maybe [Double]))
+-&gt; MetricValue -&gt; f MetricValue
+</span><a href="Amazonka.IoT.Types.MetricValue.html#metricValue_numbers"><span class="hs-identifier hs-var hs-var">metricValue_numbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricValue -&gt; Maybe [Double])
+-&gt; (MetricValue -&gt; Maybe [Double] -&gt; MetricValue)
+-&gt; Lens MetricValue MetricValue (Maybe [Double]) (Maybe [Double])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790133"><span class="annot"><span class="annottext">Maybe [Double]
+numbers :: Maybe [Double]
+$sel:numbers:MetricValue' :: MetricValue -&gt; Maybe [Double]
+</span><a href="#local-6989586621679790133"><span class="hs-identifier hs-var hs-var">numbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679790133"><span class="hs-identifier hs-var">numbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790132"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679790132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790131"><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679790131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679790132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numbers:MetricValue' :: Maybe [Double]
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Anumbers%3AMetricValue%27"><span class="hs-identifier hs-var">numbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679790131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Double] -&gt; f (Maybe [Double]))
+ -&gt; MetricValue -&gt; f MetricValue)
+-&gt; ((Maybe [Double] -&gt; f (Maybe [Double]))
+    -&gt; Maybe [Double] -&gt; f (Maybe [Double]))
+-&gt; (Maybe [Double] -&gt; f (Maybe [Double]))
+-&gt; MetricValue
+-&gt; f MetricValue
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Double] [Double] [Double] [Double]
+-&gt; Iso
+     (Maybe [Double]) (Maybe [Double]) (Maybe [Double]) (Maybe [Double])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Double] [Double] [Double] [Double]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The numeral value of a metric.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#metricValue_number"><span class="hs-identifier hs-type">metricValue_number</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="metricValue_number"><span class="annot"><span class="annottext">metricValue_number :: (Maybe Double -&gt; f (Maybe Double)) -&gt; MetricValue -&gt; f MetricValue
+</span><a href="Amazonka.IoT.Types.MetricValue.html#metricValue_number"><span class="hs-identifier hs-var hs-var">metricValue_number</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricValue -&gt; Maybe Double)
+-&gt; (MetricValue -&gt; Maybe Double -&gt; MetricValue)
+-&gt; Lens MetricValue MetricValue (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790129"><span class="annot"><span class="annottext">Maybe Double
+number :: Maybe Double
+$sel:number:MetricValue' :: MetricValue -&gt; Maybe Double
+</span><a href="#local-6989586621679790129"><span class="hs-identifier hs-var hs-var">number</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679790129"><span class="hs-identifier hs-var">number</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790128"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679790128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790127"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679790127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679790128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:number:MetricValue' :: Maybe Double
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Anumber%3AMetricValue%27"><span class="hs-identifier hs-var">number</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679790127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The string values of a metric.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#metricValue_strings"><span class="hs-identifier hs-type">metricValue_strings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="metricValue_strings"><span class="annot"><span class="annottext">metricValue_strings :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; MetricValue -&gt; f MetricValue
+</span><a href="Amazonka.IoT.Types.MetricValue.html#metricValue_strings"><span class="hs-identifier hs-var hs-var">metricValue_strings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricValue -&gt; Maybe [Text])
+-&gt; (MetricValue -&gt; Maybe [Text] -&gt; MetricValue)
+-&gt; Lens MetricValue MetricValue (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790125"><span class="annot"><span class="annottext">Maybe [Text]
+strings :: Maybe [Text]
+$sel:strings:MetricValue' :: MetricValue -&gt; Maybe [Text]
+</span><a href="#local-6989586621679790125"><span class="hs-identifier hs-var hs-var">strings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679790125"><span class="hs-identifier hs-var">strings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790124"><span class="annot"><span class="annottext">s :: MetricValue
+</span><a href="#local-6989586621679790124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790123"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679790123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricValue
+</span><a href="#local-6989586621679790124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:strings:MetricValue' :: Maybe [Text]
+</span><a href="Amazonka.IoT.Types.MetricValue.html#%24sel%3Astrings%3AMetricValue%27"><span class="hs-identifier hs-var">strings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679790123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; MetricValue -&gt; f MetricValue)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; MetricValue
+-&gt; f MetricValue
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790120"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679790118"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MetricValue) -&gt; Value -&gt; Parser MetricValue
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MetricValue&quot;</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679790115"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe Natural
+-&gt; Maybe [Natural]
+-&gt; Maybe [Double]
+-&gt; Maybe Double
+-&gt; Maybe [Text]
+-&gt; MetricValue
+</span><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-var">MetricValue'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Natural
+ -&gt; Maybe [Natural]
+ -&gt; Maybe [Double]
+ -&gt; Maybe Double
+ -&gt; Maybe [Text]
+ -&gt; MetricValue)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe [Natural]
+      -&gt; Maybe [Double]
+      -&gt; Maybe Double
+      -&gt; Maybe [Text]
+      -&gt; MetricValue)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cidrs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe [Natural]
+   -&gt; Maybe [Double]
+   -&gt; Maybe Double
+   -&gt; Maybe [Text]
+   -&gt; MetricValue)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe [Natural]
+      -&gt; Maybe [Double] -&gt; Maybe Double -&gt; Maybe [Text] -&gt; MetricValue)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Natural]
+   -&gt; Maybe [Double] -&gt; Maybe Double -&gt; Maybe [Text] -&gt; MetricValue)
+-&gt; Parser (Maybe [Natural])
+-&gt; Parser
+     (Maybe [Double] -&gt; Maybe Double -&gt; Maybe [Text] -&gt; MetricValue)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Natural]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ports&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Natural]))
+-&gt; Maybe [Natural] -&gt; Parser (Maybe [Natural])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Double] -&gt; Maybe Double -&gt; Maybe [Text] -&gt; MetricValue)
+-&gt; Parser (Maybe [Double])
+-&gt; Parser (Maybe Double -&gt; Maybe [Text] -&gt; MetricValue)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Double]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;numbers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Double]))
+-&gt; Maybe [Double] -&gt; Parser (Maybe [Double])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe [Text] -&gt; MetricValue)
+-&gt; Parser (Maybe Double) -&gt; Parser (Maybe [Text] -&gt; MetricValue)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;number&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; MetricValue)
+-&gt; Parser (Maybe [Text]) -&gt; Parser MetricValue
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;strings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790108"><span id="local-6989586621679790110"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790105"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790097"><span id="local-6989586621679790099"><span id="local-6989586621679790101"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679790095"><span class="annot"><span class="annottext">toJSON :: MetricValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.MetricValue.html#MetricValue%27"><span class="hs-identifier hs-type">MetricValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790088"><span id="local-6989586621679790089"><span id="local-6989586621679790090"><span id="local-6989586621679790091"><span id="local-6989586621679790092"><span id="local-6989586621679790093"><span class="annot"><span class="annottext">Maybe Double
+Maybe Natural
+Maybe [Double]
+Maybe [Natural]
+Maybe [Text]
+strings :: Maybe [Text]
+number :: Maybe Double
+numbers :: Maybe [Double]
+ports :: Maybe [Natural]
+count :: Maybe Natural
+cidrs :: Maybe [Text]
+$sel:strings:MetricValue' :: MetricValue -&gt; Maybe [Text]
+$sel:number:MetricValue' :: MetricValue -&gt; Maybe Double
+$sel:numbers:MetricValue' :: MetricValue -&gt; Maybe [Double]
+$sel:ports:MetricValue' :: MetricValue -&gt; Maybe [Natural]
+$sel:count:MetricValue' :: MetricValue -&gt; Maybe Natural
+$sel:cidrs:MetricValue' :: MetricValue -&gt; Maybe [Text]
+</span><a href="#local-6989586621679790088"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cidrs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679790093"><span class="hs-identifier hs-var">cidrs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;count&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679790092"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ports&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Natural] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Natural] -&gt; Pair) -&gt; Maybe [Natural] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679790091"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;numbers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Double] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Double] -&gt; Pair) -&gt; Maybe [Double] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679790090"><span class="hs-identifier hs-var">numbers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;number&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679790089"><span class="hs-identifier hs-var">number</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;strings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679790088"><span class="hs-identifier hs-var">strings</span></a></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span></pre></body></html>

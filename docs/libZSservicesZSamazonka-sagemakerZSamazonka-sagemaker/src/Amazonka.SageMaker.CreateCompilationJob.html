@@ -1,0 +1,848 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.CreateCompilationJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts a model compilation job. After the model has been compiled,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon SageMaker saves the resulting model artifacts to an Amazon Simple</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Storage Service (Amazon S3) bucket that you specify.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- If you choose to host your model using Amazon SageMaker hosting</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- services, you can use the resulting model artifacts as part of the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- model. You can also use the artifacts with Amazon Web Services IoT</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Greengrass. In that case, deploy them as an ML resource.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- In the request body, you provide the following:</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   A name for the compilation job</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   Information about the input model artifacts</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   The output location for the compiled model and the device (target)</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     that the model runs on</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     assumes to perform the model compilation job.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- You can also provide a @Tag@ to track the model compilation job\'s</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- resource use and costs. The response body contains the</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- @CompilationJobArn@ for the compiled job.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- To stop a model compilation job, use StopCompilationJob. To get</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- information about a particular model compilation job, use</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- DescribeCompilationJob. To get information about multiple model</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- compilation jobs, use ListCompilationJobs.</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.CreateCompilationJob</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier">CreateCompilationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#newCreateCompilationJob"><span class="hs-identifier">newCreateCompilationJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_vpcConfig"><span class="hs-identifier">createCompilationJob_vpcConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_tags"><span class="hs-identifier">createCompilationJob_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_compilationJobName"><span class="hs-identifier">createCompilationJob_compilationJobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_roleArn"><span class="hs-identifier">createCompilationJob_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_inputConfig"><span class="hs-identifier">createCompilationJob_inputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_outputConfig"><span class="hs-identifier">createCompilationJob_outputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_stoppingCondition"><span class="hs-identifier">createCompilationJob_stoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse"><span class="hs-identifier">CreateCompilationJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#newCreateCompilationJobResponse"><span class="hs-identifier">newCreateCompilationJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJobResponse_httpStatus"><span class="hs-identifier">createCompilationJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJobResponse_compilationJobArn"><span class="hs-identifier">createCompilationJobResponse_compilationJobArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | /See:/ 'newCreateCompilationJob' smart constructor.</span><span>
+</span><span id="line-84"></span><span id="local-6989586621680422001"><span id="local-6989586621680422002"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCompilationJob"><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-var">CreateCompilationJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCompilationJob%27"><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-var">CreateCompilationJob'</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A VpcConfig object that specifies the VPC that you want your compilation</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- job to connect to. Control access to your models by configuring the VPC.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud&gt;.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AvpcConfig%3ACreateCompilationJob%27"><span class="annot"><span class="annottext">CreateCompilationJob -&gt; Maybe NeoVpcConfig
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AvpcConfig%3ACreateCompilationJob%27"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NeoVpcConfig.html#NeoVpcConfig"><span class="hs-identifier hs-type">NeoVpcConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Atags%3ACreateCompilationJob%27"><span class="annot"><span class="annottext">CreateCompilationJob -&gt; Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3Atags%3ACreateCompilationJob%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | A name for the model compilation job. The name must be unique within the</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- Amazon Web Services Region and within your Amazon Web Services account.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AcompilationJobName%3ACreateCompilationJob%27"><span class="annot"><span class="annottext">CreateCompilationJob -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AcompilationJobName%3ACreateCompilationJob%27"><span class="hs-identifier hs-var hs-var">compilationJobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- SageMaker to perform tasks on your behalf.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- During model compilation, Amazon SageMaker needs your permission to:</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   Read input data from an S3 bucket</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- -   Write model artifacts to an S3 bucket</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- -   Write logs to Amazon CloudWatch Logs</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- -   Publish metrics to Amazon CloudWatch</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- You grant permissions for all of these tasks to an IAM role. To pass</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- this role to Amazon SageMaker, the caller of this API must have the</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- @iam:PassRole@ permission. For more information, see</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles.&gt;</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateCompilationJob%27"><span class="annot"><span class="annottext">CreateCompilationJob -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AroleArn%3ACreateCompilationJob%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | Provides information about the location of input model artifacts, the</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- name and shape of the expected data inputs, and the framework in which</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- the model was trained.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AinputConfig%3ACreateCompilationJob%27"><span class="annot"><span class="annottext">CreateCompilationJob -&gt; InputConfig
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AinputConfig%3ACreateCompilationJob%27"><span class="hs-identifier hs-var hs-var">inputConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | Provides information about the output location for the compiled model</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- and the target device the model runs on.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AoutputConfig%3ACreateCompilationJob%27"><span class="annot"><span class="annottext">CreateCompilationJob -&gt; OutputConfig
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AoutputConfig%3ACreateCompilationJob%27"><span class="hs-identifier hs-var hs-var">outputConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | Specifies a limit to how long a model compilation job can run. When the</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- job reaches the time limit, Amazon SageMaker ends the compilation job.</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- Use this API to cap model training costs.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AstoppingCondition%3ACreateCompilationJob%27"><span class="annot"><span class="annottext">CreateCompilationJob -&gt; StoppingCondition
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AstoppingCondition%3ACreateCompilationJob%27"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.StoppingCondition.html#StoppingCondition"><span class="hs-identifier hs-type">StoppingCondition</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680421989"><span id="local-6989586621680421991"><span class="annot"><span class="annottext">CreateCompilationJob -&gt; CreateCompilationJob -&gt; Bool
+(CreateCompilationJob -&gt; CreateCompilationJob -&gt; Bool)
+-&gt; (CreateCompilationJob -&gt; CreateCompilationJob -&gt; Bool)
+-&gt; Eq CreateCompilationJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCompilationJob -&gt; CreateCompilationJob -&gt; Bool
+$c/= :: CreateCompilationJob -&gt; CreateCompilationJob -&gt; Bool
+== :: CreateCompilationJob -&gt; CreateCompilationJob -&gt; Bool
+$c== :: CreateCompilationJob -&gt; CreateCompilationJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680421980"><span id="local-6989586621680421982"><span id="local-6989586621680421984"><span id="local-6989586621680421986"><span class="annot"><span class="annottext">ReadPrec [CreateCompilationJob]
+ReadPrec CreateCompilationJob
+Int -&gt; ReadS CreateCompilationJob
+ReadS [CreateCompilationJob]
+(Int -&gt; ReadS CreateCompilationJob)
+-&gt; ReadS [CreateCompilationJob]
+-&gt; ReadPrec CreateCompilationJob
+-&gt; ReadPrec [CreateCompilationJob]
+-&gt; Read CreateCompilationJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCompilationJob]
+$creadListPrec :: ReadPrec [CreateCompilationJob]
+readPrec :: ReadPrec CreateCompilationJob
+$creadPrec :: ReadPrec CreateCompilationJob
+readList :: ReadS [CreateCompilationJob]
+$creadList :: ReadS [CreateCompilationJob]
+readsPrec :: Int -&gt; ReadS CreateCompilationJob
+$creadsPrec :: Int -&gt; ReadS CreateCompilationJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680421973"><span id="local-6989586621680421975"><span id="local-6989586621680421977"><span class="annot"><span class="annottext">Int -&gt; CreateCompilationJob -&gt; ShowS
+[CreateCompilationJob] -&gt; ShowS
+CreateCompilationJob -&gt; String
+(Int -&gt; CreateCompilationJob -&gt; ShowS)
+-&gt; (CreateCompilationJob -&gt; String)
+-&gt; ([CreateCompilationJob] -&gt; ShowS)
+-&gt; Show CreateCompilationJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCompilationJob] -&gt; ShowS
+$cshowList :: [CreateCompilationJob] -&gt; ShowS
+show :: CreateCompilationJob -&gt; String
+$cshow :: CreateCompilationJob -&gt; String
+showsPrec :: Int -&gt; CreateCompilationJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCompilationJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateCompilationJob -&gt; Rep CreateCompilationJob x)
+-&gt; (forall x. Rep CreateCompilationJob x -&gt; CreateCompilationJob)
+-&gt; Generic CreateCompilationJob
+forall x. Rep CreateCompilationJob x -&gt; CreateCompilationJob
+forall x. CreateCompilationJob -&gt; Rep CreateCompilationJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateCompilationJob x -&gt; CreateCompilationJob
+$cfrom :: forall x. CreateCompilationJob -&gt; Rep CreateCompilationJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Create a value of 'CreateCompilationJob' with all optional fields omitted.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'vpcConfig', 'createCompilationJob_vpcConfig' - A VpcConfig object that specifies the VPC that you want your compilation</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- job to connect to. Control access to your models by configuring the VPC.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud&gt;.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'tags', 'createCompilationJob_tags' - An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'compilationJobName', 'createCompilationJob_compilationJobName' - A name for the model compilation job. The name must be unique within the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Amazon Web Services Region and within your Amazon Web Services account.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'roleArn', 'createCompilationJob_roleArn' - The Amazon Resource Name (ARN) of an IAM role that enables Amazon</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- SageMaker to perform tasks on your behalf.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- During model compilation, Amazon SageMaker needs your permission to:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   Read input data from an S3 bucket</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   Write model artifacts to an S3 bucket</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   Write logs to Amazon CloudWatch Logs</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   Publish metrics to Amazon CloudWatch</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- You grant permissions for all of these tasks to an IAM role. To pass</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- this role to Amazon SageMaker, the caller of this API must have the</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- @iam:PassRole@ permission. For more information, see</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles.&gt;</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'inputConfig', 'createCompilationJob_inputConfig' - Provides information about the location of input model artifacts, the</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- name and shape of the expected data inputs, and the framework in which</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- the model was trained.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'outputConfig', 'createCompilationJob_outputConfig' - Provides information about the output location for the compiled model</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- and the target device the model runs on.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'stoppingCondition', 'createCompilationJob_stoppingCondition' - Specifies a limit to how long a model compilation job can run. When the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- job reaches the time limit, Amazon SageMaker ends the compilation job.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use this API to cap model training costs.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#newCreateCompilationJob"><span class="hs-identifier hs-type">newCreateCompilationJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'compilationJobName'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-comment">-- | 'inputConfig'</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'outputConfig'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-comment">-- | 'stoppingCondition'</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.StoppingCondition.html#StoppingCondition"><span class="hs-identifier hs-type">StoppingCondition</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span>
+</span><span id="line-191"></span><span id="newCreateCompilationJob"><span class="annot"><span class="annottext">newCreateCompilationJob :: Text
+-&gt; Text
+-&gt; InputConfig
+-&gt; OutputConfig
+-&gt; StoppingCondition
+-&gt; CreateCompilationJob
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#newCreateCompilationJob"><span class="hs-identifier hs-var hs-var">newCreateCompilationJob</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621680421968"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421968"><span class="hs-identifier hs-var">pCompilationJobName_</span></a></span></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621680421967"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421967"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621680421966"><span class="annot"><span class="annottext">InputConfig
+</span><a href="#local-6989586621680421966"><span class="hs-identifier hs-var">pInputConfig_</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621680421965"><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621680421965"><span class="hs-identifier hs-var">pOutputConfig_</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621680421964"><span class="annot"><span class="annottext">StoppingCondition
+</span><a href="#local-6989586621680421964"><span class="hs-identifier hs-var">pStoppingCondition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">CreateCompilationJob' :: Maybe NeoVpcConfig
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; Text
+-&gt; InputConfig
+-&gt; OutputConfig
+-&gt; StoppingCondition
+-&gt; CreateCompilationJob
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcConfig:CreateCompilationJob' :: Maybe NeoVpcConfig
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AvpcConfig%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NeoVpcConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateCompilationJob' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3Atags%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">$sel:compilationJobName:CreateCompilationJob' :: Text
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AcompilationJobName%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">compilationJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421968"><span class="hs-identifier hs-var">pCompilationJobName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateCompilationJob' :: Text
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AroleArn%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421967"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">$sel:inputConfig:CreateCompilationJob' :: InputConfig
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AinputConfig%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">inputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputConfig
+</span><a href="#local-6989586621680421966"><span class="hs-identifier hs-var">pInputConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputConfig:CreateCompilationJob' :: OutputConfig
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AoutputConfig%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">outputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621680421965"><span class="hs-identifier hs-var">pOutputConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">$sel:stoppingCondition:CreateCompilationJob' :: StoppingCondition
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AstoppingCondition%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StoppingCondition
+</span><a href="#local-6989586621680421964"><span class="hs-identifier hs-var">pStoppingCondition_</span></a></span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | A VpcConfig object that specifies the VPC that you want your compilation</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- job to connect to. Control access to your models by configuring the VPC.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud&gt;.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_vpcConfig"><span class="hs-identifier hs-type">createCompilationJob_vpcConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NeoVpcConfig.html#NeoVpcConfig"><span class="hs-identifier hs-type">NeoVpcConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="createCompilationJob_vpcConfig"><span class="annot"><span class="annottext">createCompilationJob_vpcConfig :: (Maybe NeoVpcConfig -&gt; f (Maybe NeoVpcConfig))
+-&gt; CreateCompilationJob -&gt; f CreateCompilationJob
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_vpcConfig"><span class="hs-identifier hs-var hs-var">createCompilationJob_vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCompilationJob -&gt; Maybe NeoVpcConfig)
+-&gt; (CreateCompilationJob
+    -&gt; Maybe NeoVpcConfig -&gt; CreateCompilationJob)
+-&gt; Lens
+     CreateCompilationJob
+     CreateCompilationJob
+     (Maybe NeoVpcConfig)
+     (Maybe NeoVpcConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421961"><span class="annot"><span class="annottext">Maybe NeoVpcConfig
+vpcConfig :: Maybe NeoVpcConfig
+$sel:vpcConfig:CreateCompilationJob' :: CreateCompilationJob -&gt; Maybe NeoVpcConfig
+</span><a href="#local-6989586621680421961"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NeoVpcConfig
+</span><a href="#local-6989586621680421961"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421960"><span class="annot"><span class="annottext">s :: CreateCompilationJob
+</span><a href="#local-6989586621680421960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421959"><span class="annot"><span class="annottext">Maybe NeoVpcConfig
+</span><a href="#local-6989586621680421959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCompilationJob
+</span><a href="#local-6989586621680421960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfig:CreateCompilationJob' :: Maybe NeoVpcConfig
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AvpcConfig%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NeoVpcConfig
+</span><a href="#local-6989586621680421959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_tags"><span class="hs-identifier hs-type">createCompilationJob_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="createCompilationJob_tags"><span class="annot"><span class="annottext">createCompilationJob_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateCompilationJob -&gt; f CreateCompilationJob
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_tags"><span class="hs-identifier hs-var hs-var">createCompilationJob_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCompilationJob -&gt; Maybe [Tag])
+-&gt; (CreateCompilationJob -&gt; Maybe [Tag] -&gt; CreateCompilationJob)
+-&gt; Lens
+     CreateCompilationJob
+     CreateCompilationJob
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421958"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateCompilationJob' :: CreateCompilationJob -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680421958"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680421958"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421957"><span class="annot"><span class="annottext">s :: CreateCompilationJob
+</span><a href="#local-6989586621680421957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421956"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680421956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCompilationJob
+</span><a href="#local-6989586621680421957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateCompilationJob' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3Atags%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680421956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateCompilationJob -&gt; f CreateCompilationJob)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateCompilationJob
+-&gt; f CreateCompilationJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | A name for the model compilation job. The name must be unique within the</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Amazon Web Services Region and within your Amazon Web Services account.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_compilationJobName"><span class="hs-identifier hs-type">createCompilationJob_compilationJobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-224"></span><span id="createCompilationJob_compilationJobName"><span class="annot"><span class="annottext">createCompilationJob_compilationJobName :: (Text -&gt; f Text) -&gt; CreateCompilationJob -&gt; f CreateCompilationJob
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_compilationJobName"><span class="hs-identifier hs-var hs-var">createCompilationJob_compilationJobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCompilationJob -&gt; Text)
+-&gt; (CreateCompilationJob -&gt; Text -&gt; CreateCompilationJob)
+-&gt; Lens CreateCompilationJob CreateCompilationJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421952"><span class="annot"><span class="annottext">Text
+compilationJobName :: Text
+$sel:compilationJobName:CreateCompilationJob' :: CreateCompilationJob -&gt; Text
+</span><a href="#local-6989586621680421952"><span class="hs-identifier hs-var hs-var">compilationJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421952"><span class="hs-identifier hs-var">compilationJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421951"><span class="annot"><span class="annottext">s :: CreateCompilationJob
+</span><a href="#local-6989586621680421951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421950"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCompilationJob
+</span><a href="#local-6989586621680421951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compilationJobName:CreateCompilationJob' :: Text
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AcompilationJobName%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">compilationJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- SageMaker to perform tasks on your behalf.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- During model compilation, Amazon SageMaker needs your permission to:</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   Read input data from an S3 bucket</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   Write model artifacts to an S3 bucket</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- -   Write logs to Amazon CloudWatch Logs</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   Publish metrics to Amazon CloudWatch</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- You grant permissions for all of these tasks to an IAM role. To pass</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- this role to Amazon SageMaker, the caller of this API must have the</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- @iam:PassRole@ permission. For more information, see</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles.&gt;</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_roleArn"><span class="hs-identifier hs-type">createCompilationJob_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-244"></span><span id="createCompilationJob_roleArn"><span class="annot"><span class="annottext">createCompilationJob_roleArn :: (Text -&gt; f Text) -&gt; CreateCompilationJob -&gt; f CreateCompilationJob
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_roleArn"><span class="hs-identifier hs-var hs-var">createCompilationJob_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCompilationJob -&gt; Text)
+-&gt; (CreateCompilationJob -&gt; Text -&gt; CreateCompilationJob)
+-&gt; Lens CreateCompilationJob CreateCompilationJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421949"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:CreateCompilationJob' :: CreateCompilationJob -&gt; Text
+</span><a href="#local-6989586621680421949"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421949"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421948"><span class="annot"><span class="annottext">s :: CreateCompilationJob
+</span><a href="#local-6989586621680421948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421947"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCompilationJob
+</span><a href="#local-6989586621680421948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateCompilationJob' :: Text
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AroleArn%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | Provides information about the location of input model artifacts, the</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- name and shape of the expected data inputs, and the framework in which</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- the model was trained.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_inputConfig"><span class="hs-identifier hs-type">createCompilationJob_inputConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span><span>
+</span><span id="line-250"></span><span id="createCompilationJob_inputConfig"><span class="annot"><span class="annottext">createCompilationJob_inputConfig :: (InputConfig -&gt; f InputConfig)
+-&gt; CreateCompilationJob -&gt; f CreateCompilationJob
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_inputConfig"><span class="hs-identifier hs-var hs-var">createCompilationJob_inputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCompilationJob -&gt; InputConfig)
+-&gt; (CreateCompilationJob -&gt; InputConfig -&gt; CreateCompilationJob)
+-&gt; Lens
+     CreateCompilationJob CreateCompilationJob InputConfig InputConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421946"><span class="annot"><span class="annottext">InputConfig
+inputConfig :: InputConfig
+$sel:inputConfig:CreateCompilationJob' :: CreateCompilationJob -&gt; InputConfig
+</span><a href="#local-6989586621680421946"><span class="hs-identifier hs-var hs-var">inputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputConfig
+</span><a href="#local-6989586621680421946"><span class="hs-identifier hs-var">inputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421945"><span class="annot"><span class="annottext">s :: CreateCompilationJob
+</span><a href="#local-6989586621680421945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421944"><span class="annot"><span class="annottext">InputConfig
+</span><a href="#local-6989586621680421944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCompilationJob
+</span><a href="#local-6989586621680421945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputConfig:CreateCompilationJob' :: InputConfig
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AinputConfig%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">inputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputConfig
+</span><a href="#local-6989586621680421944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | Provides information about the output location for the compiled model</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- and the target device the model runs on.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_outputConfig"><span class="hs-identifier hs-type">createCompilationJob_outputConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span>
+</span><span id="line-255"></span><span id="createCompilationJob_outputConfig"><span class="annot"><span class="annottext">createCompilationJob_outputConfig :: (OutputConfig -&gt; f OutputConfig)
+-&gt; CreateCompilationJob -&gt; f CreateCompilationJob
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_outputConfig"><span class="hs-identifier hs-var hs-var">createCompilationJob_outputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCompilationJob -&gt; OutputConfig)
+-&gt; (CreateCompilationJob -&gt; OutputConfig -&gt; CreateCompilationJob)
+-&gt; Lens
+     CreateCompilationJob CreateCompilationJob OutputConfig OutputConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421943"><span class="annot"><span class="annottext">OutputConfig
+outputConfig :: OutputConfig
+$sel:outputConfig:CreateCompilationJob' :: CreateCompilationJob -&gt; OutputConfig
+</span><a href="#local-6989586621680421943"><span class="hs-identifier hs-var hs-var">outputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621680421943"><span class="hs-identifier hs-var">outputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421942"><span class="annot"><span class="annottext">s :: CreateCompilationJob
+</span><a href="#local-6989586621680421942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421941"><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621680421941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCompilationJob
+</span><a href="#local-6989586621680421942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputConfig:CreateCompilationJob' :: OutputConfig
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AoutputConfig%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">outputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621680421941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | Specifies a limit to how long a model compilation job can run. When the</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- job reaches the time limit, Amazon SageMaker ends the compilation job.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- Use this API to cap model training costs.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_stoppingCondition"><span class="hs-identifier hs-type">createCompilationJob_stoppingCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.StoppingCondition.html#StoppingCondition"><span class="hs-identifier hs-type">StoppingCondition</span></a></span><span>
+</span><span id="line-261"></span><span id="createCompilationJob_stoppingCondition"><span class="annot"><span class="annottext">createCompilationJob_stoppingCondition :: (StoppingCondition -&gt; f StoppingCondition)
+-&gt; CreateCompilationJob -&gt; f CreateCompilationJob
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJob_stoppingCondition"><span class="hs-identifier hs-var hs-var">createCompilationJob_stoppingCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCompilationJob -&gt; StoppingCondition)
+-&gt; (CreateCompilationJob
+    -&gt; StoppingCondition -&gt; CreateCompilationJob)
+-&gt; Lens
+     CreateCompilationJob
+     CreateCompilationJob
+     StoppingCondition
+     StoppingCondition
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421940"><span class="annot"><span class="annottext">StoppingCondition
+stoppingCondition :: StoppingCondition
+$sel:stoppingCondition:CreateCompilationJob' :: CreateCompilationJob -&gt; StoppingCondition
+</span><a href="#local-6989586621680421940"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoppingCondition
+</span><a href="#local-6989586621680421940"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421939"><span class="annot"><span class="annottext">s :: CreateCompilationJob
+</span><a href="#local-6989586621680421939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421938"><span class="annot"><span class="annottext">StoppingCondition
+</span><a href="#local-6989586621680421938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCompilationJob
+</span><a href="#local-6989586621680421939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppingCondition:CreateCompilationJob' :: StoppingCondition
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AstoppingCondition%3ACreateCompilationJob%27"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StoppingCondition
+</span><a href="#local-6989586621680421938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-265"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse"><span class="hs-identifier hs-type">CreateCompilationJobResponse</span></a></span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621680421934"><span class="annot"><span class="annottext">request :: CreateCompilationJob -&gt; Request CreateCompilationJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateCompilationJob -&gt; Request CreateCompilationJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621680421930"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateCompilationJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateCompilationJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateCompilationJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateCompilationJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateCompilationJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680421927"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680421927"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680421926"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680421926"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680421925"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680421925"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-271"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateCompilationJobResponse
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse%27"><span class="hs-identifier hs-var">CreateCompilationJobResponse'</span></a></span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateCompilationJobResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateCompilationJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680421927"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateCompilationJobResponse)
+-&gt; Either String Text -&gt; Either String CreateCompilationJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680421925"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompilationJobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680421917"><span id="local-6989586621680421919"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span></span></span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680421914"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span></span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621680421910"><span class="annot"><span class="annottext">toHeaders :: CreateCompilationJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateCompilationJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-284"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-285"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.CreateCompilationJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-286"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-287"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-289"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-290"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-291"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-293"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680421900"><span id="local-6989586621680421902"><span id="local-6989586621680421904"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621680421898"><span class="annot"><span class="annottext">toJSON :: CreateCompilationJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob%27"><span class="hs-identifier hs-type">CreateCompilationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421890"><span id="local-6989586621680421891"><span id="local-6989586621680421892"><span id="local-6989586621680421893"><span id="local-6989586621680421894"><span id="local-6989586621680421895"><span id="local-6989586621680421896"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe NeoVpcConfig
+Text
+InputConfig
+StoppingCondition
+OutputConfig
+stoppingCondition :: StoppingCondition
+outputConfig :: OutputConfig
+inputConfig :: InputConfig
+roleArn :: Text
+compilationJobName :: Text
+tags :: Maybe [Tag]
+vpcConfig :: Maybe NeoVpcConfig
+$sel:stoppingCondition:CreateCompilationJob' :: CreateCompilationJob -&gt; StoppingCondition
+$sel:outputConfig:CreateCompilationJob' :: CreateCompilationJob -&gt; OutputConfig
+$sel:inputConfig:CreateCompilationJob' :: CreateCompilationJob -&gt; InputConfig
+$sel:roleArn:CreateCompilationJob' :: CreateCompilationJob -&gt; Text
+$sel:compilationJobName:CreateCompilationJob' :: CreateCompilationJob -&gt; Text
+$sel:tags:CreateCompilationJob' :: CreateCompilationJob -&gt; Maybe [Tag]
+$sel:vpcConfig:CreateCompilationJob' :: CreateCompilationJob -&gt; Maybe NeoVpcConfig
+</span><a href="#local-6989586621680421890"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-298"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-299"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NeoVpcConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NeoVpcConfig -&gt; Pair) -&gt; Maybe NeoVpcConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NeoVpcConfig
+</span><a href="#local-6989586621680421896"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680421895"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-302"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompilationJobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421894"><span class="hs-identifier hs-var">compilationJobName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421893"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InputConfig
+</span><a href="#local-6989586621680421892"><span class="hs-identifier hs-var">inputConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621680421891"><span class="hs-identifier hs-var">outputConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-307"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StoppingCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StoppingCondition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">StoppingCondition
+</span><a href="#local-6989586621680421890"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-309"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-312"></span><span>  </span><span id="local-6989586621680421884"><span class="annot"><span class="annottext">toPath :: CreateCompilationJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateCompilationJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJob"><span class="hs-identifier hs-type">CreateCompilationJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621680421880"><span class="annot"><span class="annottext">toQuery :: CreateCompilationJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateCompilationJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- | /See:/ 'newCreateCompilationJobResponse' smart constructor.</span><span>
+</span><span id="line-318"></span><span id="local-6989586621680421877"><span id="local-6989586621680421878"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCompilationJobResponse"><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse"><span class="hs-identifier hs-var">CreateCompilationJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCompilationJobResponse%27"><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse%27"><span class="hs-identifier hs-var">CreateCompilationJobResponse'</span></a></span></span><span>
+</span><span id="line-319"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-320"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateCompilationJobResponse%27"><span class="annot"><span class="annottext">CreateCompilationJobResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AhttpStatus%3ACreateCompilationJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>    </span><span class="hs-comment">-- | If the action is successful, the service sends back an HTTP 200</span><span>
+</span><span id="line-322"></span><span>    </span><span class="hs-comment">-- response. Amazon SageMaker returns the following data in JSON format:</span><span>
+</span><span id="line-323"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-comment">-- -   @CompilationJobArn@: The Amazon Resource Name (ARN) of the compiled</span><span>
+</span><span id="line-325"></span><span>    </span><span class="hs-comment">--     job.</span><span>
+</span><span id="line-326"></span><span>    </span><span id="%24sel%3AcompilationJobArn%3ACreateCompilationJobResponse%27"><span class="annot"><span class="annottext">CreateCompilationJobResponse -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AcompilationJobArn%3ACreateCompilationJobResponse%27"><span class="hs-identifier hs-var hs-var">compilationJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-327"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-328"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680421871"><span id="local-6989586621680421873"><span class="annot"><span class="annottext">CreateCompilationJobResponse
+-&gt; CreateCompilationJobResponse -&gt; Bool
+(CreateCompilationJobResponse
+ -&gt; CreateCompilationJobResponse -&gt; Bool)
+-&gt; (CreateCompilationJobResponse
+    -&gt; CreateCompilationJobResponse -&gt; Bool)
+-&gt; Eq CreateCompilationJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCompilationJobResponse
+-&gt; CreateCompilationJobResponse -&gt; Bool
+$c/= :: CreateCompilationJobResponse
+-&gt; CreateCompilationJobResponse -&gt; Bool
+== :: CreateCompilationJobResponse
+-&gt; CreateCompilationJobResponse -&gt; Bool
+$c== :: CreateCompilationJobResponse
+-&gt; CreateCompilationJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680421863"><span id="local-6989586621680421865"><span id="local-6989586621680421867"><span id="local-6989586621680421869"><span class="annot"><span class="annottext">ReadPrec [CreateCompilationJobResponse]
+ReadPrec CreateCompilationJobResponse
+Int -&gt; ReadS CreateCompilationJobResponse
+ReadS [CreateCompilationJobResponse]
+(Int -&gt; ReadS CreateCompilationJobResponse)
+-&gt; ReadS [CreateCompilationJobResponse]
+-&gt; ReadPrec CreateCompilationJobResponse
+-&gt; ReadPrec [CreateCompilationJobResponse]
+-&gt; Read CreateCompilationJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCompilationJobResponse]
+$creadListPrec :: ReadPrec [CreateCompilationJobResponse]
+readPrec :: ReadPrec CreateCompilationJobResponse
+$creadPrec :: ReadPrec CreateCompilationJobResponse
+readList :: ReadS [CreateCompilationJobResponse]
+$creadList :: ReadS [CreateCompilationJobResponse]
+readsPrec :: Int -&gt; ReadS CreateCompilationJobResponse
+$creadsPrec :: Int -&gt; ReadS CreateCompilationJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680421857"><span id="local-6989586621680421859"><span id="local-6989586621680421861"><span class="annot"><span class="annottext">Int -&gt; CreateCompilationJobResponse -&gt; ShowS
+[CreateCompilationJobResponse] -&gt; ShowS
+CreateCompilationJobResponse -&gt; String
+(Int -&gt; CreateCompilationJobResponse -&gt; ShowS)
+-&gt; (CreateCompilationJobResponse -&gt; String)
+-&gt; ([CreateCompilationJobResponse] -&gt; ShowS)
+-&gt; Show CreateCompilationJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCompilationJobResponse] -&gt; ShowS
+$cshowList :: [CreateCompilationJobResponse] -&gt; ShowS
+show :: CreateCompilationJobResponse -&gt; String
+$cshow :: CreateCompilationJobResponse -&gt; String
+showsPrec :: Int -&gt; CreateCompilationJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCompilationJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateCompilationJobResponse -&gt; Rep CreateCompilationJobResponse x)
+-&gt; (forall x.
+    Rep CreateCompilationJobResponse x -&gt; CreateCompilationJobResponse)
+-&gt; Generic CreateCompilationJobResponse
+forall x.
+Rep CreateCompilationJobResponse x -&gt; CreateCompilationJobResponse
+forall x.
+CreateCompilationJobResponse -&gt; Rep CreateCompilationJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateCompilationJobResponse x -&gt; CreateCompilationJobResponse
+$cfrom :: forall x.
+CreateCompilationJobResponse -&gt; Rep CreateCompilationJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- Create a value of 'CreateCompilationJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- 'httpStatus', 'createCompilationJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- 'compilationJobArn', 'createCompilationJobResponse_compilationJobArn' - If the action is successful, the service sends back an HTTP 200</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- response. Amazon SageMaker returns the following data in JSON format:</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- -   @CompilationJobArn@: The Amazon Resource Name (ARN) of the compiled</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--     job.</span><span>
+</span><span id="line-345"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#newCreateCompilationJobResponse"><span class="hs-identifier hs-type">newCreateCompilationJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-346"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-347"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-348"></span><span>  </span><span class="hs-comment">-- | 'compilationJobArn'</span><span>
+</span><span id="line-349"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-350"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse"><span class="hs-identifier hs-type">CreateCompilationJobResponse</span></a></span><span>
+</span><span id="line-351"></span><span id="newCreateCompilationJobResponse"><span class="annot"><span class="annottext">newCreateCompilationJobResponse :: Int -&gt; Text -&gt; CreateCompilationJobResponse
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#newCreateCompilationJobResponse"><span class="hs-identifier hs-var hs-var">newCreateCompilationJobResponse</span></a></span></span><span>
+</span><span id="line-352"></span><span>  </span><span id="local-6989586621680421854"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680421854"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-353"></span><span>  </span><span id="local-6989586621680421853"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421853"><span class="hs-identifier hs-var">pCompilationJobArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-354"></span><span>    </span><span class="annot"><span class="annottext">CreateCompilationJobResponse' :: Int -&gt; Text -&gt; CreateCompilationJobResponse
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse%27"><span class="hs-identifier hs-type">CreateCompilationJobResponse'</span></a></span><span>
+</span><span id="line-355"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCompilationJobResponse' :: Int
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AhttpStatus%3ACreateCompilationJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-356"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680421854"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-357"></span><span>        </span><span class="annot"><span class="annottext">$sel:compilationJobArn:CreateCompilationJobResponse' :: Text
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AcompilationJobArn%3ACreateCompilationJobResponse%27"><span class="hs-identifier hs-var">compilationJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421853"><span class="hs-identifier hs-var">pCompilationJobArn_</span></a></span><span>
+</span><span id="line-358"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-361"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJobResponse_httpStatus"><span class="hs-identifier hs-type">createCompilationJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse"><span class="hs-identifier hs-type">CreateCompilationJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-362"></span><span id="createCompilationJobResponse_httpStatus"><span class="annot"><span class="annottext">createCompilationJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateCompilationJobResponse -&gt; f CreateCompilationJobResponse
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createCompilationJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCompilationJobResponse -&gt; Int)
+-&gt; (CreateCompilationJobResponse
+    -&gt; Int -&gt; CreateCompilationJobResponse)
+-&gt; Lens
+     CreateCompilationJobResponse CreateCompilationJobResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse%27"><span class="hs-identifier hs-type">CreateCompilationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421852"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateCompilationJobResponse' :: CreateCompilationJobResponse -&gt; Int
+</span><a href="#local-6989586621680421852"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680421852"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421851"><span class="annot"><span class="annottext">s :: CreateCompilationJobResponse
+</span><a href="#local-6989586621680421851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse%27"><span class="hs-identifier hs-type">CreateCompilationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421850"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680421850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCompilationJobResponse
+</span><a href="#local-6989586621680421851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCompilationJobResponse' :: Int
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AhttpStatus%3ACreateCompilationJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680421850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse"><span class="hs-identifier hs-type">CreateCompilationJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-363"></span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- | If the action is successful, the service sends back an HTTP 200</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- response. Amazon SageMaker returns the following data in JSON format:</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- -   @CompilationJobArn@: The Amazon Resource Name (ARN) of the compiled</span><span>
+</span><span id="line-368"></span><span class="hs-comment">--     job.</span><span>
+</span><span id="line-369"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJobResponse_compilationJobArn"><span class="hs-identifier hs-type">createCompilationJobResponse_compilationJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse"><span class="hs-identifier hs-type">CreateCompilationJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-370"></span><span id="createCompilationJobResponse_compilationJobArn"><span class="annot"><span class="annottext">createCompilationJobResponse_compilationJobArn :: (Text -&gt; f Text)
+-&gt; CreateCompilationJobResponse -&gt; f CreateCompilationJobResponse
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#createCompilationJobResponse_compilationJobArn"><span class="hs-identifier hs-var hs-var">createCompilationJobResponse_compilationJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCompilationJobResponse -&gt; Text)
+-&gt; (CreateCompilationJobResponse
+    -&gt; Text -&gt; CreateCompilationJobResponse)
+-&gt; Lens
+     CreateCompilationJobResponse CreateCompilationJobResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse%27"><span class="hs-identifier hs-type">CreateCompilationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421849"><span class="annot"><span class="annottext">Text
+compilationJobArn :: Text
+$sel:compilationJobArn:CreateCompilationJobResponse' :: CreateCompilationJobResponse -&gt; Text
+</span><a href="#local-6989586621680421849"><span class="hs-identifier hs-var hs-var">compilationJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421849"><span class="hs-identifier hs-var">compilationJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421848"><span class="annot"><span class="annottext">s :: CreateCompilationJobResponse
+</span><a href="#local-6989586621680421848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse%27"><span class="hs-identifier hs-type">CreateCompilationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421847"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCompilationJobResponse
+</span><a href="#local-6989586621680421848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compilationJobArn:CreateCompilationJobResponse' :: Text
+</span><a href="Amazonka.SageMaker.CreateCompilationJob.html#%24sel%3AcompilationJobArn%3ACreateCompilationJobResponse%27"><span class="hs-identifier hs-var">compilationJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse"><span class="hs-identifier hs-type">CreateCompilationJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span>
+</span><span id="line-372"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680421845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCompilationJob.html#CreateCompilationJobResponse"><span class="hs-identifier hs-type">CreateCompilationJobResponse</span></a></span></span><span>
+</span><span id="line-373"></span></pre></body></html>

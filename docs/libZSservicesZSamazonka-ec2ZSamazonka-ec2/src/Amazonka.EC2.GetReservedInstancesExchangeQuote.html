@@ -1,0 +1,1283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.GetReservedInstancesExchangeQuote</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a quote and exchange information for exchanging one or more</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified Convertible Reserved Instances for a new Convertible Reserved</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Instance. If the exchange cannot be performed, the reason is returned in</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- the response. Use AcceptReservedInstancesExchangeQuote to perform the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- exchange.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.GetReservedInstancesExchangeQuote</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier">GetReservedInstancesExchangeQuote</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#newGetReservedInstancesExchangeQuote"><span class="hs-identifier">newGetReservedInstancesExchangeQuote</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuote_targetConfigurations"><span class="hs-identifier">getReservedInstancesExchangeQuote_targetConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuote_dryRun"><span class="hs-identifier">getReservedInstancesExchangeQuote_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuote_reservedInstanceIds"><span class="hs-identifier">getReservedInstancesExchangeQuote_reservedInstanceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier">GetReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#newGetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier">newGetReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_validationFailureReason"><span class="hs-identifier">getReservedInstancesExchangeQuoteResponse_validationFailureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_targetConfigurationValueRollup"><span class="hs-identifier">getReservedInstancesExchangeQuoteResponse_targetConfigurationValueRollup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_currencyCode"><span class="hs-identifier">getReservedInstancesExchangeQuoteResponse_currencyCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_targetConfigurationValueSet"><span class="hs-identifier">getReservedInstancesExchangeQuoteResponse_targetConfigurationValueSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup"><span class="hs-identifier">getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt"><span class="hs-identifier">getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_reservedInstanceValueSet"><span class="hs-identifier">getReservedInstancesExchangeQuoteResponse_reservedInstanceValueSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_isValidExchange"><span class="hs-identifier">getReservedInstancesExchangeQuoteResponse_isValidExchange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_paymentDue"><span class="hs-identifier">getReservedInstancesExchangeQuoteResponse_paymentDue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_httpStatus"><span class="hs-identifier">getReservedInstancesExchangeQuoteResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Contains the parameters for GetReservedInstanceExchangeQuote.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- /See:/ 'newGetReservedInstancesExchangeQuote' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621681227203"><span id="local-6989586621681227204"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetReservedInstancesExchangeQuote"><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-var">GetReservedInstancesExchangeQuote</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetReservedInstancesExchangeQuote%27"><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var">GetReservedInstancesExchangeQuote'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration of the target Convertible Reserved Instance to</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- exchange for your current Convertible Reserved Instances.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AtargetConfigurations%3AGetReservedInstancesExchangeQuote%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuote
+-&gt; Maybe [TargetConfigurationRequest]
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AtargetConfigurations%3AGetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var hs-var">targetConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest"><span class="hs-identifier hs-type">TargetConfigurationRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdryRun%3AGetReservedInstancesExchangeQuote%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuote -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AdryRun%3AGetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The IDs of the Convertible Reserved Instances to exchange.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AreservedInstanceIds%3AGetReservedInstancesExchangeQuote%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuote -&gt; [Text]
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AreservedInstanceIds%3AGetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var hs-var">reservedInstanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681227195"><span id="local-6989586621681227197"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuote
+-&gt; GetReservedInstancesExchangeQuote -&gt; Bool
+(GetReservedInstancesExchangeQuote
+ -&gt; GetReservedInstancesExchangeQuote -&gt; Bool)
+-&gt; (GetReservedInstancesExchangeQuote
+    -&gt; GetReservedInstancesExchangeQuote -&gt; Bool)
+-&gt; Eq GetReservedInstancesExchangeQuote
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetReservedInstancesExchangeQuote
+-&gt; GetReservedInstancesExchangeQuote -&gt; Bool
+$c/= :: GetReservedInstancesExchangeQuote
+-&gt; GetReservedInstancesExchangeQuote -&gt; Bool
+== :: GetReservedInstancesExchangeQuote
+-&gt; GetReservedInstancesExchangeQuote -&gt; Bool
+$c== :: GetReservedInstancesExchangeQuote
+-&gt; GetReservedInstancesExchangeQuote -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681227186"><span id="local-6989586621681227188"><span id="local-6989586621681227190"><span id="local-6989586621681227192"><span class="annot"><span class="annottext">ReadPrec [GetReservedInstancesExchangeQuote]
+ReadPrec GetReservedInstancesExchangeQuote
+Int -&gt; ReadS GetReservedInstancesExchangeQuote
+ReadS [GetReservedInstancesExchangeQuote]
+(Int -&gt; ReadS GetReservedInstancesExchangeQuote)
+-&gt; ReadS [GetReservedInstancesExchangeQuote]
+-&gt; ReadPrec GetReservedInstancesExchangeQuote
+-&gt; ReadPrec [GetReservedInstancesExchangeQuote]
+-&gt; Read GetReservedInstancesExchangeQuote
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetReservedInstancesExchangeQuote]
+$creadListPrec :: ReadPrec [GetReservedInstancesExchangeQuote]
+readPrec :: ReadPrec GetReservedInstancesExchangeQuote
+$creadPrec :: ReadPrec GetReservedInstancesExchangeQuote
+readList :: ReadS [GetReservedInstancesExchangeQuote]
+$creadList :: ReadS [GetReservedInstancesExchangeQuote]
+readsPrec :: Int -&gt; ReadS GetReservedInstancesExchangeQuote
+$creadsPrec :: Int -&gt; ReadS GetReservedInstancesExchangeQuote
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681227179"><span id="local-6989586621681227181"><span id="local-6989586621681227183"><span class="annot"><span class="annottext">Int -&gt; GetReservedInstancesExchangeQuote -&gt; ShowS
+[GetReservedInstancesExchangeQuote] -&gt; ShowS
+GetReservedInstancesExchangeQuote -&gt; String
+(Int -&gt; GetReservedInstancesExchangeQuote -&gt; ShowS)
+-&gt; (GetReservedInstancesExchangeQuote -&gt; String)
+-&gt; ([GetReservedInstancesExchangeQuote] -&gt; ShowS)
+-&gt; Show GetReservedInstancesExchangeQuote
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetReservedInstancesExchangeQuote] -&gt; ShowS
+$cshowList :: [GetReservedInstancesExchangeQuote] -&gt; ShowS
+show :: GetReservedInstancesExchangeQuote -&gt; String
+$cshow :: GetReservedInstancesExchangeQuote -&gt; String
+showsPrec :: Int -&gt; GetReservedInstancesExchangeQuote -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetReservedInstancesExchangeQuote -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetReservedInstancesExchangeQuote
+ -&gt; Rep GetReservedInstancesExchangeQuote x)
+-&gt; (forall x.
+    Rep GetReservedInstancesExchangeQuote x
+    -&gt; GetReservedInstancesExchangeQuote)
+-&gt; Generic GetReservedInstancesExchangeQuote
+forall x.
+Rep GetReservedInstancesExchangeQuote x
+-&gt; GetReservedInstancesExchangeQuote
+forall x.
+GetReservedInstancesExchangeQuote
+-&gt; Rep GetReservedInstancesExchangeQuote x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetReservedInstancesExchangeQuote x
+-&gt; GetReservedInstancesExchangeQuote
+$cfrom :: forall x.
+GetReservedInstancesExchangeQuote
+-&gt; Rep GetReservedInstancesExchangeQuote x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'GetReservedInstancesExchangeQuote' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'targetConfigurations', 'getReservedInstancesExchangeQuote_targetConfigurations' - The configuration of the target Convertible Reserved Instance to</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- exchange for your current Convertible Reserved Instances.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'dryRun', 'getReservedInstancesExchangeQuote_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'reservedInstanceIds', 'getReservedInstancesExchangeQuote_reservedInstanceIds' - The IDs of the Convertible Reserved Instances to exchange.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#newGetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">newGetReservedInstancesExchangeQuote</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span><span>
+</span><span id="line-99"></span><span id="newGetReservedInstancesExchangeQuote"><span class="annot"><span class="annottext">newGetReservedInstancesExchangeQuote :: GetReservedInstancesExchangeQuote
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#newGetReservedInstancesExchangeQuote"><span class="hs-identifier hs-var hs-var">newGetReservedInstancesExchangeQuote</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuote' :: Maybe [TargetConfigurationRequest]
+-&gt; Maybe Bool -&gt; [Text] -&gt; GetReservedInstancesExchangeQuote
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote'</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetConfigurations:GetReservedInstancesExchangeQuote' :: Maybe [TargetConfigurationRequest]
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AtargetConfigurations%3AGetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:GetReservedInstancesExchangeQuote' :: Maybe Bool
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AdryRun%3AGetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservedInstanceIds:GetReservedInstancesExchangeQuote' :: [Text]
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AreservedInstanceIds%3AGetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var">reservedInstanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The configuration of the target Convertible Reserved Instance to</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- exchange for your current Convertible Reserved Instances.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuote_targetConfigurations"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuote_targetConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TargetConfigurationRequest.html#TargetConfigurationRequest"><span class="hs-identifier hs-type">TargetConfigurationRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="getReservedInstancesExchangeQuote_targetConfigurations"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuote_targetConfigurations :: (Maybe [TargetConfigurationRequest]
+ -&gt; f (Maybe [TargetConfigurationRequest]))
+-&gt; GetReservedInstancesExchangeQuote
+-&gt; f GetReservedInstancesExchangeQuote
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuote_targetConfigurations"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuote_targetConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuote
+ -&gt; Maybe [TargetConfigurationRequest])
+-&gt; (GetReservedInstancesExchangeQuote
+    -&gt; Maybe [TargetConfigurationRequest]
+    -&gt; GetReservedInstancesExchangeQuote)
+-&gt; Lens
+     GetReservedInstancesExchangeQuote
+     GetReservedInstancesExchangeQuote
+     (Maybe [TargetConfigurationRequest])
+     (Maybe [TargetConfigurationRequest])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227172"><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
+targetConfigurations :: Maybe [TargetConfigurationRequest]
+$sel:targetConfigurations:GetReservedInstancesExchangeQuote' :: GetReservedInstancesExchangeQuote
+-&gt; Maybe [TargetConfigurationRequest]
+</span><a href="#local-6989586621681227172"><span class="hs-identifier hs-var hs-var">targetConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
+</span><a href="#local-6989586621681227172"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227171"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuote
+</span><a href="#local-6989586621681227171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227170"><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
+</span><a href="#local-6989586621681227170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuote
+</span><a href="#local-6989586621681227171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetConfigurations:GetReservedInstancesExchangeQuote' :: Maybe [TargetConfigurationRequest]
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AtargetConfigurations%3AGetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
+</span><a href="#local-6989586621681227170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetConfigurationRequest]
+  -&gt; f (Maybe [TargetConfigurationRequest]))
+ -&gt; GetReservedInstancesExchangeQuote
+ -&gt; f GetReservedInstancesExchangeQuote)
+-&gt; ((Maybe [TargetConfigurationRequest]
+     -&gt; f (Maybe [TargetConfigurationRequest]))
+    -&gt; Maybe [TargetConfigurationRequest]
+    -&gt; f (Maybe [TargetConfigurationRequest]))
+-&gt; (Maybe [TargetConfigurationRequest]
+    -&gt; f (Maybe [TargetConfigurationRequest]))
+-&gt; GetReservedInstancesExchangeQuote
+-&gt; f GetReservedInstancesExchangeQuote
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TargetConfigurationRequest]
+  [TargetConfigurationRequest]
+  [TargetConfigurationRequest]
+  [TargetConfigurationRequest]
+-&gt; Iso
+     (Maybe [TargetConfigurationRequest])
+     (Maybe [TargetConfigurationRequest])
+     (Maybe [TargetConfigurationRequest])
+     (Maybe [TargetConfigurationRequest])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TargetConfigurationRequest]
+  [TargetConfigurationRequest]
+  [TargetConfigurationRequest]
+  [TargetConfigurationRequest]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuote_dryRun"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuote_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="getReservedInstancesExchangeQuote_dryRun"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuote_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetReservedInstancesExchangeQuote
+-&gt; f GetReservedInstancesExchangeQuote
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuote_dryRun"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuote_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuote -&gt; Maybe Bool)
+-&gt; (GetReservedInstancesExchangeQuote
+    -&gt; Maybe Bool -&gt; GetReservedInstancesExchangeQuote)
+-&gt; Lens
+     GetReservedInstancesExchangeQuote
+     GetReservedInstancesExchangeQuote
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227166"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:GetReservedInstancesExchangeQuote' :: GetReservedInstancesExchangeQuote -&gt; Maybe Bool
+</span><a href="#local-6989586621681227166"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681227166"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227165"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuote
+</span><a href="#local-6989586621681227165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227164"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681227164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuote
+</span><a href="#local-6989586621681227165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:GetReservedInstancesExchangeQuote' :: Maybe Bool
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AdryRun%3AGetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681227164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The IDs of the Convertible Reserved Instances to exchange.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuote_reservedInstanceIds"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuote_reservedInstanceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span id="getReservedInstancesExchangeQuote_reservedInstanceIds"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuote_reservedInstanceIds :: ([Text] -&gt; f [Text])
+-&gt; GetReservedInstancesExchangeQuote
+-&gt; f GetReservedInstancesExchangeQuote
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuote_reservedInstanceIds"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuote_reservedInstanceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuote -&gt; [Text])
+-&gt; (GetReservedInstancesExchangeQuote
+    -&gt; [Text] -&gt; GetReservedInstancesExchangeQuote)
+-&gt; Lens
+     GetReservedInstancesExchangeQuote
+     GetReservedInstancesExchangeQuote
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227163"><span class="annot"><span class="annottext">[Text]
+reservedInstanceIds :: [Text]
+$sel:reservedInstanceIds:GetReservedInstancesExchangeQuote' :: GetReservedInstancesExchangeQuote -&gt; [Text]
+</span><a href="#local-6989586621681227163"><span class="hs-identifier hs-var hs-var">reservedInstanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681227163"><span class="hs-identifier hs-var">reservedInstanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227162"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuote
+</span><a href="#local-6989586621681227162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227161"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681227161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuote
+</span><a href="#local-6989586621681227162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstanceIds:GetReservedInstancesExchangeQuote' :: [Text]
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AreservedInstanceIds%3AGetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var">reservedInstanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681227161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; GetReservedInstancesExchangeQuote
+ -&gt; f GetReservedInstancesExchangeQuote)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; GetReservedInstancesExchangeQuote
+-&gt; f GetReservedInstancesExchangeQuote
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621681227157"><span class="annot"><span class="annottext">request :: GetReservedInstancesExchangeQuote
+-&gt; Request GetReservedInstancesExchangeQuote
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetReservedInstancesExchangeQuote
+-&gt; Request GetReservedInstancesExchangeQuote
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621681227153"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetReservedInstancesExchangeQuote
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetReservedInstancesExchangeQuote)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse GetReservedInstancesExchangeQuote))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetReservedInstancesExchangeQuote
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetReservedInstancesExchangeQuote)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681227150"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681227150"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681227149"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681227149"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681227148"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681227148"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ReservationValue
+-&gt; Maybe Text
+-&gt; Maybe [TargetReservationValue]
+-&gt; Maybe ReservationValue
+-&gt; Maybe ISO8601
+-&gt; Maybe [ReservedInstanceReservationValue]
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ReservationValue
+ -&gt; Maybe Text
+ -&gt; Maybe [TargetReservationValue]
+ -&gt; Maybe ReservationValue
+ -&gt; Maybe ISO8601
+ -&gt; Maybe [ReservedInstanceReservationValue]
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ReservationValue
+      -&gt; Maybe Text
+      -&gt; Maybe [TargetReservationValue]
+      -&gt; Maybe ReservationValue
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [ReservedInstanceReservationValue]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetReservedInstancesExchangeQuoteResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681227148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;validationFailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ReservationValue
+   -&gt; Maybe Text
+   -&gt; Maybe [TargetReservationValue]
+   -&gt; Maybe ReservationValue
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [ReservedInstanceReservationValue]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Either String (Maybe ReservationValue)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [TargetReservationValue]
+      -&gt; Maybe ReservationValue
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [ReservedInstanceReservationValue]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetReservedInstancesExchangeQuoteResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681227148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReservationValue)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetConfigurationValueRollup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [TargetReservationValue]
+   -&gt; Maybe ReservationValue
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [ReservedInstanceReservationValue]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [TargetReservationValue]
+      -&gt; Maybe ReservationValue
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [ReservedInstanceReservationValue]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetReservedInstancesExchangeQuoteResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681227148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;currencyCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [TargetReservationValue]
+   -&gt; Maybe ReservationValue
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [ReservedInstanceReservationValue]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Either String (Maybe [TargetReservationValue])
+-&gt; Either
+     String
+     (Maybe ReservationValue
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [ReservedInstanceReservationValue]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetReservedInstancesExchangeQuoteResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681227148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetConfigurationValueSet&quot;</span></span><span>
+</span><span id="line-139"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>                              </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [TargetReservationValue]))
+-&gt; Either String (Maybe [TargetReservationValue])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [TargetReservationValue])
+-&gt; [Node] -&gt; Either String (Maybe [TargetReservationValue])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [TargetReservationValue]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ReservationValue
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [ReservedInstanceReservationValue]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Either String (Maybe ReservationValue)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe [ReservedInstanceReservationValue]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetReservedInstancesExchangeQuoteResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681227148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReservationValue)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reservedInstanceValueRollup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe [ReservedInstanceReservationValue]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe [ReservedInstanceReservationValue]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetReservedInstancesExchangeQuoteResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681227148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputReservedInstancesWillExpireAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ReservedInstanceReservationValue]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Either String (Maybe [ReservedInstanceReservationValue])
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Text -&gt; Int -&gt; GetReservedInstancesExchangeQuoteResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681227148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reservedInstanceValueSet&quot;</span></span><span>
+</span><span id="line-145"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-146"></span><span>                              </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [ReservedInstanceReservationValue]))
+-&gt; Either String (Maybe [ReservedInstanceReservationValue])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ReservedInstanceReservationValue])
+-&gt; [Node]
+-&gt; Either String (Maybe [ReservedInstanceReservationValue])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ReservedInstanceReservationValue]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text -&gt; Int -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; GetReservedInstancesExchangeQuoteResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681227148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isValidExchange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetReservedInstancesExchangeQuoteResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681227148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;paymentDue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Either String Int
+-&gt; Either String GetReservedInstancesExchangeQuoteResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681227150"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621681227137"><span id="local-6989586621681227139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621681227134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621681227130"><span class="annot"><span class="annottext">toHeaders :: GetReservedInstancesExchangeQuote -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetReservedInstancesExchangeQuote -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621681227125"><span class="annot"><span class="annottext">toPath :: GetReservedInstancesExchangeQuote -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetReservedInstancesExchangeQuote -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621681227121"><span class="annot"><span class="annottext">toQuery :: GetReservedInstancesExchangeQuote -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227117"><span id="local-6989586621681227118"><span id="local-6989586621681227119"><span class="annot"><span class="annottext">[Text]
+Maybe Bool
+Maybe [TargetConfigurationRequest]
+reservedInstanceIds :: [Text]
+dryRun :: Maybe Bool
+targetConfigurations :: Maybe [TargetConfigurationRequest]
+$sel:reservedInstanceIds:GetReservedInstancesExchangeQuote' :: GetReservedInstancesExchangeQuote -&gt; [Text]
+$sel:dryRun:GetReservedInstancesExchangeQuote' :: GetReservedInstancesExchangeQuote -&gt; Maybe Bool
+$sel:targetConfigurations:GetReservedInstancesExchangeQuote' :: GetReservedInstancesExchangeQuote
+-&gt; Maybe [TargetConfigurationRequest]
+</span><a href="#local-6989586621681227117"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetReservedInstancesExchangeQuote&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-181"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-182"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [TargetConfigurationRequest] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TargetConfiguration&quot;</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">([TargetConfigurationRequest] -&gt; QueryString)
+-&gt; Maybe [TargetConfigurationRequest] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
+</span><a href="#local-6989586621681227119"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681227118"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span>
+</span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReservedInstanceId&quot;</span></span><span>
+</span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681227117"><span class="hs-identifier hs-var">reservedInstanceIds</span></a></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | Contains the output of GetReservedInstancesExchangeQuote.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- /See:/ 'newGetReservedInstancesExchangeQuoteResponse' smart constructor.</span><span>
+</span><span id="line-198"></span><span id="local-6989586621681227113"><span id="local-6989586621681227114"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetReservedInstancesExchangeQuoteResponse"><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-var">GetReservedInstancesExchangeQuoteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetReservedInstancesExchangeQuoteResponse%27"><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">GetReservedInstancesExchangeQuoteResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the reason why the exchange cannot be completed.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3AvalidationFailureReason%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AvalidationFailureReason%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var hs-var">validationFailureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | The cost associated with the Reserved Instance.</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3AtargetConfigurationValueRollup%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse -&gt; Maybe ReservationValue
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AtargetConfigurationValueRollup%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var hs-var">targetConfigurationValueRollup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- | The currency of the transaction.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3AcurrencyCode%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AcurrencyCode%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The values of the target Convertible Reserved Instances.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3AtargetConfigurationValueSet%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+-&gt; Maybe [TargetReservationValue]
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AtargetConfigurationValueSet%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var hs-var">targetConfigurationValueSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TargetReservationValue.html#TargetReservationValue"><span class="hs-identifier hs-type">TargetReservationValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- | The cost associated with the Reserved Instance.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AreservedInstanceValueRollup%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse -&gt; Maybe ReservationValue
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AreservedInstanceValueRollup%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var hs-var">reservedInstanceValueRollup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | The new end date of the reservation term.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AoutputReservedInstancesWillExpireAt%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse -&gt; Maybe ISO8601
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AoutputReservedInstancesWillExpireAt%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var hs-var">outputReservedInstancesWillExpireAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | The configuration of your Convertible Reserved Instances.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AreservedInstanceValueSet%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+-&gt; Maybe [ReservedInstanceReservationValue]
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AreservedInstanceValueSet%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var hs-var">reservedInstanceValueSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue"><span class="hs-identifier hs-type">ReservedInstanceReservationValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | If @true@, the exchange is valid. If @false@, the exchange cannot be</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- completed.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AisValidExchange%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AisValidExchange%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var hs-var">isValidExchange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | The total true upfront charge for the exchange.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3ApaymentDue%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3ApaymentDue%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var hs-var">paymentDue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse -&gt; Int
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AhttpStatus%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681227099"><span id="local-6989586621681227101"><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+-&gt; GetReservedInstancesExchangeQuoteResponse -&gt; Bool
+(GetReservedInstancesExchangeQuoteResponse
+ -&gt; GetReservedInstancesExchangeQuoteResponse -&gt; Bool)
+-&gt; (GetReservedInstancesExchangeQuoteResponse
+    -&gt; GetReservedInstancesExchangeQuoteResponse -&gt; Bool)
+-&gt; Eq GetReservedInstancesExchangeQuoteResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetReservedInstancesExchangeQuoteResponse
+-&gt; GetReservedInstancesExchangeQuoteResponse -&gt; Bool
+$c/= :: GetReservedInstancesExchangeQuoteResponse
+-&gt; GetReservedInstancesExchangeQuoteResponse -&gt; Bool
+== :: GetReservedInstancesExchangeQuoteResponse
+-&gt; GetReservedInstancesExchangeQuoteResponse -&gt; Bool
+$c== :: GetReservedInstancesExchangeQuoteResponse
+-&gt; GetReservedInstancesExchangeQuoteResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681227091"><span id="local-6989586621681227093"><span id="local-6989586621681227095"><span id="local-6989586621681227097"><span class="annot"><span class="annottext">ReadPrec [GetReservedInstancesExchangeQuoteResponse]
+ReadPrec GetReservedInstancesExchangeQuoteResponse
+Int -&gt; ReadS GetReservedInstancesExchangeQuoteResponse
+ReadS [GetReservedInstancesExchangeQuoteResponse]
+(Int -&gt; ReadS GetReservedInstancesExchangeQuoteResponse)
+-&gt; ReadS [GetReservedInstancesExchangeQuoteResponse]
+-&gt; ReadPrec GetReservedInstancesExchangeQuoteResponse
+-&gt; ReadPrec [GetReservedInstancesExchangeQuoteResponse]
+-&gt; Read GetReservedInstancesExchangeQuoteResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetReservedInstancesExchangeQuoteResponse]
+$creadListPrec :: ReadPrec [GetReservedInstancesExchangeQuoteResponse]
+readPrec :: ReadPrec GetReservedInstancesExchangeQuoteResponse
+$creadPrec :: ReadPrec GetReservedInstancesExchangeQuoteResponse
+readList :: ReadS [GetReservedInstancesExchangeQuoteResponse]
+$creadList :: ReadS [GetReservedInstancesExchangeQuoteResponse]
+readsPrec :: Int -&gt; ReadS GetReservedInstancesExchangeQuoteResponse
+$creadsPrec :: Int -&gt; ReadS GetReservedInstancesExchangeQuoteResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681227085"><span id="local-6989586621681227087"><span id="local-6989586621681227089"><span class="annot"><span class="annottext">Int -&gt; GetReservedInstancesExchangeQuoteResponse -&gt; ShowS
+[GetReservedInstancesExchangeQuoteResponse] -&gt; ShowS
+GetReservedInstancesExchangeQuoteResponse -&gt; String
+(Int -&gt; GetReservedInstancesExchangeQuoteResponse -&gt; ShowS)
+-&gt; (GetReservedInstancesExchangeQuoteResponse -&gt; String)
+-&gt; ([GetReservedInstancesExchangeQuoteResponse] -&gt; ShowS)
+-&gt; Show GetReservedInstancesExchangeQuoteResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetReservedInstancesExchangeQuoteResponse] -&gt; ShowS
+$cshowList :: [GetReservedInstancesExchangeQuoteResponse] -&gt; ShowS
+show :: GetReservedInstancesExchangeQuoteResponse -&gt; String
+$cshow :: GetReservedInstancesExchangeQuoteResponse -&gt; String
+showsPrec :: Int -&gt; GetReservedInstancesExchangeQuoteResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetReservedInstancesExchangeQuoteResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetReservedInstancesExchangeQuoteResponse
+ -&gt; Rep GetReservedInstancesExchangeQuoteResponse x)
+-&gt; (forall x.
+    Rep GetReservedInstancesExchangeQuoteResponse x
+    -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Generic GetReservedInstancesExchangeQuoteResponse
+forall x.
+Rep GetReservedInstancesExchangeQuoteResponse x
+-&gt; GetReservedInstancesExchangeQuoteResponse
+forall x.
+GetReservedInstancesExchangeQuoteResponse
+-&gt; Rep GetReservedInstancesExchangeQuoteResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetReservedInstancesExchangeQuoteResponse x
+-&gt; GetReservedInstancesExchangeQuoteResponse
+$cfrom :: forall x.
+GetReservedInstancesExchangeQuoteResponse
+-&gt; Rep GetReservedInstancesExchangeQuoteResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Create a value of 'GetReservedInstancesExchangeQuoteResponse' with all optional fields omitted.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'validationFailureReason', 'getReservedInstancesExchangeQuoteResponse_validationFailureReason' - Describes the reason why the exchange cannot be completed.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'targetConfigurationValueRollup', 'getReservedInstancesExchangeQuoteResponse_targetConfigurationValueRollup' - The cost associated with the Reserved Instance.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'currencyCode', 'getReservedInstancesExchangeQuoteResponse_currencyCode' - The currency of the transaction.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'targetConfigurationValueSet', 'getReservedInstancesExchangeQuoteResponse_targetConfigurationValueSet' - The values of the target Convertible Reserved Instances.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'reservedInstanceValueRollup', 'getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup' - The cost associated with the Reserved Instance.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'outputReservedInstancesWillExpireAt', 'getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt' - The new end date of the reservation term.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'reservedInstanceValueSet', 'getReservedInstancesExchangeQuoteResponse_reservedInstanceValueSet' - The configuration of your Convertible Reserved Instances.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'isValidExchange', 'getReservedInstancesExchangeQuoteResponse_isValidExchange' - If @true@, the exchange is valid. If @false@, the exchange cannot be</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- completed.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'paymentDue', 'getReservedInstancesExchangeQuoteResponse_paymentDue' - The total true upfront charge for the exchange.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- 'httpStatus', 'getReservedInstancesExchangeQuoteResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#newGetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">newGetReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-253"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span>
+</span><span id="line-255"></span><span id="newGetReservedInstancesExchangeQuoteResponse"><span class="annot"><span class="annottext">newGetReservedInstancesExchangeQuoteResponse :: Int -&gt; GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#newGetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-var hs-var">newGetReservedInstancesExchangeQuoteResponse</span></a></span></span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621681227082"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681227082"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse' :: Maybe Text
+-&gt; Maybe ReservationValue
+-&gt; Maybe Text
+-&gt; Maybe [TargetReservationValue]
+-&gt; Maybe ReservationValue
+-&gt; Maybe ISO8601
+-&gt; Maybe [ReservedInstanceReservationValue]
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:validationFailureReason:GetReservedInstancesExchangeQuoteResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AvalidationFailureReason%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">validationFailureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetConfigurationValueRollup:GetReservedInstancesExchangeQuoteResponse' :: Maybe ReservationValue
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AtargetConfigurationValueRollup%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">targetConfigurationValueRollup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReservationValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">$sel:currencyCode:GetReservedInstancesExchangeQuoteResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AcurrencyCode%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetConfigurationValueSet:GetReservedInstancesExchangeQuoteResponse' :: Maybe [TargetReservationValue]
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AtargetConfigurationValueSet%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">targetConfigurationValueSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TargetReservationValue]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">$sel:reservedInstanceValueRollup:GetReservedInstancesExchangeQuoteResponse' :: Maybe ReservationValue
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AreservedInstanceValueRollup%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">reservedInstanceValueRollup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReservationValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputReservedInstancesWillExpireAt:GetReservedInstancesExchangeQuoteResponse' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AoutputReservedInstancesWillExpireAt%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">outputReservedInstancesWillExpireAt</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>          </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">$sel:reservedInstanceValueSet:GetReservedInstancesExchangeQuoteResponse' :: Maybe [ReservedInstanceReservationValue]
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AreservedInstanceValueSet%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">reservedInstanceValueSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ReservedInstanceReservationValue]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">$sel:isValidExchange:GetReservedInstancesExchangeQuoteResponse' :: Maybe Bool
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AisValidExchange%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">isValidExchange</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">$sel:paymentDue:GetReservedInstancesExchangeQuoteResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3ApaymentDue%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">paymentDue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetReservedInstancesExchangeQuoteResponse' :: Int
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AhttpStatus%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681227082"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-275"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | Describes the reason why the exchange cannot be completed.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_validationFailureReason"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuoteResponse_validationFailureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="getReservedInstancesExchangeQuoteResponse_validationFailureReason"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuoteResponse_validationFailureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_validationFailureReason"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuoteResponse_validationFailureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuoteResponse -&gt; Maybe Text)
+-&gt; (GetReservedInstancesExchangeQuoteResponse
+    -&gt; Maybe Text -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Lens
+     GetReservedInstancesExchangeQuoteResponse
+     GetReservedInstancesExchangeQuoteResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227081"><span class="annot"><span class="annottext">Maybe Text
+validationFailureReason :: Maybe Text
+$sel:validationFailureReason:GetReservedInstancesExchangeQuoteResponse' :: GetReservedInstancesExchangeQuoteResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681227081"><span class="hs-identifier hs-var hs-var">validationFailureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227081"><span class="hs-identifier hs-var">validationFailureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227080"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227079"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationFailureReason:GetReservedInstancesExchangeQuoteResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AvalidationFailureReason%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">validationFailureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | The cost associated with the Reserved Instance.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_targetConfigurationValueRollup"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuoteResponse_targetConfigurationValueRollup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="getReservedInstancesExchangeQuoteResponse_targetConfigurationValueRollup"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuoteResponse_targetConfigurationValueRollup :: (Maybe ReservationValue -&gt; f (Maybe ReservationValue))
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_targetConfigurationValueRollup"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuoteResponse_targetConfigurationValueRollup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuoteResponse
+ -&gt; Maybe ReservationValue)
+-&gt; (GetReservedInstancesExchangeQuoteResponse
+    -&gt; Maybe ReservationValue
+    -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Lens
+     GetReservedInstancesExchangeQuoteResponse
+     GetReservedInstancesExchangeQuoteResponse
+     (Maybe ReservationValue)
+     (Maybe ReservationValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227078"><span class="annot"><span class="annottext">Maybe ReservationValue
+targetConfigurationValueRollup :: Maybe ReservationValue
+$sel:targetConfigurationValueRollup:GetReservedInstancesExchangeQuoteResponse' :: GetReservedInstancesExchangeQuoteResponse -&gt; Maybe ReservationValue
+</span><a href="#local-6989586621681227078"><span class="hs-identifier hs-var hs-var">targetConfigurationValueRollup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationValue
+</span><a href="#local-6989586621681227078"><span class="hs-identifier hs-var">targetConfigurationValueRollup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227077"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227076"><span class="annot"><span class="annottext">Maybe ReservationValue
+</span><a href="#local-6989586621681227076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetConfigurationValueRollup:GetReservedInstancesExchangeQuoteResponse' :: Maybe ReservationValue
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AtargetConfigurationValueRollup%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">targetConfigurationValueRollup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationValue
+</span><a href="#local-6989586621681227076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The currency of the transaction.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_currencyCode"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuoteResponse_currencyCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="getReservedInstancesExchangeQuoteResponse_currencyCode"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuoteResponse_currencyCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_currencyCode"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuoteResponse_currencyCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuoteResponse -&gt; Maybe Text)
+-&gt; (GetReservedInstancesExchangeQuoteResponse
+    -&gt; Maybe Text -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Lens
+     GetReservedInstancesExchangeQuoteResponse
+     GetReservedInstancesExchangeQuoteResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227075"><span class="annot"><span class="annottext">Maybe Text
+currencyCode :: Maybe Text
+$sel:currencyCode:GetReservedInstancesExchangeQuoteResponse' :: GetReservedInstancesExchangeQuoteResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681227075"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227075"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227074"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227073"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:GetReservedInstancesExchangeQuoteResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AcurrencyCode%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The values of the target Convertible Reserved Instances.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_targetConfigurationValueSet"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuoteResponse_targetConfigurationValueSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.TargetReservationValue.html#TargetReservationValue"><span class="hs-identifier hs-type">TargetReservationValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="getReservedInstancesExchangeQuoteResponse_targetConfigurationValueSet"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuoteResponse_targetConfigurationValueSet :: (Maybe [TargetReservationValue]
+ -&gt; f (Maybe [TargetReservationValue]))
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_targetConfigurationValueSet"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuoteResponse_targetConfigurationValueSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuoteResponse
+ -&gt; Maybe [TargetReservationValue])
+-&gt; (GetReservedInstancesExchangeQuoteResponse
+    -&gt; Maybe [TargetReservationValue]
+    -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Lens
+     GetReservedInstancesExchangeQuoteResponse
+     GetReservedInstancesExchangeQuoteResponse
+     (Maybe [TargetReservationValue])
+     (Maybe [TargetReservationValue])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227072"><span class="annot"><span class="annottext">Maybe [TargetReservationValue]
+targetConfigurationValueSet :: Maybe [TargetReservationValue]
+$sel:targetConfigurationValueSet:GetReservedInstancesExchangeQuoteResponse' :: GetReservedInstancesExchangeQuoteResponse
+-&gt; Maybe [TargetReservationValue]
+</span><a href="#local-6989586621681227072"><span class="hs-identifier hs-var hs-var">targetConfigurationValueSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetReservationValue]
+</span><a href="#local-6989586621681227072"><span class="hs-identifier hs-var">targetConfigurationValueSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227071"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227070"><span class="annot"><span class="annottext">Maybe [TargetReservationValue]
+</span><a href="#local-6989586621681227070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetConfigurationValueSet:GetReservedInstancesExchangeQuoteResponse' :: Maybe [TargetReservationValue]
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AtargetConfigurationValueSet%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">targetConfigurationValueSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetReservationValue]
+</span><a href="#local-6989586621681227070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetReservationValue]
+  -&gt; f (Maybe [TargetReservationValue]))
+ -&gt; GetReservedInstancesExchangeQuoteResponse
+ -&gt; f GetReservedInstancesExchangeQuoteResponse)
+-&gt; ((Maybe [TargetReservationValue]
+     -&gt; f (Maybe [TargetReservationValue]))
+    -&gt; Maybe [TargetReservationValue]
+    -&gt; f (Maybe [TargetReservationValue]))
+-&gt; (Maybe [TargetReservationValue]
+    -&gt; f (Maybe [TargetReservationValue]))
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TargetReservationValue]
+  [TargetReservationValue]
+  [TargetReservationValue]
+  [TargetReservationValue]
+-&gt; Iso
+     (Maybe [TargetReservationValue])
+     (Maybe [TargetReservationValue])
+     (Maybe [TargetReservationValue])
+     (Maybe [TargetReservationValue])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TargetReservationValue]
+  [TargetReservationValue]
+  [TargetReservationValue]
+  [TargetReservationValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The cost associated with the Reserved Instance.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span id="getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup :: (Maybe ReservationValue -&gt; f (Maybe ReservationValue))
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuoteResponse
+ -&gt; Maybe ReservationValue)
+-&gt; (GetReservedInstancesExchangeQuoteResponse
+    -&gt; Maybe ReservationValue
+    -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Lens
+     GetReservedInstancesExchangeQuoteResponse
+     GetReservedInstancesExchangeQuoteResponse
+     (Maybe ReservationValue)
+     (Maybe ReservationValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227069"><span class="annot"><span class="annottext">Maybe ReservationValue
+reservedInstanceValueRollup :: Maybe ReservationValue
+$sel:reservedInstanceValueRollup:GetReservedInstancesExchangeQuoteResponse' :: GetReservedInstancesExchangeQuoteResponse -&gt; Maybe ReservationValue
+</span><a href="#local-6989586621681227069"><span class="hs-identifier hs-var hs-var">reservedInstanceValueRollup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationValue
+</span><a href="#local-6989586621681227069"><span class="hs-identifier hs-var">reservedInstanceValueRollup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227068"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227067"><span class="annot"><span class="annottext">Maybe ReservationValue
+</span><a href="#local-6989586621681227067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstanceValueRollup:GetReservedInstancesExchangeQuoteResponse' :: Maybe ReservationValue
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AreservedInstanceValueRollup%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">reservedInstanceValueRollup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationValue
+</span><a href="#local-6989586621681227067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | The new end date of the reservation term.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span id="getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuoteResponse -&gt; Maybe ISO8601)
+-&gt; (GetReservedInstancesExchangeQuoteResponse
+    -&gt; Maybe ISO8601 -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Lens
+     GetReservedInstancesExchangeQuoteResponse
+     GetReservedInstancesExchangeQuoteResponse
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227066"><span class="annot"><span class="annottext">Maybe ISO8601
+outputReservedInstancesWillExpireAt :: Maybe ISO8601
+$sel:outputReservedInstancesWillExpireAt:GetReservedInstancesExchangeQuoteResponse' :: GetReservedInstancesExchangeQuoteResponse -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681227066"><span class="hs-identifier hs-var hs-var">outputReservedInstancesWillExpireAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681227066"><span class="hs-identifier hs-var">outputReservedInstancesWillExpireAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227065"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227064"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681227064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputReservedInstancesWillExpireAt:GetReservedInstancesExchangeQuoteResponse' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AoutputReservedInstancesWillExpireAt%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">outputReservedInstancesWillExpireAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681227064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; GetReservedInstancesExchangeQuoteResponse
+ -&gt; f GetReservedInstancesExchangeQuoteResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- | The configuration of your Convertible Reserved Instances.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_reservedInstanceValueSet"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuoteResponse_reservedInstanceValueSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue"><span class="hs-identifier hs-type">ReservedInstanceReservationValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="getReservedInstancesExchangeQuoteResponse_reservedInstanceValueSet"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuoteResponse_reservedInstanceValueSet :: (Maybe [ReservedInstanceReservationValue]
+ -&gt; f (Maybe [ReservedInstanceReservationValue]))
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_reservedInstanceValueSet"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuoteResponse_reservedInstanceValueSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuoteResponse
+ -&gt; Maybe [ReservedInstanceReservationValue])
+-&gt; (GetReservedInstancesExchangeQuoteResponse
+    -&gt; Maybe [ReservedInstanceReservationValue]
+    -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Lens
+     GetReservedInstancesExchangeQuoteResponse
+     GetReservedInstancesExchangeQuoteResponse
+     (Maybe [ReservedInstanceReservationValue])
+     (Maybe [ReservedInstanceReservationValue])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227062"><span class="annot"><span class="annottext">Maybe [ReservedInstanceReservationValue]
+reservedInstanceValueSet :: Maybe [ReservedInstanceReservationValue]
+$sel:reservedInstanceValueSet:GetReservedInstancesExchangeQuoteResponse' :: GetReservedInstancesExchangeQuoteResponse
+-&gt; Maybe [ReservedInstanceReservationValue]
+</span><a href="#local-6989586621681227062"><span class="hs-identifier hs-var hs-var">reservedInstanceValueSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReservedInstanceReservationValue]
+</span><a href="#local-6989586621681227062"><span class="hs-identifier hs-var">reservedInstanceValueSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227061"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227060"><span class="annot"><span class="annottext">Maybe [ReservedInstanceReservationValue]
+</span><a href="#local-6989586621681227060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstanceValueSet:GetReservedInstancesExchangeQuoteResponse' :: Maybe [ReservedInstanceReservationValue]
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AreservedInstanceValueSet%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">reservedInstanceValueSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReservedInstanceReservationValue]
+</span><a href="#local-6989586621681227060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReservedInstanceReservationValue]
+  -&gt; f (Maybe [ReservedInstanceReservationValue]))
+ -&gt; GetReservedInstancesExchangeQuoteResponse
+ -&gt; f GetReservedInstancesExchangeQuoteResponse)
+-&gt; ((Maybe [ReservedInstanceReservationValue]
+     -&gt; f (Maybe [ReservedInstanceReservationValue]))
+    -&gt; Maybe [ReservedInstanceReservationValue]
+    -&gt; f (Maybe [ReservedInstanceReservationValue]))
+-&gt; (Maybe [ReservedInstanceReservationValue]
+    -&gt; f (Maybe [ReservedInstanceReservationValue]))
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReservedInstanceReservationValue]
+  [ReservedInstanceReservationValue]
+  [ReservedInstanceReservationValue]
+  [ReservedInstanceReservationValue]
+-&gt; Iso
+     (Maybe [ReservedInstanceReservationValue])
+     (Maybe [ReservedInstanceReservationValue])
+     (Maybe [ReservedInstanceReservationValue])
+     (Maybe [ReservedInstanceReservationValue])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReservedInstanceReservationValue]
+  [ReservedInstanceReservationValue]
+  [ReservedInstanceReservationValue]
+  [ReservedInstanceReservationValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | If @true@, the exchange is valid. If @false@, the exchange cannot be</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- completed.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_isValidExchange"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuoteResponse_isValidExchange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span id="getReservedInstancesExchangeQuoteResponse_isValidExchange"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuoteResponse_isValidExchange :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_isValidExchange"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuoteResponse_isValidExchange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuoteResponse -&gt; Maybe Bool)
+-&gt; (GetReservedInstancesExchangeQuoteResponse
+    -&gt; Maybe Bool -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Lens
+     GetReservedInstancesExchangeQuoteResponse
+     GetReservedInstancesExchangeQuoteResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227059"><span class="annot"><span class="annottext">Maybe Bool
+isValidExchange :: Maybe Bool
+$sel:isValidExchange:GetReservedInstancesExchangeQuoteResponse' :: GetReservedInstancesExchangeQuoteResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621681227059"><span class="hs-identifier hs-var hs-var">isValidExchange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681227059"><span class="hs-identifier hs-var">isValidExchange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227058"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227057"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681227057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isValidExchange:GetReservedInstancesExchangeQuoteResponse' :: Maybe Bool
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AisValidExchange%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">isValidExchange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681227057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | The total true upfront charge for the exchange.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_paymentDue"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuoteResponse_paymentDue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span id="getReservedInstancesExchangeQuoteResponse_paymentDue"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuoteResponse_paymentDue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_paymentDue"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuoteResponse_paymentDue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuoteResponse -&gt; Maybe Text)
+-&gt; (GetReservedInstancesExchangeQuoteResponse
+    -&gt; Maybe Text -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Lens
+     GetReservedInstancesExchangeQuoteResponse
+     GetReservedInstancesExchangeQuoteResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227056"><span class="annot"><span class="annottext">Maybe Text
+paymentDue :: Maybe Text
+$sel:paymentDue:GetReservedInstancesExchangeQuoteResponse' :: GetReservedInstancesExchangeQuoteResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681227056"><span class="hs-identifier hs-var hs-var">paymentDue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227056"><span class="hs-identifier hs-var">paymentDue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227055"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227054"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paymentDue:GetReservedInstancesExchangeQuoteResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3ApaymentDue%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">paymentDue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681227054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_httpStatus"><span class="hs-identifier hs-type">getReservedInstancesExchangeQuoteResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-316"></span><span id="getReservedInstancesExchangeQuoteResponse_httpStatus"><span class="annot"><span class="annottext">getReservedInstancesExchangeQuoteResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetReservedInstancesExchangeQuoteResponse
+-&gt; f GetReservedInstancesExchangeQuoteResponse
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#getReservedInstancesExchangeQuoteResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getReservedInstancesExchangeQuoteResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetReservedInstancesExchangeQuoteResponse -&gt; Int)
+-&gt; (GetReservedInstancesExchangeQuoteResponse
+    -&gt; Int -&gt; GetReservedInstancesExchangeQuoteResponse)
+-&gt; Lens
+     GetReservedInstancesExchangeQuoteResponse
+     GetReservedInstancesExchangeQuoteResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227053"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetReservedInstancesExchangeQuoteResponse' :: GetReservedInstancesExchangeQuoteResponse -&gt; Int
+</span><a href="#local-6989586621681227053"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681227053"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227052"><span class="annot"><span class="annottext">s :: GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227051"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681227051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681227052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetReservedInstancesExchangeQuoteResponse' :: Int
+</span><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#%24sel%3AhttpStatus%3AGetReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681227051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621681227049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetReservedInstancesExchangeQuote.html#GetReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">GetReservedInstancesExchangeQuoteResponse</span></a></span></span><span>
+</span><span id="line-321"></span></pre></body></html>

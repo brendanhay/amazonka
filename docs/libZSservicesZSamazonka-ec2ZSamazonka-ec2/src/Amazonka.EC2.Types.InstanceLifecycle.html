@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.InstanceLifecycle</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.InstanceLifecycle</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle"><span class="hs-identifier">InstanceLifecycle</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle_On_demand"><span class="hs-identifier">InstanceLifecycle_On_demand</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle_Spot"><span class="hs-identifier">InstanceLifecycle_Spot</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681116179"><span id="local-6989586621681116180"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceLifecycle"><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle"><span class="hs-identifier hs-var">InstanceLifecycle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceLifecycle%27"><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle%27"><span class="hs-identifier hs-var">InstanceLifecycle'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceLifecycle"><span class="annot"><span class="annottext">InstanceLifecycle -&gt; Text
+</span><a href="Amazonka.EC2.Types.InstanceLifecycle.html#fromInstanceLifecycle"><span class="hs-identifier hs-var hs-var">fromInstanceLifecycle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681116171"><span id="local-6989586621681116173"><span id="local-6989586621681116175"><span class="annot"><span class="annottext">Int -&gt; InstanceLifecycle -&gt; ShowS
+[InstanceLifecycle] -&gt; ShowS
+InstanceLifecycle -&gt; String
+(Int -&gt; InstanceLifecycle -&gt; ShowS)
+-&gt; (InstanceLifecycle -&gt; String)
+-&gt; ([InstanceLifecycle] -&gt; ShowS)
+-&gt; Show InstanceLifecycle
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceLifecycle] -&gt; ShowS
+$cshowList :: [InstanceLifecycle] -&gt; ShowS
+show :: InstanceLifecycle -&gt; String
+$cshow :: InstanceLifecycle -&gt; String
+showsPrec :: Int -&gt; InstanceLifecycle -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceLifecycle -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681116162"><span id="local-6989586621681116164"><span id="local-6989586621681116166"><span id="local-6989586621681116168"><span class="annot"><span class="annottext">ReadPrec [InstanceLifecycle]
+ReadPrec InstanceLifecycle
+Int -&gt; ReadS InstanceLifecycle
+ReadS [InstanceLifecycle]
+(Int -&gt; ReadS InstanceLifecycle)
+-&gt; ReadS [InstanceLifecycle]
+-&gt; ReadPrec InstanceLifecycle
+-&gt; ReadPrec [InstanceLifecycle]
+-&gt; Read InstanceLifecycle
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceLifecycle]
+$creadListPrec :: ReadPrec [InstanceLifecycle]
+readPrec :: ReadPrec InstanceLifecycle
+$creadPrec :: ReadPrec InstanceLifecycle
+readList :: ReadS [InstanceLifecycle]
+$creadList :: ReadS [InstanceLifecycle]
+readsPrec :: Int -&gt; ReadS InstanceLifecycle
+$creadsPrec :: Int -&gt; ReadS InstanceLifecycle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681116157"><span id="local-6989586621681116159"><span class="annot"><span class="annottext">InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+(InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool)
+-&gt; (InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool)
+-&gt; Eq InstanceLifecycle
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+$c/= :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+== :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+$c== :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681116141"><span id="local-6989586621681116143"><span id="local-6989586621681116145"><span id="local-6989586621681116147"><span id="local-6989586621681116149"><span id="local-6989586621681116151"><span id="local-6989586621681116153"><span class="annot"><span class="annottext">Eq InstanceLifecycle
+Eq InstanceLifecycle
+-&gt; (InstanceLifecycle -&gt; InstanceLifecycle -&gt; Ordering)
+-&gt; (InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool)
+-&gt; (InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool)
+-&gt; (InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool)
+-&gt; (InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool)
+-&gt; (InstanceLifecycle -&gt; InstanceLifecycle -&gt; InstanceLifecycle)
+-&gt; (InstanceLifecycle -&gt; InstanceLifecycle -&gt; InstanceLifecycle)
+-&gt; Ord InstanceLifecycle
+InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+InstanceLifecycle -&gt; InstanceLifecycle -&gt; Ordering
+InstanceLifecycle -&gt; InstanceLifecycle -&gt; InstanceLifecycle
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; InstanceLifecycle
+$cmin :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; InstanceLifecycle
+max :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; InstanceLifecycle
+$cmax :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; InstanceLifecycle
+&gt;= :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+$c&gt;= :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+&gt; :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+$c&gt; :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+&lt;= :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+$c&lt;= :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+&lt; :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+$c&lt; :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Bool
+compare :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Ordering
+$ccompare :: InstanceLifecycle -&gt; InstanceLifecycle -&gt; Ordering
+$cp1Ord :: Eq InstanceLifecycle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InstanceLifecycle -&gt; Rep InstanceLifecycle x)
+-&gt; (forall x. Rep InstanceLifecycle x -&gt; InstanceLifecycle)
+-&gt; Generic InstanceLifecycle
+forall x. Rep InstanceLifecycle x -&gt; InstanceLifecycle
+forall x. InstanceLifecycle -&gt; Rep InstanceLifecycle x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceLifecycle x -&gt; InstanceLifecycle
+$cfrom :: forall x. InstanceLifecycle -&gt; Rep InstanceLifecycle x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681116133"><span id="local-6989586621681116135"><span class="annot"><span class="annottext">Int -&gt; InstanceLifecycle -&gt; Int
+InstanceLifecycle -&gt; Int
+(Int -&gt; InstanceLifecycle -&gt; Int)
+-&gt; (InstanceLifecycle -&gt; Int) -&gt; Hashable InstanceLifecycle
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InstanceLifecycle -&gt; Int
+$chash :: InstanceLifecycle -&gt; Int
+hashWithSalt :: Int -&gt; InstanceLifecycle -&gt; Int
+$chashWithSalt :: Int -&gt; InstanceLifecycle -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681116130"><span class="annot"><span class="annottext">InstanceLifecycle -&gt; ()
+(InstanceLifecycle -&gt; ()) -&gt; NFData InstanceLifecycle
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InstanceLifecycle -&gt; ()
+$crnf :: InstanceLifecycle -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681116127"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceLifecycle
+(Text -&gt; Either String InstanceLifecycle)
+-&gt; FromText InstanceLifecycle
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InstanceLifecycle
+$cfromText :: Text -&gt; Either String InstanceLifecycle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681116124"><span class="annot"><span class="annottext">InstanceLifecycle -&gt; Text
+(InstanceLifecycle -&gt; Text) -&gt; ToText InstanceLifecycle
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InstanceLifecycle -&gt; Text
+$ctoText :: InstanceLifecycle -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681116121"><span class="annot"><span class="annottext">InstanceLifecycle -&gt; ByteString
+(InstanceLifecycle -&gt; ByteString) -&gt; ToByteString InstanceLifecycle
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InstanceLifecycle -&gt; ByteString
+$ctoBS :: InstanceLifecycle -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681116118"><span class="annot"><span class="annottext">InstanceLifecycle -&gt; ByteStringBuilder
+(InstanceLifecycle -&gt; ByteStringBuilder) -&gt; ToLog InstanceLifecycle
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InstanceLifecycle -&gt; ByteStringBuilder
+$cbuild :: InstanceLifecycle -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681116115"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceLifecycle -&gt; [Header]
+(HeaderName -&gt; InstanceLifecycle -&gt; [Header])
+-&gt; ToHeader InstanceLifecycle
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InstanceLifecycle -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InstanceLifecycle -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681116112"><span class="annot"><span class="annottext">InstanceLifecycle -&gt; QueryString
+(InstanceLifecycle -&gt; QueryString) -&gt; ToQuery InstanceLifecycle
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InstanceLifecycle -&gt; QueryString
+$ctoQuery :: InstanceLifecycle -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681116107"><span id="local-6989586621681116109"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceLifecycle]
+Value -&gt; Parser InstanceLifecycle
+(Value -&gt; Parser InstanceLifecycle)
+-&gt; (Value -&gt; Parser [InstanceLifecycle])
+-&gt; FromJSON InstanceLifecycle
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InstanceLifecycle]
+$cparseJSONList :: Value -&gt; Parser [InstanceLifecycle]
+parseJSON :: Value -&gt; Parser InstanceLifecycle
+$cparseJSON :: Value -&gt; Parser InstanceLifecycle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681116102"><span id="local-6989586621681116104"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceLifecycle]
+FromJSONKeyFunction InstanceLifecycle
+FromJSONKeyFunction InstanceLifecycle
+-&gt; FromJSONKeyFunction [InstanceLifecycle]
+-&gt; FromJSONKey InstanceLifecycle
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InstanceLifecycle]
+$cfromJSONKeyList :: FromJSONKeyFunction [InstanceLifecycle]
+fromJSONKey :: FromJSONKeyFunction InstanceLifecycle
+$cfromJSONKey :: FromJSONKeyFunction InstanceLifecycle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681116093"><span id="local-6989586621681116095"><span id="local-6989586621681116097"><span id="local-6989586621681116099"><span class="annot"><span class="annottext">[InstanceLifecycle] -&gt; Encoding
+[InstanceLifecycle] -&gt; Value
+InstanceLifecycle -&gt; Encoding
+InstanceLifecycle -&gt; Value
+(InstanceLifecycle -&gt; Value)
+-&gt; (InstanceLifecycle -&gt; Encoding)
+-&gt; ([InstanceLifecycle] -&gt; Value)
+-&gt; ([InstanceLifecycle] -&gt; Encoding)
+-&gt; ToJSON InstanceLifecycle
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InstanceLifecycle] -&gt; Encoding
+$ctoEncodingList :: [InstanceLifecycle] -&gt; Encoding
+toJSONList :: [InstanceLifecycle] -&gt; Value
+$ctoJSONList :: [InstanceLifecycle] -&gt; Value
+toEncoding :: InstanceLifecycle -&gt; Encoding
+$ctoEncoding :: InstanceLifecycle -&gt; Encoding
+toJSON :: InstanceLifecycle -&gt; Value
+$ctoJSON :: InstanceLifecycle -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681116088"><span id="local-6989586621681116090"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceLifecycle]
+ToJSONKeyFunction InstanceLifecycle
+ToJSONKeyFunction InstanceLifecycle
+-&gt; ToJSONKeyFunction [InstanceLifecycle]
+-&gt; ToJSONKey InstanceLifecycle
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InstanceLifecycle]
+$ctoJSONKeyList :: ToJSONKeyFunction [InstanceLifecycle]
+toJSONKey :: ToJSONKeyFunction InstanceLifecycle
+$ctoJSONKey :: ToJSONKeyFunction InstanceLifecycle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681116085"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceLifecycle
+([Node] -&gt; Either String InstanceLifecycle)
+-&gt; FromXML InstanceLifecycle
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InstanceLifecycle
+$cparseXML :: [Node] -&gt; Either String InstanceLifecycle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681116082"><span class="annot"><span class="annottext">InstanceLifecycle -&gt; XML
+(InstanceLifecycle -&gt; XML) -&gt; ToXML InstanceLifecycle
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InstanceLifecycle -&gt; XML
+$ctoXML :: InstanceLifecycle -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle_On_demand"><span class="hs-identifier hs-type">InstanceLifecycle_On_demand</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle"><span class="hs-identifier hs-type">InstanceLifecycle</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceLifecycle_On_demand"><span id="%24mInstanceLifecycle_On_demand"><span id="InstanceLifecycle_On_demand"><span class="annot"><span class="annottext">$bInstanceLifecycle_On_demand :: InstanceLifecycle
+$mInstanceLifecycle_On_demand :: forall r. InstanceLifecycle -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.InstanceLifecycle.html#%24bInstanceLifecycle_On_demand"><span class="hs-identifier hs-var hs-var hs-var">InstanceLifecycle_On_demand</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle%27"><span class="hs-identifier hs-type">InstanceLifecycle'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;on-demand&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle_Spot"><span class="hs-identifier hs-type">InstanceLifecycle_Spot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle"><span class="hs-identifier hs-type">InstanceLifecycle</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceLifecycle_Spot"><span id="%24mInstanceLifecycle_Spot"><span id="InstanceLifecycle_Spot"><span class="annot"><span class="annottext">$bInstanceLifecycle_Spot :: InstanceLifecycle
+$mInstanceLifecycle_Spot :: forall r. InstanceLifecycle -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.InstanceLifecycle.html#%24bInstanceLifecycle_Spot"><span class="hs-identifier hs-var hs-var hs-var">InstanceLifecycle_Spot</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle%27"><span class="hs-identifier hs-type">InstanceLifecycle'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;spot&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle_On_demand"><span class="hs-pragma hs-type">InstanceLifecycle_On_demand</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle_Spot"><span class="hs-pragma hs-type">InstanceLifecycle_Spot</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.InstanceLifecycle.html#InstanceLifecycle%27"><span class="hs-pragma hs-type">InstanceLifecycle'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

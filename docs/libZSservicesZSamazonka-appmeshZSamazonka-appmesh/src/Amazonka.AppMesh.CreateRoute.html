@@ -1,0 +1,737 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.CreateRoute</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a route that is associated with a virtual router.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can route several different protocols and define a retry policy for</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- a route. Traffic can be routed to one or more virtual nodes.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- For more information about routes, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html Routes&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.CreateRoute</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier">CreateRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#newCreateRoute"><span class="hs-identifier">newCreateRoute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_clientToken"><span class="hs-identifier">createRoute_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_meshOwner"><span class="hs-identifier">createRoute_meshOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_tags"><span class="hs-identifier">createRoute_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_meshName"><span class="hs-identifier">createRoute_meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_routeName"><span class="hs-identifier">createRoute_routeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_spec"><span class="hs-identifier">createRoute_spec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_virtualRouterName"><span class="hs-identifier">createRoute_virtualRouterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse"><span class="hs-identifier">CreateRouteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#newCreateRouteResponse"><span class="hs-identifier">newCreateRouteResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRouteResponse_httpStatus"><span class="hs-identifier">createRouteResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRouteResponse_route"><span class="hs-identifier">createRouteResponse_route</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.html"><span class="hs-identifier">Amazonka.AppMesh.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newCreateRoute' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679351147"><span id="local-6989586621679351148"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoute"><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-var">CreateRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoute%27"><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-var">CreateRoute'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- idempotency of the request. Up to 36 letters, numbers, hyphens, and</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- underscores are allowed.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateRoute%27"><span class="annot"><span class="annottext">CreateRoute -&gt; Maybe Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AclientToken%3ACreateRoute%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- not your own, then the account that you specify must share the mesh with</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- your account before you can create the resource in the service mesh. For</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- more information about mesh sharing, see</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmeshOwner%3ACreateRoute%27"><span class="annot"><span class="annottext">CreateRoute -&gt; Maybe Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AmeshOwner%3ACreateRoute%27"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Optional metadata that you can apply to the route to assist with</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- categorization and organization. Each tag consists of a key and an</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- optional value, both of which you define. Tag keys can have a maximum</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- character length of 128 characters, and tag values can have a maximum</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- length of 256 characters.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Atags%3ACreateRoute%27"><span class="annot"><span class="annottext">CreateRoute -&gt; Maybe [TagRef]
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3Atags%3ACreateRoute%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppMesh.Types.TagRef.html#TagRef"><span class="hs-identifier hs-type">TagRef</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The name of the service mesh to create the route in.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AmeshName%3ACreateRoute%27"><span class="annot"><span class="annottext">CreateRoute -&gt; Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AmeshName%3ACreateRoute%27"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The name to use for the route.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3ArouteName%3ACreateRoute%27"><span class="annot"><span class="annottext">CreateRoute -&gt; Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3ArouteName%3ACreateRoute%27"><span class="hs-identifier hs-var hs-var">routeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The route specification to apply.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Aspec%3ACreateRoute%27"><span class="annot"><span class="annottext">CreateRoute -&gt; RouteSpec
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3Aspec%3ACreateRoute%27"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The name of the virtual router in which to create the route. If the</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- virtual router is in a shared mesh, then you must be the owner of the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- virtual router resource.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AvirtualRouterName%3ACreateRoute%27"><span class="annot"><span class="annottext">CreateRoute -&gt; Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AvirtualRouterName%3ACreateRoute%27"><span class="hs-identifier hs-var hs-var">virtualRouterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351135"><span id="local-6989586621679351137"><span class="annot"><span class="annottext">CreateRoute -&gt; CreateRoute -&gt; Bool
+(CreateRoute -&gt; CreateRoute -&gt; Bool)
+-&gt; (CreateRoute -&gt; CreateRoute -&gt; Bool) -&gt; Eq CreateRoute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRoute -&gt; CreateRoute -&gt; Bool
+$c/= :: CreateRoute -&gt; CreateRoute -&gt; Bool
+== :: CreateRoute -&gt; CreateRoute -&gt; Bool
+$c== :: CreateRoute -&gt; CreateRoute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351126"><span id="local-6989586621679351128"><span id="local-6989586621679351130"><span id="local-6989586621679351132"><span class="annot"><span class="annottext">ReadPrec [CreateRoute]
+ReadPrec CreateRoute
+Int -&gt; ReadS CreateRoute
+ReadS [CreateRoute]
+(Int -&gt; ReadS CreateRoute)
+-&gt; ReadS [CreateRoute]
+-&gt; ReadPrec CreateRoute
+-&gt; ReadPrec [CreateRoute]
+-&gt; Read CreateRoute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRoute]
+$creadListPrec :: ReadPrec [CreateRoute]
+readPrec :: ReadPrec CreateRoute
+$creadPrec :: ReadPrec CreateRoute
+readList :: ReadS [CreateRoute]
+$creadList :: ReadS [CreateRoute]
+readsPrec :: Int -&gt; ReadS CreateRoute
+$creadsPrec :: Int -&gt; ReadS CreateRoute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351119"><span id="local-6989586621679351121"><span id="local-6989586621679351123"><span class="annot"><span class="annottext">Int -&gt; CreateRoute -&gt; ShowS
+[CreateRoute] -&gt; ShowS
+CreateRoute -&gt; String
+(Int -&gt; CreateRoute -&gt; ShowS)
+-&gt; (CreateRoute -&gt; String)
+-&gt; ([CreateRoute] -&gt; ShowS)
+-&gt; Show CreateRoute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRoute] -&gt; ShowS
+$cshowList :: [CreateRoute] -&gt; ShowS
+show :: CreateRoute -&gt; String
+$cshow :: CreateRoute -&gt; String
+showsPrec :: Int -&gt; CreateRoute -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRoute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateRoute -&gt; Rep CreateRoute x)
+-&gt; (forall x. Rep CreateRoute x -&gt; CreateRoute)
+-&gt; Generic CreateRoute
+forall x. Rep CreateRoute x -&gt; CreateRoute
+forall x. CreateRoute -&gt; Rep CreateRoute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateRoute x -&gt; CreateRoute
+$cfrom :: forall x. CreateRoute -&gt; Rep CreateRoute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'CreateRoute' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'clientToken', 'createRoute_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- idempotency of the request. Up to 36 letters, numbers, hyphens, and</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- underscores are allowed.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'meshOwner', 'createRoute_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- not your own, then the account that you specify must share the mesh with</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- your account before you can create the resource in the service mesh. For</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- more information about mesh sharing, see</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'tags', 'createRoute_tags' - Optional metadata that you can apply to the route to assist with</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- categorization and organization. Each tag consists of a key and an</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- optional value, both of which you define. Tag keys can have a maximum</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- character length of 128 characters, and tag values can have a maximum</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- length of 256 characters.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'meshName', 'createRoute_meshName' - The name of the service mesh to create the route in.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'routeName', 'createRoute_routeName' - The name to use for the route.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'spec', 'createRoute_spec' - The route specification to apply.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'virtualRouterName', 'createRoute_virtualRouterName' - The name of the virtual router in which to create the route. If the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- virtual router is in a shared mesh, then you must be the owner of the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- virtual router resource.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#newCreateRoute"><span class="hs-identifier hs-type">newCreateRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'meshName'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'routeName'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'spec'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'virtualRouterName'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span>
+</span><span id="line-137"></span><span id="newCreateRoute"><span class="annot"><span class="annottext">newCreateRoute :: Text -&gt; Text -&gt; RouteSpec -&gt; Text -&gt; CreateRoute
+</span><a href="Amazonka.AppMesh.CreateRoute.html#newCreateRoute"><span class="hs-identifier hs-var hs-var">newCreateRoute</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679351114"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351114"><span class="hs-identifier hs-var">pMeshName_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679351113"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351113"><span class="hs-identifier hs-var">pRouteName_</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679351112"><span class="annot"><span class="annottext">RouteSpec
+</span><a href="#local-6989586621679351112"><span class="hs-identifier hs-var">pSpec_</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679351111"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351111"><span class="hs-identifier hs-var">pVirtualRouterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">CreateRoute' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [TagRef]
+-&gt; Text
+-&gt; Text
+-&gt; RouteSpec
+-&gt; Text
+-&gt; CreateRoute
+</span><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:CreateRoute' :: Maybe Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AclientToken%3ACreateRoute%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:meshOwner:CreateRoute' :: Maybe Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AmeshOwner%3ACreateRoute%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateRoute' :: Maybe [TagRef]
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3Atags%3ACreateRoute%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagRef]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:meshName:CreateRoute' :: Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AmeshName%3ACreateRoute%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351114"><span class="hs-identifier hs-var">pMeshName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:routeName:CreateRoute' :: Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3ArouteName%3ACreateRoute%27"><span class="hs-identifier hs-var">routeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351113"><span class="hs-identifier hs-var">pRouteName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:spec:CreateRoute' :: RouteSpec
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3Aspec%3ACreateRoute%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RouteSpec
+</span><a href="#local-6989586621679351112"><span class="hs-identifier hs-var">pSpec_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:virtualRouterName:CreateRoute' :: Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AvirtualRouterName%3ACreateRoute%27"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351111"><span class="hs-identifier hs-var">pVirtualRouterName_</span></a></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- idempotency of the request. Up to 36 letters, numbers, hyphens, and</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- underscores are allowed.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_clientToken"><span class="hs-identifier hs-type">createRoute_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="createRoute_clientToken"><span class="annot"><span class="annottext">createRoute_clientToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRoute -&gt; f CreateRoute
+</span><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_clientToken"><span class="hs-identifier hs-var hs-var">createRoute_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoute -&gt; Maybe Text)
+-&gt; (CreateRoute -&gt; Maybe Text -&gt; CreateRoute)
+-&gt; Lens CreateRoute CreateRoute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351108"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateRoute' :: CreateRoute -&gt; Maybe Text
+</span><a href="#local-6989586621679351108"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351108"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351107"><span class="annot"><span class="annottext">s :: CreateRoute
+</span><a href="#local-6989586621679351107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351106"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoute
+</span><a href="#local-6989586621679351107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateRoute' :: Maybe Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AclientToken%3ACreateRoute%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- not your own, then the account that you specify must share the mesh with</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- your account before you can create the resource in the service mesh. For</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- more information about mesh sharing, see</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_meshOwner"><span class="hs-identifier hs-type">createRoute_meshOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="createRoute_meshOwner"><span class="annot"><span class="annottext">createRoute_meshOwner :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRoute -&gt; f CreateRoute
+</span><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_meshOwner"><span class="hs-identifier hs-var hs-var">createRoute_meshOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoute -&gt; Maybe Text)
+-&gt; (CreateRoute -&gt; Maybe Text -&gt; CreateRoute)
+-&gt; Lens CreateRoute CreateRoute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351105"><span class="annot"><span class="annottext">Maybe Text
+meshOwner :: Maybe Text
+$sel:meshOwner:CreateRoute' :: CreateRoute -&gt; Maybe Text
+</span><a href="#local-6989586621679351105"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351105"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351104"><span class="annot"><span class="annottext">s :: CreateRoute
+</span><a href="#local-6989586621679351104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351103"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoute
+</span><a href="#local-6989586621679351104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshOwner:CreateRoute' :: Maybe Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AmeshOwner%3ACreateRoute%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Optional metadata that you can apply to the route to assist with</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- categorization and organization. Each tag consists of a key and an</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- optional value, both of which you define. Tag keys can have a maximum</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- character length of 128 characters, and tag values can have a maximum</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- length of 256 characters.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_tags"><span class="hs-identifier hs-type">createRoute_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppMesh.Types.TagRef.html#TagRef"><span class="hs-identifier hs-type">TagRef</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="createRoute_tags"><span class="annot"><span class="annottext">createRoute_tags :: (Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+-&gt; CreateRoute -&gt; f CreateRoute
+</span><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_tags"><span class="hs-identifier hs-var hs-var">createRoute_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoute -&gt; Maybe [TagRef])
+-&gt; (CreateRoute -&gt; Maybe [TagRef] -&gt; CreateRoute)
+-&gt; Lens CreateRoute CreateRoute (Maybe [TagRef]) (Maybe [TagRef])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351102"><span class="annot"><span class="annottext">Maybe [TagRef]
+tags :: Maybe [TagRef]
+$sel:tags:CreateRoute' :: CreateRoute -&gt; Maybe [TagRef]
+</span><a href="#local-6989586621679351102"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagRef]
+</span><a href="#local-6989586621679351102"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351101"><span class="annot"><span class="annottext">s :: CreateRoute
+</span><a href="#local-6989586621679351101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351100"><span class="annot"><span class="annottext">Maybe [TagRef]
+</span><a href="#local-6989586621679351100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoute
+</span><a href="#local-6989586621679351101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRoute' :: Maybe [TagRef]
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3Atags%3ACreateRoute%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagRef]
+</span><a href="#local-6989586621679351100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+ -&gt; CreateRoute -&gt; f CreateRoute)
+-&gt; ((Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+    -&gt; Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+-&gt; (Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+-&gt; CreateRoute
+-&gt; f CreateRoute
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagRef] [TagRef] [TagRef] [TagRef]
+-&gt; Iso
+     (Maybe [TagRef]) (Maybe [TagRef]) (Maybe [TagRef]) (Maybe [TagRef])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagRef] [TagRef] [TagRef] [TagRef]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The name of the service mesh to create the route in.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_meshName"><span class="hs-identifier hs-type">createRoute_meshName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-176"></span><span id="createRoute_meshName"><span class="annot"><span class="annottext">createRoute_meshName :: (Text -&gt; f Text) -&gt; CreateRoute -&gt; f CreateRoute
+</span><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_meshName"><span class="hs-identifier hs-var hs-var">createRoute_meshName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoute -&gt; Text)
+-&gt; (CreateRoute -&gt; Text -&gt; CreateRoute)
+-&gt; Lens CreateRoute CreateRoute Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351096"><span class="annot"><span class="annottext">Text
+meshName :: Text
+$sel:meshName:CreateRoute' :: CreateRoute -&gt; Text
+</span><a href="#local-6989586621679351096"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351096"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351095"><span class="annot"><span class="annottext">s :: CreateRoute
+</span><a href="#local-6989586621679351095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoute
+</span><a href="#local-6989586621679351095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshName:CreateRoute' :: Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AmeshName%3ACreateRoute%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The name to use for the route.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_routeName"><span class="hs-identifier hs-type">createRoute_routeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-180"></span><span id="createRoute_routeName"><span class="annot"><span class="annottext">createRoute_routeName :: (Text -&gt; f Text) -&gt; CreateRoute -&gt; f CreateRoute
+</span><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_routeName"><span class="hs-identifier hs-var hs-var">createRoute_routeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoute -&gt; Text)
+-&gt; (CreateRoute -&gt; Text -&gt; CreateRoute)
+-&gt; Lens CreateRoute CreateRoute Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351093"><span class="annot"><span class="annottext">Text
+routeName :: Text
+$sel:routeName:CreateRoute' :: CreateRoute -&gt; Text
+</span><a href="#local-6989586621679351093"><span class="hs-identifier hs-var hs-var">routeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351093"><span class="hs-identifier hs-var">routeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351092"><span class="annot"><span class="annottext">s :: CreateRoute
+</span><a href="#local-6989586621679351092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351091"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoute
+</span><a href="#local-6989586621679351092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeName:CreateRoute' :: Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3ArouteName%3ACreateRoute%27"><span class="hs-identifier hs-var">routeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The route specification to apply.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_spec"><span class="hs-identifier hs-type">createRoute_spec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteSpec.html#RouteSpec"><span class="hs-identifier hs-type">RouteSpec</span></a></span><span>
+</span><span id="line-184"></span><span id="createRoute_spec"><span class="annot"><span class="annottext">createRoute_spec :: (RouteSpec -&gt; f RouteSpec) -&gt; CreateRoute -&gt; f CreateRoute
+</span><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_spec"><span class="hs-identifier hs-var hs-var">createRoute_spec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoute -&gt; RouteSpec)
+-&gt; (CreateRoute -&gt; RouteSpec -&gt; CreateRoute)
+-&gt; Lens CreateRoute CreateRoute RouteSpec RouteSpec
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351090"><span class="annot"><span class="annottext">RouteSpec
+spec :: RouteSpec
+$sel:spec:CreateRoute' :: CreateRoute -&gt; RouteSpec
+</span><a href="#local-6989586621679351090"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteSpec
+</span><a href="#local-6989586621679351090"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351089"><span class="annot"><span class="annottext">s :: CreateRoute
+</span><a href="#local-6989586621679351089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351088"><span class="annot"><span class="annottext">RouteSpec
+</span><a href="#local-6989586621679351088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoute
+</span><a href="#local-6989586621679351089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spec:CreateRoute' :: RouteSpec
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3Aspec%3ACreateRoute%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RouteSpec
+</span><a href="#local-6989586621679351088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The name of the virtual router in which to create the route. If the</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- virtual router is in a shared mesh, then you must be the owner of the</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- virtual router resource.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_virtualRouterName"><span class="hs-identifier hs-type">createRoute_virtualRouterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-190"></span><span id="createRoute_virtualRouterName"><span class="annot"><span class="annottext">createRoute_virtualRouterName :: (Text -&gt; f Text) -&gt; CreateRoute -&gt; f CreateRoute
+</span><a href="Amazonka.AppMesh.CreateRoute.html#createRoute_virtualRouterName"><span class="hs-identifier hs-var hs-var">createRoute_virtualRouterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoute -&gt; Text)
+-&gt; (CreateRoute -&gt; Text -&gt; CreateRoute)
+-&gt; Lens CreateRoute CreateRoute Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351087"><span class="annot"><span class="annottext">Text
+virtualRouterName :: Text
+$sel:virtualRouterName:CreateRoute' :: CreateRoute -&gt; Text
+</span><a href="#local-6989586621679351087"><span class="hs-identifier hs-var hs-var">virtualRouterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351087"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351086"><span class="annot"><span class="annottext">s :: CreateRoute
+</span><a href="#local-6989586621679351086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351085"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoute
+</span><a href="#local-6989586621679351086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualRouterName:CreateRoute' :: Text
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AvirtualRouterName%3ACreateRoute%27"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679351081"><span class="annot"><span class="annottext">request :: CreateRoute -&gt; Request CreateRoute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRoute -&gt; Request CreateRoute
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AppMesh.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679351077"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateRoute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateRoute)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateRoute))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateRoute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateRoute)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679351074"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351074"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679351073"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679351073"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679351072"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679351072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RouteData -&gt; CreateRouteResponse
+</span><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse%27"><span class="hs-identifier hs-var">CreateRouteResponse'</span></a></span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RouteData -&gt; CreateRouteResponse)
+-&gt; Either String Int
+-&gt; Either String (RouteData -&gt; CreateRouteResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351074"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Either String (RouteData -&gt; CreateRouteResponse)
+-&gt; Either String RouteData -&gt; Either String CreateRouteResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String RouteData
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679351072"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351064"><span id="local-6989586621679351066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span></span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679351057"><span class="annot"><span class="annottext">toHeaders :: CreateRoute -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRoute -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-213"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-214"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351047"><span id="local-6989586621679351049"><span id="local-6989586621679351051"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679351045"><span class="annot"><span class="annottext">toJSON :: CreateRoute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351037"><span id="local-6989586621679351038"><span id="local-6989586621679351039"><span id="local-6989586621679351040"><span id="local-6989586621679351041"><span id="local-6989586621679351042"><span id="local-6989586621679351043"><span class="annot"><span class="annottext">Maybe [TagRef]
+Maybe Text
+Text
+RouteSpec
+virtualRouterName :: Text
+spec :: RouteSpec
+routeName :: Text
+meshName :: Text
+tags :: Maybe [TagRef]
+meshOwner :: Maybe Text
+clientToken :: Maybe Text
+$sel:virtualRouterName:CreateRoute' :: CreateRoute -&gt; Text
+$sel:spec:CreateRoute' :: CreateRoute -&gt; RouteSpec
+$sel:routeName:CreateRoute' :: CreateRoute -&gt; Text
+$sel:meshName:CreateRoute' :: CreateRoute -&gt; Text
+$sel:tags:CreateRoute' :: CreateRoute -&gt; Maybe [TagRef]
+$sel:meshOwner:CreateRoute' :: CreateRoute -&gt; Maybe Text
+$sel:clientToken:CreateRoute' :: CreateRoute -&gt; Maybe Text
+</span><a href="#local-6989586621679351037"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-222"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351043"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TagRef] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TagRef] -&gt; Pair) -&gt; Maybe [TagRef] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagRef]
+</span><a href="#local-6989586621679351041"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;routeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351039"><span class="hs-identifier hs-var">routeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RouteSpec -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RouteSpec
+</span><a href="#local-6989586621679351038"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679351031"><span class="annot"><span class="annottext">toPath :: CreateRoute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351023"><span id="local-6989586621679351024"><span id="local-6989586621679351025"><span id="local-6989586621679351026"><span id="local-6989586621679351027"><span id="local-6989586621679351028"><span id="local-6989586621679351029"><span class="annot"><span class="annottext">Maybe [TagRef]
+Maybe Text
+Text
+RouteSpec
+virtualRouterName :: Text
+spec :: RouteSpec
+routeName :: Text
+meshName :: Text
+tags :: Maybe [TagRef]
+meshOwner :: Maybe Text
+clientToken :: Maybe Text
+$sel:virtualRouterName:CreateRoute' :: CreateRoute -&gt; Text
+$sel:spec:CreateRoute' :: CreateRoute -&gt; RouteSpec
+$sel:routeName:CreateRoute' :: CreateRoute -&gt; Text
+$sel:meshName:CreateRoute' :: CreateRoute -&gt; Text
+$sel:tags:CreateRoute' :: CreateRoute -&gt; Maybe [TagRef]
+$sel:meshOwner:CreateRoute' :: CreateRoute -&gt; Maybe Text
+$sel:clientToken:CreateRoute' :: CreateRoute -&gt; Maybe Text
+</span><a href="#local-6989586621679351023"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v20190125/meshes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351026"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/virtualRouter/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351023"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/routes&quot;</span></span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute"><span class="hs-identifier hs-type">CreateRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679351019"><span class="annot"><span class="annottext">toQuery :: CreateRoute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRoute%27"><span class="hs-identifier hs-type">CreateRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351011"><span id="local-6989586621679351012"><span id="local-6989586621679351013"><span id="local-6989586621679351014"><span id="local-6989586621679351015"><span id="local-6989586621679351016"><span id="local-6989586621679351017"><span class="annot"><span class="annottext">Maybe [TagRef]
+Maybe Text
+Text
+RouteSpec
+virtualRouterName :: Text
+spec :: RouteSpec
+routeName :: Text
+meshName :: Text
+tags :: Maybe [TagRef]
+meshOwner :: Maybe Text
+clientToken :: Maybe Text
+$sel:virtualRouterName:CreateRoute' :: CreateRoute -&gt; Text
+$sel:spec:CreateRoute' :: CreateRoute -&gt; RouteSpec
+$sel:routeName:CreateRoute' :: CreateRoute -&gt; Text
+$sel:meshName:CreateRoute' :: CreateRoute -&gt; Text
+$sel:tags:CreateRoute' :: CreateRoute -&gt; Maybe [TagRef]
+$sel:meshOwner:CreateRoute' :: CreateRoute -&gt; Maybe Text
+$sel:clientToken:CreateRoute' :: CreateRoute -&gt; Maybe Text
+</span><a href="#local-6989586621679351011"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;meshOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351016"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- /See:/ 'newCreateRouteResponse' smart constructor.</span><span>
+</span><span id="line-246"></span><span id="local-6989586621679351008"><span id="local-6989586621679351009"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRouteResponse"><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse"><span class="hs-identifier hs-var">CreateRouteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRouteResponse%27"><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse%27"><span class="hs-identifier hs-var">CreateRouteResponse'</span></a></span></span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-248"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRouteResponse%27"><span class="annot"><span class="annottext">CreateRouteResponse -&gt; Int
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AhttpStatus%3ACreateRouteResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- | The full description of your mesh following the create call.</span><span>
+</span><span id="line-250"></span><span>    </span><span id="%24sel%3Aroute%3ACreateRouteResponse%27"><span class="annot"><span class="annottext">CreateRouteResponse -&gt; RouteData
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3Aroute%3ACreateRouteResponse%27"><span class="hs-identifier hs-var hs-var">route</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteData.html#RouteData"><span class="hs-identifier hs-type">RouteData</span></a></span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351002"><span id="local-6989586621679351004"><span class="annot"><span class="annottext">CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool
+(CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool)
+-&gt; (CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool)
+-&gt; Eq CreateRouteResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool
+$c/= :: CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool
+== :: CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool
+$c== :: CreateRouteResponse -&gt; CreateRouteResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350994"><span id="local-6989586621679350996"><span id="local-6989586621679350998"><span id="local-6989586621679351000"><span class="annot"><span class="annottext">ReadPrec [CreateRouteResponse]
+ReadPrec CreateRouteResponse
+Int -&gt; ReadS CreateRouteResponse
+ReadS [CreateRouteResponse]
+(Int -&gt; ReadS CreateRouteResponse)
+-&gt; ReadS [CreateRouteResponse]
+-&gt; ReadPrec CreateRouteResponse
+-&gt; ReadPrec [CreateRouteResponse]
+-&gt; Read CreateRouteResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRouteResponse]
+$creadListPrec :: ReadPrec [CreateRouteResponse]
+readPrec :: ReadPrec CreateRouteResponse
+$creadPrec :: ReadPrec CreateRouteResponse
+readList :: ReadS [CreateRouteResponse]
+$creadList :: ReadS [CreateRouteResponse]
+readsPrec :: Int -&gt; ReadS CreateRouteResponse
+$creadsPrec :: Int -&gt; ReadS CreateRouteResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350988"><span id="local-6989586621679350990"><span id="local-6989586621679350992"><span class="annot"><span class="annottext">Int -&gt; CreateRouteResponse -&gt; ShowS
+[CreateRouteResponse] -&gt; ShowS
+CreateRouteResponse -&gt; String
+(Int -&gt; CreateRouteResponse -&gt; ShowS)
+-&gt; (CreateRouteResponse -&gt; String)
+-&gt; ([CreateRouteResponse] -&gt; ShowS)
+-&gt; Show CreateRouteResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRouteResponse] -&gt; ShowS
+$cshowList :: [CreateRouteResponse] -&gt; ShowS
+show :: CreateRouteResponse -&gt; String
+$cshow :: CreateRouteResponse -&gt; String
+showsPrec :: Int -&gt; CreateRouteResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRouteResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateRouteResponse -&gt; Rep CreateRouteResponse x)
+-&gt; (forall x. Rep CreateRouteResponse x -&gt; CreateRouteResponse)
+-&gt; Generic CreateRouteResponse
+forall x. Rep CreateRouteResponse x -&gt; CreateRouteResponse
+forall x. CreateRouteResponse -&gt; Rep CreateRouteResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateRouteResponse x -&gt; CreateRouteResponse
+$cfrom :: forall x. CreateRouteResponse -&gt; Rep CreateRouteResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Create a value of 'CreateRouteResponse' with all optional fields omitted.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'httpStatus', 'createRouteResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'route', 'createRouteResponse_route' - The full description of your mesh following the create call.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#newCreateRouteResponse"><span class="hs-identifier hs-type">newCreateRouteResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>  </span><span class="hs-comment">-- | 'route'</span><span>
+</span><span id="line-269"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteData.html#RouteData"><span class="hs-identifier hs-type">RouteData</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span>
+</span><span id="line-271"></span><span id="newCreateRouteResponse"><span class="annot"><span class="annottext">newCreateRouteResponse :: Int -&gt; RouteData -&gt; CreateRouteResponse
+</span><a href="Amazonka.AppMesh.CreateRoute.html#newCreateRouteResponse"><span class="hs-identifier hs-var hs-var">newCreateRouteResponse</span></a></span></span><span> </span><span id="local-6989586621679350985"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350985"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679350984"><span class="annot"><span class="annottext">RouteData
+</span><a href="#local-6989586621679350984"><span class="hs-identifier hs-var">pRoute_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>  </span><span class="annot"><span class="annottext">CreateRouteResponse' :: Int -&gt; RouteData -&gt; CreateRouteResponse
+</span><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRouteResponse' :: Int
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AhttpStatus%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350985"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:route:CreateRouteResponse' :: RouteData
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3Aroute%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">route</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RouteData
+</span><a href="#local-6989586621679350984"><span class="hs-identifier hs-var">pRoute_</span></a></span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRouteResponse_httpStatus"><span class="hs-identifier hs-type">createRouteResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-279"></span><span id="createRouteResponse_httpStatus"><span class="annot"><span class="annottext">createRouteResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateRouteResponse -&gt; f CreateRouteResponse
+</span><a href="Amazonka.AppMesh.CreateRoute.html#createRouteResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createRouteResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponse -&gt; Int)
+-&gt; (CreateRouteResponse -&gt; Int -&gt; CreateRouteResponse)
+-&gt; Lens CreateRouteResponse CreateRouteResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350983"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateRouteResponse' :: CreateRouteResponse -&gt; Int
+</span><a href="#local-6989586621679350983"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350983"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350982"><span class="annot"><span class="annottext">s :: CreateRouteResponse
+</span><a href="#local-6989586621679350982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350981"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponse
+</span><a href="#local-6989586621679350982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRouteResponse' :: Int
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3AhttpStatus%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | The full description of your mesh following the create call.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#createRouteResponse_route"><span class="hs-identifier hs-type">createRouteResponse_route</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.RouteData.html#RouteData"><span class="hs-identifier hs-type">RouteData</span></a></span><span>
+</span><span id="line-283"></span><span id="createRouteResponse_route"><span class="annot"><span class="annottext">createRouteResponse_route :: (RouteData -&gt; f RouteData)
+-&gt; CreateRouteResponse -&gt; f CreateRouteResponse
+</span><a href="Amazonka.AppMesh.CreateRoute.html#createRouteResponse_route"><span class="hs-identifier hs-var hs-var">createRouteResponse_route</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRouteResponse -&gt; RouteData)
+-&gt; (CreateRouteResponse -&gt; RouteData -&gt; CreateRouteResponse)
+-&gt; Lens CreateRouteResponse CreateRouteResponse RouteData RouteData
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350980"><span class="annot"><span class="annottext">RouteData
+route :: RouteData
+$sel:route:CreateRouteResponse' :: CreateRouteResponse -&gt; RouteData
+</span><a href="#local-6989586621679350980"><span class="hs-identifier hs-var hs-var">route</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteData
+</span><a href="#local-6989586621679350980"><span class="hs-identifier hs-var">route</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350979"><span class="annot"><span class="annottext">s :: CreateRouteResponse
+</span><a href="#local-6989586621679350979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse%27"><span class="hs-identifier hs-type">CreateRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350978"><span class="annot"><span class="annottext">RouteData
+</span><a href="#local-6989586621679350978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRouteResponse
+</span><a href="#local-6989586621679350979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:route:CreateRouteResponse' :: RouteData
+</span><a href="Amazonka.AppMesh.CreateRoute.html#%24sel%3Aroute%3ACreateRouteResponse%27"><span class="hs-identifier hs-var">route</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RouteData
+</span><a href="#local-6989586621679350978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350976"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateRoute.html#CreateRouteResponse"><span class="hs-identifier hs-type">CreateRouteResponse</span></a></span></span><span>
+</span><span id="line-286"></span></pre></body></html>

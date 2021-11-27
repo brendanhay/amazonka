@@ -1,0 +1,1143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.DescribePipelineExecution</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the details of a pipeline execution.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.DescribePipelineExecution</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier">DescribePipelineExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#newDescribePipelineExecution"><span class="hs-identifier">newDescribePipelineExecution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecution_pipelineExecutionArn"><span class="hs-identifier">describePipelineExecution_pipelineExecutionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#newDescribePipelineExecutionResponse"><span class="hs-identifier">newDescribePipelineExecutionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_creationTime"><span class="hs-identifier">describePipelineExecutionResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExecutionStatus"><span class="hs-identifier">describePipelineExecutionResponse_pipelineExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_failureReason"><span class="hs-identifier">describePipelineExecutionResponse_failureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExecutionArn"><span class="hs-identifier">describePipelineExecutionResponse_pipelineExecutionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_createdBy"><span class="hs-identifier">describePipelineExecutionResponse_createdBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_lastModifiedTime"><span class="hs-identifier">describePipelineExecutionResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineArn"><span class="hs-identifier">describePipelineExecutionResponse_pipelineArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExecutionDisplayName"><span class="hs-identifier">describePipelineExecutionResponse_pipelineExecutionDisplayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_lastModifiedBy"><span class="hs-identifier">describePipelineExecutionResponse_lastModifiedBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExecutionDescription"><span class="hs-identifier">describePipelineExecutionResponse_pipelineExecutionDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExperimentConfig"><span class="hs-identifier">describePipelineExecutionResponse_pipelineExperimentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_httpStatus"><span class="hs-identifier">describePipelineExecutionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribePipelineExecution' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621680393640"><span id="local-6989586621680393641"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePipelineExecution"><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier hs-var">DescribePipelineExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePipelineExecution%27"><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution%27"><span class="hs-identifier hs-var">DescribePipelineExecution'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline execution.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3ApipelineExecutionArn%3ADescribePipelineExecution%27"><span class="annot"><span class="annottext">DescribePipelineExecution -&gt; Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionArn%3ADescribePipelineExecution%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680393634"><span id="local-6989586621680393636"><span class="annot"><span class="annottext">DescribePipelineExecution -&gt; DescribePipelineExecution -&gt; Bool
+(DescribePipelineExecution -&gt; DescribePipelineExecution -&gt; Bool)
+-&gt; (DescribePipelineExecution -&gt; DescribePipelineExecution -&gt; Bool)
+-&gt; Eq DescribePipelineExecution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePipelineExecution -&gt; DescribePipelineExecution -&gt; Bool
+$c/= :: DescribePipelineExecution -&gt; DescribePipelineExecution -&gt; Bool
+== :: DescribePipelineExecution -&gt; DescribePipelineExecution -&gt; Bool
+$c== :: DescribePipelineExecution -&gt; DescribePipelineExecution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680393625"><span id="local-6989586621680393627"><span id="local-6989586621680393629"><span id="local-6989586621680393631"><span class="annot"><span class="annottext">ReadPrec [DescribePipelineExecution]
+ReadPrec DescribePipelineExecution
+Int -&gt; ReadS DescribePipelineExecution
+ReadS [DescribePipelineExecution]
+(Int -&gt; ReadS DescribePipelineExecution)
+-&gt; ReadS [DescribePipelineExecution]
+-&gt; ReadPrec DescribePipelineExecution
+-&gt; ReadPrec [DescribePipelineExecution]
+-&gt; Read DescribePipelineExecution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePipelineExecution]
+$creadListPrec :: ReadPrec [DescribePipelineExecution]
+readPrec :: ReadPrec DescribePipelineExecution
+$creadPrec :: ReadPrec DescribePipelineExecution
+readList :: ReadS [DescribePipelineExecution]
+$creadList :: ReadS [DescribePipelineExecution]
+readsPrec :: Int -&gt; ReadS DescribePipelineExecution
+$creadsPrec :: Int -&gt; ReadS DescribePipelineExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680393618"><span id="local-6989586621680393620"><span id="local-6989586621680393622"><span class="annot"><span class="annottext">Int -&gt; DescribePipelineExecution -&gt; ShowS
+[DescribePipelineExecution] -&gt; ShowS
+DescribePipelineExecution -&gt; String
+(Int -&gt; DescribePipelineExecution -&gt; ShowS)
+-&gt; (DescribePipelineExecution -&gt; String)
+-&gt; ([DescribePipelineExecution] -&gt; ShowS)
+-&gt; Show DescribePipelineExecution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePipelineExecution] -&gt; ShowS
+$cshowList :: [DescribePipelineExecution] -&gt; ShowS
+show :: DescribePipelineExecution -&gt; String
+$cshow :: DescribePipelineExecution -&gt; String
+showsPrec :: Int -&gt; DescribePipelineExecution -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePipelineExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePipelineExecution -&gt; Rep DescribePipelineExecution x)
+-&gt; (forall x.
+    Rep DescribePipelineExecution x -&gt; DescribePipelineExecution)
+-&gt; Generic DescribePipelineExecution
+forall x.
+Rep DescribePipelineExecution x -&gt; DescribePipelineExecution
+forall x.
+DescribePipelineExecution -&gt; Rep DescribePipelineExecution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePipelineExecution x -&gt; DescribePipelineExecution
+$cfrom :: forall x.
+DescribePipelineExecution -&gt; Rep DescribePipelineExecution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'DescribePipelineExecution' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'pipelineExecutionArn', 'describePipelineExecution_pipelineExecutionArn' - The Amazon Resource Name (ARN) of the pipeline execution.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#newDescribePipelineExecution"><span class="hs-identifier hs-type">newDescribePipelineExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'pipelineExecutionArn'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier hs-type">DescribePipelineExecution</span></a></span><span>
+</span><span id="line-79"></span><span id="newDescribePipelineExecution"><span class="annot"><span class="annottext">newDescribePipelineExecution :: Text -&gt; DescribePipelineExecution
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#newDescribePipelineExecution"><span class="hs-identifier hs-var hs-var">newDescribePipelineExecution</span></a></span></span><span> </span><span id="local-6989586621680393613"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680393613"><span class="hs-identifier hs-var">pPipelineExecutionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DescribePipelineExecution' :: Text -&gt; DescribePipelineExecution
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution%27"><span class="hs-identifier hs-type">DescribePipelineExecution'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineExecutionArn:DescribePipelineExecution' :: Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionArn%3ADescribePipelineExecution%27"><span class="hs-identifier hs-var">pipelineExecutionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680393613"><span class="hs-identifier hs-var">pPipelineExecutionArn_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline execution.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecution_pipelineExecutionArn"><span class="hs-identifier hs-type">describePipelineExecution_pipelineExecutionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier hs-type">DescribePipelineExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="describePipelineExecution_pipelineExecutionArn"><span class="annot"><span class="annottext">describePipelineExecution_pipelineExecutionArn :: (Text -&gt; f Text)
+-&gt; DescribePipelineExecution -&gt; f DescribePipelineExecution
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecution_pipelineExecutionArn"><span class="hs-identifier hs-var hs-var">describePipelineExecution_pipelineExecutionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecution -&gt; Text)
+-&gt; (DescribePipelineExecution -&gt; Text -&gt; DescribePipelineExecution)
+-&gt; Lens
+     DescribePipelineExecution DescribePipelineExecution Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution%27"><span class="hs-identifier hs-type">DescribePipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393610"><span class="annot"><span class="annottext">Text
+pipelineExecutionArn :: Text
+$sel:pipelineExecutionArn:DescribePipelineExecution' :: DescribePipelineExecution -&gt; Text
+</span><a href="#local-6989586621680393610"><span class="hs-identifier hs-var hs-var">pipelineExecutionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680393610"><span class="hs-identifier hs-var">pipelineExecutionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393609"><span class="annot"><span class="annottext">s :: DescribePipelineExecution
+</span><a href="#local-6989586621680393609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution%27"><span class="hs-identifier hs-type">DescribePipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393608"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680393608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecution
+</span><a href="#local-6989586621680393609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionArn:DescribePipelineExecution' :: Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionArn%3ADescribePipelineExecution%27"><span class="hs-identifier hs-var">pipelineExecutionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680393608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier hs-type">DescribePipelineExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier hs-type">DescribePipelineExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier hs-type">DescribePipelineExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621680393604"><span class="annot"><span class="annottext">request :: DescribePipelineExecution -&gt; Request DescribePipelineExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribePipelineExecution -&gt; Request DescribePipelineExecution
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621680393600"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribePipelineExecution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribePipelineExecution)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribePipelineExecution))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribePipelineExecution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribePipelineExecution)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680393597"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680393597"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680393596"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680393596"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680393595"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680393595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe PipelineExecutionStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe UserContext
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe UserContext
+-&gt; Maybe Text
+-&gt; Maybe PipelineExperimentConfig
+-&gt; Int
+-&gt; DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">DescribePipelineExecutionResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe PipelineExecutionStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe UserContext
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe UserContext
+ -&gt; Maybe Text
+ -&gt; Maybe PipelineExperimentConfig
+ -&gt; Int
+ -&gt; DescribePipelineExecutionResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe PipelineExecutionStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe PipelineExperimentConfig
+      -&gt; Int
+      -&gt; DescribePipelineExecutionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680393595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe PipelineExecutionStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe PipelineExperimentConfig
+   -&gt; Int
+   -&gt; DescribePipelineExecutionResponse)
+-&gt; Either String (Maybe PipelineExecutionStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe PipelineExperimentConfig
+      -&gt; Int
+      -&gt; DescribePipelineExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680393595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PipelineExecutionStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineExecutionStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe PipelineExperimentConfig
+   -&gt; Int
+   -&gt; DescribePipelineExecutionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe PipelineExperimentConfig
+      -&gt; Int
+      -&gt; DescribePipelineExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680393595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe PipelineExperimentConfig
+   -&gt; Int
+   -&gt; DescribePipelineExecutionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe UserContext
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe PipelineExperimentConfig
+      -&gt; Int
+      -&gt; DescribePipelineExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680393595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineExecutionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe UserContext
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe PipelineExperimentConfig
+   -&gt; Int
+   -&gt; DescribePipelineExecutionResponse)
+-&gt; Either String (Maybe UserContext)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe PipelineExperimentConfig
+      -&gt; Int
+      -&gt; DescribePipelineExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680393595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe UserContext)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe PipelineExperimentConfig
+   -&gt; Int
+   -&gt; DescribePipelineExecutionResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe PipelineExperimentConfig
+      -&gt; Int
+      -&gt; DescribePipelineExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680393595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe PipelineExperimentConfig
+   -&gt; Int
+   -&gt; DescribePipelineExecutionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe PipelineExperimentConfig
+      -&gt; Int
+      -&gt; DescribePipelineExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680393595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe PipelineExperimentConfig
+   -&gt; Int
+   -&gt; DescribePipelineExecutionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe PipelineExperimentConfig
+      -&gt; Int
+      -&gt; DescribePipelineExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680393595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineExecutionDisplayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe PipelineExperimentConfig
+   -&gt; Int
+   -&gt; DescribePipelineExecutionResponse)
+-&gt; Either String (Maybe UserContext)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe PipelineExperimentConfig
+      -&gt; Int
+      -&gt; DescribePipelineExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680393595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe UserContext)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe PipelineExperimentConfig
+   -&gt; Int
+   -&gt; DescribePipelineExecutionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe PipelineExperimentConfig
+      -&gt; Int -&gt; DescribePipelineExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680393595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineExecutionDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe PipelineExperimentConfig
+   -&gt; Int -&gt; DescribePipelineExecutionResponse)
+-&gt; Either String (Maybe PipelineExperimentConfig)
+-&gt; Either String (Int -&gt; DescribePipelineExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680393595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PipelineExperimentConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineExperimentConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribePipelineExecutionResponse)
+-&gt; Either String Int
+-&gt; Either String DescribePipelineExecutionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680393597"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680393587"><span id="local-6989586621680393589"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier hs-type">DescribePipelineExecution</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680393584"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier hs-type">DescribePipelineExecution</span></a></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier hs-type">DescribePipelineExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621680393580"><span class="annot"><span class="annottext">toHeaders :: DescribePipelineExecution -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribePipelineExecution -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.DescribePipelineExecution&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-123"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-127"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680393570"><span id="local-6989586621680393572"><span id="local-6989586621680393574"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier hs-type">DescribePipelineExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621680393568"><span class="annot"><span class="annottext">toJSON :: DescribePipelineExecution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution%27"><span class="hs-identifier hs-type">DescribePipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393566"><span class="annot"><span class="annottext">Text
+pipelineExecutionArn :: Text
+$sel:pipelineExecutionArn:DescribePipelineExecution' :: DescribePipelineExecution -&gt; Text
+</span><a href="#local-6989586621680393566"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-136"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineExecutionArn&quot;</span></span><span>
+</span><span id="line-137"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680393566"><span class="hs-identifier hs-var">pipelineExecutionArn</span></a></span><span>
+</span><span id="line-138"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier hs-type">DescribePipelineExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621680393560"><span class="annot"><span class="annottext">toPath :: DescribePipelineExecution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribePipelineExecution -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecution"><span class="hs-identifier hs-type">DescribePipelineExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621680393556"><span class="annot"><span class="annottext">toQuery :: DescribePipelineExecution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribePipelineExecution -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newDescribePipelineExecutionResponse' smart constructor.</span><span>
+</span><span id="line-149"></span><span id="local-6989586621680393553"><span id="local-6989586621680393554"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePipelineExecutionResponse"><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-var">DescribePipelineExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePipelineExecutionResponse%27"><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">DescribePipelineExecutionResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time when the pipeline execution was created.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AcreationTime%3ADescribePipelineExecutionResponse%27"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AcreationTime%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The status of the pipeline execution.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3ApipelineExecutionStatus%3ADescribePipelineExecutionResponse%27"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse -&gt; Maybe PipelineExecutionStatus
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionStatus%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.PipelineExecutionStatus.html#PipelineExecutionStatus"><span class="hs-identifier hs-type">PipelineExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | If the execution failed, a message describing why.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AfailureReason%3ADescribePipelineExecutionResponse%27"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AfailureReason%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline execution.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3ApipelineExecutionArn%3ADescribePipelineExecutionResponse%27"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionArn%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AcreatedBy%3ADescribePipelineExecutionResponse%27"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse -&gt; Maybe UserContext
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AcreatedBy%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The time when the pipeline execution was modified last.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ADescribePipelineExecutionResponse%27"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AlastModifiedTime%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3ApipelineArn%3ADescribePipelineExecutionResponse%27"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineArn%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">pipelineArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The display name of the pipeline execution.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3ApipelineExecutionDisplayName%3ADescribePipelineExecutionResponse%27"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionDisplayName%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionDisplayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AlastModifiedBy%3ADescribePipelineExecutionResponse%27"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse -&gt; Maybe UserContext
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AlastModifiedBy%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The description of the pipeline execution.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3ApipelineExecutionDescription%3ADescribePipelineExecutionResponse%27"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionDescription%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3ApipelineExperimentConfig%3ADescribePipelineExecutionResponse%27"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse -&gt; Maybe PipelineExperimentConfig
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExperimentConfig%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">pipelineExperimentConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.PipelineExperimentConfig.html#PipelineExperimentConfig"><span class="hs-identifier hs-type">PipelineExperimentConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePipelineExecutionResponse%27"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AhttpStatus%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680393537"><span id="local-6989586621680393539"><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+-&gt; DescribePipelineExecutionResponse -&gt; Bool
+(DescribePipelineExecutionResponse
+ -&gt; DescribePipelineExecutionResponse -&gt; Bool)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; DescribePipelineExecutionResponse -&gt; Bool)
+-&gt; Eq DescribePipelineExecutionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePipelineExecutionResponse
+-&gt; DescribePipelineExecutionResponse -&gt; Bool
+$c/= :: DescribePipelineExecutionResponse
+-&gt; DescribePipelineExecutionResponse -&gt; Bool
+== :: DescribePipelineExecutionResponse
+-&gt; DescribePipelineExecutionResponse -&gt; Bool
+$c== :: DescribePipelineExecutionResponse
+-&gt; DescribePipelineExecutionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680393529"><span id="local-6989586621680393531"><span id="local-6989586621680393533"><span id="local-6989586621680393535"><span class="annot"><span class="annottext">ReadPrec [DescribePipelineExecutionResponse]
+ReadPrec DescribePipelineExecutionResponse
+Int -&gt; ReadS DescribePipelineExecutionResponse
+ReadS [DescribePipelineExecutionResponse]
+(Int -&gt; ReadS DescribePipelineExecutionResponse)
+-&gt; ReadS [DescribePipelineExecutionResponse]
+-&gt; ReadPrec DescribePipelineExecutionResponse
+-&gt; ReadPrec [DescribePipelineExecutionResponse]
+-&gt; Read DescribePipelineExecutionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePipelineExecutionResponse]
+$creadListPrec :: ReadPrec [DescribePipelineExecutionResponse]
+readPrec :: ReadPrec DescribePipelineExecutionResponse
+$creadPrec :: ReadPrec DescribePipelineExecutionResponse
+readList :: ReadS [DescribePipelineExecutionResponse]
+$creadList :: ReadS [DescribePipelineExecutionResponse]
+readsPrec :: Int -&gt; ReadS DescribePipelineExecutionResponse
+$creadsPrec :: Int -&gt; ReadS DescribePipelineExecutionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680393523"><span id="local-6989586621680393525"><span id="local-6989586621680393527"><span class="annot"><span class="annottext">Int -&gt; DescribePipelineExecutionResponse -&gt; ShowS
+[DescribePipelineExecutionResponse] -&gt; ShowS
+DescribePipelineExecutionResponse -&gt; String
+(Int -&gt; DescribePipelineExecutionResponse -&gt; ShowS)
+-&gt; (DescribePipelineExecutionResponse -&gt; String)
+-&gt; ([DescribePipelineExecutionResponse] -&gt; ShowS)
+-&gt; Show DescribePipelineExecutionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePipelineExecutionResponse] -&gt; ShowS
+$cshowList :: [DescribePipelineExecutionResponse] -&gt; ShowS
+show :: DescribePipelineExecutionResponse -&gt; String
+$cshow :: DescribePipelineExecutionResponse -&gt; String
+showsPrec :: Int -&gt; DescribePipelineExecutionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePipelineExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePipelineExecutionResponse
+ -&gt; Rep DescribePipelineExecutionResponse x)
+-&gt; (forall x.
+    Rep DescribePipelineExecutionResponse x
+    -&gt; DescribePipelineExecutionResponse)
+-&gt; Generic DescribePipelineExecutionResponse
+forall x.
+Rep DescribePipelineExecutionResponse x
+-&gt; DescribePipelineExecutionResponse
+forall x.
+DescribePipelineExecutionResponse
+-&gt; Rep DescribePipelineExecutionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePipelineExecutionResponse x
+-&gt; DescribePipelineExecutionResponse
+$cfrom :: forall x.
+DescribePipelineExecutionResponse
+-&gt; Rep DescribePipelineExecutionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Create a value of 'DescribePipelineExecutionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'creationTime', 'describePipelineExecutionResponse_creationTime' - The time when the pipeline execution was created.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'pipelineExecutionStatus', 'describePipelineExecutionResponse_pipelineExecutionStatus' - The status of the pipeline execution.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'failureReason', 'describePipelineExecutionResponse_failureReason' - If the execution failed, a message describing why.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'pipelineExecutionArn', 'describePipelineExecutionResponse_pipelineExecutionArn' - The Amazon Resource Name (ARN) of the pipeline execution.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'createdBy', 'describePipelineExecutionResponse_createdBy' - Undocumented member.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'lastModifiedTime', 'describePipelineExecutionResponse_lastModifiedTime' - The time when the pipeline execution was modified last.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'pipelineArn', 'describePipelineExecutionResponse_pipelineArn' - The Amazon Resource Name (ARN) of the pipeline.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'pipelineExecutionDisplayName', 'describePipelineExecutionResponse_pipelineExecutionDisplayName' - The display name of the pipeline execution.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'lastModifiedBy', 'describePipelineExecutionResponse_lastModifiedBy' - Undocumented member.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'pipelineExecutionDescription', 'describePipelineExecutionResponse_pipelineExecutionDescription' - The description of the pipeline execution.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'pipelineExperimentConfig', 'describePipelineExecutionResponse_pipelineExperimentConfig' - Undocumented member.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'httpStatus', 'describePipelineExecutionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#newDescribePipelineExecutionResponse"><span class="hs-identifier hs-type">newDescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span>
+</span><span id="line-209"></span><span id="newDescribePipelineExecutionResponse"><span class="annot"><span class="annottext">newDescribePipelineExecutionResponse :: Int -&gt; DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#newDescribePipelineExecutionResponse"><span class="hs-identifier hs-var hs-var">newDescribePipelineExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621680393520"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680393520"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse' :: Maybe POSIX
+-&gt; Maybe PipelineExecutionStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe UserContext
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe UserContext
+-&gt; Maybe Text
+-&gt; Maybe PipelineExperimentConfig
+-&gt; Int
+-&gt; DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:DescribePipelineExecutionResponse' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AcreationTime%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecutionStatus:DescribePipelineExecutionResponse' :: Maybe PipelineExecutionStatus
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionStatus%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineExecutionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:DescribePipelineExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AfailureReason%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecutionArn:DescribePipelineExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionArn%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineExecutionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBy:DescribePipelineExecutionResponse' :: Maybe UserContext
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AcreatedBy%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DescribePipelineExecutionResponse' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AlastModifiedTime%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineArn:DescribePipelineExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineArn%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecutionDisplayName:DescribePipelineExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionDisplayName%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineExecutionDisplayName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedBy:DescribePipelineExecutionResponse' :: Maybe UserContext
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AlastModifiedBy%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecutionDescription:DescribePipelineExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionDescription%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineExecutionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExperimentConfig:DescribePipelineExecutionResponse' :: Maybe PipelineExperimentConfig
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExperimentConfig%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineExperimentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Maybe PipelineExperimentConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePipelineExecutionResponse' :: Int
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AhttpStatus%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680393520"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The time when the pipeline execution was created.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_creationTime"><span class="hs-identifier hs-type">describePipelineExecutionResponse_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="describePipelineExecutionResponse_creationTime"><span class="annot"><span class="annottext">describePipelineExecutionResponse_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_creationTime"><span class="hs-identifier hs-var hs-var">describePipelineExecutionResponse_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecutionResponse -&gt; Maybe POSIX)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; Maybe POSIX -&gt; DescribePipelineExecutionResponse)
+-&gt; Lens
+     DescribePipelineExecutionResponse
+     DescribePipelineExecutionResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393519"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:DescribePipelineExecutionResponse' :: DescribePipelineExecutionResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621680393519"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680393519"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393518"><span class="annot"><span class="annottext">s :: DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393517"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680393517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DescribePipelineExecutionResponse' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AcreationTime%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680393517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribePipelineExecutionResponse
+ -&gt; f DescribePipelineExecutionResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The status of the pipeline execution.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExecutionStatus"><span class="hs-identifier hs-type">describePipelineExecutionResponse_pipelineExecutionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.PipelineExecutionStatus.html#PipelineExecutionStatus"><span class="hs-identifier hs-type">PipelineExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="describePipelineExecutionResponse_pipelineExecutionStatus"><span class="annot"><span class="annottext">describePipelineExecutionResponse_pipelineExecutionStatus :: (Maybe PipelineExecutionStatus
+ -&gt; f (Maybe PipelineExecutionStatus))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExecutionStatus"><span class="hs-identifier hs-var hs-var">describePipelineExecutionResponse_pipelineExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecutionResponse
+ -&gt; Maybe PipelineExecutionStatus)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; Maybe PipelineExecutionStatus
+    -&gt; DescribePipelineExecutionResponse)
+-&gt; Lens
+     DescribePipelineExecutionResponse
+     DescribePipelineExecutionResponse
+     (Maybe PipelineExecutionStatus)
+     (Maybe PipelineExecutionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393513"><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+pipelineExecutionStatus :: Maybe PipelineExecutionStatus
+$sel:pipelineExecutionStatus:DescribePipelineExecutionResponse' :: DescribePipelineExecutionResponse -&gt; Maybe PipelineExecutionStatus
+</span><a href="#local-6989586621680393513"><span class="hs-identifier hs-var hs-var">pipelineExecutionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+</span><a href="#local-6989586621680393513"><span class="hs-identifier hs-var">pipelineExecutionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393512"><span class="annot"><span class="annottext">s :: DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393511"><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+</span><a href="#local-6989586621680393511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionStatus:DescribePipelineExecutionResponse' :: Maybe PipelineExecutionStatus
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionStatus%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineExecutionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+</span><a href="#local-6989586621680393511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | If the execution failed, a message describing why.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_failureReason"><span class="hs-identifier hs-type">describePipelineExecutionResponse_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="describePipelineExecutionResponse_failureReason"><span class="annot"><span class="annottext">describePipelineExecutionResponse_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_failureReason"><span class="hs-identifier hs-var hs-var">describePipelineExecutionResponse_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecutionResponse -&gt; Maybe Text)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; Maybe Text -&gt; DescribePipelineExecutionResponse)
+-&gt; Lens
+     DescribePipelineExecutionResponse
+     DescribePipelineExecutionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393510"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:DescribePipelineExecutionResponse' :: DescribePipelineExecutionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680393510"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393510"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393509"><span class="annot"><span class="annottext">s :: DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393508"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:DescribePipelineExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AfailureReason%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline execution.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExecutionArn"><span class="hs-identifier hs-type">describePipelineExecutionResponse_pipelineExecutionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="describePipelineExecutionResponse_pipelineExecutionArn"><span class="annot"><span class="annottext">describePipelineExecutionResponse_pipelineExecutionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExecutionArn"><span class="hs-identifier hs-var hs-var">describePipelineExecutionResponse_pipelineExecutionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecutionResponse -&gt; Maybe Text)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; Maybe Text -&gt; DescribePipelineExecutionResponse)
+-&gt; Lens
+     DescribePipelineExecutionResponse
+     DescribePipelineExecutionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393507"><span class="annot"><span class="annottext">Maybe Text
+pipelineExecutionArn :: Maybe Text
+$sel:pipelineExecutionArn:DescribePipelineExecutionResponse' :: DescribePipelineExecutionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680393507"><span class="hs-identifier hs-var hs-var">pipelineExecutionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393507"><span class="hs-identifier hs-var">pipelineExecutionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393506"><span class="annot"><span class="annottext">s :: DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393505"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionArn:DescribePipelineExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionArn%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineExecutionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_createdBy"><span class="hs-identifier hs-type">describePipelineExecutionResponse_createdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="describePipelineExecutionResponse_createdBy"><span class="annot"><span class="annottext">describePipelineExecutionResponse_createdBy :: (Maybe UserContext -&gt; f (Maybe UserContext))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_createdBy"><span class="hs-identifier hs-var hs-var">describePipelineExecutionResponse_createdBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecutionResponse -&gt; Maybe UserContext)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; Maybe UserContext -&gt; DescribePipelineExecutionResponse)
+-&gt; Lens
+     DescribePipelineExecutionResponse
+     DescribePipelineExecutionResponse
+     (Maybe UserContext)
+     (Maybe UserContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393504"><span class="annot"><span class="annottext">Maybe UserContext
+createdBy :: Maybe UserContext
+$sel:createdBy:DescribePipelineExecutionResponse' :: DescribePipelineExecutionResponse -&gt; Maybe UserContext
+</span><a href="#local-6989586621680393504"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680393504"><span class="hs-identifier hs-var">createdBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393503"><span class="annot"><span class="annottext">s :: DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393502"><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680393502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBy:DescribePipelineExecutionResponse' :: Maybe UserContext
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AcreatedBy%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680393502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The time when the pipeline execution was modified last.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_lastModifiedTime"><span class="hs-identifier hs-type">describePipelineExecutionResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="describePipelineExecutionResponse_lastModifiedTime"><span class="annot"><span class="annottext">describePipelineExecutionResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_lastModifiedTime"><span class="hs-identifier hs-var hs-var">describePipelineExecutionResponse_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecutionResponse -&gt; Maybe POSIX)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; Maybe POSIX -&gt; DescribePipelineExecutionResponse)
+-&gt; Lens
+     DescribePipelineExecutionResponse
+     DescribePipelineExecutionResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393501"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:DescribePipelineExecutionResponse' :: DescribePipelineExecutionResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621680393501"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680393501"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393500"><span class="annot"><span class="annottext">s :: DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393499"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680393499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DescribePipelineExecutionResponse' :: Maybe POSIX
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AlastModifiedTime%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680393499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribePipelineExecutionResponse
+ -&gt; f DescribePipelineExecutionResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineArn"><span class="hs-identifier hs-type">describePipelineExecutionResponse_pipelineArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="describePipelineExecutionResponse_pipelineArn"><span class="annot"><span class="annottext">describePipelineExecutionResponse_pipelineArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineArn"><span class="hs-identifier hs-var hs-var">describePipelineExecutionResponse_pipelineArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecutionResponse -&gt; Maybe Text)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; Maybe Text -&gt; DescribePipelineExecutionResponse)
+-&gt; Lens
+     DescribePipelineExecutionResponse
+     DescribePipelineExecutionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393498"><span class="annot"><span class="annottext">Maybe Text
+pipelineArn :: Maybe Text
+$sel:pipelineArn:DescribePipelineExecutionResponse' :: DescribePipelineExecutionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680393498"><span class="hs-identifier hs-var hs-var">pipelineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393498"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393497"><span class="annot"><span class="annottext">s :: DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393496"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineArn:DescribePipelineExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineArn%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The display name of the pipeline execution.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExecutionDisplayName"><span class="hs-identifier hs-type">describePipelineExecutionResponse_pipelineExecutionDisplayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="describePipelineExecutionResponse_pipelineExecutionDisplayName"><span class="annot"><span class="annottext">describePipelineExecutionResponse_pipelineExecutionDisplayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExecutionDisplayName"><span class="hs-identifier hs-var hs-var">describePipelineExecutionResponse_pipelineExecutionDisplayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecutionResponse -&gt; Maybe Text)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; Maybe Text -&gt; DescribePipelineExecutionResponse)
+-&gt; Lens
+     DescribePipelineExecutionResponse
+     DescribePipelineExecutionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393495"><span class="annot"><span class="annottext">Maybe Text
+pipelineExecutionDisplayName :: Maybe Text
+$sel:pipelineExecutionDisplayName:DescribePipelineExecutionResponse' :: DescribePipelineExecutionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680393495"><span class="hs-identifier hs-var hs-var">pipelineExecutionDisplayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393495"><span class="hs-identifier hs-var">pipelineExecutionDisplayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393494"><span class="annot"><span class="annottext">s :: DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393493"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionDisplayName:DescribePipelineExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionDisplayName%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineExecutionDisplayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_lastModifiedBy"><span class="hs-identifier hs-type">describePipelineExecutionResponse_lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="describePipelineExecutionResponse_lastModifiedBy"><span class="annot"><span class="annottext">describePipelineExecutionResponse_lastModifiedBy :: (Maybe UserContext -&gt; f (Maybe UserContext))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_lastModifiedBy"><span class="hs-identifier hs-var hs-var">describePipelineExecutionResponse_lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecutionResponse -&gt; Maybe UserContext)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; Maybe UserContext -&gt; DescribePipelineExecutionResponse)
+-&gt; Lens
+     DescribePipelineExecutionResponse
+     DescribePipelineExecutionResponse
+     (Maybe UserContext)
+     (Maybe UserContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393492"><span class="annot"><span class="annottext">Maybe UserContext
+lastModifiedBy :: Maybe UserContext
+$sel:lastModifiedBy:DescribePipelineExecutionResponse' :: DescribePipelineExecutionResponse -&gt; Maybe UserContext
+</span><a href="#local-6989586621680393492"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680393492"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393491"><span class="annot"><span class="annottext">s :: DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393490"><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680393490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedBy:DescribePipelineExecutionResponse' :: Maybe UserContext
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AlastModifiedBy%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680393490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The description of the pipeline execution.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExecutionDescription"><span class="hs-identifier hs-type">describePipelineExecutionResponse_pipelineExecutionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="describePipelineExecutionResponse_pipelineExecutionDescription"><span class="annot"><span class="annottext">describePipelineExecutionResponse_pipelineExecutionDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExecutionDescription"><span class="hs-identifier hs-var hs-var">describePipelineExecutionResponse_pipelineExecutionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecutionResponse -&gt; Maybe Text)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; Maybe Text -&gt; DescribePipelineExecutionResponse)
+-&gt; Lens
+     DescribePipelineExecutionResponse
+     DescribePipelineExecutionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393489"><span class="annot"><span class="annottext">Maybe Text
+pipelineExecutionDescription :: Maybe Text
+$sel:pipelineExecutionDescription:DescribePipelineExecutionResponse' :: DescribePipelineExecutionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680393489"><span class="hs-identifier hs-var hs-var">pipelineExecutionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393489"><span class="hs-identifier hs-var">pipelineExecutionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393488"><span class="annot"><span class="annottext">s :: DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionDescription:DescribePipelineExecutionResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExecutionDescription%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineExecutionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680393487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExperimentConfig"><span class="hs-identifier hs-type">describePipelineExecutionResponse_pipelineExperimentConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.PipelineExperimentConfig.html#PipelineExperimentConfig"><span class="hs-identifier hs-type">PipelineExperimentConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="describePipelineExecutionResponse_pipelineExperimentConfig"><span class="annot"><span class="annottext">describePipelineExecutionResponse_pipelineExperimentConfig :: (Maybe PipelineExperimentConfig
+ -&gt; f (Maybe PipelineExperimentConfig))
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_pipelineExperimentConfig"><span class="hs-identifier hs-var hs-var">describePipelineExecutionResponse_pipelineExperimentConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecutionResponse
+ -&gt; Maybe PipelineExperimentConfig)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; Maybe PipelineExperimentConfig
+    -&gt; DescribePipelineExecutionResponse)
+-&gt; Lens
+     DescribePipelineExecutionResponse
+     DescribePipelineExecutionResponse
+     (Maybe PipelineExperimentConfig)
+     (Maybe PipelineExperimentConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393486"><span class="annot"><span class="annottext">Maybe PipelineExperimentConfig
+pipelineExperimentConfig :: Maybe PipelineExperimentConfig
+$sel:pipelineExperimentConfig:DescribePipelineExecutionResponse' :: DescribePipelineExecutionResponse -&gt; Maybe PipelineExperimentConfig
+</span><a href="#local-6989586621680393486"><span class="hs-identifier hs-var hs-var">pipelineExperimentConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExperimentConfig
+</span><a href="#local-6989586621680393486"><span class="hs-identifier hs-var">pipelineExperimentConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393485"><span class="annot"><span class="annottext">s :: DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393484"><span class="annot"><span class="annottext">Maybe PipelineExperimentConfig
+</span><a href="#local-6989586621680393484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExperimentConfig:DescribePipelineExecutionResponse' :: Maybe PipelineExperimentConfig
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3ApipelineExperimentConfig%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineExperimentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExperimentConfig
+</span><a href="#local-6989586621680393484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_httpStatus"><span class="hs-identifier hs-type">describePipelineExecutionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-276"></span><span id="describePipelineExecutionResponse_httpStatus"><span class="annot"><span class="annottext">describePipelineExecutionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribePipelineExecutionResponse
+-&gt; f DescribePipelineExecutionResponse
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#describePipelineExecutionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describePipelineExecutionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePipelineExecutionResponse -&gt; Int)
+-&gt; (DescribePipelineExecutionResponse
+    -&gt; Int -&gt; DescribePipelineExecutionResponse)
+-&gt; Lens
+     DescribePipelineExecutionResponse
+     DescribePipelineExecutionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680393483"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribePipelineExecutionResponse' :: DescribePipelineExecutionResponse -&gt; Int
+</span><a href="#local-6989586621680393483"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680393483"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680393482"><span class="annot"><span class="annottext">s :: DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse%27"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680393481"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680393481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePipelineExecutionResponse
+</span><a href="#local-6989586621680393482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePipelineExecutionResponse' :: Int
+</span><a href="Amazonka.SageMaker.DescribePipelineExecution.html#%24sel%3AhttpStatus%3ADescribePipelineExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680393481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-279"></span><span>  </span><span id="local-6989586621680393479"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.DescribePipelineExecution.html#DescribePipelineExecutionResponse"><span class="hs-identifier hs-type">DescribePipelineExecutionResponse</span></a></span></span><span>
+</span><span id="line-281"></span></pre></body></html>

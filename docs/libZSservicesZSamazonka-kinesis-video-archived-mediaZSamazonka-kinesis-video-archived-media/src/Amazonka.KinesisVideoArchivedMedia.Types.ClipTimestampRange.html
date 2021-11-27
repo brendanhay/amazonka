@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The range of timestamps for which to return fragments.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newClipTimestampRange' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679162406"><span id="local-6989586621679162407"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClipTimestampRange"><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange"><span class="hs-identifier hs-var">ClipTimestampRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClipTimestampRange%27"><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange%27"><span class="hs-identifier hs-var">ClipTimestampRange'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The starting timestamp in the range of timestamps for which to return</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- fragments.</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Only fragments that start exactly at or after @StartTimestamp@ are</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- included in the session. Fragments that start before @StartTimestamp@</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- and continue past it aren\'t included in the session. If</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- be later than the stream head.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstartTimestamp%3AClipTimestampRange%27"><span class="annot"><span class="annottext">ClipTimestampRange -&gt; POSIX
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#%24sel%3AstartTimestamp%3AClipTimestampRange%27"><span class="hs-identifier hs-var hs-var">startTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The end of the timestamp range for the requested media.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- This value must be within 24 hours of the specified @StartTimestamp@,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- and it must be later than the @StartTimestamp@ value. If</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@, this value</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- must be in the past.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- This value is inclusive. The @EndTimestamp@ is compared to the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- (starting) timestamp of the fragment. Fragments that start before the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @EndTimestamp@ value and continue past it are included in the session.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AendTimestamp%3AClipTimestampRange%27"><span class="annot"><span class="annottext">ClipTimestampRange -&gt; POSIX
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#%24sel%3AendTimestamp%3AClipTimestampRange%27"><span class="hs-identifier hs-var hs-var">endTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679162399"><span id="local-6989586621679162401"><span class="annot"><span class="annottext">ClipTimestampRange -&gt; ClipTimestampRange -&gt; Bool
+(ClipTimestampRange -&gt; ClipTimestampRange -&gt; Bool)
+-&gt; (ClipTimestampRange -&gt; ClipTimestampRange -&gt; Bool)
+-&gt; Eq ClipTimestampRange
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClipTimestampRange -&gt; ClipTimestampRange -&gt; Bool
+$c/= :: ClipTimestampRange -&gt; ClipTimestampRange -&gt; Bool
+== :: ClipTimestampRange -&gt; ClipTimestampRange -&gt; Bool
+$c== :: ClipTimestampRange -&gt; ClipTimestampRange -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679162390"><span id="local-6989586621679162392"><span id="local-6989586621679162394"><span id="local-6989586621679162396"><span class="annot"><span class="annottext">ReadPrec [ClipTimestampRange]
+ReadPrec ClipTimestampRange
+Int -&gt; ReadS ClipTimestampRange
+ReadS [ClipTimestampRange]
+(Int -&gt; ReadS ClipTimestampRange)
+-&gt; ReadS [ClipTimestampRange]
+-&gt; ReadPrec ClipTimestampRange
+-&gt; ReadPrec [ClipTimestampRange]
+-&gt; Read ClipTimestampRange
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClipTimestampRange]
+$creadListPrec :: ReadPrec [ClipTimestampRange]
+readPrec :: ReadPrec ClipTimestampRange
+$creadPrec :: ReadPrec ClipTimestampRange
+readList :: ReadS [ClipTimestampRange]
+$creadList :: ReadS [ClipTimestampRange]
+readsPrec :: Int -&gt; ReadS ClipTimestampRange
+$creadsPrec :: Int -&gt; ReadS ClipTimestampRange
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679162383"><span id="local-6989586621679162385"><span id="local-6989586621679162387"><span class="annot"><span class="annottext">Int -&gt; ClipTimestampRange -&gt; ShowS
+[ClipTimestampRange] -&gt; ShowS
+ClipTimestampRange -&gt; String
+(Int -&gt; ClipTimestampRange -&gt; ShowS)
+-&gt; (ClipTimestampRange -&gt; String)
+-&gt; ([ClipTimestampRange] -&gt; ShowS)
+-&gt; Show ClipTimestampRange
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClipTimestampRange] -&gt; ShowS
+$cshowList :: [ClipTimestampRange] -&gt; ShowS
+show :: ClipTimestampRange -&gt; String
+$cshow :: ClipTimestampRange -&gt; String
+showsPrec :: Int -&gt; ClipTimestampRange -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClipTimestampRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ClipTimestampRange -&gt; Rep ClipTimestampRange x)
+-&gt; (forall x. Rep ClipTimestampRange x -&gt; ClipTimestampRange)
+-&gt; Generic ClipTimestampRange
+forall x. Rep ClipTimestampRange x -&gt; ClipTimestampRange
+forall x. ClipTimestampRange -&gt; Rep ClipTimestampRange x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ClipTimestampRange x -&gt; ClipTimestampRange
+$cfrom :: forall x. ClipTimestampRange -&gt; Rep ClipTimestampRange x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'ClipTimestampRange' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'startTimestamp', 'clipTimestampRange_startTimestamp' - The starting timestamp in the range of timestamps for which to return</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- fragments.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Only fragments that start exactly at or after @StartTimestamp@ are</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- included in the session. Fragments that start before @StartTimestamp@</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- and continue past it aren\'t included in the session. If</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- be later than the stream head.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'endTimestamp', 'clipTimestampRange_endTimestamp' - The end of the timestamp range for the requested media.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- This value must be within 24 hours of the specified @StartTimestamp@,</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- and it must be later than the @StartTimestamp@ value. If</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@, this value</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- must be in the past.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- This value is inclusive. The @EndTimestamp@ is compared to the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- (starting) timestamp of the fragment. Fragments that start before the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @EndTimestamp@ value and continue past it are included in the session.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#newClipTimestampRange"><span class="hs-identifier hs-type">newClipTimestampRange</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'startTimestamp'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'endTimestamp'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange"><span class="hs-identifier hs-type">ClipTimestampRange</span></a></span><span>
+</span><span id="line-86"></span><span id="newClipTimestampRange"><span class="annot"><span class="annottext">newClipTimestampRange :: UTCTime -&gt; UTCTime -&gt; ClipTimestampRange
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#newClipTimestampRange"><span class="hs-identifier hs-var hs-var">newClipTimestampRange</span></a></span></span><span> </span><span id="local-6989586621679162377"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679162377"><span class="hs-identifier hs-var">pStartTimestamp_</span></a></span></span><span> </span><span id="local-6989586621679162376"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679162376"><span class="hs-identifier hs-var">pEndTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ClipTimestampRange' :: POSIX -&gt; POSIX -&gt; ClipTimestampRange
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange%27"><span class="hs-identifier hs-type">ClipTimestampRange'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTimestamp:ClipTimestampRange' :: POSIX
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#%24sel%3AstartTimestamp%3AClipTimestampRange%27"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679162377"><span class="hs-identifier hs-var">pStartTimestamp_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTimestamp:ClipTimestampRange' :: POSIX
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#%24sel%3AendTimestamp%3AClipTimestampRange%27"><span class="hs-identifier hs-var">endTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679162376"><span class="hs-identifier hs-var">pEndTimestamp_</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The starting timestamp in the range of timestamps for which to return</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- fragments.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Only fragments that start exactly at or after @StartTimestamp@ are</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- included in the session. Fragments that start before @StartTimestamp@</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- and continue past it aren\'t included in the session. If</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- be later than the stream head.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#clipTimestampRange_startTimestamp"><span class="hs-identifier hs-type">clipTimestampRange_startTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange"><span class="hs-identifier hs-type">ClipTimestampRange</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-102"></span><span id="clipTimestampRange_startTimestamp"><span class="annot"><span class="annottext">clipTimestampRange_startTimestamp :: (UTCTime -&gt; f UTCTime)
+-&gt; ClipTimestampRange -&gt; f ClipTimestampRange
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#clipTimestampRange_startTimestamp"><span class="hs-identifier hs-var hs-var">clipTimestampRange_startTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClipTimestampRange -&gt; POSIX)
+-&gt; (ClipTimestampRange -&gt; POSIX -&gt; ClipTimestampRange)
+-&gt; Lens ClipTimestampRange ClipTimestampRange POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange%27"><span class="hs-identifier hs-type">ClipTimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162370"><span class="annot"><span class="annottext">POSIX
+startTimestamp :: POSIX
+$sel:startTimestamp:ClipTimestampRange' :: ClipTimestampRange -&gt; POSIX
+</span><a href="#local-6989586621679162370"><span class="hs-identifier hs-var hs-var">startTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679162370"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162369"><span class="annot"><span class="annottext">s :: ClipTimestampRange
+</span><a href="#local-6989586621679162369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange%27"><span class="hs-identifier hs-type">ClipTimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162368"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679162368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClipTimestampRange
+</span><a href="#local-6989586621679162369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimestamp:ClipTimestampRange' :: POSIX
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#%24sel%3AstartTimestamp%3AClipTimestampRange%27"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679162368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange"><span class="hs-identifier hs-type">ClipTimestampRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ClipTimestampRange -&gt; f ClipTimestampRange)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; ClipTimestampRange
+-&gt; f ClipTimestampRange
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The end of the timestamp range for the requested media.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- This value must be within 24 hours of the specified @StartTimestamp@,</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- and it must be later than the @StartTimestamp@ value. If</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@, this value</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- must be in the past.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- This value is inclusive. The @EndTimestamp@ is compared to the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- (starting) timestamp of the fragment. Fragments that start before the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @EndTimestamp@ value and continue past it are included in the session.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#clipTimestampRange_endTimestamp"><span class="hs-identifier hs-type">clipTimestampRange_endTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange"><span class="hs-identifier hs-type">ClipTimestampRange</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-115"></span><span id="clipTimestampRange_endTimestamp"><span class="annot"><span class="annottext">clipTimestampRange_endTimestamp :: (UTCTime -&gt; f UTCTime)
+-&gt; ClipTimestampRange -&gt; f ClipTimestampRange
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#clipTimestampRange_endTimestamp"><span class="hs-identifier hs-var hs-var">clipTimestampRange_endTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClipTimestampRange -&gt; POSIX)
+-&gt; (ClipTimestampRange -&gt; POSIX -&gt; ClipTimestampRange)
+-&gt; Lens ClipTimestampRange ClipTimestampRange POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange%27"><span class="hs-identifier hs-type">ClipTimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162365"><span class="annot"><span class="annottext">POSIX
+endTimestamp :: POSIX
+$sel:endTimestamp:ClipTimestampRange' :: ClipTimestampRange -&gt; POSIX
+</span><a href="#local-6989586621679162365"><span class="hs-identifier hs-var hs-var">endTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679162365"><span class="hs-identifier hs-var">endTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162364"><span class="annot"><span class="annottext">s :: ClipTimestampRange
+</span><a href="#local-6989586621679162364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange%27"><span class="hs-identifier hs-type">ClipTimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162363"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679162363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClipTimestampRange
+</span><a href="#local-6989586621679162364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTimestamp:ClipTimestampRange' :: POSIX
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#%24sel%3AendTimestamp%3AClipTimestampRange%27"><span class="hs-identifier hs-var">endTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679162363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange"><span class="hs-identifier hs-type">ClipTimestampRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ClipTimestampRange -&gt; f ClipTimestampRange)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; ClipTimestampRange
+-&gt; f ClipTimestampRange
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162359"><span id="local-6989586621679162361"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange"><span class="hs-identifier hs-type">ClipTimestampRange</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange"><span class="hs-identifier hs-type">ClipTimestampRange</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162348"><span id="local-6989586621679162350"><span id="local-6989586621679162352"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange"><span class="hs-identifier hs-type">ClipTimestampRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679162346"><span class="annot"><span class="annottext">toJSON :: ClipTimestampRange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.html#ClipTimestampRange%27"><span class="hs-identifier hs-type">ClipTimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162343"><span id="local-6989586621679162344"><span class="annot"><span class="annottext">POSIX
+endTimestamp :: POSIX
+startTimestamp :: POSIX
+$sel:endTimestamp:ClipTimestampRange' :: ClipTimestampRange -&gt; POSIX
+$sel:startTimestamp:ClipTimestampRange' :: ClipTimestampRange -&gt; POSIX
+</span><a href="#local-6989586621679162343"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTimestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679162344"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTimestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679162343"><span class="hs-identifier hs-var">endTimestamp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span></pre></body></html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTAnalytics.GetDatasetContent</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the contents of a dataset as presigned URIs.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTAnalytics.GetDatasetContent</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier">GetDatasetContent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#newGetDatasetContent"><span class="hs-identifier">newGetDatasetContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContent_versionId"><span class="hs-identifier">getDatasetContent_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContent_datasetName"><span class="hs-identifier">getDatasetContent_datasetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier">GetDatasetContentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#newGetDatasetContentResponse"><span class="hs-identifier">newGetDatasetContentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContentResponse_status"><span class="hs-identifier">getDatasetContentResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContentResponse_entries"><span class="hs-identifier">getDatasetContentResponse_entries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContentResponse_timestamp"><span class="hs-identifier">getDatasetContentResponse_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContentResponse_httpStatus"><span class="hs-identifier">getDatasetContentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.html"><span class="hs-identifier">Amazonka.IoTAnalytics.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetDatasetContent' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679266392"><span id="local-6989586621679266393"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDatasetContent"><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-var">GetDatasetContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDatasetContent%27"><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent%27"><span class="hs-identifier hs-var">GetDatasetContent'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the dataset whose contents are retrieved. You can also</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- use the strings \&quot;$LATEST\&quot; or \&quot;$LATEST_SUCCEEDED\&quot; to retrieve the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- contents of the latest or latest successfully completed dataset. If not</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- specified, \&quot;$LATEST_SUCCEEDED\&quot; is the default.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AversionId%3AGetDatasetContent%27"><span class="annot"><span class="annottext">GetDatasetContent -&gt; Maybe Text
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3AversionId%3AGetDatasetContent%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the dataset whose contents are retrieved.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdatasetName%3AGetDatasetContent%27"><span class="annot"><span class="annottext">GetDatasetContent -&gt; Text
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3AdatasetName%3AGetDatasetContent%27"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266385"><span id="local-6989586621679266387"><span class="annot"><span class="annottext">GetDatasetContent -&gt; GetDatasetContent -&gt; Bool
+(GetDatasetContent -&gt; GetDatasetContent -&gt; Bool)
+-&gt; (GetDatasetContent -&gt; GetDatasetContent -&gt; Bool)
+-&gt; Eq GetDatasetContent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDatasetContent -&gt; GetDatasetContent -&gt; Bool
+$c/= :: GetDatasetContent -&gt; GetDatasetContent -&gt; Bool
+== :: GetDatasetContent -&gt; GetDatasetContent -&gt; Bool
+$c== :: GetDatasetContent -&gt; GetDatasetContent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266376"><span id="local-6989586621679266378"><span id="local-6989586621679266380"><span id="local-6989586621679266382"><span class="annot"><span class="annottext">ReadPrec [GetDatasetContent]
+ReadPrec GetDatasetContent
+Int -&gt; ReadS GetDatasetContent
+ReadS [GetDatasetContent]
+(Int -&gt; ReadS GetDatasetContent)
+-&gt; ReadS [GetDatasetContent]
+-&gt; ReadPrec GetDatasetContent
+-&gt; ReadPrec [GetDatasetContent]
+-&gt; Read GetDatasetContent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDatasetContent]
+$creadListPrec :: ReadPrec [GetDatasetContent]
+readPrec :: ReadPrec GetDatasetContent
+$creadPrec :: ReadPrec GetDatasetContent
+readList :: ReadS [GetDatasetContent]
+$creadList :: ReadS [GetDatasetContent]
+readsPrec :: Int -&gt; ReadS GetDatasetContent
+$creadsPrec :: Int -&gt; ReadS GetDatasetContent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266369"><span id="local-6989586621679266371"><span id="local-6989586621679266373"><span class="annot"><span class="annottext">Int -&gt; GetDatasetContent -&gt; ShowS
+[GetDatasetContent] -&gt; ShowS
+GetDatasetContent -&gt; String
+(Int -&gt; GetDatasetContent -&gt; ShowS)
+-&gt; (GetDatasetContent -&gt; String)
+-&gt; ([GetDatasetContent] -&gt; ShowS)
+-&gt; Show GetDatasetContent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDatasetContent] -&gt; ShowS
+$cshowList :: [GetDatasetContent] -&gt; ShowS
+show :: GetDatasetContent -&gt; String
+$cshow :: GetDatasetContent -&gt; String
+showsPrec :: Int -&gt; GetDatasetContent -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDatasetContent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDatasetContent -&gt; Rep GetDatasetContent x)
+-&gt; (forall x. Rep GetDatasetContent x -&gt; GetDatasetContent)
+-&gt; Generic GetDatasetContent
+forall x. Rep GetDatasetContent x -&gt; GetDatasetContent
+forall x. GetDatasetContent -&gt; Rep GetDatasetContent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDatasetContent x -&gt; GetDatasetContent
+$cfrom :: forall x. GetDatasetContent -&gt; Rep GetDatasetContent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'GetDatasetContent' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'versionId', 'getDatasetContent_versionId' - The version of the dataset whose contents are retrieved. You can also</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- use the strings \&quot;$LATEST\&quot; or \&quot;$LATEST_SUCCEEDED\&quot; to retrieve the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- contents of the latest or latest successfully completed dataset. If not</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- specified, \&quot;$LATEST_SUCCEEDED\&quot; is the default.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'datasetName', 'getDatasetContent_datasetName' - The name of the dataset whose contents are retrieved.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#newGetDatasetContent"><span class="hs-identifier hs-type">newGetDatasetContent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'datasetName'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-type">GetDatasetContent</span></a></span><span>
+</span><span id="line-82"></span><span id="newGetDatasetContent"><span class="annot"><span class="annottext">newGetDatasetContent :: Text -&gt; GetDatasetContent
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#newGetDatasetContent"><span class="hs-identifier hs-var hs-var">newGetDatasetContent</span></a></span></span><span> </span><span id="local-6989586621679266364"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266364"><span class="hs-identifier hs-var">pDatasetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">GetDatasetContent' :: Maybe Text -&gt; Text -&gt; GetDatasetContent
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent%27"><span class="hs-identifier hs-type">GetDatasetContent'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionId:GetDatasetContent' :: Maybe Text
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3AversionId%3AGetDatasetContent%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetName:GetDatasetContent' :: Text
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3AdatasetName%3AGetDatasetContent%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266364"><span class="hs-identifier hs-var">pDatasetName_</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The version of the dataset whose contents are retrieved. You can also</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- use the strings \&quot;$LATEST\&quot; or \&quot;$LATEST_SUCCEEDED\&quot; to retrieve the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- contents of the latest or latest successfully completed dataset. If not</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- specified, \&quot;$LATEST_SUCCEEDED\&quot; is the default.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContent_versionId"><span class="hs-identifier hs-type">getDatasetContent_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-type">GetDatasetContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="getDatasetContent_versionId"><span class="annot"><span class="annottext">getDatasetContent_versionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDatasetContent -&gt; f GetDatasetContent
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContent_versionId"><span class="hs-identifier hs-var hs-var">getDatasetContent_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDatasetContent -&gt; Maybe Text)
+-&gt; (GetDatasetContent -&gt; Maybe Text -&gt; GetDatasetContent)
+-&gt; Lens
+     GetDatasetContent GetDatasetContent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent%27"><span class="hs-identifier hs-type">GetDatasetContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266361"><span class="annot"><span class="annottext">Maybe Text
+versionId :: Maybe Text
+$sel:versionId:GetDatasetContent' :: GetDatasetContent -&gt; Maybe Text
+</span><a href="#local-6989586621679266361"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266361"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266360"><span class="annot"><span class="annottext">s :: GetDatasetContent
+</span><a href="#local-6989586621679266360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent%27"><span class="hs-identifier hs-type">GetDatasetContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266359"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatasetContent
+</span><a href="#local-6989586621679266360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:GetDatasetContent' :: Maybe Text
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3AversionId%3AGetDatasetContent%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-type">GetDatasetContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name of the dataset whose contents are retrieved.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContent_datasetName"><span class="hs-identifier hs-type">getDatasetContent_datasetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-type">GetDatasetContent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="getDatasetContent_datasetName"><span class="annot"><span class="annottext">getDatasetContent_datasetName :: (Text -&gt; f Text) -&gt; GetDatasetContent -&gt; f GetDatasetContent
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContent_datasetName"><span class="hs-identifier hs-var hs-var">getDatasetContent_datasetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDatasetContent -&gt; Text)
+-&gt; (GetDatasetContent -&gt; Text -&gt; GetDatasetContent)
+-&gt; Lens GetDatasetContent GetDatasetContent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent%27"><span class="hs-identifier hs-type">GetDatasetContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266358"><span class="annot"><span class="annottext">Text
+datasetName :: Text
+$sel:datasetName:GetDatasetContent' :: GetDatasetContent -&gt; Text
+</span><a href="#local-6989586621679266358"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266358"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266357"><span class="annot"><span class="annottext">s :: GetDatasetContent
+</span><a href="#local-6989586621679266357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent%27"><span class="hs-identifier hs-type">GetDatasetContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266356"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatasetContent
+</span><a href="#local-6989586621679266357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetName:GetDatasetContent' :: Text
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3AdatasetName%3AGetDatasetContent%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-type">GetDatasetContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-type">GetDatasetContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-type">GetDatasetContent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier hs-type">GetDatasetContentResponse</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679266352"><span class="annot"><span class="annottext">request :: GetDatasetContent -&gt; Request GetDatasetContent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDatasetContent -&gt; Request GetDatasetContent
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679266348"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDatasetContent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDatasetContent)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDatasetContent))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDatasetContent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDatasetContent)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266345"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266345"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266344"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679266344"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266343"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266343"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe DatasetContentStatus
+-&gt; Maybe [DatasetEntry]
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; GetDatasetContentResponse
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse%27"><span class="hs-identifier hs-var">GetDatasetContentResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DatasetContentStatus
+ -&gt; Maybe [DatasetEntry]
+ -&gt; Maybe POSIX
+ -&gt; Int
+ -&gt; GetDatasetContentResponse)
+-&gt; Either String (Maybe DatasetContentStatus)
+-&gt; Either
+     String
+     (Maybe [DatasetEntry]
+      -&gt; Maybe POSIX -&gt; Int -&gt; GetDatasetContentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DatasetContentStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [DatasetEntry]
+   -&gt; Maybe POSIX -&gt; Int -&gt; GetDatasetContentResponse)
+-&gt; Either String (Maybe [DatasetEntry])
+-&gt; Either String (Maybe POSIX -&gt; Int -&gt; GetDatasetContentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DatasetEntry]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DatasetEntry]))
+-&gt; Maybe [DatasetEntry] -&gt; Either String (Maybe [DatasetEntry])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe POSIX -&gt; Int -&gt; GetDatasetContentResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Int -&gt; GetDatasetContentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDatasetContentResponse)
+-&gt; Either String Int -&gt; Either String GetDatasetContentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266345"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266334"><span id="local-6989586621679266336"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-type">GetDatasetContent</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266331"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-type">GetDatasetContent</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-type">GetDatasetContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679266327"><span class="annot"><span class="annottext">toHeaders :: GetDatasetContent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDatasetContent -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-type">GetDatasetContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679266322"><span class="annot"><span class="annottext">toPath :: GetDatasetContent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent%27"><span class="hs-identifier hs-type">GetDatasetContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266319"><span id="local-6989586621679266320"><span class="annot"><span class="annottext">Maybe Text
+Text
+datasetName :: Text
+versionId :: Maybe Text
+$sel:datasetName:GetDatasetContent' :: GetDatasetContent -&gt; Text
+$sel:versionId:GetDatasetContent' :: GetDatasetContent -&gt; Maybe Text
+</span><a href="#local-6989586621679266319"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/datasets/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266319"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/content&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent"><span class="hs-identifier hs-type">GetDatasetContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679266315"><span class="annot"><span class="annottext">toQuery :: GetDatasetContent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContent%27"><span class="hs-identifier hs-type">GetDatasetContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266312"><span id="local-6989586621679266313"><span class="annot"><span class="annottext">Maybe Text
+Text
+datasetName :: Text
+versionId :: Maybe Text
+$sel:datasetName:GetDatasetContent' :: GetDatasetContent -&gt; Text
+$sel:versionId:GetDatasetContent' :: GetDatasetContent -&gt; Maybe Text
+</span><a href="#local-6989586621679266312"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;versionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266313"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newGetDatasetContentResponse' smart constructor.</span><span>
+</span><span id="line-131"></span><span id="local-6989586621679266309"><span id="local-6989586621679266310"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDatasetContentResponse"><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier hs-var">GetDatasetContentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDatasetContentResponse%27"><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse%27"><span class="hs-identifier hs-var">GetDatasetContentResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the dataset content.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3Astatus%3AGetDatasetContentResponse%27"><span class="annot"><span class="annottext">GetDatasetContentResponse -&gt; Maybe DatasetContentStatus
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3Astatus%3AGetDatasetContentResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatasetContentStatus.html#DatasetContentStatus"><span class="hs-identifier hs-type">DatasetContentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | A list of @DatasetEntry@ objects.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3Aentries%3AGetDatasetContentResponse%27"><span class="annot"><span class="annottext">GetDatasetContentResponse -&gt; Maybe [DatasetEntry]
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3Aentries%3AGetDatasetContentResponse%27"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatasetEntry.html#DatasetEntry"><span class="hs-identifier hs-type">DatasetEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The time when the request was made.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3Atimestamp%3AGetDatasetContentResponse%27"><span class="annot"><span class="annottext">GetDatasetContentResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3Atimestamp%3AGetDatasetContentResponse%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDatasetContentResponse%27"><span class="annot"><span class="annottext">GetDatasetContentResponse -&gt; Int
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3AhttpStatus%3AGetDatasetContentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266301"><span id="local-6989586621679266303"><span class="annot"><span class="annottext">GetDatasetContentResponse -&gt; GetDatasetContentResponse -&gt; Bool
+(GetDatasetContentResponse -&gt; GetDatasetContentResponse -&gt; Bool)
+-&gt; (GetDatasetContentResponse -&gt; GetDatasetContentResponse -&gt; Bool)
+-&gt; Eq GetDatasetContentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDatasetContentResponse -&gt; GetDatasetContentResponse -&gt; Bool
+$c/= :: GetDatasetContentResponse -&gt; GetDatasetContentResponse -&gt; Bool
+== :: GetDatasetContentResponse -&gt; GetDatasetContentResponse -&gt; Bool
+$c== :: GetDatasetContentResponse -&gt; GetDatasetContentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266293"><span id="local-6989586621679266295"><span id="local-6989586621679266297"><span id="local-6989586621679266299"><span class="annot"><span class="annottext">ReadPrec [GetDatasetContentResponse]
+ReadPrec GetDatasetContentResponse
+Int -&gt; ReadS GetDatasetContentResponse
+ReadS [GetDatasetContentResponse]
+(Int -&gt; ReadS GetDatasetContentResponse)
+-&gt; ReadS [GetDatasetContentResponse]
+-&gt; ReadPrec GetDatasetContentResponse
+-&gt; ReadPrec [GetDatasetContentResponse]
+-&gt; Read GetDatasetContentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDatasetContentResponse]
+$creadListPrec :: ReadPrec [GetDatasetContentResponse]
+readPrec :: ReadPrec GetDatasetContentResponse
+$creadPrec :: ReadPrec GetDatasetContentResponse
+readList :: ReadS [GetDatasetContentResponse]
+$creadList :: ReadS [GetDatasetContentResponse]
+readsPrec :: Int -&gt; ReadS GetDatasetContentResponse
+$creadsPrec :: Int -&gt; ReadS GetDatasetContentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266287"><span id="local-6989586621679266289"><span id="local-6989586621679266291"><span class="annot"><span class="annottext">Int -&gt; GetDatasetContentResponse -&gt; ShowS
+[GetDatasetContentResponse] -&gt; ShowS
+GetDatasetContentResponse -&gt; String
+(Int -&gt; GetDatasetContentResponse -&gt; ShowS)
+-&gt; (GetDatasetContentResponse -&gt; String)
+-&gt; ([GetDatasetContentResponse] -&gt; ShowS)
+-&gt; Show GetDatasetContentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDatasetContentResponse] -&gt; ShowS
+$cshowList :: [GetDatasetContentResponse] -&gt; ShowS
+show :: GetDatasetContentResponse -&gt; String
+$cshow :: GetDatasetContentResponse -&gt; String
+showsPrec :: Int -&gt; GetDatasetContentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDatasetContentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDatasetContentResponse -&gt; Rep GetDatasetContentResponse x)
+-&gt; (forall x.
+    Rep GetDatasetContentResponse x -&gt; GetDatasetContentResponse)
+-&gt; Generic GetDatasetContentResponse
+forall x.
+Rep GetDatasetContentResponse x -&gt; GetDatasetContentResponse
+forall x.
+GetDatasetContentResponse -&gt; Rep GetDatasetContentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDatasetContentResponse x -&gt; GetDatasetContentResponse
+$cfrom :: forall x.
+GetDatasetContentResponse -&gt; Rep GetDatasetContentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Create a value of 'GetDatasetContentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'status', 'getDatasetContentResponse_status' - The status of the dataset content.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'entries', 'getDatasetContentResponse_entries' - A list of @DatasetEntry@ objects.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'timestamp', 'getDatasetContentResponse_timestamp' - The time when the request was made.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'httpStatus', 'getDatasetContentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#newGetDatasetContentResponse"><span class="hs-identifier hs-type">newGetDatasetContentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier hs-type">GetDatasetContentResponse</span></a></span><span>
+</span><span id="line-162"></span><span id="newGetDatasetContentResponse"><span class="annot"><span class="annottext">newGetDatasetContentResponse :: Int -&gt; GetDatasetContentResponse
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#newGetDatasetContentResponse"><span class="hs-identifier hs-var hs-var">newGetDatasetContentResponse</span></a></span></span><span> </span><span id="local-6989586621679266284"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266284"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">GetDatasetContentResponse' :: Maybe DatasetContentStatus
+-&gt; Maybe [DatasetEntry]
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; GetDatasetContentResponse
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse%27"><span class="hs-identifier hs-type">GetDatasetContentResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:GetDatasetContentResponse' :: Maybe DatasetContentStatus
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3Astatus%3AGetDatasetContentResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe DatasetContentStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:entries:GetDatasetContentResponse' :: Maybe [DatasetEntry]
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3Aentries%3AGetDatasetContentResponse%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetEntry]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:GetDatasetContentResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3Atimestamp%3AGetDatasetContentResponse%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDatasetContentResponse' :: Int
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3AhttpStatus%3AGetDatasetContentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266284"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The status of the dataset content.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContentResponse_status"><span class="hs-identifier hs-type">getDatasetContentResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier hs-type">GetDatasetContentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatasetContentStatus.html#DatasetContentStatus"><span class="hs-identifier hs-type">DatasetContentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="getDatasetContentResponse_status"><span class="annot"><span class="annottext">getDatasetContentResponse_status :: (Maybe DatasetContentStatus -&gt; f (Maybe DatasetContentStatus))
+-&gt; GetDatasetContentResponse -&gt; f GetDatasetContentResponse
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContentResponse_status"><span class="hs-identifier hs-var hs-var">getDatasetContentResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDatasetContentResponse -&gt; Maybe DatasetContentStatus)
+-&gt; (GetDatasetContentResponse
+    -&gt; Maybe DatasetContentStatus -&gt; GetDatasetContentResponse)
+-&gt; Lens
+     GetDatasetContentResponse
+     GetDatasetContentResponse
+     (Maybe DatasetContentStatus)
+     (Maybe DatasetContentStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse%27"><span class="hs-identifier hs-type">GetDatasetContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266283"><span class="annot"><span class="annottext">Maybe DatasetContentStatus
+status :: Maybe DatasetContentStatus
+$sel:status:GetDatasetContentResponse' :: GetDatasetContentResponse -&gt; Maybe DatasetContentStatus
+</span><a href="#local-6989586621679266283"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetContentStatus
+</span><a href="#local-6989586621679266283"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266282"><span class="annot"><span class="annottext">s :: GetDatasetContentResponse
+</span><a href="#local-6989586621679266282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse%27"><span class="hs-identifier hs-type">GetDatasetContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266281"><span class="annot"><span class="annottext">Maybe DatasetContentStatus
+</span><a href="#local-6989586621679266281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatasetContentResponse
+</span><a href="#local-6989586621679266282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetDatasetContentResponse' :: Maybe DatasetContentStatus
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3Astatus%3AGetDatasetContentResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetContentStatus
+</span><a href="#local-6989586621679266281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier hs-type">GetDatasetContentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | A list of @DatasetEntry@ objects.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContentResponse_entries"><span class="hs-identifier hs-type">getDatasetContentResponse_entries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier hs-type">GetDatasetContentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatasetEntry.html#DatasetEntry"><span class="hs-identifier hs-type">DatasetEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="getDatasetContentResponse_entries"><span class="annot"><span class="annottext">getDatasetContentResponse_entries :: (Maybe [DatasetEntry] -&gt; f (Maybe [DatasetEntry]))
+-&gt; GetDatasetContentResponse -&gt; f GetDatasetContentResponse
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContentResponse_entries"><span class="hs-identifier hs-var hs-var">getDatasetContentResponse_entries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDatasetContentResponse -&gt; Maybe [DatasetEntry])
+-&gt; (GetDatasetContentResponse
+    -&gt; Maybe [DatasetEntry] -&gt; GetDatasetContentResponse)
+-&gt; Lens
+     GetDatasetContentResponse
+     GetDatasetContentResponse
+     (Maybe [DatasetEntry])
+     (Maybe [DatasetEntry])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse%27"><span class="hs-identifier hs-type">GetDatasetContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266280"><span class="annot"><span class="annottext">Maybe [DatasetEntry]
+entries :: Maybe [DatasetEntry]
+$sel:entries:GetDatasetContentResponse' :: GetDatasetContentResponse -&gt; Maybe [DatasetEntry]
+</span><a href="#local-6989586621679266280"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetEntry]
+</span><a href="#local-6989586621679266280"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266279"><span class="annot"><span class="annottext">s :: GetDatasetContentResponse
+</span><a href="#local-6989586621679266279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse%27"><span class="hs-identifier hs-type">GetDatasetContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266278"><span class="annot"><span class="annottext">Maybe [DatasetEntry]
+</span><a href="#local-6989586621679266278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatasetContentResponse
+</span><a href="#local-6989586621679266279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:GetDatasetContentResponse' :: Maybe [DatasetEntry]
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3Aentries%3AGetDatasetContentResponse%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetEntry]
+</span><a href="#local-6989586621679266278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier hs-type">GetDatasetContentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DatasetEntry] -&gt; f (Maybe [DatasetEntry]))
+ -&gt; GetDatasetContentResponse -&gt; f GetDatasetContentResponse)
+-&gt; ((Maybe [DatasetEntry] -&gt; f (Maybe [DatasetEntry]))
+    -&gt; Maybe [DatasetEntry] -&gt; f (Maybe [DatasetEntry]))
+-&gt; (Maybe [DatasetEntry] -&gt; f (Maybe [DatasetEntry]))
+-&gt; GetDatasetContentResponse
+-&gt; f GetDatasetContentResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DatasetEntry] [DatasetEntry] [DatasetEntry] [DatasetEntry]
+-&gt; Iso
+     (Maybe [DatasetEntry])
+     (Maybe [DatasetEntry])
+     (Maybe [DatasetEntry])
+     (Maybe [DatasetEntry])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DatasetEntry] [DatasetEntry] [DatasetEntry] [DatasetEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The time when the request was made.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContentResponse_timestamp"><span class="hs-identifier hs-type">getDatasetContentResponse_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier hs-type">GetDatasetContentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="getDatasetContentResponse_timestamp"><span class="annot"><span class="annottext">getDatasetContentResponse_timestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetDatasetContentResponse -&gt; f GetDatasetContentResponse
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContentResponse_timestamp"><span class="hs-identifier hs-var hs-var">getDatasetContentResponse_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDatasetContentResponse -&gt; Maybe POSIX)
+-&gt; (GetDatasetContentResponse
+    -&gt; Maybe POSIX -&gt; GetDatasetContentResponse)
+-&gt; Lens
+     GetDatasetContentResponse
+     GetDatasetContentResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse%27"><span class="hs-identifier hs-type">GetDatasetContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266274"><span class="annot"><span class="annottext">Maybe POSIX
+timestamp :: Maybe POSIX
+$sel:timestamp:GetDatasetContentResponse' :: GetDatasetContentResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679266274"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679266274"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266273"><span class="annot"><span class="annottext">s :: GetDatasetContentResponse
+</span><a href="#local-6989586621679266273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse%27"><span class="hs-identifier hs-type">GetDatasetContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266272"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679266272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatasetContentResponse
+</span><a href="#local-6989586621679266273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:GetDatasetContentResponse' :: Maybe POSIX
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3Atimestamp%3AGetDatasetContentResponse%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679266272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier hs-type">GetDatasetContentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetDatasetContentResponse -&gt; f GetDatasetContentResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetDatasetContentResponse
+-&gt; f GetDatasetContentResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContentResponse_httpStatus"><span class="hs-identifier hs-type">getDatasetContentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier hs-type">GetDatasetContentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="getDatasetContentResponse_httpStatus"><span class="annot"><span class="annottext">getDatasetContentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDatasetContentResponse -&gt; f GetDatasetContentResponse
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#getDatasetContentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDatasetContentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDatasetContentResponse -&gt; Int)
+-&gt; (GetDatasetContentResponse -&gt; Int -&gt; GetDatasetContentResponse)
+-&gt; Lens GetDatasetContentResponse GetDatasetContentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse%27"><span class="hs-identifier hs-type">GetDatasetContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266270"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDatasetContentResponse' :: GetDatasetContentResponse -&gt; Int
+</span><a href="#local-6989586621679266270"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266270"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266269"><span class="annot"><span class="annottext">s :: GetDatasetContentResponse
+</span><a href="#local-6989586621679266269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse%27"><span class="hs-identifier hs-type">GetDatasetContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266268"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatasetContentResponse
+</span><a href="#local-6989586621679266269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDatasetContentResponse' :: Int
+</span><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#%24sel%3AhttpStatus%3AGetDatasetContentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier hs-type">GetDatasetContentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.GetDatasetContent.html#GetDatasetContentResponse"><span class="hs-identifier hs-type">GetDatasetContentResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

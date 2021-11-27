@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Config.DeleteOrganizationConfigRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified organization config rule and all of its evaluation</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- results from all member accounts in that organization.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Only a master account and a delegated administrator account can delete</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- an organization config rule. When calling this API with a delegated</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- administrator, you must ensure Organizations</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @ListDelegatedAdministrator@ permissions are added.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- is complete. You cannot update a rule while it is in this state.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Config.DeleteOrganizationConfigRule</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier">DeleteOrganizationConfigRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#newDeleteOrganizationConfigRule"><span class="hs-identifier">newDeleteOrganizationConfigRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#deleteOrganizationConfigRule_organizationConfigRuleName"><span class="hs-identifier">deleteOrganizationConfigRule_organizationConfigRuleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRuleResponse"><span class="hs-identifier">DeleteOrganizationConfigRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#newDeleteOrganizationConfigRuleResponse"><span class="hs-identifier">newDeleteOrganizationConfigRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.html"><span class="hs-identifier">Amazonka.Config.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteOrganizationConfigRule' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679430801"><span id="local-6989586621679430802"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOrganizationConfigRule"><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier hs-var">DeleteOrganizationConfigRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOrganizationConfigRule%27"><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule%27"><span class="hs-identifier hs-var">DeleteOrganizationConfigRule'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of organization config rule that you want to delete.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AorganizationConfigRuleName%3ADeleteOrganizationConfigRule%27"><span class="annot"><span class="annottext">DeleteOrganizationConfigRule -&gt; Text
+</span><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#%24sel%3AorganizationConfigRuleName%3ADeleteOrganizationConfigRule%27"><span class="hs-identifier hs-var hs-var">organizationConfigRuleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430795"><span id="local-6989586621679430797"><span class="annot"><span class="annottext">DeleteOrganizationConfigRule
+-&gt; DeleteOrganizationConfigRule -&gt; Bool
+(DeleteOrganizationConfigRule
+ -&gt; DeleteOrganizationConfigRule -&gt; Bool)
+-&gt; (DeleteOrganizationConfigRule
+    -&gt; DeleteOrganizationConfigRule -&gt; Bool)
+-&gt; Eq DeleteOrganizationConfigRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteOrganizationConfigRule
+-&gt; DeleteOrganizationConfigRule -&gt; Bool
+$c/= :: DeleteOrganizationConfigRule
+-&gt; DeleteOrganizationConfigRule -&gt; Bool
+== :: DeleteOrganizationConfigRule
+-&gt; DeleteOrganizationConfigRule -&gt; Bool
+$c== :: DeleteOrganizationConfigRule
+-&gt; DeleteOrganizationConfigRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430786"><span id="local-6989586621679430788"><span id="local-6989586621679430790"><span id="local-6989586621679430792"><span class="annot"><span class="annottext">ReadPrec [DeleteOrganizationConfigRule]
+ReadPrec DeleteOrganizationConfigRule
+Int -&gt; ReadS DeleteOrganizationConfigRule
+ReadS [DeleteOrganizationConfigRule]
+(Int -&gt; ReadS DeleteOrganizationConfigRule)
+-&gt; ReadS [DeleteOrganizationConfigRule]
+-&gt; ReadPrec DeleteOrganizationConfigRule
+-&gt; ReadPrec [DeleteOrganizationConfigRule]
+-&gt; Read DeleteOrganizationConfigRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteOrganizationConfigRule]
+$creadListPrec :: ReadPrec [DeleteOrganizationConfigRule]
+readPrec :: ReadPrec DeleteOrganizationConfigRule
+$creadPrec :: ReadPrec DeleteOrganizationConfigRule
+readList :: ReadS [DeleteOrganizationConfigRule]
+$creadList :: ReadS [DeleteOrganizationConfigRule]
+readsPrec :: Int -&gt; ReadS DeleteOrganizationConfigRule
+$creadsPrec :: Int -&gt; ReadS DeleteOrganizationConfigRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430779"><span id="local-6989586621679430781"><span id="local-6989586621679430783"><span class="annot"><span class="annottext">Int -&gt; DeleteOrganizationConfigRule -&gt; ShowS
+[DeleteOrganizationConfigRule] -&gt; ShowS
+DeleteOrganizationConfigRule -&gt; String
+(Int -&gt; DeleteOrganizationConfigRule -&gt; ShowS)
+-&gt; (DeleteOrganizationConfigRule -&gt; String)
+-&gt; ([DeleteOrganizationConfigRule] -&gt; ShowS)
+-&gt; Show DeleteOrganizationConfigRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteOrganizationConfigRule] -&gt; ShowS
+$cshowList :: [DeleteOrganizationConfigRule] -&gt; ShowS
+show :: DeleteOrganizationConfigRule -&gt; String
+$cshow :: DeleteOrganizationConfigRule -&gt; String
+showsPrec :: Int -&gt; DeleteOrganizationConfigRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteOrganizationConfigRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteOrganizationConfigRule -&gt; Rep DeleteOrganizationConfigRule x)
+-&gt; (forall x.
+    Rep DeleteOrganizationConfigRule x -&gt; DeleteOrganizationConfigRule)
+-&gt; Generic DeleteOrganizationConfigRule
+forall x.
+Rep DeleteOrganizationConfigRule x -&gt; DeleteOrganizationConfigRule
+forall x.
+DeleteOrganizationConfigRule -&gt; Rep DeleteOrganizationConfigRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteOrganizationConfigRule x -&gt; DeleteOrganizationConfigRule
+$cfrom :: forall x.
+DeleteOrganizationConfigRule -&gt; Rep DeleteOrganizationConfigRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DeleteOrganizationConfigRule' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'organizationConfigRuleName', 'deleteOrganizationConfigRule_organizationConfigRuleName' - The name of organization config rule that you want to delete.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#newDeleteOrganizationConfigRule"><span class="hs-identifier hs-type">newDeleteOrganizationConfigRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'organizationConfigRuleName'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule</span></a></span><span>
+</span><span id="line-74"></span><span id="newDeleteOrganizationConfigRule"><span class="annot"><span class="annottext">newDeleteOrganizationConfigRule :: Text -&gt; DeleteOrganizationConfigRule
+</span><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#newDeleteOrganizationConfigRule"><span class="hs-identifier hs-var hs-var">newDeleteOrganizationConfigRule</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679430774"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430774"><span class="hs-identifier hs-var">pOrganizationConfigRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">DeleteOrganizationConfigRule' :: Text -&gt; DeleteOrganizationConfigRule
+</span><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule%27"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule'</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationConfigRuleName:DeleteOrganizationConfigRule' :: Text
+</span><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#%24sel%3AorganizationConfigRuleName%3ADeleteOrganizationConfigRule%27"><span class="hs-identifier hs-var">organizationConfigRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430774"><span class="hs-identifier hs-var">pOrganizationConfigRuleName_</span></a></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The name of organization config rule that you want to delete.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#deleteOrganizationConfigRule_organizationConfigRuleName"><span class="hs-identifier hs-type">deleteOrganizationConfigRule_organizationConfigRuleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="deleteOrganizationConfigRule_organizationConfigRuleName"><span class="annot"><span class="annottext">deleteOrganizationConfigRule_organizationConfigRuleName :: (Text -&gt; f Text)
+-&gt; DeleteOrganizationConfigRule -&gt; f DeleteOrganizationConfigRule
+</span><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#deleteOrganizationConfigRule_organizationConfigRuleName"><span class="hs-identifier hs-var hs-var">deleteOrganizationConfigRule_organizationConfigRuleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteOrganizationConfigRule -&gt; Text)
+-&gt; (DeleteOrganizationConfigRule
+    -&gt; Text -&gt; DeleteOrganizationConfigRule)
+-&gt; Lens
+     DeleteOrganizationConfigRule DeleteOrganizationConfigRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule%27"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430771"><span class="annot"><span class="annottext">Text
+organizationConfigRuleName :: Text
+$sel:organizationConfigRuleName:DeleteOrganizationConfigRule' :: DeleteOrganizationConfigRule -&gt; Text
+</span><a href="#local-6989586621679430771"><span class="hs-identifier hs-var hs-var">organizationConfigRuleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430771"><span class="hs-identifier hs-var">organizationConfigRuleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430770"><span class="annot"><span class="annottext">s :: DeleteOrganizationConfigRule
+</span><a href="#local-6989586621679430770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule%27"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430769"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOrganizationConfigRule
+</span><a href="#local-6989586621679430770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConfigRuleName:DeleteOrganizationConfigRule' :: Text
+</span><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#%24sel%3AorganizationConfigRuleName%3ADeleteOrganizationConfigRule%27"><span class="hs-identifier hs-var">organizationConfigRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRuleResponse"><span class="hs-identifier hs-type">DeleteOrganizationConfigRuleResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679430765"><span class="annot"><span class="annottext">request :: DeleteOrganizationConfigRule
+-&gt; Request DeleteOrganizationConfigRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteOrganizationConfigRule
+-&gt; Request DeleteOrganizationConfigRule
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679430761"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteOrganizationConfigRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteOrganizationConfigRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteOrganizationConfigRule
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteOrganizationConfigRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteOrganizationConfigRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteOrganizationConfigRule
+DeleteOrganizationConfigRuleResponse
+</span><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRuleResponse%27"><span class="hs-identifier hs-var">DeleteOrganizationConfigRuleResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679430754"><span id="local-6989586621679430756"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679430747"><span class="annot"><span class="annottext">toHeaders :: DeleteOrganizationConfigRule -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteOrganizationConfigRule -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StarlingDoveService.DeleteOrganizationConfigRule&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430737"><span id="local-6989586621679430739"><span id="local-6989586621679430741"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679430735"><span class="annot"><span class="annottext">toJSON :: DeleteOrganizationConfigRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule%27"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430733"><span class="annot"><span class="annottext">Text
+organizationConfigRuleName :: Text
+$sel:organizationConfigRuleName:DeleteOrganizationConfigRule' :: DeleteOrganizationConfigRule -&gt; Text
+</span><a href="#local-6989586621679430733"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationConfigRuleName&quot;</span></span><span>
+</span><span id="line-121"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430733"><span class="hs-identifier hs-var">organizationConfigRuleName</span></a></span><span>
+</span><span id="line-122"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679430727"><span class="annot"><span class="annottext">toPath :: DeleteOrganizationConfigRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteOrganizationConfigRule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRule"><span class="hs-identifier hs-type">DeleteOrganizationConfigRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679430723"><span class="annot"><span class="annottext">toQuery :: DeleteOrganizationConfigRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteOrganizationConfigRule -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newDeleteOrganizationConfigRuleResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621679430720"><span id="local-6989586621679430721"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOrganizationConfigRuleResponse"><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRuleResponse"><span class="hs-identifier hs-var">DeleteOrganizationConfigRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOrganizationConfigRuleResponse%27"><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRuleResponse%27"><span class="hs-identifier hs-var">DeleteOrganizationConfigRuleResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430716"><span id="local-6989586621679430718"><span class="annot"><span class="annottext">DeleteOrganizationConfigRuleResponse
+-&gt; DeleteOrganizationConfigRuleResponse -&gt; Bool
+(DeleteOrganizationConfigRuleResponse
+ -&gt; DeleteOrganizationConfigRuleResponse -&gt; Bool)
+-&gt; (DeleteOrganizationConfigRuleResponse
+    -&gt; DeleteOrganizationConfigRuleResponse -&gt; Bool)
+-&gt; Eq DeleteOrganizationConfigRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteOrganizationConfigRuleResponse
+-&gt; DeleteOrganizationConfigRuleResponse -&gt; Bool
+$c/= :: DeleteOrganizationConfigRuleResponse
+-&gt; DeleteOrganizationConfigRuleResponse -&gt; Bool
+== :: DeleteOrganizationConfigRuleResponse
+-&gt; DeleteOrganizationConfigRuleResponse -&gt; Bool
+$c== :: DeleteOrganizationConfigRuleResponse
+-&gt; DeleteOrganizationConfigRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430708"><span id="local-6989586621679430710"><span id="local-6989586621679430712"><span id="local-6989586621679430714"><span class="annot"><span class="annottext">ReadPrec [DeleteOrganizationConfigRuleResponse]
+ReadPrec DeleteOrganizationConfigRuleResponse
+Int -&gt; ReadS DeleteOrganizationConfigRuleResponse
+ReadS [DeleteOrganizationConfigRuleResponse]
+(Int -&gt; ReadS DeleteOrganizationConfigRuleResponse)
+-&gt; ReadS [DeleteOrganizationConfigRuleResponse]
+-&gt; ReadPrec DeleteOrganizationConfigRuleResponse
+-&gt; ReadPrec [DeleteOrganizationConfigRuleResponse]
+-&gt; Read DeleteOrganizationConfigRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteOrganizationConfigRuleResponse]
+$creadListPrec :: ReadPrec [DeleteOrganizationConfigRuleResponse]
+readPrec :: ReadPrec DeleteOrganizationConfigRuleResponse
+$creadPrec :: ReadPrec DeleteOrganizationConfigRuleResponse
+readList :: ReadS [DeleteOrganizationConfigRuleResponse]
+$creadList :: ReadS [DeleteOrganizationConfigRuleResponse]
+readsPrec :: Int -&gt; ReadS DeleteOrganizationConfigRuleResponse
+$creadsPrec :: Int -&gt; ReadS DeleteOrganizationConfigRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430702"><span id="local-6989586621679430704"><span id="local-6989586621679430706"><span class="annot"><span class="annottext">Int -&gt; DeleteOrganizationConfigRuleResponse -&gt; ShowS
+[DeleteOrganizationConfigRuleResponse] -&gt; ShowS
+DeleteOrganizationConfigRuleResponse -&gt; String
+(Int -&gt; DeleteOrganizationConfigRuleResponse -&gt; ShowS)
+-&gt; (DeleteOrganizationConfigRuleResponse -&gt; String)
+-&gt; ([DeleteOrganizationConfigRuleResponse] -&gt; ShowS)
+-&gt; Show DeleteOrganizationConfigRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteOrganizationConfigRuleResponse] -&gt; ShowS
+$cshowList :: [DeleteOrganizationConfigRuleResponse] -&gt; ShowS
+show :: DeleteOrganizationConfigRuleResponse -&gt; String
+$cshow :: DeleteOrganizationConfigRuleResponse -&gt; String
+showsPrec :: Int -&gt; DeleteOrganizationConfigRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteOrganizationConfigRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteOrganizationConfigRuleResponse
+ -&gt; Rep DeleteOrganizationConfigRuleResponse x)
+-&gt; (forall x.
+    Rep DeleteOrganizationConfigRuleResponse x
+    -&gt; DeleteOrganizationConfigRuleResponse)
+-&gt; Generic DeleteOrganizationConfigRuleResponse
+forall x.
+Rep DeleteOrganizationConfigRuleResponse x
+-&gt; DeleteOrganizationConfigRuleResponse
+forall x.
+DeleteOrganizationConfigRuleResponse
+-&gt; Rep DeleteOrganizationConfigRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteOrganizationConfigRuleResponse x
+-&gt; DeleteOrganizationConfigRuleResponse
+$cfrom :: forall x.
+DeleteOrganizationConfigRuleResponse
+-&gt; Rep DeleteOrganizationConfigRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Create a value of 'DeleteOrganizationConfigRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#newDeleteOrganizationConfigRuleResponse"><span class="hs-identifier hs-type">newDeleteOrganizationConfigRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRuleResponse"><span class="hs-identifier hs-type">DeleteOrganizationConfigRuleResponse</span></a></span><span>
+</span><span id="line-144"></span><span id="newDeleteOrganizationConfigRuleResponse"><span class="annot"><span class="annottext">newDeleteOrganizationConfigRuleResponse :: DeleteOrganizationConfigRuleResponse
+</span><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#newDeleteOrganizationConfigRuleResponse"><span class="hs-identifier hs-var hs-var">newDeleteOrganizationConfigRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">DeleteOrganizationConfigRuleResponse
+</span><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRuleResponse%27"><span class="hs-identifier hs-var">DeleteOrganizationConfigRuleResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679430698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.Config.DeleteOrganizationConfigRule.html#DeleteOrganizationConfigRuleResponse"><span class="hs-identifier hs-type">DeleteOrganizationConfigRuleResponse</span></a></span></span><span>
+</span><span id="line-150"></span></pre></body></html>

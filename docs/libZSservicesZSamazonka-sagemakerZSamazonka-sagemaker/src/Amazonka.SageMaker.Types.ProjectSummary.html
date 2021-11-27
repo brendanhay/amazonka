@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.ProjectSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.ProjectSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectStatus.html"><span class="hs-identifier">Amazonka.SageMaker.Types.ProjectStatus</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about a project.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProjectSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680335427"><span id="local-6989586621680335428"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectSummary"><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-var">ProjectSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectSummary%27"><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-var">ProjectSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the project.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AprojectDescription%3AProjectSummary%27"><span class="annot"><span class="annottext">ProjectSummary -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectDescription%3AProjectSummary%27"><span class="hs-identifier hs-var hs-var">projectDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the project.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AprojectName%3AProjectSummary%27"><span class="annot"><span class="annottext">ProjectSummary -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectName%3AProjectSummary%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the project.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AprojectArn%3AProjectSummary%27"><span class="annot"><span class="annottext">ProjectSummary -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectArn%3AProjectSummary%27"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the project.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AprojectId%3AProjectSummary%27"><span class="annot"><span class="annottext">ProjectSummary -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectId%3AProjectSummary%27"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The time that the project was created.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcreationTime%3AProjectSummary%27"><span class="annot"><span class="annottext">ProjectSummary -&gt; POSIX
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AcreationTime%3AProjectSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The status of the project.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AprojectStatus%3AProjectSummary%27"><span class="annot"><span class="annottext">ProjectSummary -&gt; ProjectStatus
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectStatus%3AProjectSummary%27"><span class="hs-identifier hs-var hs-var">projectStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680335416"><span id="local-6989586621680335418"><span class="annot"><span class="annottext">ProjectSummary -&gt; ProjectSummary -&gt; Bool
+(ProjectSummary -&gt; ProjectSummary -&gt; Bool)
+-&gt; (ProjectSummary -&gt; ProjectSummary -&gt; Bool) -&gt; Eq ProjectSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProjectSummary -&gt; ProjectSummary -&gt; Bool
+$c/= :: ProjectSummary -&gt; ProjectSummary -&gt; Bool
+== :: ProjectSummary -&gt; ProjectSummary -&gt; Bool
+$c== :: ProjectSummary -&gt; ProjectSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680335407"><span id="local-6989586621680335409"><span id="local-6989586621680335411"><span id="local-6989586621680335413"><span class="annot"><span class="annottext">ReadPrec [ProjectSummary]
+ReadPrec ProjectSummary
+Int -&gt; ReadS ProjectSummary
+ReadS [ProjectSummary]
+(Int -&gt; ReadS ProjectSummary)
+-&gt; ReadS [ProjectSummary]
+-&gt; ReadPrec ProjectSummary
+-&gt; ReadPrec [ProjectSummary]
+-&gt; Read ProjectSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProjectSummary]
+$creadListPrec :: ReadPrec [ProjectSummary]
+readPrec :: ReadPrec ProjectSummary
+$creadPrec :: ReadPrec ProjectSummary
+readList :: ReadS [ProjectSummary]
+$creadList :: ReadS [ProjectSummary]
+readsPrec :: Int -&gt; ReadS ProjectSummary
+$creadsPrec :: Int -&gt; ReadS ProjectSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680335400"><span id="local-6989586621680335402"><span id="local-6989586621680335404"><span class="annot"><span class="annottext">Int -&gt; ProjectSummary -&gt; ShowS
+[ProjectSummary] -&gt; ShowS
+ProjectSummary -&gt; String
+(Int -&gt; ProjectSummary -&gt; ShowS)
+-&gt; (ProjectSummary -&gt; String)
+-&gt; ([ProjectSummary] -&gt; ShowS)
+-&gt; Show ProjectSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProjectSummary] -&gt; ShowS
+$cshowList :: [ProjectSummary] -&gt; ShowS
+show :: ProjectSummary -&gt; String
+$cshow :: ProjectSummary -&gt; String
+showsPrec :: Int -&gt; ProjectSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProjectSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ProjectSummary -&gt; Rep ProjectSummary x)
+-&gt; (forall x. Rep ProjectSummary x -&gt; ProjectSummary)
+-&gt; Generic ProjectSummary
+forall x. Rep ProjectSummary x -&gt; ProjectSummary
+forall x. ProjectSummary -&gt; Rep ProjectSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProjectSummary x -&gt; ProjectSummary
+$cfrom :: forall x. ProjectSummary -&gt; Rep ProjectSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'ProjectSummary' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'projectDescription', 'projectSummary_projectDescription' - The description of the project.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'projectName', 'projectSummary_projectName' - The name of the project.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'projectArn', 'projectSummary_projectArn' - The Amazon Resource Name (ARN) of the project.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'projectId', 'projectSummary_projectId' - The ID of the project.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'creationTime', 'projectSummary_creationTime' - The time that the project was created.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'projectStatus', 'projectSummary_projectStatus' - The status of the project.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#newProjectSummary"><span class="hs-identifier hs-type">newProjectSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'projectName'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'projectArn'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'projectId'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'creationTime'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'projectStatus'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span>
+</span><span id="line-77"></span><span id="newProjectSummary"><span class="annot"><span class="annottext">newProjectSummary :: Text -&gt; Text -&gt; Text -&gt; UTCTime -&gt; ProjectStatus -&gt; ProjectSummary
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#newProjectSummary"><span class="hs-identifier hs-var hs-var">newProjectSummary</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621680335394"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335394"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621680335393"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335393"><span class="hs-identifier hs-var">pProjectArn_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621680335392"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335392"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621680335391"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680335391"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621680335390"><span class="annot"><span class="annottext">ProjectStatus
+</span><a href="#local-6989586621680335390"><span class="hs-identifier hs-var">pProjectStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">ProjectSummary' :: Maybe Text
+-&gt; Text -&gt; Text -&gt; Text -&gt; POSIX -&gt; ProjectStatus -&gt; ProjectSummary
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projectDescription:ProjectSummary' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectDescription%3AProjectSummary%27"><span class="hs-identifier hs-var">projectDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:projectName:ProjectSummary' :: Text
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectName%3AProjectSummary%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335394"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:projectArn:ProjectSummary' :: Text
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectArn%3AProjectSummary%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335393"><span class="hs-identifier hs-var">pProjectArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:projectId:ProjectSummary' :: Text
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectId%3AProjectSummary%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335392"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:ProjectSummary' :: POSIX
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AcreationTime%3AProjectSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680335391"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:projectStatus:ProjectSummary' :: ProjectStatus
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectStatus%3AProjectSummary%27"><span class="hs-identifier hs-var">projectStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProjectStatus
+</span><a href="#local-6989586621680335390"><span class="hs-identifier hs-var">pProjectStatus_</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The description of the project.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#projectSummary_projectDescription"><span class="hs-identifier hs-type">projectSummary_projectDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="projectSummary_projectDescription"><span class="annot"><span class="annottext">projectSummary_projectDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProjectSummary -&gt; f ProjectSummary
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#projectSummary_projectDescription"><span class="hs-identifier hs-var hs-var">projectSummary_projectDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSummary -&gt; Maybe Text)
+-&gt; (ProjectSummary -&gt; Maybe Text -&gt; ProjectSummary)
+-&gt; Lens ProjectSummary ProjectSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335384"><span class="annot"><span class="annottext">Maybe Text
+projectDescription :: Maybe Text
+$sel:projectDescription:ProjectSummary' :: ProjectSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680335384"><span class="hs-identifier hs-var hs-var">projectDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680335384"><span class="hs-identifier hs-var">projectDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335383"><span class="annot"><span class="annottext">s :: ProjectSummary
+</span><a href="#local-6989586621680335383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335382"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680335382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSummary
+</span><a href="#local-6989586621680335383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectDescription:ProjectSummary' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectDescription%3AProjectSummary%27"><span class="hs-identifier hs-var">projectDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680335382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The name of the project.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#projectSummary_projectName"><span class="hs-identifier hs-type">projectSummary_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="projectSummary_projectName"><span class="annot"><span class="annottext">projectSummary_projectName :: (Text -&gt; f Text) -&gt; ProjectSummary -&gt; f ProjectSummary
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#projectSummary_projectName"><span class="hs-identifier hs-var hs-var">projectSummary_projectName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSummary -&gt; Text)
+-&gt; (ProjectSummary -&gt; Text -&gt; ProjectSummary)
+-&gt; Lens ProjectSummary ProjectSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335380"><span class="annot"><span class="annottext">Text
+projectName :: Text
+$sel:projectName:ProjectSummary' :: ProjectSummary -&gt; Text
+</span><a href="#local-6989586621680335380"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335380"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335379"><span class="annot"><span class="annottext">s :: ProjectSummary
+</span><a href="#local-6989586621680335379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335378"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSummary
+</span><a href="#local-6989586621680335379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:ProjectSummary' :: Text
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectName%3AProjectSummary%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the project.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#projectSummary_projectArn"><span class="hs-identifier hs-type">projectSummary_projectArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="projectSummary_projectArn"><span class="annot"><span class="annottext">projectSummary_projectArn :: (Text -&gt; f Text) -&gt; ProjectSummary -&gt; f ProjectSummary
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#projectSummary_projectArn"><span class="hs-identifier hs-var hs-var">projectSummary_projectArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSummary -&gt; Text)
+-&gt; (ProjectSummary -&gt; Text -&gt; ProjectSummary)
+-&gt; Lens ProjectSummary ProjectSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335376"><span class="annot"><span class="annottext">Text
+projectArn :: Text
+$sel:projectArn:ProjectSummary' :: ProjectSummary -&gt; Text
+</span><a href="#local-6989586621680335376"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335376"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335375"><span class="annot"><span class="annottext">s :: ProjectSummary
+</span><a href="#local-6989586621680335375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335374"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSummary
+</span><a href="#local-6989586621680335375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:ProjectSummary' :: Text
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectArn%3AProjectSummary%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the project.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#projectSummary_projectId"><span class="hs-identifier hs-type">projectSummary_projectId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="projectSummary_projectId"><span class="annot"><span class="annottext">projectSummary_projectId :: (Text -&gt; f Text) -&gt; ProjectSummary -&gt; f ProjectSummary
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#projectSummary_projectId"><span class="hs-identifier hs-var hs-var">projectSummary_projectId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSummary -&gt; Text)
+-&gt; (ProjectSummary -&gt; Text -&gt; ProjectSummary)
+-&gt; Lens ProjectSummary ProjectSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335372"><span class="annot"><span class="annottext">Text
+projectId :: Text
+$sel:projectId:ProjectSummary' :: ProjectSummary -&gt; Text
+</span><a href="#local-6989586621680335372"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335372"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335371"><span class="annot"><span class="annottext">s :: ProjectSummary
+</span><a href="#local-6989586621680335371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335370"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSummary
+</span><a href="#local-6989586621680335371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:ProjectSummary' :: Text
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectId%3AProjectSummary%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680335370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The time that the project was created.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#projectSummary_creationTime"><span class="hs-identifier hs-type">projectSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-111"></span><span id="projectSummary_creationTime"><span class="annot"><span class="annottext">projectSummary_creationTime :: (UTCTime -&gt; f UTCTime) -&gt; ProjectSummary -&gt; f ProjectSummary
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#projectSummary_creationTime"><span class="hs-identifier hs-var hs-var">projectSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSummary -&gt; POSIX)
+-&gt; (ProjectSummary -&gt; POSIX -&gt; ProjectSummary)
+-&gt; Lens ProjectSummary ProjectSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335368"><span class="annot"><span class="annottext">POSIX
+creationTime :: POSIX
+$sel:creationTime:ProjectSummary' :: ProjectSummary -&gt; POSIX
+</span><a href="#local-6989586621680335368"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680335368"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335367"><span class="annot"><span class="annottext">s :: ProjectSummary
+</span><a href="#local-6989586621680335367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335366"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680335366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSummary
+</span><a href="#local-6989586621680335367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ProjectSummary' :: POSIX
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AcreationTime%3AProjectSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680335366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ProjectSummary -&gt; f ProjectSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; ProjectSummary
+-&gt; f ProjectSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The status of the project.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#projectSummary_projectStatus"><span class="hs-identifier hs-type">projectSummary_projectStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span>
+</span><span id="line-115"></span><span id="projectSummary_projectStatus"><span class="annot"><span class="annottext">projectSummary_projectStatus :: (ProjectStatus -&gt; f ProjectStatus)
+-&gt; ProjectSummary -&gt; f ProjectSummary
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#projectSummary_projectStatus"><span class="hs-identifier hs-var hs-var">projectSummary_projectStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSummary -&gt; ProjectStatus)
+-&gt; (ProjectSummary -&gt; ProjectStatus -&gt; ProjectSummary)
+-&gt; Lens ProjectSummary ProjectSummary ProjectStatus ProjectStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335363"><span class="annot"><span class="annottext">ProjectStatus
+projectStatus :: ProjectStatus
+$sel:projectStatus:ProjectSummary' :: ProjectSummary -&gt; ProjectStatus
+</span><a href="#local-6989586621680335363"><span class="hs-identifier hs-var hs-var">projectStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectStatus
+</span><a href="#local-6989586621680335363"><span class="hs-identifier hs-var">projectStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335362"><span class="annot"><span class="annottext">s :: ProjectSummary
+</span><a href="#local-6989586621680335362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335361"><span class="annot"><span class="annottext">ProjectStatus
+</span><a href="#local-6989586621680335361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSummary
+</span><a href="#local-6989586621680335362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectStatus:ProjectSummary' :: ProjectStatus
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#%24sel%3AprojectStatus%3AProjectSummary%27"><span class="hs-identifier hs-var">projectStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProjectStatus
+</span><a href="#local-6989586621680335361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335358"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621680335356"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ProjectSummary)
+-&gt; Value
+-&gt; Parser ProjectSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ProjectSummary&quot;</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680335353"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680335353"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Text -&gt; Text -&gt; Text -&gt; POSIX -&gt; ProjectStatus -&gt; ProjectSummary
+</span><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-var">ProjectSummary'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; ProjectStatus
+ -&gt; ProjectSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text -&gt; Text -&gt; Text -&gt; POSIX -&gt; ProjectStatus -&gt; ProjectSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680335353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; Text -&gt; Text -&gt; POSIX -&gt; ProjectStatus -&gt; ProjectSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; Text -&gt; POSIX -&gt; ProjectStatus -&gt; ProjectSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680335353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; POSIX -&gt; ProjectStatus -&gt; ProjectSummary)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; POSIX -&gt; ProjectStatus -&gt; ProjectSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680335353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; POSIX -&gt; ProjectStatus -&gt; ProjectSummary)
+-&gt; Parser Text -&gt; Parser (POSIX -&gt; ProjectStatus -&gt; ProjectSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680335353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; ProjectStatus -&gt; ProjectSummary)
+-&gt; Parser POSIX -&gt; Parser (ProjectStatus -&gt; ProjectSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680335353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (ProjectStatus -&gt; ProjectSummary)
+-&gt; Parser ProjectStatus -&gt; Parser ProjectSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680335353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ProjectStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335346"><span id="local-6989586621680335348"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335343"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span></span><span>
+</span><span id="line-134"></span></pre></body></html>

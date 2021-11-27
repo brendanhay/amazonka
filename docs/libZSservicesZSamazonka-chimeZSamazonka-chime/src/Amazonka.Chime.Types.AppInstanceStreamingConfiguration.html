@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.AppInstanceStreamingConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.AppInstanceStreamingConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceDataType.html"><span class="hs-identifier">Amazonka.Chime.Types.AppInstanceDataType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The details of the streaming configuration of an @AppInstance@.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAppInstanceStreamingConfiguration' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679504686"><span id="local-6989586621679504687"></span></span><span class="hs-keyword">data</span><span> </span><span id="AppInstanceStreamingConfiguration"><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration"><span class="hs-identifier hs-var">AppInstanceStreamingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppInstanceStreamingConfiguration%27"><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-var">AppInstanceStreamingConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of data to be streamed.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AappInstanceDataType%3AAppInstanceStreamingConfiguration%27"><span class="annot"><span class="annottext">AppInstanceStreamingConfiguration -&gt; AppInstanceDataType
+</span><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#%24sel%3AappInstanceDataType%3AAppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-var hs-var">appInstanceDataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceDataType.html#AppInstanceDataType"><span class="hs-identifier hs-type">AppInstanceDataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The resource ARN.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AresourceArn%3AAppInstanceStreamingConfiguration%27"><span class="annot"><span class="annottext">AppInstanceStreamingConfiguration -&gt; Sensitive Text
+</span><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#%24sel%3AresourceArn%3AAppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679504679"><span id="local-6989586621679504681"><span class="annot"><span class="annottext">AppInstanceStreamingConfiguration
+-&gt; AppInstanceStreamingConfiguration -&gt; Bool
+(AppInstanceStreamingConfiguration
+ -&gt; AppInstanceStreamingConfiguration -&gt; Bool)
+-&gt; (AppInstanceStreamingConfiguration
+    -&gt; AppInstanceStreamingConfiguration -&gt; Bool)
+-&gt; Eq AppInstanceStreamingConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AppInstanceStreamingConfiguration
+-&gt; AppInstanceStreamingConfiguration -&gt; Bool
+$c/= :: AppInstanceStreamingConfiguration
+-&gt; AppInstanceStreamingConfiguration -&gt; Bool
+== :: AppInstanceStreamingConfiguration
+-&gt; AppInstanceStreamingConfiguration -&gt; Bool
+$c== :: AppInstanceStreamingConfiguration
+-&gt; AppInstanceStreamingConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679504672"><span id="local-6989586621679504674"><span id="local-6989586621679504676"><span class="annot"><span class="annottext">Int -&gt; AppInstanceStreamingConfiguration -&gt; ShowS
+[AppInstanceStreamingConfiguration] -&gt; ShowS
+AppInstanceStreamingConfiguration -&gt; String
+(Int -&gt; AppInstanceStreamingConfiguration -&gt; ShowS)
+-&gt; (AppInstanceStreamingConfiguration -&gt; String)
+-&gt; ([AppInstanceStreamingConfiguration] -&gt; ShowS)
+-&gt; Show AppInstanceStreamingConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AppInstanceStreamingConfiguration] -&gt; ShowS
+$cshowList :: [AppInstanceStreamingConfiguration] -&gt; ShowS
+show :: AppInstanceStreamingConfiguration -&gt; String
+$cshow :: AppInstanceStreamingConfiguration -&gt; String
+showsPrec :: Int -&gt; AppInstanceStreamingConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; AppInstanceStreamingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AppInstanceStreamingConfiguration
+ -&gt; Rep AppInstanceStreamingConfiguration x)
+-&gt; (forall x.
+    Rep AppInstanceStreamingConfiguration x
+    -&gt; AppInstanceStreamingConfiguration)
+-&gt; Generic AppInstanceStreamingConfiguration
+forall x.
+Rep AppInstanceStreamingConfiguration x
+-&gt; AppInstanceStreamingConfiguration
+forall x.
+AppInstanceStreamingConfiguration
+-&gt; Rep AppInstanceStreamingConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AppInstanceStreamingConfiguration x
+-&gt; AppInstanceStreamingConfiguration
+$cfrom :: forall x.
+AppInstanceStreamingConfiguration
+-&gt; Rep AppInstanceStreamingConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'AppInstanceStreamingConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'appInstanceDataType', 'appInstanceStreamingConfiguration_appInstanceDataType' - The type of data to be streamed.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'resourceArn', 'appInstanceStreamingConfiguration_resourceArn' - The resource ARN.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#newAppInstanceStreamingConfiguration"><span class="hs-identifier hs-type">newAppInstanceStreamingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'appInstanceDataType'</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceDataType.html#AppInstanceDataType"><span class="hs-identifier hs-type">AppInstanceDataType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration</span></a></span><span>
+</span><span id="line-55"></span><span id="newAppInstanceStreamingConfiguration"><span class="annot"><span class="annottext">newAppInstanceStreamingConfiguration :: AppInstanceDataType -&gt; Text -&gt; AppInstanceStreamingConfiguration
+</span><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#newAppInstanceStreamingConfiguration"><span class="hs-identifier hs-var hs-var">newAppInstanceStreamingConfiguration</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679504666"><span class="annot"><span class="annottext">AppInstanceDataType
+</span><a href="#local-6989586621679504666"><span class="hs-identifier hs-var">pAppInstanceDataType_</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679504665"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679504665"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">AppInstanceStreamingConfiguration' :: AppInstanceDataType
+-&gt; Sensitive Text -&gt; AppInstanceStreamingConfiguration
+</span><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration'</span></a></span><span>
+</span><span id="line-59"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appInstanceDataType:AppInstanceStreamingConfiguration' :: AppInstanceDataType
+</span><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#%24sel%3AappInstanceDataType%3AAppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-var">appInstanceDataType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>          </span><span class="annot"><span class="annottext">AppInstanceDataType
+</span><a href="#local-6989586621679504666"><span class="hs-identifier hs-var">pAppInstanceDataType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceArn:AppInstanceStreamingConfiguration' :: Sensitive Text
+</span><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#%24sel%3AresourceArn%3AAppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679504665"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The type of data to be streamed.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#appInstanceStreamingConfiguration_appInstanceDataType"><span class="hs-identifier hs-type">appInstanceStreamingConfiguration_appInstanceDataType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration</span></a></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceDataType.html#AppInstanceDataType"><span class="hs-identifier hs-type">AppInstanceDataType</span></a></span><span>
+</span><span id="line-67"></span><span id="appInstanceStreamingConfiguration_appInstanceDataType"><span class="annot"><span class="annottext">appInstanceStreamingConfiguration_appInstanceDataType :: (AppInstanceDataType -&gt; f AppInstanceDataType)
+-&gt; AppInstanceStreamingConfiguration
+-&gt; f AppInstanceStreamingConfiguration
+</span><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#appInstanceStreamingConfiguration_appInstanceDataType"><span class="hs-identifier hs-var hs-var">appInstanceStreamingConfiguration_appInstanceDataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AppInstanceStreamingConfiguration -&gt; AppInstanceDataType)
+-&gt; (AppInstanceStreamingConfiguration
+    -&gt; AppInstanceDataType -&gt; AppInstanceStreamingConfiguration)
+-&gt; Lens
+     AppInstanceStreamingConfiguration
+     AppInstanceStreamingConfiguration
+     AppInstanceDataType
+     AppInstanceDataType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679504659"><span class="annot"><span class="annottext">AppInstanceDataType
+appInstanceDataType :: AppInstanceDataType
+$sel:appInstanceDataType:AppInstanceStreamingConfiguration' :: AppInstanceStreamingConfiguration -&gt; AppInstanceDataType
+</span><a href="#local-6989586621679504659"><span class="hs-identifier hs-var hs-var">appInstanceDataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AppInstanceDataType
+</span><a href="#local-6989586621679504659"><span class="hs-identifier hs-var">appInstanceDataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679504658"><span class="annot"><span class="annottext">s :: AppInstanceStreamingConfiguration
+</span><a href="#local-6989586621679504658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679504657"><span class="annot"><span class="annottext">AppInstanceDataType
+</span><a href="#local-6989586621679504657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AppInstanceStreamingConfiguration
+</span><a href="#local-6989586621679504658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appInstanceDataType:AppInstanceStreamingConfiguration' :: AppInstanceDataType
+</span><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#%24sel%3AappInstanceDataType%3AAppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-var">appInstanceDataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AppInstanceDataType
+</span><a href="#local-6989586621679504657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The resource ARN.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#appInstanceStreamingConfiguration_resourceArn"><span class="hs-identifier hs-type">appInstanceStreamingConfiguration_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span id="appInstanceStreamingConfiguration_resourceArn"><span class="annot"><span class="annottext">appInstanceStreamingConfiguration_resourceArn :: (Text -&gt; f Text)
+-&gt; AppInstanceStreamingConfiguration
+-&gt; f AppInstanceStreamingConfiguration
+</span><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#appInstanceStreamingConfiguration_resourceArn"><span class="hs-identifier hs-var hs-var">appInstanceStreamingConfiguration_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AppInstanceStreamingConfiguration -&gt; Sensitive Text)
+-&gt; (AppInstanceStreamingConfiguration
+    -&gt; Sensitive Text -&gt; AppInstanceStreamingConfiguration)
+-&gt; Lens
+     AppInstanceStreamingConfiguration
+     AppInstanceStreamingConfiguration
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679504655"><span class="annot"><span class="annottext">Sensitive Text
+resourceArn :: Sensitive Text
+$sel:resourceArn:AppInstanceStreamingConfiguration' :: AppInstanceStreamingConfiguration -&gt; Sensitive Text
+</span><a href="#local-6989586621679504655"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679504655"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679504654"><span class="annot"><span class="annottext">s :: AppInstanceStreamingConfiguration
+</span><a href="#local-6989586621679504654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679504653"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679504653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AppInstanceStreamingConfiguration
+</span><a href="#local-6989586621679504654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:AppInstanceStreamingConfiguration' :: Sensitive Text
+</span><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#%24sel%3AresourceArn%3AAppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679504653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; AppInstanceStreamingConfiguration
+ -&gt; f AppInstanceStreamingConfiguration)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; AppInstanceStreamingConfiguration
+-&gt; f AppInstanceStreamingConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679504649"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679504647"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AppInstanceStreamingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AppInstanceStreamingConfiguration)
+-&gt; Value
+-&gt; Parser AppInstanceStreamingConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AppInstanceStreamingConfiguration&quot;</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679504644"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679504644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">AppInstanceDataType
+-&gt; Sensitive Text -&gt; AppInstanceStreamingConfiguration
+</span><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-var">AppInstanceStreamingConfiguration'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(AppInstanceDataType
+ -&gt; Sensitive Text -&gt; AppInstanceStreamingConfiguration)
+-&gt; Parser AppInstanceDataType
+-&gt; Parser (Sensitive Text -&gt; AppInstanceStreamingConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679504644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AppInstanceDataType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppInstanceDataType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Sensitive Text -&gt; AppInstanceStreamingConfiguration)
+-&gt; Parser (Sensitive Text)
+-&gt; Parser AppInstanceStreamingConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679504644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679504638"><span id="local-6989586621679504640"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679504635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679504627"><span id="local-6989586621679504629"><span id="local-6989586621679504631"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration</span></a></span></span></span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679504625"><span class="annot"><span class="annottext">toJSON :: AppInstanceStreamingConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.AppInstanceStreamingConfiguration.html#AppInstanceStreamingConfiguration%27"><span class="hs-identifier hs-type">AppInstanceStreamingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679504622"><span id="local-6989586621679504623"><span class="annot"><span class="annottext">Sensitive Text
+AppInstanceDataType
+resourceArn :: Sensitive Text
+appInstanceDataType :: AppInstanceDataType
+$sel:resourceArn:AppInstanceStreamingConfiguration' :: AppInstanceStreamingConfiguration -&gt; Sensitive Text
+$sel:appInstanceDataType:AppInstanceStreamingConfiguration' :: AppInstanceStreamingConfiguration -&gt; AppInstanceDataType
+</span><a href="#local-6989586621679504622"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppInstanceDataType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AppInstanceDataType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AppInstanceDataType
+</span><a href="#local-6989586621679504623"><span class="hs-identifier hs-var">appInstanceDataType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679504622"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span></pre></body></html>

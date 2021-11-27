@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttribute.html"><span class="hs-identifier">Amazonka.Neptune.Types.DBClusterSnapshotAttribute</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains the results of a successful call to the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- DescribeDBClusterSnapshotAttributes API action.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Manual DB cluster snapshot attributes are used to authorize other Amazon</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- accounts to copy or restore a manual DB cluster snapshot. For more</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- information, see the ModifyDBClusterSnapshotAttribute API action.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newDBClusterSnapshotAttributesResult' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679395550"><span id="local-6989586621679395551"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBClusterSnapshotAttributesResult"><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-var">DBClusterSnapshotAttributesResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBClusterSnapshotAttributesResult%27"><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">DBClusterSnapshotAttributesResult'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the manual DB cluster snapshot that the attributes</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- apply to.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdbClusterSnapshotIdentifier%3ADBClusterSnapshotAttributesResult%27"><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult -&gt; Maybe Text
+</span><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotIdentifier%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The list of attributes and values for the manual DB cluster snapshot.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdbClusterSnapshotAttributes%3ADBClusterSnapshotAttributesResult%27"><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult
+-&gt; Maybe [DBClusterSnapshotAttribute]
+</span><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotAttributes%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttribute.html#DBClusterSnapshotAttribute"><span class="hs-identifier hs-type">DBClusterSnapshotAttribute</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395543"><span id="local-6989586621679395545"><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult
+-&gt; DBClusterSnapshotAttributesResult -&gt; Bool
+(DBClusterSnapshotAttributesResult
+ -&gt; DBClusterSnapshotAttributesResult -&gt; Bool)
+-&gt; (DBClusterSnapshotAttributesResult
+    -&gt; DBClusterSnapshotAttributesResult -&gt; Bool)
+-&gt; Eq DBClusterSnapshotAttributesResult
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DBClusterSnapshotAttributesResult
+-&gt; DBClusterSnapshotAttributesResult -&gt; Bool
+$c/= :: DBClusterSnapshotAttributesResult
+-&gt; DBClusterSnapshotAttributesResult -&gt; Bool
+== :: DBClusterSnapshotAttributesResult
+-&gt; DBClusterSnapshotAttributesResult -&gt; Bool
+$c== :: DBClusterSnapshotAttributesResult
+-&gt; DBClusterSnapshotAttributesResult -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395534"><span id="local-6989586621679395536"><span id="local-6989586621679395538"><span id="local-6989586621679395540"><span class="annot"><span class="annottext">ReadPrec [DBClusterSnapshotAttributesResult]
+ReadPrec DBClusterSnapshotAttributesResult
+Int -&gt; ReadS DBClusterSnapshotAttributesResult
+ReadS [DBClusterSnapshotAttributesResult]
+(Int -&gt; ReadS DBClusterSnapshotAttributesResult)
+-&gt; ReadS [DBClusterSnapshotAttributesResult]
+-&gt; ReadPrec DBClusterSnapshotAttributesResult
+-&gt; ReadPrec [DBClusterSnapshotAttributesResult]
+-&gt; Read DBClusterSnapshotAttributesResult
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DBClusterSnapshotAttributesResult]
+$creadListPrec :: ReadPrec [DBClusterSnapshotAttributesResult]
+readPrec :: ReadPrec DBClusterSnapshotAttributesResult
+$creadPrec :: ReadPrec DBClusterSnapshotAttributesResult
+readList :: ReadS [DBClusterSnapshotAttributesResult]
+$creadList :: ReadS [DBClusterSnapshotAttributesResult]
+readsPrec :: Int -&gt; ReadS DBClusterSnapshotAttributesResult
+$creadsPrec :: Int -&gt; ReadS DBClusterSnapshotAttributesResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395527"><span id="local-6989586621679395529"><span id="local-6989586621679395531"><span class="annot"><span class="annottext">Int -&gt; DBClusterSnapshotAttributesResult -&gt; ShowS
+[DBClusterSnapshotAttributesResult] -&gt; ShowS
+DBClusterSnapshotAttributesResult -&gt; String
+(Int -&gt; DBClusterSnapshotAttributesResult -&gt; ShowS)
+-&gt; (DBClusterSnapshotAttributesResult -&gt; String)
+-&gt; ([DBClusterSnapshotAttributesResult] -&gt; ShowS)
+-&gt; Show DBClusterSnapshotAttributesResult
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DBClusterSnapshotAttributesResult] -&gt; ShowS
+$cshowList :: [DBClusterSnapshotAttributesResult] -&gt; ShowS
+show :: DBClusterSnapshotAttributesResult -&gt; String
+$cshow :: DBClusterSnapshotAttributesResult -&gt; String
+showsPrec :: Int -&gt; DBClusterSnapshotAttributesResult -&gt; ShowS
+$cshowsPrec :: Int -&gt; DBClusterSnapshotAttributesResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DBClusterSnapshotAttributesResult
+ -&gt; Rep DBClusterSnapshotAttributesResult x)
+-&gt; (forall x.
+    Rep DBClusterSnapshotAttributesResult x
+    -&gt; DBClusterSnapshotAttributesResult)
+-&gt; Generic DBClusterSnapshotAttributesResult
+forall x.
+Rep DBClusterSnapshotAttributesResult x
+-&gt; DBClusterSnapshotAttributesResult
+forall x.
+DBClusterSnapshotAttributesResult
+-&gt; Rep DBClusterSnapshotAttributesResult x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DBClusterSnapshotAttributesResult x
+-&gt; DBClusterSnapshotAttributesResult
+$cfrom :: forall x.
+DBClusterSnapshotAttributesResult
+-&gt; Rep DBClusterSnapshotAttributesResult x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'DBClusterSnapshotAttributesResult' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'dbClusterSnapshotIdentifier', 'dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier' - The identifier of the manual DB cluster snapshot that the attributes</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- apply to.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'dbClusterSnapshotAttributes', 'dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes' - The list of attributes and values for the manual DB cluster snapshot.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#newDBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">newDBClusterSnapshotAttributesResult</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span>
+</span><span id="line-58"></span><span id="newDBClusterSnapshotAttributesResult"><span class="annot"><span class="annottext">newDBClusterSnapshotAttributesResult :: DBClusterSnapshotAttributesResult
+</span><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#newDBClusterSnapshotAttributesResult"><span class="hs-identifier hs-var hs-var">newDBClusterSnapshotAttributesResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult' :: Maybe Text
+-&gt; Maybe [DBClusterSnapshotAttribute]
+-&gt; DBClusterSnapshotAttributesResult
+</span><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotIdentifier:DBClusterSnapshotAttributesResult' :: Maybe Text
+</span><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotIdentifier%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotAttributes:DBClusterSnapshotAttributesResult' :: Maybe [DBClusterSnapshotAttribute]
+</span><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotAttributes%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">dbClusterSnapshotAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The identifier of the manual DB cluster snapshot that the attributes</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- apply to.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier"><span class="hs-identifier hs-type">dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier"><span class="annot"><span class="annottext">dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBClusterSnapshotAttributesResult
+-&gt; f DBClusterSnapshotAttributesResult
+</span><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBClusterSnapshotAttributesResult -&gt; Maybe Text)
+-&gt; (DBClusterSnapshotAttributesResult
+    -&gt; Maybe Text -&gt; DBClusterSnapshotAttributesResult)
+-&gt; Lens
+     DBClusterSnapshotAttributesResult
+     DBClusterSnapshotAttributesResult
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395518"><span class="annot"><span class="annottext">Maybe Text
+dbClusterSnapshotIdentifier :: Maybe Text
+$sel:dbClusterSnapshotIdentifier:DBClusterSnapshotAttributesResult' :: DBClusterSnapshotAttributesResult -&gt; Maybe Text
+</span><a href="#local-6989586621679395518"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395518"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395517"><span class="annot"><span class="annottext">s :: DBClusterSnapshotAttributesResult
+</span><a href="#local-6989586621679395517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395516"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult
+</span><a href="#local-6989586621679395517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotIdentifier:DBClusterSnapshotAttributesResult' :: Maybe Text
+</span><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotIdentifier%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The list of attributes and values for the manual DB cluster snapshot.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes"><span class="hs-identifier hs-type">dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttribute.html#DBClusterSnapshotAttribute"><span class="hs-identifier hs-type">DBClusterSnapshotAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes"><span class="annot"><span class="annottext">dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes :: (Maybe [DBClusterSnapshotAttribute]
+ -&gt; f (Maybe [DBClusterSnapshotAttribute]))
+-&gt; DBClusterSnapshotAttributesResult
+-&gt; f DBClusterSnapshotAttributesResult
+</span><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBClusterSnapshotAttributesResult
+ -&gt; Maybe [DBClusterSnapshotAttribute])
+-&gt; (DBClusterSnapshotAttributesResult
+    -&gt; Maybe [DBClusterSnapshotAttribute]
+    -&gt; DBClusterSnapshotAttributesResult)
+-&gt; Lens
+     DBClusterSnapshotAttributesResult
+     DBClusterSnapshotAttributesResult
+     (Maybe [DBClusterSnapshotAttribute])
+     (Maybe [DBClusterSnapshotAttribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395514"><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
+dbClusterSnapshotAttributes :: Maybe [DBClusterSnapshotAttribute]
+$sel:dbClusterSnapshotAttributes:DBClusterSnapshotAttributesResult' :: DBClusterSnapshotAttributesResult
+-&gt; Maybe [DBClusterSnapshotAttribute]
+</span><a href="#local-6989586621679395514"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
+</span><a href="#local-6989586621679395514"><span class="hs-identifier hs-var">dbClusterSnapshotAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395513"><span class="annot"><span class="annottext">s :: DBClusterSnapshotAttributesResult
+</span><a href="#local-6989586621679395513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395512"><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
+</span><a href="#local-6989586621679395512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult
+</span><a href="#local-6989586621679395513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotAttributes:DBClusterSnapshotAttributesResult' :: Maybe [DBClusterSnapshotAttribute]
+</span><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotAttributes%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">dbClusterSnapshotAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
+</span><a href="#local-6989586621679395512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBClusterSnapshotAttribute]
+  -&gt; f (Maybe [DBClusterSnapshotAttribute]))
+ -&gt; DBClusterSnapshotAttributesResult
+ -&gt; f DBClusterSnapshotAttributesResult)
+-&gt; ((Maybe [DBClusterSnapshotAttribute]
+     -&gt; f (Maybe [DBClusterSnapshotAttribute]))
+    -&gt; Maybe [DBClusterSnapshotAttribute]
+    -&gt; f (Maybe [DBClusterSnapshotAttribute]))
+-&gt; (Maybe [DBClusterSnapshotAttribute]
+    -&gt; f (Maybe [DBClusterSnapshotAttribute]))
+-&gt; DBClusterSnapshotAttributesResult
+-&gt; f DBClusterSnapshotAttributesResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DBClusterSnapshotAttribute]
+  [DBClusterSnapshotAttribute]
+  [DBClusterSnapshotAttribute]
+  [DBClusterSnapshotAttribute]
+-&gt; Iso
+     (Maybe [DBClusterSnapshotAttribute])
+     (Maybe [DBClusterSnapshotAttribute])
+     (Maybe [DBClusterSnapshotAttribute])
+     (Maybe [DBClusterSnapshotAttribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DBClusterSnapshotAttribute]
+  [DBClusterSnapshotAttribute]
+  [DBClusterSnapshotAttribute]
+  [DBClusterSnapshotAttribute]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679395506"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBClusterSnapshotAttributesResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679395504"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679395504"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [DBClusterSnapshotAttribute]
+-&gt; DBClusterSnapshotAttributesResult
+</span><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">DBClusterSnapshotAttributesResult'</span></a></span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [DBClusterSnapshotAttribute]
+ -&gt; DBClusterSnapshotAttributesResult)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [DBClusterSnapshotAttribute]
+      -&gt; DBClusterSnapshotAttributesResult)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679395504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBClusterSnapshotIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [DBClusterSnapshotAttribute]
+   -&gt; DBClusterSnapshotAttributesResult)
+-&gt; Either String (Maybe [DBClusterSnapshotAttribute])
+-&gt; Either String DBClusterSnapshotAttributesResult
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679395504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBClusterSnapshotAttributes&quot;</span></span><span>
+</span><span id="line-83"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-84"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [DBClusterSnapshotAttribute]))
+-&gt; Either String (Maybe [DBClusterSnapshotAttribute])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [DBClusterSnapshotAttribute])
+-&gt; [Node] -&gt; Either String (Maybe [DBClusterSnapshotAttribute])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span>
+</span><span id="line-85"></span><span>                        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [DBClusterSnapshotAttribute]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBClusterSnapshotAttribute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679395495"><span id="local-6989586621679395497"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679395492"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span></span><span>
+</span><span id="line-95"></span></pre></body></html>

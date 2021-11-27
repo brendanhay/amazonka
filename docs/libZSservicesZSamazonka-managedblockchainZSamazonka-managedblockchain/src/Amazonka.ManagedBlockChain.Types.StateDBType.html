@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ManagedBlockChain.Types.StateDBType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ManagedBlockChain.Types.StateDBType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType"><span class="hs-identifier">StateDBType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType_CouchDB"><span class="hs-identifier">StateDBType_CouchDB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType_LevelDB"><span class="hs-identifier">StateDBType_LevelDB</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679219389"><span id="local-6989586621679219390"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StateDBType"><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType"><span class="hs-identifier hs-var">StateDBType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateDBType%27"><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType%27"><span class="hs-identifier hs-var">StateDBType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStateDBType"><span class="annot"><span class="annottext">StateDBType -&gt; Text
+</span><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#fromStateDBType"><span class="hs-identifier hs-var hs-var">fromStateDBType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219381"><span id="local-6989586621679219383"><span id="local-6989586621679219385"><span class="annot"><span class="annottext">Int -&gt; StateDBType -&gt; ShowS
+[StateDBType] -&gt; ShowS
+StateDBType -&gt; String
+(Int -&gt; StateDBType -&gt; ShowS)
+-&gt; (StateDBType -&gt; String)
+-&gt; ([StateDBType] -&gt; ShowS)
+-&gt; Show StateDBType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StateDBType] -&gt; ShowS
+$cshowList :: [StateDBType] -&gt; ShowS
+show :: StateDBType -&gt; String
+$cshow :: StateDBType -&gt; String
+showsPrec :: Int -&gt; StateDBType -&gt; ShowS
+$cshowsPrec :: Int -&gt; StateDBType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679219372"><span id="local-6989586621679219374"><span id="local-6989586621679219376"><span id="local-6989586621679219378"><span class="annot"><span class="annottext">ReadPrec [StateDBType]
+ReadPrec StateDBType
+Int -&gt; ReadS StateDBType
+ReadS [StateDBType]
+(Int -&gt; ReadS StateDBType)
+-&gt; ReadS [StateDBType]
+-&gt; ReadPrec StateDBType
+-&gt; ReadPrec [StateDBType]
+-&gt; Read StateDBType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StateDBType]
+$creadListPrec :: ReadPrec [StateDBType]
+readPrec :: ReadPrec StateDBType
+$creadPrec :: ReadPrec StateDBType
+readList :: ReadS [StateDBType]
+$creadList :: ReadS [StateDBType]
+readsPrec :: Int -&gt; ReadS StateDBType
+$creadsPrec :: Int -&gt; ReadS StateDBType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679219367"><span id="local-6989586621679219369"><span class="annot"><span class="annottext">StateDBType -&gt; StateDBType -&gt; Bool
+(StateDBType -&gt; StateDBType -&gt; Bool)
+-&gt; (StateDBType -&gt; StateDBType -&gt; Bool) -&gt; Eq StateDBType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StateDBType -&gt; StateDBType -&gt; Bool
+$c/= :: StateDBType -&gt; StateDBType -&gt; Bool
+== :: StateDBType -&gt; StateDBType -&gt; Bool
+$c== :: StateDBType -&gt; StateDBType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679219351"><span id="local-6989586621679219353"><span id="local-6989586621679219355"><span id="local-6989586621679219357"><span id="local-6989586621679219359"><span id="local-6989586621679219361"><span id="local-6989586621679219363"><span class="annot"><span class="annottext">Eq StateDBType
+Eq StateDBType
+-&gt; (StateDBType -&gt; StateDBType -&gt; Ordering)
+-&gt; (StateDBType -&gt; StateDBType -&gt; Bool)
+-&gt; (StateDBType -&gt; StateDBType -&gt; Bool)
+-&gt; (StateDBType -&gt; StateDBType -&gt; Bool)
+-&gt; (StateDBType -&gt; StateDBType -&gt; Bool)
+-&gt; (StateDBType -&gt; StateDBType -&gt; StateDBType)
+-&gt; (StateDBType -&gt; StateDBType -&gt; StateDBType)
+-&gt; Ord StateDBType
+StateDBType -&gt; StateDBType -&gt; Bool
+StateDBType -&gt; StateDBType -&gt; Ordering
+StateDBType -&gt; StateDBType -&gt; StateDBType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StateDBType -&gt; StateDBType -&gt; StateDBType
+$cmin :: StateDBType -&gt; StateDBType -&gt; StateDBType
+max :: StateDBType -&gt; StateDBType -&gt; StateDBType
+$cmax :: StateDBType -&gt; StateDBType -&gt; StateDBType
+&gt;= :: StateDBType -&gt; StateDBType -&gt; Bool
+$c&gt;= :: StateDBType -&gt; StateDBType -&gt; Bool
+&gt; :: StateDBType -&gt; StateDBType -&gt; Bool
+$c&gt; :: StateDBType -&gt; StateDBType -&gt; Bool
+&lt;= :: StateDBType -&gt; StateDBType -&gt; Bool
+$c&lt;= :: StateDBType -&gt; StateDBType -&gt; Bool
+&lt; :: StateDBType -&gt; StateDBType -&gt; Bool
+$c&lt; :: StateDBType -&gt; StateDBType -&gt; Bool
+compare :: StateDBType -&gt; StateDBType -&gt; Ordering
+$ccompare :: StateDBType -&gt; StateDBType -&gt; Ordering
+$cp1Ord :: Eq StateDBType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StateDBType -&gt; Rep StateDBType x)
+-&gt; (forall x. Rep StateDBType x -&gt; StateDBType)
+-&gt; Generic StateDBType
+forall x. Rep StateDBType x -&gt; StateDBType
+forall x. StateDBType -&gt; Rep StateDBType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StateDBType x -&gt; StateDBType
+$cfrom :: forall x. StateDBType -&gt; Rep StateDBType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219343"><span id="local-6989586621679219345"><span class="annot"><span class="annottext">Int -&gt; StateDBType -&gt; Int
+StateDBType -&gt; Int
+(Int -&gt; StateDBType -&gt; Int)
+-&gt; (StateDBType -&gt; Int) -&gt; Hashable StateDBType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StateDBType -&gt; Int
+$chash :: StateDBType -&gt; Int
+hashWithSalt :: Int -&gt; StateDBType -&gt; Int
+$chashWithSalt :: Int -&gt; StateDBType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679219340"><span class="annot"><span class="annottext">StateDBType -&gt; ()
+(StateDBType -&gt; ()) -&gt; NFData StateDBType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StateDBType -&gt; ()
+$crnf :: StateDBType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679219337"><span class="annot"><span class="annottext">Text -&gt; Either String StateDBType
+(Text -&gt; Either String StateDBType) -&gt; FromText StateDBType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StateDBType
+$cfromText :: Text -&gt; Either String StateDBType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679219334"><span class="annot"><span class="annottext">StateDBType -&gt; Text
+(StateDBType -&gt; Text) -&gt; ToText StateDBType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StateDBType -&gt; Text
+$ctoText :: StateDBType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679219331"><span class="annot"><span class="annottext">StateDBType -&gt; ByteString
+(StateDBType -&gt; ByteString) -&gt; ToByteString StateDBType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StateDBType -&gt; ByteString
+$ctoBS :: StateDBType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679219328"><span class="annot"><span class="annottext">StateDBType -&gt; ByteStringBuilder
+(StateDBType -&gt; ByteStringBuilder) -&gt; ToLog StateDBType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StateDBType -&gt; ByteStringBuilder
+$cbuild :: StateDBType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679219325"><span class="annot"><span class="annottext">HeaderName -&gt; StateDBType -&gt; [Header]
+(HeaderName -&gt; StateDBType -&gt; [Header]) -&gt; ToHeader StateDBType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StateDBType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StateDBType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679219322"><span class="annot"><span class="annottext">StateDBType -&gt; QueryString
+(StateDBType -&gt; QueryString) -&gt; ToQuery StateDBType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StateDBType -&gt; QueryString
+$ctoQuery :: StateDBType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679219317"><span id="local-6989586621679219319"><span class="annot"><span class="annottext">Value -&gt; Parser [StateDBType]
+Value -&gt; Parser StateDBType
+(Value -&gt; Parser StateDBType)
+-&gt; (Value -&gt; Parser [StateDBType]) -&gt; FromJSON StateDBType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StateDBType]
+$cparseJSONList :: Value -&gt; Parser [StateDBType]
+parseJSON :: Value -&gt; Parser StateDBType
+$cparseJSON :: Value -&gt; Parser StateDBType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679219312"><span id="local-6989586621679219314"><span class="annot"><span class="annottext">FromJSONKeyFunction [StateDBType]
+FromJSONKeyFunction StateDBType
+FromJSONKeyFunction StateDBType
+-&gt; FromJSONKeyFunction [StateDBType] -&gt; FromJSONKey StateDBType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StateDBType]
+$cfromJSONKeyList :: FromJSONKeyFunction [StateDBType]
+fromJSONKey :: FromJSONKeyFunction StateDBType
+$cfromJSONKey :: FromJSONKeyFunction StateDBType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679219303"><span id="local-6989586621679219305"><span id="local-6989586621679219307"><span id="local-6989586621679219309"><span class="annot"><span class="annottext">[StateDBType] -&gt; Encoding
+[StateDBType] -&gt; Value
+StateDBType -&gt; Encoding
+StateDBType -&gt; Value
+(StateDBType -&gt; Value)
+-&gt; (StateDBType -&gt; Encoding)
+-&gt; ([StateDBType] -&gt; Value)
+-&gt; ([StateDBType] -&gt; Encoding)
+-&gt; ToJSON StateDBType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StateDBType] -&gt; Encoding
+$ctoEncodingList :: [StateDBType] -&gt; Encoding
+toJSONList :: [StateDBType] -&gt; Value
+$ctoJSONList :: [StateDBType] -&gt; Value
+toEncoding :: StateDBType -&gt; Encoding
+$ctoEncoding :: StateDBType -&gt; Encoding
+toJSON :: StateDBType -&gt; Value
+$ctoJSON :: StateDBType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679219298"><span id="local-6989586621679219300"><span class="annot"><span class="annottext">ToJSONKeyFunction [StateDBType]
+ToJSONKeyFunction StateDBType
+ToJSONKeyFunction StateDBType
+-&gt; ToJSONKeyFunction [StateDBType] -&gt; ToJSONKey StateDBType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StateDBType]
+$ctoJSONKeyList :: ToJSONKeyFunction [StateDBType]
+toJSONKey :: ToJSONKeyFunction StateDBType
+$ctoJSONKey :: ToJSONKeyFunction StateDBType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679219295"><span class="annot"><span class="annottext">[Node] -&gt; Either String StateDBType
+([Node] -&gt; Either String StateDBType) -&gt; FromXML StateDBType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StateDBType
+$cparseXML :: [Node] -&gt; Either String StateDBType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679219292"><span class="annot"><span class="annottext">StateDBType -&gt; XML
+(StateDBType -&gt; XML) -&gt; ToXML StateDBType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StateDBType -&gt; XML
+$ctoXML :: StateDBType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType_CouchDB"><span class="hs-identifier hs-type">StateDBType_CouchDB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType"><span class="hs-identifier hs-type">StateDBType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStateDBType_CouchDB"><span id="%24mStateDBType_CouchDB"><span id="StateDBType_CouchDB"><span class="annot"><span class="annottext">$bStateDBType_CouchDB :: StateDBType
+$mStateDBType_CouchDB :: forall r. StateDBType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#%24bStateDBType_CouchDB"><span class="hs-identifier hs-var hs-var hs-var">StateDBType_CouchDB</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType%27"><span class="hs-identifier hs-type">StateDBType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CouchDB&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType_LevelDB"><span class="hs-identifier hs-type">StateDBType_LevelDB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType"><span class="hs-identifier hs-type">StateDBType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStateDBType_LevelDB"><span id="%24mStateDBType_LevelDB"><span id="StateDBType_LevelDB"><span class="annot"><span class="annottext">$bStateDBType_LevelDB :: StateDBType
+$mStateDBType_LevelDB :: forall r. StateDBType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#%24bStateDBType_LevelDB"><span class="hs-identifier hs-var hs-var hs-var">StateDBType_LevelDB</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType%27"><span class="hs-identifier hs-type">StateDBType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LevelDB&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType_CouchDB"><span class="hs-pragma hs-type">StateDBType_CouchDB</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType_LevelDB"><span class="hs-pragma hs-type">StateDBType_LevelDB</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.StateDBType.html#StateDBType%27"><span class="hs-pragma hs-type">StateDBType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

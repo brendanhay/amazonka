@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.HlsScte35SourceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.HlsScte35SourceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType"><span class="hs-identifier">HlsScte35SourceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType_MANIFEST"><span class="hs-identifier">HlsScte35SourceType_MANIFEST</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType_SEGMENTS"><span class="hs-identifier">HlsScte35SourceType_SEGMENTS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Hls Scte35 Source Type</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679888447"><span id="local-6989586621679888448"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsScte35SourceType"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType"><span class="hs-identifier hs-var">HlsScte35SourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsScte35SourceType%27"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType%27"><span class="hs-identifier hs-var">HlsScte35SourceType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsScte35SourceType"><span class="annot"><span class="annottext">HlsScte35SourceType -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#fromHlsScte35SourceType"><span class="hs-identifier hs-var hs-var">fromHlsScte35SourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679888439"><span id="local-6989586621679888441"><span id="local-6989586621679888443"><span class="annot"><span class="annottext">Int -&gt; HlsScte35SourceType -&gt; ShowS
+[HlsScte35SourceType] -&gt; ShowS
+HlsScte35SourceType -&gt; String
+(Int -&gt; HlsScte35SourceType -&gt; ShowS)
+-&gt; (HlsScte35SourceType -&gt; String)
+-&gt; ([HlsScte35SourceType] -&gt; ShowS)
+-&gt; Show HlsScte35SourceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsScte35SourceType] -&gt; ShowS
+$cshowList :: [HlsScte35SourceType] -&gt; ShowS
+show :: HlsScte35SourceType -&gt; String
+$cshow :: HlsScte35SourceType -&gt; String
+showsPrec :: Int -&gt; HlsScte35SourceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsScte35SourceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679888430"><span id="local-6989586621679888432"><span id="local-6989586621679888434"><span id="local-6989586621679888436"><span class="annot"><span class="annottext">ReadPrec [HlsScte35SourceType]
+ReadPrec HlsScte35SourceType
+Int -&gt; ReadS HlsScte35SourceType
+ReadS [HlsScte35SourceType]
+(Int -&gt; ReadS HlsScte35SourceType)
+-&gt; ReadS [HlsScte35SourceType]
+-&gt; ReadPrec HlsScte35SourceType
+-&gt; ReadPrec [HlsScte35SourceType]
+-&gt; Read HlsScte35SourceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsScte35SourceType]
+$creadListPrec :: ReadPrec [HlsScte35SourceType]
+readPrec :: ReadPrec HlsScte35SourceType
+$creadPrec :: ReadPrec HlsScte35SourceType
+readList :: ReadS [HlsScte35SourceType]
+$creadList :: ReadS [HlsScte35SourceType]
+readsPrec :: Int -&gt; ReadS HlsScte35SourceType
+$creadsPrec :: Int -&gt; ReadS HlsScte35SourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679888425"><span id="local-6989586621679888427"><span class="annot"><span class="annottext">HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+(HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool)
+-&gt; (HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool)
+-&gt; Eq HlsScte35SourceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+$c/= :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+== :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+$c== :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679888409"><span id="local-6989586621679888411"><span id="local-6989586621679888413"><span id="local-6989586621679888415"><span id="local-6989586621679888417"><span id="local-6989586621679888419"><span id="local-6989586621679888421"><span class="annot"><span class="annottext">Eq HlsScte35SourceType
+Eq HlsScte35SourceType
+-&gt; (HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Ordering)
+-&gt; (HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool)
+-&gt; (HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool)
+-&gt; (HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool)
+-&gt; (HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool)
+-&gt; (HlsScte35SourceType
+    -&gt; HlsScte35SourceType -&gt; HlsScte35SourceType)
+-&gt; (HlsScte35SourceType
+    -&gt; HlsScte35SourceType -&gt; HlsScte35SourceType)
+-&gt; Ord HlsScte35SourceType
+HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Ordering
+HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; HlsScte35SourceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; HlsScte35SourceType
+$cmin :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; HlsScte35SourceType
+max :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; HlsScte35SourceType
+$cmax :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; HlsScte35SourceType
+&gt;= :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+$c&gt;= :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+&gt; :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+$c&gt; :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+&lt;= :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+$c&lt;= :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+&lt; :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+$c&lt; :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Bool
+compare :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Ordering
+$ccompare :: HlsScte35SourceType -&gt; HlsScte35SourceType -&gt; Ordering
+$cp1Ord :: Eq HlsScte35SourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HlsScte35SourceType -&gt; Rep HlsScte35SourceType x)
+-&gt; (forall x. Rep HlsScte35SourceType x -&gt; HlsScte35SourceType)
+-&gt; Generic HlsScte35SourceType
+forall x. Rep HlsScte35SourceType x -&gt; HlsScte35SourceType
+forall x. HlsScte35SourceType -&gt; Rep HlsScte35SourceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HlsScte35SourceType x -&gt; HlsScte35SourceType
+$cfrom :: forall x. HlsScte35SourceType -&gt; Rep HlsScte35SourceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679888401"><span id="local-6989586621679888403"><span class="annot"><span class="annottext">Int -&gt; HlsScte35SourceType -&gt; Int
+HlsScte35SourceType -&gt; Int
+(Int -&gt; HlsScte35SourceType -&gt; Int)
+-&gt; (HlsScte35SourceType -&gt; Int) -&gt; Hashable HlsScte35SourceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HlsScte35SourceType -&gt; Int
+$chash :: HlsScte35SourceType -&gt; Int
+hashWithSalt :: Int -&gt; HlsScte35SourceType -&gt; Int
+$chashWithSalt :: Int -&gt; HlsScte35SourceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679888398"><span class="annot"><span class="annottext">HlsScte35SourceType -&gt; ()
+(HlsScte35SourceType -&gt; ()) -&gt; NFData HlsScte35SourceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HlsScte35SourceType -&gt; ()
+$crnf :: HlsScte35SourceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679888395"><span class="annot"><span class="annottext">Text -&gt; Either String HlsScte35SourceType
+(Text -&gt; Either String HlsScte35SourceType)
+-&gt; FromText HlsScte35SourceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HlsScte35SourceType
+$cfromText :: Text -&gt; Either String HlsScte35SourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679888392"><span class="annot"><span class="annottext">HlsScte35SourceType -&gt; Text
+(HlsScte35SourceType -&gt; Text) -&gt; ToText HlsScte35SourceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HlsScte35SourceType -&gt; Text
+$ctoText :: HlsScte35SourceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679888389"><span class="annot"><span class="annottext">HlsScte35SourceType -&gt; ByteString
+(HlsScte35SourceType -&gt; ByteString)
+-&gt; ToByteString HlsScte35SourceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HlsScte35SourceType -&gt; ByteString
+$ctoBS :: HlsScte35SourceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679888386"><span class="annot"><span class="annottext">HlsScte35SourceType -&gt; ByteStringBuilder
+(HlsScte35SourceType -&gt; ByteStringBuilder)
+-&gt; ToLog HlsScte35SourceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HlsScte35SourceType -&gt; ByteStringBuilder
+$cbuild :: HlsScte35SourceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679888383"><span class="annot"><span class="annottext">HeaderName -&gt; HlsScte35SourceType -&gt; [Header]
+(HeaderName -&gt; HlsScte35SourceType -&gt; [Header])
+-&gt; ToHeader HlsScte35SourceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HlsScte35SourceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HlsScte35SourceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679888380"><span class="annot"><span class="annottext">HlsScte35SourceType -&gt; QueryString
+(HlsScte35SourceType -&gt; QueryString) -&gt; ToQuery HlsScte35SourceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HlsScte35SourceType -&gt; QueryString
+$ctoQuery :: HlsScte35SourceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679888375"><span id="local-6989586621679888377"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsScte35SourceType]
+Value -&gt; Parser HlsScte35SourceType
+(Value -&gt; Parser HlsScte35SourceType)
+-&gt; (Value -&gt; Parser [HlsScte35SourceType])
+-&gt; FromJSON HlsScte35SourceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HlsScte35SourceType]
+$cparseJSONList :: Value -&gt; Parser [HlsScte35SourceType]
+parseJSON :: Value -&gt; Parser HlsScte35SourceType
+$cparseJSON :: Value -&gt; Parser HlsScte35SourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679888370"><span id="local-6989586621679888372"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsScte35SourceType]
+FromJSONKeyFunction HlsScte35SourceType
+FromJSONKeyFunction HlsScte35SourceType
+-&gt; FromJSONKeyFunction [HlsScte35SourceType]
+-&gt; FromJSONKey HlsScte35SourceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HlsScte35SourceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [HlsScte35SourceType]
+fromJSONKey :: FromJSONKeyFunction HlsScte35SourceType
+$cfromJSONKey :: FromJSONKeyFunction HlsScte35SourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679888361"><span id="local-6989586621679888363"><span id="local-6989586621679888365"><span id="local-6989586621679888367"><span class="annot"><span class="annottext">[HlsScte35SourceType] -&gt; Encoding
+[HlsScte35SourceType] -&gt; Value
+HlsScte35SourceType -&gt; Encoding
+HlsScte35SourceType -&gt; Value
+(HlsScte35SourceType -&gt; Value)
+-&gt; (HlsScte35SourceType -&gt; Encoding)
+-&gt; ([HlsScte35SourceType] -&gt; Value)
+-&gt; ([HlsScte35SourceType] -&gt; Encoding)
+-&gt; ToJSON HlsScte35SourceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HlsScte35SourceType] -&gt; Encoding
+$ctoEncodingList :: [HlsScte35SourceType] -&gt; Encoding
+toJSONList :: [HlsScte35SourceType] -&gt; Value
+$ctoJSONList :: [HlsScte35SourceType] -&gt; Value
+toEncoding :: HlsScte35SourceType -&gt; Encoding
+$ctoEncoding :: HlsScte35SourceType -&gt; Encoding
+toJSON :: HlsScte35SourceType -&gt; Value
+$ctoJSON :: HlsScte35SourceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679888356"><span id="local-6989586621679888358"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsScte35SourceType]
+ToJSONKeyFunction HlsScte35SourceType
+ToJSONKeyFunction HlsScte35SourceType
+-&gt; ToJSONKeyFunction [HlsScte35SourceType]
+-&gt; ToJSONKey HlsScte35SourceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HlsScte35SourceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [HlsScte35SourceType]
+toJSONKey :: ToJSONKeyFunction HlsScte35SourceType
+$ctoJSONKey :: ToJSONKeyFunction HlsScte35SourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679888353"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsScte35SourceType
+([Node] -&gt; Either String HlsScte35SourceType)
+-&gt; FromXML HlsScte35SourceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HlsScte35SourceType
+$cparseXML :: [Node] -&gt; Either String HlsScte35SourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679888350"><span class="annot"><span class="annottext">HlsScte35SourceType -&gt; XML
+(HlsScte35SourceType -&gt; XML) -&gt; ToXML HlsScte35SourceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HlsScte35SourceType -&gt; XML
+$ctoXML :: HlsScte35SourceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType_MANIFEST"><span class="hs-identifier hs-type">HlsScte35SourceType_MANIFEST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType"><span class="hs-identifier hs-type">HlsScte35SourceType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsScte35SourceType_MANIFEST"><span id="%24mHlsScte35SourceType_MANIFEST"><span id="HlsScte35SourceType_MANIFEST"><span class="annot"><span class="annottext">$bHlsScte35SourceType_MANIFEST :: HlsScte35SourceType
+$mHlsScte35SourceType_MANIFEST :: forall r. HlsScte35SourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#%24bHlsScte35SourceType_MANIFEST"><span class="hs-identifier hs-var hs-var hs-var">HlsScte35SourceType_MANIFEST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType%27"><span class="hs-identifier hs-type">HlsScte35SourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MANIFEST&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType_SEGMENTS"><span class="hs-identifier hs-type">HlsScte35SourceType_SEGMENTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType"><span class="hs-identifier hs-type">HlsScte35SourceType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsScte35SourceType_SEGMENTS"><span id="%24mHlsScte35SourceType_SEGMENTS"><span id="HlsScte35SourceType_SEGMENTS"><span class="annot"><span class="annottext">$bHlsScte35SourceType_SEGMENTS :: HlsScte35SourceType
+$mHlsScte35SourceType_SEGMENTS :: forall r. HlsScte35SourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#%24bHlsScte35SourceType_SEGMENTS"><span class="hs-identifier hs-var hs-var hs-var">HlsScte35SourceType_SEGMENTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType%27"><span class="hs-identifier hs-type">HlsScte35SourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SEGMENTS&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType_MANIFEST"><span class="hs-pragma hs-type">HlsScte35SourceType_MANIFEST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType_SEGMENTS"><span class="hs-pragma hs-type">HlsScte35SourceType_SEGMENTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType%27"><span class="hs-pragma hs-type">HlsScte35SourceType'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

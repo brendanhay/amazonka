@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.BurnInBackgroundColor</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.BurnInBackgroundColor</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor"><span class="hs-identifier">BurnInBackgroundColor</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor_BLACK"><span class="hs-identifier">BurnInBackgroundColor_BLACK</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor_NONE"><span class="hs-identifier">BurnInBackgroundColor_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor_WHITE"><span class="hs-identifier">BurnInBackgroundColor_WHITE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Burn In Background Color</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679868153"><span id="local-6989586621679868154"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BurnInBackgroundColor"><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor"><span class="hs-identifier hs-var">BurnInBackgroundColor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BurnInBackgroundColor%27"><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor%27"><span class="hs-identifier hs-var">BurnInBackgroundColor'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBurnInBackgroundColor"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#fromBurnInBackgroundColor"><span class="hs-identifier hs-var hs-var">fromBurnInBackgroundColor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679868145"><span id="local-6989586621679868147"><span id="local-6989586621679868149"><span class="annot"><span class="annottext">Int -&gt; BurnInBackgroundColor -&gt; ShowS
+[BurnInBackgroundColor] -&gt; ShowS
+BurnInBackgroundColor -&gt; String
+(Int -&gt; BurnInBackgroundColor -&gt; ShowS)
+-&gt; (BurnInBackgroundColor -&gt; String)
+-&gt; ([BurnInBackgroundColor] -&gt; ShowS)
+-&gt; Show BurnInBackgroundColor
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BurnInBackgroundColor] -&gt; ShowS
+$cshowList :: [BurnInBackgroundColor] -&gt; ShowS
+show :: BurnInBackgroundColor -&gt; String
+$cshow :: BurnInBackgroundColor -&gt; String
+showsPrec :: Int -&gt; BurnInBackgroundColor -&gt; ShowS
+$cshowsPrec :: Int -&gt; BurnInBackgroundColor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679868136"><span id="local-6989586621679868138"><span id="local-6989586621679868140"><span id="local-6989586621679868142"><span class="annot"><span class="annottext">ReadPrec [BurnInBackgroundColor]
+ReadPrec BurnInBackgroundColor
+Int -&gt; ReadS BurnInBackgroundColor
+ReadS [BurnInBackgroundColor]
+(Int -&gt; ReadS BurnInBackgroundColor)
+-&gt; ReadS [BurnInBackgroundColor]
+-&gt; ReadPrec BurnInBackgroundColor
+-&gt; ReadPrec [BurnInBackgroundColor]
+-&gt; Read BurnInBackgroundColor
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BurnInBackgroundColor]
+$creadListPrec :: ReadPrec [BurnInBackgroundColor]
+readPrec :: ReadPrec BurnInBackgroundColor
+$creadPrec :: ReadPrec BurnInBackgroundColor
+readList :: ReadS [BurnInBackgroundColor]
+$creadList :: ReadS [BurnInBackgroundColor]
+readsPrec :: Int -&gt; ReadS BurnInBackgroundColor
+$creadsPrec :: Int -&gt; ReadS BurnInBackgroundColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679868131"><span id="local-6989586621679868133"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+(BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool)
+-&gt; (BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool)
+-&gt; Eq BurnInBackgroundColor
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+$c/= :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+== :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+$c== :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679868115"><span id="local-6989586621679868117"><span id="local-6989586621679868119"><span id="local-6989586621679868121"><span id="local-6989586621679868123"><span id="local-6989586621679868125"><span id="local-6989586621679868127"><span class="annot"><span class="annottext">Eq BurnInBackgroundColor
+Eq BurnInBackgroundColor
+-&gt; (BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Ordering)
+-&gt; (BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool)
+-&gt; (BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool)
+-&gt; (BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool)
+-&gt; (BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool)
+-&gt; (BurnInBackgroundColor
+    -&gt; BurnInBackgroundColor -&gt; BurnInBackgroundColor)
+-&gt; (BurnInBackgroundColor
+    -&gt; BurnInBackgroundColor -&gt; BurnInBackgroundColor)
+-&gt; Ord BurnInBackgroundColor
+BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Ordering
+BurnInBackgroundColor
+-&gt; BurnInBackgroundColor -&gt; BurnInBackgroundColor
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BurnInBackgroundColor
+-&gt; BurnInBackgroundColor -&gt; BurnInBackgroundColor
+$cmin :: BurnInBackgroundColor
+-&gt; BurnInBackgroundColor -&gt; BurnInBackgroundColor
+max :: BurnInBackgroundColor
+-&gt; BurnInBackgroundColor -&gt; BurnInBackgroundColor
+$cmax :: BurnInBackgroundColor
+-&gt; BurnInBackgroundColor -&gt; BurnInBackgroundColor
+&gt;= :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+$c&gt;= :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+&gt; :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+$c&gt; :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+&lt;= :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+$c&lt;= :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+&lt; :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+$c&lt; :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+compare :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Ordering
+$ccompare :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Ordering
+$cp1Ord :: Eq BurnInBackgroundColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. BurnInBackgroundColor -&gt; Rep BurnInBackgroundColor x)
+-&gt; (forall x. Rep BurnInBackgroundColor x -&gt; BurnInBackgroundColor)
+-&gt; Generic BurnInBackgroundColor
+forall x. Rep BurnInBackgroundColor x -&gt; BurnInBackgroundColor
+forall x. BurnInBackgroundColor -&gt; Rep BurnInBackgroundColor x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BurnInBackgroundColor x -&gt; BurnInBackgroundColor
+$cfrom :: forall x. BurnInBackgroundColor -&gt; Rep BurnInBackgroundColor x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679868107"><span id="local-6989586621679868109"><span class="annot"><span class="annottext">Int -&gt; BurnInBackgroundColor -&gt; Int
+BurnInBackgroundColor -&gt; Int
+(Int -&gt; BurnInBackgroundColor -&gt; Int)
+-&gt; (BurnInBackgroundColor -&gt; Int) -&gt; Hashable BurnInBackgroundColor
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BurnInBackgroundColor -&gt; Int
+$chash :: BurnInBackgroundColor -&gt; Int
+hashWithSalt :: Int -&gt; BurnInBackgroundColor -&gt; Int
+$chashWithSalt :: Int -&gt; BurnInBackgroundColor -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679868104"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; ()
+(BurnInBackgroundColor -&gt; ()) -&gt; NFData BurnInBackgroundColor
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BurnInBackgroundColor -&gt; ()
+$crnf :: BurnInBackgroundColor -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679868101"><span class="annot"><span class="annottext">Text -&gt; Either String BurnInBackgroundColor
+(Text -&gt; Either String BurnInBackgroundColor)
+-&gt; FromText BurnInBackgroundColor
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BurnInBackgroundColor
+$cfromText :: Text -&gt; Either String BurnInBackgroundColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679868098"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; Text
+(BurnInBackgroundColor -&gt; Text) -&gt; ToText BurnInBackgroundColor
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BurnInBackgroundColor -&gt; Text
+$ctoText :: BurnInBackgroundColor -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679868095"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; ByteString
+(BurnInBackgroundColor -&gt; ByteString)
+-&gt; ToByteString BurnInBackgroundColor
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BurnInBackgroundColor -&gt; ByteString
+$ctoBS :: BurnInBackgroundColor -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679868092"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; ByteStringBuilder
+(BurnInBackgroundColor -&gt; ByteStringBuilder)
+-&gt; ToLog BurnInBackgroundColor
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BurnInBackgroundColor -&gt; ByteStringBuilder
+$cbuild :: BurnInBackgroundColor -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679868089"><span class="annot"><span class="annottext">HeaderName -&gt; BurnInBackgroundColor -&gt; [Header]
+(HeaderName -&gt; BurnInBackgroundColor -&gt; [Header])
+-&gt; ToHeader BurnInBackgroundColor
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BurnInBackgroundColor -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BurnInBackgroundColor -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679868086"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; QueryString
+(BurnInBackgroundColor -&gt; QueryString)
+-&gt; ToQuery BurnInBackgroundColor
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BurnInBackgroundColor -&gt; QueryString
+$ctoQuery :: BurnInBackgroundColor -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679868081"><span id="local-6989586621679868083"><span class="annot"><span class="annottext">Value -&gt; Parser [BurnInBackgroundColor]
+Value -&gt; Parser BurnInBackgroundColor
+(Value -&gt; Parser BurnInBackgroundColor)
+-&gt; (Value -&gt; Parser [BurnInBackgroundColor])
+-&gt; FromJSON BurnInBackgroundColor
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BurnInBackgroundColor]
+$cparseJSONList :: Value -&gt; Parser [BurnInBackgroundColor]
+parseJSON :: Value -&gt; Parser BurnInBackgroundColor
+$cparseJSON :: Value -&gt; Parser BurnInBackgroundColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679868076"><span id="local-6989586621679868078"><span class="annot"><span class="annottext">FromJSONKeyFunction [BurnInBackgroundColor]
+FromJSONKeyFunction BurnInBackgroundColor
+FromJSONKeyFunction BurnInBackgroundColor
+-&gt; FromJSONKeyFunction [BurnInBackgroundColor]
+-&gt; FromJSONKey BurnInBackgroundColor
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BurnInBackgroundColor]
+$cfromJSONKeyList :: FromJSONKeyFunction [BurnInBackgroundColor]
+fromJSONKey :: FromJSONKeyFunction BurnInBackgroundColor
+$cfromJSONKey :: FromJSONKeyFunction BurnInBackgroundColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679868067"><span id="local-6989586621679868069"><span id="local-6989586621679868071"><span id="local-6989586621679868073"><span class="annot"><span class="annottext">[BurnInBackgroundColor] -&gt; Encoding
+[BurnInBackgroundColor] -&gt; Value
+BurnInBackgroundColor -&gt; Encoding
+BurnInBackgroundColor -&gt; Value
+(BurnInBackgroundColor -&gt; Value)
+-&gt; (BurnInBackgroundColor -&gt; Encoding)
+-&gt; ([BurnInBackgroundColor] -&gt; Value)
+-&gt; ([BurnInBackgroundColor] -&gt; Encoding)
+-&gt; ToJSON BurnInBackgroundColor
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BurnInBackgroundColor] -&gt; Encoding
+$ctoEncodingList :: [BurnInBackgroundColor] -&gt; Encoding
+toJSONList :: [BurnInBackgroundColor] -&gt; Value
+$ctoJSONList :: [BurnInBackgroundColor] -&gt; Value
+toEncoding :: BurnInBackgroundColor -&gt; Encoding
+$ctoEncoding :: BurnInBackgroundColor -&gt; Encoding
+toJSON :: BurnInBackgroundColor -&gt; Value
+$ctoJSON :: BurnInBackgroundColor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679868062"><span id="local-6989586621679868064"><span class="annot"><span class="annottext">ToJSONKeyFunction [BurnInBackgroundColor]
+ToJSONKeyFunction BurnInBackgroundColor
+ToJSONKeyFunction BurnInBackgroundColor
+-&gt; ToJSONKeyFunction [BurnInBackgroundColor]
+-&gt; ToJSONKey BurnInBackgroundColor
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BurnInBackgroundColor]
+$ctoJSONKeyList :: ToJSONKeyFunction [BurnInBackgroundColor]
+toJSONKey :: ToJSONKeyFunction BurnInBackgroundColor
+$ctoJSONKey :: ToJSONKeyFunction BurnInBackgroundColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679868059"><span class="annot"><span class="annottext">[Node] -&gt; Either String BurnInBackgroundColor
+([Node] -&gt; Either String BurnInBackgroundColor)
+-&gt; FromXML BurnInBackgroundColor
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BurnInBackgroundColor
+$cparseXML :: [Node] -&gt; Either String BurnInBackgroundColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679868056"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; XML
+(BurnInBackgroundColor -&gt; XML) -&gt; ToXML BurnInBackgroundColor
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BurnInBackgroundColor -&gt; XML
+$ctoXML :: BurnInBackgroundColor -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor_BLACK"><span class="hs-identifier hs-type">BurnInBackgroundColor_BLACK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor"><span class="hs-identifier hs-type">BurnInBackgroundColor</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurnInBackgroundColor_BLACK"><span id="%24mBurnInBackgroundColor_BLACK"><span id="BurnInBackgroundColor_BLACK"><span class="annot"><span class="annottext">$bBurnInBackgroundColor_BLACK :: BurnInBackgroundColor
+$mBurnInBackgroundColor_BLACK :: forall r.
+BurnInBackgroundColor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#%24bBurnInBackgroundColor_BLACK"><span class="hs-identifier hs-var hs-var hs-var">BurnInBackgroundColor_BLACK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor%27"><span class="hs-identifier hs-type">BurnInBackgroundColor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BLACK&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor_NONE"><span class="hs-identifier hs-type">BurnInBackgroundColor_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor"><span class="hs-identifier hs-type">BurnInBackgroundColor</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurnInBackgroundColor_NONE"><span id="%24mBurnInBackgroundColor_NONE"><span id="BurnInBackgroundColor_NONE"><span class="annot"><span class="annottext">$bBurnInBackgroundColor_NONE :: BurnInBackgroundColor
+$mBurnInBackgroundColor_NONE :: forall r.
+BurnInBackgroundColor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#%24bBurnInBackgroundColor_NONE"><span class="hs-identifier hs-var hs-var hs-var">BurnInBackgroundColor_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor%27"><span class="hs-identifier hs-type">BurnInBackgroundColor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor_WHITE"><span class="hs-identifier hs-type">BurnInBackgroundColor_WHITE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor"><span class="hs-identifier hs-type">BurnInBackgroundColor</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBurnInBackgroundColor_WHITE"><span id="%24mBurnInBackgroundColor_WHITE"><span id="BurnInBackgroundColor_WHITE"><span class="annot"><span class="annottext">$bBurnInBackgroundColor_WHITE :: BurnInBackgroundColor
+$mBurnInBackgroundColor_WHITE :: forall r.
+BurnInBackgroundColor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#%24bBurnInBackgroundColor_WHITE"><span class="hs-identifier hs-var hs-var hs-var">BurnInBackgroundColor_WHITE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor%27"><span class="hs-identifier hs-type">BurnInBackgroundColor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WHITE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor_BLACK"><span class="hs-pragma hs-type">BurnInBackgroundColor_BLACK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor_NONE"><span class="hs-pragma hs-type">BurnInBackgroundColor_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor_WHITE"><span class="hs-pragma hs-type">BurnInBackgroundColor_WHITE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor%27"><span class="hs-pragma hs-type">BurnInBackgroundColor'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

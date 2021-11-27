@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppRunner.Types.ConfigurationSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppRunner.Types.ConfigurationSource</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource"><span class="hs-identifier">ConfigurationSource</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource_API"><span class="hs-identifier">ConfigurationSource_API</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource_REPOSITORY"><span class="hs-identifier">ConfigurationSource_REPOSITORY</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679203037"><span id="local-6989586621679203038"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfigurationSource"><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource"><span class="hs-identifier hs-var">ConfigurationSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationSource%27"><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource%27"><span class="hs-identifier hs-var">ConfigurationSource'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConfigurationSource"><span class="annot"><span class="annottext">ConfigurationSource -&gt; Text
+</span><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#fromConfigurationSource"><span class="hs-identifier hs-var hs-var">fromConfigurationSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203029"><span id="local-6989586621679203031"><span id="local-6989586621679203033"><span class="annot"><span class="annottext">Int -&gt; ConfigurationSource -&gt; ShowS
+[ConfigurationSource] -&gt; ShowS
+ConfigurationSource -&gt; String
+(Int -&gt; ConfigurationSource -&gt; ShowS)
+-&gt; (ConfigurationSource -&gt; String)
+-&gt; ([ConfigurationSource] -&gt; ShowS)
+-&gt; Show ConfigurationSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigurationSource] -&gt; ShowS
+$cshowList :: [ConfigurationSource] -&gt; ShowS
+show :: ConfigurationSource -&gt; String
+$cshow :: ConfigurationSource -&gt; String
+showsPrec :: Int -&gt; ConfigurationSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigurationSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679203020"><span id="local-6989586621679203022"><span id="local-6989586621679203024"><span id="local-6989586621679203026"><span class="annot"><span class="annottext">ReadPrec [ConfigurationSource]
+ReadPrec ConfigurationSource
+Int -&gt; ReadS ConfigurationSource
+ReadS [ConfigurationSource]
+(Int -&gt; ReadS ConfigurationSource)
+-&gt; ReadS [ConfigurationSource]
+-&gt; ReadPrec ConfigurationSource
+-&gt; ReadPrec [ConfigurationSource]
+-&gt; Read ConfigurationSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigurationSource]
+$creadListPrec :: ReadPrec [ConfigurationSource]
+readPrec :: ReadPrec ConfigurationSource
+$creadPrec :: ReadPrec ConfigurationSource
+readList :: ReadS [ConfigurationSource]
+$creadList :: ReadS [ConfigurationSource]
+readsPrec :: Int -&gt; ReadS ConfigurationSource
+$creadsPrec :: Int -&gt; ReadS ConfigurationSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679203015"><span id="local-6989586621679203017"><span class="annot"><span class="annottext">ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+(ConfigurationSource -&gt; ConfigurationSource -&gt; Bool)
+-&gt; (ConfigurationSource -&gt; ConfigurationSource -&gt; Bool)
+-&gt; Eq ConfigurationSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+$c/= :: ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+== :: ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+$c== :: ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679202999"><span id="local-6989586621679203001"><span id="local-6989586621679203003"><span id="local-6989586621679203005"><span id="local-6989586621679203007"><span id="local-6989586621679203009"><span id="local-6989586621679203011"><span class="annot"><span class="annottext">Eq ConfigurationSource
+Eq ConfigurationSource
+-&gt; (ConfigurationSource -&gt; ConfigurationSource -&gt; Ordering)
+-&gt; (ConfigurationSource -&gt; ConfigurationSource -&gt; Bool)
+-&gt; (ConfigurationSource -&gt; ConfigurationSource -&gt; Bool)
+-&gt; (ConfigurationSource -&gt; ConfigurationSource -&gt; Bool)
+-&gt; (ConfigurationSource -&gt; ConfigurationSource -&gt; Bool)
+-&gt; (ConfigurationSource
+    -&gt; ConfigurationSource -&gt; ConfigurationSource)
+-&gt; (ConfigurationSource
+    -&gt; ConfigurationSource -&gt; ConfigurationSource)
+-&gt; Ord ConfigurationSource
+ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+ConfigurationSource -&gt; ConfigurationSource -&gt; Ordering
+ConfigurationSource -&gt; ConfigurationSource -&gt; ConfigurationSource
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConfigurationSource -&gt; ConfigurationSource -&gt; ConfigurationSource
+$cmin :: ConfigurationSource -&gt; ConfigurationSource -&gt; ConfigurationSource
+max :: ConfigurationSource -&gt; ConfigurationSource -&gt; ConfigurationSource
+$cmax :: ConfigurationSource -&gt; ConfigurationSource -&gt; ConfigurationSource
+&gt;= :: ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+$c&gt;= :: ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+&gt; :: ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+$c&gt; :: ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+&lt;= :: ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+$c&lt;= :: ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+&lt; :: ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+$c&lt; :: ConfigurationSource -&gt; ConfigurationSource -&gt; Bool
+compare :: ConfigurationSource -&gt; ConfigurationSource -&gt; Ordering
+$ccompare :: ConfigurationSource -&gt; ConfigurationSource -&gt; Ordering
+$cp1Ord :: Eq ConfigurationSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ConfigurationSource -&gt; Rep ConfigurationSource x)
+-&gt; (forall x. Rep ConfigurationSource x -&gt; ConfigurationSource)
+-&gt; Generic ConfigurationSource
+forall x. Rep ConfigurationSource x -&gt; ConfigurationSource
+forall x. ConfigurationSource -&gt; Rep ConfigurationSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConfigurationSource x -&gt; ConfigurationSource
+$cfrom :: forall x. ConfigurationSource -&gt; Rep ConfigurationSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202991"><span id="local-6989586621679202993"><span class="annot"><span class="annottext">Int -&gt; ConfigurationSource -&gt; Int
+ConfigurationSource -&gt; Int
+(Int -&gt; ConfigurationSource -&gt; Int)
+-&gt; (ConfigurationSource -&gt; Int) -&gt; Hashable ConfigurationSource
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConfigurationSource -&gt; Int
+$chash :: ConfigurationSource -&gt; Int
+hashWithSalt :: Int -&gt; ConfigurationSource -&gt; Int
+$chashWithSalt :: Int -&gt; ConfigurationSource -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679202988"><span class="annot"><span class="annottext">ConfigurationSource -&gt; ()
+(ConfigurationSource -&gt; ()) -&gt; NFData ConfigurationSource
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConfigurationSource -&gt; ()
+$crnf :: ConfigurationSource -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679202985"><span class="annot"><span class="annottext">Text -&gt; Either String ConfigurationSource
+(Text -&gt; Either String ConfigurationSource)
+-&gt; FromText ConfigurationSource
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConfigurationSource
+$cfromText :: Text -&gt; Either String ConfigurationSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679202982"><span class="annot"><span class="annottext">ConfigurationSource -&gt; Text
+(ConfigurationSource -&gt; Text) -&gt; ToText ConfigurationSource
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConfigurationSource -&gt; Text
+$ctoText :: ConfigurationSource -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679202979"><span class="annot"><span class="annottext">ConfigurationSource -&gt; ByteString
+(ConfigurationSource -&gt; ByteString)
+-&gt; ToByteString ConfigurationSource
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConfigurationSource -&gt; ByteString
+$ctoBS :: ConfigurationSource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679202976"><span class="annot"><span class="annottext">ConfigurationSource -&gt; ByteStringBuilder
+(ConfigurationSource -&gt; ByteStringBuilder)
+-&gt; ToLog ConfigurationSource
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConfigurationSource -&gt; ByteStringBuilder
+$cbuild :: ConfigurationSource -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679202973"><span class="annot"><span class="annottext">HeaderName -&gt; ConfigurationSource -&gt; [Header]
+(HeaderName -&gt; ConfigurationSource -&gt; [Header])
+-&gt; ToHeader ConfigurationSource
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConfigurationSource -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConfigurationSource -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679202970"><span class="annot"><span class="annottext">ConfigurationSource -&gt; QueryString
+(ConfigurationSource -&gt; QueryString) -&gt; ToQuery ConfigurationSource
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConfigurationSource -&gt; QueryString
+$ctoQuery :: ConfigurationSource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679202965"><span id="local-6989586621679202967"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfigurationSource]
+Value -&gt; Parser ConfigurationSource
+(Value -&gt; Parser ConfigurationSource)
+-&gt; (Value -&gt; Parser [ConfigurationSource])
+-&gt; FromJSON ConfigurationSource
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConfigurationSource]
+$cparseJSONList :: Value -&gt; Parser [ConfigurationSource]
+parseJSON :: Value -&gt; Parser ConfigurationSource
+$cparseJSON :: Value -&gt; Parser ConfigurationSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679202960"><span id="local-6989586621679202962"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfigurationSource]
+FromJSONKeyFunction ConfigurationSource
+FromJSONKeyFunction ConfigurationSource
+-&gt; FromJSONKeyFunction [ConfigurationSource]
+-&gt; FromJSONKey ConfigurationSource
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConfigurationSource]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConfigurationSource]
+fromJSONKey :: FromJSONKeyFunction ConfigurationSource
+$cfromJSONKey :: FromJSONKeyFunction ConfigurationSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679202951"><span id="local-6989586621679202953"><span id="local-6989586621679202955"><span id="local-6989586621679202957"><span class="annot"><span class="annottext">[ConfigurationSource] -&gt; Encoding
+[ConfigurationSource] -&gt; Value
+ConfigurationSource -&gt; Encoding
+ConfigurationSource -&gt; Value
+(ConfigurationSource -&gt; Value)
+-&gt; (ConfigurationSource -&gt; Encoding)
+-&gt; ([ConfigurationSource] -&gt; Value)
+-&gt; ([ConfigurationSource] -&gt; Encoding)
+-&gt; ToJSON ConfigurationSource
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConfigurationSource] -&gt; Encoding
+$ctoEncodingList :: [ConfigurationSource] -&gt; Encoding
+toJSONList :: [ConfigurationSource] -&gt; Value
+$ctoJSONList :: [ConfigurationSource] -&gt; Value
+toEncoding :: ConfigurationSource -&gt; Encoding
+$ctoEncoding :: ConfigurationSource -&gt; Encoding
+toJSON :: ConfigurationSource -&gt; Value
+$ctoJSON :: ConfigurationSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679202946"><span id="local-6989586621679202948"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfigurationSource]
+ToJSONKeyFunction ConfigurationSource
+ToJSONKeyFunction ConfigurationSource
+-&gt; ToJSONKeyFunction [ConfigurationSource]
+-&gt; ToJSONKey ConfigurationSource
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConfigurationSource]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConfigurationSource]
+toJSONKey :: ToJSONKeyFunction ConfigurationSource
+$ctoJSONKey :: ToJSONKeyFunction ConfigurationSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679202943"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfigurationSource
+([Node] -&gt; Either String ConfigurationSource)
+-&gt; FromXML ConfigurationSource
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConfigurationSource
+$cparseXML :: [Node] -&gt; Either String ConfigurationSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679202940"><span class="annot"><span class="annottext">ConfigurationSource -&gt; XML
+(ConfigurationSource -&gt; XML) -&gt; ToXML ConfigurationSource
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConfigurationSource -&gt; XML
+$ctoXML :: ConfigurationSource -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource_API"><span class="hs-identifier hs-type">ConfigurationSource_API</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource"><span class="hs-identifier hs-type">ConfigurationSource</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationSource_API"><span id="%24mConfigurationSource_API"><span id="ConfigurationSource_API"><span class="annot"><span class="annottext">$bConfigurationSource_API :: ConfigurationSource
+$mConfigurationSource_API :: forall r. ConfigurationSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#%24bConfigurationSource_API"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationSource_API</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource%27"><span class="hs-identifier hs-type">ConfigurationSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;API&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource_REPOSITORY"><span class="hs-identifier hs-type">ConfigurationSource_REPOSITORY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource"><span class="hs-identifier hs-type">ConfigurationSource</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationSource_REPOSITORY"><span id="%24mConfigurationSource_REPOSITORY"><span id="ConfigurationSource_REPOSITORY"><span class="annot"><span class="annottext">$bConfigurationSource_REPOSITORY :: ConfigurationSource
+$mConfigurationSource_REPOSITORY :: forall r. ConfigurationSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#%24bConfigurationSource_REPOSITORY"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationSource_REPOSITORY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource%27"><span class="hs-identifier hs-type">ConfigurationSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REPOSITORY&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource_API"><span class="hs-pragma hs-type">ConfigurationSource_API</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource_REPOSITORY"><span class="hs-pragma hs-type">ConfigurationSource_REPOSITORY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.AppRunner.Types.ConfigurationSource.html#ConfigurationSource%27"><span class="hs-pragma hs-type">ConfigurationSource'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

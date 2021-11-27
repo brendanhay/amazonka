@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Update a safety rule (an assertion rule or gating rule) for the routing</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- controls in a control panel. You can only update the name and the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- waiting period for a safety rule. To make other updates, delete the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- safety rule and create a new safety rule.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier">UpdateSafetyRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#newUpdateSafetyRule"><span class="hs-identifier">newUpdateSafetyRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRule_gatingRuleUpdate"><span class="hs-identifier">updateSafetyRule_gatingRuleUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRule_assertionRuleUpdate"><span class="hs-identifier">updateSafetyRule_assertionRuleUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse"><span class="hs-identifier">UpdateSafetyRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#newUpdateSafetyRuleResponse"><span class="hs-identifier">newUpdateSafetyRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRuleResponse_assertionRule"><span class="hs-identifier">updateSafetyRuleResponse_assertionRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRuleResponse_gatingRule"><span class="hs-identifier">updateSafetyRuleResponse_gatingRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRuleResponse_httpStatus"><span class="hs-identifier">updateSafetyRuleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.html"><span class="hs-identifier">Amazonka.Route53RecoveryControlConfig.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateSafetyRule' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679180086"><span id="local-6989586621679180087"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSafetyRule"><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-var">UpdateSafetyRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSafetyRule%27"><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule%27"><span class="hs-identifier hs-var">UpdateSafetyRule'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatingRuleUpdate%3AUpdateSafetyRule%27"><span class="annot"><span class="annottext">UpdateSafetyRule -&gt; Maybe GatingRuleUpdate
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AgatingRuleUpdate%3AUpdateSafetyRule%27"><span class="hs-identifier hs-var hs-var">gatingRuleUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.GatingRuleUpdate.html#GatingRuleUpdate"><span class="hs-identifier hs-type">GatingRuleUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AassertionRuleUpdate%3AUpdateSafetyRule%27"><span class="annot"><span class="annottext">UpdateSafetyRule -&gt; Maybe AssertionRuleUpdate
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AassertionRuleUpdate%3AUpdateSafetyRule%27"><span class="hs-identifier hs-var hs-var">assertionRuleUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.AssertionRuleUpdate.html#AssertionRuleUpdate"><span class="hs-identifier hs-type">AssertionRuleUpdate</span></a></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180079"><span id="local-6989586621679180081"><span class="annot"><span class="annottext">UpdateSafetyRule -&gt; UpdateSafetyRule -&gt; Bool
+(UpdateSafetyRule -&gt; UpdateSafetyRule -&gt; Bool)
+-&gt; (UpdateSafetyRule -&gt; UpdateSafetyRule -&gt; Bool)
+-&gt; Eq UpdateSafetyRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSafetyRule -&gt; UpdateSafetyRule -&gt; Bool
+$c/= :: UpdateSafetyRule -&gt; UpdateSafetyRule -&gt; Bool
+== :: UpdateSafetyRule -&gt; UpdateSafetyRule -&gt; Bool
+$c== :: UpdateSafetyRule -&gt; UpdateSafetyRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180070"><span id="local-6989586621679180072"><span id="local-6989586621679180074"><span id="local-6989586621679180076"><span class="annot"><span class="annottext">ReadPrec [UpdateSafetyRule]
+ReadPrec UpdateSafetyRule
+Int -&gt; ReadS UpdateSafetyRule
+ReadS [UpdateSafetyRule]
+(Int -&gt; ReadS UpdateSafetyRule)
+-&gt; ReadS [UpdateSafetyRule]
+-&gt; ReadPrec UpdateSafetyRule
+-&gt; ReadPrec [UpdateSafetyRule]
+-&gt; Read UpdateSafetyRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSafetyRule]
+$creadListPrec :: ReadPrec [UpdateSafetyRule]
+readPrec :: ReadPrec UpdateSafetyRule
+$creadPrec :: ReadPrec UpdateSafetyRule
+readList :: ReadS [UpdateSafetyRule]
+$creadList :: ReadS [UpdateSafetyRule]
+readsPrec :: Int -&gt; ReadS UpdateSafetyRule
+$creadsPrec :: Int -&gt; ReadS UpdateSafetyRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180063"><span id="local-6989586621679180065"><span id="local-6989586621679180067"><span class="annot"><span class="annottext">Int -&gt; UpdateSafetyRule -&gt; ShowS
+[UpdateSafetyRule] -&gt; ShowS
+UpdateSafetyRule -&gt; String
+(Int -&gt; UpdateSafetyRule -&gt; ShowS)
+-&gt; (UpdateSafetyRule -&gt; String)
+-&gt; ([UpdateSafetyRule] -&gt; ShowS)
+-&gt; Show UpdateSafetyRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSafetyRule] -&gt; ShowS
+$cshowList :: [UpdateSafetyRule] -&gt; ShowS
+show :: UpdateSafetyRule -&gt; String
+$cshow :: UpdateSafetyRule -&gt; String
+showsPrec :: Int -&gt; UpdateSafetyRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSafetyRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateSafetyRule -&gt; Rep UpdateSafetyRule x)
+-&gt; (forall x. Rep UpdateSafetyRule x -&gt; UpdateSafetyRule)
+-&gt; Generic UpdateSafetyRule
+forall x. Rep UpdateSafetyRule x -&gt; UpdateSafetyRule
+forall x. UpdateSafetyRule -&gt; Rep UpdateSafetyRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateSafetyRule x -&gt; UpdateSafetyRule
+$cfrom :: forall x. UpdateSafetyRule -&gt; Rep UpdateSafetyRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'UpdateSafetyRule' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'gatingRuleUpdate', 'updateSafetyRule_gatingRuleUpdate' - Undocumented member.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'assertionRuleUpdate', 'updateSafetyRule_assertionRuleUpdate' - Undocumented member.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#newUpdateSafetyRule"><span class="hs-identifier hs-type">newUpdateSafetyRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span><span>
+</span><span id="line-74"></span><span id="newUpdateSafetyRule"><span class="annot"><span class="annottext">newUpdateSafetyRule :: UpdateSafetyRule
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#newUpdateSafetyRule"><span class="hs-identifier hs-var hs-var">newUpdateSafetyRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">UpdateSafetyRule' :: Maybe GatingRuleUpdate
+-&gt; Maybe AssertionRuleUpdate -&gt; UpdateSafetyRule
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule%27"><span class="hs-identifier hs-type">UpdateSafetyRule'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatingRuleUpdate:UpdateSafetyRule' :: Maybe GatingRuleUpdate
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AgatingRuleUpdate%3AUpdateSafetyRule%27"><span class="hs-identifier hs-var">gatingRuleUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe GatingRuleUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:assertionRuleUpdate:UpdateSafetyRule' :: Maybe AssertionRuleUpdate
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AassertionRuleUpdate%3AUpdateSafetyRule%27"><span class="hs-identifier hs-var">assertionRuleUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssertionRuleUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRule_gatingRuleUpdate"><span class="hs-identifier hs-type">updateSafetyRule_gatingRuleUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.GatingRuleUpdate.html#GatingRuleUpdate"><span class="hs-identifier hs-type">GatingRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="updateSafetyRule_gatingRuleUpdate"><span class="annot"><span class="annottext">updateSafetyRule_gatingRuleUpdate :: (Maybe GatingRuleUpdate -&gt; f (Maybe GatingRuleUpdate))
+-&gt; UpdateSafetyRule -&gt; f UpdateSafetyRule
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRule_gatingRuleUpdate"><span class="hs-identifier hs-var hs-var">updateSafetyRule_gatingRuleUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSafetyRule -&gt; Maybe GatingRuleUpdate)
+-&gt; (UpdateSafetyRule -&gt; Maybe GatingRuleUpdate -&gt; UpdateSafetyRule)
+-&gt; Lens
+     UpdateSafetyRule
+     UpdateSafetyRule
+     (Maybe GatingRuleUpdate)
+     (Maybe GatingRuleUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule%27"><span class="hs-identifier hs-type">UpdateSafetyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180056"><span class="annot"><span class="annottext">Maybe GatingRuleUpdate
+gatingRuleUpdate :: Maybe GatingRuleUpdate
+$sel:gatingRuleUpdate:UpdateSafetyRule' :: UpdateSafetyRule -&gt; Maybe GatingRuleUpdate
+</span><a href="#local-6989586621679180056"><span class="hs-identifier hs-var hs-var">gatingRuleUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GatingRuleUpdate
+</span><a href="#local-6989586621679180056"><span class="hs-identifier hs-var">gatingRuleUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180055"><span class="annot"><span class="annottext">s :: UpdateSafetyRule
+</span><a href="#local-6989586621679180055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule%27"><span class="hs-identifier hs-type">UpdateSafetyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180054"><span class="annot"><span class="annottext">Maybe GatingRuleUpdate
+</span><a href="#local-6989586621679180054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSafetyRule
+</span><a href="#local-6989586621679180055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatingRuleUpdate:UpdateSafetyRule' :: Maybe GatingRuleUpdate
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AgatingRuleUpdate%3AUpdateSafetyRule%27"><span class="hs-identifier hs-var">gatingRuleUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GatingRuleUpdate
+</span><a href="#local-6989586621679180054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRule_assertionRuleUpdate"><span class="hs-identifier hs-type">updateSafetyRule_assertionRuleUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.AssertionRuleUpdate.html#AssertionRuleUpdate"><span class="hs-identifier hs-type">AssertionRuleUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="updateSafetyRule_assertionRuleUpdate"><span class="annot"><span class="annottext">updateSafetyRule_assertionRuleUpdate :: (Maybe AssertionRuleUpdate -&gt; f (Maybe AssertionRuleUpdate))
+-&gt; UpdateSafetyRule -&gt; f UpdateSafetyRule
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRule_assertionRuleUpdate"><span class="hs-identifier hs-var hs-var">updateSafetyRule_assertionRuleUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSafetyRule -&gt; Maybe AssertionRuleUpdate)
+-&gt; (UpdateSafetyRule
+    -&gt; Maybe AssertionRuleUpdate -&gt; UpdateSafetyRule)
+-&gt; Lens
+     UpdateSafetyRule
+     UpdateSafetyRule
+     (Maybe AssertionRuleUpdate)
+     (Maybe AssertionRuleUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule%27"><span class="hs-identifier hs-type">UpdateSafetyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180053"><span class="annot"><span class="annottext">Maybe AssertionRuleUpdate
+assertionRuleUpdate :: Maybe AssertionRuleUpdate
+$sel:assertionRuleUpdate:UpdateSafetyRule' :: UpdateSafetyRule -&gt; Maybe AssertionRuleUpdate
+</span><a href="#local-6989586621679180053"><span class="hs-identifier hs-var hs-var">assertionRuleUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssertionRuleUpdate
+</span><a href="#local-6989586621679180053"><span class="hs-identifier hs-var">assertionRuleUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180052"><span class="annot"><span class="annottext">s :: UpdateSafetyRule
+</span><a href="#local-6989586621679180052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule%27"><span class="hs-identifier hs-type">UpdateSafetyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180051"><span class="annot"><span class="annottext">Maybe AssertionRuleUpdate
+</span><a href="#local-6989586621679180051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSafetyRule
+</span><a href="#local-6989586621679180052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assertionRuleUpdate:UpdateSafetyRule' :: Maybe AssertionRuleUpdate
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AassertionRuleUpdate%3AUpdateSafetyRule%27"><span class="hs-identifier hs-var">assertionRuleUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssertionRuleUpdate
+</span><a href="#local-6989586621679180051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679180047"><span class="annot"><span class="annottext">request :: UpdateSafetyRule -&gt; Request UpdateSafetyRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateSafetyRule -&gt; Request UpdateSafetyRule
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53RecoveryControlConfig.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679180043"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateSafetyRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateSafetyRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateSafetyRule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateSafetyRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateSafetyRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679180040"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180040"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679180039"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679180039"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679180038"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180038"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe AssertionRule
+-&gt; Maybe GatingRule -&gt; Int -&gt; UpdateSafetyRuleResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse%27"><span class="hs-identifier hs-var">UpdateSafetyRuleResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AssertionRule
+ -&gt; Maybe GatingRule -&gt; Int -&gt; UpdateSafetyRuleResponse)
+-&gt; Either String (Maybe AssertionRule)
+-&gt; Either
+     String (Maybe GatingRule -&gt; Int -&gt; UpdateSafetyRuleResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180038"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe AssertionRule)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;AssertionRule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe GatingRule -&gt; Int -&gt; UpdateSafetyRuleResponse)
+-&gt; Either String (Maybe GatingRule)
+-&gt; Either String (Int -&gt; UpdateSafetyRuleResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180038"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Key -&gt; Either String (Maybe GatingRule)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;GatingRule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateSafetyRuleResponse)
+-&gt; Either String Int -&gt; Either String UpdateSafetyRuleResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180040"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180030"><span id="local-6989586621679180032"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180027"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679180023"><span class="annot"><span class="annottext">toHeaders :: UpdateSafetyRule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateSafetyRule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180013"><span id="local-6989586621679180015"><span id="local-6989586621679180017"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679180011"><span class="annot"><span class="annottext">toJSON :: UpdateSafetyRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule%27"><span class="hs-identifier hs-type">UpdateSafetyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180008"><span id="local-6989586621679180009"><span class="annot"><span class="annottext">Maybe AssertionRuleUpdate
+Maybe GatingRuleUpdate
+assertionRuleUpdate :: Maybe AssertionRuleUpdate
+gatingRuleUpdate :: Maybe GatingRuleUpdate
+$sel:assertionRuleUpdate:UpdateSafetyRule' :: UpdateSafetyRule -&gt; Maybe AssertionRuleUpdate
+$sel:gatingRuleUpdate:UpdateSafetyRule' :: UpdateSafetyRule -&gt; Maybe GatingRuleUpdate
+</span><a href="#local-6989586621679180008"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;GatingRuleUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; GatingRuleUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">(GatingRuleUpdate -&gt; Pair) -&gt; Maybe GatingRuleUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GatingRuleUpdate
+</span><a href="#local-6989586621679180009"><span class="hs-identifier hs-var">gatingRuleUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;AssertionRuleUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; AssertionRuleUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">(AssertionRuleUpdate -&gt; Pair)
+-&gt; Maybe AssertionRuleUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AssertionRuleUpdate
+</span><a href="#local-6989586621679180008"><span class="hs-identifier hs-var">assertionRuleUpdate</span></a></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679180002"><span class="annot"><span class="annottext">toPath :: UpdateSafetyRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateSafetyRule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/safetyrule&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRule"><span class="hs-identifier hs-type">UpdateSafetyRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679179998"><span class="annot"><span class="annottext">toQuery :: UpdateSafetyRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateSafetyRule -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newUpdateSafetyRuleResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679179995"><span id="local-6989586621679179996"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSafetyRuleResponse"><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse"><span class="hs-identifier hs-var">UpdateSafetyRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSafetyRuleResponse%27"><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse%27"><span class="hs-identifier hs-var">UpdateSafetyRuleResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AassertionRule%3AUpdateSafetyRuleResponse%27"><span class="annot"><span class="annottext">UpdateSafetyRuleResponse -&gt; Maybe AssertionRule
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AassertionRule%3AUpdateSafetyRuleResponse%27"><span class="hs-identifier hs-var hs-var">assertionRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.AssertionRule.html#AssertionRule"><span class="hs-identifier hs-type">AssertionRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AgatingRule%3AUpdateSafetyRuleResponse%27"><span class="annot"><span class="annottext">UpdateSafetyRuleResponse -&gt; Maybe GatingRule
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AgatingRule%3AUpdateSafetyRuleResponse%27"><span class="hs-identifier hs-var hs-var">gatingRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateSafetyRuleResponse%27"><span class="annot"><span class="annottext">UpdateSafetyRuleResponse -&gt; Int
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AhttpStatus%3AUpdateSafetyRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179988"><span id="local-6989586621679179990"><span class="annot"><span class="annottext">UpdateSafetyRuleResponse -&gt; UpdateSafetyRuleResponse -&gt; Bool
+(UpdateSafetyRuleResponse -&gt; UpdateSafetyRuleResponse -&gt; Bool)
+-&gt; (UpdateSafetyRuleResponse -&gt; UpdateSafetyRuleResponse -&gt; Bool)
+-&gt; Eq UpdateSafetyRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSafetyRuleResponse -&gt; UpdateSafetyRuleResponse -&gt; Bool
+$c/= :: UpdateSafetyRuleResponse -&gt; UpdateSafetyRuleResponse -&gt; Bool
+== :: UpdateSafetyRuleResponse -&gt; UpdateSafetyRuleResponse -&gt; Bool
+$c== :: UpdateSafetyRuleResponse -&gt; UpdateSafetyRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179980"><span id="local-6989586621679179982"><span id="local-6989586621679179984"><span id="local-6989586621679179986"><span class="annot"><span class="annottext">ReadPrec [UpdateSafetyRuleResponse]
+ReadPrec UpdateSafetyRuleResponse
+Int -&gt; ReadS UpdateSafetyRuleResponse
+ReadS [UpdateSafetyRuleResponse]
+(Int -&gt; ReadS UpdateSafetyRuleResponse)
+-&gt; ReadS [UpdateSafetyRuleResponse]
+-&gt; ReadPrec UpdateSafetyRuleResponse
+-&gt; ReadPrec [UpdateSafetyRuleResponse]
+-&gt; Read UpdateSafetyRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSafetyRuleResponse]
+$creadListPrec :: ReadPrec [UpdateSafetyRuleResponse]
+readPrec :: ReadPrec UpdateSafetyRuleResponse
+$creadPrec :: ReadPrec UpdateSafetyRuleResponse
+readList :: ReadS [UpdateSafetyRuleResponse]
+$creadList :: ReadS [UpdateSafetyRuleResponse]
+readsPrec :: Int -&gt; ReadS UpdateSafetyRuleResponse
+$creadsPrec :: Int -&gt; ReadS UpdateSafetyRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179974"><span id="local-6989586621679179976"><span id="local-6989586621679179978"><span class="annot"><span class="annottext">Int -&gt; UpdateSafetyRuleResponse -&gt; ShowS
+[UpdateSafetyRuleResponse] -&gt; ShowS
+UpdateSafetyRuleResponse -&gt; String
+(Int -&gt; UpdateSafetyRuleResponse -&gt; ShowS)
+-&gt; (UpdateSafetyRuleResponse -&gt; String)
+-&gt; ([UpdateSafetyRuleResponse] -&gt; ShowS)
+-&gt; Show UpdateSafetyRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSafetyRuleResponse] -&gt; ShowS
+$cshowList :: [UpdateSafetyRuleResponse] -&gt; ShowS
+show :: UpdateSafetyRuleResponse -&gt; String
+$cshow :: UpdateSafetyRuleResponse -&gt; String
+showsPrec :: Int -&gt; UpdateSafetyRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSafetyRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateSafetyRuleResponse -&gt; Rep UpdateSafetyRuleResponse x)
+-&gt; (forall x.
+    Rep UpdateSafetyRuleResponse x -&gt; UpdateSafetyRuleResponse)
+-&gt; Generic UpdateSafetyRuleResponse
+forall x.
+Rep UpdateSafetyRuleResponse x -&gt; UpdateSafetyRuleResponse
+forall x.
+UpdateSafetyRuleResponse -&gt; Rep UpdateSafetyRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateSafetyRuleResponse x -&gt; UpdateSafetyRuleResponse
+$cfrom :: forall x.
+UpdateSafetyRuleResponse -&gt; Rep UpdateSafetyRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Create a value of 'UpdateSafetyRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'assertionRule', 'updateSafetyRuleResponse_assertionRule' - Undocumented member.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'gatingRule', 'updateSafetyRuleResponse_gatingRule' - Undocumented member.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'updateSafetyRuleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#newUpdateSafetyRuleResponse"><span class="hs-identifier hs-type">newUpdateSafetyRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newUpdateSafetyRuleResponse"><span class="annot"><span class="annottext">newUpdateSafetyRuleResponse :: Int -&gt; UpdateSafetyRuleResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#newUpdateSafetyRuleResponse"><span class="hs-identifier hs-var hs-var">newUpdateSafetyRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679179971"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179971"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">UpdateSafetyRuleResponse' :: Maybe AssertionRule
+-&gt; Maybe GatingRule -&gt; Int -&gt; UpdateSafetyRuleResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse%27"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assertionRule:UpdateSafetyRuleResponse' :: Maybe AssertionRule
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AassertionRule%3AUpdateSafetyRuleResponse%27"><span class="hs-identifier hs-var">assertionRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Maybe AssertionRule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatingRule:UpdateSafetyRuleResponse' :: Maybe GatingRule
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AgatingRule%3AUpdateSafetyRuleResponse%27"><span class="hs-identifier hs-var">gatingRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GatingRule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSafetyRuleResponse' :: Int
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AhttpStatus%3AUpdateSafetyRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179971"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRuleResponse_assertionRule"><span class="hs-identifier hs-type">updateSafetyRuleResponse_assertionRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.AssertionRule.html#AssertionRule"><span class="hs-identifier hs-type">AssertionRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="updateSafetyRuleResponse_assertionRule"><span class="annot"><span class="annottext">updateSafetyRuleResponse_assertionRule :: (Maybe AssertionRule -&gt; f (Maybe AssertionRule))
+-&gt; UpdateSafetyRuleResponse -&gt; f UpdateSafetyRuleResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRuleResponse_assertionRule"><span class="hs-identifier hs-var hs-var">updateSafetyRuleResponse_assertionRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSafetyRuleResponse -&gt; Maybe AssertionRule)
+-&gt; (UpdateSafetyRuleResponse
+    -&gt; Maybe AssertionRule -&gt; UpdateSafetyRuleResponse)
+-&gt; Lens
+     UpdateSafetyRuleResponse
+     UpdateSafetyRuleResponse
+     (Maybe AssertionRule)
+     (Maybe AssertionRule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse%27"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179970"><span class="annot"><span class="annottext">Maybe AssertionRule
+assertionRule :: Maybe AssertionRule
+$sel:assertionRule:UpdateSafetyRuleResponse' :: UpdateSafetyRuleResponse -&gt; Maybe AssertionRule
+</span><a href="#local-6989586621679179970"><span class="hs-identifier hs-var hs-var">assertionRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssertionRule
+</span><a href="#local-6989586621679179970"><span class="hs-identifier hs-var">assertionRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179969"><span class="annot"><span class="annottext">s :: UpdateSafetyRuleResponse
+</span><a href="#local-6989586621679179969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse%27"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179968"><span class="annot"><span class="annottext">Maybe AssertionRule
+</span><a href="#local-6989586621679179968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSafetyRuleResponse
+</span><a href="#local-6989586621679179969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assertionRule:UpdateSafetyRuleResponse' :: Maybe AssertionRule
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AassertionRule%3AUpdateSafetyRuleResponse%27"><span class="hs-identifier hs-var">assertionRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssertionRule
+</span><a href="#local-6989586621679179968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRuleResponse_gatingRule"><span class="hs-identifier hs-type">updateSafetyRuleResponse_gatingRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.Types.GatingRule.html#GatingRule"><span class="hs-identifier hs-type">GatingRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="updateSafetyRuleResponse_gatingRule"><span class="annot"><span class="annottext">updateSafetyRuleResponse_gatingRule :: (Maybe GatingRule -&gt; f (Maybe GatingRule))
+-&gt; UpdateSafetyRuleResponse -&gt; f UpdateSafetyRuleResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRuleResponse_gatingRule"><span class="hs-identifier hs-var hs-var">updateSafetyRuleResponse_gatingRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSafetyRuleResponse -&gt; Maybe GatingRule)
+-&gt; (UpdateSafetyRuleResponse
+    -&gt; Maybe GatingRule -&gt; UpdateSafetyRuleResponse)
+-&gt; Lens
+     UpdateSafetyRuleResponse
+     UpdateSafetyRuleResponse
+     (Maybe GatingRule)
+     (Maybe GatingRule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse%27"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179967"><span class="annot"><span class="annottext">Maybe GatingRule
+gatingRule :: Maybe GatingRule
+$sel:gatingRule:UpdateSafetyRuleResponse' :: UpdateSafetyRuleResponse -&gt; Maybe GatingRule
+</span><a href="#local-6989586621679179967"><span class="hs-identifier hs-var hs-var">gatingRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GatingRule
+</span><a href="#local-6989586621679179967"><span class="hs-identifier hs-var">gatingRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179966"><span class="annot"><span class="annottext">s :: UpdateSafetyRuleResponse
+</span><a href="#local-6989586621679179966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse%27"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179965"><span class="annot"><span class="annottext">Maybe GatingRule
+</span><a href="#local-6989586621679179965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSafetyRuleResponse
+</span><a href="#local-6989586621679179966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatingRule:UpdateSafetyRuleResponse' :: Maybe GatingRule
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AgatingRule%3AUpdateSafetyRuleResponse%27"><span class="hs-identifier hs-var">gatingRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GatingRule
+</span><a href="#local-6989586621679179965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRuleResponse_httpStatus"><span class="hs-identifier hs-type">updateSafetyRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span id="updateSafetyRuleResponse_httpStatus"><span class="annot"><span class="annottext">updateSafetyRuleResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateSafetyRuleResponse -&gt; f UpdateSafetyRuleResponse
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#updateSafetyRuleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateSafetyRuleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSafetyRuleResponse -&gt; Int)
+-&gt; (UpdateSafetyRuleResponse -&gt; Int -&gt; UpdateSafetyRuleResponse)
+-&gt; Lens UpdateSafetyRuleResponse UpdateSafetyRuleResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse%27"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179964"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateSafetyRuleResponse' :: UpdateSafetyRuleResponse -&gt; Int
+</span><a href="#local-6989586621679179964"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179964"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179963"><span class="annot"><span class="annottext">s :: UpdateSafetyRuleResponse
+</span><a href="#local-6989586621679179963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse%27"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179962"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSafetyRuleResponse
+</span><a href="#local-6989586621679179963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSafetyRuleResponse' :: Int
+</span><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#%24sel%3AhttpStatus%3AUpdateSafetyRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule.html#UpdateSafetyRuleResponse"><span class="hs-identifier hs-type">UpdateSafetyRuleResponse</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

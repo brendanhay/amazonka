@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AlexaBusiness.Types.Device</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AlexaBusiness.Types.Device</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.DeviceNetworkProfileInfo.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types.DeviceNetworkProfileInfo</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.DeviceStatus.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types.DeviceStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.DeviceStatusInfo.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types.DeviceStatusInfo</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A device with attributes.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDevice' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679368003"><span id="local-6989586621679368004"></span></span><span class="hs-keyword">data</span><span> </span><span id="Device"><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-var">Device</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Device%27"><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-var">Device'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of a device. If the status is not READY, check the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- DeviceStatusInfo value for details.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdeviceStatus%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe DeviceStatus
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceStatus%3ADevice%27"><span class="hs-identifier hs-var hs-var">deviceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.DeviceStatus.html#DeviceStatus"><span class="hs-identifier hs-type">DeviceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Detailed information about a device\'s status.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdeviceStatusInfo%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe DeviceStatusInfo
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceStatusInfo%3ADevice%27"><span class="hs-identifier hs-var hs-var">deviceStatusInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.DeviceStatusInfo.html#DeviceStatusInfo"><span class="hs-identifier hs-type">DeviceStatusInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ARN of a device.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdeviceArn%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceArn%3ADevice%27"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The MAC address of a device.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmacAddress%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AmacAddress%3ADevice%27"><span class="hs-identifier hs-var hs-var">macAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of a device.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdeviceName%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceName%3ADevice%27"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The room ARN of a device.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AroomArn%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AroomArn%3ADevice%27"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The software version of a device.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AsoftwareVersion%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AsoftwareVersion%3ADevice%27"><span class="hs-identifier hs-var hs-var">softwareVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The type of a device.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdeviceType%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceType%3ADevice%27"><span class="hs-identifier hs-var hs-var">deviceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Detailed information about a device\'s network profile.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AnetworkProfileInfo%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe DeviceNetworkProfileInfo
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AnetworkProfileInfo%3ADevice%27"><span class="hs-identifier hs-var hs-var">networkProfileInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.DeviceNetworkProfileInfo.html#DeviceNetworkProfileInfo"><span class="hs-identifier hs-type">DeviceNetworkProfileInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The serial number of a device.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdeviceSerialNumber%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceSerialNumber%3ADevice%27"><span class="hs-identifier hs-var hs-var">deviceSerialNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367988"><span id="local-6989586621679367990"><span class="annot"><span class="annottext">Device -&gt; Device -&gt; Bool
+(Device -&gt; Device -&gt; Bool)
+-&gt; (Device -&gt; Device -&gt; Bool) -&gt; Eq Device
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Device -&gt; Device -&gt; Bool
+$c/= :: Device -&gt; Device -&gt; Bool
+== :: Device -&gt; Device -&gt; Bool
+$c== :: Device -&gt; Device -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367979"><span id="local-6989586621679367981"><span id="local-6989586621679367983"><span id="local-6989586621679367985"><span class="annot"><span class="annottext">ReadPrec [Device]
+ReadPrec Device
+Int -&gt; ReadS Device
+ReadS [Device]
+(Int -&gt; ReadS Device)
+-&gt; ReadS [Device]
+-&gt; ReadPrec Device
+-&gt; ReadPrec [Device]
+-&gt; Read Device
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Device]
+$creadListPrec :: ReadPrec [Device]
+readPrec :: ReadPrec Device
+$creadPrec :: ReadPrec Device
+readList :: ReadS [Device]
+$creadList :: ReadS [Device]
+readsPrec :: Int -&gt; ReadS Device
+$creadsPrec :: Int -&gt; ReadS Device
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367972"><span id="local-6989586621679367974"><span id="local-6989586621679367976"><span class="annot"><span class="annottext">Int -&gt; Device -&gt; ShowS
+[Device] -&gt; ShowS
+Device -&gt; String
+(Int -&gt; Device -&gt; ShowS)
+-&gt; (Device -&gt; String) -&gt; ([Device] -&gt; ShowS) -&gt; Show Device
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Device] -&gt; ShowS
+$cshowList :: [Device] -&gt; ShowS
+show :: Device -&gt; String
+$cshow :: Device -&gt; String
+showsPrec :: Int -&gt; Device -&gt; ShowS
+$cshowsPrec :: Int -&gt; Device -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Device -&gt; Rep Device x)
+-&gt; (forall x. Rep Device x -&gt; Device) -&gt; Generic Device
+forall x. Rep Device x -&gt; Device
+forall x. Device -&gt; Rep Device x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Device x -&gt; Device
+$cfrom :: forall x. Device -&gt; Rep Device x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'Device' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'deviceStatus', 'device_deviceStatus' - The status of a device. If the status is not READY, check the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- DeviceStatusInfo value for details.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'deviceStatusInfo', 'device_deviceStatusInfo' - Detailed information about a device\'s status.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'deviceArn', 'device_deviceArn' - The ARN of a device.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'macAddress', 'device_macAddress' - The MAC address of a device.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'deviceName', 'device_deviceName' - The name of a device.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'roomArn', 'device_roomArn' - The room ARN of a device.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'softwareVersion', 'device_softwareVersion' - The software version of a device.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'deviceType', 'device_deviceType' - The type of a device.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'networkProfileInfo', 'device_networkProfileInfo' - Detailed information about a device\'s network profile.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'deviceSerialNumber', 'device_deviceSerialNumber' - The serial number of a device.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#newDevice"><span class="hs-identifier hs-type">newDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span>
+</span><span id="line-87"></span><span id="newDevice"><span class="annot"><span class="annottext">newDevice :: Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#newDevice"><span class="hs-identifier hs-var hs-var">newDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">Device' :: Maybe DeviceStatus
+-&gt; Maybe DeviceStatusInfo
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DeviceNetworkProfileInfo
+-&gt; Maybe Text
+-&gt; Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceStatus:Device' :: Maybe DeviceStatus
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceStatus%3ADevice%27"><span class="hs-identifier hs-var">deviceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceStatusInfo:Device' :: Maybe DeviceStatusInfo
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceStatusInfo%3ADevice%27"><span class="hs-identifier hs-var">deviceStatusInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceStatusInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceArn:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceArn%3ADevice%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:macAddress:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AmacAddress%3ADevice%27"><span class="hs-identifier hs-var">macAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceName:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceName%3ADevice%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:roomArn:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AroomArn%3ADevice%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:softwareVersion:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AsoftwareVersion%3ADevice%27"><span class="hs-identifier hs-var">softwareVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceType:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceType%3ADevice%27"><span class="hs-identifier hs-var">deviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkProfileInfo:Device' :: Maybe DeviceNetworkProfileInfo
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AnetworkProfileInfo%3ADevice%27"><span class="hs-identifier hs-var">networkProfileInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceNetworkProfileInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceSerialNumber:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceSerialNumber%3ADevice%27"><span class="hs-identifier hs-var">deviceSerialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The status of a device. If the status is not READY, check the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- DeviceStatusInfo value for details.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#device_deviceStatus"><span class="hs-identifier hs-type">device_deviceStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.DeviceStatus.html#DeviceStatus"><span class="hs-identifier hs-type">DeviceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="device_deviceStatus"><span class="annot"><span class="annottext">device_deviceStatus :: (Maybe DeviceStatus -&gt; f (Maybe DeviceStatus))
+-&gt; Device -&gt; f Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#device_deviceStatus"><span class="hs-identifier hs-var hs-var">device_deviceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe DeviceStatus)
+-&gt; (Device -&gt; Maybe DeviceStatus -&gt; Device)
+-&gt; Lens Device Device (Maybe DeviceStatus) (Maybe DeviceStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367963"><span class="annot"><span class="annottext">Maybe DeviceStatus
+deviceStatus :: Maybe DeviceStatus
+$sel:deviceStatus:Device' :: Device -&gt; Maybe DeviceStatus
+</span><a href="#local-6989586621679367963"><span class="hs-identifier hs-var hs-var">deviceStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceStatus
+</span><a href="#local-6989586621679367963"><span class="hs-identifier hs-var">deviceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367962"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679367962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367961"><span class="annot"><span class="annottext">Maybe DeviceStatus
+</span><a href="#local-6989586621679367961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679367962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceStatus:Device' :: Maybe DeviceStatus
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceStatus%3ADevice%27"><span class="hs-identifier hs-var">deviceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceStatus
+</span><a href="#local-6989586621679367961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Detailed information about a device\'s status.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#device_deviceStatusInfo"><span class="hs-identifier hs-type">device_deviceStatusInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.DeviceStatusInfo.html#DeviceStatusInfo"><span class="hs-identifier hs-type">DeviceStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="device_deviceStatusInfo"><span class="annot"><span class="annottext">device_deviceStatusInfo :: (Maybe DeviceStatusInfo -&gt; f (Maybe DeviceStatusInfo))
+-&gt; Device -&gt; f Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#device_deviceStatusInfo"><span class="hs-identifier hs-var hs-var">device_deviceStatusInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe DeviceStatusInfo)
+-&gt; (Device -&gt; Maybe DeviceStatusInfo -&gt; Device)
+-&gt; Lens
+     Device Device (Maybe DeviceStatusInfo) (Maybe DeviceStatusInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367959"><span class="annot"><span class="annottext">Maybe DeviceStatusInfo
+deviceStatusInfo :: Maybe DeviceStatusInfo
+$sel:deviceStatusInfo:Device' :: Device -&gt; Maybe DeviceStatusInfo
+</span><a href="#local-6989586621679367959"><span class="hs-identifier hs-var hs-var">deviceStatusInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceStatusInfo
+</span><a href="#local-6989586621679367959"><span class="hs-identifier hs-var">deviceStatusInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367958"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679367958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367957"><span class="annot"><span class="annottext">Maybe DeviceStatusInfo
+</span><a href="#local-6989586621679367957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679367958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceStatusInfo:Device' :: Maybe DeviceStatusInfo
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceStatusInfo%3ADevice%27"><span class="hs-identifier hs-var">deviceStatusInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceStatusInfo
+</span><a href="#local-6989586621679367957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The ARN of a device.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#device_deviceArn"><span class="hs-identifier hs-type">device_deviceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="device_deviceArn"><span class="annot"><span class="annottext">device_deviceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#device_deviceArn"><span class="hs-identifier hs-var hs-var">device_deviceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Text)
+-&gt; (Device -&gt; Maybe Text -&gt; Device)
+-&gt; Lens Device Device (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367955"><span class="annot"><span class="annottext">Maybe Text
+deviceArn :: Maybe Text
+$sel:deviceArn:Device' :: Device -&gt; Maybe Text
+</span><a href="#local-6989586621679367955"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367955"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367954"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679367954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367953"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679367954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceArn%3ADevice%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The MAC address of a device.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#device_macAddress"><span class="hs-identifier hs-type">device_macAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="device_macAddress"><span class="annot"><span class="annottext">device_macAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#device_macAddress"><span class="hs-identifier hs-var hs-var">device_macAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Text)
+-&gt; (Device -&gt; Maybe Text -&gt; Device)
+-&gt; Lens Device Device (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367951"><span class="annot"><span class="annottext">Maybe Text
+macAddress :: Maybe Text
+$sel:macAddress:Device' :: Device -&gt; Maybe Text
+</span><a href="#local-6989586621679367951"><span class="hs-identifier hs-var hs-var">macAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367951"><span class="hs-identifier hs-var">macAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367950"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679367950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367949"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679367950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:macAddress:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AmacAddress%3ADevice%27"><span class="hs-identifier hs-var">macAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The name of a device.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#device_deviceName"><span class="hs-identifier hs-type">device_deviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="device_deviceName"><span class="annot"><span class="annottext">device_deviceName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#device_deviceName"><span class="hs-identifier hs-var hs-var">device_deviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Text)
+-&gt; (Device -&gt; Maybe Text -&gt; Device)
+-&gt; Lens Device Device (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367947"><span class="annot"><span class="annottext">Maybe Text
+deviceName :: Maybe Text
+$sel:deviceName:Device' :: Device -&gt; Maybe Text
+</span><a href="#local-6989586621679367947"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367947"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367946"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679367946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367945"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679367946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceName%3ADevice%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The room ARN of a device.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#device_roomArn"><span class="hs-identifier hs-type">device_roomArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="device_roomArn"><span class="annot"><span class="annottext">device_roomArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#device_roomArn"><span class="hs-identifier hs-var hs-var">device_roomArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Text)
+-&gt; (Device -&gt; Maybe Text -&gt; Device)
+-&gt; Lens Device Device (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367943"><span class="annot"><span class="annottext">Maybe Text
+roomArn :: Maybe Text
+$sel:roomArn:Device' :: Device -&gt; Maybe Text
+</span><a href="#local-6989586621679367943"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367943"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367942"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679367942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679367942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AroomArn%3ADevice%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The software version of a device.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#device_softwareVersion"><span class="hs-identifier hs-type">device_softwareVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="device_softwareVersion"><span class="annot"><span class="annottext">device_softwareVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#device_softwareVersion"><span class="hs-identifier hs-var hs-var">device_softwareVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Text)
+-&gt; (Device -&gt; Maybe Text -&gt; Device)
+-&gt; Lens Device Device (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367939"><span class="annot"><span class="annottext">Maybe Text
+softwareVersion :: Maybe Text
+$sel:softwareVersion:Device' :: Device -&gt; Maybe Text
+</span><a href="#local-6989586621679367939"><span class="hs-identifier hs-var hs-var">softwareVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367939"><span class="hs-identifier hs-var">softwareVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367938"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679367938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679367938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softwareVersion:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AsoftwareVersion%3ADevice%27"><span class="hs-identifier hs-var">softwareVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The type of a device.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#device_deviceType"><span class="hs-identifier hs-type">device_deviceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="device_deviceType"><span class="annot"><span class="annottext">device_deviceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#device_deviceType"><span class="hs-identifier hs-var hs-var">device_deviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Text)
+-&gt; (Device -&gt; Maybe Text -&gt; Device)
+-&gt; Lens Device Device (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367935"><span class="annot"><span class="annottext">Maybe Text
+deviceType :: Maybe Text
+$sel:deviceType:Device' :: Device -&gt; Maybe Text
+</span><a href="#local-6989586621679367935"><span class="hs-identifier hs-var hs-var">deviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367935"><span class="hs-identifier hs-var">deviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367934"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679367934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367933"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679367934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceType:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceType%3ADevice%27"><span class="hs-identifier hs-var">deviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Detailed information about a device\'s network profile.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#device_networkProfileInfo"><span class="hs-identifier hs-type">device_networkProfileInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.DeviceNetworkProfileInfo.html#DeviceNetworkProfileInfo"><span class="hs-identifier hs-type">DeviceNetworkProfileInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="device_networkProfileInfo"><span class="annot"><span class="annottext">device_networkProfileInfo :: (Maybe DeviceNetworkProfileInfo
+ -&gt; f (Maybe DeviceNetworkProfileInfo))
+-&gt; Device -&gt; f Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#device_networkProfileInfo"><span class="hs-identifier hs-var hs-var">device_networkProfileInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe DeviceNetworkProfileInfo)
+-&gt; (Device -&gt; Maybe DeviceNetworkProfileInfo -&gt; Device)
+-&gt; Lens
+     Device
+     Device
+     (Maybe DeviceNetworkProfileInfo)
+     (Maybe DeviceNetworkProfileInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367931"><span class="annot"><span class="annottext">Maybe DeviceNetworkProfileInfo
+networkProfileInfo :: Maybe DeviceNetworkProfileInfo
+$sel:networkProfileInfo:Device' :: Device -&gt; Maybe DeviceNetworkProfileInfo
+</span><a href="#local-6989586621679367931"><span class="hs-identifier hs-var hs-var">networkProfileInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceNetworkProfileInfo
+</span><a href="#local-6989586621679367931"><span class="hs-identifier hs-var">networkProfileInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367930"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679367930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367929"><span class="annot"><span class="annottext">Maybe DeviceNetworkProfileInfo
+</span><a href="#local-6989586621679367929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679367930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkProfileInfo:Device' :: Maybe DeviceNetworkProfileInfo
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AnetworkProfileInfo%3ADevice%27"><span class="hs-identifier hs-var">networkProfileInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceNetworkProfileInfo
+</span><a href="#local-6989586621679367929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The serial number of a device.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#device_deviceSerialNumber"><span class="hs-identifier hs-type">device_deviceSerialNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="device_deviceSerialNumber"><span class="annot"><span class="annottext">device_deviceSerialNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#device_deviceSerialNumber"><span class="hs-identifier hs-var hs-var">device_deviceSerialNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Text)
+-&gt; (Device -&gt; Maybe Text -&gt; Device)
+-&gt; Lens Device Device (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367927"><span class="annot"><span class="annottext">Maybe Text
+deviceSerialNumber :: Maybe Text
+$sel:deviceSerialNumber:Device' :: Device -&gt; Maybe Text
+</span><a href="#local-6989586621679367927"><span class="hs-identifier hs-var hs-var">deviceSerialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367927"><span class="hs-identifier hs-var">deviceSerialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367926"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621679367926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367925"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621679367926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceSerialNumber:Device' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#%24sel%3AdeviceSerialNumber%3ADevice%27"><span class="hs-identifier hs-var">deviceSerialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367922"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679367920"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Device
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Device) -&gt; Value -&gt; Parser Device
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Device&quot;</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367917"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367917"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeviceStatus
+-&gt; Maybe DeviceStatusInfo
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DeviceNetworkProfileInfo
+-&gt; Maybe Text
+-&gt; Device
+</span><a href="Amazonka.AlexaBusiness.Types.Device.html#Device%27"><span class="hs-identifier hs-var">Device'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeviceStatus
+ -&gt; Maybe DeviceStatusInfo
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe DeviceNetworkProfileInfo
+ -&gt; Maybe Text
+ -&gt; Device)
+-&gt; Parser (Maybe DeviceStatus)
+-&gt; Parser
+     (Maybe DeviceStatusInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DeviceNetworkProfileInfo
+      -&gt; Maybe Text
+      -&gt; Device)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DeviceStatusInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceNetworkProfileInfo
+   -&gt; Maybe Text
+   -&gt; Device)
+-&gt; Parser (Maybe DeviceStatusInfo)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DeviceNetworkProfileInfo
+      -&gt; Maybe Text
+      -&gt; Device)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceStatusInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceStatusInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceNetworkProfileInfo
+   -&gt; Maybe Text
+   -&gt; Device)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DeviceNetworkProfileInfo
+      -&gt; Maybe Text
+      -&gt; Device)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceNetworkProfileInfo
+   -&gt; Maybe Text
+   -&gt; Device)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DeviceNetworkProfileInfo
+      -&gt; Maybe Text
+      -&gt; Device)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MacAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceNetworkProfileInfo
+   -&gt; Maybe Text
+   -&gt; Device)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DeviceNetworkProfileInfo
+      -&gt; Maybe Text
+      -&gt; Device)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceNetworkProfileInfo
+   -&gt; Maybe Text
+   -&gt; Device)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DeviceNetworkProfileInfo
+      -&gt; Maybe Text
+      -&gt; Device)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoomArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceNetworkProfileInfo
+   -&gt; Maybe Text
+   -&gt; Device)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe DeviceNetworkProfileInfo -&gt; Maybe Text -&gt; Device)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SoftwareVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DeviceNetworkProfileInfo -&gt; Maybe Text -&gt; Device)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe DeviceNetworkProfileInfo -&gt; Maybe Text -&gt; Device)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DeviceNetworkProfileInfo -&gt; Maybe Text -&gt; Device)
+-&gt; Parser (Maybe DeviceNetworkProfileInfo)
+-&gt; Parser (Maybe Text -&gt; Device)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceNetworkProfileInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkProfileInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Device)
+-&gt; Parser (Maybe Text) -&gt; Parser Device
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceSerialNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367911"><span id="local-6989586621679367913"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367908"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span><span>
+</span><span id="line-163"></span></pre></body></html>

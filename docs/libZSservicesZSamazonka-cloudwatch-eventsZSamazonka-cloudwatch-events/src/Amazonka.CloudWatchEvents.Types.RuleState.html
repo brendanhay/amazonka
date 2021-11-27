@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchEvents.Types.RuleState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.RuleState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState"><span class="hs-identifier">RuleState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState_DISABLED"><span class="hs-identifier">RuleState_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState_ENABLED"><span class="hs-identifier">RuleState_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679305623"><span id="local-6989586621679305624"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RuleState"><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState"><span class="hs-identifier hs-var">RuleState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleState%27"><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState%27"><span class="hs-identifier hs-var">RuleState'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRuleState"><span class="annot"><span class="annottext">RuleState -&gt; Text
+</span><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#fromRuleState"><span class="hs-identifier hs-var hs-var">fromRuleState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305615"><span id="local-6989586621679305617"><span id="local-6989586621679305619"><span class="annot"><span class="annottext">Int -&gt; RuleState -&gt; ShowS
+[RuleState] -&gt; ShowS
+RuleState -&gt; String
+(Int -&gt; RuleState -&gt; ShowS)
+-&gt; (RuleState -&gt; String)
+-&gt; ([RuleState] -&gt; ShowS)
+-&gt; Show RuleState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RuleState] -&gt; ShowS
+$cshowList :: [RuleState] -&gt; ShowS
+show :: RuleState -&gt; String
+$cshow :: RuleState -&gt; String
+showsPrec :: Int -&gt; RuleState -&gt; ShowS
+$cshowsPrec :: Int -&gt; RuleState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679305606"><span id="local-6989586621679305608"><span id="local-6989586621679305610"><span id="local-6989586621679305612"><span class="annot"><span class="annottext">ReadPrec [RuleState]
+ReadPrec RuleState
+Int -&gt; ReadS RuleState
+ReadS [RuleState]
+(Int -&gt; ReadS RuleState)
+-&gt; ReadS [RuleState]
+-&gt; ReadPrec RuleState
+-&gt; ReadPrec [RuleState]
+-&gt; Read RuleState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RuleState]
+$creadListPrec :: ReadPrec [RuleState]
+readPrec :: ReadPrec RuleState
+$creadPrec :: ReadPrec RuleState
+readList :: ReadS [RuleState]
+$creadList :: ReadS [RuleState]
+readsPrec :: Int -&gt; ReadS RuleState
+$creadsPrec :: Int -&gt; ReadS RuleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679305601"><span id="local-6989586621679305603"><span class="annot"><span class="annottext">RuleState -&gt; RuleState -&gt; Bool
+(RuleState -&gt; RuleState -&gt; Bool)
+-&gt; (RuleState -&gt; RuleState -&gt; Bool) -&gt; Eq RuleState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RuleState -&gt; RuleState -&gt; Bool
+$c/= :: RuleState -&gt; RuleState -&gt; Bool
+== :: RuleState -&gt; RuleState -&gt; Bool
+$c== :: RuleState -&gt; RuleState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679305585"><span id="local-6989586621679305587"><span id="local-6989586621679305589"><span id="local-6989586621679305591"><span id="local-6989586621679305593"><span id="local-6989586621679305595"><span id="local-6989586621679305597"><span class="annot"><span class="annottext">Eq RuleState
+Eq RuleState
+-&gt; (RuleState -&gt; RuleState -&gt; Ordering)
+-&gt; (RuleState -&gt; RuleState -&gt; Bool)
+-&gt; (RuleState -&gt; RuleState -&gt; Bool)
+-&gt; (RuleState -&gt; RuleState -&gt; Bool)
+-&gt; (RuleState -&gt; RuleState -&gt; Bool)
+-&gt; (RuleState -&gt; RuleState -&gt; RuleState)
+-&gt; (RuleState -&gt; RuleState -&gt; RuleState)
+-&gt; Ord RuleState
+RuleState -&gt; RuleState -&gt; Bool
+RuleState -&gt; RuleState -&gt; Ordering
+RuleState -&gt; RuleState -&gt; RuleState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RuleState -&gt; RuleState -&gt; RuleState
+$cmin :: RuleState -&gt; RuleState -&gt; RuleState
+max :: RuleState -&gt; RuleState -&gt; RuleState
+$cmax :: RuleState -&gt; RuleState -&gt; RuleState
+&gt;= :: RuleState -&gt; RuleState -&gt; Bool
+$c&gt;= :: RuleState -&gt; RuleState -&gt; Bool
+&gt; :: RuleState -&gt; RuleState -&gt; Bool
+$c&gt; :: RuleState -&gt; RuleState -&gt; Bool
+&lt;= :: RuleState -&gt; RuleState -&gt; Bool
+$c&lt;= :: RuleState -&gt; RuleState -&gt; Bool
+&lt; :: RuleState -&gt; RuleState -&gt; Bool
+$c&lt; :: RuleState -&gt; RuleState -&gt; Bool
+compare :: RuleState -&gt; RuleState -&gt; Ordering
+$ccompare :: RuleState -&gt; RuleState -&gt; Ordering
+$cp1Ord :: Eq RuleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RuleState -&gt; Rep RuleState x)
+-&gt; (forall x. Rep RuleState x -&gt; RuleState) -&gt; Generic RuleState
+forall x. Rep RuleState x -&gt; RuleState
+forall x. RuleState -&gt; Rep RuleState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RuleState x -&gt; RuleState
+$cfrom :: forall x. RuleState -&gt; Rep RuleState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305577"><span id="local-6989586621679305579"><span class="annot"><span class="annottext">Int -&gt; RuleState -&gt; Int
+RuleState -&gt; Int
+(Int -&gt; RuleState -&gt; Int)
+-&gt; (RuleState -&gt; Int) -&gt; Hashable RuleState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RuleState -&gt; Int
+$chash :: RuleState -&gt; Int
+hashWithSalt :: Int -&gt; RuleState -&gt; Int
+$chashWithSalt :: Int -&gt; RuleState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679305574"><span class="annot"><span class="annottext">RuleState -&gt; ()
+(RuleState -&gt; ()) -&gt; NFData RuleState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RuleState -&gt; ()
+$crnf :: RuleState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679305571"><span class="annot"><span class="annottext">Text -&gt; Either String RuleState
+(Text -&gt; Either String RuleState) -&gt; FromText RuleState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RuleState
+$cfromText :: Text -&gt; Either String RuleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679305568"><span class="annot"><span class="annottext">RuleState -&gt; Text
+(RuleState -&gt; Text) -&gt; ToText RuleState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RuleState -&gt; Text
+$ctoText :: RuleState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679305565"><span class="annot"><span class="annottext">RuleState -&gt; ByteString
+(RuleState -&gt; ByteString) -&gt; ToByteString RuleState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RuleState -&gt; ByteString
+$ctoBS :: RuleState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679305562"><span class="annot"><span class="annottext">RuleState -&gt; ByteStringBuilder
+(RuleState -&gt; ByteStringBuilder) -&gt; ToLog RuleState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RuleState -&gt; ByteStringBuilder
+$cbuild :: RuleState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679305559"><span class="annot"><span class="annottext">HeaderName -&gt; RuleState -&gt; [Header]
+(HeaderName -&gt; RuleState -&gt; [Header]) -&gt; ToHeader RuleState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RuleState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RuleState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679305556"><span class="annot"><span class="annottext">RuleState -&gt; QueryString
+(RuleState -&gt; QueryString) -&gt; ToQuery RuleState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RuleState -&gt; QueryString
+$ctoQuery :: RuleState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679305551"><span id="local-6989586621679305553"><span class="annot"><span class="annottext">Value -&gt; Parser [RuleState]
+Value -&gt; Parser RuleState
+(Value -&gt; Parser RuleState)
+-&gt; (Value -&gt; Parser [RuleState]) -&gt; FromJSON RuleState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RuleState]
+$cparseJSONList :: Value -&gt; Parser [RuleState]
+parseJSON :: Value -&gt; Parser RuleState
+$cparseJSON :: Value -&gt; Parser RuleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679305546"><span id="local-6989586621679305548"><span class="annot"><span class="annottext">FromJSONKeyFunction [RuleState]
+FromJSONKeyFunction RuleState
+FromJSONKeyFunction RuleState
+-&gt; FromJSONKeyFunction [RuleState] -&gt; FromJSONKey RuleState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RuleState]
+$cfromJSONKeyList :: FromJSONKeyFunction [RuleState]
+fromJSONKey :: FromJSONKeyFunction RuleState
+$cfromJSONKey :: FromJSONKeyFunction RuleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679305537"><span id="local-6989586621679305539"><span id="local-6989586621679305541"><span id="local-6989586621679305543"><span class="annot"><span class="annottext">[RuleState] -&gt; Encoding
+[RuleState] -&gt; Value
+RuleState -&gt; Encoding
+RuleState -&gt; Value
+(RuleState -&gt; Value)
+-&gt; (RuleState -&gt; Encoding)
+-&gt; ([RuleState] -&gt; Value)
+-&gt; ([RuleState] -&gt; Encoding)
+-&gt; ToJSON RuleState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RuleState] -&gt; Encoding
+$ctoEncodingList :: [RuleState] -&gt; Encoding
+toJSONList :: [RuleState] -&gt; Value
+$ctoJSONList :: [RuleState] -&gt; Value
+toEncoding :: RuleState -&gt; Encoding
+$ctoEncoding :: RuleState -&gt; Encoding
+toJSON :: RuleState -&gt; Value
+$ctoJSON :: RuleState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679305532"><span id="local-6989586621679305534"><span class="annot"><span class="annottext">ToJSONKeyFunction [RuleState]
+ToJSONKeyFunction RuleState
+ToJSONKeyFunction RuleState
+-&gt; ToJSONKeyFunction [RuleState] -&gt; ToJSONKey RuleState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RuleState]
+$ctoJSONKeyList :: ToJSONKeyFunction [RuleState]
+toJSONKey :: ToJSONKeyFunction RuleState
+$ctoJSONKey :: ToJSONKeyFunction RuleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679305529"><span class="annot"><span class="annottext">[Node] -&gt; Either String RuleState
+([Node] -&gt; Either String RuleState) -&gt; FromXML RuleState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RuleState
+$cparseXML :: [Node] -&gt; Either String RuleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679305526"><span class="annot"><span class="annottext">RuleState -&gt; XML
+(RuleState -&gt; XML) -&gt; ToXML RuleState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RuleState -&gt; XML
+$ctoXML :: RuleState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState_DISABLED"><span class="hs-identifier hs-type">RuleState_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState"><span class="hs-identifier hs-type">RuleState</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuleState_DISABLED"><span id="%24mRuleState_DISABLED"><span id="RuleState_DISABLED"><span class="annot"><span class="annottext">$bRuleState_DISABLED :: RuleState
+$mRuleState_DISABLED :: forall r. RuleState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#%24bRuleState_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">RuleState_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState%27"><span class="hs-identifier hs-type">RuleState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState_ENABLED"><span class="hs-identifier hs-type">RuleState_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState"><span class="hs-identifier hs-type">RuleState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuleState_ENABLED"><span id="%24mRuleState_ENABLED"><span id="RuleState_ENABLED"><span class="annot"><span class="annottext">$bRuleState_ENABLED :: RuleState
+$mRuleState_ENABLED :: forall r. RuleState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#%24bRuleState_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">RuleState_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState%27"><span class="hs-identifier hs-type">RuleState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState_DISABLED"><span class="hs-pragma hs-type">RuleState_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState_ENABLED"><span class="hs-pragma hs-type">RuleState_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState%27"><span class="hs-pragma hs-type">RuleState'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

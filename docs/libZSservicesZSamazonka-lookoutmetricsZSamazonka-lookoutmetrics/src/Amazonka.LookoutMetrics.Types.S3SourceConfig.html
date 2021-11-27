@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LookoutMetrics.Types.S3SourceConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LookoutMetrics.Types.S3SourceConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.FileFormatDescriptor.html"><span class="hs-identifier">Amazonka.LookoutMetrics.Types.FileFormatDescriptor</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about the configuration of the S3 bucket that</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- contains source files.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newS3SourceConfig' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679224366"><span id="local-6989586621679224367"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3SourceConfig"><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-var">S3SourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3SourceConfig%27"><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig%27"><span class="hs-identifier hs-var">S3SourceConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of templated paths to the source files.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AtemplatedPathList%3AS3SourceConfig%27"><span class="annot"><span class="annottext">S3SourceConfig -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#%24sel%3AtemplatedPathList%3AS3SourceConfig%27"><span class="hs-identifier hs-var hs-var">templatedPathList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A list of paths to the historical data files.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AhistoricalDataPathList%3AS3SourceConfig%27"><span class="annot"><span class="annottext">S3SourceConfig -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#%24sel%3AhistoricalDataPathList%3AS3SourceConfig%27"><span class="hs-identifier hs-var hs-var">historicalDataPathList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Contains information about a source file\'s formatting.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AfileFormatDescriptor%3AS3SourceConfig%27"><span class="annot"><span class="annottext">S3SourceConfig -&gt; Maybe FileFormatDescriptor
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#%24sel%3AfileFormatDescriptor%3AS3SourceConfig%27"><span class="hs-identifier hs-var hs-var">fileFormatDescriptor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.FileFormatDescriptor.html#FileFormatDescriptor"><span class="hs-identifier hs-type">FileFormatDescriptor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ARN of an IAM role that has read and write access permissions to the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- source S3 bucket.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AroleArn%3AS3SourceConfig%27"><span class="annot"><span class="annottext">S3SourceConfig -&gt; Text
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#%24sel%3AroleArn%3AS3SourceConfig%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224357"><span id="local-6989586621679224359"><span class="annot"><span class="annottext">S3SourceConfig -&gt; S3SourceConfig -&gt; Bool
+(S3SourceConfig -&gt; S3SourceConfig -&gt; Bool)
+-&gt; (S3SourceConfig -&gt; S3SourceConfig -&gt; Bool) -&gt; Eq S3SourceConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: S3SourceConfig -&gt; S3SourceConfig -&gt; Bool
+$c/= :: S3SourceConfig -&gt; S3SourceConfig -&gt; Bool
+== :: S3SourceConfig -&gt; S3SourceConfig -&gt; Bool
+$c== :: S3SourceConfig -&gt; S3SourceConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224348"><span id="local-6989586621679224350"><span id="local-6989586621679224352"><span id="local-6989586621679224354"><span class="annot"><span class="annottext">ReadPrec [S3SourceConfig]
+ReadPrec S3SourceConfig
+Int -&gt; ReadS S3SourceConfig
+ReadS [S3SourceConfig]
+(Int -&gt; ReadS S3SourceConfig)
+-&gt; ReadS [S3SourceConfig]
+-&gt; ReadPrec S3SourceConfig
+-&gt; ReadPrec [S3SourceConfig]
+-&gt; Read S3SourceConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [S3SourceConfig]
+$creadListPrec :: ReadPrec [S3SourceConfig]
+readPrec :: ReadPrec S3SourceConfig
+$creadPrec :: ReadPrec S3SourceConfig
+readList :: ReadS [S3SourceConfig]
+$creadList :: ReadS [S3SourceConfig]
+readsPrec :: Int -&gt; ReadS S3SourceConfig
+$creadsPrec :: Int -&gt; ReadS S3SourceConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224341"><span id="local-6989586621679224343"><span id="local-6989586621679224345"><span class="annot"><span class="annottext">Int -&gt; S3SourceConfig -&gt; ShowS
+[S3SourceConfig] -&gt; ShowS
+S3SourceConfig -&gt; String
+(Int -&gt; S3SourceConfig -&gt; ShowS)
+-&gt; (S3SourceConfig -&gt; String)
+-&gt; ([S3SourceConfig] -&gt; ShowS)
+-&gt; Show S3SourceConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [S3SourceConfig] -&gt; ShowS
+$cshowList :: [S3SourceConfig] -&gt; ShowS
+show :: S3SourceConfig -&gt; String
+$cshow :: S3SourceConfig -&gt; String
+showsPrec :: Int -&gt; S3SourceConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; S3SourceConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. S3SourceConfig -&gt; Rep S3SourceConfig x)
+-&gt; (forall x. Rep S3SourceConfig x -&gt; S3SourceConfig)
+-&gt; Generic S3SourceConfig
+forall x. Rep S3SourceConfig x -&gt; S3SourceConfig
+forall x. S3SourceConfig -&gt; Rep S3SourceConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep S3SourceConfig x -&gt; S3SourceConfig
+$cfrom :: forall x. S3SourceConfig -&gt; Rep S3SourceConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'S3SourceConfig' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'templatedPathList', 's3SourceConfig_templatedPathList' - A list of templated paths to the source files.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'historicalDataPathList', 's3SourceConfig_historicalDataPathList' - A list of paths to the historical data files.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'fileFormatDescriptor', 's3SourceConfig_fileFormatDescriptor' - Contains information about a source file\'s formatting.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'roleArn', 's3SourceConfig_roleArn' - The ARN of an IAM role that has read and write access permissions to the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- source S3 bucket.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#newS3SourceConfig"><span class="hs-identifier hs-type">newS3SourceConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span><span>
+</span><span id="line-64"></span><span id="newS3SourceConfig"><span class="annot"><span class="annottext">newS3SourceConfig :: Text -&gt; S3SourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#newS3SourceConfig"><span class="hs-identifier hs-var hs-var">newS3SourceConfig</span></a></span></span><span> </span><span id="local-6989586621679224335"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224335"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">S3SourceConfig' :: Maybe (NonEmpty Text)
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe FileFormatDescriptor
+-&gt; Text
+-&gt; S3SourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig%27"><span class="hs-identifier hs-type">S3SourceConfig'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:templatedPathList:S3SourceConfig' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#%24sel%3AtemplatedPathList%3AS3SourceConfig%27"><span class="hs-identifier hs-var">templatedPathList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:historicalDataPathList:S3SourceConfig' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#%24sel%3AhistoricalDataPathList%3AS3SourceConfig%27"><span class="hs-identifier hs-var">historicalDataPathList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileFormatDescriptor:S3SourceConfig' :: Maybe FileFormatDescriptor
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#%24sel%3AfileFormatDescriptor%3AS3SourceConfig%27"><span class="hs-identifier hs-var">fileFormatDescriptor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileFormatDescriptor
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:S3SourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#%24sel%3AroleArn%3AS3SourceConfig%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224335"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | A list of templated paths to the source files.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#s3SourceConfig_templatedPathList"><span class="hs-identifier hs-type">s3SourceConfig_templatedPathList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="s3SourceConfig_templatedPathList"><span class="annot"><span class="annottext">s3SourceConfig_templatedPathList :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; S3SourceConfig -&gt; f S3SourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#s3SourceConfig_templatedPathList"><span class="hs-identifier hs-var hs-var">s3SourceConfig_templatedPathList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3SourceConfig -&gt; Maybe (NonEmpty Text))
+-&gt; (S3SourceConfig -&gt; Maybe (NonEmpty Text) -&gt; S3SourceConfig)
+-&gt; Lens
+     S3SourceConfig
+     S3SourceConfig
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig%27"><span class="hs-identifier hs-type">S3SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224331"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+templatedPathList :: Maybe (NonEmpty Text)
+$sel:templatedPathList:S3SourceConfig' :: S3SourceConfig -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679224331"><span class="hs-identifier hs-var hs-var">templatedPathList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679224331"><span class="hs-identifier hs-var">templatedPathList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224330"><span class="annot"><span class="annottext">s :: S3SourceConfig
+</span><a href="#local-6989586621679224330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig%27"><span class="hs-identifier hs-type">S3SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224329"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679224329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3SourceConfig
+</span><a href="#local-6989586621679224330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templatedPathList:S3SourceConfig' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#%24sel%3AtemplatedPathList%3AS3SourceConfig%27"><span class="hs-identifier hs-var">templatedPathList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679224329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; S3SourceConfig -&gt; f S3SourceConfig)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; S3SourceConfig
+-&gt; f S3SourceConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | A list of paths to the historical data files.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#s3SourceConfig_historicalDataPathList"><span class="hs-identifier hs-type">s3SourceConfig_historicalDataPathList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="s3SourceConfig_historicalDataPathList"><span class="annot"><span class="annottext">s3SourceConfig_historicalDataPathList :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; S3SourceConfig -&gt; f S3SourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#s3SourceConfig_historicalDataPathList"><span class="hs-identifier hs-var hs-var">s3SourceConfig_historicalDataPathList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3SourceConfig -&gt; Maybe (NonEmpty Text))
+-&gt; (S3SourceConfig -&gt; Maybe (NonEmpty Text) -&gt; S3SourceConfig)
+-&gt; Lens
+     S3SourceConfig
+     S3SourceConfig
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig%27"><span class="hs-identifier hs-type">S3SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224324"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+historicalDataPathList :: Maybe (NonEmpty Text)
+$sel:historicalDataPathList:S3SourceConfig' :: S3SourceConfig -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679224324"><span class="hs-identifier hs-var hs-var">historicalDataPathList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679224324"><span class="hs-identifier hs-var">historicalDataPathList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224323"><span class="annot"><span class="annottext">s :: S3SourceConfig
+</span><a href="#local-6989586621679224323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig%27"><span class="hs-identifier hs-type">S3SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224322"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679224322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3SourceConfig
+</span><a href="#local-6989586621679224323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:historicalDataPathList:S3SourceConfig' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#%24sel%3AhistoricalDataPathList%3AS3SourceConfig%27"><span class="hs-identifier hs-var">historicalDataPathList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679224322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; S3SourceConfig -&gt; f S3SourceConfig)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; S3SourceConfig
+-&gt; f S3SourceConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Contains information about a source file\'s formatting.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#s3SourceConfig_fileFormatDescriptor"><span class="hs-identifier hs-type">s3SourceConfig_fileFormatDescriptor</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.FileFormatDescriptor.html#FileFormatDescriptor"><span class="hs-identifier hs-type">FileFormatDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="s3SourceConfig_fileFormatDescriptor"><span class="annot"><span class="annottext">s3SourceConfig_fileFormatDescriptor :: (Maybe FileFormatDescriptor -&gt; f (Maybe FileFormatDescriptor))
+-&gt; S3SourceConfig -&gt; f S3SourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#s3SourceConfig_fileFormatDescriptor"><span class="hs-identifier hs-var hs-var">s3SourceConfig_fileFormatDescriptor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3SourceConfig -&gt; Maybe FileFormatDescriptor)
+-&gt; (S3SourceConfig -&gt; Maybe FileFormatDescriptor -&gt; S3SourceConfig)
+-&gt; Lens
+     S3SourceConfig
+     S3SourceConfig
+     (Maybe FileFormatDescriptor)
+     (Maybe FileFormatDescriptor)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig%27"><span class="hs-identifier hs-type">S3SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224320"><span class="annot"><span class="annottext">Maybe FileFormatDescriptor
+fileFormatDescriptor :: Maybe FileFormatDescriptor
+$sel:fileFormatDescriptor:S3SourceConfig' :: S3SourceConfig -&gt; Maybe FileFormatDescriptor
+</span><a href="#local-6989586621679224320"><span class="hs-identifier hs-var hs-var">fileFormatDescriptor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileFormatDescriptor
+</span><a href="#local-6989586621679224320"><span class="hs-identifier hs-var">fileFormatDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224319"><span class="annot"><span class="annottext">s :: S3SourceConfig
+</span><a href="#local-6989586621679224319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig%27"><span class="hs-identifier hs-type">S3SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224318"><span class="annot"><span class="annottext">Maybe FileFormatDescriptor
+</span><a href="#local-6989586621679224318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3SourceConfig
+</span><a href="#local-6989586621679224319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileFormatDescriptor:S3SourceConfig' :: Maybe FileFormatDescriptor
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#%24sel%3AfileFormatDescriptor%3AS3SourceConfig%27"><span class="hs-identifier hs-var">fileFormatDescriptor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileFormatDescriptor
+</span><a href="#local-6989586621679224318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The ARN of an IAM role that has read and write access permissions to the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- source S3 bucket.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#s3SourceConfig_roleArn"><span class="hs-identifier hs-type">s3SourceConfig_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="s3SourceConfig_roleArn"><span class="annot"><span class="annottext">s3SourceConfig_roleArn :: (Text -&gt; f Text) -&gt; S3SourceConfig -&gt; f S3SourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#s3SourceConfig_roleArn"><span class="hs-identifier hs-var hs-var">s3SourceConfig_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3SourceConfig -&gt; Text)
+-&gt; (S3SourceConfig -&gt; Text -&gt; S3SourceConfig)
+-&gt; Lens S3SourceConfig S3SourceConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig%27"><span class="hs-identifier hs-type">S3SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224316"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:S3SourceConfig' :: S3SourceConfig -&gt; Text
+</span><a href="#local-6989586621679224316"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224316"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224315"><span class="annot"><span class="annottext">s :: S3SourceConfig
+</span><a href="#local-6989586621679224315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig%27"><span class="hs-identifier hs-type">S3SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224314"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3SourceConfig
+</span><a href="#local-6989586621679224315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:S3SourceConfig' :: Text
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#%24sel%3AroleArn%3AS3SourceConfig%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224311"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679224309"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3SourceConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser S3SourceConfig)
+-&gt; Value
+-&gt; Parser S3SourceConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;S3SourceConfig&quot;</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224306"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe FileFormatDescriptor
+-&gt; Text
+-&gt; S3SourceConfig
+</span><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig%27"><span class="hs-identifier hs-var">S3SourceConfig'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
+ -&gt; Maybe (NonEmpty Text)
+ -&gt; Maybe FileFormatDescriptor
+ -&gt; Text
+ -&gt; S3SourceConfig)
+-&gt; Parser (Maybe (NonEmpty Text))
+-&gt; Parser
+     (Maybe (NonEmpty Text)
+      -&gt; Maybe FileFormatDescriptor -&gt; Text -&gt; S3SourceConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplatedPathList&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty Text)
+   -&gt; Maybe FileFormatDescriptor -&gt; Text -&gt; S3SourceConfig)
+-&gt; Parser (Maybe (NonEmpty Text))
+-&gt; Parser (Maybe FileFormatDescriptor -&gt; Text -&gt; S3SourceConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HistoricalDataPathList&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe FileFormatDescriptor -&gt; Text -&gt; S3SourceConfig)
+-&gt; Parser (Maybe FileFormatDescriptor)
+-&gt; Parser (Text -&gt; S3SourceConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileFormatDescriptor)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileFormatDescriptor&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; S3SourceConfig)
+-&gt; Parser Text -&gt; Parser S3SourceConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224299"><span id="local-6989586621679224301"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224296"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224288"><span id="local-6989586621679224290"><span id="local-6989586621679224292"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier hs-type">S3SourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679224286"><span class="annot"><span class="annottext">toJSON :: S3SourceConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig%27"><span class="hs-identifier hs-type">S3SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224281"><span id="local-6989586621679224282"><span id="local-6989586621679224283"><span id="local-6989586621679224284"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+Maybe FileFormatDescriptor
+Text
+roleArn :: Text
+fileFormatDescriptor :: Maybe FileFormatDescriptor
+historicalDataPathList :: Maybe (NonEmpty Text)
+templatedPathList :: Maybe (NonEmpty Text)
+$sel:roleArn:S3SourceConfig' :: S3SourceConfig -&gt; Text
+$sel:fileFormatDescriptor:S3SourceConfig' :: S3SourceConfig -&gt; Maybe FileFormatDescriptor
+$sel:historicalDataPathList:S3SourceConfig' :: S3SourceConfig -&gt; Maybe (NonEmpty Text)
+$sel:templatedPathList:S3SourceConfig' :: S3SourceConfig -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679224281"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplatedPathList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679224284"><span class="hs-identifier hs-var">templatedPathList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HistoricalDataPathList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679224283"><span class="hs-identifier hs-var">historicalDataPathList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileFormatDescriptor&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FileFormatDescriptor -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">(FileFormatDescriptor -&gt; Pair)
+-&gt; Maybe FileFormatDescriptor -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FileFormatDescriptor
+</span><a href="#local-6989586621679224282"><span class="hs-identifier hs-var">fileFormatDescriptor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224281"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span></pre></body></html>

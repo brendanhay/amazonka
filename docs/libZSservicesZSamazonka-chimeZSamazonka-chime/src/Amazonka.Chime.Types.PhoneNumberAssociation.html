@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.PhoneNumberAssociation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.PhoneNumberAssociation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociationName.html"><span class="hs-identifier">Amazonka.Chime.Types.PhoneNumberAssociationName</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The phone number associations, such as Amazon Chime account ID, Amazon</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Chime user ID, Amazon Chime Voice Connector ID, or Amazon Chime Voice</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Connector group ID.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPhoneNumberAssociation' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679514323"><span id="local-6989586621679514324"></span></span><span class="hs-keyword">data</span><span> </span><span id="PhoneNumberAssociation"><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation"><span class="hs-identifier hs-var">PhoneNumberAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhoneNumberAssociation%27"><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation%27"><span class="hs-identifier hs-var">PhoneNumberAssociation'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the ID for the entity specified in Name.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3APhoneNumberAssociation%27"><span class="annot"><span class="annottext">PhoneNumberAssociation -&gt; Maybe Text
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#%24sel%3Avalue%3APhoneNumberAssociation%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The timestamp of the phone number association, in ISO 8601 format.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AassociatedTimestamp%3APhoneNumberAssociation%27"><span class="annot"><span class="annottext">PhoneNumberAssociation -&gt; Maybe POSIX
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#%24sel%3AassociatedTimestamp%3APhoneNumberAssociation%27"><span class="hs-identifier hs-var hs-var">associatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Defines the association with an Amazon Chime account ID, user ID, Amazon</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aname%3APhoneNumberAssociation%27"><span class="annot"><span class="annottext">PhoneNumberAssociation -&gt; Maybe PhoneNumberAssociationName
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#%24sel%3Aname%3APhoneNumberAssociation%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociationName.html#PhoneNumberAssociationName"><span class="hs-identifier hs-type">PhoneNumberAssociationName</span></a></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679514315"><span id="local-6989586621679514317"><span class="annot"><span class="annottext">PhoneNumberAssociation -&gt; PhoneNumberAssociation -&gt; Bool
+(PhoneNumberAssociation -&gt; PhoneNumberAssociation -&gt; Bool)
+-&gt; (PhoneNumberAssociation -&gt; PhoneNumberAssociation -&gt; Bool)
+-&gt; Eq PhoneNumberAssociation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PhoneNumberAssociation -&gt; PhoneNumberAssociation -&gt; Bool
+$c/= :: PhoneNumberAssociation -&gt; PhoneNumberAssociation -&gt; Bool
+== :: PhoneNumberAssociation -&gt; PhoneNumberAssociation -&gt; Bool
+$c== :: PhoneNumberAssociation -&gt; PhoneNumberAssociation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679514306"><span id="local-6989586621679514308"><span id="local-6989586621679514310"><span id="local-6989586621679514312"><span class="annot"><span class="annottext">ReadPrec [PhoneNumberAssociation]
+ReadPrec PhoneNumberAssociation
+Int -&gt; ReadS PhoneNumberAssociation
+ReadS [PhoneNumberAssociation]
+(Int -&gt; ReadS PhoneNumberAssociation)
+-&gt; ReadS [PhoneNumberAssociation]
+-&gt; ReadPrec PhoneNumberAssociation
+-&gt; ReadPrec [PhoneNumberAssociation]
+-&gt; Read PhoneNumberAssociation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PhoneNumberAssociation]
+$creadListPrec :: ReadPrec [PhoneNumberAssociation]
+readPrec :: ReadPrec PhoneNumberAssociation
+$creadPrec :: ReadPrec PhoneNumberAssociation
+readList :: ReadS [PhoneNumberAssociation]
+$creadList :: ReadS [PhoneNumberAssociation]
+readsPrec :: Int -&gt; ReadS PhoneNumberAssociation
+$creadsPrec :: Int -&gt; ReadS PhoneNumberAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679514299"><span id="local-6989586621679514301"><span id="local-6989586621679514303"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberAssociation -&gt; ShowS
+[PhoneNumberAssociation] -&gt; ShowS
+PhoneNumberAssociation -&gt; String
+(Int -&gt; PhoneNumberAssociation -&gt; ShowS)
+-&gt; (PhoneNumberAssociation -&gt; String)
+-&gt; ([PhoneNumberAssociation] -&gt; ShowS)
+-&gt; Show PhoneNumberAssociation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PhoneNumberAssociation] -&gt; ShowS
+$cshowList :: [PhoneNumberAssociation] -&gt; ShowS
+show :: PhoneNumberAssociation -&gt; String
+$cshow :: PhoneNumberAssociation -&gt; String
+showsPrec :: Int -&gt; PhoneNumberAssociation -&gt; ShowS
+$cshowsPrec :: Int -&gt; PhoneNumberAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PhoneNumberAssociation -&gt; Rep PhoneNumberAssociation x)
+-&gt; (forall x.
+    Rep PhoneNumberAssociation x -&gt; PhoneNumberAssociation)
+-&gt; Generic PhoneNumberAssociation
+forall x. Rep PhoneNumberAssociation x -&gt; PhoneNumberAssociation
+forall x. PhoneNumberAssociation -&gt; Rep PhoneNumberAssociation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PhoneNumberAssociation x -&gt; PhoneNumberAssociation
+$cfrom :: forall x. PhoneNumberAssociation -&gt; Rep PhoneNumberAssociation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'PhoneNumberAssociation' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'value', 'phoneNumberAssociation_value' - Contains the ID for the entity specified in Name.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'associatedTimestamp', 'phoneNumberAssociation_associatedTimestamp' - The timestamp of the phone number association, in ISO 8601 format.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'name', 'phoneNumberAssociation_name' - Defines the association with an Amazon Chime account ID, user ID, Amazon</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#newPhoneNumberAssociation"><span class="hs-identifier hs-type">newPhoneNumberAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation"><span class="hs-identifier hs-type">PhoneNumberAssociation</span></a></span><span>
+</span><span id="line-59"></span><span id="newPhoneNumberAssociation"><span class="annot"><span class="annottext">newPhoneNumberAssociation :: PhoneNumberAssociation
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#newPhoneNumberAssociation"><span class="hs-identifier hs-var hs-var">newPhoneNumberAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">PhoneNumberAssociation' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe PhoneNumberAssociationName
+-&gt; PhoneNumberAssociation
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation%27"><span class="hs-identifier hs-type">PhoneNumberAssociation'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:PhoneNumberAssociation' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#%24sel%3Avalue%3APhoneNumberAssociation%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:associatedTimestamp:PhoneNumberAssociation' :: Maybe POSIX
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#%24sel%3AassociatedTimestamp%3APhoneNumberAssociation%27"><span class="hs-identifier hs-var">associatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:PhoneNumberAssociation' :: Maybe PhoneNumberAssociationName
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#%24sel%3Aname%3APhoneNumberAssociation%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberAssociationName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Contains the ID for the entity specified in Name.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#phoneNumberAssociation_value"><span class="hs-identifier hs-type">phoneNumberAssociation_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation"><span class="hs-identifier hs-type">PhoneNumberAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="phoneNumberAssociation_value"><span class="annot"><span class="annottext">phoneNumberAssociation_value :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PhoneNumberAssociation -&gt; f PhoneNumberAssociation
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#phoneNumberAssociation_value"><span class="hs-identifier hs-var hs-var">phoneNumberAssociation_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhoneNumberAssociation -&gt; Maybe Text)
+-&gt; (PhoneNumberAssociation -&gt; Maybe Text -&gt; PhoneNumberAssociation)
+-&gt; Lens
+     PhoneNumberAssociation
+     PhoneNumberAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation%27"><span class="hs-identifier hs-type">PhoneNumberAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514290"><span class="annot"><span class="annottext">Maybe Text
+value :: Maybe Text
+$sel:value:PhoneNumberAssociation' :: PhoneNumberAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679514290"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679514290"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514289"><span class="annot"><span class="annottext">s :: PhoneNumberAssociation
+</span><a href="#local-6989586621679514289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation%27"><span class="hs-identifier hs-type">PhoneNumberAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514288"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679514288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberAssociation
+</span><a href="#local-6989586621679514289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:PhoneNumberAssociation' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#%24sel%3Avalue%3APhoneNumberAssociation%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679514288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation"><span class="hs-identifier hs-type">PhoneNumberAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The timestamp of the phone number association, in ISO 8601 format.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#phoneNumberAssociation_associatedTimestamp"><span class="hs-identifier hs-type">phoneNumberAssociation_associatedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation"><span class="hs-identifier hs-type">PhoneNumberAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="phoneNumberAssociation_associatedTimestamp"><span class="annot"><span class="annottext">phoneNumberAssociation_associatedTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PhoneNumberAssociation -&gt; f PhoneNumberAssociation
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#phoneNumberAssociation_associatedTimestamp"><span class="hs-identifier hs-var hs-var">phoneNumberAssociation_associatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhoneNumberAssociation -&gt; Maybe POSIX)
+-&gt; (PhoneNumberAssociation
+    -&gt; Maybe POSIX -&gt; PhoneNumberAssociation)
+-&gt; Lens
+     PhoneNumberAssociation
+     PhoneNumberAssociation
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation%27"><span class="hs-identifier hs-type">PhoneNumberAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514286"><span class="annot"><span class="annottext">Maybe POSIX
+associatedTimestamp :: Maybe POSIX
+$sel:associatedTimestamp:PhoneNumberAssociation' :: PhoneNumberAssociation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679514286"><span class="hs-identifier hs-var hs-var">associatedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679514286"><span class="hs-identifier hs-var">associatedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514285"><span class="annot"><span class="annottext">s :: PhoneNumberAssociation
+</span><a href="#local-6989586621679514285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation%27"><span class="hs-identifier hs-type">PhoneNumberAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514284"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679514284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberAssociation
+</span><a href="#local-6989586621679514285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedTimestamp:PhoneNumberAssociation' :: Maybe POSIX
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#%24sel%3AassociatedTimestamp%3APhoneNumberAssociation%27"><span class="hs-identifier hs-var">associatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679514284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation"><span class="hs-identifier hs-type">PhoneNumberAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PhoneNumberAssociation -&gt; f PhoneNumberAssociation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PhoneNumberAssociation
+-&gt; f PhoneNumberAssociation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Defines the association with an Amazon Chime account ID, user ID, Amazon</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#phoneNumberAssociation_name"><span class="hs-identifier hs-type">phoneNumberAssociation_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation"><span class="hs-identifier hs-type">PhoneNumberAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociationName.html#PhoneNumberAssociationName"><span class="hs-identifier hs-type">PhoneNumberAssociationName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="phoneNumberAssociation_name"><span class="annot"><span class="annottext">phoneNumberAssociation_name :: (Maybe PhoneNumberAssociationName
+ -&gt; f (Maybe PhoneNumberAssociationName))
+-&gt; PhoneNumberAssociation -&gt; f PhoneNumberAssociation
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#phoneNumberAssociation_name"><span class="hs-identifier hs-var hs-var">phoneNumberAssociation_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhoneNumberAssociation -&gt; Maybe PhoneNumberAssociationName)
+-&gt; (PhoneNumberAssociation
+    -&gt; Maybe PhoneNumberAssociationName -&gt; PhoneNumberAssociation)
+-&gt; Lens
+     PhoneNumberAssociation
+     PhoneNumberAssociation
+     (Maybe PhoneNumberAssociationName)
+     (Maybe PhoneNumberAssociationName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation%27"><span class="hs-identifier hs-type">PhoneNumberAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514279"><span class="annot"><span class="annottext">Maybe PhoneNumberAssociationName
+name :: Maybe PhoneNumberAssociationName
+$sel:name:PhoneNumberAssociation' :: PhoneNumberAssociation -&gt; Maybe PhoneNumberAssociationName
+</span><a href="#local-6989586621679514279"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberAssociationName
+</span><a href="#local-6989586621679514279"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514278"><span class="annot"><span class="annottext">s :: PhoneNumberAssociation
+</span><a href="#local-6989586621679514278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation%27"><span class="hs-identifier hs-type">PhoneNumberAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514277"><span class="annot"><span class="annottext">Maybe PhoneNumberAssociationName
+</span><a href="#local-6989586621679514277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberAssociation
+</span><a href="#local-6989586621679514278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PhoneNumberAssociation' :: Maybe PhoneNumberAssociationName
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#%24sel%3Aname%3APhoneNumberAssociation%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberAssociationName
+</span><a href="#local-6989586621679514277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation"><span class="hs-identifier hs-type">PhoneNumberAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679514274"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation"><span class="hs-identifier hs-type">PhoneNumberAssociation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679514272"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PhoneNumberAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PhoneNumberAssociation)
+-&gt; Value
+-&gt; Parser PhoneNumberAssociation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PhoneNumberAssociation&quot;</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679514269"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679514269"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe PhoneNumberAssociationName
+-&gt; PhoneNumberAssociation
+</span><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation%27"><span class="hs-identifier hs-var">PhoneNumberAssociation'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe PhoneNumberAssociationName
+ -&gt; PhoneNumberAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe PhoneNumberAssociationName -&gt; PhoneNumberAssociation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679514269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe PhoneNumberAssociationName -&gt; PhoneNumberAssociation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe PhoneNumberAssociationName -&gt; PhoneNumberAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679514269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssociatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe PhoneNumberAssociationName -&gt; PhoneNumberAssociation)
+-&gt; Parser (Maybe PhoneNumberAssociationName)
+-&gt; Parser PhoneNumberAssociation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679514269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PhoneNumberAssociationName)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679514263"><span id="local-6989586621679514265"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation"><span class="hs-identifier hs-type">PhoneNumberAssociation</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679514260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberAssociation.html#PhoneNumberAssociation"><span class="hs-identifier hs-type">PhoneNumberAssociation</span></a></span></span><span>
+</span><span id="line-93"></span></pre></body></html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.NamespaceErrorType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.NamespaceErrorType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType"><span class="hs-identifier">NamespaceErrorType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType_INTERNAL_SERVICE_ERROR"><span class="hs-identifier">NamespaceErrorType_INTERNAL_SERVICE_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType_PERMISSION_DENIED"><span class="hs-identifier">NamespaceErrorType_PERMISSION_DENIED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679560814"><span id="local-6989586621679560815"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NamespaceErrorType"><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType"><span class="hs-identifier hs-var">NamespaceErrorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NamespaceErrorType%27"><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType%27"><span class="hs-identifier hs-var">NamespaceErrorType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNamespaceErrorType"><span class="annot"><span class="annottext">NamespaceErrorType -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#fromNamespaceErrorType"><span class="hs-identifier hs-var hs-var">fromNamespaceErrorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679560806"><span id="local-6989586621679560808"><span id="local-6989586621679560810"><span class="annot"><span class="annottext">Int -&gt; NamespaceErrorType -&gt; ShowS
+[NamespaceErrorType] -&gt; ShowS
+NamespaceErrorType -&gt; String
+(Int -&gt; NamespaceErrorType -&gt; ShowS)
+-&gt; (NamespaceErrorType -&gt; String)
+-&gt; ([NamespaceErrorType] -&gt; ShowS)
+-&gt; Show NamespaceErrorType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NamespaceErrorType] -&gt; ShowS
+$cshowList :: [NamespaceErrorType] -&gt; ShowS
+show :: NamespaceErrorType -&gt; String
+$cshow :: NamespaceErrorType -&gt; String
+showsPrec :: Int -&gt; NamespaceErrorType -&gt; ShowS
+$cshowsPrec :: Int -&gt; NamespaceErrorType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679560797"><span id="local-6989586621679560799"><span id="local-6989586621679560801"><span id="local-6989586621679560803"><span class="annot"><span class="annottext">ReadPrec [NamespaceErrorType]
+ReadPrec NamespaceErrorType
+Int -&gt; ReadS NamespaceErrorType
+ReadS [NamespaceErrorType]
+(Int -&gt; ReadS NamespaceErrorType)
+-&gt; ReadS [NamespaceErrorType]
+-&gt; ReadPrec NamespaceErrorType
+-&gt; ReadPrec [NamespaceErrorType]
+-&gt; Read NamespaceErrorType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NamespaceErrorType]
+$creadListPrec :: ReadPrec [NamespaceErrorType]
+readPrec :: ReadPrec NamespaceErrorType
+$creadPrec :: ReadPrec NamespaceErrorType
+readList :: ReadS [NamespaceErrorType]
+$creadList :: ReadS [NamespaceErrorType]
+readsPrec :: Int -&gt; ReadS NamespaceErrorType
+$creadsPrec :: Int -&gt; ReadS NamespaceErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679560792"><span id="local-6989586621679560794"><span class="annot"><span class="annottext">NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+(NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool)
+-&gt; (NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool)
+-&gt; Eq NamespaceErrorType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+$c/= :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+== :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+$c== :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679560776"><span id="local-6989586621679560778"><span id="local-6989586621679560780"><span id="local-6989586621679560782"><span id="local-6989586621679560784"><span id="local-6989586621679560786"><span id="local-6989586621679560788"><span class="annot"><span class="annottext">Eq NamespaceErrorType
+Eq NamespaceErrorType
+-&gt; (NamespaceErrorType -&gt; NamespaceErrorType -&gt; Ordering)
+-&gt; (NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool)
+-&gt; (NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool)
+-&gt; (NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool)
+-&gt; (NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool)
+-&gt; (NamespaceErrorType -&gt; NamespaceErrorType -&gt; NamespaceErrorType)
+-&gt; (NamespaceErrorType -&gt; NamespaceErrorType -&gt; NamespaceErrorType)
+-&gt; Ord NamespaceErrorType
+NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+NamespaceErrorType -&gt; NamespaceErrorType -&gt; Ordering
+NamespaceErrorType -&gt; NamespaceErrorType -&gt; NamespaceErrorType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; NamespaceErrorType
+$cmin :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; NamespaceErrorType
+max :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; NamespaceErrorType
+$cmax :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; NamespaceErrorType
+&gt;= :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+$c&gt;= :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+&gt; :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+$c&gt; :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+&lt;= :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+$c&lt;= :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+&lt; :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+$c&lt; :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Bool
+compare :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Ordering
+$ccompare :: NamespaceErrorType -&gt; NamespaceErrorType -&gt; Ordering
+$cp1Ord :: Eq NamespaceErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. NamespaceErrorType -&gt; Rep NamespaceErrorType x)
+-&gt; (forall x. Rep NamespaceErrorType x -&gt; NamespaceErrorType)
+-&gt; Generic NamespaceErrorType
+forall x. Rep NamespaceErrorType x -&gt; NamespaceErrorType
+forall x. NamespaceErrorType -&gt; Rep NamespaceErrorType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NamespaceErrorType x -&gt; NamespaceErrorType
+$cfrom :: forall x. NamespaceErrorType -&gt; Rep NamespaceErrorType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679560768"><span id="local-6989586621679560770"><span class="annot"><span class="annottext">Int -&gt; NamespaceErrorType -&gt; Int
+NamespaceErrorType -&gt; Int
+(Int -&gt; NamespaceErrorType -&gt; Int)
+-&gt; (NamespaceErrorType -&gt; Int) -&gt; Hashable NamespaceErrorType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NamespaceErrorType -&gt; Int
+$chash :: NamespaceErrorType -&gt; Int
+hashWithSalt :: Int -&gt; NamespaceErrorType -&gt; Int
+$chashWithSalt :: Int -&gt; NamespaceErrorType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679560765"><span class="annot"><span class="annottext">NamespaceErrorType -&gt; ()
+(NamespaceErrorType -&gt; ()) -&gt; NFData NamespaceErrorType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NamespaceErrorType -&gt; ()
+$crnf :: NamespaceErrorType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679560762"><span class="annot"><span class="annottext">Text -&gt; Either String NamespaceErrorType
+(Text -&gt; Either String NamespaceErrorType)
+-&gt; FromText NamespaceErrorType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NamespaceErrorType
+$cfromText :: Text -&gt; Either String NamespaceErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679560759"><span class="annot"><span class="annottext">NamespaceErrorType -&gt; Text
+(NamespaceErrorType -&gt; Text) -&gt; ToText NamespaceErrorType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NamespaceErrorType -&gt; Text
+$ctoText :: NamespaceErrorType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679560756"><span class="annot"><span class="annottext">NamespaceErrorType -&gt; ByteString
+(NamespaceErrorType -&gt; ByteString)
+-&gt; ToByteString NamespaceErrorType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NamespaceErrorType -&gt; ByteString
+$ctoBS :: NamespaceErrorType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679560753"><span class="annot"><span class="annottext">NamespaceErrorType -&gt; ByteStringBuilder
+(NamespaceErrorType -&gt; ByteStringBuilder)
+-&gt; ToLog NamespaceErrorType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NamespaceErrorType -&gt; ByteStringBuilder
+$cbuild :: NamespaceErrorType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679560750"><span class="annot"><span class="annottext">HeaderName -&gt; NamespaceErrorType -&gt; [Header]
+(HeaderName -&gt; NamespaceErrorType -&gt; [Header])
+-&gt; ToHeader NamespaceErrorType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NamespaceErrorType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NamespaceErrorType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679560747"><span class="annot"><span class="annottext">NamespaceErrorType -&gt; QueryString
+(NamespaceErrorType -&gt; QueryString) -&gt; ToQuery NamespaceErrorType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NamespaceErrorType -&gt; QueryString
+$ctoQuery :: NamespaceErrorType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679560742"><span id="local-6989586621679560744"><span class="annot"><span class="annottext">Value -&gt; Parser [NamespaceErrorType]
+Value -&gt; Parser NamespaceErrorType
+(Value -&gt; Parser NamespaceErrorType)
+-&gt; (Value -&gt; Parser [NamespaceErrorType])
+-&gt; FromJSON NamespaceErrorType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NamespaceErrorType]
+$cparseJSONList :: Value -&gt; Parser [NamespaceErrorType]
+parseJSON :: Value -&gt; Parser NamespaceErrorType
+$cparseJSON :: Value -&gt; Parser NamespaceErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679560737"><span id="local-6989586621679560739"><span class="annot"><span class="annottext">FromJSONKeyFunction [NamespaceErrorType]
+FromJSONKeyFunction NamespaceErrorType
+FromJSONKeyFunction NamespaceErrorType
+-&gt; FromJSONKeyFunction [NamespaceErrorType]
+-&gt; FromJSONKey NamespaceErrorType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NamespaceErrorType]
+$cfromJSONKeyList :: FromJSONKeyFunction [NamespaceErrorType]
+fromJSONKey :: FromJSONKeyFunction NamespaceErrorType
+$cfromJSONKey :: FromJSONKeyFunction NamespaceErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679560728"><span id="local-6989586621679560730"><span id="local-6989586621679560732"><span id="local-6989586621679560734"><span class="annot"><span class="annottext">[NamespaceErrorType] -&gt; Encoding
+[NamespaceErrorType] -&gt; Value
+NamespaceErrorType -&gt; Encoding
+NamespaceErrorType -&gt; Value
+(NamespaceErrorType -&gt; Value)
+-&gt; (NamespaceErrorType -&gt; Encoding)
+-&gt; ([NamespaceErrorType] -&gt; Value)
+-&gt; ([NamespaceErrorType] -&gt; Encoding)
+-&gt; ToJSON NamespaceErrorType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NamespaceErrorType] -&gt; Encoding
+$ctoEncodingList :: [NamespaceErrorType] -&gt; Encoding
+toJSONList :: [NamespaceErrorType] -&gt; Value
+$ctoJSONList :: [NamespaceErrorType] -&gt; Value
+toEncoding :: NamespaceErrorType -&gt; Encoding
+$ctoEncoding :: NamespaceErrorType -&gt; Encoding
+toJSON :: NamespaceErrorType -&gt; Value
+$ctoJSON :: NamespaceErrorType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679560723"><span id="local-6989586621679560725"><span class="annot"><span class="annottext">ToJSONKeyFunction [NamespaceErrorType]
+ToJSONKeyFunction NamespaceErrorType
+ToJSONKeyFunction NamespaceErrorType
+-&gt; ToJSONKeyFunction [NamespaceErrorType]
+-&gt; ToJSONKey NamespaceErrorType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NamespaceErrorType]
+$ctoJSONKeyList :: ToJSONKeyFunction [NamespaceErrorType]
+toJSONKey :: ToJSONKeyFunction NamespaceErrorType
+$ctoJSONKey :: ToJSONKeyFunction NamespaceErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679560720"><span class="annot"><span class="annottext">[Node] -&gt; Either String NamespaceErrorType
+([Node] -&gt; Either String NamespaceErrorType)
+-&gt; FromXML NamespaceErrorType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NamespaceErrorType
+$cparseXML :: [Node] -&gt; Either String NamespaceErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679560717"><span class="annot"><span class="annottext">NamespaceErrorType -&gt; XML
+(NamespaceErrorType -&gt; XML) -&gt; ToXML NamespaceErrorType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NamespaceErrorType -&gt; XML
+$ctoXML :: NamespaceErrorType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType_INTERNAL_SERVICE_ERROR"><span class="hs-identifier hs-type">NamespaceErrorType_INTERNAL_SERVICE_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType"><span class="hs-identifier hs-type">NamespaceErrorType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNamespaceErrorType_INTERNAL_SERVICE_ERROR"><span id="%24mNamespaceErrorType_INTERNAL_SERVICE_ERROR"><span id="NamespaceErrorType_INTERNAL_SERVICE_ERROR"><span class="annot"><span class="annottext">$bNamespaceErrorType_INTERNAL_SERVICE_ERROR :: NamespaceErrorType
+$mNamespaceErrorType_INTERNAL_SERVICE_ERROR :: forall r. NamespaceErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#%24bNamespaceErrorType_INTERNAL_SERVICE_ERROR"><span class="hs-identifier hs-var hs-var hs-var">NamespaceErrorType_INTERNAL_SERVICE_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType%27"><span class="hs-identifier hs-type">NamespaceErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNAL_SERVICE_ERROR&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType_PERMISSION_DENIED"><span class="hs-identifier hs-type">NamespaceErrorType_PERMISSION_DENIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType"><span class="hs-identifier hs-type">NamespaceErrorType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNamespaceErrorType_PERMISSION_DENIED"><span id="%24mNamespaceErrorType_PERMISSION_DENIED"><span id="NamespaceErrorType_PERMISSION_DENIED"><span class="annot"><span class="annottext">$bNamespaceErrorType_PERMISSION_DENIED :: NamespaceErrorType
+$mNamespaceErrorType_PERMISSION_DENIED :: forall r. NamespaceErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#%24bNamespaceErrorType_PERMISSION_DENIED"><span class="hs-identifier hs-var hs-var hs-var">NamespaceErrorType_PERMISSION_DENIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType%27"><span class="hs-identifier hs-type">NamespaceErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PERMISSION_DENIED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType_INTERNAL_SERVICE_ERROR"><span class="hs-pragma hs-type">NamespaceErrorType_INTERNAL_SERVICE_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType_PERMISSION_DENIED"><span class="hs-pragma hs-type">NamespaceErrorType_PERMISSION_DENIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.NamespaceErrorType.html#NamespaceErrorType%27"><span class="hs-pragma hs-type">NamespaceErrorType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

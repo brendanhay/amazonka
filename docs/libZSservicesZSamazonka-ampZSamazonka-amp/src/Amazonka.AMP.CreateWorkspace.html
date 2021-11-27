@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AMP.CreateWorkspace</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new AMP workspace.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AMP.CreateWorkspace</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#newCreateWorkspace"><span class="hs-identifier">newCreateWorkspace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspace_clientToken"><span class="hs-identifier">createWorkspace_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspace_alias"><span class="hs-identifier">createWorkspace_alias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspace_tags"><span class="hs-identifier">createWorkspace_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier">CreateWorkspaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#newCreateWorkspaceResponse"><span class="hs-identifier">newCreateWorkspaceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_tags"><span class="hs-identifier">createWorkspaceResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_httpStatus"><span class="hs-identifier">createWorkspaceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_arn"><span class="hs-identifier">createWorkspaceResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_status"><span class="hs-identifier">createWorkspaceResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_workspaceId"><span class="hs-identifier">createWorkspaceResponse_workspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AMP.Types.html"><span class="hs-identifier">Amazonka.AMP.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | Represents the input of a CreateWorkspace operation.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newCreateWorkspace' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679174280"><span id="local-6989586621679174281"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkspace"><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-var">CreateWorkspace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkspace%27"><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-var">CreateWorkspace'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional, unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; Maybe Text
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3AclientToken%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | An optional user-assigned alias for this workspace. This alias is for</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- user reference and does not need to be unique.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aalias%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; Maybe Text
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Aalias%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Optional, user-provided tags for this workspace.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Atags%3ACreateWorkspace%27"><span class="annot"><span class="annottext">CreateWorkspace -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Atags%3ACreateWorkspace%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174272"><span id="local-6989586621679174274"><span class="annot"><span class="annottext">CreateWorkspace -&gt; CreateWorkspace -&gt; Bool
+(CreateWorkspace -&gt; CreateWorkspace -&gt; Bool)
+-&gt; (CreateWorkspace -&gt; CreateWorkspace -&gt; Bool)
+-&gt; Eq CreateWorkspace
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateWorkspace -&gt; CreateWorkspace -&gt; Bool
+$c/= :: CreateWorkspace -&gt; CreateWorkspace -&gt; Bool
+== :: CreateWorkspace -&gt; CreateWorkspace -&gt; Bool
+$c== :: CreateWorkspace -&gt; CreateWorkspace -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174263"><span id="local-6989586621679174265"><span id="local-6989586621679174267"><span id="local-6989586621679174269"><span class="annot"><span class="annottext">ReadPrec [CreateWorkspace]
+ReadPrec CreateWorkspace
+Int -&gt; ReadS CreateWorkspace
+ReadS [CreateWorkspace]
+(Int -&gt; ReadS CreateWorkspace)
+-&gt; ReadS [CreateWorkspace]
+-&gt; ReadPrec CreateWorkspace
+-&gt; ReadPrec [CreateWorkspace]
+-&gt; Read CreateWorkspace
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateWorkspace]
+$creadListPrec :: ReadPrec [CreateWorkspace]
+readPrec :: ReadPrec CreateWorkspace
+$creadPrec :: ReadPrec CreateWorkspace
+readList :: ReadS [CreateWorkspace]
+$creadList :: ReadS [CreateWorkspace]
+readsPrec :: Int -&gt; ReadS CreateWorkspace
+$creadsPrec :: Int -&gt; ReadS CreateWorkspace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174256"><span id="local-6989586621679174258"><span id="local-6989586621679174260"><span class="annot"><span class="annottext">Int -&gt; CreateWorkspace -&gt; ShowS
+[CreateWorkspace] -&gt; ShowS
+CreateWorkspace -&gt; String
+(Int -&gt; CreateWorkspace -&gt; ShowS)
+-&gt; (CreateWorkspace -&gt; String)
+-&gt; ([CreateWorkspace] -&gt; ShowS)
+-&gt; Show CreateWorkspace
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateWorkspace] -&gt; ShowS
+$cshowList :: [CreateWorkspace] -&gt; ShowS
+show :: CreateWorkspace -&gt; String
+$cshow :: CreateWorkspace -&gt; String
+showsPrec :: Int -&gt; CreateWorkspace -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateWorkspace -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateWorkspace -&gt; Rep CreateWorkspace x)
+-&gt; (forall x. Rep CreateWorkspace x -&gt; CreateWorkspace)
+-&gt; Generic CreateWorkspace
+forall x. Rep CreateWorkspace x -&gt; CreateWorkspace
+forall x. CreateWorkspace -&gt; Rep CreateWorkspace x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateWorkspace x -&gt; CreateWorkspace
+$cfrom :: forall x. CreateWorkspace -&gt; Rep CreateWorkspace x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'CreateWorkspace' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'clientToken', 'createWorkspace_clientToken' - Optional, unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'alias', 'createWorkspace_alias' - An optional user-assigned alias for this workspace. This alias is for</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- user reference and does not need to be unique.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'tags', 'createWorkspace_tags' - Optional, user-provided tags for this workspace.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#newCreateWorkspace"><span class="hs-identifier hs-type">newCreateWorkspace</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span>
+</span><span id="line-86"></span><span id="newCreateWorkspace"><span class="annot"><span class="annottext">newCreateWorkspace :: CreateWorkspace
+</span><a href="Amazonka.AMP.CreateWorkspace.html#newCreateWorkspace"><span class="hs-identifier hs-var hs-var">newCreateWorkspace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">CreateWorkspace' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; CreateWorkspace
+</span><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:CreateWorkspace' :: Maybe Text
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3AclientToken%3ACreateWorkspace%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:alias:CreateWorkspace' :: Maybe Text
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Aalias%3ACreateWorkspace%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateWorkspace' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Atags%3ACreateWorkspace%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Optional, unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspace_clientToken"><span class="hs-identifier hs-type">createWorkspace_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="createWorkspace_clientToken"><span class="annot"><span class="annottext">createWorkspace_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspace_clientToken"><span class="hs-identifier hs-var hs-var">createWorkspace_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; Maybe Text)
+-&gt; (CreateWorkspace -&gt; Maybe Text -&gt; CreateWorkspace)
+-&gt; Lens CreateWorkspace CreateWorkspace (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174249"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateWorkspace' :: CreateWorkspace -&gt; Maybe Text
+</span><a href="#local-6989586621679174249"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174249"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174248"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679174248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174247"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679174248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateWorkspace' :: Maybe Text
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3AclientToken%3ACreateWorkspace%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | An optional user-assigned alias for this workspace. This alias is for</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- user reference and does not need to be unique.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspace_alias"><span class="hs-identifier hs-type">createWorkspace_alias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="createWorkspace_alias"><span class="annot"><span class="annottext">createWorkspace_alias :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspace_alias"><span class="hs-identifier hs-var hs-var">createWorkspace_alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; Maybe Text)
+-&gt; (CreateWorkspace -&gt; Maybe Text -&gt; CreateWorkspace)
+-&gt; Lens CreateWorkspace CreateWorkspace (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174246"><span class="annot"><span class="annottext">Maybe Text
+alias :: Maybe Text
+$sel:alias:CreateWorkspace' :: CreateWorkspace -&gt; Maybe Text
+</span><a href="#local-6989586621679174246"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174246"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174245"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679174245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174244"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679174245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:CreateWorkspace' :: Maybe Text
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Aalias%3ACreateWorkspace%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Optional, user-provided tags for this workspace.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspace_tags"><span class="hs-identifier hs-type">createWorkspace_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="createWorkspace_tags"><span class="annot"><span class="annottext">createWorkspace_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateWorkspace -&gt; f CreateWorkspace
+</span><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspace_tags"><span class="hs-identifier hs-var hs-var">createWorkspace_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspace -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateWorkspace
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateWorkspace)
+-&gt; Lens
+     CreateWorkspace
+     CreateWorkspace
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174243"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateWorkspace' :: CreateWorkspace -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679174243"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679174243"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174242"><span class="annot"><span class="annottext">s :: CreateWorkspace
+</span><a href="#local-6989586621679174242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174241"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679174241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspace
+</span><a href="#local-6989586621679174242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateWorkspace' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Atags%3ACreateWorkspace%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679174241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateWorkspace -&gt; f CreateWorkspace)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateWorkspace
+-&gt; f CreateWorkspace
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679174234"><span class="annot"><span class="annottext">request :: CreateWorkspace -&gt; Request CreateWorkspace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateWorkspace -&gt; Request CreateWorkspace
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AMP.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679174230"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateWorkspace
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateWorkspace)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateWorkspace))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateWorkspace
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateWorkspace)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174227"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174227"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679174226"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679174226"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679174225"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174225"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; Text
+-&gt; WorkspaceStatus
+-&gt; Text
+-&gt; CreateWorkspaceResponse
+</span><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-var">CreateWorkspaceResponse'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; Text
+ -&gt; WorkspaceStatus
+ -&gt; Text
+ -&gt; CreateWorkspaceResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String
+     (Int -&gt; Text -&gt; WorkspaceStatus -&gt; Text -&gt; CreateWorkspaceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174225"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int -&gt; Text -&gt; WorkspaceStatus -&gt; Text -&gt; CreateWorkspaceResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (Text -&gt; WorkspaceStatus -&gt; Text -&gt; CreateWorkspaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174227"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Text -&gt; WorkspaceStatus -&gt; Text -&gt; CreateWorkspaceResponse)
+-&gt; Either String Text
+-&gt; Either
+     String (WorkspaceStatus -&gt; Text -&gt; CreateWorkspaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174225"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (WorkspaceStatus -&gt; Text -&gt; CreateWorkspaceResponse)
+-&gt; Either String WorkspaceStatus
+-&gt; Either String (Text -&gt; CreateWorkspaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174225"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String WorkspaceStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateWorkspaceResponse)
+-&gt; Either String Text -&gt; Either String CreateWorkspaceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174225"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workspaceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174215"><span id="local-6989586621679174217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679174208"><span class="annot"><span class="annottext">toHeaders :: CreateWorkspace -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateWorkspace -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174198"><span id="local-6989586621679174200"><span id="local-6989586621679174202"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679174196"><span class="annot"><span class="annottext">toJSON :: CreateWorkspace -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace%27"><span class="hs-identifier hs-type">CreateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174192"><span id="local-6989586621679174193"><span id="local-6989586621679174194"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+alias :: Maybe Text
+clientToken :: Maybe Text
+$sel:tags:CreateWorkspace' :: CreateWorkspace -&gt; Maybe (HashMap Text Text)
+$sel:alias:CreateWorkspace' :: CreateWorkspace -&gt; Maybe Text
+$sel:clientToken:CreateWorkspace' :: CreateWorkspace -&gt; Maybe Text
+</span><a href="#local-6989586621679174192"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174194"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;alias&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174193"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679174192"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679174186"><span class="annot"><span class="annottext">toPath :: CreateWorkspace -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateWorkspace -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/workspaces&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspace"><span class="hs-identifier hs-type">CreateWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679174182"><span class="annot"><span class="annottext">toQuery :: CreateWorkspace -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateWorkspace -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Represents the output of a CreateWorkspace operation.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- /See:/ 'newCreateWorkspaceResponse' smart constructor.</span><span>
+</span><span id="line-157"></span><span id="local-6989586621679174179"><span id="local-6989586621679174180"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkspaceResponse"><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-var">CreateWorkspaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkspaceResponse%27"><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-var">CreateWorkspaceResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags of this workspace.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3Atags%3ACreateWorkspaceResponse%27"><span class="annot"><span class="annottext">CreateWorkspaceResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Atags%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateWorkspaceResponse%27"><span class="annot"><span class="annottext">CreateWorkspaceResponse -&gt; Int
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3AhttpStatus%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The ARN of the workspace that was just created.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3Aarn%3ACreateWorkspaceResponse%27"><span class="annot"><span class="annottext">CreateWorkspaceResponse -&gt; Text
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Aarn%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The status of the workspace that was just created (usually CREATING).</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3Astatus%3ACreateWorkspaceResponse%27"><span class="annot"><span class="annottext">CreateWorkspaceResponse -&gt; WorkspaceStatus
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Astatus%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.Types.WorkspaceStatus.html#WorkspaceStatus"><span class="hs-identifier hs-type">WorkspaceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The generated ID of the workspace that was just created.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AworkspaceId%3ACreateWorkspaceResponse%27"><span class="annot"><span class="annottext">CreateWorkspaceResponse -&gt; Text
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3AworkspaceId%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174170"><span id="local-6989586621679174172"><span class="annot"><span class="annottext">CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool
+(CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool)
+-&gt; (CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool)
+-&gt; Eq CreateWorkspaceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool
+$c/= :: CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool
+== :: CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool
+$c== :: CreateWorkspaceResponse -&gt; CreateWorkspaceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174162"><span id="local-6989586621679174164"><span id="local-6989586621679174166"><span id="local-6989586621679174168"><span class="annot"><span class="annottext">ReadPrec [CreateWorkspaceResponse]
+ReadPrec CreateWorkspaceResponse
+Int -&gt; ReadS CreateWorkspaceResponse
+ReadS [CreateWorkspaceResponse]
+(Int -&gt; ReadS CreateWorkspaceResponse)
+-&gt; ReadS [CreateWorkspaceResponse]
+-&gt; ReadPrec CreateWorkspaceResponse
+-&gt; ReadPrec [CreateWorkspaceResponse]
+-&gt; Read CreateWorkspaceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateWorkspaceResponse]
+$creadListPrec :: ReadPrec [CreateWorkspaceResponse]
+readPrec :: ReadPrec CreateWorkspaceResponse
+$creadPrec :: ReadPrec CreateWorkspaceResponse
+readList :: ReadS [CreateWorkspaceResponse]
+$creadList :: ReadS [CreateWorkspaceResponse]
+readsPrec :: Int -&gt; ReadS CreateWorkspaceResponse
+$creadsPrec :: Int -&gt; ReadS CreateWorkspaceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174156"><span id="local-6989586621679174158"><span id="local-6989586621679174160"><span class="annot"><span class="annottext">Int -&gt; CreateWorkspaceResponse -&gt; ShowS
+[CreateWorkspaceResponse] -&gt; ShowS
+CreateWorkspaceResponse -&gt; String
+(Int -&gt; CreateWorkspaceResponse -&gt; ShowS)
+-&gt; (CreateWorkspaceResponse -&gt; String)
+-&gt; ([CreateWorkspaceResponse] -&gt; ShowS)
+-&gt; Show CreateWorkspaceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateWorkspaceResponse] -&gt; ShowS
+$cshowList :: [CreateWorkspaceResponse] -&gt; ShowS
+show :: CreateWorkspaceResponse -&gt; String
+$cshow :: CreateWorkspaceResponse -&gt; String
+showsPrec :: Int -&gt; CreateWorkspaceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateWorkspaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateWorkspaceResponse -&gt; Rep CreateWorkspaceResponse x)
+-&gt; (forall x.
+    Rep CreateWorkspaceResponse x -&gt; CreateWorkspaceResponse)
+-&gt; Generic CreateWorkspaceResponse
+forall x. Rep CreateWorkspaceResponse x -&gt; CreateWorkspaceResponse
+forall x. CreateWorkspaceResponse -&gt; Rep CreateWorkspaceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateWorkspaceResponse x -&gt; CreateWorkspaceResponse
+$cfrom :: forall x. CreateWorkspaceResponse -&gt; Rep CreateWorkspaceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'CreateWorkspaceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'tags', 'createWorkspaceResponse_tags' - The tags of this workspace.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'httpStatus', 'createWorkspaceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'arn', 'createWorkspaceResponse_arn' - The ARN of the workspace that was just created.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'status', 'createWorkspaceResponse_status' - The status of the workspace that was just created (usually CREATING).</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'workspaceId', 'createWorkspaceResponse_workspaceId' - The generated ID of the workspace that was just created.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#newCreateWorkspaceResponse"><span class="hs-identifier hs-type">newCreateWorkspaceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Amazonka.AMP.Types.WorkspaceStatus.html#WorkspaceStatus"><span class="hs-identifier hs-type">WorkspaceStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'workspaceId'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newCreateWorkspaceResponse"><span class="annot"><span class="annottext">newCreateWorkspaceResponse :: Int -&gt; Text -&gt; WorkspaceStatus -&gt; Text -&gt; CreateWorkspaceResponse
+</span><a href="Amazonka.AMP.CreateWorkspace.html#newCreateWorkspaceResponse"><span class="hs-identifier hs-var hs-var">newCreateWorkspaceResponse</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679174153"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174153"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679174152"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174152"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679174151"><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679174151"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679174150"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174150"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">CreateWorkspaceResponse' :: Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; Text
+-&gt; WorkspaceStatus
+-&gt; Text
+-&gt; CreateWorkspaceResponse
+</span><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateWorkspaceResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Atags%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorkspaceResponse' :: Int
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3AhttpStatus%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174153"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:CreateWorkspaceResponse' :: Text
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Aarn%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174152"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:CreateWorkspaceResponse' :: WorkspaceStatus
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Astatus%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679174151"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">$sel:workspaceId:CreateWorkspaceResponse' :: Text
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3AworkspaceId%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174150"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The tags of this workspace.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_tags"><span class="hs-identifier hs-type">createWorkspaceResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="createWorkspaceResponse_tags"><span class="annot"><span class="annottext">createWorkspaceResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateWorkspaceResponse -&gt; f CreateWorkspaceResponse
+</span><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_tags"><span class="hs-identifier hs-var hs-var">createWorkspaceResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspaceResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateWorkspaceResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateWorkspaceResponse)
+-&gt; Lens
+     CreateWorkspaceResponse
+     CreateWorkspaceResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174149"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateWorkspaceResponse' :: CreateWorkspaceResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679174149"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679174149"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174148"><span class="annot"><span class="annottext">s :: CreateWorkspaceResponse
+</span><a href="#local-6989586621679174148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174147"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679174147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspaceResponse
+</span><a href="#local-6989586621679174148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateWorkspaceResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Atags%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679174147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateWorkspaceResponse -&gt; f CreateWorkspaceResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateWorkspaceResponse
+-&gt; f CreateWorkspaceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_httpStatus"><span class="hs-identifier hs-type">createWorkspaceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span id="createWorkspaceResponse_httpStatus"><span class="annot"><span class="annottext">createWorkspaceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateWorkspaceResponse -&gt; f CreateWorkspaceResponse
+</span><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createWorkspaceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspaceResponse -&gt; Int)
+-&gt; (CreateWorkspaceResponse -&gt; Int -&gt; CreateWorkspaceResponse)
+-&gt; Lens CreateWorkspaceResponse CreateWorkspaceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174146"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateWorkspaceResponse' :: CreateWorkspaceResponse -&gt; Int
+</span><a href="#local-6989586621679174146"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174146"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174145"><span class="annot"><span class="annottext">s :: CreateWorkspaceResponse
+</span><a href="#local-6989586621679174145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174144"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspaceResponse
+</span><a href="#local-6989586621679174145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorkspaceResponse' :: Int
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3AhttpStatus%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The ARN of the workspace that was just created.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_arn"><span class="hs-identifier hs-type">createWorkspaceResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-221"></span><span id="createWorkspaceResponse_arn"><span class="annot"><span class="annottext">createWorkspaceResponse_arn :: (Text -&gt; f Text)
+-&gt; CreateWorkspaceResponse -&gt; f CreateWorkspaceResponse
+</span><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_arn"><span class="hs-identifier hs-var hs-var">createWorkspaceResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspaceResponse -&gt; Text)
+-&gt; (CreateWorkspaceResponse -&gt; Text -&gt; CreateWorkspaceResponse)
+-&gt; Lens CreateWorkspaceResponse CreateWorkspaceResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174143"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:CreateWorkspaceResponse' :: CreateWorkspaceResponse -&gt; Text
+</span><a href="#local-6989586621679174143"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174143"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174142"><span class="annot"><span class="annottext">s :: CreateWorkspaceResponse
+</span><a href="#local-6989586621679174142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174141"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspaceResponse
+</span><a href="#local-6989586621679174142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateWorkspaceResponse' :: Text
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Aarn%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The status of the workspace that was just created (usually CREATING).</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_status"><span class="hs-identifier hs-type">createWorkspaceResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.AMP.Types.WorkspaceStatus.html#WorkspaceStatus"><span class="hs-identifier hs-type">WorkspaceStatus</span></a></span><span>
+</span><span id="line-225"></span><span id="createWorkspaceResponse_status"><span class="annot"><span class="annottext">createWorkspaceResponse_status :: (WorkspaceStatus -&gt; f WorkspaceStatus)
+-&gt; CreateWorkspaceResponse -&gt; f CreateWorkspaceResponse
+</span><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_status"><span class="hs-identifier hs-var hs-var">createWorkspaceResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspaceResponse -&gt; WorkspaceStatus)
+-&gt; (CreateWorkspaceResponse
+    -&gt; WorkspaceStatus -&gt; CreateWorkspaceResponse)
+-&gt; Lens
+     CreateWorkspaceResponse
+     CreateWorkspaceResponse
+     WorkspaceStatus
+     WorkspaceStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174140"><span class="annot"><span class="annottext">WorkspaceStatus
+status :: WorkspaceStatus
+$sel:status:CreateWorkspaceResponse' :: CreateWorkspaceResponse -&gt; WorkspaceStatus
+</span><a href="#local-6989586621679174140"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679174140"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174139"><span class="annot"><span class="annottext">s :: CreateWorkspaceResponse
+</span><a href="#local-6989586621679174139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174138"><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679174138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspaceResponse
+</span><a href="#local-6989586621679174139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CreateWorkspaceResponse' :: WorkspaceStatus
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3Astatus%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679174138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The generated ID of the workspace that was just created.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_workspaceId"><span class="hs-identifier hs-type">createWorkspaceResponse_workspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-229"></span><span id="createWorkspaceResponse_workspaceId"><span class="annot"><span class="annottext">createWorkspaceResponse_workspaceId :: (Text -&gt; f Text)
+-&gt; CreateWorkspaceResponse -&gt; f CreateWorkspaceResponse
+</span><a href="Amazonka.AMP.CreateWorkspace.html#createWorkspaceResponse_workspaceId"><span class="hs-identifier hs-var hs-var">createWorkspaceResponse_workspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkspaceResponse -&gt; Text)
+-&gt; (CreateWorkspaceResponse -&gt; Text -&gt; CreateWorkspaceResponse)
+-&gt; Lens CreateWorkspaceResponse CreateWorkspaceResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174137"><span class="annot"><span class="annottext">Text
+workspaceId :: Text
+$sel:workspaceId:CreateWorkspaceResponse' :: CreateWorkspaceResponse -&gt; Text
+</span><a href="#local-6989586621679174137"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174137"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174136"><span class="annot"><span class="annottext">s :: CreateWorkspaceResponse
+</span><a href="#local-6989586621679174136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse%27"><span class="hs-identifier hs-type">CreateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174135"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspaceResponse
+</span><a href="#local-6989586621679174136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:CreateWorkspaceResponse' :: Text
+</span><a href="Amazonka.AMP.CreateWorkspace.html#%24sel%3AworkspaceId%3ACreateWorkspaceResponse%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.CreateWorkspace.html#CreateWorkspaceResponse"><span class="hs-identifier hs-type">CreateWorkspaceResponse</span></a></span></span><span>
+</span><span id="line-232"></span></pre></body></html>

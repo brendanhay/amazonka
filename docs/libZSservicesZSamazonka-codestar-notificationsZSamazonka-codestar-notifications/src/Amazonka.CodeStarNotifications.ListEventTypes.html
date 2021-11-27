@@ -1,0 +1,731 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeStarNotifications.ListEventTypes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about the event types available for configuring</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- notifications.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeStarNotifications.ListEventTypes</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier">ListEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#newListEventTypes"><span class="hs-identifier">newListEventTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypes_filters"><span class="hs-identifier">listEventTypes_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypes_nextToken"><span class="hs-identifier">listEventTypes_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypes_maxResults"><span class="hs-identifier">listEventTypes_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse"><span class="hs-identifier">ListEventTypesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#newListEventTypesResponse"><span class="hs-identifier">newListEventTypesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypesResponse_eventTypes"><span class="hs-identifier">listEventTypesResponse_eventTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypesResponse_nextToken"><span class="hs-identifier">listEventTypesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypesResponse_httpStatus"><span class="hs-identifier">listEventTypesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.html"><span class="hs-identifier">Amazonka.CodeStarNotifications.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListEventTypes' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679169226"><span id="local-6989586621679169227"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEventTypes"><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-var">ListEventTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEventTypes%27"><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes%27"><span class="hs-identifier hs-var">ListEventTypes'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The filters to use to return information by service or resource type.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Afilters%3AListEventTypes%27"><span class="annot"><span class="annottext">ListEventTypes -&gt; Maybe [ListEventTypesFilter]
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3Afilters%3AListEventTypes%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListEventTypesFilter.html#ListEventTypesFilter"><span class="hs-identifier hs-type">ListEventTypesFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | An enumeration token that, when provided in a request, returns the next</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListEventTypes%27"><span class="annot"><span class="annottext">ListEventTypes -&gt; Maybe Text
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AnextToken%3AListEventTypes%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A non-negative integer used to limit the number of returned results. The</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- default number is 50. The maximum number of results that can be returned</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- is 100.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AListEventTypes%27"><span class="annot"><span class="annottext">ListEventTypes -&gt; Maybe Natural
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AmaxResults%3AListEventTypes%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679169218"><span id="local-6989586621679169220"><span class="annot"><span class="annottext">ListEventTypes -&gt; ListEventTypes -&gt; Bool
+(ListEventTypes -&gt; ListEventTypes -&gt; Bool)
+-&gt; (ListEventTypes -&gt; ListEventTypes -&gt; Bool) -&gt; Eq ListEventTypes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEventTypes -&gt; ListEventTypes -&gt; Bool
+$c/= :: ListEventTypes -&gt; ListEventTypes -&gt; Bool
+== :: ListEventTypes -&gt; ListEventTypes -&gt; Bool
+$c== :: ListEventTypes -&gt; ListEventTypes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169209"><span id="local-6989586621679169211"><span id="local-6989586621679169213"><span id="local-6989586621679169215"><span class="annot"><span class="annottext">ReadPrec [ListEventTypes]
+ReadPrec ListEventTypes
+Int -&gt; ReadS ListEventTypes
+ReadS [ListEventTypes]
+(Int -&gt; ReadS ListEventTypes)
+-&gt; ReadS [ListEventTypes]
+-&gt; ReadPrec ListEventTypes
+-&gt; ReadPrec [ListEventTypes]
+-&gt; Read ListEventTypes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEventTypes]
+$creadListPrec :: ReadPrec [ListEventTypes]
+readPrec :: ReadPrec ListEventTypes
+$creadPrec :: ReadPrec ListEventTypes
+readList :: ReadS [ListEventTypes]
+$creadList :: ReadS [ListEventTypes]
+readsPrec :: Int -&gt; ReadS ListEventTypes
+$creadsPrec :: Int -&gt; ReadS ListEventTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169202"><span id="local-6989586621679169204"><span id="local-6989586621679169206"><span class="annot"><span class="annottext">Int -&gt; ListEventTypes -&gt; ShowS
+[ListEventTypes] -&gt; ShowS
+ListEventTypes -&gt; String
+(Int -&gt; ListEventTypes -&gt; ShowS)
+-&gt; (ListEventTypes -&gt; String)
+-&gt; ([ListEventTypes] -&gt; ShowS)
+-&gt; Show ListEventTypes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEventTypes] -&gt; ShowS
+$cshowList :: [ListEventTypes] -&gt; ShowS
+show :: ListEventTypes -&gt; String
+$cshow :: ListEventTypes -&gt; String
+showsPrec :: Int -&gt; ListEventTypes -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEventTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListEventTypes -&gt; Rep ListEventTypes x)
+-&gt; (forall x. Rep ListEventTypes x -&gt; ListEventTypes)
+-&gt; Generic ListEventTypes
+forall x. Rep ListEventTypes x -&gt; ListEventTypes
+forall x. ListEventTypes -&gt; Rep ListEventTypes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListEventTypes x -&gt; ListEventTypes
+$cfrom :: forall x. ListEventTypes -&gt; Rep ListEventTypes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'ListEventTypes' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'filters', 'listEventTypes_filters' - The filters to use to return information by service or resource type.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'nextToken', 'listEventTypes_nextToken' - An enumeration token that, when provided in a request, returns the next</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'maxResults', 'listEventTypes_maxResults' - A non-negative integer used to limit the number of returned results. The</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- default number is 50. The maximum number of results that can be returned</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- is 100.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#newListEventTypes"><span class="hs-identifier hs-type">newListEventTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span>
+</span><span id="line-87"></span><span id="newListEventTypes"><span class="annot"><span class="annottext">newListEventTypes :: ListEventTypes
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#newListEventTypes"><span class="hs-identifier hs-var hs-var">newListEventTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ListEventTypes' :: Maybe [ListEventTypesFilter]
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; ListEventTypes
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes%27"><span class="hs-identifier hs-type">ListEventTypes'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:ListEventTypes' :: Maybe [ListEventTypesFilter]
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3Afilters%3AListEventTypes%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ListEventTypesFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListEventTypes' :: Maybe Text
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AnextToken%3AListEventTypes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListEventTypes' :: Maybe Natural
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AmaxResults%3AListEventTypes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The filters to use to return information by service or resource type.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypes_filters"><span class="hs-identifier hs-type">listEventTypes_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.ListEventTypesFilter.html#ListEventTypesFilter"><span class="hs-identifier hs-type">ListEventTypesFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="listEventTypes_filters"><span class="annot"><span class="annottext">listEventTypes_filters :: (Maybe [ListEventTypesFilter] -&gt; f (Maybe [ListEventTypesFilter]))
+-&gt; ListEventTypes -&gt; f ListEventTypes
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypes_filters"><span class="hs-identifier hs-var hs-var">listEventTypes_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEventTypes -&gt; Maybe [ListEventTypesFilter])
+-&gt; (ListEventTypes
+    -&gt; Maybe [ListEventTypesFilter] -&gt; ListEventTypes)
+-&gt; Lens
+     ListEventTypes
+     ListEventTypes
+     (Maybe [ListEventTypesFilter])
+     (Maybe [ListEventTypesFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes%27"><span class="hs-identifier hs-type">ListEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169196"><span class="annot"><span class="annottext">Maybe [ListEventTypesFilter]
+filters :: Maybe [ListEventTypesFilter]
+$sel:filters:ListEventTypes' :: ListEventTypes -&gt; Maybe [ListEventTypesFilter]
+</span><a href="#local-6989586621679169196"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ListEventTypesFilter]
+</span><a href="#local-6989586621679169196"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169195"><span class="annot"><span class="annottext">s :: ListEventTypes
+</span><a href="#local-6989586621679169195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes%27"><span class="hs-identifier hs-type">ListEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169194"><span class="annot"><span class="annottext">Maybe [ListEventTypesFilter]
+</span><a href="#local-6989586621679169194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEventTypes
+</span><a href="#local-6989586621679169195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListEventTypes' :: Maybe [ListEventTypesFilter]
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3Afilters%3AListEventTypes%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ListEventTypesFilter]
+</span><a href="#local-6989586621679169194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ListEventTypesFilter] -&gt; f (Maybe [ListEventTypesFilter]))
+ -&gt; ListEventTypes -&gt; f ListEventTypes)
+-&gt; ((Maybe [ListEventTypesFilter]
+     -&gt; f (Maybe [ListEventTypesFilter]))
+    -&gt; Maybe [ListEventTypesFilter]
+    -&gt; f (Maybe [ListEventTypesFilter]))
+-&gt; (Maybe [ListEventTypesFilter]
+    -&gt; f (Maybe [ListEventTypesFilter]))
+-&gt; ListEventTypes
+-&gt; f ListEventTypes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ListEventTypesFilter]
+  [ListEventTypesFilter]
+  [ListEventTypesFilter]
+  [ListEventTypesFilter]
+-&gt; Iso
+     (Maybe [ListEventTypesFilter])
+     (Maybe [ListEventTypesFilter])
+     (Maybe [ListEventTypesFilter])
+     (Maybe [ListEventTypesFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ListEventTypesFilter]
+  [ListEventTypesFilter]
+  [ListEventTypesFilter]
+  [ListEventTypesFilter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | An enumeration token that, when provided in a request, returns the next</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypes_nextToken"><span class="hs-identifier hs-type">listEventTypes_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="listEventTypes_nextToken"><span class="annot"><span class="annottext">listEventTypes_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEventTypes -&gt; f ListEventTypes
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypes_nextToken"><span class="hs-identifier hs-var hs-var">listEventTypes_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEventTypes -&gt; Maybe Text)
+-&gt; (ListEventTypes -&gt; Maybe Text -&gt; ListEventTypes)
+-&gt; Lens ListEventTypes ListEventTypes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes%27"><span class="hs-identifier hs-type">ListEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169190"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListEventTypes' :: ListEventTypes -&gt; Maybe Text
+</span><a href="#local-6989586621679169190"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169190"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169189"><span class="annot"><span class="annottext">s :: ListEventTypes
+</span><a href="#local-6989586621679169189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes%27"><span class="hs-identifier hs-type">ListEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169188"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEventTypes
+</span><a href="#local-6989586621679169189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEventTypes' :: Maybe Text
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AnextToken%3AListEventTypes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A non-negative integer used to limit the number of returned results. The</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- default number is 50. The maximum number of results that can be returned</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- is 100.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypes_maxResults"><span class="hs-identifier hs-type">listEventTypes_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="listEventTypes_maxResults"><span class="annot"><span class="annottext">listEventTypes_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListEventTypes -&gt; f ListEventTypes
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypes_maxResults"><span class="hs-identifier hs-var hs-var">listEventTypes_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEventTypes -&gt; Maybe Natural)
+-&gt; (ListEventTypes -&gt; Maybe Natural -&gt; ListEventTypes)
+-&gt; Lens
+     ListEventTypes ListEventTypes (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes%27"><span class="hs-identifier hs-type">ListEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169187"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListEventTypes' :: ListEventTypes -&gt; Maybe Natural
+</span><a href="#local-6989586621679169187"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679169187"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169186"><span class="annot"><span class="annottext">s :: ListEventTypes
+</span><a href="#local-6989586621679169186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes%27"><span class="hs-identifier hs-type">ListEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169185"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679169185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEventTypes
+</span><a href="#local-6989586621679169186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListEventTypes' :: Maybe Natural
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AmaxResults%3AListEventTypes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679169185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679169181"><span class="annot"><span class="annottext">page :: ListEventTypes
+-&gt; AWSResponse ListEventTypes -&gt; Maybe ListEventTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679169179"><span class="annot"><span class="annottext">ListEventTypes
+</span><a href="#local-6989586621679169179"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679169178"><span class="annot"><span class="annottext">AWSResponse ListEventTypes
+</span><a href="#local-6989586621679169178"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEventTypes
+ListEventTypesResponse
+</span><a href="#local-6989586621679169178"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">ListEventTypesResponse
+-&gt; Getting (First Text) ListEventTypesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListEventTypesResponse
+-&gt; Const (First Text) ListEventTypesResponse
+Lens' ListEventTypesResponse (Maybe Text)
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypesResponse_nextToken"><span class="hs-identifier hs-var">listEventTypesResponse_nextToken</span></a></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListEventTypesResponse
+ -&gt; Const (First Text) ListEventTypesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListEventTypesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-115"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListEventTypes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [EventTypeSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEventTypes
+ListEventTypesResponse
+</span><a href="#local-6989586621679169178"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">ListEventTypesResponse
+-&gt; Getting
+     (First [EventTypeSummary])
+     ListEventTypesResponse
+     [EventTypeSummary]
+-&gt; Maybe [EventTypeSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [EventTypeSummary]
+ -&gt; Const (First [EventTypeSummary]) (Maybe [EventTypeSummary]))
+-&gt; ListEventTypesResponse
+-&gt; Const (First [EventTypeSummary]) ListEventTypesResponse
+Lens' ListEventTypesResponse (Maybe [EventTypeSummary])
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypesResponse_eventTypes"><span class="hs-identifier hs-var">listEventTypesResponse_eventTypes</span></a></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [EventTypeSummary]
+  -&gt; Const (First [EventTypeSummary]) (Maybe [EventTypeSummary]))
+ -&gt; ListEventTypesResponse
+ -&gt; Const (First [EventTypeSummary]) ListEventTypesResponse)
+-&gt; (([EventTypeSummary]
+     -&gt; Const (First [EventTypeSummary]) [EventTypeSummary])
+    -&gt; Maybe [EventTypeSummary]
+    -&gt; Const (First [EventTypeSummary]) (Maybe [EventTypeSummary]))
+-&gt; Getting
+     (First [EventTypeSummary])
+     ListEventTypesResponse
+     [EventTypeSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([EventTypeSummary]
+ -&gt; Const (First [EventTypeSummary]) [EventTypeSummary])
+-&gt; Maybe [EventTypeSummary]
+-&gt; Const (First [EventTypeSummary]) (Maybe [EventTypeSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListEventTypes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">ListEventTypes -&gt; Maybe ListEventTypes
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListEventTypes -&gt; Maybe ListEventTypes)
+-&gt; ListEventTypes -&gt; Maybe ListEventTypes
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ListEventTypes
+</span><a href="#local-6989586621679169179"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">ListEventTypes
+-&gt; (ListEventTypes -&gt; ListEventTypes) -&gt; ListEventTypes
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListEventTypes -&gt; Identity ListEventTypes
+Lens ListEventTypes ListEventTypes (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypes_nextToken"><span class="hs-identifier hs-var">listEventTypes_nextToken</span></a></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListEventTypes -&gt; Identity ListEventTypes)
+-&gt; Maybe Text -&gt; ListEventTypes -&gt; ListEventTypes
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEventTypes
+ListEventTypesResponse
+</span><a href="#local-6989586621679169178"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">ListEventTypesResponse
+-&gt; Getting (First Text) ListEventTypesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListEventTypesResponse
+-&gt; Const (First Text) ListEventTypesResponse
+Lens' ListEventTypesResponse (Maybe Text)
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypesResponse_nextToken"><span class="hs-identifier hs-var">listEventTypesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListEventTypesResponse
+ -&gt; Const (First Text) ListEventTypesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListEventTypesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-132"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse"><span class="hs-identifier hs-type">ListEventTypesResponse</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679169169"><span class="annot"><span class="annottext">request :: ListEventTypes -&gt; Request ListEventTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListEventTypes -&gt; Request ListEventTypes
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeStarNotifications.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679169165"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListEventTypes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListEventTypes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListEventTypes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListEventTypes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListEventTypes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679169162"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679169162"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679169161"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679169161"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679169160"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EventTypeSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListEventTypesResponse
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse%27"><span class="hs-identifier hs-var">ListEventTypesResponse'</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [EventTypeSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListEventTypesResponse)
+-&gt; Either String (Maybe [EventTypeSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListEventTypesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EventTypeSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [EventTypeSummary]))
+-&gt; Maybe [EventTypeSummary]
+-&gt; Either String (Maybe [EventTypeSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EventTypeSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListEventTypesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListEventTypesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListEventTypesResponse)
+-&gt; Either String Int -&gt; Either String ListEventTypesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679169162"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169151"><span id="local-6989586621679169153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679169144"><span class="annot"><span class="annottext">toHeaders :: ListEventTypes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListEventTypes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169134"><span id="local-6989586621679169136"><span id="local-6989586621679169138"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679169132"><span class="annot"><span class="annottext">toJSON :: ListEventTypes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes%27"><span class="hs-identifier hs-type">ListEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169128"><span id="local-6989586621679169129"><span id="local-6989586621679169130"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [ListEventTypesFilter]
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+filters :: Maybe [ListEventTypesFilter]
+$sel:maxResults:ListEventTypes' :: ListEventTypes -&gt; Maybe Natural
+$sel:nextToken:ListEventTypes' :: ListEventTypes -&gt; Maybe Text
+$sel:filters:ListEventTypes' :: ListEventTypes -&gt; Maybe [ListEventTypesFilter]
+</span><a href="#local-6989586621679169128"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ListEventTypesFilter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ListEventTypesFilter] -&gt; Pair)
+-&gt; Maybe [ListEventTypesFilter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ListEventTypesFilter]
+</span><a href="#local-6989586621679169130"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169129"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679169128"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679169122"><span class="annot"><span class="annottext">toPath :: ListEventTypes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListEventTypes -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/listEventTypes&quot;</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier hs-type">ListEventTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679169118"><span class="annot"><span class="annottext">toQuery :: ListEventTypes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListEventTypes -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newListEventTypesResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679169115"><span id="local-6989586621679169116"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEventTypesResponse"><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse"><span class="hs-identifier hs-var">ListEventTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEventTypesResponse%27"><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse%27"><span class="hs-identifier hs-var">ListEventTypesResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about each event, including service name, resource type,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- event ID, and event name.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AeventTypes%3AListEventTypesResponse%27"><span class="annot"><span class="annottext">ListEventTypesResponse -&gt; Maybe [EventTypeSummary]
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AeventTypes%3AListEventTypesResponse%27"><span class="hs-identifier hs-var hs-var">eventTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.EventTypeSummary.html#EventTypeSummary"><span class="hs-identifier hs-type">EventTypeSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | An enumeration token that can be used in a request to return the next</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AnextToken%3AListEventTypesResponse%27"><span class="annot"><span class="annottext">ListEventTypesResponse -&gt; Maybe Text
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AnextToken%3AListEventTypesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListEventTypesResponse%27"><span class="annot"><span class="annottext">ListEventTypesResponse -&gt; Int
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AhttpStatus%3AListEventTypesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679169108"><span id="local-6989586621679169110"><span class="annot"><span class="annottext">ListEventTypesResponse -&gt; ListEventTypesResponse -&gt; Bool
+(ListEventTypesResponse -&gt; ListEventTypesResponse -&gt; Bool)
+-&gt; (ListEventTypesResponse -&gt; ListEventTypesResponse -&gt; Bool)
+-&gt; Eq ListEventTypesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEventTypesResponse -&gt; ListEventTypesResponse -&gt; Bool
+$c/= :: ListEventTypesResponse -&gt; ListEventTypesResponse -&gt; Bool
+== :: ListEventTypesResponse -&gt; ListEventTypesResponse -&gt; Bool
+$c== :: ListEventTypesResponse -&gt; ListEventTypesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169100"><span id="local-6989586621679169102"><span id="local-6989586621679169104"><span id="local-6989586621679169106"><span class="annot"><span class="annottext">ReadPrec [ListEventTypesResponse]
+ReadPrec ListEventTypesResponse
+Int -&gt; ReadS ListEventTypesResponse
+ReadS [ListEventTypesResponse]
+(Int -&gt; ReadS ListEventTypesResponse)
+-&gt; ReadS [ListEventTypesResponse]
+-&gt; ReadPrec ListEventTypesResponse
+-&gt; ReadPrec [ListEventTypesResponse]
+-&gt; Read ListEventTypesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEventTypesResponse]
+$creadListPrec :: ReadPrec [ListEventTypesResponse]
+readPrec :: ReadPrec ListEventTypesResponse
+$creadPrec :: ReadPrec ListEventTypesResponse
+readList :: ReadS [ListEventTypesResponse]
+$creadList :: ReadS [ListEventTypesResponse]
+readsPrec :: Int -&gt; ReadS ListEventTypesResponse
+$creadsPrec :: Int -&gt; ReadS ListEventTypesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169094"><span id="local-6989586621679169096"><span id="local-6989586621679169098"><span class="annot"><span class="annottext">Int -&gt; ListEventTypesResponse -&gt; ShowS
+[ListEventTypesResponse] -&gt; ShowS
+ListEventTypesResponse -&gt; String
+(Int -&gt; ListEventTypesResponse -&gt; ShowS)
+-&gt; (ListEventTypesResponse -&gt; String)
+-&gt; ([ListEventTypesResponse] -&gt; ShowS)
+-&gt; Show ListEventTypesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEventTypesResponse] -&gt; ShowS
+$cshowList :: [ListEventTypesResponse] -&gt; ShowS
+show :: ListEventTypesResponse -&gt; String
+$cshow :: ListEventTypesResponse -&gt; String
+showsPrec :: Int -&gt; ListEventTypesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEventTypesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListEventTypesResponse -&gt; Rep ListEventTypesResponse x)
+-&gt; (forall x.
+    Rep ListEventTypesResponse x -&gt; ListEventTypesResponse)
+-&gt; Generic ListEventTypesResponse
+forall x. Rep ListEventTypesResponse x -&gt; ListEventTypesResponse
+forall x. ListEventTypesResponse -&gt; Rep ListEventTypesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListEventTypesResponse x -&gt; ListEventTypesResponse
+$cfrom :: forall x. ListEventTypesResponse -&gt; Rep ListEventTypesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Create a value of 'ListEventTypesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'eventTypes', 'listEventTypesResponse_eventTypes' - Information about each event, including service name, resource type,</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- event ID, and event name.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'nextToken', 'listEventTypesResponse_nextToken' - An enumeration token that can be used in a request to return the next</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'httpStatus', 'listEventTypesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#newListEventTypesResponse"><span class="hs-identifier hs-type">newListEventTypesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse"><span class="hs-identifier hs-type">ListEventTypesResponse</span></a></span><span>
+</span><span id="line-207"></span><span id="newListEventTypesResponse"><span class="annot"><span class="annottext">newListEventTypesResponse :: Int -&gt; ListEventTypesResponse
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#newListEventTypesResponse"><span class="hs-identifier hs-var hs-var">newListEventTypesResponse</span></a></span></span><span> </span><span id="local-6989586621679169091"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679169091"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">ListEventTypesResponse' :: Maybe [EventTypeSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListEventTypesResponse
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse%27"><span class="hs-identifier hs-type">ListEventTypesResponse'</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventTypes:ListEventTypesResponse' :: Maybe [EventTypeSummary]
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AeventTypes%3AListEventTypesResponse%27"><span class="hs-identifier hs-var">eventTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">Maybe [EventTypeSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListEventTypesResponse' :: Maybe Text
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AnextToken%3AListEventTypesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListEventTypesResponse' :: Int
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AhttpStatus%3AListEventTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679169091"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | Information about each event, including service name, resource type,</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- event ID, and event name.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypesResponse_eventTypes"><span class="hs-identifier hs-type">listEventTypesResponse_eventTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse"><span class="hs-identifier hs-type">ListEventTypesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodeStarNotifications.Types.EventTypeSummary.html#EventTypeSummary"><span class="hs-identifier hs-type">EventTypeSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="listEventTypesResponse_eventTypes"><span class="annot"><span class="annottext">listEventTypesResponse_eventTypes :: (Maybe [EventTypeSummary] -&gt; f (Maybe [EventTypeSummary]))
+-&gt; ListEventTypesResponse -&gt; f ListEventTypesResponse
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypesResponse_eventTypes"><span class="hs-identifier hs-var hs-var">listEventTypesResponse_eventTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEventTypesResponse -&gt; Maybe [EventTypeSummary])
+-&gt; (ListEventTypesResponse
+    -&gt; Maybe [EventTypeSummary] -&gt; ListEventTypesResponse)
+-&gt; Lens' ListEventTypesResponse (Maybe [EventTypeSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse%27"><span class="hs-identifier hs-type">ListEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169090"><span class="annot"><span class="annottext">Maybe [EventTypeSummary]
+eventTypes :: Maybe [EventTypeSummary]
+$sel:eventTypes:ListEventTypesResponse' :: ListEventTypesResponse -&gt; Maybe [EventTypeSummary]
+</span><a href="#local-6989586621679169090"><span class="hs-identifier hs-var hs-var">eventTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventTypeSummary]
+</span><a href="#local-6989586621679169090"><span class="hs-identifier hs-var">eventTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169089"><span class="annot"><span class="annottext">s :: ListEventTypesResponse
+</span><a href="#local-6989586621679169089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse%27"><span class="hs-identifier hs-type">ListEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169088"><span class="annot"><span class="annottext">Maybe [EventTypeSummary]
+</span><a href="#local-6989586621679169088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEventTypesResponse
+</span><a href="#local-6989586621679169089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTypes:ListEventTypesResponse' :: Maybe [EventTypeSummary]
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AeventTypes%3AListEventTypesResponse%27"><span class="hs-identifier hs-var">eventTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EventTypeSummary]
+</span><a href="#local-6989586621679169088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse"><span class="hs-identifier hs-type">ListEventTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventTypeSummary] -&gt; f (Maybe [EventTypeSummary]))
+ -&gt; ListEventTypesResponse -&gt; f ListEventTypesResponse)
+-&gt; ((Maybe [EventTypeSummary] -&gt; f (Maybe [EventTypeSummary]))
+    -&gt; Maybe [EventTypeSummary] -&gt; f (Maybe [EventTypeSummary]))
+-&gt; (Maybe [EventTypeSummary] -&gt; f (Maybe [EventTypeSummary]))
+-&gt; ListEventTypesResponse
+-&gt; f ListEventTypesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EventTypeSummary]
+  [EventTypeSummary]
+  [EventTypeSummary]
+  [EventTypeSummary]
+-&gt; Iso
+     (Maybe [EventTypeSummary])
+     (Maybe [EventTypeSummary])
+     (Maybe [EventTypeSummary])
+     (Maybe [EventTypeSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EventTypeSummary]
+  [EventTypeSummary]
+  [EventTypeSummary]
+  [EventTypeSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | An enumeration token that can be used in a request to return the next</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypesResponse_nextToken"><span class="hs-identifier hs-type">listEventTypesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse"><span class="hs-identifier hs-type">ListEventTypesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="listEventTypesResponse_nextToken"><span class="annot"><span class="annottext">listEventTypesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEventTypesResponse -&gt; f ListEventTypesResponse
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listEventTypesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEventTypesResponse -&gt; Maybe Text)
+-&gt; (ListEventTypesResponse -&gt; Maybe Text -&gt; ListEventTypesResponse)
+-&gt; Lens' ListEventTypesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse%27"><span class="hs-identifier hs-type">ListEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169087"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListEventTypesResponse' :: ListEventTypesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679169087"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169087"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169086"><span class="annot"><span class="annottext">s :: ListEventTypesResponse
+</span><a href="#local-6989586621679169086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse%27"><span class="hs-identifier hs-type">ListEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169085"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEventTypesResponse
+</span><a href="#local-6989586621679169086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEventTypesResponse' :: Maybe Text
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AnextToken%3AListEventTypesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse"><span class="hs-identifier hs-type">ListEventTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypesResponse_httpStatus"><span class="hs-identifier hs-type">listEventTypesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse"><span class="hs-identifier hs-type">ListEventTypesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-227"></span><span id="listEventTypesResponse_httpStatus"><span class="annot"><span class="annottext">listEventTypesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListEventTypesResponse -&gt; f ListEventTypesResponse
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#listEventTypesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listEventTypesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEventTypesResponse -&gt; Int)
+-&gt; (ListEventTypesResponse -&gt; Int -&gt; ListEventTypesResponse)
+-&gt; Lens ListEventTypesResponse ListEventTypesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse%27"><span class="hs-identifier hs-type">ListEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169084"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListEventTypesResponse' :: ListEventTypesResponse -&gt; Int
+</span><a href="#local-6989586621679169084"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679169084"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169083"><span class="annot"><span class="annottext">s :: ListEventTypesResponse
+</span><a href="#local-6989586621679169083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse%27"><span class="hs-identifier hs-type">ListEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169082"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679169082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEventTypesResponse
+</span><a href="#local-6989586621679169083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListEventTypesResponse' :: Int
+</span><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#%24sel%3AhttpStatus%3AListEventTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679169082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse"><span class="hs-identifier hs-type">ListEventTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169080"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse"><span class="hs-identifier hs-type">ListEventTypesResponse</span></a></span></span><span>
+</span><span id="line-230"></span></pre></body></html>

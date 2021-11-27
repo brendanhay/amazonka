@@ -1,0 +1,830 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.HoneyCode.StartTableDataImportJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- The StartTableDataImportJob API allows you to start an import job on a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- table. This API will only return the id of the job that was started. To</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- find out the status of the import request, you need to call the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- DescribeTableDataImportJob API.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.HoneyCode.StartTableDataImportJob</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier">StartTableDataImportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#newStartTableDataImportJob"><span class="hs-identifier">newStartTableDataImportJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_workbookId"><span class="hs-identifier">startTableDataImportJob_workbookId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_dataSource"><span class="hs-identifier">startTableDataImportJob_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_dataFormat"><span class="hs-identifier">startTableDataImportJob_dataFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_destinationTableId"><span class="hs-identifier">startTableDataImportJob_destinationTableId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_importOptions"><span class="hs-identifier">startTableDataImportJob_importOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_clientRequestToken"><span class="hs-identifier">startTableDataImportJob_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse"><span class="hs-identifier">StartTableDataImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#newStartTableDataImportJobResponse"><span class="hs-identifier">newStartTableDataImportJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJobResponse_httpStatus"><span class="hs-identifier">startTableDataImportJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJobResponse_jobId"><span class="hs-identifier">startTableDataImportJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJobResponse_jobStatus"><span class="hs-identifier">startTableDataImportJobResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.html"><span class="hs-identifier">Amazonka.HoneyCode.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newStartTableDataImportJob' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679181621"><span id="local-6989586621679181622"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTableDataImportJob"><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-var">StartTableDataImportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTableDataImportJob%27"><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-var">StartTableDataImportJob'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the workbook where the rows are being imported.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- If a workbook with the specified id could not be found, this API throws</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- ResourceNotFoundException.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AworkbookId%3AStartTableDataImportJob%27"><span class="annot"><span class="annottext">StartTableDataImportJob -&gt; Text
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AworkbookId%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var hs-var">workbookId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The source of the data that is being imported. The size of source must</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- be no larger than 100 MB. Source must have no more than 100,000 cells</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- and no more than 1,000 rows.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdataSource%3AStartTableDataImportJob%27"><span class="annot"><span class="annottext">StartTableDataImportJob -&gt; ImportDataSource
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AdataSource%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The format of the data that is being imported. Currently the only option</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- supported is \&quot;DELIMITED_TEXT\&quot;.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdataFormat%3AStartTableDataImportJob%27"><span class="annot"><span class="annottext">StartTableDataImportJob -&gt; ImportSourceDataFormat
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AdataFormat%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.ImportSourceDataFormat.html#ImportSourceDataFormat"><span class="hs-identifier hs-type">ImportSourceDataFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The ID of the table where the rows are being imported.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- If a table with the specified id could not be found, this API throws</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- ResourceNotFoundException.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AdestinationTableId%3AStartTableDataImportJob%27"><span class="annot"><span class="annottext">StartTableDataImportJob -&gt; Text
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AdestinationTableId%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var hs-var">destinationTableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The options for customizing this import request.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AimportOptions%3AStartTableDataImportJob%27"><span class="annot"><span class="annottext">StartTableDataImportJob -&gt; ImportOptions
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AimportOptions%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var hs-var">importOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.ImportOptions.html#ImportOptions"><span class="hs-identifier hs-type">ImportOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The request token for performing the update action. Request tokens help</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- to identify duplicate requests. If a call times out or fails due to a</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- transient error like a failed network connection, you can retry the call</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- with the same request token. The service ensures that if the first call</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- using that request token is successfully performed, the second call will</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- not perform the action again.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- Note that request tokens are valid only for a few minutes. You cannot</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- use request tokens to dedupe requests spanning hours or days.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AStartTableDataImportJob%27"><span class="annot"><span class="annottext">StartTableDataImportJob -&gt; Text
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AclientRequestToken%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181610"><span id="local-6989586621679181612"><span class="annot"><span class="annottext">StartTableDataImportJob -&gt; StartTableDataImportJob -&gt; Bool
+(StartTableDataImportJob -&gt; StartTableDataImportJob -&gt; Bool)
+-&gt; (StartTableDataImportJob -&gt; StartTableDataImportJob -&gt; Bool)
+-&gt; Eq StartTableDataImportJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartTableDataImportJob -&gt; StartTableDataImportJob -&gt; Bool
+$c/= :: StartTableDataImportJob -&gt; StartTableDataImportJob -&gt; Bool
+== :: StartTableDataImportJob -&gt; StartTableDataImportJob -&gt; Bool
+$c== :: StartTableDataImportJob -&gt; StartTableDataImportJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181601"><span id="local-6989586621679181603"><span id="local-6989586621679181605"><span id="local-6989586621679181607"><span class="annot"><span class="annottext">ReadPrec [StartTableDataImportJob]
+ReadPrec StartTableDataImportJob
+Int -&gt; ReadS StartTableDataImportJob
+ReadS [StartTableDataImportJob]
+(Int -&gt; ReadS StartTableDataImportJob)
+-&gt; ReadS [StartTableDataImportJob]
+-&gt; ReadPrec StartTableDataImportJob
+-&gt; ReadPrec [StartTableDataImportJob]
+-&gt; Read StartTableDataImportJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartTableDataImportJob]
+$creadListPrec :: ReadPrec [StartTableDataImportJob]
+readPrec :: ReadPrec StartTableDataImportJob
+$creadPrec :: ReadPrec StartTableDataImportJob
+readList :: ReadS [StartTableDataImportJob]
+$creadList :: ReadS [StartTableDataImportJob]
+readsPrec :: Int -&gt; ReadS StartTableDataImportJob
+$creadsPrec :: Int -&gt; ReadS StartTableDataImportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181594"><span id="local-6989586621679181596"><span id="local-6989586621679181598"><span class="annot"><span class="annottext">Int -&gt; StartTableDataImportJob -&gt; ShowS
+[StartTableDataImportJob] -&gt; ShowS
+StartTableDataImportJob -&gt; String
+(Int -&gt; StartTableDataImportJob -&gt; ShowS)
+-&gt; (StartTableDataImportJob -&gt; String)
+-&gt; ([StartTableDataImportJob] -&gt; ShowS)
+-&gt; Show StartTableDataImportJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartTableDataImportJob] -&gt; ShowS
+$cshowList :: [StartTableDataImportJob] -&gt; ShowS
+show :: StartTableDataImportJob -&gt; String
+$cshow :: StartTableDataImportJob -&gt; String
+showsPrec :: Int -&gt; StartTableDataImportJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartTableDataImportJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartTableDataImportJob -&gt; Rep StartTableDataImportJob x)
+-&gt; (forall x.
+    Rep StartTableDataImportJob x -&gt; StartTableDataImportJob)
+-&gt; Generic StartTableDataImportJob
+forall x. Rep StartTableDataImportJob x -&gt; StartTableDataImportJob
+forall x. StartTableDataImportJob -&gt; Rep StartTableDataImportJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartTableDataImportJob x -&gt; StartTableDataImportJob
+$cfrom :: forall x. StartTableDataImportJob -&gt; Rep StartTableDataImportJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Create a value of 'StartTableDataImportJob' with all optional fields omitted.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'workbookId', 'startTableDataImportJob_workbookId' - The ID of the workbook where the rows are being imported.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- If a workbook with the specified id could not be found, this API throws</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- ResourceNotFoundException.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'dataSource', 'startTableDataImportJob_dataSource' - The source of the data that is being imported. The size of source must</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- be no larger than 100 MB. Source must have no more than 100,000 cells</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- and no more than 1,000 rows.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'dataFormat', 'startTableDataImportJob_dataFormat' - The format of the data that is being imported. Currently the only option</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- supported is \&quot;DELIMITED_TEXT\&quot;.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'destinationTableId', 'startTableDataImportJob_destinationTableId' - The ID of the table where the rows are being imported.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- If a table with the specified id could not be found, this API throws</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- ResourceNotFoundException.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'importOptions', 'startTableDataImportJob_importOptions' - The options for customizing this import request.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'clientRequestToken', 'startTableDataImportJob_clientRequestToken' - The request token for performing the update action. Request tokens help</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- to identify duplicate requests. If a call times out or fails due to a</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- transient error like a failed network connection, you can retry the call</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- with the same request token. The service ensures that if the first call</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- using that request token is successfully performed, the second call will</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- not perform the action again.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Note that request tokens are valid only for a few minutes. You cannot</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- use request tokens to dedupe requests spanning hours or days.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#newStartTableDataImportJob"><span class="hs-identifier hs-type">newStartTableDataImportJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-comment">-- | 'workbookId'</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 'dataSource'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'dataFormat'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.Types.ImportSourceDataFormat.html#ImportSourceDataFormat"><span class="hs-identifier hs-type">ImportSourceDataFormat</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-comment">-- | 'destinationTableId'</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-comment">-- | 'importOptions'</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.Types.ImportOptions.html#ImportOptions"><span class="hs-identifier hs-type">ImportOptions</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'clientRequestToken'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span>
+</span><span id="line-142"></span><span id="newStartTableDataImportJob"><span class="annot"><span class="annottext">newStartTableDataImportJob :: Text
+-&gt; ImportDataSource
+-&gt; ImportSourceDataFormat
+-&gt; Text
+-&gt; ImportOptions
+-&gt; Text
+-&gt; StartTableDataImportJob
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#newStartTableDataImportJob"><span class="hs-identifier hs-var hs-var">newStartTableDataImportJob</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679181589"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181589"><span class="hs-identifier hs-var">pWorkbookId_</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679181588"><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679181588"><span class="hs-identifier hs-var">pDataSource_</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679181587"><span class="annot"><span class="annottext">ImportSourceDataFormat
+</span><a href="#local-6989586621679181587"><span class="hs-identifier hs-var">pDataFormat_</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679181586"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181586"><span class="hs-identifier hs-var">pDestinationTableId_</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679181585"><span class="annot"><span class="annottext">ImportOptions
+</span><a href="#local-6989586621679181585"><span class="hs-identifier hs-var">pImportOptions_</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679181584"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181584"><span class="hs-identifier hs-var">pClientRequestToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">StartTableDataImportJob' :: Text
+-&gt; ImportDataSource
+-&gt; ImportSourceDataFormat
+-&gt; Text
+-&gt; ImportOptions
+-&gt; Text
+-&gt; StartTableDataImportJob
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workbookId:StartTableDataImportJob' :: Text
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AworkbookId%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var">workbookId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181589"><span class="hs-identifier hs-var">pWorkbookId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSource:StartTableDataImportJob' :: ImportDataSource
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AdataSource%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679181588"><span class="hs-identifier hs-var">pDataSource_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataFormat:StartTableDataImportJob' :: ImportSourceDataFormat
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AdataFormat%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportSourceDataFormat
+</span><a href="#local-6989586621679181587"><span class="hs-identifier hs-var">pDataFormat_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationTableId:StartTableDataImportJob' :: Text
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AdestinationTableId%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var">destinationTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181586"><span class="hs-identifier hs-var">pDestinationTableId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">$sel:importOptions:StartTableDataImportJob' :: ImportOptions
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AimportOptions%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var">importOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportOptions
+</span><a href="#local-6989586621679181585"><span class="hs-identifier hs-var">pImportOptions_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartTableDataImportJob' :: Text
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AclientRequestToken%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181584"><span class="hs-identifier hs-var">pClientRequestToken_</span></a></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The ID of the workbook where the rows are being imported.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- If a workbook with the specified id could not be found, this API throws</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- ResourceNotFoundException.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_workbookId"><span class="hs-identifier hs-type">startTableDataImportJob_workbookId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-163"></span><span id="startTableDataImportJob_workbookId"><span class="annot"><span class="annottext">startTableDataImportJob_workbookId :: (Text -&gt; f Text)
+-&gt; StartTableDataImportJob -&gt; f StartTableDataImportJob
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_workbookId"><span class="hs-identifier hs-var hs-var">startTableDataImportJob_workbookId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTableDataImportJob -&gt; Text)
+-&gt; (StartTableDataImportJob -&gt; Text -&gt; StartTableDataImportJob)
+-&gt; Lens StartTableDataImportJob StartTableDataImportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181581"><span class="annot"><span class="annottext">Text
+workbookId :: Text
+$sel:workbookId:StartTableDataImportJob' :: StartTableDataImportJob -&gt; Text
+</span><a href="#local-6989586621679181581"><span class="hs-identifier hs-var hs-var">workbookId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181581"><span class="hs-identifier hs-var">workbookId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181580"><span class="annot"><span class="annottext">s :: StartTableDataImportJob
+</span><a href="#local-6989586621679181580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181579"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTableDataImportJob
+</span><a href="#local-6989586621679181580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workbookId:StartTableDataImportJob' :: Text
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AworkbookId%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var">workbookId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The source of the data that is being imported. The size of source must</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- be no larger than 100 MB. Source must have no more than 100,000 cells</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- and no more than 1,000 rows.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_dataSource"><span class="hs-identifier hs-type">startTableDataImportJob_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span><span>
+</span><span id="line-169"></span><span id="startTableDataImportJob_dataSource"><span class="annot"><span class="annottext">startTableDataImportJob_dataSource :: (ImportDataSource -&gt; f ImportDataSource)
+-&gt; StartTableDataImportJob -&gt; f StartTableDataImportJob
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_dataSource"><span class="hs-identifier hs-var hs-var">startTableDataImportJob_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTableDataImportJob -&gt; ImportDataSource)
+-&gt; (StartTableDataImportJob
+    -&gt; ImportDataSource -&gt; StartTableDataImportJob)
+-&gt; Lens
+     StartTableDataImportJob
+     StartTableDataImportJob
+     ImportDataSource
+     ImportDataSource
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181578"><span class="annot"><span class="annottext">ImportDataSource
+dataSource :: ImportDataSource
+$sel:dataSource:StartTableDataImportJob' :: StartTableDataImportJob -&gt; ImportDataSource
+</span><a href="#local-6989586621679181578"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679181578"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181577"><span class="annot"><span class="annottext">s :: StartTableDataImportJob
+</span><a href="#local-6989586621679181577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181576"><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679181576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTableDataImportJob
+</span><a href="#local-6989586621679181577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:StartTableDataImportJob' :: ImportDataSource
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AdataSource%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679181576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The format of the data that is being imported. Currently the only option</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- supported is \&quot;DELIMITED_TEXT\&quot;.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_dataFormat"><span class="hs-identifier hs-type">startTableDataImportJob_dataFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.ImportSourceDataFormat.html#ImportSourceDataFormat"><span class="hs-identifier hs-type">ImportSourceDataFormat</span></a></span><span>
+</span><span id="line-174"></span><span id="startTableDataImportJob_dataFormat"><span class="annot"><span class="annottext">startTableDataImportJob_dataFormat :: (ImportSourceDataFormat -&gt; f ImportSourceDataFormat)
+-&gt; StartTableDataImportJob -&gt; f StartTableDataImportJob
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_dataFormat"><span class="hs-identifier hs-var hs-var">startTableDataImportJob_dataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTableDataImportJob -&gt; ImportSourceDataFormat)
+-&gt; (StartTableDataImportJob
+    -&gt; ImportSourceDataFormat -&gt; StartTableDataImportJob)
+-&gt; Lens
+     StartTableDataImportJob
+     StartTableDataImportJob
+     ImportSourceDataFormat
+     ImportSourceDataFormat
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181575"><span class="annot"><span class="annottext">ImportSourceDataFormat
+dataFormat :: ImportSourceDataFormat
+$sel:dataFormat:StartTableDataImportJob' :: StartTableDataImportJob -&gt; ImportSourceDataFormat
+</span><a href="#local-6989586621679181575"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportSourceDataFormat
+</span><a href="#local-6989586621679181575"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181574"><span class="annot"><span class="annottext">s :: StartTableDataImportJob
+</span><a href="#local-6989586621679181574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181573"><span class="annot"><span class="annottext">ImportSourceDataFormat
+</span><a href="#local-6989586621679181573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTableDataImportJob
+</span><a href="#local-6989586621679181574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataFormat:StartTableDataImportJob' :: ImportSourceDataFormat
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AdataFormat%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportSourceDataFormat
+</span><a href="#local-6989586621679181573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The ID of the table where the rows are being imported.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- If a table with the specified id could not be found, this API throws</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- ResourceNotFoundException.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_destinationTableId"><span class="hs-identifier hs-type">startTableDataImportJob_destinationTableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-181"></span><span id="startTableDataImportJob_destinationTableId"><span class="annot"><span class="annottext">startTableDataImportJob_destinationTableId :: (Text -&gt; f Text)
+-&gt; StartTableDataImportJob -&gt; f StartTableDataImportJob
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_destinationTableId"><span class="hs-identifier hs-var hs-var">startTableDataImportJob_destinationTableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTableDataImportJob -&gt; Text)
+-&gt; (StartTableDataImportJob -&gt; Text -&gt; StartTableDataImportJob)
+-&gt; Lens StartTableDataImportJob StartTableDataImportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181572"><span class="annot"><span class="annottext">Text
+destinationTableId :: Text
+$sel:destinationTableId:StartTableDataImportJob' :: StartTableDataImportJob -&gt; Text
+</span><a href="#local-6989586621679181572"><span class="hs-identifier hs-var hs-var">destinationTableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181572"><span class="hs-identifier hs-var">destinationTableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181571"><span class="annot"><span class="annottext">s :: StartTableDataImportJob
+</span><a href="#local-6989586621679181571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181570"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTableDataImportJob
+</span><a href="#local-6989586621679181571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationTableId:StartTableDataImportJob' :: Text
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AdestinationTableId%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var">destinationTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The options for customizing this import request.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_importOptions"><span class="hs-identifier hs-type">startTableDataImportJob_importOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.ImportOptions.html#ImportOptions"><span class="hs-identifier hs-type">ImportOptions</span></a></span><span>
+</span><span id="line-185"></span><span id="startTableDataImportJob_importOptions"><span class="annot"><span class="annottext">startTableDataImportJob_importOptions :: (ImportOptions -&gt; f ImportOptions)
+-&gt; StartTableDataImportJob -&gt; f StartTableDataImportJob
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_importOptions"><span class="hs-identifier hs-var hs-var">startTableDataImportJob_importOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTableDataImportJob -&gt; ImportOptions)
+-&gt; (StartTableDataImportJob
+    -&gt; ImportOptions -&gt; StartTableDataImportJob)
+-&gt; Lens
+     StartTableDataImportJob
+     StartTableDataImportJob
+     ImportOptions
+     ImportOptions
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181569"><span class="annot"><span class="annottext">ImportOptions
+importOptions :: ImportOptions
+$sel:importOptions:StartTableDataImportJob' :: StartTableDataImportJob -&gt; ImportOptions
+</span><a href="#local-6989586621679181569"><span class="hs-identifier hs-var hs-var">importOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportOptions
+</span><a href="#local-6989586621679181569"><span class="hs-identifier hs-var">importOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181568"><span class="annot"><span class="annottext">s :: StartTableDataImportJob
+</span><a href="#local-6989586621679181568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181567"><span class="annot"><span class="annottext">ImportOptions
+</span><a href="#local-6989586621679181567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTableDataImportJob
+</span><a href="#local-6989586621679181568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importOptions:StartTableDataImportJob' :: ImportOptions
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AimportOptions%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var">importOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportOptions
+</span><a href="#local-6989586621679181567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The request token for performing the update action. Request tokens help</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- to identify duplicate requests. If a call times out or fails due to a</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- transient error like a failed network connection, you can retry the call</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- with the same request token. The service ensures that if the first call</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- using that request token is successfully performed, the second call will</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- not perform the action again.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Note that request tokens are valid only for a few minutes. You cannot</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- use request tokens to dedupe requests spanning hours or days.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_clientRequestToken"><span class="hs-identifier hs-type">startTableDataImportJob_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-197"></span><span id="startTableDataImportJob_clientRequestToken"><span class="annot"><span class="annottext">startTableDataImportJob_clientRequestToken :: (Text -&gt; f Text)
+-&gt; StartTableDataImportJob -&gt; f StartTableDataImportJob
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJob_clientRequestToken"><span class="hs-identifier hs-var hs-var">startTableDataImportJob_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTableDataImportJob -&gt; Text)
+-&gt; (StartTableDataImportJob -&gt; Text -&gt; StartTableDataImportJob)
+-&gt; Lens StartTableDataImportJob StartTableDataImportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181566"><span class="annot"><span class="annottext">Text
+clientRequestToken :: Text
+$sel:clientRequestToken:StartTableDataImportJob' :: StartTableDataImportJob -&gt; Text
+</span><a href="#local-6989586621679181566"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181566"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181565"><span class="annot"><span class="annottext">s :: StartTableDataImportJob
+</span><a href="#local-6989586621679181565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181564"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTableDataImportJob
+</span><a href="#local-6989586621679181565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartTableDataImportJob' :: Text
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AclientRequestToken%3AStartTableDataImportJob%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-201"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse"><span class="hs-identifier hs-type">StartTableDataImportJobResponse</span></a></span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679181560"><span class="annot"><span class="annottext">request :: StartTableDataImportJob -&gt; Request StartTableDataImportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; StartTableDataImportJob -&gt; Request StartTableDataImportJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.HoneyCode.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679181556"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartTableDataImportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartTableDataImportJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartTableDataImportJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartTableDataImportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartTableDataImportJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181553"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181553"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679181552"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181552"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679181551"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181551"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; Text
+-&gt; TableDataImportJobStatus
+-&gt; StartTableDataImportJobResponse
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse%27"><span class="hs-identifier hs-var">StartTableDataImportJobResponse'</span></a></span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; Text
+ -&gt; TableDataImportJobStatus
+ -&gt; StartTableDataImportJobResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text
+      -&gt; TableDataImportJobStatus -&gt; StartTableDataImportJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181553"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; TableDataImportJobStatus -&gt; StartTableDataImportJobResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (TableDataImportJobStatus -&gt; StartTableDataImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (TableDataImportJobStatus -&gt; StartTableDataImportJobResponse)
+-&gt; Either String TableDataImportJobStatus
+-&gt; Either String StartTableDataImportJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String TableDataImportJobStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181543"><span id="local-6989586621679181545"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span></span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679181536"><span class="annot"><span class="annottext">toHeaders :: StartTableDataImportJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartTableDataImportJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-221"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-222"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-223"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-224"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181526"><span id="local-6989586621679181528"><span id="local-6989586621679181530"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679181524"><span class="annot"><span class="annottext">toJSON :: StartTableDataImportJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181517"><span id="local-6989586621679181518"><span id="local-6989586621679181519"><span id="local-6989586621679181520"><span id="local-6989586621679181521"><span id="local-6989586621679181522"><span class="annot"><span class="annottext">Text
+ImportDataSource
+ImportSourceDataFormat
+ImportOptions
+clientRequestToken :: Text
+importOptions :: ImportOptions
+destinationTableId :: Text
+dataFormat :: ImportSourceDataFormat
+dataSource :: ImportDataSource
+workbookId :: Text
+$sel:clientRequestToken:StartTableDataImportJob' :: StartTableDataImportJob -&gt; Text
+$sel:importOptions:StartTableDataImportJob' :: StartTableDataImportJob -&gt; ImportOptions
+$sel:destinationTableId:StartTableDataImportJob' :: StartTableDataImportJob -&gt; Text
+$sel:dataFormat:StartTableDataImportJob' :: StartTableDataImportJob -&gt; ImportSourceDataFormat
+$sel:dataSource:StartTableDataImportJob' :: StartTableDataImportJob -&gt; ImportDataSource
+$sel:workbookId:StartTableDataImportJob' :: StartTableDataImportJob -&gt; Text
+</span><a href="#local-6989586621679181517"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-232"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ImportDataSource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679181521"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ImportSourceDataFormat -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ImportSourceDataFormat
+</span><a href="#local-6989586621679181520"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;importOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ImportOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ImportOptions
+</span><a href="#local-6989586621679181518"><span class="hs-identifier hs-var">importOptions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-236"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181517"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679181511"><span class="annot"><span class="annottext">toPath :: StartTableDataImportJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob%27"><span class="hs-identifier hs-type">StartTableDataImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181504"><span id="local-6989586621679181505"><span id="local-6989586621679181506"><span id="local-6989586621679181507"><span id="local-6989586621679181508"><span id="local-6989586621679181509"><span class="annot"><span class="annottext">Text
+ImportDataSource
+ImportSourceDataFormat
+ImportOptions
+clientRequestToken :: Text
+importOptions :: ImportOptions
+destinationTableId :: Text
+dataFormat :: ImportSourceDataFormat
+dataSource :: ImportDataSource
+workbookId :: Text
+$sel:clientRequestToken:StartTableDataImportJob' :: StartTableDataImportJob -&gt; Text
+$sel:importOptions:StartTableDataImportJob' :: StartTableDataImportJob -&gt; ImportOptions
+$sel:destinationTableId:StartTableDataImportJob' :: StartTableDataImportJob -&gt; Text
+$sel:dataFormat:StartTableDataImportJob' :: StartTableDataImportJob -&gt; ImportSourceDataFormat
+$sel:dataSource:StartTableDataImportJob' :: StartTableDataImportJob -&gt; ImportDataSource
+$sel:workbookId:StartTableDataImportJob' :: StartTableDataImportJob -&gt; Text
+</span><a href="#local-6989586621679181504"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/workbooks/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181509"><span class="hs-identifier hs-var">workbookId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/tables/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181506"><span class="hs-identifier hs-var">destinationTableId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/import&quot;</span></span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJob"><span class="hs-identifier hs-type">StartTableDataImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679181500"><span class="annot"><span class="annottext">toQuery :: StartTableDataImportJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartTableDataImportJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | /See:/ 'newStartTableDataImportJobResponse' smart constructor.</span><span>
+</span><span id="line-254"></span><span id="local-6989586621679181497"><span id="local-6989586621679181498"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTableDataImportJobResponse"><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse"><span class="hs-identifier hs-var">StartTableDataImportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTableDataImportJobResponse%27"><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse%27"><span class="hs-identifier hs-var">StartTableDataImportJobResponse'</span></a></span></span><span>
+</span><span id="line-255"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-256"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartTableDataImportJobResponse%27"><span class="annot"><span class="annottext">StartTableDataImportJobResponse -&gt; Int
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AhttpStatus%3AStartTableDataImportJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">-- | The id that is assigned to this import job. Future requests to find out</span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-comment">-- the status of this import job need to send this id in the appropriate</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-comment">-- parameter in the request.</span><span>
+</span><span id="line-260"></span><span>    </span><span id="%24sel%3AjobId%3AStartTableDataImportJobResponse%27"><span class="annot"><span class="annottext">StartTableDataImportJobResponse -&gt; Text
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AjobId%3AStartTableDataImportJobResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- | The status of the import job immediately after submitting the request.</span><span>
+</span><span id="line-262"></span><span>    </span><span id="%24sel%3AjobStatus%3AStartTableDataImportJobResponse%27"><span class="annot"><span class="annottext">StartTableDataImportJobResponse -&gt; TableDataImportJobStatus
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AjobStatus%3AStartTableDataImportJobResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus"><span class="hs-identifier hs-type">TableDataImportJobStatus</span></a></span><span>
+</span><span id="line-263"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181490"><span id="local-6989586621679181492"><span class="annot"><span class="annottext">StartTableDataImportJobResponse
+-&gt; StartTableDataImportJobResponse -&gt; Bool
+(StartTableDataImportJobResponse
+ -&gt; StartTableDataImportJobResponse -&gt; Bool)
+-&gt; (StartTableDataImportJobResponse
+    -&gt; StartTableDataImportJobResponse -&gt; Bool)
+-&gt; Eq StartTableDataImportJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartTableDataImportJobResponse
+-&gt; StartTableDataImportJobResponse -&gt; Bool
+$c/= :: StartTableDataImportJobResponse
+-&gt; StartTableDataImportJobResponse -&gt; Bool
+== :: StartTableDataImportJobResponse
+-&gt; StartTableDataImportJobResponse -&gt; Bool
+$c== :: StartTableDataImportJobResponse
+-&gt; StartTableDataImportJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181482"><span id="local-6989586621679181484"><span id="local-6989586621679181486"><span id="local-6989586621679181488"><span class="annot"><span class="annottext">ReadPrec [StartTableDataImportJobResponse]
+ReadPrec StartTableDataImportJobResponse
+Int -&gt; ReadS StartTableDataImportJobResponse
+ReadS [StartTableDataImportJobResponse]
+(Int -&gt; ReadS StartTableDataImportJobResponse)
+-&gt; ReadS [StartTableDataImportJobResponse]
+-&gt; ReadPrec StartTableDataImportJobResponse
+-&gt; ReadPrec [StartTableDataImportJobResponse]
+-&gt; Read StartTableDataImportJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartTableDataImportJobResponse]
+$creadListPrec :: ReadPrec [StartTableDataImportJobResponse]
+readPrec :: ReadPrec StartTableDataImportJobResponse
+$creadPrec :: ReadPrec StartTableDataImportJobResponse
+readList :: ReadS [StartTableDataImportJobResponse]
+$creadList :: ReadS [StartTableDataImportJobResponse]
+readsPrec :: Int -&gt; ReadS StartTableDataImportJobResponse
+$creadsPrec :: Int -&gt; ReadS StartTableDataImportJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181476"><span id="local-6989586621679181478"><span id="local-6989586621679181480"><span class="annot"><span class="annottext">Int -&gt; StartTableDataImportJobResponse -&gt; ShowS
+[StartTableDataImportJobResponse] -&gt; ShowS
+StartTableDataImportJobResponse -&gt; String
+(Int -&gt; StartTableDataImportJobResponse -&gt; ShowS)
+-&gt; (StartTableDataImportJobResponse -&gt; String)
+-&gt; ([StartTableDataImportJobResponse] -&gt; ShowS)
+-&gt; Show StartTableDataImportJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartTableDataImportJobResponse] -&gt; ShowS
+$cshowList :: [StartTableDataImportJobResponse] -&gt; ShowS
+show :: StartTableDataImportJobResponse -&gt; String
+$cshow :: StartTableDataImportJobResponse -&gt; String
+showsPrec :: Int -&gt; StartTableDataImportJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartTableDataImportJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartTableDataImportJobResponse
+ -&gt; Rep StartTableDataImportJobResponse x)
+-&gt; (forall x.
+    Rep StartTableDataImportJobResponse x
+    -&gt; StartTableDataImportJobResponse)
+-&gt; Generic StartTableDataImportJobResponse
+forall x.
+Rep StartTableDataImportJobResponse x
+-&gt; StartTableDataImportJobResponse
+forall x.
+StartTableDataImportJobResponse
+-&gt; Rep StartTableDataImportJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartTableDataImportJobResponse x
+-&gt; StartTableDataImportJobResponse
+$cfrom :: forall x.
+StartTableDataImportJobResponse
+-&gt; Rep StartTableDataImportJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- Create a value of 'StartTableDataImportJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- 'httpStatus', 'startTableDataImportJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- 'jobId', 'startTableDataImportJobResponse_jobId' - The id that is assigned to this import job. Future requests to find out</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- the status of this import job need to send this id in the appropriate</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- parameter in the request.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- 'jobStatus', 'startTableDataImportJobResponse_jobStatus' - The status of the import job immediately after submitting the request.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#newStartTableDataImportJobResponse"><span class="hs-identifier hs-type">newStartTableDataImportJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-282"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-283"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-284"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-285"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-286"></span><span>  </span><span class="hs-comment">-- | 'jobStatus'</span><span>
+</span><span id="line-287"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus"><span class="hs-identifier hs-type">TableDataImportJobStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-288"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse"><span class="hs-identifier hs-type">StartTableDataImportJobResponse</span></a></span><span>
+</span><span id="line-289"></span><span id="newStartTableDataImportJobResponse"><span class="annot"><span class="annottext">newStartTableDataImportJobResponse :: Int
+-&gt; Text
+-&gt; TableDataImportJobStatus
+-&gt; StartTableDataImportJobResponse
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#newStartTableDataImportJobResponse"><span class="hs-identifier hs-var hs-var">newStartTableDataImportJobResponse</span></a></span></span><span>
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621679181473"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181473"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-291"></span><span>  </span><span id="local-6989586621679181472"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181472"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span>
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679181471"><span class="annot"><span class="annottext">TableDataImportJobStatus
+</span><a href="#local-6989586621679181471"><span class="hs-identifier hs-var">pJobStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><span class="annottext">StartTableDataImportJobResponse' :: Int
+-&gt; Text
+-&gt; TableDataImportJobStatus
+-&gt; StartTableDataImportJobResponse
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse%27"><span class="hs-identifier hs-type">StartTableDataImportJobResponse'</span></a></span><span>
+</span><span id="line-294"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StartTableDataImportJobResponse' :: Int
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AhttpStatus%3AStartTableDataImportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181473"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobId:StartTableDataImportJobResponse' :: Text
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AjobId%3AStartTableDataImportJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181472"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobStatus:StartTableDataImportJobResponse' :: TableDataImportJobStatus
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AjobStatus%3AStartTableDataImportJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TableDataImportJobStatus
+</span><a href="#local-6989586621679181471"><span class="hs-identifier hs-var">pJobStatus_</span></a></span><span>
+</span><span id="line-298"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJobResponse_httpStatus"><span class="hs-identifier hs-type">startTableDataImportJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse"><span class="hs-identifier hs-type">StartTableDataImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-302"></span><span id="startTableDataImportJobResponse_httpStatus"><span class="annot"><span class="annottext">startTableDataImportJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartTableDataImportJobResponse
+-&gt; f StartTableDataImportJobResponse
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startTableDataImportJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTableDataImportJobResponse -&gt; Int)
+-&gt; (StartTableDataImportJobResponse
+    -&gt; Int -&gt; StartTableDataImportJobResponse)
+-&gt; Lens
+     StartTableDataImportJobResponse
+     StartTableDataImportJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse%27"><span class="hs-identifier hs-type">StartTableDataImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181470"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartTableDataImportJobResponse' :: StartTableDataImportJobResponse -&gt; Int
+</span><a href="#local-6989586621679181470"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181470"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181469"><span class="annot"><span class="annottext">s :: StartTableDataImportJobResponse
+</span><a href="#local-6989586621679181469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse%27"><span class="hs-identifier hs-type">StartTableDataImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181468"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTableDataImportJobResponse
+</span><a href="#local-6989586621679181469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartTableDataImportJobResponse' :: Int
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AhttpStatus%3AStartTableDataImportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse"><span class="hs-identifier hs-type">StartTableDataImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | The id that is assigned to this import job. Future requests to find out</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- the status of this import job need to send this id in the appropriate</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- parameter in the request.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJobResponse_jobId"><span class="hs-identifier hs-type">startTableDataImportJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse"><span class="hs-identifier hs-type">StartTableDataImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-308"></span><span id="startTableDataImportJobResponse_jobId"><span class="annot"><span class="annottext">startTableDataImportJobResponse_jobId :: (Text -&gt; f Text)
+-&gt; StartTableDataImportJobResponse
+-&gt; f StartTableDataImportJobResponse
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJobResponse_jobId"><span class="hs-identifier hs-var hs-var">startTableDataImportJobResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTableDataImportJobResponse -&gt; Text)
+-&gt; (StartTableDataImportJobResponse
+    -&gt; Text -&gt; StartTableDataImportJobResponse)
+-&gt; Lens
+     StartTableDataImportJobResponse
+     StartTableDataImportJobResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse%27"><span class="hs-identifier hs-type">StartTableDataImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181467"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:StartTableDataImportJobResponse' :: StartTableDataImportJobResponse -&gt; Text
+</span><a href="#local-6989586621679181467"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181467"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181466"><span class="annot"><span class="annottext">s :: StartTableDataImportJobResponse
+</span><a href="#local-6989586621679181466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse%27"><span class="hs-identifier hs-type">StartTableDataImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181465"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTableDataImportJobResponse
+</span><a href="#local-6989586621679181466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StartTableDataImportJobResponse' :: Text
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AjobId%3AStartTableDataImportJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse"><span class="hs-identifier hs-type">StartTableDataImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | The status of the import job immediately after submitting the request.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJobResponse_jobStatus"><span class="hs-identifier hs-type">startTableDataImportJobResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse"><span class="hs-identifier hs-type">StartTableDataImportJobResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.TableDataImportJobStatus.html#TableDataImportJobStatus"><span class="hs-identifier hs-type">TableDataImportJobStatus</span></a></span><span>
+</span><span id="line-312"></span><span id="startTableDataImportJobResponse_jobStatus"><span class="annot"><span class="annottext">startTableDataImportJobResponse_jobStatus :: (TableDataImportJobStatus -&gt; f TableDataImportJobStatus)
+-&gt; StartTableDataImportJobResponse
+-&gt; f StartTableDataImportJobResponse
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#startTableDataImportJobResponse_jobStatus"><span class="hs-identifier hs-var hs-var">startTableDataImportJobResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartTableDataImportJobResponse -&gt; TableDataImportJobStatus)
+-&gt; (StartTableDataImportJobResponse
+    -&gt; TableDataImportJobStatus -&gt; StartTableDataImportJobResponse)
+-&gt; Lens
+     StartTableDataImportJobResponse
+     StartTableDataImportJobResponse
+     TableDataImportJobStatus
+     TableDataImportJobStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse%27"><span class="hs-identifier hs-type">StartTableDataImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181464"><span class="annot"><span class="annottext">TableDataImportJobStatus
+jobStatus :: TableDataImportJobStatus
+$sel:jobStatus:StartTableDataImportJobResponse' :: StartTableDataImportJobResponse -&gt; TableDataImportJobStatus
+</span><a href="#local-6989586621679181464"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableDataImportJobStatus
+</span><a href="#local-6989586621679181464"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181463"><span class="annot"><span class="annottext">s :: StartTableDataImportJobResponse
+</span><a href="#local-6989586621679181463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse%27"><span class="hs-identifier hs-type">StartTableDataImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181462"><span class="annot"><span class="annottext">TableDataImportJobStatus
+</span><a href="#local-6989586621679181462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTableDataImportJobResponse
+</span><a href="#local-6989586621679181463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:StartTableDataImportJobResponse' :: TableDataImportJobStatus
+</span><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#%24sel%3AjobStatus%3AStartTableDataImportJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TableDataImportJobStatus
+</span><a href="#local-6989586621679181462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse"><span class="hs-identifier hs-type">StartTableDataImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621679181460"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.StartTableDataImportJob.html#StartTableDataImportJobResponse"><span class="hs-identifier hs-type">StartTableDataImportJobResponse</span></a></span></span><span>
+</span><span id="line-317"></span></pre></body></html>

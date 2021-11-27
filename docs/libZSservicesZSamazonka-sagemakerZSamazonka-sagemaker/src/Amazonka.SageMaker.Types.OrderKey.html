@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.OrderKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.OrderKey</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey"><span class="hs-identifier">OrderKey</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey_Ascending"><span class="hs-identifier">OrderKey_Ascending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey_Descending"><span class="hs-identifier">OrderKey_Descending</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680326579"><span id="local-6989586621680326580"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrderKey"><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey"><span class="hs-identifier hs-var">OrderKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrderKey%27"><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey%27"><span class="hs-identifier hs-var">OrderKey'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOrderKey"><span class="annot"><span class="annottext">OrderKey -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.OrderKey.html#fromOrderKey"><span class="hs-identifier hs-var hs-var">fromOrderKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680326571"><span id="local-6989586621680326573"><span id="local-6989586621680326575"><span class="annot"><span class="annottext">Int -&gt; OrderKey -&gt; ShowS
+[OrderKey] -&gt; ShowS
+OrderKey -&gt; String
+(Int -&gt; OrderKey -&gt; ShowS)
+-&gt; (OrderKey -&gt; String) -&gt; ([OrderKey] -&gt; ShowS) -&gt; Show OrderKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OrderKey] -&gt; ShowS
+$cshowList :: [OrderKey] -&gt; ShowS
+show :: OrderKey -&gt; String
+$cshow :: OrderKey -&gt; String
+showsPrec :: Int -&gt; OrderKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; OrderKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680326562"><span id="local-6989586621680326564"><span id="local-6989586621680326566"><span id="local-6989586621680326568"><span class="annot"><span class="annottext">ReadPrec [OrderKey]
+ReadPrec OrderKey
+Int -&gt; ReadS OrderKey
+ReadS [OrderKey]
+(Int -&gt; ReadS OrderKey)
+-&gt; ReadS [OrderKey]
+-&gt; ReadPrec OrderKey
+-&gt; ReadPrec [OrderKey]
+-&gt; Read OrderKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OrderKey]
+$creadListPrec :: ReadPrec [OrderKey]
+readPrec :: ReadPrec OrderKey
+$creadPrec :: ReadPrec OrderKey
+readList :: ReadS [OrderKey]
+$creadList :: ReadS [OrderKey]
+readsPrec :: Int -&gt; ReadS OrderKey
+$creadsPrec :: Int -&gt; ReadS OrderKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680326557"><span id="local-6989586621680326559"><span class="annot"><span class="annottext">OrderKey -&gt; OrderKey -&gt; Bool
+(OrderKey -&gt; OrderKey -&gt; Bool)
+-&gt; (OrderKey -&gt; OrderKey -&gt; Bool) -&gt; Eq OrderKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OrderKey -&gt; OrderKey -&gt; Bool
+$c/= :: OrderKey -&gt; OrderKey -&gt; Bool
+== :: OrderKey -&gt; OrderKey -&gt; Bool
+$c== :: OrderKey -&gt; OrderKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680326541"><span id="local-6989586621680326543"><span id="local-6989586621680326545"><span id="local-6989586621680326547"><span id="local-6989586621680326549"><span id="local-6989586621680326551"><span id="local-6989586621680326553"><span class="annot"><span class="annottext">Eq OrderKey
+Eq OrderKey
+-&gt; (OrderKey -&gt; OrderKey -&gt; Ordering)
+-&gt; (OrderKey -&gt; OrderKey -&gt; Bool)
+-&gt; (OrderKey -&gt; OrderKey -&gt; Bool)
+-&gt; (OrderKey -&gt; OrderKey -&gt; Bool)
+-&gt; (OrderKey -&gt; OrderKey -&gt; Bool)
+-&gt; (OrderKey -&gt; OrderKey -&gt; OrderKey)
+-&gt; (OrderKey -&gt; OrderKey -&gt; OrderKey)
+-&gt; Ord OrderKey
+OrderKey -&gt; OrderKey -&gt; Bool
+OrderKey -&gt; OrderKey -&gt; Ordering
+OrderKey -&gt; OrderKey -&gt; OrderKey
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OrderKey -&gt; OrderKey -&gt; OrderKey
+$cmin :: OrderKey -&gt; OrderKey -&gt; OrderKey
+max :: OrderKey -&gt; OrderKey -&gt; OrderKey
+$cmax :: OrderKey -&gt; OrderKey -&gt; OrderKey
+&gt;= :: OrderKey -&gt; OrderKey -&gt; Bool
+$c&gt;= :: OrderKey -&gt; OrderKey -&gt; Bool
+&gt; :: OrderKey -&gt; OrderKey -&gt; Bool
+$c&gt; :: OrderKey -&gt; OrderKey -&gt; Bool
+&lt;= :: OrderKey -&gt; OrderKey -&gt; Bool
+$c&lt;= :: OrderKey -&gt; OrderKey -&gt; Bool
+&lt; :: OrderKey -&gt; OrderKey -&gt; Bool
+$c&lt; :: OrderKey -&gt; OrderKey -&gt; Bool
+compare :: OrderKey -&gt; OrderKey -&gt; Ordering
+$ccompare :: OrderKey -&gt; OrderKey -&gt; Ordering
+$cp1Ord :: Eq OrderKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OrderKey -&gt; Rep OrderKey x)
+-&gt; (forall x. Rep OrderKey x -&gt; OrderKey) -&gt; Generic OrderKey
+forall x. Rep OrderKey x -&gt; OrderKey
+forall x. OrderKey -&gt; Rep OrderKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OrderKey x -&gt; OrderKey
+$cfrom :: forall x. OrderKey -&gt; Rep OrderKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680326533"><span id="local-6989586621680326535"><span class="annot"><span class="annottext">Int -&gt; OrderKey -&gt; Int
+OrderKey -&gt; Int
+(Int -&gt; OrderKey -&gt; Int) -&gt; (OrderKey -&gt; Int) -&gt; Hashable OrderKey
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OrderKey -&gt; Int
+$chash :: OrderKey -&gt; Int
+hashWithSalt :: Int -&gt; OrderKey -&gt; Int
+$chashWithSalt :: Int -&gt; OrderKey -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680326530"><span class="annot"><span class="annottext">OrderKey -&gt; ()
+(OrderKey -&gt; ()) -&gt; NFData OrderKey
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OrderKey -&gt; ()
+$crnf :: OrderKey -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680326527"><span class="annot"><span class="annottext">Text -&gt; Either String OrderKey
+(Text -&gt; Either String OrderKey) -&gt; FromText OrderKey
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OrderKey
+$cfromText :: Text -&gt; Either String OrderKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680326524"><span class="annot"><span class="annottext">OrderKey -&gt; Text
+(OrderKey -&gt; Text) -&gt; ToText OrderKey
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OrderKey -&gt; Text
+$ctoText :: OrderKey -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680326521"><span class="annot"><span class="annottext">OrderKey -&gt; ByteString
+(OrderKey -&gt; ByteString) -&gt; ToByteString OrderKey
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OrderKey -&gt; ByteString
+$ctoBS :: OrderKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680326518"><span class="annot"><span class="annottext">OrderKey -&gt; ByteStringBuilder
+(OrderKey -&gt; ByteStringBuilder) -&gt; ToLog OrderKey
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OrderKey -&gt; ByteStringBuilder
+$cbuild :: OrderKey -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680326515"><span class="annot"><span class="annottext">HeaderName -&gt; OrderKey -&gt; [Header]
+(HeaderName -&gt; OrderKey -&gt; [Header]) -&gt; ToHeader OrderKey
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OrderKey -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OrderKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680326512"><span class="annot"><span class="annottext">OrderKey -&gt; QueryString
+(OrderKey -&gt; QueryString) -&gt; ToQuery OrderKey
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OrderKey -&gt; QueryString
+$ctoQuery :: OrderKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680326507"><span id="local-6989586621680326509"><span class="annot"><span class="annottext">Value -&gt; Parser [OrderKey]
+Value -&gt; Parser OrderKey
+(Value -&gt; Parser OrderKey)
+-&gt; (Value -&gt; Parser [OrderKey]) -&gt; FromJSON OrderKey
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OrderKey]
+$cparseJSONList :: Value -&gt; Parser [OrderKey]
+parseJSON :: Value -&gt; Parser OrderKey
+$cparseJSON :: Value -&gt; Parser OrderKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680326502"><span id="local-6989586621680326504"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrderKey]
+FromJSONKeyFunction OrderKey
+FromJSONKeyFunction OrderKey
+-&gt; FromJSONKeyFunction [OrderKey] -&gt; FromJSONKey OrderKey
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OrderKey]
+$cfromJSONKeyList :: FromJSONKeyFunction [OrderKey]
+fromJSONKey :: FromJSONKeyFunction OrderKey
+$cfromJSONKey :: FromJSONKeyFunction OrderKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680326493"><span id="local-6989586621680326495"><span id="local-6989586621680326497"><span id="local-6989586621680326499"><span class="annot"><span class="annottext">[OrderKey] -&gt; Encoding
+[OrderKey] -&gt; Value
+OrderKey -&gt; Encoding
+OrderKey -&gt; Value
+(OrderKey -&gt; Value)
+-&gt; (OrderKey -&gt; Encoding)
+-&gt; ([OrderKey] -&gt; Value)
+-&gt; ([OrderKey] -&gt; Encoding)
+-&gt; ToJSON OrderKey
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OrderKey] -&gt; Encoding
+$ctoEncodingList :: [OrderKey] -&gt; Encoding
+toJSONList :: [OrderKey] -&gt; Value
+$ctoJSONList :: [OrderKey] -&gt; Value
+toEncoding :: OrderKey -&gt; Encoding
+$ctoEncoding :: OrderKey -&gt; Encoding
+toJSON :: OrderKey -&gt; Value
+$ctoJSON :: OrderKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680326488"><span id="local-6989586621680326490"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrderKey]
+ToJSONKeyFunction OrderKey
+ToJSONKeyFunction OrderKey
+-&gt; ToJSONKeyFunction [OrderKey] -&gt; ToJSONKey OrderKey
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OrderKey]
+$ctoJSONKeyList :: ToJSONKeyFunction [OrderKey]
+toJSONKey :: ToJSONKeyFunction OrderKey
+$ctoJSONKey :: ToJSONKeyFunction OrderKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680326485"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrderKey
+([Node] -&gt; Either String OrderKey) -&gt; FromXML OrderKey
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OrderKey
+$cparseXML :: [Node] -&gt; Either String OrderKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680326482"><span class="annot"><span class="annottext">OrderKey -&gt; XML
+(OrderKey -&gt; XML) -&gt; ToXML OrderKey
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OrderKey -&gt; XML
+$ctoXML :: OrderKey -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey_Ascending"><span class="hs-identifier hs-type">OrderKey_Ascending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey"><span class="hs-identifier hs-type">OrderKey</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOrderKey_Ascending"><span id="%24mOrderKey_Ascending"><span id="OrderKey_Ascending"><span class="annot"><span class="annottext">$bOrderKey_Ascending :: OrderKey
+$mOrderKey_Ascending :: forall r. OrderKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.OrderKey.html#%24bOrderKey_Ascending"><span class="hs-identifier hs-var hs-var hs-var">OrderKey_Ascending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey%27"><span class="hs-identifier hs-type">OrderKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Ascending&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey_Descending"><span class="hs-identifier hs-type">OrderKey_Descending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey"><span class="hs-identifier hs-type">OrderKey</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOrderKey_Descending"><span id="%24mOrderKey_Descending"><span id="OrderKey_Descending"><span class="annot"><span class="annottext">$bOrderKey_Descending :: OrderKey
+$mOrderKey_Descending :: forall r. OrderKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.OrderKey.html#%24bOrderKey_Descending"><span class="hs-identifier hs-var hs-var hs-var">OrderKey_Descending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey%27"><span class="hs-identifier hs-type">OrderKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Descending&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey_Ascending"><span class="hs-pragma hs-type">OrderKey_Ascending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey_Descending"><span class="hs-pragma hs-type">OrderKey_Descending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.OrderKey.html#OrderKey%27"><span class="hs-pragma hs-type">OrderKey'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

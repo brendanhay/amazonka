@@ -1,0 +1,564 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.CreateCodeRepository</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a Git repository as a resource in your Amazon SageMaker account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- You can associate the repository with notebook instances so that you can</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- use Git source control for the notebooks you create. The Git repository</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- is a resource in your Amazon SageMaker account, so it can be associated</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- with more than one notebook instance, and it persists independently from</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- the lifecycle of any notebook instances it is associated with.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- The repository can be hosted either in</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- or in any other Git repository.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.CreateCodeRepository</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier">CreateCodeRepository</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#newCreateCodeRepository"><span class="hs-identifier">newCreateCodeRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepository_tags"><span class="hs-identifier">createCodeRepository_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepository_codeRepositoryName"><span class="hs-identifier">createCodeRepository_codeRepositoryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepository_gitConfig"><span class="hs-identifier">createCodeRepository_gitConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse"><span class="hs-identifier">CreateCodeRepositoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#newCreateCodeRepositoryResponse"><span class="hs-identifier">newCreateCodeRepositoryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepositoryResponse_httpStatus"><span class="hs-identifier">createCodeRepositoryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepositoryResponse_codeRepositoryArn"><span class="hs-identifier">createCodeRepositoryResponse_codeRepositoryArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newCreateCodeRepository' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621680422255"><span id="local-6989586621680422256"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCodeRepository"><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-var">CreateCodeRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCodeRepository%27"><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository%27"><span class="hs-identifier hs-var">CreateCodeRepository'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Atags%3ACreateCodeRepository%27"><span class="annot"><span class="annottext">CreateCodeRepository -&gt; Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3Atags%3ACreateCodeRepository%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of the Git repository. The name must have 1 to 63 characters.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Valid characters are a-z, A-Z, 0-9, and - (hyphen).</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AcodeRepositoryName%3ACreateCodeRepository%27"><span class="annot"><span class="annottext">CreateCodeRepository -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3AcodeRepositoryName%3ACreateCodeRepository%27"><span class="hs-identifier hs-var hs-var">codeRepositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Specifies details about the repository, including the URL where the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- repository is located, the default branch, and credentials to use to</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- access the repository.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AgitConfig%3ACreateCodeRepository%27"><span class="annot"><span class="annottext">CreateCodeRepository -&gt; GitConfig
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3AgitConfig%3ACreateCodeRepository%27"><span class="hs-identifier hs-var hs-var">gitConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.GitConfig.html#GitConfig"><span class="hs-identifier hs-type">GitConfig</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680422247"><span id="local-6989586621680422249"><span class="annot"><span class="annottext">CreateCodeRepository -&gt; CreateCodeRepository -&gt; Bool
+(CreateCodeRepository -&gt; CreateCodeRepository -&gt; Bool)
+-&gt; (CreateCodeRepository -&gt; CreateCodeRepository -&gt; Bool)
+-&gt; Eq CreateCodeRepository
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCodeRepository -&gt; CreateCodeRepository -&gt; Bool
+$c/= :: CreateCodeRepository -&gt; CreateCodeRepository -&gt; Bool
+== :: CreateCodeRepository -&gt; CreateCodeRepository -&gt; Bool
+$c== :: CreateCodeRepository -&gt; CreateCodeRepository -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680422238"><span id="local-6989586621680422240"><span id="local-6989586621680422242"><span id="local-6989586621680422244"><span class="annot"><span class="annottext">ReadPrec [CreateCodeRepository]
+ReadPrec CreateCodeRepository
+Int -&gt; ReadS CreateCodeRepository
+ReadS [CreateCodeRepository]
+(Int -&gt; ReadS CreateCodeRepository)
+-&gt; ReadS [CreateCodeRepository]
+-&gt; ReadPrec CreateCodeRepository
+-&gt; ReadPrec [CreateCodeRepository]
+-&gt; Read CreateCodeRepository
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCodeRepository]
+$creadListPrec :: ReadPrec [CreateCodeRepository]
+readPrec :: ReadPrec CreateCodeRepository
+$creadPrec :: ReadPrec CreateCodeRepository
+readList :: ReadS [CreateCodeRepository]
+$creadList :: ReadS [CreateCodeRepository]
+readsPrec :: Int -&gt; ReadS CreateCodeRepository
+$creadsPrec :: Int -&gt; ReadS CreateCodeRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680422231"><span id="local-6989586621680422233"><span id="local-6989586621680422235"><span class="annot"><span class="annottext">Int -&gt; CreateCodeRepository -&gt; ShowS
+[CreateCodeRepository] -&gt; ShowS
+CreateCodeRepository -&gt; String
+(Int -&gt; CreateCodeRepository -&gt; ShowS)
+-&gt; (CreateCodeRepository -&gt; String)
+-&gt; ([CreateCodeRepository] -&gt; ShowS)
+-&gt; Show CreateCodeRepository
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCodeRepository] -&gt; ShowS
+$cshowList :: [CreateCodeRepository] -&gt; ShowS
+show :: CreateCodeRepository -&gt; String
+$cshow :: CreateCodeRepository -&gt; String
+showsPrec :: Int -&gt; CreateCodeRepository -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCodeRepository -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateCodeRepository -&gt; Rep CreateCodeRepository x)
+-&gt; (forall x. Rep CreateCodeRepository x -&gt; CreateCodeRepository)
+-&gt; Generic CreateCodeRepository
+forall x. Rep CreateCodeRepository x -&gt; CreateCodeRepository
+forall x. CreateCodeRepository -&gt; Rep CreateCodeRepository x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateCodeRepository x -&gt; CreateCodeRepository
+$cfrom :: forall x. CreateCodeRepository -&gt; Rep CreateCodeRepository x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'CreateCodeRepository' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'tags', 'createCodeRepository_tags' - An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'codeRepositoryName', 'createCodeRepository_codeRepositoryName' - The name of the Git repository. The name must have 1 to 63 characters.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Valid characters are a-z, A-Z, 0-9, and - (hyphen).</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'gitConfig', 'createCodeRepository_gitConfig' - Specifies details about the repository, including the URL where the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- repository is located, the default branch, and credentials to use to</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- access the repository.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#newCreateCodeRepository"><span class="hs-identifier hs-type">newCreateCodeRepository</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'codeRepositoryName'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'gitConfig'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.GitConfig.html#GitConfig"><span class="hs-identifier hs-type">GitConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span><span>
+</span><span id="line-102"></span><span id="newCreateCodeRepository"><span class="annot"><span class="annottext">newCreateCodeRepository :: Text -&gt; GitConfig -&gt; CreateCodeRepository
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#newCreateCodeRepository"><span class="hs-identifier hs-var hs-var">newCreateCodeRepository</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621680422226"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422226"><span class="hs-identifier hs-var">pCodeRepositoryName_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621680422225"><span class="annot"><span class="annottext">GitConfig
+</span><a href="#local-6989586621680422225"><span class="hs-identifier hs-var">pGitConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">CreateCodeRepository' :: Maybe [Tag] -&gt; Text -&gt; GitConfig -&gt; CreateCodeRepository
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository%27"><span class="hs-identifier hs-type">CreateCodeRepository'</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateCodeRepository' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3Atags%3ACreateCodeRepository%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:codeRepositoryName:CreateCodeRepository' :: Text
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3AcodeRepositoryName%3ACreateCodeRepository%27"><span class="hs-identifier hs-var">codeRepositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422226"><span class="hs-identifier hs-var">pCodeRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:gitConfig:CreateCodeRepository' :: GitConfig
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3AgitConfig%3ACreateCodeRepository%27"><span class="hs-identifier hs-var">gitConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GitConfig
+</span><a href="#local-6989586621680422225"><span class="hs-identifier hs-var">pGitConfig_</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepository_tags"><span class="hs-identifier hs-type">createCodeRepository_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="createCodeRepository_tags"><span class="annot"><span class="annottext">createCodeRepository_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateCodeRepository -&gt; f CreateCodeRepository
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepository_tags"><span class="hs-identifier hs-var hs-var">createCodeRepository_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCodeRepository -&gt; Maybe [Tag])
+-&gt; (CreateCodeRepository -&gt; Maybe [Tag] -&gt; CreateCodeRepository)
+-&gt; Lens
+     CreateCodeRepository
+     CreateCodeRepository
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository%27"><span class="hs-identifier hs-type">CreateCodeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422222"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateCodeRepository' :: CreateCodeRepository -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680422222"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680422222"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422221"><span class="annot"><span class="annottext">s :: CreateCodeRepository
+</span><a href="#local-6989586621680422221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository%27"><span class="hs-identifier hs-type">CreateCodeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422220"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680422220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCodeRepository
+</span><a href="#local-6989586621680422221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateCodeRepository' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3Atags%3ACreateCodeRepository%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680422220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateCodeRepository -&gt; f CreateCodeRepository)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateCodeRepository
+-&gt; f CreateCodeRepository
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The name of the Git repository. The name must have 1 to 63 characters.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Valid characters are a-z, A-Z, 0-9, and - (hyphen).</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepository_codeRepositoryName"><span class="hs-identifier hs-type">createCodeRepository_codeRepositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span id="createCodeRepository_codeRepositoryName"><span class="annot"><span class="annottext">createCodeRepository_codeRepositoryName :: (Text -&gt; f Text) -&gt; CreateCodeRepository -&gt; f CreateCodeRepository
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepository_codeRepositoryName"><span class="hs-identifier hs-var hs-var">createCodeRepository_codeRepositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCodeRepository -&gt; Text)
+-&gt; (CreateCodeRepository -&gt; Text -&gt; CreateCodeRepository)
+-&gt; Lens CreateCodeRepository CreateCodeRepository Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository%27"><span class="hs-identifier hs-type">CreateCodeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422216"><span class="annot"><span class="annottext">Text
+codeRepositoryName :: Text
+$sel:codeRepositoryName:CreateCodeRepository' :: CreateCodeRepository -&gt; Text
+</span><a href="#local-6989586621680422216"><span class="hs-identifier hs-var hs-var">codeRepositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422216"><span class="hs-identifier hs-var">codeRepositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422215"><span class="annot"><span class="annottext">s :: CreateCodeRepository
+</span><a href="#local-6989586621680422215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository%27"><span class="hs-identifier hs-type">CreateCodeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422214"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCodeRepository
+</span><a href="#local-6989586621680422215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeRepositoryName:CreateCodeRepository' :: Text
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3AcodeRepositoryName%3ACreateCodeRepository%27"><span class="hs-identifier hs-var">codeRepositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Specifies details about the repository, including the URL where the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- repository is located, the default branch, and credentials to use to</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- access the repository.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepository_gitConfig"><span class="hs-identifier hs-type">createCodeRepository_gitConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.GitConfig.html#GitConfig"><span class="hs-identifier hs-type">GitConfig</span></a></span><span>
+</span><span id="line-127"></span><span id="createCodeRepository_gitConfig"><span class="annot"><span class="annottext">createCodeRepository_gitConfig :: (GitConfig -&gt; f GitConfig)
+-&gt; CreateCodeRepository -&gt; f CreateCodeRepository
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepository_gitConfig"><span class="hs-identifier hs-var hs-var">createCodeRepository_gitConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCodeRepository -&gt; GitConfig)
+-&gt; (CreateCodeRepository -&gt; GitConfig -&gt; CreateCodeRepository)
+-&gt; Lens
+     CreateCodeRepository CreateCodeRepository GitConfig GitConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository%27"><span class="hs-identifier hs-type">CreateCodeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422213"><span class="annot"><span class="annottext">GitConfig
+gitConfig :: GitConfig
+$sel:gitConfig:CreateCodeRepository' :: CreateCodeRepository -&gt; GitConfig
+</span><a href="#local-6989586621680422213"><span class="hs-identifier hs-var hs-var">gitConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitConfig
+</span><a href="#local-6989586621680422213"><span class="hs-identifier hs-var">gitConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422212"><span class="annot"><span class="annottext">s :: CreateCodeRepository
+</span><a href="#local-6989586621680422212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository%27"><span class="hs-identifier hs-type">CreateCodeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422211"><span class="annot"><span class="annottext">GitConfig
+</span><a href="#local-6989586621680422211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCodeRepository
+</span><a href="#local-6989586621680422212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gitConfig:CreateCodeRepository' :: GitConfig
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3AgitConfig%3ACreateCodeRepository%27"><span class="hs-identifier hs-var">gitConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GitConfig
+</span><a href="#local-6989586621680422211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse"><span class="hs-identifier hs-type">CreateCodeRepositoryResponse</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621680422207"><span class="annot"><span class="annottext">request :: CreateCodeRepository -&gt; Request CreateCodeRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateCodeRepository -&gt; Request CreateCodeRepository
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621680422203"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateCodeRepository
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateCodeRepository)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateCodeRepository))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateCodeRepository
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateCodeRepository)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680422200"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422200"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680422199"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680422199"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680422198"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680422198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateCodeRepositoryResponse
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse%27"><span class="hs-identifier hs-var">CreateCodeRepositoryResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateCodeRepositoryResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateCodeRepositoryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422200"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateCodeRepositoryResponse)
+-&gt; Either String Text -&gt; Either String CreateCodeRepositoryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680422198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CodeRepositoryArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680422190"><span id="local-6989586621680422192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680422187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621680422183"><span class="annot"><span class="annottext">toHeaders :: CreateCodeRepository -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateCodeRepository -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.CreateCodeRepository&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-157"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680422173"><span id="local-6989586621680422175"><span id="local-6989586621680422177"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621680422171"><span class="annot"><span class="annottext">toJSON :: CreateCodeRepository -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository%27"><span class="hs-identifier hs-type">CreateCodeRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422167"><span id="local-6989586621680422168"><span id="local-6989586621680422169"><span class="annot"><span class="annottext">Maybe [Tag]
+Text
+GitConfig
+gitConfig :: GitConfig
+codeRepositoryName :: Text
+tags :: Maybe [Tag]
+$sel:gitConfig:CreateCodeRepository' :: CreateCodeRepository -&gt; GitConfig
+$sel:codeRepositoryName:CreateCodeRepository' :: CreateCodeRepository -&gt; Text
+$sel:tags:CreateCodeRepository' :: CreateCodeRepository -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680422167"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680422169"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-167"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CodeRepositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422168"><span class="hs-identifier hs-var">codeRepositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GitConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GitConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">GitConfig
+</span><a href="#local-6989586621680422167"><span class="hs-identifier hs-var">gitConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621680422161"><span class="annot"><span class="annottext">toPath :: CreateCodeRepository -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateCodeRepository -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepository"><span class="hs-identifier hs-type">CreateCodeRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621680422157"><span class="annot"><span class="annottext">toQuery :: CreateCodeRepository -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateCodeRepository -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | /See:/ 'newCreateCodeRepositoryResponse' smart constructor.</span><span>
+</span><span id="line-179"></span><span id="local-6989586621680422154"><span id="local-6989586621680422155"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCodeRepositoryResponse"><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse"><span class="hs-identifier hs-var">CreateCodeRepositoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCodeRepositoryResponse%27"><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse%27"><span class="hs-identifier hs-var">CreateCodeRepositoryResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateCodeRepositoryResponse%27"><span class="annot"><span class="annottext">CreateCodeRepositoryResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3AhttpStatus%3ACreateCodeRepositoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the new repository.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AcodeRepositoryArn%3ACreateCodeRepositoryResponse%27"><span class="annot"><span class="annottext">CreateCodeRepositoryResponse -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3AcodeRepositoryArn%3ACreateCodeRepositoryResponse%27"><span class="hs-identifier hs-var hs-var">codeRepositoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680422148"><span id="local-6989586621680422150"><span class="annot"><span class="annottext">CreateCodeRepositoryResponse
+-&gt; CreateCodeRepositoryResponse -&gt; Bool
+(CreateCodeRepositoryResponse
+ -&gt; CreateCodeRepositoryResponse -&gt; Bool)
+-&gt; (CreateCodeRepositoryResponse
+    -&gt; CreateCodeRepositoryResponse -&gt; Bool)
+-&gt; Eq CreateCodeRepositoryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCodeRepositoryResponse
+-&gt; CreateCodeRepositoryResponse -&gt; Bool
+$c/= :: CreateCodeRepositoryResponse
+-&gt; CreateCodeRepositoryResponse -&gt; Bool
+== :: CreateCodeRepositoryResponse
+-&gt; CreateCodeRepositoryResponse -&gt; Bool
+$c== :: CreateCodeRepositoryResponse
+-&gt; CreateCodeRepositoryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680422140"><span id="local-6989586621680422142"><span id="local-6989586621680422144"><span id="local-6989586621680422146"><span class="annot"><span class="annottext">ReadPrec [CreateCodeRepositoryResponse]
+ReadPrec CreateCodeRepositoryResponse
+Int -&gt; ReadS CreateCodeRepositoryResponse
+ReadS [CreateCodeRepositoryResponse]
+(Int -&gt; ReadS CreateCodeRepositoryResponse)
+-&gt; ReadS [CreateCodeRepositoryResponse]
+-&gt; ReadPrec CreateCodeRepositoryResponse
+-&gt; ReadPrec [CreateCodeRepositoryResponse]
+-&gt; Read CreateCodeRepositoryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCodeRepositoryResponse]
+$creadListPrec :: ReadPrec [CreateCodeRepositoryResponse]
+readPrec :: ReadPrec CreateCodeRepositoryResponse
+$creadPrec :: ReadPrec CreateCodeRepositoryResponse
+readList :: ReadS [CreateCodeRepositoryResponse]
+$creadList :: ReadS [CreateCodeRepositoryResponse]
+readsPrec :: Int -&gt; ReadS CreateCodeRepositoryResponse
+$creadsPrec :: Int -&gt; ReadS CreateCodeRepositoryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680422134"><span id="local-6989586621680422136"><span id="local-6989586621680422138"><span class="annot"><span class="annottext">Int -&gt; CreateCodeRepositoryResponse -&gt; ShowS
+[CreateCodeRepositoryResponse] -&gt; ShowS
+CreateCodeRepositoryResponse -&gt; String
+(Int -&gt; CreateCodeRepositoryResponse -&gt; ShowS)
+-&gt; (CreateCodeRepositoryResponse -&gt; String)
+-&gt; ([CreateCodeRepositoryResponse] -&gt; ShowS)
+-&gt; Show CreateCodeRepositoryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCodeRepositoryResponse] -&gt; ShowS
+$cshowList :: [CreateCodeRepositoryResponse] -&gt; ShowS
+show :: CreateCodeRepositoryResponse -&gt; String
+$cshow :: CreateCodeRepositoryResponse -&gt; String
+showsPrec :: Int -&gt; CreateCodeRepositoryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCodeRepositoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateCodeRepositoryResponse -&gt; Rep CreateCodeRepositoryResponse x)
+-&gt; (forall x.
+    Rep CreateCodeRepositoryResponse x -&gt; CreateCodeRepositoryResponse)
+-&gt; Generic CreateCodeRepositoryResponse
+forall x.
+Rep CreateCodeRepositoryResponse x -&gt; CreateCodeRepositoryResponse
+forall x.
+CreateCodeRepositoryResponse -&gt; Rep CreateCodeRepositoryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateCodeRepositoryResponse x -&gt; CreateCodeRepositoryResponse
+$cfrom :: forall x.
+CreateCodeRepositoryResponse -&gt; Rep CreateCodeRepositoryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Create a value of 'CreateCodeRepositoryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'createCodeRepositoryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'codeRepositoryArn', 'createCodeRepositoryResponse_codeRepositoryArn' - The Amazon Resource Name (ARN) of the new repository.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#newCreateCodeRepositoryResponse"><span class="hs-identifier hs-type">newCreateCodeRepositoryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-comment">-- | 'codeRepositoryArn'</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse"><span class="hs-identifier hs-type">CreateCodeRepositoryResponse</span></a></span><span>
+</span><span id="line-204"></span><span id="newCreateCodeRepositoryResponse"><span class="annot"><span class="annottext">newCreateCodeRepositoryResponse :: Int -&gt; Text -&gt; CreateCodeRepositoryResponse
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#newCreateCodeRepositoryResponse"><span class="hs-identifier hs-var hs-var">newCreateCodeRepositoryResponse</span></a></span></span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621680422131"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422131"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621680422130"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422130"><span class="hs-identifier hs-var">pCodeRepositoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">CreateCodeRepositoryResponse' :: Int -&gt; Text -&gt; CreateCodeRepositoryResponse
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse%27"><span class="hs-identifier hs-type">CreateCodeRepositoryResponse'</span></a></span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCodeRepositoryResponse' :: Int
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3AhttpStatus%3ACreateCodeRepositoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422131"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">$sel:codeRepositoryArn:CreateCodeRepositoryResponse' :: Text
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3AcodeRepositoryArn%3ACreateCodeRepositoryResponse%27"><span class="hs-identifier hs-var">codeRepositoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422130"><span class="hs-identifier hs-var">pCodeRepositoryArn_</span></a></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepositoryResponse_httpStatus"><span class="hs-identifier hs-type">createCodeRepositoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse"><span class="hs-identifier hs-type">CreateCodeRepositoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-215"></span><span id="createCodeRepositoryResponse_httpStatus"><span class="annot"><span class="annottext">createCodeRepositoryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateCodeRepositoryResponse -&gt; f CreateCodeRepositoryResponse
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepositoryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createCodeRepositoryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCodeRepositoryResponse -&gt; Int)
+-&gt; (CreateCodeRepositoryResponse
+    -&gt; Int -&gt; CreateCodeRepositoryResponse)
+-&gt; Lens
+     CreateCodeRepositoryResponse CreateCodeRepositoryResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse%27"><span class="hs-identifier hs-type">CreateCodeRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422129"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateCodeRepositoryResponse' :: CreateCodeRepositoryResponse -&gt; Int
+</span><a href="#local-6989586621680422129"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422129"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422128"><span class="annot"><span class="annottext">s :: CreateCodeRepositoryResponse
+</span><a href="#local-6989586621680422128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse%27"><span class="hs-identifier hs-type">CreateCodeRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422127"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCodeRepositoryResponse
+</span><a href="#local-6989586621680422128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCodeRepositoryResponse' :: Int
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3AhttpStatus%3ACreateCodeRepositoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680422127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse"><span class="hs-identifier hs-type">CreateCodeRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the new repository.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepositoryResponse_codeRepositoryArn"><span class="hs-identifier hs-type">createCodeRepositoryResponse_codeRepositoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse"><span class="hs-identifier hs-type">CreateCodeRepositoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-219"></span><span id="createCodeRepositoryResponse_codeRepositoryArn"><span class="annot"><span class="annottext">createCodeRepositoryResponse_codeRepositoryArn :: (Text -&gt; f Text)
+-&gt; CreateCodeRepositoryResponse -&gt; f CreateCodeRepositoryResponse
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#createCodeRepositoryResponse_codeRepositoryArn"><span class="hs-identifier hs-var hs-var">createCodeRepositoryResponse_codeRepositoryArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCodeRepositoryResponse -&gt; Text)
+-&gt; (CreateCodeRepositoryResponse
+    -&gt; Text -&gt; CreateCodeRepositoryResponse)
+-&gt; Lens
+     CreateCodeRepositoryResponse CreateCodeRepositoryResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse%27"><span class="hs-identifier hs-type">CreateCodeRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680422126"><span class="annot"><span class="annottext">Text
+codeRepositoryArn :: Text
+$sel:codeRepositoryArn:CreateCodeRepositoryResponse' :: CreateCodeRepositoryResponse -&gt; Text
+</span><a href="#local-6989586621680422126"><span class="hs-identifier hs-var hs-var">codeRepositoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422126"><span class="hs-identifier hs-var">codeRepositoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680422125"><span class="annot"><span class="annottext">s :: CreateCodeRepositoryResponse
+</span><a href="#local-6989586621680422125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse%27"><span class="hs-identifier hs-type">CreateCodeRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680422124"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCodeRepositoryResponse
+</span><a href="#local-6989586621680422125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeRepositoryArn:CreateCodeRepositoryResponse' :: Text
+</span><a href="Amazonka.SageMaker.CreateCodeRepository.html#%24sel%3AcodeRepositoryArn%3ACreateCodeRepositoryResponse%27"><span class="hs-identifier hs-var">codeRepositoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680422124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse"><span class="hs-identifier hs-type">CreateCodeRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680422122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateCodeRepository.html#CreateCodeRepositoryResponse"><span class="hs-identifier hs-type">CreateCodeRepositoryResponse</span></a></span></span><span>
+</span><span id="line-222"></span></pre></body></html>

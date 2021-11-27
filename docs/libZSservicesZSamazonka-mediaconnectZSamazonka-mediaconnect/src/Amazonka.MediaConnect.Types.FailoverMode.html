@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConnect.Types.FailoverMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConnect.Types.FailoverMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode"><span class="hs-identifier">FailoverMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode_FAILOVER"><span class="hs-identifier">FailoverMode_FAILOVER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode_MERGE"><span class="hs-identifier">FailoverMode_MERGE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679265798"><span id="local-6989586621679265799"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FailoverMode"><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode"><span class="hs-identifier hs-var">FailoverMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverMode%27"><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode%27"><span class="hs-identifier hs-var">FailoverMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFailoverMode"><span class="annot"><span class="annottext">FailoverMode -&gt; Text
+</span><a href="Amazonka.MediaConnect.Types.FailoverMode.html#fromFailoverMode"><span class="hs-identifier hs-var hs-var">fromFailoverMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265790"><span id="local-6989586621679265792"><span id="local-6989586621679265794"><span class="annot"><span class="annottext">Int -&gt; FailoverMode -&gt; ShowS
+[FailoverMode] -&gt; ShowS
+FailoverMode -&gt; String
+(Int -&gt; FailoverMode -&gt; ShowS)
+-&gt; (FailoverMode -&gt; String)
+-&gt; ([FailoverMode] -&gt; ShowS)
+-&gt; Show FailoverMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FailoverMode] -&gt; ShowS
+$cshowList :: [FailoverMode] -&gt; ShowS
+show :: FailoverMode -&gt; String
+$cshow :: FailoverMode -&gt; String
+showsPrec :: Int -&gt; FailoverMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; FailoverMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679265781"><span id="local-6989586621679265783"><span id="local-6989586621679265785"><span id="local-6989586621679265787"><span class="annot"><span class="annottext">ReadPrec [FailoverMode]
+ReadPrec FailoverMode
+Int -&gt; ReadS FailoverMode
+ReadS [FailoverMode]
+(Int -&gt; ReadS FailoverMode)
+-&gt; ReadS [FailoverMode]
+-&gt; ReadPrec FailoverMode
+-&gt; ReadPrec [FailoverMode]
+-&gt; Read FailoverMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FailoverMode]
+$creadListPrec :: ReadPrec [FailoverMode]
+readPrec :: ReadPrec FailoverMode
+$creadPrec :: ReadPrec FailoverMode
+readList :: ReadS [FailoverMode]
+$creadList :: ReadS [FailoverMode]
+readsPrec :: Int -&gt; ReadS FailoverMode
+$creadsPrec :: Int -&gt; ReadS FailoverMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679265776"><span id="local-6989586621679265778"><span class="annot"><span class="annottext">FailoverMode -&gt; FailoverMode -&gt; Bool
+(FailoverMode -&gt; FailoverMode -&gt; Bool)
+-&gt; (FailoverMode -&gt; FailoverMode -&gt; Bool) -&gt; Eq FailoverMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FailoverMode -&gt; FailoverMode -&gt; Bool
+$c/= :: FailoverMode -&gt; FailoverMode -&gt; Bool
+== :: FailoverMode -&gt; FailoverMode -&gt; Bool
+$c== :: FailoverMode -&gt; FailoverMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679265760"><span id="local-6989586621679265762"><span id="local-6989586621679265764"><span id="local-6989586621679265766"><span id="local-6989586621679265768"><span id="local-6989586621679265770"><span id="local-6989586621679265772"><span class="annot"><span class="annottext">Eq FailoverMode
+Eq FailoverMode
+-&gt; (FailoverMode -&gt; FailoverMode -&gt; Ordering)
+-&gt; (FailoverMode -&gt; FailoverMode -&gt; Bool)
+-&gt; (FailoverMode -&gt; FailoverMode -&gt; Bool)
+-&gt; (FailoverMode -&gt; FailoverMode -&gt; Bool)
+-&gt; (FailoverMode -&gt; FailoverMode -&gt; Bool)
+-&gt; (FailoverMode -&gt; FailoverMode -&gt; FailoverMode)
+-&gt; (FailoverMode -&gt; FailoverMode -&gt; FailoverMode)
+-&gt; Ord FailoverMode
+FailoverMode -&gt; FailoverMode -&gt; Bool
+FailoverMode -&gt; FailoverMode -&gt; Ordering
+FailoverMode -&gt; FailoverMode -&gt; FailoverMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FailoverMode -&gt; FailoverMode -&gt; FailoverMode
+$cmin :: FailoverMode -&gt; FailoverMode -&gt; FailoverMode
+max :: FailoverMode -&gt; FailoverMode -&gt; FailoverMode
+$cmax :: FailoverMode -&gt; FailoverMode -&gt; FailoverMode
+&gt;= :: FailoverMode -&gt; FailoverMode -&gt; Bool
+$c&gt;= :: FailoverMode -&gt; FailoverMode -&gt; Bool
+&gt; :: FailoverMode -&gt; FailoverMode -&gt; Bool
+$c&gt; :: FailoverMode -&gt; FailoverMode -&gt; Bool
+&lt;= :: FailoverMode -&gt; FailoverMode -&gt; Bool
+$c&lt;= :: FailoverMode -&gt; FailoverMode -&gt; Bool
+&lt; :: FailoverMode -&gt; FailoverMode -&gt; Bool
+$c&lt; :: FailoverMode -&gt; FailoverMode -&gt; Bool
+compare :: FailoverMode -&gt; FailoverMode -&gt; Ordering
+$ccompare :: FailoverMode -&gt; FailoverMode -&gt; Ordering
+$cp1Ord :: Eq FailoverMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FailoverMode -&gt; Rep FailoverMode x)
+-&gt; (forall x. Rep FailoverMode x -&gt; FailoverMode)
+-&gt; Generic FailoverMode
+forall x. Rep FailoverMode x -&gt; FailoverMode
+forall x. FailoverMode -&gt; Rep FailoverMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FailoverMode x -&gt; FailoverMode
+$cfrom :: forall x. FailoverMode -&gt; Rep FailoverMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265752"><span id="local-6989586621679265754"><span class="annot"><span class="annottext">Int -&gt; FailoverMode -&gt; Int
+FailoverMode -&gt; Int
+(Int -&gt; FailoverMode -&gt; Int)
+-&gt; (FailoverMode -&gt; Int) -&gt; Hashable FailoverMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FailoverMode -&gt; Int
+$chash :: FailoverMode -&gt; Int
+hashWithSalt :: Int -&gt; FailoverMode -&gt; Int
+$chashWithSalt :: Int -&gt; FailoverMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679265749"><span class="annot"><span class="annottext">FailoverMode -&gt; ()
+(FailoverMode -&gt; ()) -&gt; NFData FailoverMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FailoverMode -&gt; ()
+$crnf :: FailoverMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679265746"><span class="annot"><span class="annottext">Text -&gt; Either String FailoverMode
+(Text -&gt; Either String FailoverMode) -&gt; FromText FailoverMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FailoverMode
+$cfromText :: Text -&gt; Either String FailoverMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679265743"><span class="annot"><span class="annottext">FailoverMode -&gt; Text
+(FailoverMode -&gt; Text) -&gt; ToText FailoverMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FailoverMode -&gt; Text
+$ctoText :: FailoverMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679265740"><span class="annot"><span class="annottext">FailoverMode -&gt; ByteString
+(FailoverMode -&gt; ByteString) -&gt; ToByteString FailoverMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FailoverMode -&gt; ByteString
+$ctoBS :: FailoverMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679265737"><span class="annot"><span class="annottext">FailoverMode -&gt; ByteStringBuilder
+(FailoverMode -&gt; ByteStringBuilder) -&gt; ToLog FailoverMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FailoverMode -&gt; ByteStringBuilder
+$cbuild :: FailoverMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679265734"><span class="annot"><span class="annottext">HeaderName -&gt; FailoverMode -&gt; [Header]
+(HeaderName -&gt; FailoverMode -&gt; [Header]) -&gt; ToHeader FailoverMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FailoverMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FailoverMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679265731"><span class="annot"><span class="annottext">FailoverMode -&gt; QueryString
+(FailoverMode -&gt; QueryString) -&gt; ToQuery FailoverMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FailoverMode -&gt; QueryString
+$ctoQuery :: FailoverMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679265726"><span id="local-6989586621679265728"><span class="annot"><span class="annottext">Value -&gt; Parser [FailoverMode]
+Value -&gt; Parser FailoverMode
+(Value -&gt; Parser FailoverMode)
+-&gt; (Value -&gt; Parser [FailoverMode]) -&gt; FromJSON FailoverMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FailoverMode]
+$cparseJSONList :: Value -&gt; Parser [FailoverMode]
+parseJSON :: Value -&gt; Parser FailoverMode
+$cparseJSON :: Value -&gt; Parser FailoverMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679265721"><span id="local-6989586621679265723"><span class="annot"><span class="annottext">FromJSONKeyFunction [FailoverMode]
+FromJSONKeyFunction FailoverMode
+FromJSONKeyFunction FailoverMode
+-&gt; FromJSONKeyFunction [FailoverMode] -&gt; FromJSONKey FailoverMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FailoverMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [FailoverMode]
+fromJSONKey :: FromJSONKeyFunction FailoverMode
+$cfromJSONKey :: FromJSONKeyFunction FailoverMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679265712"><span id="local-6989586621679265714"><span id="local-6989586621679265716"><span id="local-6989586621679265718"><span class="annot"><span class="annottext">[FailoverMode] -&gt; Encoding
+[FailoverMode] -&gt; Value
+FailoverMode -&gt; Encoding
+FailoverMode -&gt; Value
+(FailoverMode -&gt; Value)
+-&gt; (FailoverMode -&gt; Encoding)
+-&gt; ([FailoverMode] -&gt; Value)
+-&gt; ([FailoverMode] -&gt; Encoding)
+-&gt; ToJSON FailoverMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FailoverMode] -&gt; Encoding
+$ctoEncodingList :: [FailoverMode] -&gt; Encoding
+toJSONList :: [FailoverMode] -&gt; Value
+$ctoJSONList :: [FailoverMode] -&gt; Value
+toEncoding :: FailoverMode -&gt; Encoding
+$ctoEncoding :: FailoverMode -&gt; Encoding
+toJSON :: FailoverMode -&gt; Value
+$ctoJSON :: FailoverMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679265707"><span id="local-6989586621679265709"><span class="annot"><span class="annottext">ToJSONKeyFunction [FailoverMode]
+ToJSONKeyFunction FailoverMode
+ToJSONKeyFunction FailoverMode
+-&gt; ToJSONKeyFunction [FailoverMode] -&gt; ToJSONKey FailoverMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FailoverMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [FailoverMode]
+toJSONKey :: ToJSONKeyFunction FailoverMode
+$ctoJSONKey :: ToJSONKeyFunction FailoverMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679265704"><span class="annot"><span class="annottext">[Node] -&gt; Either String FailoverMode
+([Node] -&gt; Either String FailoverMode) -&gt; FromXML FailoverMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FailoverMode
+$cparseXML :: [Node] -&gt; Either String FailoverMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679265701"><span class="annot"><span class="annottext">FailoverMode -&gt; XML
+(FailoverMode -&gt; XML) -&gt; ToXML FailoverMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FailoverMode -&gt; XML
+$ctoXML :: FailoverMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode_FAILOVER"><span class="hs-identifier hs-type">FailoverMode_FAILOVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode"><span class="hs-identifier hs-type">FailoverMode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFailoverMode_FAILOVER"><span id="%24mFailoverMode_FAILOVER"><span id="FailoverMode_FAILOVER"><span class="annot"><span class="annottext">$bFailoverMode_FAILOVER :: FailoverMode
+$mFailoverMode_FAILOVER :: forall r. FailoverMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConnect.Types.FailoverMode.html#%24bFailoverMode_FAILOVER"><span class="hs-identifier hs-var hs-var hs-var">FailoverMode_FAILOVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode%27"><span class="hs-identifier hs-type">FailoverMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILOVER&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode_MERGE"><span class="hs-identifier hs-type">FailoverMode_MERGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode"><span class="hs-identifier hs-type">FailoverMode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFailoverMode_MERGE"><span id="%24mFailoverMode_MERGE"><span id="FailoverMode_MERGE"><span class="annot"><span class="annottext">$bFailoverMode_MERGE :: FailoverMode
+$mFailoverMode_MERGE :: forall r. FailoverMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConnect.Types.FailoverMode.html#%24bFailoverMode_MERGE"><span class="hs-identifier hs-var hs-var hs-var">FailoverMode_MERGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode%27"><span class="hs-identifier hs-type">FailoverMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MERGE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode_FAILOVER"><span class="hs-pragma hs-type">FailoverMode_FAILOVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode_MERGE"><span class="hs-pragma hs-type">FailoverMode_MERGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.FailoverMode.html#FailoverMode%27"><span class="hs-pragma hs-type">FailoverMode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

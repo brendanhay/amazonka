@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AmplifyBackend.Types.AuthResources</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AmplifyBackend.Types.AuthResources</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources"><span class="hs-identifier">AuthResources</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources_IDENTITY_POOL_AND_USER_POOL"><span class="hs-identifier">AuthResources_IDENTITY_POOL_AND_USER_POOL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources_USER_POOL_ONLY"><span class="hs-identifier">AuthResources_USER_POOL_ONLY</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679229012"><span id="local-6989586621679229013"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthResources"><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources"><span class="hs-identifier hs-var">AuthResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthResources%27"><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources%27"><span class="hs-identifier hs-var">AuthResources'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthResources"><span class="annot"><span class="annottext">AuthResources -&gt; Text
+</span><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#fromAuthResources"><span class="hs-identifier hs-var hs-var">fromAuthResources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679229004"><span id="local-6989586621679229006"><span id="local-6989586621679229008"><span class="annot"><span class="annottext">Int -&gt; AuthResources -&gt; ShowS
+[AuthResources] -&gt; ShowS
+AuthResources -&gt; String
+(Int -&gt; AuthResources -&gt; ShowS)
+-&gt; (AuthResources -&gt; String)
+-&gt; ([AuthResources] -&gt; ShowS)
+-&gt; Show AuthResources
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuthResources] -&gt; ShowS
+$cshowList :: [AuthResources] -&gt; ShowS
+show :: AuthResources -&gt; String
+$cshow :: AuthResources -&gt; String
+showsPrec :: Int -&gt; AuthResources -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuthResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679228995"><span id="local-6989586621679228997"><span id="local-6989586621679228999"><span id="local-6989586621679229001"><span class="annot"><span class="annottext">ReadPrec [AuthResources]
+ReadPrec AuthResources
+Int -&gt; ReadS AuthResources
+ReadS [AuthResources]
+(Int -&gt; ReadS AuthResources)
+-&gt; ReadS [AuthResources]
+-&gt; ReadPrec AuthResources
+-&gt; ReadPrec [AuthResources]
+-&gt; Read AuthResources
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuthResources]
+$creadListPrec :: ReadPrec [AuthResources]
+readPrec :: ReadPrec AuthResources
+$creadPrec :: ReadPrec AuthResources
+readList :: ReadS [AuthResources]
+$creadList :: ReadS [AuthResources]
+readsPrec :: Int -&gt; ReadS AuthResources
+$creadsPrec :: Int -&gt; ReadS AuthResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679228990"><span id="local-6989586621679228992"><span class="annot"><span class="annottext">AuthResources -&gt; AuthResources -&gt; Bool
+(AuthResources -&gt; AuthResources -&gt; Bool)
+-&gt; (AuthResources -&gt; AuthResources -&gt; Bool) -&gt; Eq AuthResources
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuthResources -&gt; AuthResources -&gt; Bool
+$c/= :: AuthResources -&gt; AuthResources -&gt; Bool
+== :: AuthResources -&gt; AuthResources -&gt; Bool
+$c== :: AuthResources -&gt; AuthResources -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679228974"><span id="local-6989586621679228976"><span id="local-6989586621679228978"><span id="local-6989586621679228980"><span id="local-6989586621679228982"><span id="local-6989586621679228984"><span id="local-6989586621679228986"><span class="annot"><span class="annottext">Eq AuthResources
+Eq AuthResources
+-&gt; (AuthResources -&gt; AuthResources -&gt; Ordering)
+-&gt; (AuthResources -&gt; AuthResources -&gt; Bool)
+-&gt; (AuthResources -&gt; AuthResources -&gt; Bool)
+-&gt; (AuthResources -&gt; AuthResources -&gt; Bool)
+-&gt; (AuthResources -&gt; AuthResources -&gt; Bool)
+-&gt; (AuthResources -&gt; AuthResources -&gt; AuthResources)
+-&gt; (AuthResources -&gt; AuthResources -&gt; AuthResources)
+-&gt; Ord AuthResources
+AuthResources -&gt; AuthResources -&gt; Bool
+AuthResources -&gt; AuthResources -&gt; Ordering
+AuthResources -&gt; AuthResources -&gt; AuthResources
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AuthResources -&gt; AuthResources -&gt; AuthResources
+$cmin :: AuthResources -&gt; AuthResources -&gt; AuthResources
+max :: AuthResources -&gt; AuthResources -&gt; AuthResources
+$cmax :: AuthResources -&gt; AuthResources -&gt; AuthResources
+&gt;= :: AuthResources -&gt; AuthResources -&gt; Bool
+$c&gt;= :: AuthResources -&gt; AuthResources -&gt; Bool
+&gt; :: AuthResources -&gt; AuthResources -&gt; Bool
+$c&gt; :: AuthResources -&gt; AuthResources -&gt; Bool
+&lt;= :: AuthResources -&gt; AuthResources -&gt; Bool
+$c&lt;= :: AuthResources -&gt; AuthResources -&gt; Bool
+&lt; :: AuthResources -&gt; AuthResources -&gt; Bool
+$c&lt; :: AuthResources -&gt; AuthResources -&gt; Bool
+compare :: AuthResources -&gt; AuthResources -&gt; Ordering
+$ccompare :: AuthResources -&gt; AuthResources -&gt; Ordering
+$cp1Ord :: Eq AuthResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AuthResources -&gt; Rep AuthResources x)
+-&gt; (forall x. Rep AuthResources x -&gt; AuthResources)
+-&gt; Generic AuthResources
+forall x. Rep AuthResources x -&gt; AuthResources
+forall x. AuthResources -&gt; Rep AuthResources x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AuthResources x -&gt; AuthResources
+$cfrom :: forall x. AuthResources -&gt; Rep AuthResources x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679228966"><span id="local-6989586621679228968"><span class="annot"><span class="annottext">Int -&gt; AuthResources -&gt; Int
+AuthResources -&gt; Int
+(Int -&gt; AuthResources -&gt; Int)
+-&gt; (AuthResources -&gt; Int) -&gt; Hashable AuthResources
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AuthResources -&gt; Int
+$chash :: AuthResources -&gt; Int
+hashWithSalt :: Int -&gt; AuthResources -&gt; Int
+$chashWithSalt :: Int -&gt; AuthResources -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679228963"><span class="annot"><span class="annottext">AuthResources -&gt; ()
+(AuthResources -&gt; ()) -&gt; NFData AuthResources
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AuthResources -&gt; ()
+$crnf :: AuthResources -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679228960"><span class="annot"><span class="annottext">Text -&gt; Either String AuthResources
+(Text -&gt; Either String AuthResources) -&gt; FromText AuthResources
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AuthResources
+$cfromText :: Text -&gt; Either String AuthResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679228957"><span class="annot"><span class="annottext">AuthResources -&gt; Text
+(AuthResources -&gt; Text) -&gt; ToText AuthResources
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AuthResources -&gt; Text
+$ctoText :: AuthResources -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679228954"><span class="annot"><span class="annottext">AuthResources -&gt; ByteString
+(AuthResources -&gt; ByteString) -&gt; ToByteString AuthResources
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AuthResources -&gt; ByteString
+$ctoBS :: AuthResources -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679228951"><span class="annot"><span class="annottext">AuthResources -&gt; ByteStringBuilder
+(AuthResources -&gt; ByteStringBuilder) -&gt; ToLog AuthResources
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AuthResources -&gt; ByteStringBuilder
+$cbuild :: AuthResources -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679228948"><span class="annot"><span class="annottext">HeaderName -&gt; AuthResources -&gt; [Header]
+(HeaderName -&gt; AuthResources -&gt; [Header]) -&gt; ToHeader AuthResources
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AuthResources -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AuthResources -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679228945"><span class="annot"><span class="annottext">AuthResources -&gt; QueryString
+(AuthResources -&gt; QueryString) -&gt; ToQuery AuthResources
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AuthResources -&gt; QueryString
+$ctoQuery :: AuthResources -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679228940"><span id="local-6989586621679228942"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthResources]
+Value -&gt; Parser AuthResources
+(Value -&gt; Parser AuthResources)
+-&gt; (Value -&gt; Parser [AuthResources]) -&gt; FromJSON AuthResources
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AuthResources]
+$cparseJSONList :: Value -&gt; Parser [AuthResources]
+parseJSON :: Value -&gt; Parser AuthResources
+$cparseJSON :: Value -&gt; Parser AuthResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679228935"><span id="local-6989586621679228937"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthResources]
+FromJSONKeyFunction AuthResources
+FromJSONKeyFunction AuthResources
+-&gt; FromJSONKeyFunction [AuthResources] -&gt; FromJSONKey AuthResources
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AuthResources]
+$cfromJSONKeyList :: FromJSONKeyFunction [AuthResources]
+fromJSONKey :: FromJSONKeyFunction AuthResources
+$cfromJSONKey :: FromJSONKeyFunction AuthResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679228926"><span id="local-6989586621679228928"><span id="local-6989586621679228930"><span id="local-6989586621679228932"><span class="annot"><span class="annottext">[AuthResources] -&gt; Encoding
+[AuthResources] -&gt; Value
+AuthResources -&gt; Encoding
+AuthResources -&gt; Value
+(AuthResources -&gt; Value)
+-&gt; (AuthResources -&gt; Encoding)
+-&gt; ([AuthResources] -&gt; Value)
+-&gt; ([AuthResources] -&gt; Encoding)
+-&gt; ToJSON AuthResources
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AuthResources] -&gt; Encoding
+$ctoEncodingList :: [AuthResources] -&gt; Encoding
+toJSONList :: [AuthResources] -&gt; Value
+$ctoJSONList :: [AuthResources] -&gt; Value
+toEncoding :: AuthResources -&gt; Encoding
+$ctoEncoding :: AuthResources -&gt; Encoding
+toJSON :: AuthResources -&gt; Value
+$ctoJSON :: AuthResources -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679228921"><span id="local-6989586621679228923"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthResources]
+ToJSONKeyFunction AuthResources
+ToJSONKeyFunction AuthResources
+-&gt; ToJSONKeyFunction [AuthResources] -&gt; ToJSONKey AuthResources
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AuthResources]
+$ctoJSONKeyList :: ToJSONKeyFunction [AuthResources]
+toJSONKey :: ToJSONKeyFunction AuthResources
+$ctoJSONKey :: ToJSONKeyFunction AuthResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679228918"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthResources
+([Node] -&gt; Either String AuthResources) -&gt; FromXML AuthResources
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AuthResources
+$cparseXML :: [Node] -&gt; Either String AuthResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679228915"><span class="annot"><span class="annottext">AuthResources -&gt; XML
+(AuthResources -&gt; XML) -&gt; ToXML AuthResources
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AuthResources -&gt; XML
+$ctoXML :: AuthResources -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources_IDENTITY_POOL_AND_USER_POOL"><span class="hs-identifier hs-type">AuthResources_IDENTITY_POOL_AND_USER_POOL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources"><span class="hs-identifier hs-type">AuthResources</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthResources_IDENTITY_POOL_AND_USER_POOL"><span id="%24mAuthResources_IDENTITY_POOL_AND_USER_POOL"><span id="AuthResources_IDENTITY_POOL_AND_USER_POOL"><span class="annot"><span class="annottext">$bAuthResources_IDENTITY_POOL_AND_USER_POOL :: AuthResources
+$mAuthResources_IDENTITY_POOL_AND_USER_POOL :: forall r. AuthResources -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#%24bAuthResources_IDENTITY_POOL_AND_USER_POOL"><span class="hs-identifier hs-var hs-var hs-var">AuthResources_IDENTITY_POOL_AND_USER_POOL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources%27"><span class="hs-identifier hs-type">AuthResources'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IDENTITY_POOL_AND_USER_POOL&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources_USER_POOL_ONLY"><span class="hs-identifier hs-type">AuthResources_USER_POOL_ONLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources"><span class="hs-identifier hs-type">AuthResources</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthResources_USER_POOL_ONLY"><span id="%24mAuthResources_USER_POOL_ONLY"><span id="AuthResources_USER_POOL_ONLY"><span class="annot"><span class="annottext">$bAuthResources_USER_POOL_ONLY :: AuthResources
+$mAuthResources_USER_POOL_ONLY :: forall r. AuthResources -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#%24bAuthResources_USER_POOL_ONLY"><span class="hs-identifier hs-var hs-var hs-var">AuthResources_USER_POOL_ONLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources%27"><span class="hs-identifier hs-type">AuthResources'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USER_POOL_ONLY&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources_IDENTITY_POOL_AND_USER_POOL"><span class="hs-pragma hs-type">AuthResources_IDENTITY_POOL_AND_USER_POOL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources_USER_POOL_ONLY"><span class="hs-pragma hs-type">AuthResources_USER_POOL_ONLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.AmplifyBackend.Types.AuthResources.html#AuthResources%27"><span class="hs-pragma hs-type">AuthResources'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

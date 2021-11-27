@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaPackageVOD.Types.AssetShallow</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaPackageVOD.Types.AssetShallow</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A MediaPackage VOD Asset resource.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAssetShallow' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679193674"><span id="local-6989586621679193675"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssetShallow"><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-var">AssetShallow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetShallow%27"><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-var">AssetShallow'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource ID to include in SPEKE key requests.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AresourceId%3AAssetShallow%27"><span class="annot"><span class="annottext">AssetShallow -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3AresourceId%3AAssetShallow%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The ARN of the Asset.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aarn%3AAssetShallow%27"><span class="annot"><span class="annottext">AssetShallow -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3Aarn%3AAssetShallow%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The time the Asset was initially submitted for Ingest.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreatedAt%3AAssetShallow%27"><span class="annot"><span class="annottext">AssetShallow -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3AcreatedAt%3AAssetShallow%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the PackagingGroup for the Asset.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ApackagingGroupId%3AAssetShallow%27"><span class="annot"><span class="annottext">AssetShallow -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3ApackagingGroupId%3AAssetShallow%27"><span class="hs-identifier hs-var hs-var">packagingGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | ARN of the source object in S3.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsourceArn%3AAssetShallow%27"><span class="annot"><span class="annottext">AssetShallow -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3AsourceArn%3AAssetShallow%27"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The IAM role ARN used to access the source S3 bucket.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsourceRoleArn%3AAssetShallow%27"><span class="annot"><span class="annottext">AssetShallow -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3AsourceRoleArn%3AAssetShallow%27"><span class="hs-identifier hs-var hs-var">sourceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the Asset.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aid%3AAssetShallow%27"><span class="annot"><span class="annottext">AssetShallow -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3Aid%3AAssetShallow%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Atags%3AAssetShallow%27"><span class="annot"><span class="annottext">AssetShallow -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3Atags%3AAssetShallow%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679193661"><span id="local-6989586621679193663"><span class="annot"><span class="annottext">AssetShallow -&gt; AssetShallow -&gt; Bool
+(AssetShallow -&gt; AssetShallow -&gt; Bool)
+-&gt; (AssetShallow -&gt; AssetShallow -&gt; Bool) -&gt; Eq AssetShallow
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssetShallow -&gt; AssetShallow -&gt; Bool
+$c/= :: AssetShallow -&gt; AssetShallow -&gt; Bool
+== :: AssetShallow -&gt; AssetShallow -&gt; Bool
+$c== :: AssetShallow -&gt; AssetShallow -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193652"><span id="local-6989586621679193654"><span id="local-6989586621679193656"><span id="local-6989586621679193658"><span class="annot"><span class="annottext">ReadPrec [AssetShallow]
+ReadPrec AssetShallow
+Int -&gt; ReadS AssetShallow
+ReadS [AssetShallow]
+(Int -&gt; ReadS AssetShallow)
+-&gt; ReadS [AssetShallow]
+-&gt; ReadPrec AssetShallow
+-&gt; ReadPrec [AssetShallow]
+-&gt; Read AssetShallow
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssetShallow]
+$creadListPrec :: ReadPrec [AssetShallow]
+readPrec :: ReadPrec AssetShallow
+$creadPrec :: ReadPrec AssetShallow
+readList :: ReadS [AssetShallow]
+$creadList :: ReadS [AssetShallow]
+readsPrec :: Int -&gt; ReadS AssetShallow
+$creadsPrec :: Int -&gt; ReadS AssetShallow
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193645"><span id="local-6989586621679193647"><span id="local-6989586621679193649"><span class="annot"><span class="annottext">Int -&gt; AssetShallow -&gt; ShowS
+[AssetShallow] -&gt; ShowS
+AssetShallow -&gt; String
+(Int -&gt; AssetShallow -&gt; ShowS)
+-&gt; (AssetShallow -&gt; String)
+-&gt; ([AssetShallow] -&gt; ShowS)
+-&gt; Show AssetShallow
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssetShallow] -&gt; ShowS
+$cshowList :: [AssetShallow] -&gt; ShowS
+show :: AssetShallow -&gt; String
+$cshow :: AssetShallow -&gt; String
+showsPrec :: Int -&gt; AssetShallow -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssetShallow -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssetShallow -&gt; Rep AssetShallow x)
+-&gt; (forall x. Rep AssetShallow x -&gt; AssetShallow)
+-&gt; Generic AssetShallow
+forall x. Rep AssetShallow x -&gt; AssetShallow
+forall x. AssetShallow -&gt; Rep AssetShallow x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssetShallow x -&gt; AssetShallow
+$cfrom :: forall x. AssetShallow -&gt; Rep AssetShallow x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'AssetShallow' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'resourceId', 'assetShallow_resourceId' - The resource ID to include in SPEKE key requests.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'arn', 'assetShallow_arn' - The ARN of the Asset.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'createdAt', 'assetShallow_createdAt' - The time the Asset was initially submitted for Ingest.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'packagingGroupId', 'assetShallow_packagingGroupId' - The ID of the PackagingGroup for the Asset.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'sourceArn', 'assetShallow_sourceArn' - ARN of the source object in S3.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'sourceRoleArn', 'assetShallow_sourceRoleArn' - The IAM role ARN used to access the source S3 bucket.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'id', 'assetShallow_id' - The unique identifier for the Asset.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'tags', 'assetShallow_tags' - Undocumented member.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#newAssetShallow"><span class="hs-identifier hs-type">newAssetShallow</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span>
+</span><span id="line-73"></span><span id="newAssetShallow"><span class="annot"><span class="annottext">newAssetShallow :: AssetShallow
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#newAssetShallow"><span class="hs-identifier hs-var hs-var">newAssetShallow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">AssetShallow' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; AssetShallow
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceId:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3AresourceId%3AAssetShallow%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3Aarn%3AAssetShallow%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3AcreatedAt%3AAssetShallow%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:packagingGroupId:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3ApackagingGroupId%3AAssetShallow%27"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceArn:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3AsourceArn%3AAssetShallow%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceRoleArn:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3AsourceRoleArn%3AAssetShallow%27"><span class="hs-identifier hs-var">sourceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3Aid%3AAssetShallow%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:AssetShallow' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3Atags%3AAssetShallow%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The resource ID to include in SPEKE key requests.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_resourceId"><span class="hs-identifier hs-type">assetShallow_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="assetShallow_resourceId"><span class="annot"><span class="annottext">assetShallow_resourceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssetShallow -&gt; f AssetShallow
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_resourceId"><span class="hs-identifier hs-var hs-var">assetShallow_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetShallow -&gt; Maybe Text)
+-&gt; (AssetShallow -&gt; Maybe Text -&gt; AssetShallow)
+-&gt; Lens AssetShallow AssetShallow (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193636"><span class="annot"><span class="annottext">Maybe Text
+resourceId :: Maybe Text
+$sel:resourceId:AssetShallow' :: AssetShallow -&gt; Maybe Text
+</span><a href="#local-6989586621679193636"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193636"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193635"><span class="annot"><span class="annottext">s :: AssetShallow
+</span><a href="#local-6989586621679193635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193634"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetShallow
+</span><a href="#local-6989586621679193635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3AresourceId%3AAssetShallow%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The ARN of the Asset.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_arn"><span class="hs-identifier hs-type">assetShallow_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="assetShallow_arn"><span class="annot"><span class="annottext">assetShallow_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssetShallow -&gt; f AssetShallow
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_arn"><span class="hs-identifier hs-var hs-var">assetShallow_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetShallow -&gt; Maybe Text)
+-&gt; (AssetShallow -&gt; Maybe Text -&gt; AssetShallow)
+-&gt; Lens AssetShallow AssetShallow (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193632"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:AssetShallow' :: AssetShallow -&gt; Maybe Text
+</span><a href="#local-6989586621679193632"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193632"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193631"><span class="annot"><span class="annottext">s :: AssetShallow
+</span><a href="#local-6989586621679193631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193630"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetShallow
+</span><a href="#local-6989586621679193631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3Aarn%3AAssetShallow%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The time the Asset was initially submitted for Ingest.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_createdAt"><span class="hs-identifier hs-type">assetShallow_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="assetShallow_createdAt"><span class="annot"><span class="annottext">assetShallow_createdAt :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssetShallow -&gt; f AssetShallow
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_createdAt"><span class="hs-identifier hs-var hs-var">assetShallow_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetShallow -&gt; Maybe Text)
+-&gt; (AssetShallow -&gt; Maybe Text -&gt; AssetShallow)
+-&gt; Lens AssetShallow AssetShallow (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193628"><span class="annot"><span class="annottext">Maybe Text
+createdAt :: Maybe Text
+$sel:createdAt:AssetShallow' :: AssetShallow -&gt; Maybe Text
+</span><a href="#local-6989586621679193628"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193628"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193627"><span class="annot"><span class="annottext">s :: AssetShallow
+</span><a href="#local-6989586621679193627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193626"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetShallow
+</span><a href="#local-6989586621679193627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3AcreatedAt%3AAssetShallow%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The ID of the PackagingGroup for the Asset.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_packagingGroupId"><span class="hs-identifier hs-type">assetShallow_packagingGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="assetShallow_packagingGroupId"><span class="annot"><span class="annottext">assetShallow_packagingGroupId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssetShallow -&gt; f AssetShallow
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_packagingGroupId"><span class="hs-identifier hs-var hs-var">assetShallow_packagingGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetShallow -&gt; Maybe Text)
+-&gt; (AssetShallow -&gt; Maybe Text -&gt; AssetShallow)
+-&gt; Lens AssetShallow AssetShallow (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193624"><span class="annot"><span class="annottext">Maybe Text
+packagingGroupId :: Maybe Text
+$sel:packagingGroupId:AssetShallow' :: AssetShallow -&gt; Maybe Text
+</span><a href="#local-6989586621679193624"><span class="hs-identifier hs-var hs-var">packagingGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193624"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193623"><span class="annot"><span class="annottext">s :: AssetShallow
+</span><a href="#local-6989586621679193623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193622"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetShallow
+</span><a href="#local-6989586621679193623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packagingGroupId:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3ApackagingGroupId%3AAssetShallow%27"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | ARN of the source object in S3.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_sourceArn"><span class="hs-identifier hs-type">assetShallow_sourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="assetShallow_sourceArn"><span class="annot"><span class="annottext">assetShallow_sourceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssetShallow -&gt; f AssetShallow
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_sourceArn"><span class="hs-identifier hs-var hs-var">assetShallow_sourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetShallow -&gt; Maybe Text)
+-&gt; (AssetShallow -&gt; Maybe Text -&gt; AssetShallow)
+-&gt; Lens AssetShallow AssetShallow (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193620"><span class="annot"><span class="annottext">Maybe Text
+sourceArn :: Maybe Text
+$sel:sourceArn:AssetShallow' :: AssetShallow -&gt; Maybe Text
+</span><a href="#local-6989586621679193620"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193620"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193619"><span class="annot"><span class="annottext">s :: AssetShallow
+</span><a href="#local-6989586621679193619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193618"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetShallow
+</span><a href="#local-6989586621679193619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3AsourceArn%3AAssetShallow%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The IAM role ARN used to access the source S3 bucket.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_sourceRoleArn"><span class="hs-identifier hs-type">assetShallow_sourceRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="assetShallow_sourceRoleArn"><span class="annot"><span class="annottext">assetShallow_sourceRoleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssetShallow -&gt; f AssetShallow
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_sourceRoleArn"><span class="hs-identifier hs-var hs-var">assetShallow_sourceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetShallow -&gt; Maybe Text)
+-&gt; (AssetShallow -&gt; Maybe Text -&gt; AssetShallow)
+-&gt; Lens AssetShallow AssetShallow (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193616"><span class="annot"><span class="annottext">Maybe Text
+sourceRoleArn :: Maybe Text
+$sel:sourceRoleArn:AssetShallow' :: AssetShallow -&gt; Maybe Text
+</span><a href="#local-6989586621679193616"><span class="hs-identifier hs-var hs-var">sourceRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193616"><span class="hs-identifier hs-var">sourceRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193615"><span class="annot"><span class="annottext">s :: AssetShallow
+</span><a href="#local-6989586621679193615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193614"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetShallow
+</span><a href="#local-6989586621679193615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRoleArn:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3AsourceRoleArn%3AAssetShallow%27"><span class="hs-identifier hs-var">sourceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The unique identifier for the Asset.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_id"><span class="hs-identifier hs-type">assetShallow_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="assetShallow_id"><span class="annot"><span class="annottext">assetShallow_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssetShallow -&gt; f AssetShallow
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_id"><span class="hs-identifier hs-var hs-var">assetShallow_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetShallow -&gt; Maybe Text)
+-&gt; (AssetShallow -&gt; Maybe Text -&gt; AssetShallow)
+-&gt; Lens AssetShallow AssetShallow (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193612"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:AssetShallow' :: AssetShallow -&gt; Maybe Text
+</span><a href="#local-6989586621679193612"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193612"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193611"><span class="annot"><span class="annottext">s :: AssetShallow
+</span><a href="#local-6989586621679193611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193610"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetShallow
+</span><a href="#local-6989586621679193611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:AssetShallow' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3Aid%3AAssetShallow%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_tags"><span class="hs-identifier hs-type">assetShallow_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="assetShallow_tags"><span class="annot"><span class="annottext">assetShallow_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; AssetShallow -&gt; f AssetShallow
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#assetShallow_tags"><span class="hs-identifier hs-var hs-var">assetShallow_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetShallow -&gt; Maybe (HashMap Text Text))
+-&gt; (AssetShallow -&gt; Maybe (HashMap Text Text) -&gt; AssetShallow)
+-&gt; Lens
+     AssetShallow
+     AssetShallow
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193608"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:AssetShallow' :: AssetShallow -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193608"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193608"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193607"><span class="annot"><span class="annottext">s :: AssetShallow
+</span><a href="#local-6989586621679193607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-type">AssetShallow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193606"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetShallow
+</span><a href="#local-6989586621679193607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AssetShallow' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#%24sel%3Atags%3AAssetShallow%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; AssetShallow -&gt; f AssetShallow)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; AssetShallow
+-&gt; f AssetShallow
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193600"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679193598"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssetShallow
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AssetShallow) -&gt; Value -&gt; Parser AssetShallow
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AssetShallow&quot;</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679193595"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679193595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; AssetShallow
+</span><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow%27"><span class="hs-identifier hs-var">AssetShallow'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; AssetShallow)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; AssetShallow)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679193595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; AssetShallow)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; AssetShallow)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679193595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; AssetShallow)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; AssetShallow)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679193595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; AssetShallow)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; AssetShallow)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679193595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;packagingGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; AssetShallow)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; AssetShallow)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679193595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; AssetShallow)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; AssetShallow)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679193595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; AssetShallow)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; AssetShallow)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679193595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; AssetShallow)
+-&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser AssetShallow
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679193595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193588"><span id="local-6989586621679193590"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.AssetShallow.html#AssetShallow"><span class="hs-identifier hs-type">AssetShallow</span></a></span></span><span>
+</span><span id="line-136"></span></pre></body></html>

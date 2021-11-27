@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.GetEbsDefaultKmsKeyId</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the default KMS key for EBS encryption by default for your</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- account in this Region. You can change the default KMS key for</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- encryption by default using ModifyEbsDefaultKmsKeyId or</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- ResetEbsDefaultKmsKeyId.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.GetEbsDefaultKmsKeyId</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId"><span class="hs-identifier">GetEbsDefaultKmsKeyId</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#newGetEbsDefaultKmsKeyId"><span class="hs-identifier">newGetEbsDefaultKmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#getEbsDefaultKmsKeyId_dryRun"><span class="hs-identifier">getEbsDefaultKmsKeyId_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse"><span class="hs-identifier">GetEbsDefaultKmsKeyIdResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#newGetEbsDefaultKmsKeyIdResponse"><span class="hs-identifier">newGetEbsDefaultKmsKeyIdResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#getEbsDefaultKmsKeyIdResponse_kmsKeyId"><span class="hs-identifier">getEbsDefaultKmsKeyIdResponse_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#getEbsDefaultKmsKeyIdResponse_httpStatus"><span class="hs-identifier">getEbsDefaultKmsKeyIdResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetEbsDefaultKmsKeyId' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621681229321"><span id="local-6989586621681229322"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEbsDefaultKmsKeyId"><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId"><span class="hs-identifier hs-var">GetEbsDefaultKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEbsDefaultKmsKeyId%27"><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId%27"><span class="hs-identifier hs-var">GetEbsDefaultKmsKeyId'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdryRun%3AGetEbsDefaultKmsKeyId%27"><span class="annot"><span class="annottext">GetEbsDefaultKmsKeyId -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#%24sel%3AdryRun%3AGetEbsDefaultKmsKeyId%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681229315"><span id="local-6989586621681229317"><span class="annot"><span class="annottext">GetEbsDefaultKmsKeyId -&gt; GetEbsDefaultKmsKeyId -&gt; Bool
+(GetEbsDefaultKmsKeyId -&gt; GetEbsDefaultKmsKeyId -&gt; Bool)
+-&gt; (GetEbsDefaultKmsKeyId -&gt; GetEbsDefaultKmsKeyId -&gt; Bool)
+-&gt; Eq GetEbsDefaultKmsKeyId
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEbsDefaultKmsKeyId -&gt; GetEbsDefaultKmsKeyId -&gt; Bool
+$c/= :: GetEbsDefaultKmsKeyId -&gt; GetEbsDefaultKmsKeyId -&gt; Bool
+== :: GetEbsDefaultKmsKeyId -&gt; GetEbsDefaultKmsKeyId -&gt; Bool
+$c== :: GetEbsDefaultKmsKeyId -&gt; GetEbsDefaultKmsKeyId -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681229306"><span id="local-6989586621681229308"><span id="local-6989586621681229310"><span id="local-6989586621681229312"><span class="annot"><span class="annottext">ReadPrec [GetEbsDefaultKmsKeyId]
+ReadPrec GetEbsDefaultKmsKeyId
+Int -&gt; ReadS GetEbsDefaultKmsKeyId
+ReadS [GetEbsDefaultKmsKeyId]
+(Int -&gt; ReadS GetEbsDefaultKmsKeyId)
+-&gt; ReadS [GetEbsDefaultKmsKeyId]
+-&gt; ReadPrec GetEbsDefaultKmsKeyId
+-&gt; ReadPrec [GetEbsDefaultKmsKeyId]
+-&gt; Read GetEbsDefaultKmsKeyId
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEbsDefaultKmsKeyId]
+$creadListPrec :: ReadPrec [GetEbsDefaultKmsKeyId]
+readPrec :: ReadPrec GetEbsDefaultKmsKeyId
+$creadPrec :: ReadPrec GetEbsDefaultKmsKeyId
+readList :: ReadS [GetEbsDefaultKmsKeyId]
+$creadList :: ReadS [GetEbsDefaultKmsKeyId]
+readsPrec :: Int -&gt; ReadS GetEbsDefaultKmsKeyId
+$creadsPrec :: Int -&gt; ReadS GetEbsDefaultKmsKeyId
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681229299"><span id="local-6989586621681229301"><span id="local-6989586621681229303"><span class="annot"><span class="annottext">Int -&gt; GetEbsDefaultKmsKeyId -&gt; ShowS
+[GetEbsDefaultKmsKeyId] -&gt; ShowS
+GetEbsDefaultKmsKeyId -&gt; String
+(Int -&gt; GetEbsDefaultKmsKeyId -&gt; ShowS)
+-&gt; (GetEbsDefaultKmsKeyId -&gt; String)
+-&gt; ([GetEbsDefaultKmsKeyId] -&gt; ShowS)
+-&gt; Show GetEbsDefaultKmsKeyId
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEbsDefaultKmsKeyId] -&gt; ShowS
+$cshowList :: [GetEbsDefaultKmsKeyId] -&gt; ShowS
+show :: GetEbsDefaultKmsKeyId -&gt; String
+$cshow :: GetEbsDefaultKmsKeyId -&gt; String
+showsPrec :: Int -&gt; GetEbsDefaultKmsKeyId -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEbsDefaultKmsKeyId -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetEbsDefaultKmsKeyId -&gt; Rep GetEbsDefaultKmsKeyId x)
+-&gt; (forall x. Rep GetEbsDefaultKmsKeyId x -&gt; GetEbsDefaultKmsKeyId)
+-&gt; Generic GetEbsDefaultKmsKeyId
+forall x. Rep GetEbsDefaultKmsKeyId x -&gt; GetEbsDefaultKmsKeyId
+forall x. GetEbsDefaultKmsKeyId -&gt; Rep GetEbsDefaultKmsKeyId x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetEbsDefaultKmsKeyId x -&gt; GetEbsDefaultKmsKeyId
+$cfrom :: forall x. GetEbsDefaultKmsKeyId -&gt; Rep GetEbsDefaultKmsKeyId x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'GetEbsDefaultKmsKeyId' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'dryRun', 'getEbsDefaultKmsKeyId_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#newGetEbsDefaultKmsKeyId"><span class="hs-identifier hs-type">newGetEbsDefaultKmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId</span></a></span><span>
+</span><span id="line-80"></span><span id="newGetEbsDefaultKmsKeyId"><span class="annot"><span class="annottext">newGetEbsDefaultKmsKeyId :: GetEbsDefaultKmsKeyId
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#newGetEbsDefaultKmsKeyId"><span class="hs-identifier hs-var hs-var">newGetEbsDefaultKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">GetEbsDefaultKmsKeyId' :: Maybe Bool -&gt; GetEbsDefaultKmsKeyId
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId%27"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:GetEbsDefaultKmsKeyId' :: Maybe Bool
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#%24sel%3AdryRun%3AGetEbsDefaultKmsKeyId%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#getEbsDefaultKmsKeyId_dryRun"><span class="hs-identifier hs-type">getEbsDefaultKmsKeyId_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="getEbsDefaultKmsKeyId_dryRun"><span class="annot"><span class="annottext">getEbsDefaultKmsKeyId_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetEbsDefaultKmsKeyId -&gt; f GetEbsDefaultKmsKeyId
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#getEbsDefaultKmsKeyId_dryRun"><span class="hs-identifier hs-var hs-var">getEbsDefaultKmsKeyId_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEbsDefaultKmsKeyId -&gt; Maybe Bool)
+-&gt; (GetEbsDefaultKmsKeyId -&gt; Maybe Bool -&gt; GetEbsDefaultKmsKeyId)
+-&gt; Lens
+     GetEbsDefaultKmsKeyId
+     GetEbsDefaultKmsKeyId
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId%27"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229292"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:GetEbsDefaultKmsKeyId' :: GetEbsDefaultKmsKeyId -&gt; Maybe Bool
+</span><a href="#local-6989586621681229292"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681229292"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681229291"><span class="annot"><span class="annottext">s :: GetEbsDefaultKmsKeyId
+</span><a href="#local-6989586621681229291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId%27"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681229290"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681229290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEbsDefaultKmsKeyId
+</span><a href="#local-6989586621681229291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:GetEbsDefaultKmsKeyId' :: Maybe Bool
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#%24sel%3AdryRun%3AGetEbsDefaultKmsKeyId%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681229290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyIdResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621681229286"><span class="annot"><span class="annottext">request :: GetEbsDefaultKmsKeyId -&gt; Request GetEbsDefaultKmsKeyId
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetEbsDefaultKmsKeyId -&gt; Request GetEbsDefaultKmsKeyId
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681229282"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetEbsDefaultKmsKeyId
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetEbsDefaultKmsKeyId)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse GetEbsDefaultKmsKeyId))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetEbsDefaultKmsKeyId
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetEbsDefaultKmsKeyId)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681229279"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681229279"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681229278"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681229278"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681229277"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681229277"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GetEbsDefaultKmsKeyIdResponse
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-var">GetEbsDefaultKmsKeyIdResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GetEbsDefaultKmsKeyIdResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetEbsDefaultKmsKeyIdResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681229277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetEbsDefaultKmsKeyIdResponse)
+-&gt; Either String Int -&gt; Either String GetEbsDefaultKmsKeyIdResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681229279"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681229269"><span id="local-6989586621681229271"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681229266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621681229262"><span class="annot"><span class="annottext">toHeaders :: GetEbsDefaultKmsKeyId -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetEbsDefaultKmsKeyId -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621681229257"><span class="annot"><span class="annottext">toPath :: GetEbsDefaultKmsKeyId -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetEbsDefaultKmsKeyId -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621681229253"><span class="annot"><span class="annottext">toQuery :: GetEbsDefaultKmsKeyId -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyId%27"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229251"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:GetEbsDefaultKmsKeyId' :: GetEbsDefaultKmsKeyId -&gt; Maybe Bool
+</span><a href="#local-6989586621681229251"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetEbsDefaultKmsKeyId&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681229251"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newGetEbsDefaultKmsKeyIdResponse' smart constructor.</span><span>
+</span><span id="line-124"></span><span id="local-6989586621681229248"><span id="local-6989586621681229249"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEbsDefaultKmsKeyIdResponse"><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse"><span class="hs-identifier hs-var">GetEbsDefaultKmsKeyIdResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEbsDefaultKmsKeyIdResponse%27"><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-var">GetEbsDefaultKmsKeyIdResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the default KMS key for encryption by</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- default.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AGetEbsDefaultKmsKeyIdResponse%27"><span class="annot"><span class="annottext">GetEbsDefaultKmsKeyIdResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#%24sel%3AkmsKeyId%3AGetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetEbsDefaultKmsKeyIdResponse%27"><span class="annot"><span class="annottext">GetEbsDefaultKmsKeyIdResponse -&gt; Int
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#%24sel%3AhttpStatus%3AGetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681229242"><span id="local-6989586621681229244"><span class="annot"><span class="annottext">GetEbsDefaultKmsKeyIdResponse
+-&gt; GetEbsDefaultKmsKeyIdResponse -&gt; Bool
+(GetEbsDefaultKmsKeyIdResponse
+ -&gt; GetEbsDefaultKmsKeyIdResponse -&gt; Bool)
+-&gt; (GetEbsDefaultKmsKeyIdResponse
+    -&gt; GetEbsDefaultKmsKeyIdResponse -&gt; Bool)
+-&gt; Eq GetEbsDefaultKmsKeyIdResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEbsDefaultKmsKeyIdResponse
+-&gt; GetEbsDefaultKmsKeyIdResponse -&gt; Bool
+$c/= :: GetEbsDefaultKmsKeyIdResponse
+-&gt; GetEbsDefaultKmsKeyIdResponse -&gt; Bool
+== :: GetEbsDefaultKmsKeyIdResponse
+-&gt; GetEbsDefaultKmsKeyIdResponse -&gt; Bool
+$c== :: GetEbsDefaultKmsKeyIdResponse
+-&gt; GetEbsDefaultKmsKeyIdResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681229234"><span id="local-6989586621681229236"><span id="local-6989586621681229238"><span id="local-6989586621681229240"><span class="annot"><span class="annottext">ReadPrec [GetEbsDefaultKmsKeyIdResponse]
+ReadPrec GetEbsDefaultKmsKeyIdResponse
+Int -&gt; ReadS GetEbsDefaultKmsKeyIdResponse
+ReadS [GetEbsDefaultKmsKeyIdResponse]
+(Int -&gt; ReadS GetEbsDefaultKmsKeyIdResponse)
+-&gt; ReadS [GetEbsDefaultKmsKeyIdResponse]
+-&gt; ReadPrec GetEbsDefaultKmsKeyIdResponse
+-&gt; ReadPrec [GetEbsDefaultKmsKeyIdResponse]
+-&gt; Read GetEbsDefaultKmsKeyIdResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEbsDefaultKmsKeyIdResponse]
+$creadListPrec :: ReadPrec [GetEbsDefaultKmsKeyIdResponse]
+readPrec :: ReadPrec GetEbsDefaultKmsKeyIdResponse
+$creadPrec :: ReadPrec GetEbsDefaultKmsKeyIdResponse
+readList :: ReadS [GetEbsDefaultKmsKeyIdResponse]
+$creadList :: ReadS [GetEbsDefaultKmsKeyIdResponse]
+readsPrec :: Int -&gt; ReadS GetEbsDefaultKmsKeyIdResponse
+$creadsPrec :: Int -&gt; ReadS GetEbsDefaultKmsKeyIdResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681229228"><span id="local-6989586621681229230"><span id="local-6989586621681229232"><span class="annot"><span class="annottext">Int -&gt; GetEbsDefaultKmsKeyIdResponse -&gt; ShowS
+[GetEbsDefaultKmsKeyIdResponse] -&gt; ShowS
+GetEbsDefaultKmsKeyIdResponse -&gt; String
+(Int -&gt; GetEbsDefaultKmsKeyIdResponse -&gt; ShowS)
+-&gt; (GetEbsDefaultKmsKeyIdResponse -&gt; String)
+-&gt; ([GetEbsDefaultKmsKeyIdResponse] -&gt; ShowS)
+-&gt; Show GetEbsDefaultKmsKeyIdResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEbsDefaultKmsKeyIdResponse] -&gt; ShowS
+$cshowList :: [GetEbsDefaultKmsKeyIdResponse] -&gt; ShowS
+show :: GetEbsDefaultKmsKeyIdResponse -&gt; String
+$cshow :: GetEbsDefaultKmsKeyIdResponse -&gt; String
+showsPrec :: Int -&gt; GetEbsDefaultKmsKeyIdResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEbsDefaultKmsKeyIdResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetEbsDefaultKmsKeyIdResponse
+ -&gt; Rep GetEbsDefaultKmsKeyIdResponse x)
+-&gt; (forall x.
+    Rep GetEbsDefaultKmsKeyIdResponse x
+    -&gt; GetEbsDefaultKmsKeyIdResponse)
+-&gt; Generic GetEbsDefaultKmsKeyIdResponse
+forall x.
+Rep GetEbsDefaultKmsKeyIdResponse x
+-&gt; GetEbsDefaultKmsKeyIdResponse
+forall x.
+GetEbsDefaultKmsKeyIdResponse
+-&gt; Rep GetEbsDefaultKmsKeyIdResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetEbsDefaultKmsKeyIdResponse x
+-&gt; GetEbsDefaultKmsKeyIdResponse
+$cfrom :: forall x.
+GetEbsDefaultKmsKeyIdResponse
+-&gt; Rep GetEbsDefaultKmsKeyIdResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Create a value of 'GetEbsDefaultKmsKeyIdResponse' with all optional fields omitted.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'kmsKeyId', 'getEbsDefaultKmsKeyIdResponse_kmsKeyId' - The Amazon Resource Name (ARN) of the default KMS key for encryption by</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- default.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'httpStatus', 'getEbsDefaultKmsKeyIdResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#newGetEbsDefaultKmsKeyIdResponse"><span class="hs-identifier hs-type">newGetEbsDefaultKmsKeyIdResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyIdResponse</span></a></span><span>
+</span><span id="line-149"></span><span id="newGetEbsDefaultKmsKeyIdResponse"><span class="annot"><span class="annottext">newGetEbsDefaultKmsKeyIdResponse :: Int -&gt; GetEbsDefaultKmsKeyIdResponse
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#newGetEbsDefaultKmsKeyIdResponse"><span class="hs-identifier hs-var hs-var">newGetEbsDefaultKmsKeyIdResponse</span></a></span></span><span> </span><span id="local-6989586621681229225"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681229225"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">GetEbsDefaultKmsKeyIdResponse' :: Maybe Text -&gt; Int -&gt; GetEbsDefaultKmsKeyIdResponse
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyIdResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKeyId:GetEbsDefaultKmsKeyIdResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#%24sel%3AkmsKeyId%3AGetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetEbsDefaultKmsKeyIdResponse' :: Int
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#%24sel%3AhttpStatus%3AGetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681229225"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the default KMS key for encryption by</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- default.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#getEbsDefaultKmsKeyIdResponse_kmsKeyId"><span class="hs-identifier hs-type">getEbsDefaultKmsKeyIdResponse_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyIdResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="getEbsDefaultKmsKeyIdResponse_kmsKeyId"><span class="annot"><span class="annottext">getEbsDefaultKmsKeyIdResponse_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetEbsDefaultKmsKeyIdResponse -&gt; f GetEbsDefaultKmsKeyIdResponse
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#getEbsDefaultKmsKeyIdResponse_kmsKeyId"><span class="hs-identifier hs-var hs-var">getEbsDefaultKmsKeyIdResponse_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEbsDefaultKmsKeyIdResponse -&gt; Maybe Text)
+-&gt; (GetEbsDefaultKmsKeyIdResponse
+    -&gt; Maybe Text -&gt; GetEbsDefaultKmsKeyIdResponse)
+-&gt; Lens
+     GetEbsDefaultKmsKeyIdResponse
+     GetEbsDefaultKmsKeyIdResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyIdResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229224"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:GetEbsDefaultKmsKeyIdResponse' :: GetEbsDefaultKmsKeyIdResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681229224"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681229224"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681229223"><span class="annot"><span class="annottext">s :: GetEbsDefaultKmsKeyIdResponse
+</span><a href="#local-6989586621681229223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyIdResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681229222"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681229222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEbsDefaultKmsKeyIdResponse
+</span><a href="#local-6989586621681229223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:GetEbsDefaultKmsKeyIdResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#%24sel%3AkmsKeyId%3AGetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681229222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyIdResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#getEbsDefaultKmsKeyIdResponse_httpStatus"><span class="hs-identifier hs-type">getEbsDefaultKmsKeyIdResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyIdResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span id="getEbsDefaultKmsKeyIdResponse_httpStatus"><span class="annot"><span class="annottext">getEbsDefaultKmsKeyIdResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetEbsDefaultKmsKeyIdResponse -&gt; f GetEbsDefaultKmsKeyIdResponse
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#getEbsDefaultKmsKeyIdResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getEbsDefaultKmsKeyIdResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEbsDefaultKmsKeyIdResponse -&gt; Int)
+-&gt; (GetEbsDefaultKmsKeyIdResponse
+    -&gt; Int -&gt; GetEbsDefaultKmsKeyIdResponse)
+-&gt; Lens
+     GetEbsDefaultKmsKeyIdResponse GetEbsDefaultKmsKeyIdResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyIdResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229221"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetEbsDefaultKmsKeyIdResponse' :: GetEbsDefaultKmsKeyIdResponse -&gt; Int
+</span><a href="#local-6989586621681229221"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681229221"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681229220"><span class="annot"><span class="annottext">s :: GetEbsDefaultKmsKeyIdResponse
+</span><a href="#local-6989586621681229220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyIdResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681229219"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681229219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEbsDefaultKmsKeyIdResponse
+</span><a href="#local-6989586621681229220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEbsDefaultKmsKeyIdResponse' :: Int
+</span><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#%24sel%3AhttpStatus%3AGetEbsDefaultKmsKeyIdResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681229219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyIdResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681229217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetEbsDefaultKmsKeyId.html#GetEbsDefaultKmsKeyIdResponse"><span class="hs-identifier hs-type">GetEbsDefaultKmsKeyIdResponse</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.Fmp4HlsSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.Fmp4HlsSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4NielsenId3Behavior.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Fmp4NielsenId3Behavior</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4TimedMetadataBehavior.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Fmp4TimedMetadataBehavior</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Fmp4 Hls Settings</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFmp4HlsSettings' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679877265"><span id="local-6989586621679877266"></span></span><span class="hs-keyword">data</span><span> </span><span id="Fmp4HlsSettings"><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-var">Fmp4HlsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Fmp4HlsSettings%27"><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-var">Fmp4HlsSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If set to passthrough, Nielsen inaudible tones for media tracking will</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- be detected in the input audio and an equivalent ID3 tag will be</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- inserted in the output.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AnielsenId3Behavior%3AFmp4HlsSettings%27"><span class="annot"><span class="annottext">Fmp4HlsSettings -&gt; Maybe Fmp4NielsenId3Behavior
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AnielsenId3Behavior%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var hs-var">nielsenId3Behavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4NielsenId3Behavior.html#Fmp4NielsenId3Behavior"><span class="hs-identifier hs-type">Fmp4NielsenId3Behavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | List all the audio groups that are used with the video output stream.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Input all the audio GROUP-IDs that are associated to the video, separate</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- by \',\'.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AaudioRenditionSets%3AFmp4HlsSettings%27"><span class="annot"><span class="annottext">Fmp4HlsSettings -&gt; Maybe Text
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AaudioRenditionSets%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var hs-var">audioRenditionSets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | When set to passthrough, timed metadata is passed through from input to</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AtimedMetadataBehavior%3AFmp4HlsSettings%27"><span class="annot"><span class="annottext">Fmp4HlsSettings -&gt; Maybe Fmp4TimedMetadataBehavior
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AtimedMetadataBehavior%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var hs-var">timedMetadataBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior"><span class="hs-identifier hs-type">Fmp4TimedMetadataBehavior</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679877257"><span id="local-6989586621679877259"><span class="annot"><span class="annottext">Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool
+(Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool)
+-&gt; (Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool)
+-&gt; Eq Fmp4HlsSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool
+$c/= :: Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool
+== :: Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool
+$c== :: Fmp4HlsSettings -&gt; Fmp4HlsSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679877248"><span id="local-6989586621679877250"><span id="local-6989586621679877252"><span id="local-6989586621679877254"><span class="annot"><span class="annottext">ReadPrec [Fmp4HlsSettings]
+ReadPrec Fmp4HlsSettings
+Int -&gt; ReadS Fmp4HlsSettings
+ReadS [Fmp4HlsSettings]
+(Int -&gt; ReadS Fmp4HlsSettings)
+-&gt; ReadS [Fmp4HlsSettings]
+-&gt; ReadPrec Fmp4HlsSettings
+-&gt; ReadPrec [Fmp4HlsSettings]
+-&gt; Read Fmp4HlsSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Fmp4HlsSettings]
+$creadListPrec :: ReadPrec [Fmp4HlsSettings]
+readPrec :: ReadPrec Fmp4HlsSettings
+$creadPrec :: ReadPrec Fmp4HlsSettings
+readList :: ReadS [Fmp4HlsSettings]
+$creadList :: ReadS [Fmp4HlsSettings]
+readsPrec :: Int -&gt; ReadS Fmp4HlsSettings
+$creadsPrec :: Int -&gt; ReadS Fmp4HlsSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679877241"><span id="local-6989586621679877243"><span id="local-6989586621679877245"><span class="annot"><span class="annottext">Int -&gt; Fmp4HlsSettings -&gt; ShowS
+[Fmp4HlsSettings] -&gt; ShowS
+Fmp4HlsSettings -&gt; String
+(Int -&gt; Fmp4HlsSettings -&gt; ShowS)
+-&gt; (Fmp4HlsSettings -&gt; String)
+-&gt; ([Fmp4HlsSettings] -&gt; ShowS)
+-&gt; Show Fmp4HlsSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Fmp4HlsSettings] -&gt; ShowS
+$cshowList :: [Fmp4HlsSettings] -&gt; ShowS
+show :: Fmp4HlsSettings -&gt; String
+$cshow :: Fmp4HlsSettings -&gt; String
+showsPrec :: Int -&gt; Fmp4HlsSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; Fmp4HlsSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Fmp4HlsSettings -&gt; Rep Fmp4HlsSettings x)
+-&gt; (forall x. Rep Fmp4HlsSettings x -&gt; Fmp4HlsSettings)
+-&gt; Generic Fmp4HlsSettings
+forall x. Rep Fmp4HlsSettings x -&gt; Fmp4HlsSettings
+forall x. Fmp4HlsSettings -&gt; Rep Fmp4HlsSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Fmp4HlsSettings x -&gt; Fmp4HlsSettings
+$cfrom :: forall x. Fmp4HlsSettings -&gt; Rep Fmp4HlsSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'Fmp4HlsSettings' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'nielsenId3Behavior', 'fmp4HlsSettings_nielsenId3Behavior' - If set to passthrough, Nielsen inaudible tones for media tracking will</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- be detected in the input audio and an equivalent ID3 tag will be</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- inserted in the output.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'audioRenditionSets', 'fmp4HlsSettings_audioRenditionSets' - List all the audio groups that are used with the video output stream.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Input all the audio GROUP-IDs that are associated to the video, separate</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- by \',\'.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'timedMetadataBehavior', 'fmp4HlsSettings_timedMetadataBehavior' - When set to passthrough, timed metadata is passed through from input to</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#newFmp4HlsSettings"><span class="hs-identifier hs-type">newFmp4HlsSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span>
+</span><span id="line-66"></span><span id="newFmp4HlsSettings"><span class="annot"><span class="annottext">newFmp4HlsSettings :: Fmp4HlsSettings
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#newFmp4HlsSettings"><span class="hs-identifier hs-var hs-var">newFmp4HlsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">Fmp4HlsSettings' :: Maybe Fmp4NielsenId3Behavior
+-&gt; Maybe Text -&gt; Maybe Fmp4TimedMetadataBehavior -&gt; Fmp4HlsSettings
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nielsenId3Behavior:Fmp4HlsSettings' :: Maybe Fmp4NielsenId3Behavior
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AnielsenId3Behavior%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioRenditionSets:Fmp4HlsSettings' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AaudioRenditionSets%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:timedMetadataBehavior:Fmp4HlsSettings' :: Maybe Fmp4TimedMetadataBehavior
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AtimedMetadataBehavior%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | If set to passthrough, Nielsen inaudible tones for media tracking will</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- be detected in the input audio and an equivalent ID3 tag will be</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- inserted in the output.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#fmp4HlsSettings_nielsenId3Behavior"><span class="hs-identifier hs-type">fmp4HlsSettings_nielsenId3Behavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4NielsenId3Behavior.html#Fmp4NielsenId3Behavior"><span class="hs-identifier hs-type">Fmp4NielsenId3Behavior</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="fmp4HlsSettings_nielsenId3Behavior"><span class="annot"><span class="annottext">fmp4HlsSettings_nielsenId3Behavior :: (Maybe Fmp4NielsenId3Behavior -&gt; f (Maybe Fmp4NielsenId3Behavior))
+-&gt; Fmp4HlsSettings -&gt; f Fmp4HlsSettings
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#fmp4HlsSettings_nielsenId3Behavior"><span class="hs-identifier hs-var hs-var">fmp4HlsSettings_nielsenId3Behavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Fmp4HlsSettings -&gt; Maybe Fmp4NielsenId3Behavior)
+-&gt; (Fmp4HlsSettings
+    -&gt; Maybe Fmp4NielsenId3Behavior -&gt; Fmp4HlsSettings)
+-&gt; Lens
+     Fmp4HlsSettings
+     Fmp4HlsSettings
+     (Maybe Fmp4NielsenId3Behavior)
+     (Maybe Fmp4NielsenId3Behavior)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679877232"><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
+nielsenId3Behavior :: Maybe Fmp4NielsenId3Behavior
+$sel:nielsenId3Behavior:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Fmp4NielsenId3Behavior
+</span><a href="#local-6989586621679877232"><span class="hs-identifier hs-var hs-var">nielsenId3Behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
+</span><a href="#local-6989586621679877232"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679877231"><span class="annot"><span class="annottext">s :: Fmp4HlsSettings
+</span><a href="#local-6989586621679877231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679877230"><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
+</span><a href="#local-6989586621679877230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Fmp4HlsSettings
+</span><a href="#local-6989586621679877231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nielsenId3Behavior:Fmp4HlsSettings' :: Maybe Fmp4NielsenId3Behavior
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AnielsenId3Behavior%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
+</span><a href="#local-6989586621679877230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | List all the audio groups that are used with the video output stream.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Input all the audio GROUP-IDs that are associated to the video, separate</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- by \',\'.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#fmp4HlsSettings_audioRenditionSets"><span class="hs-identifier hs-type">fmp4HlsSettings_audioRenditionSets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="fmp4HlsSettings_audioRenditionSets"><span class="annot"><span class="annottext">fmp4HlsSettings_audioRenditionSets :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; Fmp4HlsSettings -&gt; f Fmp4HlsSettings
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#fmp4HlsSettings_audioRenditionSets"><span class="hs-identifier hs-var hs-var">fmp4HlsSettings_audioRenditionSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Fmp4HlsSettings -&gt; Maybe Text)
+-&gt; (Fmp4HlsSettings -&gt; Maybe Text -&gt; Fmp4HlsSettings)
+-&gt; Lens Fmp4HlsSettings Fmp4HlsSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679877228"><span class="annot"><span class="annottext">Maybe Text
+audioRenditionSets :: Maybe Text
+$sel:audioRenditionSets:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679877228"><span class="hs-identifier hs-var hs-var">audioRenditionSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679877228"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679877227"><span class="annot"><span class="annottext">s :: Fmp4HlsSettings
+</span><a href="#local-6989586621679877227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679877226"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679877226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Fmp4HlsSettings
+</span><a href="#local-6989586621679877227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioRenditionSets:Fmp4HlsSettings' :: Maybe Text
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AaudioRenditionSets%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679877226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | When set to passthrough, timed metadata is passed through from input to</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#fmp4HlsSettings_timedMetadataBehavior"><span class="hs-identifier hs-type">fmp4HlsSettings_timedMetadataBehavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior"><span class="hs-identifier hs-type">Fmp4TimedMetadataBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="fmp4HlsSettings_timedMetadataBehavior"><span class="annot"><span class="annottext">fmp4HlsSettings_timedMetadataBehavior :: (Maybe Fmp4TimedMetadataBehavior
+ -&gt; f (Maybe Fmp4TimedMetadataBehavior))
+-&gt; Fmp4HlsSettings -&gt; f Fmp4HlsSettings
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#fmp4HlsSettings_timedMetadataBehavior"><span class="hs-identifier hs-var hs-var">fmp4HlsSettings_timedMetadataBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Fmp4HlsSettings -&gt; Maybe Fmp4TimedMetadataBehavior)
+-&gt; (Fmp4HlsSettings
+    -&gt; Maybe Fmp4TimedMetadataBehavior -&gt; Fmp4HlsSettings)
+-&gt; Lens
+     Fmp4HlsSettings
+     Fmp4HlsSettings
+     (Maybe Fmp4TimedMetadataBehavior)
+     (Maybe Fmp4TimedMetadataBehavior)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679877224"><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
+timedMetadataBehavior :: Maybe Fmp4TimedMetadataBehavior
+$sel:timedMetadataBehavior:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Fmp4TimedMetadataBehavior
+</span><a href="#local-6989586621679877224"><span class="hs-identifier hs-var hs-var">timedMetadataBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
+</span><a href="#local-6989586621679877224"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679877223"><span class="annot"><span class="annottext">s :: Fmp4HlsSettings
+</span><a href="#local-6989586621679877223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679877222"><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
+</span><a href="#local-6989586621679877222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Fmp4HlsSettings
+</span><a href="#local-6989586621679877223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataBehavior:Fmp4HlsSettings' :: Maybe Fmp4TimedMetadataBehavior
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#%24sel%3AtimedMetadataBehavior%3AFmp4HlsSettings%27"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
+</span><a href="#local-6989586621679877222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679877219"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679877217"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Fmp4HlsSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Fmp4HlsSettings)
+-&gt; Value
+-&gt; Parser Fmp4HlsSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Fmp4HlsSettings&quot;</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679877214"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679877214"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
+-&gt; Maybe Text -&gt; Maybe Fmp4TimedMetadataBehavior -&gt; Fmp4HlsSettings
+</span><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-var">Fmp4HlsSettings'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Fmp4NielsenId3Behavior
+ -&gt; Maybe Text
+ -&gt; Maybe Fmp4TimedMetadataBehavior
+ -&gt; Fmp4HlsSettings)
+-&gt; Parser (Maybe Fmp4NielsenId3Behavior)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Fmp4TimedMetadataBehavior -&gt; Fmp4HlsSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679877214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Fmp4NielsenId3Behavior)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenId3Behavior&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Fmp4TimedMetadataBehavior -&gt; Fmp4HlsSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Fmp4TimedMetadataBehavior -&gt; Fmp4HlsSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679877214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioRenditionSets&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Fmp4TimedMetadataBehavior -&gt; Fmp4HlsSettings)
+-&gt; Parser (Maybe Fmp4TimedMetadataBehavior)
+-&gt; Parser Fmp4HlsSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679877214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Fmp4TimedMetadataBehavior)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timedMetadataBehavior&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679877208"><span id="local-6989586621679877210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679877205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679877197"><span id="local-6989586621679877199"><span id="local-6989586621679877201"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679877195"><span class="annot"><span class="annottext">toJSON :: Fmp4HlsSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings%27"><span class="hs-identifier hs-type">Fmp4HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679877191"><span id="local-6989586621679877192"><span id="local-6989586621679877193"><span class="annot"><span class="annottext">Maybe Text
+Maybe Fmp4NielsenId3Behavior
+Maybe Fmp4TimedMetadataBehavior
+timedMetadataBehavior :: Maybe Fmp4TimedMetadataBehavior
+audioRenditionSets :: Maybe Text
+nielsenId3Behavior :: Maybe Fmp4NielsenId3Behavior
+$sel:timedMetadataBehavior:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Fmp4TimedMetadataBehavior
+$sel:audioRenditionSets:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Text
+$sel:nielsenId3Behavior:Fmp4HlsSettings' :: Fmp4HlsSettings -&gt; Maybe Fmp4NielsenId3Behavior
+</span><a href="#local-6989586621679877191"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nielsenId3Behavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Fmp4NielsenId3Behavior -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">(Fmp4NielsenId3Behavior -&gt; Pair)
+-&gt; Maybe Fmp4NielsenId3Behavior -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4NielsenId3Behavior
+</span><a href="#local-6989586621679877193"><span class="hs-identifier hs-var">nielsenId3Behavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioRenditionSets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679877192"><span class="hs-identifier hs-var">audioRenditionSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timedMetadataBehavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Fmp4TimedMetadataBehavior -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">(Fmp4TimedMetadataBehavior -&gt; Pair)
+-&gt; Maybe Fmp4TimedMetadataBehavior -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4TimedMetadataBehavior
+</span><a href="#local-6989586621679877191"><span class="hs-identifier hs-var">timedMetadataBehavior</span></a></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span></pre></body></html>

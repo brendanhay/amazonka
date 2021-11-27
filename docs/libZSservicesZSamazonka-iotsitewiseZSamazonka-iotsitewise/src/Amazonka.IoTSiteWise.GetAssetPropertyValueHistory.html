@@ -1,0 +1,1100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTSiteWise.GetAssetPropertyValueHistory</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the history of an asset property\'s values. For more information,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values Querying historical values&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- To identify an asset property, you must specify one of the following:</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   The @assetId@ and @propertyId@ of an asset property.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   A @propertyAlias@, which is a data stream alias (for example,</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     @\/company\/windfarm\/3\/turbine\/7\/temperature@). To define an</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     asset property\'s alias, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTSiteWise.GetAssetPropertyValueHistory</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#newGetAssetPropertyValueHistory"><span class="hs-identifier">newGetAssetPropertyValueHistory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_endDate"><span class="hs-identifier">getAssetPropertyValueHistory_endDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_qualities"><span class="hs-identifier">getAssetPropertyValueHistory_qualities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_timeOrdering"><span class="hs-identifier">getAssetPropertyValueHistory_timeOrdering</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_propertyAlias"><span class="hs-identifier">getAssetPropertyValueHistory_propertyAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_startDate"><span class="hs-identifier">getAssetPropertyValueHistory_startDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_nextToken"><span class="hs-identifier">getAssetPropertyValueHistory_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_propertyId"><span class="hs-identifier">getAssetPropertyValueHistory_propertyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_assetId"><span class="hs-identifier">getAssetPropertyValueHistory_assetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_maxResults"><span class="hs-identifier">getAssetPropertyValueHistory_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse"><span class="hs-identifier">GetAssetPropertyValueHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#newGetAssetPropertyValueHistoryResponse"><span class="hs-identifier">newGetAssetPropertyValueHistoryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistoryResponse_nextToken"><span class="hs-identifier">getAssetPropertyValueHistoryResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistoryResponse_httpStatus"><span class="hs-identifier">getAssetPropertyValueHistoryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistoryResponse_assetPropertyValueHistory"><span class="hs-identifier">getAssetPropertyValueHistoryResponse_assetPropertyValueHistory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.html"><span class="hs-identifier">Amazonka.IoTSiteWise.Types</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | /See:/ 'newGetAssetPropertyValueHistory' smart constructor.</span><span>
+</span><span id="line-73"></span><span id="local-6989586621679352269"><span id="local-6989586621679352270"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssetPropertyValueHistory"><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-var">GetAssetPropertyValueHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssetPropertyValueHistory%27"><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">GetAssetPropertyValueHistory'</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The inclusive end of the range from which to query historical data,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- expressed in seconds in Unix epoch time.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AendDate%3AGetAssetPropertyValueHistory%27"><span class="annot"><span class="annottext">GetAssetPropertyValueHistory -&gt; Maybe POSIX
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AendDate%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The quality by which to filter asset data.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Aqualities%3AGetAssetPropertyValueHistory%27"><span class="annot"><span class="annottext">GetAssetPropertyValueHistory -&gt; Maybe (NonEmpty Quality)
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3Aqualities%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var hs-var">qualities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.Quality.html#Quality"><span class="hs-identifier hs-type">Quality</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The chronological sorting order of the requested information.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- Default: @ASCENDING@</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AtimeOrdering%3AGetAssetPropertyValueHistory%27"><span class="annot"><span class="annottext">GetAssetPropertyValueHistory -&gt; Maybe TimeOrdering
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AtimeOrdering%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var hs-var">timeOrdering</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering"><span class="hs-identifier hs-type">TimeOrdering</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The alias that identifies the property, such as an OPC-UA server data</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- stream path (for example,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties&gt;</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3ApropertyAlias%3AGetAssetPropertyValueHistory%27"><span class="annot"><span class="annottext">GetAssetPropertyValueHistory -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3ApropertyAlias%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var hs-var">propertyAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The exclusive start of the range from which to query historical data,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- expressed in seconds in Unix epoch time.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AstartDate%3AGetAssetPropertyValueHistory%27"><span class="annot"><span class="annottext">GetAssetPropertyValueHistory -&gt; Maybe POSIX
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AstartDate%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The token to be used for the next set of paginated results.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AnextToken%3AGetAssetPropertyValueHistory%27"><span class="annot"><span class="annottext">GetAssetPropertyValueHistory -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AnextToken%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The ID of the asset property.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3ApropertyId%3AGetAssetPropertyValueHistory%27"><span class="annot"><span class="annottext">GetAssetPropertyValueHistory -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3ApropertyId%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var hs-var">propertyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The ID of the asset.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AassetId%3AGetAssetPropertyValueHistory%27"><span class="annot"><span class="annottext">GetAssetPropertyValueHistory -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AassetId%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return for each paginated request.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetAssetPropertyValueHistory%27"><span class="annot"><span class="annottext">GetAssetPropertyValueHistory -&gt; Maybe Natural
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AmaxResults%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352255"><span id="local-6989586621679352257"><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+-&gt; GetAssetPropertyValueHistory -&gt; Bool
+(GetAssetPropertyValueHistory
+ -&gt; GetAssetPropertyValueHistory -&gt; Bool)
+-&gt; (GetAssetPropertyValueHistory
+    -&gt; GetAssetPropertyValueHistory -&gt; Bool)
+-&gt; Eq GetAssetPropertyValueHistory
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAssetPropertyValueHistory
+-&gt; GetAssetPropertyValueHistory -&gt; Bool
+$c/= :: GetAssetPropertyValueHistory
+-&gt; GetAssetPropertyValueHistory -&gt; Bool
+== :: GetAssetPropertyValueHistory
+-&gt; GetAssetPropertyValueHistory -&gt; Bool
+$c== :: GetAssetPropertyValueHistory
+-&gt; GetAssetPropertyValueHistory -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352246"><span id="local-6989586621679352248"><span id="local-6989586621679352250"><span id="local-6989586621679352252"><span class="annot"><span class="annottext">ReadPrec [GetAssetPropertyValueHistory]
+ReadPrec GetAssetPropertyValueHistory
+Int -&gt; ReadS GetAssetPropertyValueHistory
+ReadS [GetAssetPropertyValueHistory]
+(Int -&gt; ReadS GetAssetPropertyValueHistory)
+-&gt; ReadS [GetAssetPropertyValueHistory]
+-&gt; ReadPrec GetAssetPropertyValueHistory
+-&gt; ReadPrec [GetAssetPropertyValueHistory]
+-&gt; Read GetAssetPropertyValueHistory
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAssetPropertyValueHistory]
+$creadListPrec :: ReadPrec [GetAssetPropertyValueHistory]
+readPrec :: ReadPrec GetAssetPropertyValueHistory
+$creadPrec :: ReadPrec GetAssetPropertyValueHistory
+readList :: ReadS [GetAssetPropertyValueHistory]
+$creadList :: ReadS [GetAssetPropertyValueHistory]
+readsPrec :: Int -&gt; ReadS GetAssetPropertyValueHistory
+$creadsPrec :: Int -&gt; ReadS GetAssetPropertyValueHistory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352239"><span id="local-6989586621679352241"><span id="local-6989586621679352243"><span class="annot"><span class="annottext">Int -&gt; GetAssetPropertyValueHistory -&gt; ShowS
+[GetAssetPropertyValueHistory] -&gt; ShowS
+GetAssetPropertyValueHistory -&gt; String
+(Int -&gt; GetAssetPropertyValueHistory -&gt; ShowS)
+-&gt; (GetAssetPropertyValueHistory -&gt; String)
+-&gt; ([GetAssetPropertyValueHistory] -&gt; ShowS)
+-&gt; Show GetAssetPropertyValueHistory
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAssetPropertyValueHistory] -&gt; ShowS
+$cshowList :: [GetAssetPropertyValueHistory] -&gt; ShowS
+show :: GetAssetPropertyValueHistory -&gt; String
+$cshow :: GetAssetPropertyValueHistory -&gt; String
+showsPrec :: Int -&gt; GetAssetPropertyValueHistory -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAssetPropertyValueHistory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetAssetPropertyValueHistory -&gt; Rep GetAssetPropertyValueHistory x)
+-&gt; (forall x.
+    Rep GetAssetPropertyValueHistory x -&gt; GetAssetPropertyValueHistory)
+-&gt; Generic GetAssetPropertyValueHistory
+forall x.
+Rep GetAssetPropertyValueHistory x -&gt; GetAssetPropertyValueHistory
+forall x.
+GetAssetPropertyValueHistory -&gt; Rep GetAssetPropertyValueHistory x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetAssetPropertyValueHistory x -&gt; GetAssetPropertyValueHistory
+$cfrom :: forall x.
+GetAssetPropertyValueHistory -&gt; Rep GetAssetPropertyValueHistory x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Create a value of 'GetAssetPropertyValueHistory' with all optional fields omitted.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'endDate', 'getAssetPropertyValueHistory_endDate' - The inclusive end of the range from which to query historical data,</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- expressed in seconds in Unix epoch time.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'qualities', 'getAssetPropertyValueHistory_qualities' - The quality by which to filter asset data.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'timeOrdering', 'getAssetPropertyValueHistory_timeOrdering' - The chronological sorting order of the requested information.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Default: @ASCENDING@</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'propertyAlias', 'getAssetPropertyValueHistory_propertyAlias' - The alias that identifies the property, such as an OPC-UA server data</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- stream path (for example,</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties&gt;</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'startDate', 'getAssetPropertyValueHistory_startDate' - The exclusive start of the range from which to query historical data,</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- expressed in seconds in Unix epoch time.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'nextToken', 'getAssetPropertyValueHistory_nextToken' - The token to be used for the next set of paginated results.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'propertyId', 'getAssetPropertyValueHistory_propertyId' - The ID of the asset property.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'assetId', 'getAssetPropertyValueHistory_assetId' - The ID of the asset.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'maxResults', 'getAssetPropertyValueHistory_maxResults' - The maximum number of results to return for each paginated request.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#newGetAssetPropertyValueHistory"><span class="hs-identifier hs-type">newGetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span>
+</span><span id="line-144"></span><span id="newGetAssetPropertyValueHistory"><span class="annot"><span class="annottext">newGetAssetPropertyValueHistory :: GetAssetPropertyValueHistory
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#newGetAssetPropertyValueHistory"><span class="hs-identifier hs-var hs-var">newGetAssetPropertyValueHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory' :: Maybe POSIX
+-&gt; Maybe (NonEmpty Quality)
+-&gt; Maybe TimeOrdering
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; GetAssetPropertyValueHistory
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endDate:GetAssetPropertyValueHistory' :: Maybe POSIX
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AendDate%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:qualities:GetAssetPropertyValueHistory' :: Maybe (NonEmpty Quality)
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3Aqualities%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">qualities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Quality)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeOrdering:GetAssetPropertyValueHistory' :: Maybe TimeOrdering
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AtimeOrdering%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">timeOrdering</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeOrdering
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:propertyAlias:GetAssetPropertyValueHistory' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3ApropertyAlias%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">propertyAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:startDate:GetAssetPropertyValueHistory' :: Maybe POSIX
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AstartDate%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetAssetPropertyValueHistory' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AnextToken%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:propertyId:GetAssetPropertyValueHistory' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3ApropertyId%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">propertyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:assetId:GetAssetPropertyValueHistory' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AassetId%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetAssetPropertyValueHistory' :: Maybe Natural
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AmaxResults%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The inclusive end of the range from which to query historical data,</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- expressed in seconds in Unix epoch time.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_endDate"><span class="hs-identifier hs-type">getAssetPropertyValueHistory_endDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="getAssetPropertyValueHistory_endDate"><span class="annot"><span class="annottext">getAssetPropertyValueHistory_endDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetAssetPropertyValueHistory -&gt; f GetAssetPropertyValueHistory
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_endDate"><span class="hs-identifier hs-var hs-var">getAssetPropertyValueHistory_endDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistory -&gt; Maybe POSIX)
+-&gt; (GetAssetPropertyValueHistory
+    -&gt; Maybe POSIX -&gt; GetAssetPropertyValueHistory)
+-&gt; Lens
+     GetAssetPropertyValueHistory
+     GetAssetPropertyValueHistory
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352233"><span class="annot"><span class="annottext">Maybe POSIX
+endDate :: Maybe POSIX
+$sel:endDate:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe POSIX
+</span><a href="#local-6989586621679352233"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679352233"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352232"><span class="annot"><span class="annottext">s :: GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352231"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679352231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:GetAssetPropertyValueHistory' :: Maybe POSIX
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AendDate%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679352231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetAssetPropertyValueHistory -&gt; f GetAssetPropertyValueHistory)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetAssetPropertyValueHistory
+-&gt; f GetAssetPropertyValueHistory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The quality by which to filter asset data.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_qualities"><span class="hs-identifier hs-type">getAssetPropertyValueHistory_qualities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.Quality.html#Quality"><span class="hs-identifier hs-type">Quality</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="getAssetPropertyValueHistory_qualities"><span class="annot"><span class="annottext">getAssetPropertyValueHistory_qualities :: (Maybe (NonEmpty Quality) -&gt; f (Maybe (NonEmpty Quality)))
+-&gt; GetAssetPropertyValueHistory -&gt; f GetAssetPropertyValueHistory
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_qualities"><span class="hs-identifier hs-var hs-var">getAssetPropertyValueHistory_qualities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistory -&gt; Maybe (NonEmpty Quality))
+-&gt; (GetAssetPropertyValueHistory
+    -&gt; Maybe (NonEmpty Quality) -&gt; GetAssetPropertyValueHistory)
+-&gt; Lens
+     GetAssetPropertyValueHistory
+     GetAssetPropertyValueHistory
+     (Maybe (NonEmpty Quality))
+     (Maybe (NonEmpty Quality))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352227"><span class="annot"><span class="annottext">Maybe (NonEmpty Quality)
+qualities :: Maybe (NonEmpty Quality)
+$sel:qualities:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe (NonEmpty Quality)
+</span><a href="#local-6989586621679352227"><span class="hs-identifier hs-var hs-var">qualities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Quality)
+</span><a href="#local-6989586621679352227"><span class="hs-identifier hs-var">qualities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352226"><span class="annot"><span class="annottext">s :: GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352225"><span class="annot"><span class="annottext">Maybe (NonEmpty Quality)
+</span><a href="#local-6989586621679352225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualities:GetAssetPropertyValueHistory' :: Maybe (NonEmpty Quality)
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3Aqualities%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">qualities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Quality)
+</span><a href="#local-6989586621679352225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Quality) -&gt; f (Maybe (NonEmpty Quality)))
+ -&gt; GetAssetPropertyValueHistory -&gt; f GetAssetPropertyValueHistory)
+-&gt; ((Maybe (NonEmpty Quality) -&gt; f (Maybe (NonEmpty Quality)))
+    -&gt; Maybe (NonEmpty Quality) -&gt; f (Maybe (NonEmpty Quality)))
+-&gt; (Maybe (NonEmpty Quality) -&gt; f (Maybe (NonEmpty Quality)))
+-&gt; GetAssetPropertyValueHistory
+-&gt; f GetAssetPropertyValueHistory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Quality)
+  (NonEmpty Quality)
+  (NonEmpty Quality)
+  (NonEmpty Quality)
+-&gt; Iso
+     (Maybe (NonEmpty Quality))
+     (Maybe (NonEmpty Quality))
+     (Maybe (NonEmpty Quality))
+     (Maybe (NonEmpty Quality))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Quality)
+  (NonEmpty Quality)
+  (NonEmpty Quality)
+  (NonEmpty Quality)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The chronological sorting order of the requested information.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Default: @ASCENDING@</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_timeOrdering"><span class="hs-identifier hs-type">getAssetPropertyValueHistory_timeOrdering</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.TimeOrdering.html#TimeOrdering"><span class="hs-identifier hs-type">TimeOrdering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="getAssetPropertyValueHistory_timeOrdering"><span class="annot"><span class="annottext">getAssetPropertyValueHistory_timeOrdering :: (Maybe TimeOrdering -&gt; f (Maybe TimeOrdering))
+-&gt; GetAssetPropertyValueHistory -&gt; f GetAssetPropertyValueHistory
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_timeOrdering"><span class="hs-identifier hs-var hs-var">getAssetPropertyValueHistory_timeOrdering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistory -&gt; Maybe TimeOrdering)
+-&gt; (GetAssetPropertyValueHistory
+    -&gt; Maybe TimeOrdering -&gt; GetAssetPropertyValueHistory)
+-&gt; Lens
+     GetAssetPropertyValueHistory
+     GetAssetPropertyValueHistory
+     (Maybe TimeOrdering)
+     (Maybe TimeOrdering)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352223"><span class="annot"><span class="annottext">Maybe TimeOrdering
+timeOrdering :: Maybe TimeOrdering
+$sel:timeOrdering:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe TimeOrdering
+</span><a href="#local-6989586621679352223"><span class="hs-identifier hs-var hs-var">timeOrdering</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeOrdering
+</span><a href="#local-6989586621679352223"><span class="hs-identifier hs-var">timeOrdering</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352222"><span class="annot"><span class="annottext">s :: GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352221"><span class="annot"><span class="annottext">Maybe TimeOrdering
+</span><a href="#local-6989586621679352221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeOrdering:GetAssetPropertyValueHistory' :: Maybe TimeOrdering
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AtimeOrdering%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">timeOrdering</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeOrdering
+</span><a href="#local-6989586621679352221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The alias that identifies the property, such as an OPC-UA server data</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- stream path (for example,</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties&gt;</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_propertyAlias"><span class="hs-identifier hs-type">getAssetPropertyValueHistory_propertyAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="getAssetPropertyValueHistory_propertyAlias"><span class="annot"><span class="annottext">getAssetPropertyValueHistory_propertyAlias :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAssetPropertyValueHistory -&gt; f GetAssetPropertyValueHistory
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_propertyAlias"><span class="hs-identifier hs-var hs-var">getAssetPropertyValueHistory_propertyAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistory -&gt; Maybe Text)
+-&gt; (GetAssetPropertyValueHistory
+    -&gt; Maybe Text -&gt; GetAssetPropertyValueHistory)
+-&gt; Lens
+     GetAssetPropertyValueHistory
+     GetAssetPropertyValueHistory
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352220"><span class="annot"><span class="annottext">Maybe Text
+propertyAlias :: Maybe Text
+$sel:propertyAlias:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679352220"><span class="hs-identifier hs-var hs-var">propertyAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352220"><span class="hs-identifier hs-var">propertyAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352219"><span class="annot"><span class="annottext">s :: GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352218"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyAlias:GetAssetPropertyValueHistory' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3ApropertyAlias%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">propertyAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The exclusive start of the range from which to query historical data,</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- expressed in seconds in Unix epoch time.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_startDate"><span class="hs-identifier hs-type">getAssetPropertyValueHistory_startDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="getAssetPropertyValueHistory_startDate"><span class="annot"><span class="annottext">getAssetPropertyValueHistory_startDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetAssetPropertyValueHistory -&gt; f GetAssetPropertyValueHistory
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_startDate"><span class="hs-identifier hs-var hs-var">getAssetPropertyValueHistory_startDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistory -&gt; Maybe POSIX)
+-&gt; (GetAssetPropertyValueHistory
+    -&gt; Maybe POSIX -&gt; GetAssetPropertyValueHistory)
+-&gt; Lens
+     GetAssetPropertyValueHistory
+     GetAssetPropertyValueHistory
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352217"><span class="annot"><span class="annottext">Maybe POSIX
+startDate :: Maybe POSIX
+$sel:startDate:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe POSIX
+</span><a href="#local-6989586621679352217"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679352217"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352216"><span class="annot"><span class="annottext">s :: GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352215"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679352215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:GetAssetPropertyValueHistory' :: Maybe POSIX
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AstartDate%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679352215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetAssetPropertyValueHistory -&gt; f GetAssetPropertyValueHistory)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetAssetPropertyValueHistory
+-&gt; f GetAssetPropertyValueHistory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The token to be used for the next set of paginated results.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_nextToken"><span class="hs-identifier hs-type">getAssetPropertyValueHistory_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="getAssetPropertyValueHistory_nextToken"><span class="annot"><span class="annottext">getAssetPropertyValueHistory_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAssetPropertyValueHistory -&gt; f GetAssetPropertyValueHistory
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_nextToken"><span class="hs-identifier hs-var hs-var">getAssetPropertyValueHistory_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistory -&gt; Maybe Text)
+-&gt; (GetAssetPropertyValueHistory
+    -&gt; Maybe Text -&gt; GetAssetPropertyValueHistory)
+-&gt; Lens
+     GetAssetPropertyValueHistory
+     GetAssetPropertyValueHistory
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352214"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679352214"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352214"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352213"><span class="annot"><span class="annottext">s :: GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352212"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetAssetPropertyValueHistory' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AnextToken%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The ID of the asset property.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_propertyId"><span class="hs-identifier hs-type">getAssetPropertyValueHistory_propertyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="getAssetPropertyValueHistory_propertyId"><span class="annot"><span class="annottext">getAssetPropertyValueHistory_propertyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAssetPropertyValueHistory -&gt; f GetAssetPropertyValueHistory
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_propertyId"><span class="hs-identifier hs-var hs-var">getAssetPropertyValueHistory_propertyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistory -&gt; Maybe Text)
+-&gt; (GetAssetPropertyValueHistory
+    -&gt; Maybe Text -&gt; GetAssetPropertyValueHistory)
+-&gt; Lens
+     GetAssetPropertyValueHistory
+     GetAssetPropertyValueHistory
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352211"><span class="annot"><span class="annottext">Maybe Text
+propertyId :: Maybe Text
+$sel:propertyId:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679352211"><span class="hs-identifier hs-var hs-var">propertyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352211"><span class="hs-identifier hs-var">propertyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352210"><span class="annot"><span class="annottext">s :: GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352209"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyId:GetAssetPropertyValueHistory' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3ApropertyId%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">propertyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The ID of the asset.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_assetId"><span class="hs-identifier hs-type">getAssetPropertyValueHistory_assetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="getAssetPropertyValueHistory_assetId"><span class="annot"><span class="annottext">getAssetPropertyValueHistory_assetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAssetPropertyValueHistory -&gt; f GetAssetPropertyValueHistory
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_assetId"><span class="hs-identifier hs-var hs-var">getAssetPropertyValueHistory_assetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistory -&gt; Maybe Text)
+-&gt; (GetAssetPropertyValueHistory
+    -&gt; Maybe Text -&gt; GetAssetPropertyValueHistory)
+-&gt; Lens
+     GetAssetPropertyValueHistory
+     GetAssetPropertyValueHistory
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352208"><span class="annot"><span class="annottext">Maybe Text
+assetId :: Maybe Text
+$sel:assetId:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679352208"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352208"><span class="hs-identifier hs-var">assetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352207"><span class="annot"><span class="annottext">s :: GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352206"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetId:GetAssetPropertyValueHistory' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AassetId%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The maximum number of results to return for each paginated request.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_maxResults"><span class="hs-identifier hs-type">getAssetPropertyValueHistory_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="getAssetPropertyValueHistory_maxResults"><span class="annot"><span class="annottext">getAssetPropertyValueHistory_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetAssetPropertyValueHistory -&gt; f GetAssetPropertyValueHistory
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_maxResults"><span class="hs-identifier hs-var hs-var">getAssetPropertyValueHistory_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistory -&gt; Maybe Natural)
+-&gt; (GetAssetPropertyValueHistory
+    -&gt; Maybe Natural -&gt; GetAssetPropertyValueHistory)
+-&gt; Lens
+     GetAssetPropertyValueHistory
+     GetAssetPropertyValueHistory
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352205"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe Natural
+</span><a href="#local-6989586621679352205"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679352205"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352204"><span class="annot"><span class="annottext">s :: GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352203"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679352203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetAssetPropertyValueHistory' :: Maybe Natural
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AmaxResults%3AGetAssetPropertyValueHistory%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679352203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679352199"><span class="annot"><span class="annottext">page :: GetAssetPropertyValueHistory
+-&gt; AWSResponse GetAssetPropertyValueHistory
+-&gt; Maybe GetAssetPropertyValueHistory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679352197"><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352197"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679352196"><span class="annot"><span class="annottext">AWSResponse GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352196"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-208"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetAssetPropertyValueHistory
+GetAssetPropertyValueHistoryResponse
+</span><a href="#local-6989586621679352196"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistoryResponse
+-&gt; Getting (First Text) GetAssetPropertyValueHistoryResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetAssetPropertyValueHistoryResponse
+-&gt; Const (First Text) GetAssetPropertyValueHistoryResponse
+Lens' GetAssetPropertyValueHistoryResponse (Maybe Text)
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistoryResponse_nextToken"><span class="hs-identifier hs-var">getAssetPropertyValueHistoryResponse_nextToken</span></a></span><span>
+</span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetAssetPropertyValueHistoryResponse
+ -&gt; Const (First Text) GetAssetPropertyValueHistoryResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetAssetPropertyValueHistoryResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-211"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetAssetPropertyValueHistory
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[AssetPropertyValue] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-214"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetAssetPropertyValueHistory
+GetAssetPropertyValueHistoryResponse
+</span><a href="#local-6989586621679352196"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistoryResponse
+-&gt; Getting
+     [AssetPropertyValue]
+     GetAssetPropertyValueHistoryResponse
+     [AssetPropertyValue]
+-&gt; [AssetPropertyValue]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting
+  [AssetPropertyValue]
+  GetAssetPropertyValueHistoryResponse
+  [AssetPropertyValue]
+Lens' GetAssetPropertyValueHistoryResponse [AssetPropertyValue]
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistoryResponse_assetPropertyValueHistory"><span class="hs-identifier hs-var">getAssetPropertyValueHistoryResponse_assetPropertyValueHistory</span></a></span><span>
+</span><span id="line-216"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetAssetPropertyValueHistory
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory -&gt; Maybe GetAssetPropertyValueHistory
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistory
+ -&gt; Maybe GetAssetPropertyValueHistory)
+-&gt; GetAssetPropertyValueHistory
+-&gt; Maybe GetAssetPropertyValueHistory
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+</span><a href="#local-6989586621679352197"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistory
+-&gt; (GetAssetPropertyValueHistory -&gt; GetAssetPropertyValueHistory)
+-&gt; GetAssetPropertyValueHistory
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetAssetPropertyValueHistory
+-&gt; Identity GetAssetPropertyValueHistory
+Lens
+  GetAssetPropertyValueHistory
+  GetAssetPropertyValueHistory
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistory_nextToken"><span class="hs-identifier hs-var">getAssetPropertyValueHistory_nextToken</span></a></span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetAssetPropertyValueHistory
+ -&gt; Identity GetAssetPropertyValueHistory)
+-&gt; Maybe Text
+-&gt; GetAssetPropertyValueHistory
+-&gt; GetAssetPropertyValueHistory
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetAssetPropertyValueHistory
+GetAssetPropertyValueHistoryResponse
+</span><a href="#local-6989586621679352196"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistoryResponse
+-&gt; Getting (First Text) GetAssetPropertyValueHistoryResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetAssetPropertyValueHistoryResponse
+-&gt; Const (First Text) GetAssetPropertyValueHistoryResponse
+Lens' GetAssetPropertyValueHistoryResponse (Maybe Text)
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistoryResponse_nextToken"><span class="hs-identifier hs-var">getAssetPropertyValueHistoryResponse_nextToken</span></a></span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetAssetPropertyValueHistoryResponse
+ -&gt; Const (First Text) GetAssetPropertyValueHistoryResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetAssetPropertyValueHistoryResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-228"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse</span></a></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679352186"><span class="annot"><span class="annottext">request :: GetAssetPropertyValueHistory
+-&gt; Request GetAssetPropertyValueHistory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetAssetPropertyValueHistory
+-&gt; Request GetAssetPropertyValueHistory
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTSiteWise.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679352182"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetAssetPropertyValueHistory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetAssetPropertyValueHistory)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetAssetPropertyValueHistory))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetAssetPropertyValueHistory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetAssetPropertyValueHistory)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679352179"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352179"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679352178"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679352178"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679352177"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352177"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Int
+-&gt; [AssetPropertyValue]
+-&gt; GetAssetPropertyValueHistoryResponse
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-var">GetAssetPropertyValueHistoryResponse'</span></a></span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Int
+ -&gt; [AssetPropertyValue]
+ -&gt; GetAssetPropertyValueHistoryResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Int
+      -&gt; [AssetPropertyValue] -&gt; GetAssetPropertyValueHistoryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; [AssetPropertyValue] -&gt; GetAssetPropertyValueHistoryResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     ([AssetPropertyValue] -&gt; GetAssetPropertyValueHistoryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352179"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([AssetPropertyValue] -&gt; GetAssetPropertyValueHistoryResponse)
+-&gt; Either String [AssetPropertyValue]
+-&gt; Either String GetAssetPropertyValueHistoryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [AssetPropertyValue])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assetPropertyValueHistory&quot;</span></span><span>
+</span><span id="line-238"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [AssetPropertyValue])
+-&gt; [AssetPropertyValue] -&gt; Either String [AssetPropertyValue]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[AssetPropertyValue]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-239"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679352168"><span id="local-6989586621679352170"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span></span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679352161"><span class="annot"><span class="annottext">toHeaders :: GetAssetPropertyValueHistory -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAssetPropertyValueHistory -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-252"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-253"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-254"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-255"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-257"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679352155"><span class="annot"><span class="annottext">toPath :: GetAssetPropertyValueHistory -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAssetPropertyValueHistory -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/properties/history&quot;</span></span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679352151"><span class="annot"><span class="annottext">toQuery :: GetAssetPropertyValueHistory -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistory%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352141"><span id="local-6989586621679352142"><span id="local-6989586621679352143"><span id="local-6989586621679352144"><span id="local-6989586621679352145"><span id="local-6989586621679352146"><span id="local-6989586621679352147"><span id="local-6989586621679352148"><span id="local-6989586621679352149"><span class="annot"><span class="annottext">Maybe Natural
+Maybe (NonEmpty Quality)
+Maybe Text
+Maybe POSIX
+Maybe TimeOrdering
+maxResults :: Maybe Natural
+assetId :: Maybe Text
+propertyId :: Maybe Text
+nextToken :: Maybe Text
+startDate :: Maybe POSIX
+propertyAlias :: Maybe Text
+timeOrdering :: Maybe TimeOrdering
+qualities :: Maybe (NonEmpty Quality)
+endDate :: Maybe POSIX
+$sel:maxResults:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe Natural
+$sel:assetId:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe Text
+$sel:propertyId:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe Text
+$sel:nextToken:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe Text
+$sel:startDate:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe POSIX
+$sel:propertyAlias:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe Text
+$sel:timeOrdering:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe TimeOrdering
+$sel:qualities:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe (NonEmpty Quality)
+$sel:endDate:GetAssetPropertyValueHistory' :: GetAssetPropertyValueHistory -&gt; Maybe POSIX
+</span><a href="#local-6989586621679352141"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-265"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;endDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679352149"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;qualities&quot;</span></span><span>
+</span><span id="line-267"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; NonEmpty Quality -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Quality -&gt; QueryString)
+-&gt; Maybe (NonEmpty Quality) -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Quality)
+</span><a href="#local-6989586621679352148"><span class="hs-identifier hs-var">qualities</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;timeOrdering&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe TimeOrdering -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimeOrdering
+</span><a href="#local-6989586621679352147"><span class="hs-identifier hs-var">timeOrdering</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;propertyAlias&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352146"><span class="hs-identifier hs-var">propertyAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;startDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679352145"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352144"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;propertyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352143"><span class="hs-identifier hs-var">propertyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;assetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352142"><span class="hs-identifier hs-var">assetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679352141"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | /See:/ 'newGetAssetPropertyValueHistoryResponse' smart constructor.</span><span>
+</span><span id="line-279"></span><span id="local-6989586621679352137"><span id="local-6989586621679352138"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssetPropertyValueHistoryResponse"><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse"><span class="hs-identifier hs-var">GetAssetPropertyValueHistoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssetPropertyValueHistoryResponse%27"><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-var">GetAssetPropertyValueHistoryResponse'</span></a></span></span><span>
+</span><span id="line-280"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no</span><span>
+</span><span id="line-281"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-282"></span><span>    </span><span id="%24sel%3AnextToken%3AGetAssetPropertyValueHistoryResponse%27"><span class="annot"><span class="annottext">GetAssetPropertyValueHistoryResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AnextToken%3AGetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-284"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAssetPropertyValueHistoryResponse%27"><span class="annot"><span class="annottext">GetAssetPropertyValueHistoryResponse -&gt; Int
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AhttpStatus%3AGetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-comment">-- | The asset property\'s value history.</span><span>
+</span><span id="line-286"></span><span>    </span><span id="%24sel%3AassetPropertyValueHistory%3AGetAssetPropertyValueHistoryResponse%27"><span class="annot"><span class="annottext">GetAssetPropertyValueHistoryResponse -&gt; [AssetPropertyValue]
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AassetPropertyValueHistory%3AGetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-var hs-var">assetPropertyValueHistory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetPropertyValue.html#AssetPropertyValue"><span class="hs-identifier hs-type">AssetPropertyValue</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-287"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-288"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352130"><span id="local-6989586621679352132"><span class="annot"><span class="annottext">GetAssetPropertyValueHistoryResponse
+-&gt; GetAssetPropertyValueHistoryResponse -&gt; Bool
+(GetAssetPropertyValueHistoryResponse
+ -&gt; GetAssetPropertyValueHistoryResponse -&gt; Bool)
+-&gt; (GetAssetPropertyValueHistoryResponse
+    -&gt; GetAssetPropertyValueHistoryResponse -&gt; Bool)
+-&gt; Eq GetAssetPropertyValueHistoryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAssetPropertyValueHistoryResponse
+-&gt; GetAssetPropertyValueHistoryResponse -&gt; Bool
+$c/= :: GetAssetPropertyValueHistoryResponse
+-&gt; GetAssetPropertyValueHistoryResponse -&gt; Bool
+== :: GetAssetPropertyValueHistoryResponse
+-&gt; GetAssetPropertyValueHistoryResponse -&gt; Bool
+$c== :: GetAssetPropertyValueHistoryResponse
+-&gt; GetAssetPropertyValueHistoryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352122"><span id="local-6989586621679352124"><span id="local-6989586621679352126"><span id="local-6989586621679352128"><span class="annot"><span class="annottext">ReadPrec [GetAssetPropertyValueHistoryResponse]
+ReadPrec GetAssetPropertyValueHistoryResponse
+Int -&gt; ReadS GetAssetPropertyValueHistoryResponse
+ReadS [GetAssetPropertyValueHistoryResponse]
+(Int -&gt; ReadS GetAssetPropertyValueHistoryResponse)
+-&gt; ReadS [GetAssetPropertyValueHistoryResponse]
+-&gt; ReadPrec GetAssetPropertyValueHistoryResponse
+-&gt; ReadPrec [GetAssetPropertyValueHistoryResponse]
+-&gt; Read GetAssetPropertyValueHistoryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAssetPropertyValueHistoryResponse]
+$creadListPrec :: ReadPrec [GetAssetPropertyValueHistoryResponse]
+readPrec :: ReadPrec GetAssetPropertyValueHistoryResponse
+$creadPrec :: ReadPrec GetAssetPropertyValueHistoryResponse
+readList :: ReadS [GetAssetPropertyValueHistoryResponse]
+$creadList :: ReadS [GetAssetPropertyValueHistoryResponse]
+readsPrec :: Int -&gt; ReadS GetAssetPropertyValueHistoryResponse
+$creadsPrec :: Int -&gt; ReadS GetAssetPropertyValueHistoryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352116"><span id="local-6989586621679352118"><span id="local-6989586621679352120"><span class="annot"><span class="annottext">Int -&gt; GetAssetPropertyValueHistoryResponse -&gt; ShowS
+[GetAssetPropertyValueHistoryResponse] -&gt; ShowS
+GetAssetPropertyValueHistoryResponse -&gt; String
+(Int -&gt; GetAssetPropertyValueHistoryResponse -&gt; ShowS)
+-&gt; (GetAssetPropertyValueHistoryResponse -&gt; String)
+-&gt; ([GetAssetPropertyValueHistoryResponse] -&gt; ShowS)
+-&gt; Show GetAssetPropertyValueHistoryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAssetPropertyValueHistoryResponse] -&gt; ShowS
+$cshowList :: [GetAssetPropertyValueHistoryResponse] -&gt; ShowS
+show :: GetAssetPropertyValueHistoryResponse -&gt; String
+$cshow :: GetAssetPropertyValueHistoryResponse -&gt; String
+showsPrec :: Int -&gt; GetAssetPropertyValueHistoryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAssetPropertyValueHistoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetAssetPropertyValueHistoryResponse
+ -&gt; Rep GetAssetPropertyValueHistoryResponse x)
+-&gt; (forall x.
+    Rep GetAssetPropertyValueHistoryResponse x
+    -&gt; GetAssetPropertyValueHistoryResponse)
+-&gt; Generic GetAssetPropertyValueHistoryResponse
+forall x.
+Rep GetAssetPropertyValueHistoryResponse x
+-&gt; GetAssetPropertyValueHistoryResponse
+forall x.
+GetAssetPropertyValueHistoryResponse
+-&gt; Rep GetAssetPropertyValueHistoryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetAssetPropertyValueHistoryResponse x
+-&gt; GetAssetPropertyValueHistoryResponse
+$cfrom :: forall x.
+GetAssetPropertyValueHistoryResponse
+-&gt; Rep GetAssetPropertyValueHistoryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- Create a value of 'GetAssetPropertyValueHistoryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- 'nextToken', 'getAssetPropertyValueHistoryResponse_nextToken' - The token for the next set of results, or null if there are no</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- 'httpStatus', 'getAssetPropertyValueHistoryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- 'assetPropertyValueHistory', 'getAssetPropertyValueHistoryResponse_assetPropertyValueHistory' - The asset property\'s value history.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#newGetAssetPropertyValueHistoryResponse"><span class="hs-identifier hs-type">newGetAssetPropertyValueHistoryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-305"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-306"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-307"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse</span></a></span><span>
+</span><span id="line-308"></span><span id="newGetAssetPropertyValueHistoryResponse"><span class="annot"><span class="annottext">newGetAssetPropertyValueHistoryResponse :: Int -&gt; GetAssetPropertyValueHistoryResponse
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#newGetAssetPropertyValueHistoryResponse"><span class="hs-identifier hs-var hs-var">newGetAssetPropertyValueHistoryResponse</span></a></span></span><span> </span><span id="local-6989586621679352113"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352113"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-309"></span><span>  </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistoryResponse' :: Maybe Text
+-&gt; Int
+-&gt; [AssetPropertyValue]
+-&gt; GetAssetPropertyValueHistoryResponse
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse'</span></a></span><span>
+</span><span id="line-310"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetAssetPropertyValueHistoryResponse' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AnextToken%3AGetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-311"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAssetPropertyValueHistoryResponse' :: Int
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AhttpStatus%3AGetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352113"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>      </span><span class="annot"><span class="annottext">$sel:assetPropertyValueHistory:GetAssetPropertyValueHistoryResponse' :: [AssetPropertyValue]
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AassetPropertyValueHistory%3AGetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-var">assetPropertyValueHistory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-314"></span><span>        </span><span class="annot"><span class="annottext">[AssetPropertyValue]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-315"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-319"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistoryResponse_nextToken"><span class="hs-identifier hs-type">getAssetPropertyValueHistoryResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span id="getAssetPropertyValueHistoryResponse_nextToken"><span class="annot"><span class="annottext">getAssetPropertyValueHistoryResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAssetPropertyValueHistoryResponse
+-&gt; f GetAssetPropertyValueHistoryResponse
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistoryResponse_nextToken"><span class="hs-identifier hs-var hs-var">getAssetPropertyValueHistoryResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistoryResponse -&gt; Maybe Text)
+-&gt; (GetAssetPropertyValueHistoryResponse
+    -&gt; Maybe Text -&gt; GetAssetPropertyValueHistoryResponse)
+-&gt; Lens' GetAssetPropertyValueHistoryResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352112"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetAssetPropertyValueHistoryResponse' :: GetAssetPropertyValueHistoryResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679352112"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352112"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352111"><span class="annot"><span class="annottext">s :: GetAssetPropertyValueHistoryResponse
+</span><a href="#local-6989586621679352111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352110"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistoryResponse
+</span><a href="#local-6989586621679352111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetAssetPropertyValueHistoryResponse' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AnextToken%3AGetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-323"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistoryResponse_httpStatus"><span class="hs-identifier hs-type">getAssetPropertyValueHistoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-324"></span><span id="getAssetPropertyValueHistoryResponse_httpStatus"><span class="annot"><span class="annottext">getAssetPropertyValueHistoryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetAssetPropertyValueHistoryResponse
+-&gt; f GetAssetPropertyValueHistoryResponse
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistoryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getAssetPropertyValueHistoryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistoryResponse -&gt; Int)
+-&gt; (GetAssetPropertyValueHistoryResponse
+    -&gt; Int -&gt; GetAssetPropertyValueHistoryResponse)
+-&gt; Lens
+     GetAssetPropertyValueHistoryResponse
+     GetAssetPropertyValueHistoryResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352109"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetAssetPropertyValueHistoryResponse' :: GetAssetPropertyValueHistoryResponse -&gt; Int
+</span><a href="#local-6989586621679352109"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352109"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352108"><span class="annot"><span class="annottext">s :: GetAssetPropertyValueHistoryResponse
+</span><a href="#local-6989586621679352108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352107"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistoryResponse
+</span><a href="#local-6989586621679352108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAssetPropertyValueHistoryResponse' :: Int
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AhttpStatus%3AGetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | The asset property\'s value history.</span><span>
+</span><span id="line-327"></span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistoryResponse_assetPropertyValueHistory"><span class="hs-identifier hs-type">getAssetPropertyValueHistoryResponse_assetPropertyValueHistory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.AssetPropertyValue.html#AssetPropertyValue"><span class="hs-identifier hs-type">AssetPropertyValue</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-328"></span><span id="getAssetPropertyValueHistoryResponse_assetPropertyValueHistory"><span class="annot"><span class="annottext">getAssetPropertyValueHistoryResponse_assetPropertyValueHistory :: ([AssetPropertyValue] -&gt; f [AssetPropertyValue])
+-&gt; GetAssetPropertyValueHistoryResponse
+-&gt; f GetAssetPropertyValueHistoryResponse
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#getAssetPropertyValueHistoryResponse_assetPropertyValueHistory"><span class="hs-identifier hs-var hs-var">getAssetPropertyValueHistoryResponse_assetPropertyValueHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssetPropertyValueHistoryResponse -&gt; [AssetPropertyValue])
+-&gt; (GetAssetPropertyValueHistoryResponse
+    -&gt; [AssetPropertyValue] -&gt; GetAssetPropertyValueHistoryResponse)
+-&gt; Lens' GetAssetPropertyValueHistoryResponse [AssetPropertyValue]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352106"><span class="annot"><span class="annottext">[AssetPropertyValue]
+assetPropertyValueHistory :: [AssetPropertyValue]
+$sel:assetPropertyValueHistory:GetAssetPropertyValueHistoryResponse' :: GetAssetPropertyValueHistoryResponse -&gt; [AssetPropertyValue]
+</span><a href="#local-6989586621679352106"><span class="hs-identifier hs-var hs-var">assetPropertyValueHistory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AssetPropertyValue]
+</span><a href="#local-6989586621679352106"><span class="hs-identifier hs-var">assetPropertyValueHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352105"><span class="annot"><span class="annottext">s :: GetAssetPropertyValueHistoryResponse
+</span><a href="#local-6989586621679352105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352104"><span class="annot"><span class="annottext">[AssetPropertyValue]
+</span><a href="#local-6989586621679352104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssetPropertyValueHistoryResponse
+</span><a href="#local-6989586621679352105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetPropertyValueHistory:GetAssetPropertyValueHistoryResponse' :: [AssetPropertyValue]
+</span><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#%24sel%3AassetPropertyValueHistory%3AGetAssetPropertyValueHistoryResponse%27"><span class="hs-identifier hs-var">assetPropertyValueHistory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AssetPropertyValue]
+</span><a href="#local-6989586621679352104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AssetPropertyValue] -&gt; f [AssetPropertyValue])
+ -&gt; GetAssetPropertyValueHistoryResponse
+ -&gt; f GetAssetPropertyValueHistoryResponse)
+-&gt; (([AssetPropertyValue] -&gt; f [AssetPropertyValue])
+    -&gt; [AssetPropertyValue] -&gt; f [AssetPropertyValue])
+-&gt; ([AssetPropertyValue] -&gt; f [AssetPropertyValue])
+-&gt; GetAssetPropertyValueHistoryResponse
+-&gt; f GetAssetPropertyValueHistoryResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AssetPropertyValue] -&gt; f [AssetPropertyValue])
+-&gt; [AssetPropertyValue] -&gt; f [AssetPropertyValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-331"></span><span>  </span><span id="local-6989586621679352102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.GetAssetPropertyValueHistory.html#GetAssetPropertyValueHistoryResponse"><span class="hs-identifier hs-type">GetAssetPropertyValueHistoryResponse</span></a></span></span><span>
+</span><span id="line-333"></span></pre></body></html>

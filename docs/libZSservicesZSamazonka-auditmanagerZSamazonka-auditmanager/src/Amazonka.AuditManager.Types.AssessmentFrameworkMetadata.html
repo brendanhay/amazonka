@@ -1,0 +1,774 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AuditManager.Types.AssessmentFrameworkMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AuditManager.Types.AssessmentFrameworkMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.FrameworkType.html"><span class="hs-identifier">Amazonka.AuditManager.Types.FrameworkType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The metadata associated with a standard or custom framework.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAssessmentFrameworkMetadata' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679292730"><span id="local-6989586621679292731"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentFrameworkMetadata"><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-var">AssessmentFrameworkMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentFrameworkMetadata%27"><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">AssessmentFrameworkMetadata'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of controls associated with the specified framework.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcontrolsCount%3AAssessmentFrameworkMetadata%27"><span class="annot"><span class="annottext">AssessmentFrameworkMetadata -&gt; Maybe Int
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AcontrolsCount%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var hs-var">controlsCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Specifies when the framework was most recently updated.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3AAssessmentFrameworkMetadata%27"><span class="annot"><span class="annottext">AssessmentFrameworkMetadata -&gt; Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AlastUpdatedAt%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the framework.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aarn%3AAssessmentFrameworkMetadata%27"><span class="annot"><span class="annottext">AssessmentFrameworkMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Aarn%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies when the framework was created.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreatedAt%3AAssessmentFrameworkMetadata%27"><span class="annot"><span class="annottext">AssessmentFrameworkMetadata -&gt; Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AcreatedAt%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the specified framework.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aname%3AAssessmentFrameworkMetadata%27"><span class="annot"><span class="annottext">AssessmentFrameworkMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Aname%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The compliance type that the new custom framework supports, such as CIS</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- or HIPAA.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcomplianceType%3AAssessmentFrameworkMetadata%27"><span class="annot"><span class="annottext">AssessmentFrameworkMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AcomplianceType%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The number of control sets associated with the specified framework.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcontrolSetsCount%3AAssessmentFrameworkMetadata%27"><span class="annot"><span class="annottext">AssessmentFrameworkMetadata -&gt; Maybe Int
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AcontrolSetsCount%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var hs-var">controlSetsCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The unique identified for the specified framework.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aid%3AAssessmentFrameworkMetadata%27"><span class="annot"><span class="annottext">AssessmentFrameworkMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Aid%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The framework type, such as standard or custom.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Atype%27%3AAssessmentFrameworkMetadata%27"><span class="annot"><span class="annottext">AssessmentFrameworkMetadata -&gt; Maybe FrameworkType
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Atype%27%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.FrameworkType.html#FrameworkType"><span class="hs-identifier hs-type">FrameworkType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The logo associated with the framework.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Alogo%3AAssessmentFrameworkMetadata%27"><span class="annot"><span class="annottext">AssessmentFrameworkMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Alogo%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var hs-var">logo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The description of the specified framework.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Adescription%3AAssessmentFrameworkMetadata%27"><span class="annot"><span class="annottext">AssessmentFrameworkMetadata -&gt; Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Adescription%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292714"><span id="local-6989586621679292716"><span class="annot"><span class="annottext">AssessmentFrameworkMetadata -&gt; AssessmentFrameworkMetadata -&gt; Bool
+(AssessmentFrameworkMetadata
+ -&gt; AssessmentFrameworkMetadata -&gt; Bool)
+-&gt; (AssessmentFrameworkMetadata
+    -&gt; AssessmentFrameworkMetadata -&gt; Bool)
+-&gt; Eq AssessmentFrameworkMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssessmentFrameworkMetadata -&gt; AssessmentFrameworkMetadata -&gt; Bool
+$c/= :: AssessmentFrameworkMetadata -&gt; AssessmentFrameworkMetadata -&gt; Bool
+== :: AssessmentFrameworkMetadata -&gt; AssessmentFrameworkMetadata -&gt; Bool
+$c== :: AssessmentFrameworkMetadata -&gt; AssessmentFrameworkMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292705"><span id="local-6989586621679292707"><span id="local-6989586621679292709"><span id="local-6989586621679292711"><span class="annot"><span class="annottext">ReadPrec [AssessmentFrameworkMetadata]
+ReadPrec AssessmentFrameworkMetadata
+Int -&gt; ReadS AssessmentFrameworkMetadata
+ReadS [AssessmentFrameworkMetadata]
+(Int -&gt; ReadS AssessmentFrameworkMetadata)
+-&gt; ReadS [AssessmentFrameworkMetadata]
+-&gt; ReadPrec AssessmentFrameworkMetadata
+-&gt; ReadPrec [AssessmentFrameworkMetadata]
+-&gt; Read AssessmentFrameworkMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssessmentFrameworkMetadata]
+$creadListPrec :: ReadPrec [AssessmentFrameworkMetadata]
+readPrec :: ReadPrec AssessmentFrameworkMetadata
+$creadPrec :: ReadPrec AssessmentFrameworkMetadata
+readList :: ReadS [AssessmentFrameworkMetadata]
+$creadList :: ReadS [AssessmentFrameworkMetadata]
+readsPrec :: Int -&gt; ReadS AssessmentFrameworkMetadata
+$creadsPrec :: Int -&gt; ReadS AssessmentFrameworkMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292698"><span id="local-6989586621679292700"><span id="local-6989586621679292702"><span class="annot"><span class="annottext">Int -&gt; AssessmentFrameworkMetadata -&gt; ShowS
+[AssessmentFrameworkMetadata] -&gt; ShowS
+AssessmentFrameworkMetadata -&gt; String
+(Int -&gt; AssessmentFrameworkMetadata -&gt; ShowS)
+-&gt; (AssessmentFrameworkMetadata -&gt; String)
+-&gt; ([AssessmentFrameworkMetadata] -&gt; ShowS)
+-&gt; Show AssessmentFrameworkMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssessmentFrameworkMetadata] -&gt; ShowS
+$cshowList :: [AssessmentFrameworkMetadata] -&gt; ShowS
+show :: AssessmentFrameworkMetadata -&gt; String
+$cshow :: AssessmentFrameworkMetadata -&gt; String
+showsPrec :: Int -&gt; AssessmentFrameworkMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssessmentFrameworkMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssessmentFrameworkMetadata -&gt; Rep AssessmentFrameworkMetadata x)
+-&gt; (forall x.
+    Rep AssessmentFrameworkMetadata x -&gt; AssessmentFrameworkMetadata)
+-&gt; Generic AssessmentFrameworkMetadata
+forall x.
+Rep AssessmentFrameworkMetadata x -&gt; AssessmentFrameworkMetadata
+forall x.
+AssessmentFrameworkMetadata -&gt; Rep AssessmentFrameworkMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssessmentFrameworkMetadata x -&gt; AssessmentFrameworkMetadata
+$cfrom :: forall x.
+AssessmentFrameworkMetadata -&gt; Rep AssessmentFrameworkMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'AssessmentFrameworkMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'controlsCount', 'assessmentFrameworkMetadata_controlsCount' - The number of controls associated with the specified framework.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'lastUpdatedAt', 'assessmentFrameworkMetadata_lastUpdatedAt' - Specifies when the framework was most recently updated.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'arn', 'assessmentFrameworkMetadata_arn' - The Amazon Resource Name (ARN) of the framework.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'createdAt', 'assessmentFrameworkMetadata_createdAt' - Specifies when the framework was created.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'name', 'assessmentFrameworkMetadata_name' - The name of the specified framework.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'complianceType', 'assessmentFrameworkMetadata_complianceType' - The compliance type that the new custom framework supports, such as CIS</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- or HIPAA.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'controlSetsCount', 'assessmentFrameworkMetadata_controlSetsCount' - The number of control sets associated with the specified framework.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'id', 'assessmentFrameworkMetadata_id' - The unique identified for the specified framework.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'type'', 'assessmentFrameworkMetadata_type' - The framework type, such as standard or custom.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'logo', 'assessmentFrameworkMetadata_logo' - The logo associated with the framework.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'description', 'assessmentFrameworkMetadata_description' - The description of the specified framework.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#newAssessmentFrameworkMetadata"><span class="hs-identifier hs-type">newAssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span>
+</span><span id="line-89"></span><span id="newAssessmentFrameworkMetadata"><span class="annot"><span class="annottext">newAssessmentFrameworkMetadata :: AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#newAssessmentFrameworkMetadata"><span class="hs-identifier hs-var hs-var">newAssessmentFrameworkMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">AssessmentFrameworkMetadata' :: Maybe Int
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe FrameworkType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:controlsCount:AssessmentFrameworkMetadata' :: Maybe Int
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AcontrolsCount%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">controlsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:AssessmentFrameworkMetadata' :: Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AlastUpdatedAt%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:AssessmentFrameworkMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Aarn%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:AssessmentFrameworkMetadata' :: Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AcreatedAt%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AssessmentFrameworkMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Aname%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceType:AssessmentFrameworkMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AcomplianceType%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:controlSetsCount:AssessmentFrameworkMetadata' :: Maybe Int
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AcontrolSetsCount%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">controlSetsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:AssessmentFrameworkMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Aid%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':AssessmentFrameworkMetadata' :: Maybe FrameworkType
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Atype%27%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FrameworkType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:logo:AssessmentFrameworkMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Alogo%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">logo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:AssessmentFrameworkMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Adescription%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The number of controls associated with the specified framework.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_controlsCount"><span class="hs-identifier hs-type">assessmentFrameworkMetadata_controlsCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="assessmentFrameworkMetadata_controlsCount"><span class="annot"><span class="annottext">assessmentFrameworkMetadata_controlsCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_controlsCount"><span class="hs-identifier hs-var hs-var">assessmentFrameworkMetadata_controlsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentFrameworkMetadata -&gt; Maybe Int)
+-&gt; (AssessmentFrameworkMetadata
+    -&gt; Maybe Int -&gt; AssessmentFrameworkMetadata)
+-&gt; Lens
+     AssessmentFrameworkMetadata
+     AssessmentFrameworkMetadata
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292689"><span class="annot"><span class="annottext">Maybe Int
+controlsCount :: Maybe Int
+$sel:controlsCount:AssessmentFrameworkMetadata' :: AssessmentFrameworkMetadata -&gt; Maybe Int
+</span><a href="#local-6989586621679292689"><span class="hs-identifier hs-var hs-var">controlsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679292689"><span class="hs-identifier hs-var">controlsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292688"><span class="annot"><span class="annottext">s :: AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292687"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679292687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlsCount:AssessmentFrameworkMetadata' :: Maybe Int
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AcontrolsCount%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">controlsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679292687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Specifies when the framework was most recently updated.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_lastUpdatedAt"><span class="hs-identifier hs-type">assessmentFrameworkMetadata_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="assessmentFrameworkMetadata_lastUpdatedAt"><span class="annot"><span class="annottext">assessmentFrameworkMetadata_lastUpdatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">assessmentFrameworkMetadata_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentFrameworkMetadata -&gt; Maybe POSIX)
+-&gt; (AssessmentFrameworkMetadata
+    -&gt; Maybe POSIX -&gt; AssessmentFrameworkMetadata)
+-&gt; Lens
+     AssessmentFrameworkMetadata
+     AssessmentFrameworkMetadata
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292685"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedAt :: Maybe POSIX
+$sel:lastUpdatedAt:AssessmentFrameworkMetadata' :: AssessmentFrameworkMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679292685"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679292685"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292684"><span class="annot"><span class="annottext">s :: AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292683"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679292683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:AssessmentFrameworkMetadata' :: Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AlastUpdatedAt%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679292683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AssessmentFrameworkMetadata
+-&gt; f AssessmentFrameworkMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the framework.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_arn"><span class="hs-identifier hs-type">assessmentFrameworkMetadata_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="assessmentFrameworkMetadata_arn"><span class="annot"><span class="annottext">assessmentFrameworkMetadata_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_arn"><span class="hs-identifier hs-var hs-var">assessmentFrameworkMetadata_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentFrameworkMetadata -&gt; Maybe Text)
+-&gt; (AssessmentFrameworkMetadata
+    -&gt; Maybe Text -&gt; AssessmentFrameworkMetadata)
+-&gt; Lens
+     AssessmentFrameworkMetadata
+     AssessmentFrameworkMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292678"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:AssessmentFrameworkMetadata' :: AssessmentFrameworkMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679292678"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292678"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292677"><span class="annot"><span class="annottext">s :: AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292676"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:AssessmentFrameworkMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Aarn%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Specifies when the framework was created.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_createdAt"><span class="hs-identifier hs-type">assessmentFrameworkMetadata_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="assessmentFrameworkMetadata_createdAt"><span class="annot"><span class="annottext">assessmentFrameworkMetadata_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_createdAt"><span class="hs-identifier hs-var hs-var">assessmentFrameworkMetadata_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentFrameworkMetadata -&gt; Maybe POSIX)
+-&gt; (AssessmentFrameworkMetadata
+    -&gt; Maybe POSIX -&gt; AssessmentFrameworkMetadata)
+-&gt; Lens
+     AssessmentFrameworkMetadata
+     AssessmentFrameworkMetadata
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292674"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:AssessmentFrameworkMetadata' :: AssessmentFrameworkMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679292674"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679292674"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292673"><span class="annot"><span class="annottext">s :: AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292672"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679292672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AssessmentFrameworkMetadata' :: Maybe POSIX
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AcreatedAt%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679292672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AssessmentFrameworkMetadata
+-&gt; f AssessmentFrameworkMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The name of the specified framework.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_name"><span class="hs-identifier hs-type">assessmentFrameworkMetadata_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="assessmentFrameworkMetadata_name"><span class="annot"><span class="annottext">assessmentFrameworkMetadata_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_name"><span class="hs-identifier hs-var hs-var">assessmentFrameworkMetadata_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentFrameworkMetadata -&gt; Maybe Text)
+-&gt; (AssessmentFrameworkMetadata
+    -&gt; Maybe Text -&gt; AssessmentFrameworkMetadata)
+-&gt; Lens
+     AssessmentFrameworkMetadata
+     AssessmentFrameworkMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292670"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:AssessmentFrameworkMetadata' :: AssessmentFrameworkMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679292670"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292670"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292669"><span class="annot"><span class="annottext">s :: AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292668"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AssessmentFrameworkMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Aname%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The compliance type that the new custom framework supports, such as CIS</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- or HIPAA.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_complianceType"><span class="hs-identifier hs-type">assessmentFrameworkMetadata_complianceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="assessmentFrameworkMetadata_complianceType"><span class="annot"><span class="annottext">assessmentFrameworkMetadata_complianceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_complianceType"><span class="hs-identifier hs-var hs-var">assessmentFrameworkMetadata_complianceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentFrameworkMetadata -&gt; Maybe Text)
+-&gt; (AssessmentFrameworkMetadata
+    -&gt; Maybe Text -&gt; AssessmentFrameworkMetadata)
+-&gt; Lens
+     AssessmentFrameworkMetadata
+     AssessmentFrameworkMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292666"><span class="annot"><span class="annottext">Maybe Text
+complianceType :: Maybe Text
+$sel:complianceType:AssessmentFrameworkMetadata' :: AssessmentFrameworkMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679292666"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292666"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292665"><span class="annot"><span class="annottext">s :: AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292664"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:AssessmentFrameworkMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AcomplianceType%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The number of control sets associated with the specified framework.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_controlSetsCount"><span class="hs-identifier hs-type">assessmentFrameworkMetadata_controlSetsCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="assessmentFrameworkMetadata_controlSetsCount"><span class="annot"><span class="annottext">assessmentFrameworkMetadata_controlSetsCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_controlSetsCount"><span class="hs-identifier hs-var hs-var">assessmentFrameworkMetadata_controlSetsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentFrameworkMetadata -&gt; Maybe Int)
+-&gt; (AssessmentFrameworkMetadata
+    -&gt; Maybe Int -&gt; AssessmentFrameworkMetadata)
+-&gt; Lens
+     AssessmentFrameworkMetadata
+     AssessmentFrameworkMetadata
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292662"><span class="annot"><span class="annottext">Maybe Int
+controlSetsCount :: Maybe Int
+$sel:controlSetsCount:AssessmentFrameworkMetadata' :: AssessmentFrameworkMetadata -&gt; Maybe Int
+</span><a href="#local-6989586621679292662"><span class="hs-identifier hs-var hs-var">controlSetsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679292662"><span class="hs-identifier hs-var">controlSetsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292661"><span class="annot"><span class="annottext">s :: AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292660"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679292660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlSetsCount:AssessmentFrameworkMetadata' :: Maybe Int
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3AcontrolSetsCount%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">controlSetsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679292660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The unique identified for the specified framework.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_id"><span class="hs-identifier hs-type">assessmentFrameworkMetadata_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="assessmentFrameworkMetadata_id"><span class="annot"><span class="annottext">assessmentFrameworkMetadata_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_id"><span class="hs-identifier hs-var hs-var">assessmentFrameworkMetadata_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentFrameworkMetadata -&gt; Maybe Text)
+-&gt; (AssessmentFrameworkMetadata
+    -&gt; Maybe Text -&gt; AssessmentFrameworkMetadata)
+-&gt; Lens
+     AssessmentFrameworkMetadata
+     AssessmentFrameworkMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292658"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:AssessmentFrameworkMetadata' :: AssessmentFrameworkMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679292658"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292658"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292657"><span class="annot"><span class="annottext">s :: AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292656"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:AssessmentFrameworkMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Aid%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The framework type, such as standard or custom.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_type"><span class="hs-identifier hs-type">assessmentFrameworkMetadata_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.FrameworkType.html#FrameworkType"><span class="hs-identifier hs-type">FrameworkType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="assessmentFrameworkMetadata_type"><span class="annot"><span class="annottext">assessmentFrameworkMetadata_type :: (Maybe FrameworkType -&gt; f (Maybe FrameworkType))
+-&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_type"><span class="hs-identifier hs-var hs-var">assessmentFrameworkMetadata_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentFrameworkMetadata -&gt; Maybe FrameworkType)
+-&gt; (AssessmentFrameworkMetadata
+    -&gt; Maybe FrameworkType -&gt; AssessmentFrameworkMetadata)
+-&gt; Lens
+     AssessmentFrameworkMetadata
+     AssessmentFrameworkMetadata
+     (Maybe FrameworkType)
+     (Maybe FrameworkType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292654"><span class="annot"><span class="annottext">Maybe FrameworkType
+type' :: Maybe FrameworkType
+$sel:type':AssessmentFrameworkMetadata' :: AssessmentFrameworkMetadata -&gt; Maybe FrameworkType
+</span><a href="#local-6989586621679292654"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FrameworkType
+</span><a href="#local-6989586621679292654"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292653"><span class="annot"><span class="annottext">s :: AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292652"><span class="annot"><span class="annottext">Maybe FrameworkType
+</span><a href="#local-6989586621679292652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':AssessmentFrameworkMetadata' :: Maybe FrameworkType
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Atype%27%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FrameworkType
+</span><a href="#local-6989586621679292652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The logo associated with the framework.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_logo"><span class="hs-identifier hs-type">assessmentFrameworkMetadata_logo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="assessmentFrameworkMetadata_logo"><span class="annot"><span class="annottext">assessmentFrameworkMetadata_logo :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_logo"><span class="hs-identifier hs-var hs-var">assessmentFrameworkMetadata_logo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentFrameworkMetadata -&gt; Maybe Text)
+-&gt; (AssessmentFrameworkMetadata
+    -&gt; Maybe Text -&gt; AssessmentFrameworkMetadata)
+-&gt; Lens
+     AssessmentFrameworkMetadata
+     AssessmentFrameworkMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292650"><span class="annot"><span class="annottext">Maybe Text
+logo :: Maybe Text
+$sel:logo:AssessmentFrameworkMetadata' :: AssessmentFrameworkMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679292650"><span class="hs-identifier hs-var hs-var">logo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292650"><span class="hs-identifier hs-var">logo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292649"><span class="annot"><span class="annottext">s :: AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292648"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logo:AssessmentFrameworkMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Alogo%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">logo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The description of the specified framework.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_description"><span class="hs-identifier hs-type">assessmentFrameworkMetadata_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="assessmentFrameworkMetadata_description"><span class="annot"><span class="annottext">assessmentFrameworkMetadata_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentFrameworkMetadata -&gt; f AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#assessmentFrameworkMetadata_description"><span class="hs-identifier hs-var hs-var">assessmentFrameworkMetadata_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentFrameworkMetadata -&gt; Maybe Text)
+-&gt; (AssessmentFrameworkMetadata
+    -&gt; Maybe Text -&gt; AssessmentFrameworkMetadata)
+-&gt; Lens
+     AssessmentFrameworkMetadata
+     AssessmentFrameworkMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292646"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:AssessmentFrameworkMetadata' :: AssessmentFrameworkMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679292646"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292646"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292645"><span class="annot"><span class="annottext">s :: AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292644"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentFrameworkMetadata
+</span><a href="#local-6989586621679292645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:AssessmentFrameworkMetadata' :: Maybe Text
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#%24sel%3Adescription%3AAssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292641"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679292639"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssessmentFrameworkMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AssessmentFrameworkMetadata)
+-&gt; Value
+-&gt; Parser AssessmentFrameworkMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AssessmentFrameworkMetadata&quot;</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679292636"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292636"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe FrameworkType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AssessmentFrameworkMetadata
+</span><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata%27"><span class="hs-identifier hs-var">AssessmentFrameworkMetadata'</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe FrameworkType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; AssessmentFrameworkMetadata)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentFrameworkMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;controlsCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentFrameworkMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentFrameworkMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentFrameworkMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentFrameworkMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentFrameworkMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentFrameworkMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentFrameworkMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentFrameworkMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentFrameworkMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentFrameworkMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;complianceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentFrameworkMetadata)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssessmentFrameworkMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;controlSetsCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssessmentFrameworkMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe FrameworkType
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; AssessmentFrameworkMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FrameworkType
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; AssessmentFrameworkMetadata)
+-&gt; Parser (Maybe FrameworkType)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AssessmentFrameworkMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FrameworkType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AssessmentFrameworkMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; AssessmentFrameworkMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AssessmentFrameworkMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser AssessmentFrameworkMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292630"><span id="local-6989586621679292632"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AuditManager.Types.AssessmentFrameworkMetadata.html#AssessmentFrameworkMetadata"><span class="hs-identifier hs-type">AssessmentFrameworkMetadata</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

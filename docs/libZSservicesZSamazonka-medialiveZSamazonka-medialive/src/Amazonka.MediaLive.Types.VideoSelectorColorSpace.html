@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.VideoSelectorColorSpace</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.VideoSelectorColorSpace</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace"><span class="hs-identifier">VideoSelectorColorSpace</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_FOLLOW"><span class="hs-identifier">VideoSelectorColorSpace_FOLLOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_HDR10"><span class="hs-identifier">VideoSelectorColorSpace_HDR10</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_HLG_2020"><span class="hs-identifier">VideoSelectorColorSpace_HLG_2020</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_REC_601"><span class="hs-identifier">VideoSelectorColorSpace_REC_601</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_REC_709"><span class="hs-identifier">VideoSelectorColorSpace_REC_709</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- | Video Selector Color Space</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679929966"><span id="local-6989586621679929967"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VideoSelectorColorSpace"><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace"><span class="hs-identifier hs-var">VideoSelectorColorSpace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoSelectorColorSpace%27"><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace%27"><span class="hs-identifier hs-var">VideoSelectorColorSpace'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVideoSelectorColorSpace"><span class="annot"><span class="annottext">VideoSelectorColorSpace -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#fromVideoSelectorColorSpace"><span class="hs-identifier hs-var hs-var">fromVideoSelectorColorSpace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679929958"><span id="local-6989586621679929960"><span id="local-6989586621679929962"><span class="annot"><span class="annottext">Int -&gt; VideoSelectorColorSpace -&gt; ShowS
+[VideoSelectorColorSpace] -&gt; ShowS
+VideoSelectorColorSpace -&gt; String
+(Int -&gt; VideoSelectorColorSpace -&gt; ShowS)
+-&gt; (VideoSelectorColorSpace -&gt; String)
+-&gt; ([VideoSelectorColorSpace] -&gt; ShowS)
+-&gt; Show VideoSelectorColorSpace
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VideoSelectorColorSpace] -&gt; ShowS
+$cshowList :: [VideoSelectorColorSpace] -&gt; ShowS
+show :: VideoSelectorColorSpace -&gt; String
+$cshow :: VideoSelectorColorSpace -&gt; String
+showsPrec :: Int -&gt; VideoSelectorColorSpace -&gt; ShowS
+$cshowsPrec :: Int -&gt; VideoSelectorColorSpace -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679929949"><span id="local-6989586621679929951"><span id="local-6989586621679929953"><span id="local-6989586621679929955"><span class="annot"><span class="annottext">ReadPrec [VideoSelectorColorSpace]
+ReadPrec VideoSelectorColorSpace
+Int -&gt; ReadS VideoSelectorColorSpace
+ReadS [VideoSelectorColorSpace]
+(Int -&gt; ReadS VideoSelectorColorSpace)
+-&gt; ReadS [VideoSelectorColorSpace]
+-&gt; ReadPrec VideoSelectorColorSpace
+-&gt; ReadPrec [VideoSelectorColorSpace]
+-&gt; Read VideoSelectorColorSpace
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VideoSelectorColorSpace]
+$creadListPrec :: ReadPrec [VideoSelectorColorSpace]
+readPrec :: ReadPrec VideoSelectorColorSpace
+$creadPrec :: ReadPrec VideoSelectorColorSpace
+readList :: ReadS [VideoSelectorColorSpace]
+$creadList :: ReadS [VideoSelectorColorSpace]
+readsPrec :: Int -&gt; ReadS VideoSelectorColorSpace
+$creadsPrec :: Int -&gt; ReadS VideoSelectorColorSpace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679929944"><span id="local-6989586621679929946"><span class="annot"><span class="annottext">VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+(VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool)
+-&gt; (VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool)
+-&gt; Eq VideoSelectorColorSpace
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+$c/= :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+== :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+$c== :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679929928"><span id="local-6989586621679929930"><span id="local-6989586621679929932"><span id="local-6989586621679929934"><span id="local-6989586621679929936"><span id="local-6989586621679929938"><span id="local-6989586621679929940"><span class="annot"><span class="annottext">Eq VideoSelectorColorSpace
+Eq VideoSelectorColorSpace
+-&gt; (VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Ordering)
+-&gt; (VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool)
+-&gt; (VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool)
+-&gt; (VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool)
+-&gt; (VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool)
+-&gt; (VideoSelectorColorSpace
+    -&gt; VideoSelectorColorSpace -&gt; VideoSelectorColorSpace)
+-&gt; (VideoSelectorColorSpace
+    -&gt; VideoSelectorColorSpace -&gt; VideoSelectorColorSpace)
+-&gt; Ord VideoSelectorColorSpace
+VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Ordering
+VideoSelectorColorSpace
+-&gt; VideoSelectorColorSpace -&gt; VideoSelectorColorSpace
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: VideoSelectorColorSpace
+-&gt; VideoSelectorColorSpace -&gt; VideoSelectorColorSpace
+$cmin :: VideoSelectorColorSpace
+-&gt; VideoSelectorColorSpace -&gt; VideoSelectorColorSpace
+max :: VideoSelectorColorSpace
+-&gt; VideoSelectorColorSpace -&gt; VideoSelectorColorSpace
+$cmax :: VideoSelectorColorSpace
+-&gt; VideoSelectorColorSpace -&gt; VideoSelectorColorSpace
+&gt;= :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+$c&gt;= :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+&gt; :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+$c&gt; :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+&lt;= :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+$c&lt;= :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+&lt; :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+$c&lt; :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Bool
+compare :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Ordering
+$ccompare :: VideoSelectorColorSpace -&gt; VideoSelectorColorSpace -&gt; Ordering
+$cp1Ord :: Eq VideoSelectorColorSpace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ VideoSelectorColorSpace -&gt; Rep VideoSelectorColorSpace x)
+-&gt; (forall x.
+    Rep VideoSelectorColorSpace x -&gt; VideoSelectorColorSpace)
+-&gt; Generic VideoSelectorColorSpace
+forall x. Rep VideoSelectorColorSpace x -&gt; VideoSelectorColorSpace
+forall x. VideoSelectorColorSpace -&gt; Rep VideoSelectorColorSpace x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VideoSelectorColorSpace x -&gt; VideoSelectorColorSpace
+$cfrom :: forall x. VideoSelectorColorSpace -&gt; Rep VideoSelectorColorSpace x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679929920"><span id="local-6989586621679929922"><span class="annot"><span class="annottext">Int -&gt; VideoSelectorColorSpace -&gt; Int
+VideoSelectorColorSpace -&gt; Int
+(Int -&gt; VideoSelectorColorSpace -&gt; Int)
+-&gt; (VideoSelectorColorSpace -&gt; Int)
+-&gt; Hashable VideoSelectorColorSpace
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: VideoSelectorColorSpace -&gt; Int
+$chash :: VideoSelectorColorSpace -&gt; Int
+hashWithSalt :: Int -&gt; VideoSelectorColorSpace -&gt; Int
+$chashWithSalt :: Int -&gt; VideoSelectorColorSpace -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679929917"><span class="annot"><span class="annottext">VideoSelectorColorSpace -&gt; ()
+(VideoSelectorColorSpace -&gt; ()) -&gt; NFData VideoSelectorColorSpace
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: VideoSelectorColorSpace -&gt; ()
+$crnf :: VideoSelectorColorSpace -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679929914"><span class="annot"><span class="annottext">Text -&gt; Either String VideoSelectorColorSpace
+(Text -&gt; Either String VideoSelectorColorSpace)
+-&gt; FromText VideoSelectorColorSpace
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String VideoSelectorColorSpace
+$cfromText :: Text -&gt; Either String VideoSelectorColorSpace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679929911"><span class="annot"><span class="annottext">VideoSelectorColorSpace -&gt; Text
+(VideoSelectorColorSpace -&gt; Text) -&gt; ToText VideoSelectorColorSpace
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: VideoSelectorColorSpace -&gt; Text
+$ctoText :: VideoSelectorColorSpace -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679929908"><span class="annot"><span class="annottext">VideoSelectorColorSpace -&gt; ByteString
+(VideoSelectorColorSpace -&gt; ByteString)
+-&gt; ToByteString VideoSelectorColorSpace
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: VideoSelectorColorSpace -&gt; ByteString
+$ctoBS :: VideoSelectorColorSpace -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679929905"><span class="annot"><span class="annottext">VideoSelectorColorSpace -&gt; ByteStringBuilder
+(VideoSelectorColorSpace -&gt; ByteStringBuilder)
+-&gt; ToLog VideoSelectorColorSpace
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: VideoSelectorColorSpace -&gt; ByteStringBuilder
+$cbuild :: VideoSelectorColorSpace -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679929902"><span class="annot"><span class="annottext">HeaderName -&gt; VideoSelectorColorSpace -&gt; [Header]
+(HeaderName -&gt; VideoSelectorColorSpace -&gt; [Header])
+-&gt; ToHeader VideoSelectorColorSpace
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; VideoSelectorColorSpace -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; VideoSelectorColorSpace -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679929899"><span class="annot"><span class="annottext">VideoSelectorColorSpace -&gt; QueryString
+(VideoSelectorColorSpace -&gt; QueryString)
+-&gt; ToQuery VideoSelectorColorSpace
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: VideoSelectorColorSpace -&gt; QueryString
+$ctoQuery :: VideoSelectorColorSpace -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679929894"><span id="local-6989586621679929896"><span class="annot"><span class="annottext">Value -&gt; Parser [VideoSelectorColorSpace]
+Value -&gt; Parser VideoSelectorColorSpace
+(Value -&gt; Parser VideoSelectorColorSpace)
+-&gt; (Value -&gt; Parser [VideoSelectorColorSpace])
+-&gt; FromJSON VideoSelectorColorSpace
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [VideoSelectorColorSpace]
+$cparseJSONList :: Value -&gt; Parser [VideoSelectorColorSpace]
+parseJSON :: Value -&gt; Parser VideoSelectorColorSpace
+$cparseJSON :: Value -&gt; Parser VideoSelectorColorSpace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679929889"><span id="local-6989586621679929891"><span class="annot"><span class="annottext">FromJSONKeyFunction [VideoSelectorColorSpace]
+FromJSONKeyFunction VideoSelectorColorSpace
+FromJSONKeyFunction VideoSelectorColorSpace
+-&gt; FromJSONKeyFunction [VideoSelectorColorSpace]
+-&gt; FromJSONKey VideoSelectorColorSpace
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [VideoSelectorColorSpace]
+$cfromJSONKeyList :: FromJSONKeyFunction [VideoSelectorColorSpace]
+fromJSONKey :: FromJSONKeyFunction VideoSelectorColorSpace
+$cfromJSONKey :: FromJSONKeyFunction VideoSelectorColorSpace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679929880"><span id="local-6989586621679929882"><span id="local-6989586621679929884"><span id="local-6989586621679929886"><span class="annot"><span class="annottext">[VideoSelectorColorSpace] -&gt; Encoding
+[VideoSelectorColorSpace] -&gt; Value
+VideoSelectorColorSpace -&gt; Encoding
+VideoSelectorColorSpace -&gt; Value
+(VideoSelectorColorSpace -&gt; Value)
+-&gt; (VideoSelectorColorSpace -&gt; Encoding)
+-&gt; ([VideoSelectorColorSpace] -&gt; Value)
+-&gt; ([VideoSelectorColorSpace] -&gt; Encoding)
+-&gt; ToJSON VideoSelectorColorSpace
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [VideoSelectorColorSpace] -&gt; Encoding
+$ctoEncodingList :: [VideoSelectorColorSpace] -&gt; Encoding
+toJSONList :: [VideoSelectorColorSpace] -&gt; Value
+$ctoJSONList :: [VideoSelectorColorSpace] -&gt; Value
+toEncoding :: VideoSelectorColorSpace -&gt; Encoding
+$ctoEncoding :: VideoSelectorColorSpace -&gt; Encoding
+toJSON :: VideoSelectorColorSpace -&gt; Value
+$ctoJSON :: VideoSelectorColorSpace -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679929875"><span id="local-6989586621679929877"><span class="annot"><span class="annottext">ToJSONKeyFunction [VideoSelectorColorSpace]
+ToJSONKeyFunction VideoSelectorColorSpace
+ToJSONKeyFunction VideoSelectorColorSpace
+-&gt; ToJSONKeyFunction [VideoSelectorColorSpace]
+-&gt; ToJSONKey VideoSelectorColorSpace
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [VideoSelectorColorSpace]
+$ctoJSONKeyList :: ToJSONKeyFunction [VideoSelectorColorSpace]
+toJSONKey :: ToJSONKeyFunction VideoSelectorColorSpace
+$ctoJSONKey :: ToJSONKeyFunction VideoSelectorColorSpace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679929872"><span class="annot"><span class="annottext">[Node] -&gt; Either String VideoSelectorColorSpace
+([Node] -&gt; Either String VideoSelectorColorSpace)
+-&gt; FromXML VideoSelectorColorSpace
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String VideoSelectorColorSpace
+$cparseXML :: [Node] -&gt; Either String VideoSelectorColorSpace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679929869"><span class="annot"><span class="annottext">VideoSelectorColorSpace -&gt; XML
+(VideoSelectorColorSpace -&gt; XML) -&gt; ToXML VideoSelectorColorSpace
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: VideoSelectorColorSpace -&gt; XML
+$ctoXML :: VideoSelectorColorSpace -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_FOLLOW"><span class="hs-identifier hs-type">VideoSelectorColorSpace_FOLLOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace"><span class="hs-identifier hs-type">VideoSelectorColorSpace</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVideoSelectorColorSpace_FOLLOW"><span id="%24mVideoSelectorColorSpace_FOLLOW"><span id="VideoSelectorColorSpace_FOLLOW"><span class="annot"><span class="annottext">$bVideoSelectorColorSpace_FOLLOW :: VideoSelectorColorSpace
+$mVideoSelectorColorSpace_FOLLOW :: forall r.
+VideoSelectorColorSpace -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#%24bVideoSelectorColorSpace_FOLLOW"><span class="hs-identifier hs-var hs-var hs-var">VideoSelectorColorSpace_FOLLOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace%27"><span class="hs-identifier hs-type">VideoSelectorColorSpace'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FOLLOW&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_HDR10"><span class="hs-identifier hs-type">VideoSelectorColorSpace_HDR10</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace"><span class="hs-identifier hs-type">VideoSelectorColorSpace</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVideoSelectorColorSpace_HDR10"><span id="%24mVideoSelectorColorSpace_HDR10"><span id="VideoSelectorColorSpace_HDR10"><span class="annot"><span class="annottext">$bVideoSelectorColorSpace_HDR10 :: VideoSelectorColorSpace
+$mVideoSelectorColorSpace_HDR10 :: forall r.
+VideoSelectorColorSpace -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#%24bVideoSelectorColorSpace_HDR10"><span class="hs-identifier hs-var hs-var hs-var">VideoSelectorColorSpace_HDR10</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace%27"><span class="hs-identifier hs-type">VideoSelectorColorSpace'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HDR10&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_HLG_2020"><span class="hs-identifier hs-type">VideoSelectorColorSpace_HLG_2020</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace"><span class="hs-identifier hs-type">VideoSelectorColorSpace</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVideoSelectorColorSpace_HLG_2020"><span id="%24mVideoSelectorColorSpace_HLG_2020"><span id="VideoSelectorColorSpace_HLG_2020"><span class="annot"><span class="annottext">$bVideoSelectorColorSpace_HLG_2020 :: VideoSelectorColorSpace
+$mVideoSelectorColorSpace_HLG_2020 :: forall r.
+VideoSelectorColorSpace -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#%24bVideoSelectorColorSpace_HLG_2020"><span class="hs-identifier hs-var hs-var hs-var">VideoSelectorColorSpace_HLG_2020</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace%27"><span class="hs-identifier hs-type">VideoSelectorColorSpace'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HLG_2020&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_REC_601"><span class="hs-identifier hs-type">VideoSelectorColorSpace_REC_601</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace"><span class="hs-identifier hs-type">VideoSelectorColorSpace</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVideoSelectorColorSpace_REC_601"><span id="%24mVideoSelectorColorSpace_REC_601"><span id="VideoSelectorColorSpace_REC_601"><span class="annot"><span class="annottext">$bVideoSelectorColorSpace_REC_601 :: VideoSelectorColorSpace
+$mVideoSelectorColorSpace_REC_601 :: forall r.
+VideoSelectorColorSpace -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#%24bVideoSelectorColorSpace_REC_601"><span class="hs-identifier hs-var hs-var hs-var">VideoSelectorColorSpace_REC_601</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace%27"><span class="hs-identifier hs-type">VideoSelectorColorSpace'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REC_601&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_REC_709"><span class="hs-identifier hs-type">VideoSelectorColorSpace_REC_709</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace"><span class="hs-identifier hs-type">VideoSelectorColorSpace</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVideoSelectorColorSpace_REC_709"><span id="%24mVideoSelectorColorSpace_REC_709"><span id="VideoSelectorColorSpace_REC_709"><span class="annot"><span class="annottext">$bVideoSelectorColorSpace_REC_709 :: VideoSelectorColorSpace
+$mVideoSelectorColorSpace_REC_709 :: forall r.
+VideoSelectorColorSpace -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#%24bVideoSelectorColorSpace_REC_709"><span class="hs-identifier hs-var hs-var hs-var">VideoSelectorColorSpace_REC_709</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace%27"><span class="hs-identifier hs-type">VideoSelectorColorSpace'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REC_709&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_FOLLOW"><span class="hs-pragma hs-type">VideoSelectorColorSpace_FOLLOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_HDR10"><span class="hs-pragma hs-type">VideoSelectorColorSpace_HDR10</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_HLG_2020"><span class="hs-pragma hs-type">VideoSelectorColorSpace_HLG_2020</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_REC_601"><span class="hs-pragma hs-type">VideoSelectorColorSpace_REC_601</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace_REC_709"><span class="hs-pragma hs-type">VideoSelectorColorSpace_REC_709</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace%27"><span class="hs-pragma hs-type">VideoSelectorColorSpace'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

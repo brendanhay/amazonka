@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DAX.Types.ClusterEndpointEncryptionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DAX.Types.ClusterEndpointEncryptionType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType"><span class="hs-identifier">ClusterEndpointEncryptionType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType_NONE"><span class="hs-identifier">ClusterEndpointEncryptionType_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType_TLS"><span class="hs-identifier">ClusterEndpointEncryptionType_TLS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679193686"><span id="local-6989586621679193687"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClusterEndpointEncryptionType"><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType"><span class="hs-identifier hs-var">ClusterEndpointEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterEndpointEncryptionType%27"><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType%27"><span class="hs-identifier hs-var">ClusterEndpointEncryptionType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromClusterEndpointEncryptionType"><span class="annot"><span class="annottext">ClusterEndpointEncryptionType -&gt; Text
+</span><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#fromClusterEndpointEncryptionType"><span class="hs-identifier hs-var hs-var">fromClusterEndpointEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679193678"><span id="local-6989586621679193680"><span id="local-6989586621679193682"><span class="annot"><span class="annottext">Int -&gt; ClusterEndpointEncryptionType -&gt; ShowS
+[ClusterEndpointEncryptionType] -&gt; ShowS
+ClusterEndpointEncryptionType -&gt; String
+(Int -&gt; ClusterEndpointEncryptionType -&gt; ShowS)
+-&gt; (ClusterEndpointEncryptionType -&gt; String)
+-&gt; ([ClusterEndpointEncryptionType] -&gt; ShowS)
+-&gt; Show ClusterEndpointEncryptionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClusterEndpointEncryptionType] -&gt; ShowS
+$cshowList :: [ClusterEndpointEncryptionType] -&gt; ShowS
+show :: ClusterEndpointEncryptionType -&gt; String
+$cshow :: ClusterEndpointEncryptionType -&gt; String
+showsPrec :: Int -&gt; ClusterEndpointEncryptionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClusterEndpointEncryptionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679193669"><span id="local-6989586621679193671"><span id="local-6989586621679193673"><span id="local-6989586621679193675"><span class="annot"><span class="annottext">ReadPrec [ClusterEndpointEncryptionType]
+ReadPrec ClusterEndpointEncryptionType
+Int -&gt; ReadS ClusterEndpointEncryptionType
+ReadS [ClusterEndpointEncryptionType]
+(Int -&gt; ReadS ClusterEndpointEncryptionType)
+-&gt; ReadS [ClusterEndpointEncryptionType]
+-&gt; ReadPrec ClusterEndpointEncryptionType
+-&gt; ReadPrec [ClusterEndpointEncryptionType]
+-&gt; Read ClusterEndpointEncryptionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClusterEndpointEncryptionType]
+$creadListPrec :: ReadPrec [ClusterEndpointEncryptionType]
+readPrec :: ReadPrec ClusterEndpointEncryptionType
+$creadPrec :: ReadPrec ClusterEndpointEncryptionType
+readList :: ReadS [ClusterEndpointEncryptionType]
+$creadList :: ReadS [ClusterEndpointEncryptionType]
+readsPrec :: Int -&gt; ReadS ClusterEndpointEncryptionType
+$creadsPrec :: Int -&gt; ReadS ClusterEndpointEncryptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679193664"><span id="local-6989586621679193666"><span class="annot"><span class="annottext">ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+(ClusterEndpointEncryptionType
+ -&gt; ClusterEndpointEncryptionType -&gt; Bool)
+-&gt; (ClusterEndpointEncryptionType
+    -&gt; ClusterEndpointEncryptionType -&gt; Bool)
+-&gt; Eq ClusterEndpointEncryptionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+$c/= :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+== :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+$c== :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679193648"><span id="local-6989586621679193650"><span id="local-6989586621679193652"><span id="local-6989586621679193654"><span id="local-6989586621679193656"><span id="local-6989586621679193658"><span id="local-6989586621679193660"><span class="annot"><span class="annottext">Eq ClusterEndpointEncryptionType
+Eq ClusterEndpointEncryptionType
+-&gt; (ClusterEndpointEncryptionType
+    -&gt; ClusterEndpointEncryptionType -&gt; Ordering)
+-&gt; (ClusterEndpointEncryptionType
+    -&gt; ClusterEndpointEncryptionType -&gt; Bool)
+-&gt; (ClusterEndpointEncryptionType
+    -&gt; ClusterEndpointEncryptionType -&gt; Bool)
+-&gt; (ClusterEndpointEncryptionType
+    -&gt; ClusterEndpointEncryptionType -&gt; Bool)
+-&gt; (ClusterEndpointEncryptionType
+    -&gt; ClusterEndpointEncryptionType -&gt; Bool)
+-&gt; (ClusterEndpointEncryptionType
+    -&gt; ClusterEndpointEncryptionType -&gt; ClusterEndpointEncryptionType)
+-&gt; (ClusterEndpointEncryptionType
+    -&gt; ClusterEndpointEncryptionType -&gt; ClusterEndpointEncryptionType)
+-&gt; Ord ClusterEndpointEncryptionType
+ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Ordering
+ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; ClusterEndpointEncryptionType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; ClusterEndpointEncryptionType
+$cmin :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; ClusterEndpointEncryptionType
+max :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; ClusterEndpointEncryptionType
+$cmax :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; ClusterEndpointEncryptionType
+&gt;= :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+$c&gt;= :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+&gt; :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+$c&gt; :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+&lt;= :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+$c&lt;= :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+&lt; :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+$c&lt; :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Bool
+compare :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Ordering
+$ccompare :: ClusterEndpointEncryptionType
+-&gt; ClusterEndpointEncryptionType -&gt; Ordering
+$cp1Ord :: Eq ClusterEndpointEncryptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ClusterEndpointEncryptionType
+ -&gt; Rep ClusterEndpointEncryptionType x)
+-&gt; (forall x.
+    Rep ClusterEndpointEncryptionType x
+    -&gt; ClusterEndpointEncryptionType)
+-&gt; Generic ClusterEndpointEncryptionType
+forall x.
+Rep ClusterEndpointEncryptionType x
+-&gt; ClusterEndpointEncryptionType
+forall x.
+ClusterEndpointEncryptionType
+-&gt; Rep ClusterEndpointEncryptionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ClusterEndpointEncryptionType x
+-&gt; ClusterEndpointEncryptionType
+$cfrom :: forall x.
+ClusterEndpointEncryptionType
+-&gt; Rep ClusterEndpointEncryptionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679193640"><span id="local-6989586621679193642"><span class="annot"><span class="annottext">Int -&gt; ClusterEndpointEncryptionType -&gt; Int
+ClusterEndpointEncryptionType -&gt; Int
+(Int -&gt; ClusterEndpointEncryptionType -&gt; Int)
+-&gt; (ClusterEndpointEncryptionType -&gt; Int)
+-&gt; Hashable ClusterEndpointEncryptionType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ClusterEndpointEncryptionType -&gt; Int
+$chash :: ClusterEndpointEncryptionType -&gt; Int
+hashWithSalt :: Int -&gt; ClusterEndpointEncryptionType -&gt; Int
+$chashWithSalt :: Int -&gt; ClusterEndpointEncryptionType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679193637"><span class="annot"><span class="annottext">ClusterEndpointEncryptionType -&gt; ()
+(ClusterEndpointEncryptionType -&gt; ())
+-&gt; NFData ClusterEndpointEncryptionType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ClusterEndpointEncryptionType -&gt; ()
+$crnf :: ClusterEndpointEncryptionType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679193634"><span class="annot"><span class="annottext">Text -&gt; Either String ClusterEndpointEncryptionType
+(Text -&gt; Either String ClusterEndpointEncryptionType)
+-&gt; FromText ClusterEndpointEncryptionType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ClusterEndpointEncryptionType
+$cfromText :: Text -&gt; Either String ClusterEndpointEncryptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679193631"><span class="annot"><span class="annottext">ClusterEndpointEncryptionType -&gt; Text
+(ClusterEndpointEncryptionType -&gt; Text)
+-&gt; ToText ClusterEndpointEncryptionType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ClusterEndpointEncryptionType -&gt; Text
+$ctoText :: ClusterEndpointEncryptionType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679193628"><span class="annot"><span class="annottext">ClusterEndpointEncryptionType -&gt; ByteString
+(ClusterEndpointEncryptionType -&gt; ByteString)
+-&gt; ToByteString ClusterEndpointEncryptionType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ClusterEndpointEncryptionType -&gt; ByteString
+$ctoBS :: ClusterEndpointEncryptionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679193625"><span class="annot"><span class="annottext">ClusterEndpointEncryptionType -&gt; ByteStringBuilder
+(ClusterEndpointEncryptionType -&gt; ByteStringBuilder)
+-&gt; ToLog ClusterEndpointEncryptionType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ClusterEndpointEncryptionType -&gt; ByteStringBuilder
+$cbuild :: ClusterEndpointEncryptionType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679193622"><span class="annot"><span class="annottext">HeaderName -&gt; ClusterEndpointEncryptionType -&gt; [Header]
+(HeaderName -&gt; ClusterEndpointEncryptionType -&gt; [Header])
+-&gt; ToHeader ClusterEndpointEncryptionType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ClusterEndpointEncryptionType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ClusterEndpointEncryptionType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679193619"><span class="annot"><span class="annottext">ClusterEndpointEncryptionType -&gt; QueryString
+(ClusterEndpointEncryptionType -&gt; QueryString)
+-&gt; ToQuery ClusterEndpointEncryptionType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ClusterEndpointEncryptionType -&gt; QueryString
+$ctoQuery :: ClusterEndpointEncryptionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679193614"><span id="local-6989586621679193616"><span class="annot"><span class="annottext">Value -&gt; Parser [ClusterEndpointEncryptionType]
+Value -&gt; Parser ClusterEndpointEncryptionType
+(Value -&gt; Parser ClusterEndpointEncryptionType)
+-&gt; (Value -&gt; Parser [ClusterEndpointEncryptionType])
+-&gt; FromJSON ClusterEndpointEncryptionType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ClusterEndpointEncryptionType]
+$cparseJSONList :: Value -&gt; Parser [ClusterEndpointEncryptionType]
+parseJSON :: Value -&gt; Parser ClusterEndpointEncryptionType
+$cparseJSON :: Value -&gt; Parser ClusterEndpointEncryptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679193609"><span id="local-6989586621679193611"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClusterEndpointEncryptionType]
+FromJSONKeyFunction ClusterEndpointEncryptionType
+FromJSONKeyFunction ClusterEndpointEncryptionType
+-&gt; FromJSONKeyFunction [ClusterEndpointEncryptionType]
+-&gt; FromJSONKey ClusterEndpointEncryptionType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ClusterEndpointEncryptionType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ClusterEndpointEncryptionType]
+fromJSONKey :: FromJSONKeyFunction ClusterEndpointEncryptionType
+$cfromJSONKey :: FromJSONKeyFunction ClusterEndpointEncryptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679193600"><span id="local-6989586621679193602"><span id="local-6989586621679193604"><span id="local-6989586621679193606"><span class="annot"><span class="annottext">[ClusterEndpointEncryptionType] -&gt; Encoding
+[ClusterEndpointEncryptionType] -&gt; Value
+ClusterEndpointEncryptionType -&gt; Encoding
+ClusterEndpointEncryptionType -&gt; Value
+(ClusterEndpointEncryptionType -&gt; Value)
+-&gt; (ClusterEndpointEncryptionType -&gt; Encoding)
+-&gt; ([ClusterEndpointEncryptionType] -&gt; Value)
+-&gt; ([ClusterEndpointEncryptionType] -&gt; Encoding)
+-&gt; ToJSON ClusterEndpointEncryptionType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ClusterEndpointEncryptionType] -&gt; Encoding
+$ctoEncodingList :: [ClusterEndpointEncryptionType] -&gt; Encoding
+toJSONList :: [ClusterEndpointEncryptionType] -&gt; Value
+$ctoJSONList :: [ClusterEndpointEncryptionType] -&gt; Value
+toEncoding :: ClusterEndpointEncryptionType -&gt; Encoding
+$ctoEncoding :: ClusterEndpointEncryptionType -&gt; Encoding
+toJSON :: ClusterEndpointEncryptionType -&gt; Value
+$ctoJSON :: ClusterEndpointEncryptionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679193595"><span id="local-6989586621679193597"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClusterEndpointEncryptionType]
+ToJSONKeyFunction ClusterEndpointEncryptionType
+ToJSONKeyFunction ClusterEndpointEncryptionType
+-&gt; ToJSONKeyFunction [ClusterEndpointEncryptionType]
+-&gt; ToJSONKey ClusterEndpointEncryptionType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ClusterEndpointEncryptionType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ClusterEndpointEncryptionType]
+toJSONKey :: ToJSONKeyFunction ClusterEndpointEncryptionType
+$ctoJSONKey :: ToJSONKeyFunction ClusterEndpointEncryptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679193592"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClusterEndpointEncryptionType
+([Node] -&gt; Either String ClusterEndpointEncryptionType)
+-&gt; FromXML ClusterEndpointEncryptionType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ClusterEndpointEncryptionType
+$cparseXML :: [Node] -&gt; Either String ClusterEndpointEncryptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679193589"><span class="annot"><span class="annottext">ClusterEndpointEncryptionType -&gt; XML
+(ClusterEndpointEncryptionType -&gt; XML)
+-&gt; ToXML ClusterEndpointEncryptionType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ClusterEndpointEncryptionType -&gt; XML
+$ctoXML :: ClusterEndpointEncryptionType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType_NONE"><span class="hs-identifier hs-type">ClusterEndpointEncryptionType_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType"><span class="hs-identifier hs-type">ClusterEndpointEncryptionType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClusterEndpointEncryptionType_NONE"><span id="%24mClusterEndpointEncryptionType_NONE"><span id="ClusterEndpointEncryptionType_NONE"><span class="annot"><span class="annottext">$bClusterEndpointEncryptionType_NONE :: ClusterEndpointEncryptionType
+$mClusterEndpointEncryptionType_NONE :: forall r.
+ClusterEndpointEncryptionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#%24bClusterEndpointEncryptionType_NONE"><span class="hs-identifier hs-var hs-var hs-var">ClusterEndpointEncryptionType_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType%27"><span class="hs-identifier hs-type">ClusterEndpointEncryptionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType_TLS"><span class="hs-identifier hs-type">ClusterEndpointEncryptionType_TLS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType"><span class="hs-identifier hs-type">ClusterEndpointEncryptionType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bClusterEndpointEncryptionType_TLS"><span id="%24mClusterEndpointEncryptionType_TLS"><span id="ClusterEndpointEncryptionType_TLS"><span class="annot"><span class="annottext">$bClusterEndpointEncryptionType_TLS :: ClusterEndpointEncryptionType
+$mClusterEndpointEncryptionType_TLS :: forall r.
+ClusterEndpointEncryptionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#%24bClusterEndpointEncryptionType_TLS"><span class="hs-identifier hs-var hs-var hs-var">ClusterEndpointEncryptionType_TLS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType%27"><span class="hs-identifier hs-type">ClusterEndpointEncryptionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType_NONE"><span class="hs-pragma hs-type">ClusterEndpointEncryptionType_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType_TLS"><span class="hs-pragma hs-type">ClusterEndpointEncryptionType_TLS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType%27"><span class="hs-pragma hs-type">ClusterEndpointEncryptionType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

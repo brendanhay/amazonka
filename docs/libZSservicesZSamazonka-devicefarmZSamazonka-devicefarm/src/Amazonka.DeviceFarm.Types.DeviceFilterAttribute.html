@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.Types.DeviceFilterAttribute</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.Types.DeviceFilterAttribute</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_ARN"><span class="hs-identifier">DeviceFilterAttribute_ARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_AVAILABILITY"><span class="hs-identifier">DeviceFilterAttribute_AVAILABILITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_FLEET_TYPE"><span class="hs-identifier">DeviceFilterAttribute_FLEET_TYPE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_FORM_FACTOR"><span class="hs-identifier">DeviceFilterAttribute_FORM_FACTOR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_INSTANCE_ARN"><span class="hs-identifier">DeviceFilterAttribute_INSTANCE_ARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_INSTANCE_LABELS"><span class="hs-identifier">DeviceFilterAttribute_INSTANCE_LABELS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_MANUFACTURER"><span class="hs-identifier">DeviceFilterAttribute_MANUFACTURER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_MODEL"><span class="hs-identifier">DeviceFilterAttribute_MODEL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_OS_VERSION"><span class="hs-identifier">DeviceFilterAttribute_OS_VERSION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_PLATFORM"><span class="hs-identifier">DeviceFilterAttribute_PLATFORM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_REMOTE_ACCESS_ENABLED"><span class="hs-identifier">DeviceFilterAttribute_REMOTE_ACCESS_ENABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_REMOTE_DEBUG_ENABLED"><span class="hs-identifier">DeviceFilterAttribute_REMOTE_DEBUG_ENABLED</span></a></span><span>
+</span><span id="line-35"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679361891"><span id="local-6989586621679361892"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceFilterAttribute"><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-var">DeviceFilterAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceFilterAttribute%27"><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-var">DeviceFilterAttribute'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeviceFilterAttribute"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; Text
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#fromDeviceFilterAttribute"><span class="hs-identifier hs-var hs-var">fromDeviceFilterAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679361883"><span id="local-6989586621679361885"><span id="local-6989586621679361887"><span class="annot"><span class="annottext">Int -&gt; DeviceFilterAttribute -&gt; ShowS
+[DeviceFilterAttribute] -&gt; ShowS
+DeviceFilterAttribute -&gt; String
+(Int -&gt; DeviceFilterAttribute -&gt; ShowS)
+-&gt; (DeviceFilterAttribute -&gt; String)
+-&gt; ([DeviceFilterAttribute] -&gt; ShowS)
+-&gt; Show DeviceFilterAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeviceFilterAttribute] -&gt; ShowS
+$cshowList :: [DeviceFilterAttribute] -&gt; ShowS
+show :: DeviceFilterAttribute -&gt; String
+$cshow :: DeviceFilterAttribute -&gt; String
+showsPrec :: Int -&gt; DeviceFilterAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeviceFilterAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679361874"><span id="local-6989586621679361876"><span id="local-6989586621679361878"><span id="local-6989586621679361880"><span class="annot"><span class="annottext">ReadPrec [DeviceFilterAttribute]
+ReadPrec DeviceFilterAttribute
+Int -&gt; ReadS DeviceFilterAttribute
+ReadS [DeviceFilterAttribute]
+(Int -&gt; ReadS DeviceFilterAttribute)
+-&gt; ReadS [DeviceFilterAttribute]
+-&gt; ReadPrec DeviceFilterAttribute
+-&gt; ReadPrec [DeviceFilterAttribute]
+-&gt; Read DeviceFilterAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeviceFilterAttribute]
+$creadListPrec :: ReadPrec [DeviceFilterAttribute]
+readPrec :: ReadPrec DeviceFilterAttribute
+$creadPrec :: ReadPrec DeviceFilterAttribute
+readList :: ReadS [DeviceFilterAttribute]
+$creadList :: ReadS [DeviceFilterAttribute]
+readsPrec :: Int -&gt; ReadS DeviceFilterAttribute
+$creadsPrec :: Int -&gt; ReadS DeviceFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679361869"><span id="local-6989586621679361871"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+(DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool)
+-&gt; (DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool)
+-&gt; Eq DeviceFilterAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+$c/= :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+== :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+$c== :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679361853"><span id="local-6989586621679361855"><span id="local-6989586621679361857"><span id="local-6989586621679361859"><span id="local-6989586621679361861"><span id="local-6989586621679361863"><span id="local-6989586621679361865"><span class="annot"><span class="annottext">Eq DeviceFilterAttribute
+Eq DeviceFilterAttribute
+-&gt; (DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Ordering)
+-&gt; (DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool)
+-&gt; (DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool)
+-&gt; (DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool)
+-&gt; (DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool)
+-&gt; (DeviceFilterAttribute
+    -&gt; DeviceFilterAttribute -&gt; DeviceFilterAttribute)
+-&gt; (DeviceFilterAttribute
+    -&gt; DeviceFilterAttribute -&gt; DeviceFilterAttribute)
+-&gt; Ord DeviceFilterAttribute
+DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Ordering
+DeviceFilterAttribute
+-&gt; DeviceFilterAttribute -&gt; DeviceFilterAttribute
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeviceFilterAttribute
+-&gt; DeviceFilterAttribute -&gt; DeviceFilterAttribute
+$cmin :: DeviceFilterAttribute
+-&gt; DeviceFilterAttribute -&gt; DeviceFilterAttribute
+max :: DeviceFilterAttribute
+-&gt; DeviceFilterAttribute -&gt; DeviceFilterAttribute
+$cmax :: DeviceFilterAttribute
+-&gt; DeviceFilterAttribute -&gt; DeviceFilterAttribute
+&gt;= :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+$c&gt;= :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+&gt; :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+$c&gt; :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+&lt;= :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+$c&lt;= :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+&lt; :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+$c&lt; :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Bool
+compare :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Ordering
+$ccompare :: DeviceFilterAttribute -&gt; DeviceFilterAttribute -&gt; Ordering
+$cp1Ord :: Eq DeviceFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DeviceFilterAttribute -&gt; Rep DeviceFilterAttribute x)
+-&gt; (forall x. Rep DeviceFilterAttribute x -&gt; DeviceFilterAttribute)
+-&gt; Generic DeviceFilterAttribute
+forall x. Rep DeviceFilterAttribute x -&gt; DeviceFilterAttribute
+forall x. DeviceFilterAttribute -&gt; Rep DeviceFilterAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeviceFilterAttribute x -&gt; DeviceFilterAttribute
+$cfrom :: forall x. DeviceFilterAttribute -&gt; Rep DeviceFilterAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679361845"><span id="local-6989586621679361847"><span class="annot"><span class="annottext">Int -&gt; DeviceFilterAttribute -&gt; Int
+DeviceFilterAttribute -&gt; Int
+(Int -&gt; DeviceFilterAttribute -&gt; Int)
+-&gt; (DeviceFilterAttribute -&gt; Int) -&gt; Hashable DeviceFilterAttribute
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeviceFilterAttribute -&gt; Int
+$chash :: DeviceFilterAttribute -&gt; Int
+hashWithSalt :: Int -&gt; DeviceFilterAttribute -&gt; Int
+$chashWithSalt :: Int -&gt; DeviceFilterAttribute -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679361842"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; ()
+(DeviceFilterAttribute -&gt; ()) -&gt; NFData DeviceFilterAttribute
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeviceFilterAttribute -&gt; ()
+$crnf :: DeviceFilterAttribute -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679361839"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceFilterAttribute
+(Text -&gt; Either String DeviceFilterAttribute)
+-&gt; FromText DeviceFilterAttribute
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeviceFilterAttribute
+$cfromText :: Text -&gt; Either String DeviceFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679361836"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; Text
+(DeviceFilterAttribute -&gt; Text) -&gt; ToText DeviceFilterAttribute
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeviceFilterAttribute -&gt; Text
+$ctoText :: DeviceFilterAttribute -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679361833"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; ByteString
+(DeviceFilterAttribute -&gt; ByteString)
+-&gt; ToByteString DeviceFilterAttribute
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeviceFilterAttribute -&gt; ByteString
+$ctoBS :: DeviceFilterAttribute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679361830"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; ByteStringBuilder
+(DeviceFilterAttribute -&gt; ByteStringBuilder)
+-&gt; ToLog DeviceFilterAttribute
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeviceFilterAttribute -&gt; ByteStringBuilder
+$cbuild :: DeviceFilterAttribute -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679361827"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceFilterAttribute -&gt; [Header]
+(HeaderName -&gt; DeviceFilterAttribute -&gt; [Header])
+-&gt; ToHeader DeviceFilterAttribute
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeviceFilterAttribute -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeviceFilterAttribute -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679361824"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; QueryString
+(DeviceFilterAttribute -&gt; QueryString)
+-&gt; ToQuery DeviceFilterAttribute
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeviceFilterAttribute -&gt; QueryString
+$ctoQuery :: DeviceFilterAttribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679361819"><span id="local-6989586621679361821"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceFilterAttribute]
+Value -&gt; Parser DeviceFilterAttribute
+(Value -&gt; Parser DeviceFilterAttribute)
+-&gt; (Value -&gt; Parser [DeviceFilterAttribute])
+-&gt; FromJSON DeviceFilterAttribute
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeviceFilterAttribute]
+$cparseJSONList :: Value -&gt; Parser [DeviceFilterAttribute]
+parseJSON :: Value -&gt; Parser DeviceFilterAttribute
+$cparseJSON :: Value -&gt; Parser DeviceFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679361814"><span id="local-6989586621679361816"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceFilterAttribute]
+FromJSONKeyFunction DeviceFilterAttribute
+FromJSONKeyFunction DeviceFilterAttribute
+-&gt; FromJSONKeyFunction [DeviceFilterAttribute]
+-&gt; FromJSONKey DeviceFilterAttribute
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeviceFilterAttribute]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeviceFilterAttribute]
+fromJSONKey :: FromJSONKeyFunction DeviceFilterAttribute
+$cfromJSONKey :: FromJSONKeyFunction DeviceFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679361805"><span id="local-6989586621679361807"><span id="local-6989586621679361809"><span id="local-6989586621679361811"><span class="annot"><span class="annottext">[DeviceFilterAttribute] -&gt; Encoding
+[DeviceFilterAttribute] -&gt; Value
+DeviceFilterAttribute -&gt; Encoding
+DeviceFilterAttribute -&gt; Value
+(DeviceFilterAttribute -&gt; Value)
+-&gt; (DeviceFilterAttribute -&gt; Encoding)
+-&gt; ([DeviceFilterAttribute] -&gt; Value)
+-&gt; ([DeviceFilterAttribute] -&gt; Encoding)
+-&gt; ToJSON DeviceFilterAttribute
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeviceFilterAttribute] -&gt; Encoding
+$ctoEncodingList :: [DeviceFilterAttribute] -&gt; Encoding
+toJSONList :: [DeviceFilterAttribute] -&gt; Value
+$ctoJSONList :: [DeviceFilterAttribute] -&gt; Value
+toEncoding :: DeviceFilterAttribute -&gt; Encoding
+$ctoEncoding :: DeviceFilterAttribute -&gt; Encoding
+toJSON :: DeviceFilterAttribute -&gt; Value
+$ctoJSON :: DeviceFilterAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679361800"><span id="local-6989586621679361802"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceFilterAttribute]
+ToJSONKeyFunction DeviceFilterAttribute
+ToJSONKeyFunction DeviceFilterAttribute
+-&gt; ToJSONKeyFunction [DeviceFilterAttribute]
+-&gt; ToJSONKey DeviceFilterAttribute
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeviceFilterAttribute]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeviceFilterAttribute]
+toJSONKey :: ToJSONKeyFunction DeviceFilterAttribute
+$ctoJSONKey :: ToJSONKeyFunction DeviceFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679361797"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceFilterAttribute
+([Node] -&gt; Either String DeviceFilterAttribute)
+-&gt; FromXML DeviceFilterAttribute
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeviceFilterAttribute
+$cparseXML :: [Node] -&gt; Either String DeviceFilterAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679361794"><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; XML
+(DeviceFilterAttribute -&gt; XML) -&gt; ToXML DeviceFilterAttribute
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeviceFilterAttribute -&gt; XML
+$ctoXML :: DeviceFilterAttribute -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_ARN"><span class="hs-identifier hs-type">DeviceFilterAttribute_ARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceFilterAttribute_ARN"><span id="%24mDeviceFilterAttribute_ARN"><span id="DeviceFilterAttribute_ARN"><span class="annot"><span class="annottext">$bDeviceFilterAttribute_ARN :: DeviceFilterAttribute
+$mDeviceFilterAttribute_ARN :: forall r.
+DeviceFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#%24bDeviceFilterAttribute_ARN"><span class="hs-identifier hs-var hs-var hs-var">DeviceFilterAttribute_ARN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-type">DeviceFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ARN&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_AVAILABILITY"><span class="hs-identifier hs-type">DeviceFilterAttribute_AVAILABILITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceFilterAttribute_AVAILABILITY"><span id="%24mDeviceFilterAttribute_AVAILABILITY"><span id="DeviceFilterAttribute_AVAILABILITY"><span class="annot"><span class="annottext">$bDeviceFilterAttribute_AVAILABILITY :: DeviceFilterAttribute
+$mDeviceFilterAttribute_AVAILABILITY :: forall r.
+DeviceFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#%24bDeviceFilterAttribute_AVAILABILITY"><span class="hs-identifier hs-var hs-var hs-var">DeviceFilterAttribute_AVAILABILITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-type">DeviceFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AVAILABILITY&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_FLEET_TYPE"><span class="hs-identifier hs-type">DeviceFilterAttribute_FLEET_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceFilterAttribute_FLEET_TYPE"><span id="%24mDeviceFilterAttribute_FLEET_TYPE"><span id="DeviceFilterAttribute_FLEET_TYPE"><span class="annot"><span class="annottext">$bDeviceFilterAttribute_FLEET_TYPE :: DeviceFilterAttribute
+$mDeviceFilterAttribute_FLEET_TYPE :: forall r.
+DeviceFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#%24bDeviceFilterAttribute_FLEET_TYPE"><span class="hs-identifier hs-var hs-var hs-var">DeviceFilterAttribute_FLEET_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-type">DeviceFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FLEET_TYPE&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_FORM_FACTOR"><span class="hs-identifier hs-type">DeviceFilterAttribute_FORM_FACTOR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceFilterAttribute_FORM_FACTOR"><span id="%24mDeviceFilterAttribute_FORM_FACTOR"><span id="DeviceFilterAttribute_FORM_FACTOR"><span class="annot"><span class="annottext">$bDeviceFilterAttribute_FORM_FACTOR :: DeviceFilterAttribute
+$mDeviceFilterAttribute_FORM_FACTOR :: forall r.
+DeviceFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#%24bDeviceFilterAttribute_FORM_FACTOR"><span class="hs-identifier hs-var hs-var hs-var">DeviceFilterAttribute_FORM_FACTOR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-type">DeviceFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FORM_FACTOR&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_INSTANCE_ARN"><span class="hs-identifier hs-type">DeviceFilterAttribute_INSTANCE_ARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceFilterAttribute_INSTANCE_ARN"><span id="%24mDeviceFilterAttribute_INSTANCE_ARN"><span id="DeviceFilterAttribute_INSTANCE_ARN"><span class="annot"><span class="annottext">$bDeviceFilterAttribute_INSTANCE_ARN :: DeviceFilterAttribute
+$mDeviceFilterAttribute_INSTANCE_ARN :: forall r.
+DeviceFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#%24bDeviceFilterAttribute_INSTANCE_ARN"><span class="hs-identifier hs-var hs-var hs-var">DeviceFilterAttribute_INSTANCE_ARN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-type">DeviceFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INSTANCE_ARN&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_INSTANCE_LABELS"><span class="hs-identifier hs-type">DeviceFilterAttribute_INSTANCE_LABELS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceFilterAttribute_INSTANCE_LABELS"><span id="%24mDeviceFilterAttribute_INSTANCE_LABELS"><span id="DeviceFilterAttribute_INSTANCE_LABELS"><span class="annot"><span class="annottext">$bDeviceFilterAttribute_INSTANCE_LABELS :: DeviceFilterAttribute
+$mDeviceFilterAttribute_INSTANCE_LABELS :: forall r.
+DeviceFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#%24bDeviceFilterAttribute_INSTANCE_LABELS"><span class="hs-identifier hs-var hs-var hs-var">DeviceFilterAttribute_INSTANCE_LABELS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-type">DeviceFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INSTANCE_LABELS&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_MANUFACTURER"><span class="hs-identifier hs-type">DeviceFilterAttribute_MANUFACTURER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceFilterAttribute_MANUFACTURER"><span id="%24mDeviceFilterAttribute_MANUFACTURER"><span id="DeviceFilterAttribute_MANUFACTURER"><span class="annot"><span class="annottext">$bDeviceFilterAttribute_MANUFACTURER :: DeviceFilterAttribute
+$mDeviceFilterAttribute_MANUFACTURER :: forall r.
+DeviceFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#%24bDeviceFilterAttribute_MANUFACTURER"><span class="hs-identifier hs-var hs-var hs-var">DeviceFilterAttribute_MANUFACTURER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-type">DeviceFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MANUFACTURER&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_MODEL"><span class="hs-identifier hs-type">DeviceFilterAttribute_MODEL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceFilterAttribute_MODEL"><span id="%24mDeviceFilterAttribute_MODEL"><span id="DeviceFilterAttribute_MODEL"><span class="annot"><span class="annottext">$bDeviceFilterAttribute_MODEL :: DeviceFilterAttribute
+$mDeviceFilterAttribute_MODEL :: forall r.
+DeviceFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#%24bDeviceFilterAttribute_MODEL"><span class="hs-identifier hs-var hs-var hs-var">DeviceFilterAttribute_MODEL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-type">DeviceFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MODEL&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_OS_VERSION"><span class="hs-identifier hs-type">DeviceFilterAttribute_OS_VERSION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceFilterAttribute_OS_VERSION"><span id="%24mDeviceFilterAttribute_OS_VERSION"><span id="DeviceFilterAttribute_OS_VERSION"><span class="annot"><span class="annottext">$bDeviceFilterAttribute_OS_VERSION :: DeviceFilterAttribute
+$mDeviceFilterAttribute_OS_VERSION :: forall r.
+DeviceFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#%24bDeviceFilterAttribute_OS_VERSION"><span class="hs-identifier hs-var hs-var hs-var">DeviceFilterAttribute_OS_VERSION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-type">DeviceFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OS_VERSION&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_PLATFORM"><span class="hs-identifier hs-type">DeviceFilterAttribute_PLATFORM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceFilterAttribute_PLATFORM"><span id="%24mDeviceFilterAttribute_PLATFORM"><span id="DeviceFilterAttribute_PLATFORM"><span class="annot"><span class="annottext">$bDeviceFilterAttribute_PLATFORM :: DeviceFilterAttribute
+$mDeviceFilterAttribute_PLATFORM :: forall r.
+DeviceFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#%24bDeviceFilterAttribute_PLATFORM"><span class="hs-identifier hs-var hs-var hs-var">DeviceFilterAttribute_PLATFORM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-type">DeviceFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PLATFORM&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_REMOTE_ACCESS_ENABLED"><span class="hs-identifier hs-type">DeviceFilterAttribute_REMOTE_ACCESS_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceFilterAttribute_REMOTE_ACCESS_ENABLED"><span id="%24mDeviceFilterAttribute_REMOTE_ACCESS_ENABLED"><span id="DeviceFilterAttribute_REMOTE_ACCESS_ENABLED"><span class="annot"><span class="annottext">$bDeviceFilterAttribute_REMOTE_ACCESS_ENABLED :: DeviceFilterAttribute
+$mDeviceFilterAttribute_REMOTE_ACCESS_ENABLED :: forall r.
+DeviceFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#%24bDeviceFilterAttribute_REMOTE_ACCESS_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">DeviceFilterAttribute_REMOTE_ACCESS_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-type">DeviceFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REMOTE_ACCESS_ENABLED&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_REMOTE_DEBUG_ENABLED"><span class="hs-identifier hs-type">DeviceFilterAttribute_REMOTE_DEBUG_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute"><span class="hs-identifier hs-type">DeviceFilterAttribute</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceFilterAttribute_REMOTE_DEBUG_ENABLED"><span id="%24mDeviceFilterAttribute_REMOTE_DEBUG_ENABLED"><span id="DeviceFilterAttribute_REMOTE_DEBUG_ENABLED"><span class="annot"><span class="annottext">$bDeviceFilterAttribute_REMOTE_DEBUG_ENABLED :: DeviceFilterAttribute
+$mDeviceFilterAttribute_REMOTE_DEBUG_ENABLED :: forall r.
+DeviceFilterAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#%24bDeviceFilterAttribute_REMOTE_DEBUG_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">DeviceFilterAttribute_REMOTE_DEBUG_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-identifier hs-type">DeviceFilterAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REMOTE_DEBUG_ENABLED&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_ARN"><span class="hs-pragma hs-type">DeviceFilterAttribute_ARN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_AVAILABILITY"><span class="hs-pragma hs-type">DeviceFilterAttribute_AVAILABILITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_FLEET_TYPE"><span class="hs-pragma hs-type">DeviceFilterAttribute_FLEET_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_FORM_FACTOR"><span class="hs-pragma hs-type">DeviceFilterAttribute_FORM_FACTOR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_INSTANCE_ARN"><span class="hs-pragma hs-type">DeviceFilterAttribute_INSTANCE_ARN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_INSTANCE_LABELS"><span class="hs-pragma hs-type">DeviceFilterAttribute_INSTANCE_LABELS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_MANUFACTURER"><span class="hs-pragma hs-type">DeviceFilterAttribute_MANUFACTURER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_MODEL"><span class="hs-pragma hs-type">DeviceFilterAttribute_MODEL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_OS_VERSION"><span class="hs-pragma hs-type">DeviceFilterAttribute_OS_VERSION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_PLATFORM"><span class="hs-pragma hs-type">DeviceFilterAttribute_PLATFORM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_REMOTE_ACCESS_ENABLED"><span class="hs-pragma hs-type">DeviceFilterAttribute_REMOTE_ACCESS_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute_REMOTE_DEBUG_ENABLED"><span class="hs-pragma hs-type">DeviceFilterAttribute_REMOTE_DEBUG_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.DeviceFilterAttribute.html#DeviceFilterAttribute%27"><span class="hs-pragma hs-type">DeviceFilterAttribute'</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-121"></span></pre></body></html>

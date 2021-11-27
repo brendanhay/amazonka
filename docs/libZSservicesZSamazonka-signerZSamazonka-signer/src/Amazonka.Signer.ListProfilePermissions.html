@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Signer.ListProfilePermissions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the cross-account permissions associated with a signing profile.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Signer.ListProfilePermissions</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier">ListProfilePermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#newListProfilePermissions"><span class="hs-identifier">newListProfilePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissions_nextToken"><span class="hs-identifier">listProfilePermissions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissions_profileName"><span class="hs-identifier">listProfilePermissions_profileName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier">ListProfilePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#newListProfilePermissionsResponse"><span class="hs-identifier">newListProfilePermissionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_policySizeBytes"><span class="hs-identifier">listProfilePermissionsResponse_policySizeBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_nextToken"><span class="hs-identifier">listProfilePermissionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_permissions"><span class="hs-identifier">listProfilePermissionsResponse_permissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_revisionId"><span class="hs-identifier">listProfilePermissionsResponse_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_httpStatus"><span class="hs-identifier">listProfilePermissionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Signer.Types.html"><span class="hs-identifier">Amazonka.Signer.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListProfilePermissions' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679204587"><span id="local-6989586621679204588"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProfilePermissions"><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-var">ListProfilePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProfilePermissions%27"><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions%27"><span class="hs-identifier hs-var">ListProfilePermissions'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | String for specifying the next set of paginated results.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListProfilePermissions%27"><span class="annot"><span class="annottext">ListProfilePermissions -&gt; Maybe Text
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3AnextToken%3AListProfilePermissions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Name of the signing profile containing the cross-account permissions.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AprofileName%3AListProfilePermissions%27"><span class="annot"><span class="annottext">ListProfilePermissions -&gt; Text
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3AprofileName%3AListProfilePermissions%27"><span class="hs-identifier hs-var hs-var">profileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204580"><span id="local-6989586621679204582"><span class="annot"><span class="annottext">ListProfilePermissions -&gt; ListProfilePermissions -&gt; Bool
+(ListProfilePermissions -&gt; ListProfilePermissions -&gt; Bool)
+-&gt; (ListProfilePermissions -&gt; ListProfilePermissions -&gt; Bool)
+-&gt; Eq ListProfilePermissions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListProfilePermissions -&gt; ListProfilePermissions -&gt; Bool
+$c/= :: ListProfilePermissions -&gt; ListProfilePermissions -&gt; Bool
+== :: ListProfilePermissions -&gt; ListProfilePermissions -&gt; Bool
+$c== :: ListProfilePermissions -&gt; ListProfilePermissions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204571"><span id="local-6989586621679204573"><span id="local-6989586621679204575"><span id="local-6989586621679204577"><span class="annot"><span class="annottext">ReadPrec [ListProfilePermissions]
+ReadPrec ListProfilePermissions
+Int -&gt; ReadS ListProfilePermissions
+ReadS [ListProfilePermissions]
+(Int -&gt; ReadS ListProfilePermissions)
+-&gt; ReadS [ListProfilePermissions]
+-&gt; ReadPrec ListProfilePermissions
+-&gt; ReadPrec [ListProfilePermissions]
+-&gt; Read ListProfilePermissions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListProfilePermissions]
+$creadListPrec :: ReadPrec [ListProfilePermissions]
+readPrec :: ReadPrec ListProfilePermissions
+$creadPrec :: ReadPrec ListProfilePermissions
+readList :: ReadS [ListProfilePermissions]
+$creadList :: ReadS [ListProfilePermissions]
+readsPrec :: Int -&gt; ReadS ListProfilePermissions
+$creadsPrec :: Int -&gt; ReadS ListProfilePermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204564"><span id="local-6989586621679204566"><span id="local-6989586621679204568"><span class="annot"><span class="annottext">Int -&gt; ListProfilePermissions -&gt; ShowS
+[ListProfilePermissions] -&gt; ShowS
+ListProfilePermissions -&gt; String
+(Int -&gt; ListProfilePermissions -&gt; ShowS)
+-&gt; (ListProfilePermissions -&gt; String)
+-&gt; ([ListProfilePermissions] -&gt; ShowS)
+-&gt; Show ListProfilePermissions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListProfilePermissions] -&gt; ShowS
+$cshowList :: [ListProfilePermissions] -&gt; ShowS
+show :: ListProfilePermissions -&gt; String
+$cshow :: ListProfilePermissions -&gt; String
+showsPrec :: Int -&gt; ListProfilePermissions -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListProfilePermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListProfilePermissions -&gt; Rep ListProfilePermissions x)
+-&gt; (forall x.
+    Rep ListProfilePermissions x -&gt; ListProfilePermissions)
+-&gt; Generic ListProfilePermissions
+forall x. Rep ListProfilePermissions x -&gt; ListProfilePermissions
+forall x. ListProfilePermissions -&gt; Rep ListProfilePermissions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListProfilePermissions x -&gt; ListProfilePermissions
+$cfrom :: forall x. ListProfilePermissions -&gt; Rep ListProfilePermissions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'ListProfilePermissions' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'nextToken', 'listProfilePermissions_nextToken' - String for specifying the next set of paginated results.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'profileName', 'listProfilePermissions_profileName' - Name of the signing profile containing the cross-account permissions.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#newListProfilePermissions"><span class="hs-identifier hs-type">newListProfilePermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'profileName'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-type">ListProfilePermissions</span></a></span><span>
+</span><span id="line-77"></span><span id="newListProfilePermissions"><span class="annot"><span class="annottext">newListProfilePermissions :: Text -&gt; ListProfilePermissions
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#newListProfilePermissions"><span class="hs-identifier hs-var hs-var">newListProfilePermissions</span></a></span></span><span> </span><span id="local-6989586621679204559"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204559"><span class="hs-identifier hs-var">pProfileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">ListProfilePermissions' :: Maybe Text -&gt; Text -&gt; ListProfilePermissions
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions%27"><span class="hs-identifier hs-type">ListProfilePermissions'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListProfilePermissions' :: Maybe Text
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3AnextToken%3AListProfilePermissions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:profileName:ListProfilePermissions' :: Text
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3AprofileName%3AListProfilePermissions%27"><span class="hs-identifier hs-var">profileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204559"><span class="hs-identifier hs-var">pProfileName_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | String for specifying the next set of paginated results.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissions_nextToken"><span class="hs-identifier hs-type">listProfilePermissions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-type">ListProfilePermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="listProfilePermissions_nextToken"><span class="annot"><span class="annottext">listProfilePermissions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProfilePermissions -&gt; f ListProfilePermissions
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissions_nextToken"><span class="hs-identifier hs-var hs-var">listProfilePermissions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilePermissions -&gt; Maybe Text)
+-&gt; (ListProfilePermissions -&gt; Maybe Text -&gt; ListProfilePermissions)
+-&gt; Lens
+     ListProfilePermissions
+     ListProfilePermissions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions%27"><span class="hs-identifier hs-type">ListProfilePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204556"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListProfilePermissions' :: ListProfilePermissions -&gt; Maybe Text
+</span><a href="#local-6989586621679204556"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204556"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204555"><span class="annot"><span class="annottext">s :: ListProfilePermissions
+</span><a href="#local-6989586621679204555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions%27"><span class="hs-identifier hs-type">ListProfilePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204554"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilePermissions
+</span><a href="#local-6989586621679204555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProfilePermissions' :: Maybe Text
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3AnextToken%3AListProfilePermissions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-type">ListProfilePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Name of the signing profile containing the cross-account permissions.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissions_profileName"><span class="hs-identifier hs-type">listProfilePermissions_profileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-type">ListProfilePermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="listProfilePermissions_profileName"><span class="annot"><span class="annottext">listProfilePermissions_profileName :: (Text -&gt; f Text)
+-&gt; ListProfilePermissions -&gt; f ListProfilePermissions
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissions_profileName"><span class="hs-identifier hs-var hs-var">listProfilePermissions_profileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilePermissions -&gt; Text)
+-&gt; (ListProfilePermissions -&gt; Text -&gt; ListProfilePermissions)
+-&gt; Lens ListProfilePermissions ListProfilePermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions%27"><span class="hs-identifier hs-type">ListProfilePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204553"><span class="annot"><span class="annottext">Text
+profileName :: Text
+$sel:profileName:ListProfilePermissions' :: ListProfilePermissions -&gt; Text
+</span><a href="#local-6989586621679204553"><span class="hs-identifier hs-var hs-var">profileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204553"><span class="hs-identifier hs-var">profileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204552"><span class="annot"><span class="annottext">s :: ListProfilePermissions
+</span><a href="#local-6989586621679204552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions%27"><span class="hs-identifier hs-type">ListProfilePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204551"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilePermissions
+</span><a href="#local-6989586621679204552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileName:ListProfilePermissions' :: Text
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3AprofileName%3AListProfilePermissions%27"><span class="hs-identifier hs-var">profileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-type">ListProfilePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-type">ListProfilePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-type">ListProfilePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679204547"><span class="annot"><span class="annottext">request :: ListProfilePermissions -&gt; Request ListProfilePermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListProfilePermissions -&gt; Request ListProfilePermissions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Signer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679204543"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListProfilePermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListProfilePermissions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListProfilePermissions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListProfilePermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListProfilePermissions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204540"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204540"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679204539"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679204539"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679204538"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204538"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe [Permission]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListProfilePermissionsResponse
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-var">ListProfilePermissionsResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe [Permission]
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ListProfilePermissionsResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Permission]
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ListProfilePermissionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policySizeBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Permission]
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ListProfilePermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Permission]
+      -&gt; Maybe Text -&gt; Int -&gt; ListProfilePermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Permission]
+   -&gt; Maybe Text -&gt; Int -&gt; ListProfilePermissionsResponse)
+-&gt; Either String (Maybe [Permission])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListProfilePermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Permission]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;permissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Permission]))
+-&gt; Maybe [Permission] -&gt; Either String (Maybe [Permission])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListProfilePermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListProfilePermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;revisionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListProfilePermissionsResponse)
+-&gt; Either String Int
+-&gt; Either String ListProfilePermissionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204540"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204529"><span id="local-6989586621679204531"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-type">ListProfilePermissions</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-type">ListProfilePermissions</span></a></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-type">ListProfilePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679204522"><span class="annot"><span class="annottext">toHeaders :: ListProfilePermissions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListProfilePermissions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-type">ListProfilePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679204516"><span class="annot"><span class="annottext">toPath :: ListProfilePermissions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions%27"><span class="hs-identifier hs-type">ListProfilePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204513"><span id="local-6989586621679204514"><span class="annot"><span class="annottext">Maybe Text
+Text
+profileName :: Text
+nextToken :: Maybe Text
+$sel:profileName:ListProfilePermissions' :: ListProfilePermissions -&gt; Text
+$sel:nextToken:ListProfilePermissions' :: ListProfilePermissions -&gt; Maybe Text
+</span><a href="#local-6989586621679204513"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/signing-profiles/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204513"><span class="hs-identifier hs-var">profileName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/permissions&quot;</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions"><span class="hs-identifier hs-type">ListProfilePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679204509"><span class="annot"><span class="annottext">toQuery :: ListProfilePermissions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissions%27"><span class="hs-identifier hs-type">ListProfilePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204506"><span id="local-6989586621679204507"><span class="annot"><span class="annottext">Maybe Text
+Text
+profileName :: Text
+nextToken :: Maybe Text
+$sel:profileName:ListProfilePermissions' :: ListProfilePermissions -&gt; Text
+$sel:nextToken:ListProfilePermissions' :: ListProfilePermissions -&gt; Maybe Text
+</span><a href="#local-6989586621679204506"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204507"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newListProfilePermissionsResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679204503"><span id="local-6989586621679204504"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProfilePermissionsResponse"><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-var">ListProfilePermissionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProfilePermissionsResponse%27"><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-var">ListProfilePermissionsResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Total size of the policy associated with the Signing Profile in bytes.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3ApolicySizeBytes%3AListProfilePermissionsResponse%27"><span class="annot"><span class="annottext">ListProfilePermissionsResponse -&gt; Maybe Int
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3ApolicySizeBytes%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">policySizeBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | String for specifying the next set of paginated results.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AnextToken%3AListProfilePermissionsResponse%27"><span class="annot"><span class="annottext">ListProfilePermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3AnextToken%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | List of permissions associated with the Signing Profile.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Apermissions%3AListProfilePermissionsResponse%27"><span class="annot"><span class="annottext">ListProfilePermissionsResponse -&gt; Maybe [Permission]
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3Apermissions%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Signer.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The identifier for the current revision of profile permissions.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3ArevisionId%3AListProfilePermissionsResponse%27"><span class="annot"><span class="annottext">ListProfilePermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3ArevisionId%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListProfilePermissionsResponse%27"><span class="annot"><span class="annottext">ListProfilePermissionsResponse -&gt; Int
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3AhttpStatus%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204494"><span id="local-6989586621679204496"><span class="annot"><span class="annottext">ListProfilePermissionsResponse
+-&gt; ListProfilePermissionsResponse -&gt; Bool
+(ListProfilePermissionsResponse
+ -&gt; ListProfilePermissionsResponse -&gt; Bool)
+-&gt; (ListProfilePermissionsResponse
+    -&gt; ListProfilePermissionsResponse -&gt; Bool)
+-&gt; Eq ListProfilePermissionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListProfilePermissionsResponse
+-&gt; ListProfilePermissionsResponse -&gt; Bool
+$c/= :: ListProfilePermissionsResponse
+-&gt; ListProfilePermissionsResponse -&gt; Bool
+== :: ListProfilePermissionsResponse
+-&gt; ListProfilePermissionsResponse -&gt; Bool
+$c== :: ListProfilePermissionsResponse
+-&gt; ListProfilePermissionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204486"><span id="local-6989586621679204488"><span id="local-6989586621679204490"><span id="local-6989586621679204492"><span class="annot"><span class="annottext">ReadPrec [ListProfilePermissionsResponse]
+ReadPrec ListProfilePermissionsResponse
+Int -&gt; ReadS ListProfilePermissionsResponse
+ReadS [ListProfilePermissionsResponse]
+(Int -&gt; ReadS ListProfilePermissionsResponse)
+-&gt; ReadS [ListProfilePermissionsResponse]
+-&gt; ReadPrec ListProfilePermissionsResponse
+-&gt; ReadPrec [ListProfilePermissionsResponse]
+-&gt; Read ListProfilePermissionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListProfilePermissionsResponse]
+$creadListPrec :: ReadPrec [ListProfilePermissionsResponse]
+readPrec :: ReadPrec ListProfilePermissionsResponse
+$creadPrec :: ReadPrec ListProfilePermissionsResponse
+readList :: ReadS [ListProfilePermissionsResponse]
+$creadList :: ReadS [ListProfilePermissionsResponse]
+readsPrec :: Int -&gt; ReadS ListProfilePermissionsResponse
+$creadsPrec :: Int -&gt; ReadS ListProfilePermissionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204480"><span id="local-6989586621679204482"><span id="local-6989586621679204484"><span class="annot"><span class="annottext">Int -&gt; ListProfilePermissionsResponse -&gt; ShowS
+[ListProfilePermissionsResponse] -&gt; ShowS
+ListProfilePermissionsResponse -&gt; String
+(Int -&gt; ListProfilePermissionsResponse -&gt; ShowS)
+-&gt; (ListProfilePermissionsResponse -&gt; String)
+-&gt; ([ListProfilePermissionsResponse] -&gt; ShowS)
+-&gt; Show ListProfilePermissionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListProfilePermissionsResponse] -&gt; ShowS
+$cshowList :: [ListProfilePermissionsResponse] -&gt; ShowS
+show :: ListProfilePermissionsResponse -&gt; String
+$cshow :: ListProfilePermissionsResponse -&gt; String
+showsPrec :: Int -&gt; ListProfilePermissionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListProfilePermissionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListProfilePermissionsResponse
+ -&gt; Rep ListProfilePermissionsResponse x)
+-&gt; (forall x.
+    Rep ListProfilePermissionsResponse x
+    -&gt; ListProfilePermissionsResponse)
+-&gt; Generic ListProfilePermissionsResponse
+forall x.
+Rep ListProfilePermissionsResponse x
+-&gt; ListProfilePermissionsResponse
+forall x.
+ListProfilePermissionsResponse
+-&gt; Rep ListProfilePermissionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListProfilePermissionsResponse x
+-&gt; ListProfilePermissionsResponse
+$cfrom :: forall x.
+ListProfilePermissionsResponse
+-&gt; Rep ListProfilePermissionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Create a value of 'ListProfilePermissionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'policySizeBytes', 'listProfilePermissionsResponse_policySizeBytes' - Total size of the policy associated with the Signing Profile in bytes.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'nextToken', 'listProfilePermissionsResponse_nextToken' - String for specifying the next set of paginated results.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'permissions', 'listProfilePermissionsResponse_permissions' - List of permissions associated with the Signing Profile.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'revisionId', 'listProfilePermissionsResponse_revisionId' - The identifier for the current revision of profile permissions.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'httpStatus', 'listProfilePermissionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#newListProfilePermissionsResponse"><span class="hs-identifier hs-type">newListProfilePermissionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span><span>
+</span><span id="line-171"></span><span id="newListProfilePermissionsResponse"><span class="annot"><span class="annottext">newListProfilePermissionsResponse :: Int -&gt; ListProfilePermissionsResponse
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#newListProfilePermissionsResponse"><span class="hs-identifier hs-var hs-var">newListProfilePermissionsResponse</span></a></span></span><span> </span><span id="local-6989586621679204477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">ListProfilePermissionsResponse' :: Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe [Permission]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListProfilePermissionsResponse
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-type">ListProfilePermissionsResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policySizeBytes:ListProfilePermissionsResponse' :: Maybe Int
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3ApolicySizeBytes%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var">policySizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListProfilePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3AnextToken%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissions:ListProfilePermissionsResponse' :: Maybe [Permission]
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3Apermissions%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:revisionId:ListProfilePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3ArevisionId%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListProfilePermissionsResponse' :: Int
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3AhttpStatus%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | Total size of the policy associated with the Signing Profile in bytes.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_policySizeBytes"><span class="hs-identifier hs-type">listProfilePermissionsResponse_policySizeBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="listProfilePermissionsResponse_policySizeBytes"><span class="annot"><span class="annottext">listProfilePermissionsResponse_policySizeBytes :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListProfilePermissionsResponse
+-&gt; f ListProfilePermissionsResponse
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_policySizeBytes"><span class="hs-identifier hs-var hs-var">listProfilePermissionsResponse_policySizeBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilePermissionsResponse -&gt; Maybe Int)
+-&gt; (ListProfilePermissionsResponse
+    -&gt; Maybe Int -&gt; ListProfilePermissionsResponse)
+-&gt; Lens
+     ListProfilePermissionsResponse
+     ListProfilePermissionsResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-type">ListProfilePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204476"><span class="annot"><span class="annottext">Maybe Int
+policySizeBytes :: Maybe Int
+$sel:policySizeBytes:ListProfilePermissionsResponse' :: ListProfilePermissionsResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679204476"><span class="hs-identifier hs-var hs-var">policySizeBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204476"><span class="hs-identifier hs-var">policySizeBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204475"><span class="annot"><span class="annottext">s :: ListProfilePermissionsResponse
+</span><a href="#local-6989586621679204475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-type">ListProfilePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204474"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilePermissionsResponse
+</span><a href="#local-6989586621679204475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policySizeBytes:ListProfilePermissionsResponse' :: Maybe Int
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3ApolicySizeBytes%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var">policySizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | String for specifying the next set of paginated results.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_nextToken"><span class="hs-identifier hs-type">listProfilePermissionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="listProfilePermissionsResponse_nextToken"><span class="annot"><span class="annottext">listProfilePermissionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProfilePermissionsResponse
+-&gt; f ListProfilePermissionsResponse
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listProfilePermissionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilePermissionsResponse -&gt; Maybe Text)
+-&gt; (ListProfilePermissionsResponse
+    -&gt; Maybe Text -&gt; ListProfilePermissionsResponse)
+-&gt; Lens
+     ListProfilePermissionsResponse
+     ListProfilePermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-type">ListProfilePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204473"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListProfilePermissionsResponse' :: ListProfilePermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679204473"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204473"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204472"><span class="annot"><span class="annottext">s :: ListProfilePermissionsResponse
+</span><a href="#local-6989586621679204472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-type">ListProfilePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204471"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilePermissionsResponse
+</span><a href="#local-6989586621679204472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProfilePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3AnextToken%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | List of permissions associated with the Signing Profile.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_permissions"><span class="hs-identifier hs-type">listProfilePermissionsResponse_permissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Signer.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="listProfilePermissionsResponse_permissions"><span class="annot"><span class="annottext">listProfilePermissionsResponse_permissions :: (Maybe [Permission] -&gt; f (Maybe [Permission]))
+-&gt; ListProfilePermissionsResponse
+-&gt; f ListProfilePermissionsResponse
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_permissions"><span class="hs-identifier hs-var hs-var">listProfilePermissionsResponse_permissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilePermissionsResponse -&gt; Maybe [Permission])
+-&gt; (ListProfilePermissionsResponse
+    -&gt; Maybe [Permission] -&gt; ListProfilePermissionsResponse)
+-&gt; Lens
+     ListProfilePermissionsResponse
+     ListProfilePermissionsResponse
+     (Maybe [Permission])
+     (Maybe [Permission])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-type">ListProfilePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204470"><span class="annot"><span class="annottext">Maybe [Permission]
+permissions :: Maybe [Permission]
+$sel:permissions:ListProfilePermissionsResponse' :: ListProfilePermissionsResponse -&gt; Maybe [Permission]
+</span><a href="#local-6989586621679204470"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
+</span><a href="#local-6989586621679204470"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204469"><span class="annot"><span class="annottext">s :: ListProfilePermissionsResponse
+</span><a href="#local-6989586621679204469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-type">ListProfilePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204468"><span class="annot"><span class="annottext">Maybe [Permission]
+</span><a href="#local-6989586621679204468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilePermissionsResponse
+</span><a href="#local-6989586621679204469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:ListProfilePermissionsResponse' :: Maybe [Permission]
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3Apermissions%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
+</span><a href="#local-6989586621679204468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Permission] -&gt; f (Maybe [Permission]))
+ -&gt; ListProfilePermissionsResponse
+ -&gt; f ListProfilePermissionsResponse)
+-&gt; ((Maybe [Permission] -&gt; f (Maybe [Permission]))
+    -&gt; Maybe [Permission] -&gt; f (Maybe [Permission]))
+-&gt; (Maybe [Permission] -&gt; f (Maybe [Permission]))
+-&gt; ListProfilePermissionsResponse
+-&gt; f ListProfilePermissionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Permission] [Permission] [Permission] [Permission]
+-&gt; Iso
+     (Maybe [Permission])
+     (Maybe [Permission])
+     (Maybe [Permission])
+     (Maybe [Permission])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Permission] [Permission] [Permission] [Permission]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The identifier for the current revision of profile permissions.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_revisionId"><span class="hs-identifier hs-type">listProfilePermissionsResponse_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="listProfilePermissionsResponse_revisionId"><span class="annot"><span class="annottext">listProfilePermissionsResponse_revisionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProfilePermissionsResponse
+-&gt; f ListProfilePermissionsResponse
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_revisionId"><span class="hs-identifier hs-var hs-var">listProfilePermissionsResponse_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilePermissionsResponse -&gt; Maybe Text)
+-&gt; (ListProfilePermissionsResponse
+    -&gt; Maybe Text -&gt; ListProfilePermissionsResponse)
+-&gt; Lens
+     ListProfilePermissionsResponse
+     ListProfilePermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-type">ListProfilePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204464"><span class="annot"><span class="annottext">Maybe Text
+revisionId :: Maybe Text
+$sel:revisionId:ListProfilePermissionsResponse' :: ListProfilePermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679204464"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204464"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204463"><span class="annot"><span class="annottext">s :: ListProfilePermissionsResponse
+</span><a href="#local-6989586621679204463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-type">ListProfilePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204462"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilePermissionsResponse
+</span><a href="#local-6989586621679204463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:ListProfilePermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3ArevisionId%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_httpStatus"><span class="hs-identifier hs-type">listProfilePermissionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-199"></span><span id="listProfilePermissionsResponse_httpStatus"><span class="annot"><span class="annottext">listProfilePermissionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListProfilePermissionsResponse
+-&gt; f ListProfilePermissionsResponse
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#listProfilePermissionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listProfilePermissionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfilePermissionsResponse -&gt; Int)
+-&gt; (ListProfilePermissionsResponse
+    -&gt; Int -&gt; ListProfilePermissionsResponse)
+-&gt; Lens
+     ListProfilePermissionsResponse
+     ListProfilePermissionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-type">ListProfilePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204461"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListProfilePermissionsResponse' :: ListProfilePermissionsResponse -&gt; Int
+</span><a href="#local-6989586621679204461"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204461"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204460"><span class="annot"><span class="annottext">s :: ListProfilePermissionsResponse
+</span><a href="#local-6989586621679204460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse%27"><span class="hs-identifier hs-type">ListProfilePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204459"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfilePermissionsResponse
+</span><a href="#local-6989586621679204460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListProfilePermissionsResponse' :: Int
+</span><a href="Amazonka.Signer.ListProfilePermissions.html#%24sel%3AhttpStatus%3AListProfilePermissionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679204457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.Signer.ListProfilePermissions.html#ListProfilePermissionsResponse"><span class="hs-identifier hs-type">ListProfilePermissionsResponse</span></a></span></span><span>
+</span><span id="line-204"></span></pre></body></html>

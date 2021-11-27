@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AccessAnalyzer.Types.FindingStatusUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AccessAnalyzer.Types.FindingStatusUpdate</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate"><span class="hs-identifier">FindingStatusUpdate</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate_ACTIVE"><span class="hs-identifier">FindingStatusUpdate_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate_ARCHIVED"><span class="hs-identifier">FindingStatusUpdate_ARCHIVED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679245480"><span id="local-6989586621679245481"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FindingStatusUpdate"><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate"><span class="hs-identifier hs-var">FindingStatusUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingStatusUpdate%27"><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate%27"><span class="hs-identifier hs-var">FindingStatusUpdate'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFindingStatusUpdate"><span class="annot"><span class="annottext">FindingStatusUpdate -&gt; Text
+</span><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#fromFindingStatusUpdate"><span class="hs-identifier hs-var hs-var">fromFindingStatusUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245472"><span id="local-6989586621679245474"><span id="local-6989586621679245476"><span class="annot"><span class="annottext">Int -&gt; FindingStatusUpdate -&gt; ShowS
+[FindingStatusUpdate] -&gt; ShowS
+FindingStatusUpdate -&gt; String
+(Int -&gt; FindingStatusUpdate -&gt; ShowS)
+-&gt; (FindingStatusUpdate -&gt; String)
+-&gt; ([FindingStatusUpdate] -&gt; ShowS)
+-&gt; Show FindingStatusUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FindingStatusUpdate] -&gt; ShowS
+$cshowList :: [FindingStatusUpdate] -&gt; ShowS
+show :: FindingStatusUpdate -&gt; String
+$cshow :: FindingStatusUpdate -&gt; String
+showsPrec :: Int -&gt; FindingStatusUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; FindingStatusUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679245463"><span id="local-6989586621679245465"><span id="local-6989586621679245467"><span id="local-6989586621679245469"><span class="annot"><span class="annottext">ReadPrec [FindingStatusUpdate]
+ReadPrec FindingStatusUpdate
+Int -&gt; ReadS FindingStatusUpdate
+ReadS [FindingStatusUpdate]
+(Int -&gt; ReadS FindingStatusUpdate)
+-&gt; ReadS [FindingStatusUpdate]
+-&gt; ReadPrec FindingStatusUpdate
+-&gt; ReadPrec [FindingStatusUpdate]
+-&gt; Read FindingStatusUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FindingStatusUpdate]
+$creadListPrec :: ReadPrec [FindingStatusUpdate]
+readPrec :: ReadPrec FindingStatusUpdate
+$creadPrec :: ReadPrec FindingStatusUpdate
+readList :: ReadS [FindingStatusUpdate]
+$creadList :: ReadS [FindingStatusUpdate]
+readsPrec :: Int -&gt; ReadS FindingStatusUpdate
+$creadsPrec :: Int -&gt; ReadS FindingStatusUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679245458"><span id="local-6989586621679245460"><span class="annot"><span class="annottext">FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+(FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool)
+-&gt; (FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool)
+-&gt; Eq FindingStatusUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+$c/= :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+== :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+$c== :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679245442"><span id="local-6989586621679245444"><span id="local-6989586621679245446"><span id="local-6989586621679245448"><span id="local-6989586621679245450"><span id="local-6989586621679245452"><span id="local-6989586621679245454"><span class="annot"><span class="annottext">Eq FindingStatusUpdate
+Eq FindingStatusUpdate
+-&gt; (FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Ordering)
+-&gt; (FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool)
+-&gt; (FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool)
+-&gt; (FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool)
+-&gt; (FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool)
+-&gt; (FindingStatusUpdate
+    -&gt; FindingStatusUpdate -&gt; FindingStatusUpdate)
+-&gt; (FindingStatusUpdate
+    -&gt; FindingStatusUpdate -&gt; FindingStatusUpdate)
+-&gt; Ord FindingStatusUpdate
+FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Ordering
+FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; FindingStatusUpdate
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; FindingStatusUpdate
+$cmin :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; FindingStatusUpdate
+max :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; FindingStatusUpdate
+$cmax :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; FindingStatusUpdate
+&gt;= :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+$c&gt;= :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+&gt; :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+$c&gt; :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+&lt;= :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+$c&lt;= :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+&lt; :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+$c&lt; :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Bool
+compare :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Ordering
+$ccompare :: FindingStatusUpdate -&gt; FindingStatusUpdate -&gt; Ordering
+$cp1Ord :: Eq FindingStatusUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FindingStatusUpdate -&gt; Rep FindingStatusUpdate x)
+-&gt; (forall x. Rep FindingStatusUpdate x -&gt; FindingStatusUpdate)
+-&gt; Generic FindingStatusUpdate
+forall x. Rep FindingStatusUpdate x -&gt; FindingStatusUpdate
+forall x. FindingStatusUpdate -&gt; Rep FindingStatusUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FindingStatusUpdate x -&gt; FindingStatusUpdate
+$cfrom :: forall x. FindingStatusUpdate -&gt; Rep FindingStatusUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245434"><span id="local-6989586621679245436"><span class="annot"><span class="annottext">Int -&gt; FindingStatusUpdate -&gt; Int
+FindingStatusUpdate -&gt; Int
+(Int -&gt; FindingStatusUpdate -&gt; Int)
+-&gt; (FindingStatusUpdate -&gt; Int) -&gt; Hashable FindingStatusUpdate
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FindingStatusUpdate -&gt; Int
+$chash :: FindingStatusUpdate -&gt; Int
+hashWithSalt :: Int -&gt; FindingStatusUpdate -&gt; Int
+$chashWithSalt :: Int -&gt; FindingStatusUpdate -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679245431"><span class="annot"><span class="annottext">FindingStatusUpdate -&gt; ()
+(FindingStatusUpdate -&gt; ()) -&gt; NFData FindingStatusUpdate
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FindingStatusUpdate -&gt; ()
+$crnf :: FindingStatusUpdate -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679245428"><span class="annot"><span class="annottext">Text -&gt; Either String FindingStatusUpdate
+(Text -&gt; Either String FindingStatusUpdate)
+-&gt; FromText FindingStatusUpdate
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FindingStatusUpdate
+$cfromText :: Text -&gt; Either String FindingStatusUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679245425"><span class="annot"><span class="annottext">FindingStatusUpdate -&gt; Text
+(FindingStatusUpdate -&gt; Text) -&gt; ToText FindingStatusUpdate
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FindingStatusUpdate -&gt; Text
+$ctoText :: FindingStatusUpdate -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679245422"><span class="annot"><span class="annottext">FindingStatusUpdate -&gt; ByteString
+(FindingStatusUpdate -&gt; ByteString)
+-&gt; ToByteString FindingStatusUpdate
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FindingStatusUpdate -&gt; ByteString
+$ctoBS :: FindingStatusUpdate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679245419"><span class="annot"><span class="annottext">FindingStatusUpdate -&gt; ByteStringBuilder
+(FindingStatusUpdate -&gt; ByteStringBuilder)
+-&gt; ToLog FindingStatusUpdate
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FindingStatusUpdate -&gt; ByteStringBuilder
+$cbuild :: FindingStatusUpdate -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679245416"><span class="annot"><span class="annottext">HeaderName -&gt; FindingStatusUpdate -&gt; [Header]
+(HeaderName -&gt; FindingStatusUpdate -&gt; [Header])
+-&gt; ToHeader FindingStatusUpdate
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FindingStatusUpdate -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FindingStatusUpdate -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679245413"><span class="annot"><span class="annottext">FindingStatusUpdate -&gt; QueryString
+(FindingStatusUpdate -&gt; QueryString) -&gt; ToQuery FindingStatusUpdate
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FindingStatusUpdate -&gt; QueryString
+$ctoQuery :: FindingStatusUpdate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679245408"><span id="local-6989586621679245410"><span class="annot"><span class="annottext">Value -&gt; Parser [FindingStatusUpdate]
+Value -&gt; Parser FindingStatusUpdate
+(Value -&gt; Parser FindingStatusUpdate)
+-&gt; (Value -&gt; Parser [FindingStatusUpdate])
+-&gt; FromJSON FindingStatusUpdate
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FindingStatusUpdate]
+$cparseJSONList :: Value -&gt; Parser [FindingStatusUpdate]
+parseJSON :: Value -&gt; Parser FindingStatusUpdate
+$cparseJSON :: Value -&gt; Parser FindingStatusUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245403"><span id="local-6989586621679245405"><span class="annot"><span class="annottext">FromJSONKeyFunction [FindingStatusUpdate]
+FromJSONKeyFunction FindingStatusUpdate
+FromJSONKeyFunction FindingStatusUpdate
+-&gt; FromJSONKeyFunction [FindingStatusUpdate]
+-&gt; FromJSONKey FindingStatusUpdate
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FindingStatusUpdate]
+$cfromJSONKeyList :: FromJSONKeyFunction [FindingStatusUpdate]
+fromJSONKey :: FromJSONKeyFunction FindingStatusUpdate
+$cfromJSONKey :: FromJSONKeyFunction FindingStatusUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245394"><span id="local-6989586621679245396"><span id="local-6989586621679245398"><span id="local-6989586621679245400"><span class="annot"><span class="annottext">[FindingStatusUpdate] -&gt; Encoding
+[FindingStatusUpdate] -&gt; Value
+FindingStatusUpdate -&gt; Encoding
+FindingStatusUpdate -&gt; Value
+(FindingStatusUpdate -&gt; Value)
+-&gt; (FindingStatusUpdate -&gt; Encoding)
+-&gt; ([FindingStatusUpdate] -&gt; Value)
+-&gt; ([FindingStatusUpdate] -&gt; Encoding)
+-&gt; ToJSON FindingStatusUpdate
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FindingStatusUpdate] -&gt; Encoding
+$ctoEncodingList :: [FindingStatusUpdate] -&gt; Encoding
+toJSONList :: [FindingStatusUpdate] -&gt; Value
+$ctoJSONList :: [FindingStatusUpdate] -&gt; Value
+toEncoding :: FindingStatusUpdate -&gt; Encoding
+$ctoEncoding :: FindingStatusUpdate -&gt; Encoding
+toJSON :: FindingStatusUpdate -&gt; Value
+$ctoJSON :: FindingStatusUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245389"><span id="local-6989586621679245391"><span class="annot"><span class="annottext">ToJSONKeyFunction [FindingStatusUpdate]
+ToJSONKeyFunction FindingStatusUpdate
+ToJSONKeyFunction FindingStatusUpdate
+-&gt; ToJSONKeyFunction [FindingStatusUpdate]
+-&gt; ToJSONKey FindingStatusUpdate
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FindingStatusUpdate]
+$ctoJSONKeyList :: ToJSONKeyFunction [FindingStatusUpdate]
+toJSONKey :: ToJSONKeyFunction FindingStatusUpdate
+$ctoJSONKey :: ToJSONKeyFunction FindingStatusUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245386"><span class="annot"><span class="annottext">[Node] -&gt; Either String FindingStatusUpdate
+([Node] -&gt; Either String FindingStatusUpdate)
+-&gt; FromXML FindingStatusUpdate
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FindingStatusUpdate
+$cparseXML :: [Node] -&gt; Either String FindingStatusUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245383"><span class="annot"><span class="annottext">FindingStatusUpdate -&gt; XML
+(FindingStatusUpdate -&gt; XML) -&gt; ToXML FindingStatusUpdate
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FindingStatusUpdate -&gt; XML
+$ctoXML :: FindingStatusUpdate -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate_ACTIVE"><span class="hs-identifier hs-type">FindingStatusUpdate_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate"><span class="hs-identifier hs-type">FindingStatusUpdate</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFindingStatusUpdate_ACTIVE"><span id="%24mFindingStatusUpdate_ACTIVE"><span id="FindingStatusUpdate_ACTIVE"><span class="annot"><span class="annottext">$bFindingStatusUpdate_ACTIVE :: FindingStatusUpdate
+$mFindingStatusUpdate_ACTIVE :: forall r. FindingStatusUpdate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#%24bFindingStatusUpdate_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">FindingStatusUpdate_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate%27"><span class="hs-identifier hs-type">FindingStatusUpdate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate_ARCHIVED"><span class="hs-identifier hs-type">FindingStatusUpdate_ARCHIVED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate"><span class="hs-identifier hs-type">FindingStatusUpdate</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFindingStatusUpdate_ARCHIVED"><span id="%24mFindingStatusUpdate_ARCHIVED"><span id="FindingStatusUpdate_ARCHIVED"><span class="annot"><span class="annottext">$bFindingStatusUpdate_ARCHIVED :: FindingStatusUpdate
+$mFindingStatusUpdate_ARCHIVED :: forall r. FindingStatusUpdate -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#%24bFindingStatusUpdate_ARCHIVED"><span class="hs-identifier hs-var hs-var hs-var">FindingStatusUpdate_ARCHIVED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate%27"><span class="hs-identifier hs-type">FindingStatusUpdate'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ARCHIVED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate_ACTIVE"><span class="hs-pragma hs-type">FindingStatusUpdate_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate_ARCHIVED"><span class="hs-pragma hs-type">FindingStatusUpdate_ARCHIVED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.FindingStatusUpdate.html#FindingStatusUpdate%27"><span class="hs-pragma hs-type">FindingStatusUpdate'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.S3.Types.TargetGrant</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.Types.TargetGrant</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html"><span class="hs-identifier">Amazonka.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.BucketLogsPermission.html"><span class="hs-identifier">Amazonka.S3.Types.BucketLogsPermission</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Grantee.html"><span class="hs-identifier">Amazonka.S3.Types.Grantee</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Container for granting information.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newTargetGrant' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679558748"><span id="local-6989586621679558749"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetGrant"><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-var">TargetGrant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetGrant%27"><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant%27"><span class="hs-identifier hs-var">TargetGrant'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Logging permissions assigned to the grantee for the bucket.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Apermission%3ATargetGrant%27"><span class="annot"><span class="annottext">TargetGrant -&gt; Maybe BucketLogsPermission
+</span><a href="Amazonka.S3.Types.TargetGrant.html#%24sel%3Apermission%3ATargetGrant%27"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.BucketLogsPermission.html#BucketLogsPermission"><span class="hs-identifier hs-type">BucketLogsPermission</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Container for the person being granted permissions.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Agrantee%3ATargetGrant%27"><span class="annot"><span class="annottext">TargetGrant -&gt; Maybe Grantee
+</span><a href="Amazonka.S3.Types.TargetGrant.html#%24sel%3Agrantee%3ATargetGrant%27"><span class="hs-identifier hs-var hs-var">grantee</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679558741"><span id="local-6989586621679558743"><span class="annot"><span class="annottext">TargetGrant -&gt; TargetGrant -&gt; Bool
+(TargetGrant -&gt; TargetGrant -&gt; Bool)
+-&gt; (TargetGrant -&gt; TargetGrant -&gt; Bool) -&gt; Eq TargetGrant
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TargetGrant -&gt; TargetGrant -&gt; Bool
+$c/= :: TargetGrant -&gt; TargetGrant -&gt; Bool
+== :: TargetGrant -&gt; TargetGrant -&gt; Bool
+$c== :: TargetGrant -&gt; TargetGrant -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558732"><span id="local-6989586621679558734"><span id="local-6989586621679558736"><span id="local-6989586621679558738"><span class="annot"><span class="annottext">ReadPrec [TargetGrant]
+ReadPrec TargetGrant
+Int -&gt; ReadS TargetGrant
+ReadS [TargetGrant]
+(Int -&gt; ReadS TargetGrant)
+-&gt; ReadS [TargetGrant]
+-&gt; ReadPrec TargetGrant
+-&gt; ReadPrec [TargetGrant]
+-&gt; Read TargetGrant
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TargetGrant]
+$creadListPrec :: ReadPrec [TargetGrant]
+readPrec :: ReadPrec TargetGrant
+$creadPrec :: ReadPrec TargetGrant
+readList :: ReadS [TargetGrant]
+$creadList :: ReadS [TargetGrant]
+readsPrec :: Int -&gt; ReadS TargetGrant
+$creadsPrec :: Int -&gt; ReadS TargetGrant
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558725"><span id="local-6989586621679558727"><span id="local-6989586621679558729"><span class="annot"><span class="annottext">Int -&gt; TargetGrant -&gt; ShowS
+[TargetGrant] -&gt; ShowS
+TargetGrant -&gt; String
+(Int -&gt; TargetGrant -&gt; ShowS)
+-&gt; (TargetGrant -&gt; String)
+-&gt; ([TargetGrant] -&gt; ShowS)
+-&gt; Show TargetGrant
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TargetGrant] -&gt; ShowS
+$cshowList :: [TargetGrant] -&gt; ShowS
+show :: TargetGrant -&gt; String
+$cshow :: TargetGrant -&gt; String
+showsPrec :: Int -&gt; TargetGrant -&gt; ShowS
+$cshowsPrec :: Int -&gt; TargetGrant -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TargetGrant -&gt; Rep TargetGrant x)
+-&gt; (forall x. Rep TargetGrant x -&gt; TargetGrant)
+-&gt; Generic TargetGrant
+forall x. Rep TargetGrant x -&gt; TargetGrant
+forall x. TargetGrant -&gt; Rep TargetGrant x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TargetGrant x -&gt; TargetGrant
+$cfrom :: forall x. TargetGrant -&gt; Rep TargetGrant x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'TargetGrant' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'permission', 'targetGrant_permission' - Logging permissions assigned to the grantee for the bucket.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'grantee', 'targetGrant_grantee' - Container for the person being granted permissions.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#newTargetGrant"><span class="hs-identifier hs-type">newTargetGrant</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-type">TargetGrant</span></a></span><span>
+</span><span id="line-53"></span><span id="newTargetGrant"><span class="annot"><span class="annottext">newTargetGrant :: TargetGrant
+</span><a href="Amazonka.S3.Types.TargetGrant.html#newTargetGrant"><span class="hs-identifier hs-var hs-var">newTargetGrant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">TargetGrant' :: Maybe BucketLogsPermission -&gt; Maybe Grantee -&gt; TargetGrant
+</span><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant%27"><span class="hs-identifier hs-type">TargetGrant'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:permission:TargetGrant' :: Maybe BucketLogsPermission
+</span><a href="Amazonka.S3.Types.TargetGrant.html#%24sel%3Apermission%3ATargetGrant%27"><span class="hs-identifier hs-var">permission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BucketLogsPermission
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:grantee:TargetGrant' :: Maybe Grantee
+</span><a href="Amazonka.S3.Types.TargetGrant.html#%24sel%3Agrantee%3ATargetGrant%27"><span class="hs-identifier hs-var">grantee</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Grantee
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | Logging permissions assigned to the grantee for the bucket.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#targetGrant_permission"><span class="hs-identifier hs-type">targetGrant_permission</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-type">TargetGrant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.BucketLogsPermission.html#BucketLogsPermission"><span class="hs-identifier hs-type">BucketLogsPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="targetGrant_permission"><span class="annot"><span class="annottext">targetGrant_permission :: (Maybe BucketLogsPermission -&gt; f (Maybe BucketLogsPermission))
+-&gt; TargetGrant -&gt; f TargetGrant
+</span><a href="Amazonka.S3.Types.TargetGrant.html#targetGrant_permission"><span class="hs-identifier hs-var hs-var">targetGrant_permission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetGrant -&gt; Maybe BucketLogsPermission)
+-&gt; (TargetGrant -&gt; Maybe BucketLogsPermission -&gt; TargetGrant)
+-&gt; Lens
+     TargetGrant
+     TargetGrant
+     (Maybe BucketLogsPermission)
+     (Maybe BucketLogsPermission)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant%27"><span class="hs-identifier hs-type">TargetGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558716"><span class="annot"><span class="annottext">Maybe BucketLogsPermission
+permission :: Maybe BucketLogsPermission
+$sel:permission:TargetGrant' :: TargetGrant -&gt; Maybe BucketLogsPermission
+</span><a href="#local-6989586621679558716"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BucketLogsPermission
+</span><a href="#local-6989586621679558716"><span class="hs-identifier hs-var">permission</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558715"><span class="annot"><span class="annottext">s :: TargetGrant
+</span><a href="#local-6989586621679558715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant%27"><span class="hs-identifier hs-type">TargetGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558714"><span class="annot"><span class="annottext">Maybe BucketLogsPermission
+</span><a href="#local-6989586621679558714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGrant
+</span><a href="#local-6989586621679558715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permission:TargetGrant' :: Maybe BucketLogsPermission
+</span><a href="Amazonka.S3.Types.TargetGrant.html#%24sel%3Apermission%3ATargetGrant%27"><span class="hs-identifier hs-var">permission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BucketLogsPermission
+</span><a href="#local-6989586621679558714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-type">TargetGrant</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Container for the person being granted permissions.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#targetGrant_grantee"><span class="hs-identifier hs-type">targetGrant_grantee</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-type">TargetGrant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="targetGrant_grantee"><span class="annot"><span class="annottext">targetGrant_grantee :: (Maybe Grantee -&gt; f (Maybe Grantee))
+-&gt; TargetGrant -&gt; f TargetGrant
+</span><a href="Amazonka.S3.Types.TargetGrant.html#targetGrant_grantee"><span class="hs-identifier hs-var hs-var">targetGrant_grantee</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetGrant -&gt; Maybe Grantee)
+-&gt; (TargetGrant -&gt; Maybe Grantee -&gt; TargetGrant)
+-&gt; Lens TargetGrant TargetGrant (Maybe Grantee) (Maybe Grantee)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant%27"><span class="hs-identifier hs-type">TargetGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558712"><span class="annot"><span class="annottext">Maybe Grantee
+grantee :: Maybe Grantee
+$sel:grantee:TargetGrant' :: TargetGrant -&gt; Maybe Grantee
+</span><a href="#local-6989586621679558712"><span class="hs-identifier hs-var hs-var">grantee</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Grantee
+</span><a href="#local-6989586621679558712"><span class="hs-identifier hs-var">grantee</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558711"><span class="annot"><span class="annottext">s :: TargetGrant
+</span><a href="#local-6989586621679558711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant%27"><span class="hs-identifier hs-type">TargetGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558710"><span class="annot"><span class="annottext">Maybe Grantee
+</span><a href="#local-6989586621679558710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGrant
+</span><a href="#local-6989586621679558711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantee:TargetGrant' :: Maybe Grantee
+</span><a href="Amazonka.S3.Types.TargetGrant.html#%24sel%3Agrantee%3ATargetGrant%27"><span class="hs-identifier hs-var">grantee</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Grantee
+</span><a href="#local-6989586621679558710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-type">TargetGrant</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-type">TargetGrant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679558707"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TargetGrant
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679558705"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558705"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe BucketLogsPermission -&gt; Maybe Grantee -&gt; TargetGrant
+</span><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant%27"><span class="hs-identifier hs-var">TargetGrant'</span></a></span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe BucketLogsPermission -&gt; Maybe Grantee -&gt; TargetGrant)
+-&gt; Either String (Maybe BucketLogsPermission)
+-&gt; Either String (Maybe Grantee -&gt; TargetGrant)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BucketLogsPermission)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Permission&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Grantee -&gt; TargetGrant)
+-&gt; Either String (Maybe Grantee) -&gt; Either String TargetGrant
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Grantee)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Grantee&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558699"><span id="local-6989586621679558701"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-type">TargetGrant</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-type">TargetGrant</span></a></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant"><span class="hs-identifier hs-type">TargetGrant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679558692"><span class="annot"><span class="annottext">toXML :: TargetGrant -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TargetGrant.html#TargetGrant%27"><span class="hs-identifier hs-type">TargetGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558689"><span id="local-6989586621679558690"><span class="annot"><span class="annottext">Maybe BucketLogsPermission
+Maybe Grantee
+grantee :: Maybe Grantee
+permission :: Maybe BucketLogsPermission
+$sel:grantee:TargetGrant' :: TargetGrant -&gt; Maybe Grantee
+$sel:permission:TargetGrant' :: TargetGrant -&gt; Maybe BucketLogsPermission
+</span><a href="#local-6989586621679558689"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Permission&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe BucketLogsPermission -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe BucketLogsPermission
+</span><a href="#local-6989586621679558690"><span class="hs-identifier hs-var">permission</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Grantee&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Grantee -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Grantee
+</span><a href="#local-6989586621679558689"><span class="hs-identifier hs-var">grantee</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-83"></span></pre></body></html>

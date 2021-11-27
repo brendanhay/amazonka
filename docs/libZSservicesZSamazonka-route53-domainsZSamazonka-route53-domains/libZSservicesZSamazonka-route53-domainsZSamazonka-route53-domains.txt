@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Route53Domains.Types.ContactType
+module Amazonka.Route53Domains.Types.ContactType
 newtype ContactType
 ContactType' :: Text -> ContactType
 [fromContactType] :: ContactType -> Text
@@ -14,28 +14,28 @@ pattern ContactType_COMPANY :: ContactType
 pattern ContactType_PERSON :: ContactType
 pattern ContactType_PUBLIC_BODY :: ContactType
 pattern ContactType_RESELLER :: ContactType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Network.AWS.Data.Text.ToText Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Network.AWS.Data.Text.FromText Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance GHC.Classes.Ord Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.ContactType.ContactType
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.ContactType.ContactType
+instance Amazonka.Data.XML.ToXML Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Amazonka.Data.XML.FromXML Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Amazonka.Data.Log.ToLog Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Amazonka.Data.Text.ToText Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Amazonka.Data.Text.FromText Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.ContactType.ContactType
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.ContactType.ContactType
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.ContactType.ContactType
+instance GHC.Classes.Ord Amazonka.Route53Domains.Types.ContactType.ContactType
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.ContactType.ContactType
+instance GHC.Read.Read Amazonka.Route53Domains.Types.ContactType.ContactType
+instance GHC.Show.Show Amazonka.Route53Domains.Types.ContactType.ContactType
 
 
-module Network.AWS.Route53Domains.Types.CountryCode
+module Amazonka.Route53Domains.Types.CountryCode
 newtype CountryCode
 CountryCode' :: Text -> CountryCode
 [fromCountryCode] :: CountryCode -> Text
@@ -268,28 +268,28 @@ pattern CountryCode_YT :: CountryCode
 pattern CountryCode_ZA :: CountryCode
 pattern CountryCode_ZM :: CountryCode
 pattern CountryCode_ZW :: CountryCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Network.AWS.Data.Text.ToText Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Network.AWS.Data.Text.FromText Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance GHC.Classes.Ord Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.CountryCode.CountryCode
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.CountryCode.CountryCode
+instance Amazonka.Data.XML.ToXML Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Amazonka.Data.XML.FromXML Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Amazonka.Data.Log.ToLog Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Amazonka.Data.Text.ToText Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Amazonka.Data.Text.FromText Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance GHC.Classes.Ord Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance GHC.Read.Read Amazonka.Route53Domains.Types.CountryCode.CountryCode
+instance GHC.Show.Show Amazonka.Route53Domains.Types.CountryCode.CountryCode
 
 
-module Network.AWS.Route53Domains.Types.DomainAvailability
+module Amazonka.Route53Domains.Types.DomainAvailability
 newtype DomainAvailability
 DomainAvailability' :: Text -> DomainAvailability
 [fromDomainAvailability] :: DomainAvailability -> Text
@@ -301,28 +301,28 @@ pattern DomainAvailability_RESERVED :: DomainAvailability
 pattern DomainAvailability_UNAVAILABLE :: DomainAvailability
 pattern DomainAvailability_UNAVAILABLE_PREMIUM :: DomainAvailability
 pattern DomainAvailability_UNAVAILABLE_RESTRICTED :: DomainAvailability
-instance Network.AWS.Data.XML.ToXML Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Network.AWS.Data.XML.FromXML Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Network.AWS.Data.Log.ToLog Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Network.AWS.Data.Text.ToText Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Network.AWS.Data.Text.FromText Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance GHC.Classes.Ord Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Amazonka.Data.XML.ToXML Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Amazonka.Data.XML.FromXML Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Amazonka.Data.Headers.ToHeader Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Amazonka.Data.Log.ToLog Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Amazonka.Data.Text.ToText Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Amazonka.Data.Text.FromText Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance GHC.Classes.Ord Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance GHC.Read.Read Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
+instance GHC.Show.Show Amazonka.Route53Domains.Types.DomainAvailability.DomainAvailability
 
 
-module Network.AWS.Route53Domains.Types.DomainSuggestion
+module Amazonka.Route53Domains.Types.DomainSuggestion
 
 -- | Information about one suggested domain name.
 --   
@@ -436,16 +436,16 @@ domainSuggestion_availability :: Lens' DomainSuggestion (Maybe Text)
 
 -- | A suggested domain name.
 domainSuggestion_domainName :: Lens' DomainSuggestion (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.DomainSuggestion.DomainSuggestion
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.DomainSuggestion.DomainSuggestion
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.DomainSuggestion.DomainSuggestion
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.DomainSuggestion.DomainSuggestion
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.DomainSuggestion.DomainSuggestion
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.DomainSuggestion.DomainSuggestion
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.DomainSuggestion.DomainSuggestion
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.DomainSuggestion.DomainSuggestion
+instance GHC.Show.Show Amazonka.Route53Domains.Types.DomainSuggestion.DomainSuggestion
+instance GHC.Read.Read Amazonka.Route53Domains.Types.DomainSuggestion.DomainSuggestion
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.DomainSuggestion.DomainSuggestion
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.DomainSuggestion.DomainSuggestion
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.DomainSuggestion.DomainSuggestion
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.DomainSuggestion.DomainSuggestion
 
 
-module Network.AWS.Route53Domains.Types.DomainSummary
+module Amazonka.Route53Domains.Types.DomainSummary
 
 -- | Summary information about one domain.
 --   
@@ -504,16 +504,16 @@ domainSummary_autoRenew :: Lens' DomainSummary (Maybe Bool)
 
 -- | The name of the domain that the summary information applies to.
 domainSummary_domainName :: Lens' DomainSummary Text
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.DomainSummary.DomainSummary
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.DomainSummary.DomainSummary
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.DomainSummary.DomainSummary
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.DomainSummary.DomainSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.DomainSummary.DomainSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.DomainSummary.DomainSummary
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.DomainSummary.DomainSummary
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.DomainSummary.DomainSummary
+instance GHC.Show.Show Amazonka.Route53Domains.Types.DomainSummary.DomainSummary
+instance GHC.Read.Read Amazonka.Route53Domains.Types.DomainSummary.DomainSummary
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.DomainSummary.DomainSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.DomainSummary.DomainSummary
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.DomainSummary.DomainSummary
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.DomainSummary.DomainSummary
 
 
-module Network.AWS.Route53Domains.Types.ExtraParamName
+module Amazonka.Route53Domains.Types.ExtraParamName
 newtype ExtraParamName
 ExtraParamName' :: Text -> ExtraParamName
 [fromExtraParamName] :: ExtraParamName -> Text
@@ -546,28 +546,28 @@ pattern ExtraParamName_SG_ID_NUMBER :: ExtraParamName
 pattern ExtraParamName_UK_COMPANY_NUMBER :: ExtraParamName
 pattern ExtraParamName_UK_CONTACT_TYPE :: ExtraParamName
 pattern ExtraParamName_VAT_NUMBER :: ExtraParamName
-instance Network.AWS.Data.XML.ToXML Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Network.AWS.Data.XML.FromXML Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Network.AWS.Data.Log.ToLog Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Network.AWS.Data.Text.ToText Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Network.AWS.Data.Text.FromText Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance GHC.Classes.Ord Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Amazonka.Data.XML.ToXML Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Amazonka.Data.XML.FromXML Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Amazonka.Data.Headers.ToHeader Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Amazonka.Data.Log.ToLog Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Amazonka.Data.Text.ToText Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Amazonka.Data.Text.FromText Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance GHC.Classes.Ord Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance GHC.Read.Read Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
+instance GHC.Show.Show Amazonka.Route53Domains.Types.ExtraParamName.ExtraParamName
 
 
-module Network.AWS.Route53Domains.Types.ExtraParam
+module Amazonka.Route53Domains.Types.ExtraParam
 
 -- | ExtraParam includes the following elements.
 --   
@@ -952,17 +952,17 @@ extraParam_name :: Lens' ExtraParam ExtraParamName
 
 -- | The value that corresponds with the name of an extra parameter.
 extraParam_value :: Lens' ExtraParam Text
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.ExtraParam.ExtraParam
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.ExtraParam.ExtraParam
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.ExtraParam.ExtraParam
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.ExtraParam.ExtraParam
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.ExtraParam.ExtraParam
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.ExtraParam.ExtraParam
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.ExtraParam.ExtraParam
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.Types.ExtraParam.ExtraParam
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.ExtraParam.ExtraParam
+instance GHC.Show.Show Amazonka.Route53Domains.Types.ExtraParam.ExtraParam
+instance GHC.Read.Read Amazonka.Route53Domains.Types.ExtraParam.ExtraParam
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.ExtraParam.ExtraParam
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.ExtraParam.ExtraParam
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.ExtraParam.ExtraParam
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.ExtraParam.ExtraParam
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.Types.ExtraParam.ExtraParam
 
 
-module Network.AWS.Route53Domains.Types.ContactDetail
+module Amazonka.Route53Domains.Types.ContactDetail
 
 -- | ContactDetail includes the following elements.
 --   
@@ -1176,16 +1176,16 @@ contactDetail_countryCode :: Lens' ContactDetail (Maybe CountryCode)
 --   <tt>INDIVIDUAL</tt> for the value of <tt>ES_LEGAL_FORM</tt>.</li>
 --   </ul>
 contactDetail_contactType :: Lens' ContactDetail (Maybe ContactType)
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.ContactDetail.ContactDetail
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.ContactDetail.ContactDetail
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.ContactDetail.ContactDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.ContactDetail.ContactDetail
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.ContactDetail.ContactDetail
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.ContactDetail.ContactDetail
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.Types.ContactDetail.ContactDetail
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.ContactDetail.ContactDetail
+instance GHC.Show.Show Amazonka.Route53Domains.Types.ContactDetail.ContactDetail
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.ContactDetail.ContactDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.ContactDetail.ContactDetail
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.ContactDetail.ContactDetail
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.ContactDetail.ContactDetail
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.Types.ContactDetail.ContactDetail
 
 
-module Network.AWS.Route53Domains.Types.Nameserver
+module Amazonka.Route53Domains.Types.Nameserver
 
 -- | Nameserver includes the following elements.
 --   
@@ -1243,17 +1243,17 @@ nameserver_glueIps :: Lens' Nameserver (Maybe [Text])
 --   
 --   Constraint: Maximum 255 characters
 nameserver_name :: Lens' Nameserver Text
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.Nameserver.Nameserver
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.Nameserver.Nameserver
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.Nameserver.Nameserver
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.Nameserver.Nameserver
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.Nameserver.Nameserver
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.Nameserver.Nameserver
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.Nameserver.Nameserver
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.Types.Nameserver.Nameserver
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.Nameserver.Nameserver
+instance GHC.Show.Show Amazonka.Route53Domains.Types.Nameserver.Nameserver
+instance GHC.Read.Read Amazonka.Route53Domains.Types.Nameserver.Nameserver
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.Nameserver.Nameserver
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.Nameserver.Nameserver
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.Nameserver.Nameserver
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.Nameserver.Nameserver
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.Types.Nameserver.Nameserver
 
 
-module Network.AWS.Route53Domains.Types.OperationStatus
+module Amazonka.Route53Domains.Types.OperationStatus
 newtype OperationStatus
 OperationStatus' :: Text -> OperationStatus
 [fromOperationStatus] :: OperationStatus -> Text
@@ -1262,28 +1262,28 @@ pattern OperationStatus_FAILED :: OperationStatus
 pattern OperationStatus_IN_PROGRESS :: OperationStatus
 pattern OperationStatus_SUBMITTED :: OperationStatus
 pattern OperationStatus_SUCCESSFUL :: OperationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance GHC.Classes.Ord Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Text.ToText Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Amazonka.Data.Text.FromText Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance GHC.Classes.Ord Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance GHC.Read.Read Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
+instance GHC.Show.Show Amazonka.Route53Domains.Types.OperationStatus.OperationStatus
 
 
-module Network.AWS.Route53Domains.Types.OperationType
+module Amazonka.Route53Domains.Types.OperationType
 newtype OperationType
 OperationType' :: Text -> OperationType
 [fromOperationType] :: OperationType -> Text
@@ -1305,28 +1305,28 @@ pattern OperationType_TRANSFER_IN_DOMAIN :: OperationType
 pattern OperationType_TRANSFER_OUT_DOMAIN :: OperationType
 pattern OperationType_UPDATE_DOMAIN_CONTACT :: OperationType
 pattern OperationType_UPDATE_NAMESERVER :: OperationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Network.AWS.Data.Text.ToText Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Network.AWS.Data.Text.FromText Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance GHC.Classes.Ord Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.OperationType.OperationType
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.OperationType.OperationType
+instance Amazonka.Data.XML.ToXML Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Amazonka.Data.XML.FromXML Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Amazonka.Data.Log.ToLog Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Amazonka.Data.Text.ToText Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Amazonka.Data.Text.FromText Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.OperationType.OperationType
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.OperationType.OperationType
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.OperationType.OperationType
+instance GHC.Classes.Ord Amazonka.Route53Domains.Types.OperationType.OperationType
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.OperationType.OperationType
+instance GHC.Read.Read Amazonka.Route53Domains.Types.OperationType.OperationType
+instance GHC.Show.Show Amazonka.Route53Domains.Types.OperationType.OperationType
 
 
-module Network.AWS.Route53Domains.Types.OperationSummary
+module Amazonka.Route53Domains.Types.OperationSummary
 
 -- | OperationSummary includes the following elements.
 --   
@@ -1381,16 +1381,16 @@ operationSummary_type :: Lens' OperationSummary OperationType
 
 -- | The date when the request was submitted.
 operationSummary_submittedDate :: Lens' OperationSummary UTCTime
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.OperationSummary.OperationSummary
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.OperationSummary.OperationSummary
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.OperationSummary.OperationSummary
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.OperationSummary.OperationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.OperationSummary.OperationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.OperationSummary.OperationSummary
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.OperationSummary.OperationSummary
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.OperationSummary.OperationSummary
+instance GHC.Show.Show Amazonka.Route53Domains.Types.OperationSummary.OperationSummary
+instance GHC.Read.Read Amazonka.Route53Domains.Types.OperationSummary.OperationSummary
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.OperationSummary.OperationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.OperationSummary.OperationSummary
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.OperationSummary.OperationSummary
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.OperationSummary.OperationSummary
 
 
-module Network.AWS.Route53Domains.Types.BillingRecord
+module Amazonka.Route53Domains.Types.BillingRecord
 
 -- | Information for one billing record.
 --   
@@ -1470,44 +1470,44 @@ billingRecord_billDate :: Lens' BillingRecord (Maybe UTCTime)
 --   
 --   Example value: 12.0
 billingRecord_price :: Lens' BillingRecord (Maybe Double)
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.BillingRecord.BillingRecord
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.BillingRecord.BillingRecord
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.BillingRecord.BillingRecord
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.BillingRecord.BillingRecord
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.BillingRecord.BillingRecord
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.BillingRecord.BillingRecord
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.BillingRecord.BillingRecord
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.BillingRecord.BillingRecord
+instance GHC.Show.Show Amazonka.Route53Domains.Types.BillingRecord.BillingRecord
+instance GHC.Read.Read Amazonka.Route53Domains.Types.BillingRecord.BillingRecord
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.BillingRecord.BillingRecord
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.BillingRecord.BillingRecord
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.BillingRecord.BillingRecord
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.BillingRecord.BillingRecord
 
 
-module Network.AWS.Route53Domains.Types.ReachabilityStatus
+module Amazonka.Route53Domains.Types.ReachabilityStatus
 newtype ReachabilityStatus
 ReachabilityStatus' :: Text -> ReachabilityStatus
 [fromReachabilityStatus] :: ReachabilityStatus -> Text
 pattern ReachabilityStatus_DONE :: ReachabilityStatus
 pattern ReachabilityStatus_EXPIRED :: ReachabilityStatus
 pattern ReachabilityStatus_PENDING :: ReachabilityStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance GHC.Classes.Ord Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Amazonka.Data.Text.ToText Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Amazonka.Data.Text.FromText Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance GHC.Classes.Ord Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance GHC.Read.Read Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
+instance GHC.Show.Show Amazonka.Route53Domains.Types.ReachabilityStatus.ReachabilityStatus
 
 
-module Network.AWS.Route53Domains.Types.Tag
+module Amazonka.Route53Domains.Types.Tag
 
 -- | Each tag includes the following elements.
 --   
@@ -1563,17 +1563,17 @@ tag_value :: Lens' Tag (Maybe Text)
 --   
 --   Constraints: Each key can be 1-128 characters long.
 tag_key :: Lens' Tag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.Route53Domains.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.Route53Domains.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.Types.Tag.Tag
 
 
-module Network.AWS.Route53Domains.Types.Transferable
+module Amazonka.Route53Domains.Types.Transferable
 
 -- | Whether the domain name can be transferred to Route 53.
 --   
@@ -1595,28 +1595,28 @@ Transferable' :: Text -> Transferable
 pattern Transferable_DONT_KNOW :: Transferable
 pattern Transferable_TRANSFERABLE :: Transferable
 pattern Transferable_UNTRANSFERABLE :: Transferable
-instance Network.AWS.Data.XML.ToXML Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Network.AWS.Data.XML.FromXML Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Network.AWS.Data.Log.ToLog Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Network.AWS.Data.Text.ToText Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Network.AWS.Data.Text.FromText Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance GHC.Classes.Ord Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.Transferable.Transferable
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.Transferable.Transferable
+instance Amazonka.Data.XML.ToXML Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Amazonka.Data.XML.FromXML Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Amazonka.Data.Headers.ToHeader Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Amazonka.Data.Log.ToLog Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Amazonka.Data.Text.ToText Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Amazonka.Data.Text.FromText Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.Transferable.Transferable
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.Transferable.Transferable
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.Transferable.Transferable
+instance GHC.Classes.Ord Amazonka.Route53Domains.Types.Transferable.Transferable
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.Transferable.Transferable
+instance GHC.Read.Read Amazonka.Route53Domains.Types.Transferable.Transferable
+instance GHC.Show.Show Amazonka.Route53Domains.Types.Transferable.Transferable
 
 
-module Network.AWS.Route53Domains.Types.DomainTransferability
+module Amazonka.Route53Domains.Types.DomainTransferability
 
 -- | A complex type that contains information about whether the specified
 --   domain can be transferred to Route 53.
@@ -1641,16 +1641,16 @@ newDomainTransferability :: DomainTransferability
 
 -- | Undocumented member.
 domainTransferability_transferable :: Lens' DomainTransferability (Maybe Transferable)
-instance GHC.Generics.Generic Network.AWS.Route53Domains.Types.DomainTransferability.DomainTransferability
-instance GHC.Show.Show Network.AWS.Route53Domains.Types.DomainTransferability.DomainTransferability
-instance GHC.Read.Read Network.AWS.Route53Domains.Types.DomainTransferability.DomainTransferability
-instance GHC.Classes.Eq Network.AWS.Route53Domains.Types.DomainTransferability.DomainTransferability
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53Domains.Types.DomainTransferability.DomainTransferability
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.Types.DomainTransferability.DomainTransferability
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.Types.DomainTransferability.DomainTransferability
+instance GHC.Generics.Generic Amazonka.Route53Domains.Types.DomainTransferability.DomainTransferability
+instance GHC.Show.Show Amazonka.Route53Domains.Types.DomainTransferability.DomainTransferability
+instance GHC.Read.Read Amazonka.Route53Domains.Types.DomainTransferability.DomainTransferability
+instance GHC.Classes.Eq Amazonka.Route53Domains.Types.DomainTransferability.DomainTransferability
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53Domains.Types.DomainTransferability.DomainTransferability
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.Types.DomainTransferability.DomainTransferability
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.Types.DomainTransferability.DomainTransferability
 
 
-module Network.AWS.Route53Domains.Types
+module Amazonka.Route53Domains.Types
 
 -- | API version <tt>2014-05-15</tt> of the Amazon Route 53 Domains SDK
 --   configuration.
@@ -3083,7 +3083,7 @@ tag_key :: Lens' Tag (Maybe Text)
 --   determine whether the operation succeeded. <a>GetOperationDetail</a>
 --   provides additional information, for example, <tt>Domain Transfer from
 --   Aws Account 111122223333 has been cancelled</tt>.
-module Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount
+module Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount
 
 -- | The TransferDomainToAnotherAwsAccount request includes the following
 --   elements.
@@ -3191,22 +3191,22 @@ transferDomainToAnotherAwsAccountResponse_operationId :: Lens' TransferDomainToA
 
 -- | The response's http status code.
 transferDomainToAnotherAwsAccountResponse_httpStatus :: Lens' TransferDomainToAnotherAwsAccountResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
-instance GHC.Show.Show Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
-instance GHC.Read.Read Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
-instance GHC.Classes.Eq Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
-instance GHC.Generics.Generic Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccountResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccountResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccountResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccountResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccountResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
+instance GHC.Generics.Generic Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
+instance GHC.Show.Show Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
+instance GHC.Read.Read Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
+instance GHC.Classes.Eq Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
+instance GHC.Generics.Generic Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccountResponse
+instance GHC.Show.Show Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccountResponse
+instance GHC.Read.Read Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccountResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccountResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccountResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount.TransferDomainToAnotherAwsAccount
 
 
 -- | Transfers a domain from another registrar to Amazon Route 53. When the
@@ -3247,7 +3247,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.TransferDomai
 --   that you can use to track the progress and completion of the action.
 --   If the transfer doesn't complete successfully, the domain registrant
 --   will be notified by email.
-module Network.AWS.Route53Domains.TransferDomain
+module Amazonka.Route53Domains.TransferDomain
 
 -- | The TransferDomain request includes the following elements.
 --   
@@ -3553,27 +3553,27 @@ transferDomainResponse_httpStatus :: Lens' TransferDomainResponse Int
 -- | Identifier for tracking the progress of the request. To query the
 --   operation status, use <a>GetOperationDetail</a>.
 transferDomainResponse_operationId :: Lens' TransferDomainResponse Text
-instance GHC.Generics.Generic Network.AWS.Route53Domains.TransferDomain.TransferDomain
-instance GHC.Show.Show Network.AWS.Route53Domains.TransferDomain.TransferDomain
-instance GHC.Classes.Eq Network.AWS.Route53Domains.TransferDomain.TransferDomain
-instance GHC.Generics.Generic Network.AWS.Route53Domains.TransferDomain.TransferDomainResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.TransferDomain.TransferDomainResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.TransferDomain.TransferDomainResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.TransferDomain.TransferDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.TransferDomain.TransferDomain
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.TransferDomain.TransferDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.TransferDomain.TransferDomain
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.TransferDomain.TransferDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.TransferDomain.TransferDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.TransferDomain.TransferDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.TransferDomain.TransferDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.TransferDomain.TransferDomain
+instance GHC.Generics.Generic Amazonka.Route53Domains.TransferDomain.TransferDomain
+instance GHC.Show.Show Amazonka.Route53Domains.TransferDomain.TransferDomain
+instance GHC.Classes.Eq Amazonka.Route53Domains.TransferDomain.TransferDomain
+instance GHC.Generics.Generic Amazonka.Route53Domains.TransferDomain.TransferDomainResponse
+instance GHC.Show.Show Amazonka.Route53Domains.TransferDomain.TransferDomainResponse
+instance GHC.Read.Read Amazonka.Route53Domains.TransferDomain.TransferDomainResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.TransferDomain.TransferDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.TransferDomain.TransferDomain
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.TransferDomain.TransferDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.TransferDomain.TransferDomain
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.TransferDomain.TransferDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.TransferDomain.TransferDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.TransferDomain.TransferDomain
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.TransferDomain.TransferDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.TransferDomain.TransferDomain
 
 
 -- | This operation returns the AuthCode for the domain. To transfer a
 --   domain to another registrar, you provide this value to the new
 --   registrar.
-module Network.AWS.Route53Domains.RetrieveDomainAuthCode
+module Amazonka.Route53Domains.RetrieveDomainAuthCode
 
 -- | A request for the authorization code for the specified domain. To
 --   transfer a domain to another registrar, you provide this value to the
@@ -3639,28 +3639,28 @@ retrieveDomainAuthCodeResponse_httpStatus :: Lens' RetrieveDomainAuthCodeRespons
 
 -- | The authorization code for the domain.
 retrieveDomainAuthCodeResponse_authCode :: Lens' RetrieveDomainAuthCodeResponse Text
-instance GHC.Generics.Generic Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
-instance GHC.Show.Show Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
-instance GHC.Read.Read Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
-instance GHC.Classes.Eq Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
-instance GHC.Generics.Generic Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCodeResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCodeResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCodeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCodeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
+instance GHC.Generics.Generic Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
+instance GHC.Show.Show Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
+instance GHC.Read.Read Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
+instance GHC.Classes.Eq Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
+instance GHC.Generics.Generic Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCodeResponse
+instance GHC.Show.Show Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCodeResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCodeResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCodeResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.RetrieveDomainAuthCode.RetrieveDomainAuthCode
 
 
 -- | For operations that require confirmation that the email address for
 --   the registrant contact is valid, such as registering a new domain,
 --   this operation resends the confirmation email to the current email
 --   address for the registrant contact.
-module Network.AWS.Route53Domains.ResendContactReachabilityEmail
+module Amazonka.Route53Domains.ResendContactReachabilityEmail
 
 -- | <i>See:</i> <a>newResendContactReachabilityEmail</a> smart
 --   constructor.
@@ -3756,22 +3756,22 @@ resendContactReachabilityEmailResponse_isAlreadyVerified :: Lens' ResendContactR
 
 -- | The response's http status code.
 resendContactReachabilityEmailResponse_httpStatus :: Lens' ResendContactReachabilityEmailResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
-instance GHC.Show.Show Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
-instance GHC.Read.Read Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
-instance GHC.Classes.Eq Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
-instance GHC.Generics.Generic Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmailResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmailResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmailResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmailResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmailResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
+instance GHC.Generics.Generic Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
+instance GHC.Show.Show Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
+instance GHC.Read.Read Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
+instance GHC.Classes.Eq Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
+instance GHC.Generics.Generic Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmailResponse
+instance GHC.Show.Show Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmailResponse
+instance GHC.Read.Read Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmailResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmailResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmailResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.ResendContactReachabilityEmail.ResendContactReachabilityEmail
 
 
 -- | This operation renews a domain for the specified number of years. The
@@ -3783,7 +3783,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.ResendContact
 --   information about renewing domain registration, see <a>Renewing
 --   Registration for a Domain</a> in the <i>Amazon Route 53 Developer
 --   Guide</i>.
-module Network.AWS.Route53Domains.RenewDomain
+module Amazonka.Route53Domains.RenewDomain
 
 -- | A <tt>RenewDomain</tt> request includes the number of years that you
 --   want to renew for and the current expiration year.
@@ -3886,22 +3886,22 @@ renewDomainResponse_httpStatus :: Lens' RenewDomainResponse Int
 -- | Identifier for tracking the progress of the request. To query the
 --   operation status, use <a>GetOperationDetail</a>.
 renewDomainResponse_operationId :: Lens' RenewDomainResponse Text
-instance GHC.Generics.Generic Network.AWS.Route53Domains.RenewDomain.RenewDomain
-instance GHC.Show.Show Network.AWS.Route53Domains.RenewDomain.RenewDomain
-instance GHC.Read.Read Network.AWS.Route53Domains.RenewDomain.RenewDomain
-instance GHC.Classes.Eq Network.AWS.Route53Domains.RenewDomain.RenewDomain
-instance GHC.Generics.Generic Network.AWS.Route53Domains.RenewDomain.RenewDomainResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.RenewDomain.RenewDomainResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.RenewDomain.RenewDomainResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.RenewDomain.RenewDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.RenewDomain.RenewDomain
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.RenewDomain.RenewDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.RenewDomain.RenewDomain
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.RenewDomain.RenewDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.RenewDomain.RenewDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.RenewDomain.RenewDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.RenewDomain.RenewDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.RenewDomain.RenewDomain
+instance GHC.Generics.Generic Amazonka.Route53Domains.RenewDomain.RenewDomain
+instance GHC.Show.Show Amazonka.Route53Domains.RenewDomain.RenewDomain
+instance GHC.Read.Read Amazonka.Route53Domains.RenewDomain.RenewDomain
+instance GHC.Classes.Eq Amazonka.Route53Domains.RenewDomain.RenewDomain
+instance GHC.Generics.Generic Amazonka.Route53Domains.RenewDomain.RenewDomainResponse
+instance GHC.Show.Show Amazonka.Route53Domains.RenewDomain.RenewDomainResponse
+instance GHC.Read.Read Amazonka.Route53Domains.RenewDomain.RenewDomainResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.RenewDomain.RenewDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.RenewDomain.RenewDomain
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.RenewDomain.RenewDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.RenewDomain.RenewDomain
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.RenewDomain.RenewDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.RenewDomain.RenewDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.RenewDomain.RenewDomain
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.RenewDomain.RenewDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.RenewDomain.RenewDomain
 
 
 -- | Rejects the transfer of a domain from another AWS account to the
@@ -3912,7 +3912,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.RenewDomain.R
 --   determine whether the operation succeeded. <a>GetOperationDetail</a>
 --   provides additional information, for example, <tt>Domain Transfer from
 --   Aws Account 111122223333 has been cancelled</tt>.
-module Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
+module Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
 
 -- | The RejectDomainTransferFromAnotherAwsAccount request includes the
 --   following element.
@@ -3995,22 +3995,22 @@ rejectDomainTransferFromAnotherAwsAccountResponse_operationId :: Lens' RejectDom
 
 -- | The response's http status code.
 rejectDomainTransferFromAnotherAwsAccountResponse_httpStatus :: Lens' RejectDomainTransferFromAnotherAwsAccountResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
-instance GHC.Show.Show Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
-instance GHC.Read.Read Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
-instance GHC.Classes.Eq Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
-instance GHC.Generics.Generic Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccountResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccountResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccountResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccountResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccountResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
+instance GHC.Generics.Generic Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
+instance GHC.Show.Show Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
+instance GHC.Read.Read Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
+instance GHC.Classes.Eq Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
+instance GHC.Generics.Generic Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccountResponse
+instance GHC.Show.Show Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccountResponse
+instance GHC.Read.Read Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccountResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccountResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccountResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount.RejectDomainTransferFromAnotherAwsAccount
 
 
 -- | This operation registers a domain. Domains are registered either by
@@ -4041,7 +4041,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.RejectDomainT
 --   <li>Charges your AWS account an amount based on the top-level domain.
 --   For more information, see <a>Amazon Route 53 Pricing</a>.</li>
 --   </ul>
-module Network.AWS.Route53Domains.RegisterDomain
+module Amazonka.Route53Domains.RegisterDomain
 
 -- | The RegisterDomain request includes the following elements.
 --   
@@ -4357,21 +4357,21 @@ registerDomainResponse_httpStatus :: Lens' RegisterDomainResponse Int
 -- | Identifier for tracking the progress of the request. To query the
 --   operation status, use <a>GetOperationDetail</a>.
 registerDomainResponse_operationId :: Lens' RegisterDomainResponse Text
-instance GHC.Generics.Generic Network.AWS.Route53Domains.RegisterDomain.RegisterDomain
-instance GHC.Show.Show Network.AWS.Route53Domains.RegisterDomain.RegisterDomain
-instance GHC.Classes.Eq Network.AWS.Route53Domains.RegisterDomain.RegisterDomain
-instance GHC.Generics.Generic Network.AWS.Route53Domains.RegisterDomain.RegisterDomainResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.RegisterDomain.RegisterDomainResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.RegisterDomain.RegisterDomainResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.RegisterDomain.RegisterDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.RegisterDomain.RegisterDomain
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.RegisterDomain.RegisterDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.RegisterDomain.RegisterDomain
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.RegisterDomain.RegisterDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.RegisterDomain.RegisterDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.RegisterDomain.RegisterDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.RegisterDomain.RegisterDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.RegisterDomain.RegisterDomain
+instance GHC.Generics.Generic Amazonka.Route53Domains.RegisterDomain.RegisterDomain
+instance GHC.Show.Show Amazonka.Route53Domains.RegisterDomain.RegisterDomain
+instance GHC.Classes.Eq Amazonka.Route53Domains.RegisterDomain.RegisterDomain
+instance GHC.Generics.Generic Amazonka.Route53Domains.RegisterDomain.RegisterDomainResponse
+instance GHC.Show.Show Amazonka.Route53Domains.RegisterDomain.RegisterDomainResponse
+instance GHC.Read.Read Amazonka.Route53Domains.RegisterDomain.RegisterDomainResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.RegisterDomain.RegisterDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.RegisterDomain.RegisterDomain
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.RegisterDomain.RegisterDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.RegisterDomain.RegisterDomain
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.RegisterDomain.RegisterDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.RegisterDomain.RegisterDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.RegisterDomain.RegisterDomain
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.RegisterDomain.RegisterDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.RegisterDomain.RegisterDomain
 
 
 -- | This operation returns all of the tags that are associated with the
@@ -4379,7 +4379,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.RegisterDomai
 --   
 --   All tag operations are eventually consistent; subsequent operations
 --   might not immediately represent all issued operations.
-module Network.AWS.Route53Domains.ListTagsForDomain
+module Amazonka.Route53Domains.ListTagsForDomain
 
 -- | The ListTagsForDomainRequest includes the following elements.
 --   
@@ -4442,22 +4442,22 @@ listTagsForDomainResponse_httpStatus :: Lens' ListTagsForDomainResponse Int
 
 -- | A list of the tags that are associated with the specified domain.
 listTagsForDomainResponse_tagList :: Lens' ListTagsForDomainResponse [Tag]
-instance GHC.Generics.Generic Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomain
-instance GHC.Show.Show Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomain
-instance GHC.Read.Read Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomain
-instance GHC.Classes.Eq Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomain
-instance GHC.Generics.Generic Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomainResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomainResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomainResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomain
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomain
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.ListTagsForDomain.ListTagsForDomain
+instance GHC.Generics.Generic Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomain
+instance GHC.Show.Show Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomain
+instance GHC.Read.Read Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomain
+instance GHC.Classes.Eq Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomain
+instance GHC.Generics.Generic Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomainResponse
+instance GHC.Show.Show Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomainResponse
+instance GHC.Read.Read Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomainResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomain
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomain
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomain
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.ListTagsForDomain.ListTagsForDomain
 
 
 -- | Returns information about all of the operations that return an
@@ -4465,7 +4465,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.ListTagsForDo
 --   registered by the current account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53Domains.ListOperations
+module Amazonka.Route53Domains.ListOperations
 
 -- | The ListOperations request includes the following elements.
 --   
@@ -4594,30 +4594,30 @@ listOperationsResponse_httpStatus :: Lens' ListOperationsResponse Int
 
 -- | Lists summaries of the operations.
 listOperationsResponse_operations :: Lens' ListOperationsResponse [OperationSummary]
-instance GHC.Generics.Generic Network.AWS.Route53Domains.ListOperations.ListOperations
-instance GHC.Show.Show Network.AWS.Route53Domains.ListOperations.ListOperations
-instance GHC.Read.Read Network.AWS.Route53Domains.ListOperations.ListOperations
-instance GHC.Classes.Eq Network.AWS.Route53Domains.ListOperations.ListOperations
-instance GHC.Generics.Generic Network.AWS.Route53Domains.ListOperations.ListOperationsResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.ListOperations.ListOperationsResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.ListOperations.ListOperationsResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.ListOperations.ListOperationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.ListOperations.ListOperations
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.ListOperations.ListOperationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53Domains.ListOperations.ListOperations
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.ListOperations.ListOperations
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.ListOperations.ListOperations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.ListOperations.ListOperations
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.ListOperations.ListOperations
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.ListOperations.ListOperations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.ListOperations.ListOperations
+instance GHC.Generics.Generic Amazonka.Route53Domains.ListOperations.ListOperations
+instance GHC.Show.Show Amazonka.Route53Domains.ListOperations.ListOperations
+instance GHC.Read.Read Amazonka.Route53Domains.ListOperations.ListOperations
+instance GHC.Classes.Eq Amazonka.Route53Domains.ListOperations.ListOperations
+instance GHC.Generics.Generic Amazonka.Route53Domains.ListOperations.ListOperationsResponse
+instance GHC.Show.Show Amazonka.Route53Domains.ListOperations.ListOperationsResponse
+instance GHC.Read.Read Amazonka.Route53Domains.ListOperations.ListOperationsResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.ListOperations.ListOperationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.ListOperations.ListOperations
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.ListOperations.ListOperationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53Domains.ListOperations.ListOperations
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.ListOperations.ListOperations
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.ListOperations.ListOperations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.ListOperations.ListOperations
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.ListOperations.ListOperations
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.ListOperations.ListOperations
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.ListOperations.ListOperations
 
 
 -- | This operation returns all the domain names registered with Amazon
 --   Route 53 for the current AWS account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53Domains.ListDomains
+module Amazonka.Route53Domains.ListDomains
 
 -- | The ListDomains request includes the following elements.
 --   
@@ -4735,28 +4735,28 @@ listDomainsResponse_httpStatus :: Lens' ListDomainsResponse Int
 
 -- | A summary of domains.
 listDomainsResponse_domains :: Lens' ListDomainsResponse [DomainSummary]
-instance GHC.Generics.Generic Network.AWS.Route53Domains.ListDomains.ListDomains
-instance GHC.Show.Show Network.AWS.Route53Domains.ListDomains.ListDomains
-instance GHC.Read.Read Network.AWS.Route53Domains.ListDomains.ListDomains
-instance GHC.Classes.Eq Network.AWS.Route53Domains.ListDomains.ListDomains
-instance GHC.Generics.Generic Network.AWS.Route53Domains.ListDomains.ListDomainsResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.ListDomains.ListDomainsResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.ListDomains.ListDomainsResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.ListDomains.ListDomainsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.ListDomains.ListDomains
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.ListDomains.ListDomainsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53Domains.ListDomains.ListDomains
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.ListDomains.ListDomains
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.ListDomains.ListDomains
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.ListDomains.ListDomains
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.ListDomains.ListDomains
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.ListDomains.ListDomains
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.ListDomains.ListDomains
+instance GHC.Generics.Generic Amazonka.Route53Domains.ListDomains.ListDomains
+instance GHC.Show.Show Amazonka.Route53Domains.ListDomains.ListDomains
+instance GHC.Read.Read Amazonka.Route53Domains.ListDomains.ListDomains
+instance GHC.Classes.Eq Amazonka.Route53Domains.ListDomains.ListDomains
+instance GHC.Generics.Generic Amazonka.Route53Domains.ListDomains.ListDomainsResponse
+instance GHC.Show.Show Amazonka.Route53Domains.ListDomains.ListDomainsResponse
+instance GHC.Read.Read Amazonka.Route53Domains.ListDomains.ListDomainsResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.ListDomains.ListDomainsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.ListDomains.ListDomains
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.ListDomains.ListDomainsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53Domains.ListDomains.ListDomains
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.ListDomains.ListDomains
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.ListDomains.ListDomains
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.ListDomains.ListDomains
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.ListDomains.ListDomains
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.ListDomains.ListDomains
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.ListDomains.ListDomains
 
 
 -- | This operation returns the current status of an operation that is not
 --   completed.
-module Network.AWS.Route53Domains.GetOperationDetail
+module Amazonka.Route53Domains.GetOperationDetail
 
 -- | The <a>GetOperationDetail</a> request includes the following element.
 --   
@@ -4873,27 +4873,27 @@ getOperationDetailResponse_message :: Lens' GetOperationDetailResponse (Maybe Te
 
 -- | The response's http status code.
 getOperationDetailResponse_httpStatus :: Lens' GetOperationDetailResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetail
-instance GHC.Show.Show Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetail
-instance GHC.Read.Read Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetail
-instance GHC.Classes.Eq Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetail
-instance GHC.Generics.Generic Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetailResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetailResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetailResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetailResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetail
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetailResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetail
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetail
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetail
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetail
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetail
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.GetOperationDetail.GetOperationDetail
+instance GHC.Generics.Generic Amazonka.Route53Domains.GetOperationDetail.GetOperationDetail
+instance GHC.Show.Show Amazonka.Route53Domains.GetOperationDetail.GetOperationDetail
+instance GHC.Read.Read Amazonka.Route53Domains.GetOperationDetail.GetOperationDetail
+instance GHC.Classes.Eq Amazonka.Route53Domains.GetOperationDetail.GetOperationDetail
+instance GHC.Generics.Generic Amazonka.Route53Domains.GetOperationDetail.GetOperationDetailResponse
+instance GHC.Show.Show Amazonka.Route53Domains.GetOperationDetail.GetOperationDetailResponse
+instance GHC.Read.Read Amazonka.Route53Domains.GetOperationDetail.GetOperationDetailResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.GetOperationDetail.GetOperationDetailResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.GetOperationDetail.GetOperationDetail
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.GetOperationDetail.GetOperationDetailResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.GetOperationDetail.GetOperationDetail
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.GetOperationDetail.GetOperationDetail
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.GetOperationDetail.GetOperationDetail
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.GetOperationDetail.GetOperationDetail
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.GetOperationDetail.GetOperationDetail
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.GetOperationDetail.GetOperationDetail
 
 
 -- | The GetDomainSuggestions operation returns a list of suggested domain
 --   names.
-module Network.AWS.Route53Domains.GetDomainSuggestions
+module Amazonka.Route53Domains.GetDomainSuggestions
 
 -- | <i>See:</i> <a>newGetDomainSuggestions</a> smart constructor.
 data GetDomainSuggestions
@@ -5054,28 +5054,28 @@ getDomainSuggestionsResponse_suggestionsList :: Lens' GetDomainSuggestionsRespon
 
 -- | The response's http status code.
 getDomainSuggestionsResponse_httpStatus :: Lens' GetDomainSuggestionsResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
-instance GHC.Show.Show Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
-instance GHC.Read.Read Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
-instance GHC.Classes.Eq Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
-instance GHC.Generics.Generic Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestionsResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestionsResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestionsResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
+instance GHC.Generics.Generic Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
+instance GHC.Show.Show Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
+instance GHC.Read.Read Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
+instance GHC.Classes.Eq Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
+instance GHC.Generics.Generic Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestionsResponse
+instance GHC.Show.Show Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestionsResponse
+instance GHC.Read.Read Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestionsResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.GetDomainSuggestions.GetDomainSuggestions
 
 
 -- | This operation returns detailed information about a specified domain
 --   that is associated with the current AWS account. Contact information
 --   for the domain is also returned as part of the output.
-module Network.AWS.Route53Domains.GetDomainDetail
+module Amazonka.Route53Domains.GetDomainDetail
 
 -- | The GetDomainDetail request includes the following element.
 --   
@@ -5463,21 +5463,21 @@ getDomainDetailResponse_registrantContact :: Lens' GetDomainDetailResponse Conta
 
 -- | Provides details about the domain technical contact.
 getDomainDetailResponse_techContact :: Lens' GetDomainDetailResponse ContactDetail
-instance GHC.Generics.Generic Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetail
-instance GHC.Show.Show Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetail
-instance GHC.Read.Read Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetail
-instance GHC.Classes.Eq Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetail
-instance GHC.Generics.Generic Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetailResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetailResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetailResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetail
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetailResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetail
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetail
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetail
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetail
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetail
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.GetDomainDetail.GetDomainDetail
+instance GHC.Generics.Generic Amazonka.Route53Domains.GetDomainDetail.GetDomainDetail
+instance GHC.Show.Show Amazonka.Route53Domains.GetDomainDetail.GetDomainDetail
+instance GHC.Read.Read Amazonka.Route53Domains.GetDomainDetail.GetDomainDetail
+instance GHC.Classes.Eq Amazonka.Route53Domains.GetDomainDetail.GetDomainDetail
+instance GHC.Generics.Generic Amazonka.Route53Domains.GetDomainDetail.GetDomainDetailResponse
+instance GHC.Show.Show Amazonka.Route53Domains.GetDomainDetail.GetDomainDetailResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.GetDomainDetail.GetDomainDetailResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.GetDomainDetail.GetDomainDetail
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.GetDomainDetail.GetDomainDetailResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.GetDomainDetail.GetDomainDetail
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.GetDomainDetail.GetDomainDetail
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.GetDomainDetail.GetDomainDetail
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.GetDomainDetail.GetDomainDetail
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.GetDomainDetail.GetDomainDetail
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.GetDomainDetail.GetDomainDetail
 
 
 -- | For operations that require confirmation that the email address for
@@ -5487,7 +5487,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.GetDomainDeta
 --   
 --   If you want us to resend the email, use the
 --   <tt>ResendContactReachabilityEmail</tt> operation.
-module Network.AWS.Route53Domains.GetContactReachabilityStatus
+module Amazonka.Route53Domains.GetContactReachabilityStatus
 
 -- | <i>See:</i> <a>newGetContactReachabilityStatus</a> smart constructor.
 data GetContactReachabilityStatus
@@ -5589,22 +5589,22 @@ getContactReachabilityStatusResponse_domainName :: Lens' GetContactReachabilityS
 
 -- | The response's http status code.
 getContactReachabilityStatusResponse_httpStatus :: Lens' GetContactReachabilityStatusResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
-instance GHC.Show.Show Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
-instance GHC.Read.Read Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
-instance GHC.Classes.Eq Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
-instance GHC.Generics.Generic Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatusResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatusResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatusResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
+instance GHC.Generics.Generic Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
+instance GHC.Show.Show Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
+instance GHC.Read.Read Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
+instance GHC.Classes.Eq Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
+instance GHC.Generics.Generic Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatusResponse
+instance GHC.Show.Show Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatusResponse
+instance GHC.Read.Read Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatusResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.GetContactReachabilityStatus.GetContactReachabilityStatus
 
 
 -- | This operation sets the transfer lock on the domain (specifically the
@@ -5613,7 +5613,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.GetContactRea
 --   track the progress and completion of the action. If the request is not
 --   completed successfully, the domain registrant will be notified by
 --   email.
-module Network.AWS.Route53Domains.EnableDomainTransferLock
+module Amazonka.Route53Domains.EnableDomainTransferLock
 
 -- | A request to set the transfer lock for the specified domain.
 --   
@@ -5680,22 +5680,22 @@ enableDomainTransferLockResponse_httpStatus :: Lens' EnableDomainTransferLockRes
 -- | Identifier for tracking the progress of the request. To use this ID to
 --   query the operation status, use GetOperationDetail.
 enableDomainTransferLockResponse_operationId :: Lens' EnableDomainTransferLockResponse Text
-instance GHC.Generics.Generic Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
-instance GHC.Show.Show Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
-instance GHC.Read.Read Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
-instance GHC.Classes.Eq Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
-instance GHC.Generics.Generic Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLockResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLockResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLockResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLockResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLockResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
+instance GHC.Generics.Generic Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
+instance GHC.Show.Show Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
+instance GHC.Read.Read Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
+instance GHC.Classes.Eq Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
+instance GHC.Generics.Generic Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLockResponse
+instance GHC.Show.Show Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLockResponse
+instance GHC.Read.Read Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLockResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLockResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLockResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.EnableDomainTransferLock.EnableDomainTransferLock
 
 
 -- | This operation configures Amazon Route 53 to automatically renew the
@@ -5707,7 +5707,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.EnableDomainT
 --   Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
 --   Guide</i>. Route 53 requires that you renew before the end of the
 --   renewal period so we can complete processing before the deadline.
-module Network.AWS.Route53Domains.EnableDomainAutoRenew
+module Amazonka.Route53Domains.EnableDomainAutoRenew
 
 -- | <i>See:</i> <a>newEnableDomainAutoRenew</a> smart constructor.
 data EnableDomainAutoRenew
@@ -5756,22 +5756,22 @@ newEnableDomainAutoRenewResponse :: Int -> EnableDomainAutoRenewResponse
 
 -- | The response's http status code.
 enableDomainAutoRenewResponse_httpStatus :: Lens' EnableDomainAutoRenewResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
-instance GHC.Show.Show Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
-instance GHC.Read.Read Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
-instance GHC.Classes.Eq Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
-instance GHC.Generics.Generic Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenewResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenewResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenewResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenewResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenewResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
+instance GHC.Generics.Generic Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
+instance GHC.Show.Show Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
+instance GHC.Read.Read Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
+instance GHC.Classes.Eq Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
+instance GHC.Generics.Generic Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenewResponse
+instance GHC.Show.Show Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenewResponse
+instance GHC.Read.Read Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenewResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenewResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenewResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.EnableDomainAutoRenew.EnableDomainAutoRenew
 
 
 -- | This operation removes the transfer lock on the domain (specifically
@@ -5781,7 +5781,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.EnableDomainA
 --   submission returns an operation ID that you can use to track the
 --   progress and completion of the action. If the request is not completed
 --   successfully, the domain registrant will be notified by email.
-module Network.AWS.Route53Domains.DisableDomainTransferLock
+module Amazonka.Route53Domains.DisableDomainTransferLock
 
 -- | The DisableDomainTransferLock request includes the following element.
 --   
@@ -5848,27 +5848,27 @@ disableDomainTransferLockResponse_httpStatus :: Lens' DisableDomainTransferLockR
 -- | Identifier for tracking the progress of the request. To query the
 --   operation status, use <a>GetOperationDetail</a>.
 disableDomainTransferLockResponse_operationId :: Lens' DisableDomainTransferLockResponse Text
-instance GHC.Generics.Generic Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
-instance GHC.Show.Show Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
-instance GHC.Read.Read Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
-instance GHC.Classes.Eq Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
-instance GHC.Generics.Generic Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLockResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLockResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLockResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLockResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLockResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
+instance GHC.Generics.Generic Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
+instance GHC.Show.Show Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
+instance GHC.Read.Read Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
+instance GHC.Classes.Eq Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
+instance GHC.Generics.Generic Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLockResponse
+instance GHC.Show.Show Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLockResponse
+instance GHC.Read.Read Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLockResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLockResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLockResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.DisableDomainTransferLock.DisableDomainTransferLock
 
 
 -- | This operation disables automatic renewal of domain registration for
 --   the specified domain.
-module Network.AWS.Route53Domains.DisableDomainAutoRenew
+module Amazonka.Route53Domains.DisableDomainAutoRenew
 
 -- | <i>See:</i> <a>newDisableDomainAutoRenew</a> smart constructor.
 data DisableDomainAutoRenew
@@ -5918,29 +5918,29 @@ newDisableDomainAutoRenewResponse :: Int -> DisableDomainAutoRenewResponse
 
 -- | The response's http status code.
 disableDomainAutoRenewResponse_httpStatus :: Lens' DisableDomainAutoRenewResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
-instance GHC.Show.Show Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
-instance GHC.Read.Read Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
-instance GHC.Classes.Eq Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
-instance GHC.Generics.Generic Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenewResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenewResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenewResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenewResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenewResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
+instance GHC.Generics.Generic Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
+instance GHC.Show.Show Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
+instance GHC.Read.Read Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
+instance GHC.Classes.Eq Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
+instance GHC.Generics.Generic Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenewResponse
+instance GHC.Show.Show Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenewResponse
+instance GHC.Read.Read Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenewResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenewResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenewResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.DisableDomainAutoRenew.DisableDomainAutoRenew
 
 
 -- | This operation deletes the specified tags for a domain.
 --   
 --   All tag operations are eventually consistent; subsequent operations
 --   might not immediately represent all issued operations.
-module Network.AWS.Route53Domains.DeleteTagsForDomain
+module Amazonka.Route53Domains.DeleteTagsForDomain
 
 -- | The DeleteTagsForDomainRequest includes the following elements.
 --   
@@ -6001,26 +6001,26 @@ newDeleteTagsForDomainResponse :: Int -> DeleteTagsForDomainResponse
 
 -- | The response's http status code.
 deleteTagsForDomainResponse_httpStatus :: Lens' DeleteTagsForDomainResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
-instance GHC.Show.Show Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
-instance GHC.Read.Read Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
-instance GHC.Classes.Eq Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
-instance GHC.Generics.Generic Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomainResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomainResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomainResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
+instance GHC.Generics.Generic Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
+instance GHC.Show.Show Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
+instance GHC.Read.Read Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
+instance GHC.Classes.Eq Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
+instance GHC.Generics.Generic Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomainResponse
+instance GHC.Show.Show Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomainResponse
+instance GHC.Read.Read Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomainResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.DeleteTagsForDomain.DeleteTagsForDomain
 
 
 -- | Checks whether a domain name can be transferred to Amazon Route 53.
-module Network.AWS.Route53Domains.CheckDomainTransferability
+module Amazonka.Route53Domains.CheckDomainTransferability
 
 -- | The CheckDomainTransferability request contains the following
 --   elements.
@@ -6149,27 +6149,27 @@ checkDomainTransferabilityResponse_httpStatus :: Lens' CheckDomainTransferabilit
 -- | A complex type that contains information about whether the specified
 --   domain can be transferred to Route 53.
 checkDomainTransferabilityResponse_transferability :: Lens' CheckDomainTransferabilityResponse DomainTransferability
-instance GHC.Generics.Generic Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
-instance GHC.Show.Show Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
-instance GHC.Classes.Eq Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
-instance GHC.Generics.Generic Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferabilityResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferabilityResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferabilityResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferabilityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferabilityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
+instance GHC.Generics.Generic Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
+instance GHC.Show.Show Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
+instance GHC.Classes.Eq Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
+instance GHC.Generics.Generic Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferabilityResponse
+instance GHC.Show.Show Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferabilityResponse
+instance GHC.Read.Read Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferabilityResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferabilityResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferabilityResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.CheckDomainTransferability.CheckDomainTransferability
 
 
 -- | This operation checks the availability of one domain name. Note that
 --   if the availability status of a domain is pending, you must submit
 --   another request to determine the availability of the domain name.
-module Network.AWS.Route53Domains.CheckDomainAvailability
+module Amazonka.Route53Domains.CheckDomainAvailability
 
 -- | The CheckDomainAvailability request contains the following elements.
 --   
@@ -6379,22 +6379,22 @@ checkDomainAvailabilityResponse_httpStatus :: Lens' CheckDomainAvailabilityRespo
 --   <li><i>UNAVAILABLE_RESTRICTED</i> The domain name is forbidden.</li>
 --   </ul>
 checkDomainAvailabilityResponse_availability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
-instance GHC.Generics.Generic Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
-instance GHC.Show.Show Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
-instance GHC.Read.Read Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
-instance GHC.Classes.Eq Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
-instance GHC.Generics.Generic Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailabilityResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailabilityResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailabilityResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailabilityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailabilityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
+instance GHC.Generics.Generic Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
+instance GHC.Show.Show Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
+instance GHC.Read.Read Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
+instance GHC.Classes.Eq Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
+instance GHC.Generics.Generic Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailabilityResponse
+instance GHC.Show.Show Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailabilityResponse
+instance GHC.Read.Read Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailabilityResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailabilityResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailabilityResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.CheckDomainAvailability.CheckDomainAvailability
 
 
 -- | Cancels the transfer of a domain from the current AWS account to
@@ -6408,7 +6408,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.CheckDomainAv
 --   determine whether the operation succeeded. <a>GetOperationDetail</a>
 --   provides additional information, for example, <tt>Domain Transfer from
 --   Aws Account 111122223333 has been cancelled</tt>.
-module Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount
+module Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount
 
 -- | The CancelDomainTransferToAnotherAwsAccount request includes the
 --   following element.
@@ -6490,22 +6490,22 @@ cancelDomainTransferToAnotherAwsAccountResponse_operationId :: Lens' CancelDomai
 
 -- | The response's http status code.
 cancelDomainTransferToAnotherAwsAccountResponse_httpStatus :: Lens' CancelDomainTransferToAnotherAwsAccountResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
-instance GHC.Show.Show Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
-instance GHC.Read.Read Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
-instance GHC.Classes.Eq Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
-instance GHC.Generics.Generic Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccountResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccountResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccountResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccountResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccountResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
+instance GHC.Generics.Generic Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
+instance GHC.Show.Show Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
+instance GHC.Read.Read Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
+instance GHC.Classes.Eq Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
+instance GHC.Generics.Generic Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccountResponse
+instance GHC.Show.Show Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccountResponse
+instance GHC.Read.Read Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccountResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccountResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccountResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount.CancelDomainTransferToAnotherAwsAccount
 
 
 -- | Accepts the transfer of a domain from another AWS account to the
@@ -6516,7 +6516,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.CancelDomainT
 --   determine whether the operation succeeded. <a>GetOperationDetail</a>
 --   provides additional information, for example, <tt>Domain Transfer from
 --   Aws Account 111122223333 has been cancelled</tt>.
-module Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
+module Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
 
 -- | The AcceptDomainTransferFromAnotherAwsAccount request includes the
 --   following elements.
@@ -6606,22 +6606,22 @@ acceptDomainTransferFromAnotherAwsAccountResponse_operationId :: Lens' AcceptDom
 
 -- | The response's http status code.
 acceptDomainTransferFromAnotherAwsAccountResponse_httpStatus :: Lens' AcceptDomainTransferFromAnotherAwsAccountResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
-instance GHC.Show.Show Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
-instance GHC.Read.Read Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
-instance GHC.Classes.Eq Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
-instance GHC.Generics.Generic Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccountResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccountResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccountResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccountResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccountResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
+instance GHC.Generics.Generic Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
+instance GHC.Show.Show Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
+instance GHC.Read.Read Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
+instance GHC.Classes.Eq Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
+instance GHC.Generics.Generic Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccountResponse
+instance GHC.Show.Show Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccountResponse
+instance GHC.Read.Read Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccountResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccountResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccountResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount.AcceptDomainTransferFromAnotherAwsAccount
 
 
 -- | This operation updates the contact information for a particular
@@ -6632,7 +6632,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.AcceptDomainT
 --   you can use to track the progress and completion of the action. If the
 --   request is not completed successfully, the domain registrant will be
 --   notified by email.
-module Network.AWS.Route53Domains.UpdateDomainContact
+module Amazonka.Route53Domains.UpdateDomainContact
 
 -- | The UpdateDomainContact request includes the following elements.
 --   
@@ -6730,21 +6730,21 @@ updateDomainContactResponse_httpStatus :: Lens' UpdateDomainContactResponse Int
 -- | Identifier for tracking the progress of the request. To query the
 --   operation status, use <a>GetOperationDetail</a>.
 updateDomainContactResponse_operationId :: Lens' UpdateDomainContactResponse Text
-instance GHC.Generics.Generic Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContact
-instance GHC.Show.Show Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContact
-instance GHC.Classes.Eq Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContact
-instance GHC.Generics.Generic Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContactResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContactResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContactResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContactResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContact
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContactResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContact
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContact
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContact
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContact
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContact
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.UpdateDomainContact.UpdateDomainContact
+instance GHC.Generics.Generic Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContact
+instance GHC.Show.Show Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContact
+instance GHC.Classes.Eq Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContact
+instance GHC.Generics.Generic Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContactResponse
+instance GHC.Show.Show Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContactResponse
+instance GHC.Read.Read Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContactResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContactResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContact
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContactResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContact
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContact
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContact
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContact
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContact
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.UpdateDomainContact.UpdateDomainContact
 
 
 -- | This operation updates the specified domain contact's privacy setting.
@@ -6769,7 +6769,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.UpdateDomainC
 --   Enabling privacy protection removes the contact information provided
 --   for this domain from the WHOIS database. For more information on our
 --   privacy practices, see <a>https://aws.amazon.com/privacy/</a>.
-module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
+module Amazonka.Route53Domains.UpdateDomainContactPrivacy
 
 -- | The UpdateDomainContactPrivacy request includes the following
 --   elements.
@@ -6915,22 +6915,22 @@ updateDomainContactPrivacyResponse_httpStatus :: Lens' UpdateDomainContactPrivac
 -- | Identifier for tracking the progress of the request. To use this ID to
 --   query the operation status, use GetOperationDetail.
 updateDomainContactPrivacyResponse_operationId :: Lens' UpdateDomainContactPrivacyResponse Text
-instance GHC.Generics.Generic Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
-instance GHC.Show.Show Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
-instance GHC.Read.Read Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
-instance GHC.Classes.Eq Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
-instance GHC.Generics.Generic Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacyResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacyResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacyResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
+instance GHC.Generics.Generic Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
+instance GHC.Show.Show Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
+instance GHC.Read.Read Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
+instance GHC.Classes.Eq Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
+instance GHC.Generics.Generic Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacyResponse
+instance GHC.Show.Show Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacyResponse
+instance GHC.Read.Read Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacyResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacyResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacyResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.UpdateDomainContactPrivacy.UpdateDomainContactPrivacy
 
 
 -- | This operation replaces the current set of name servers for the domain
@@ -6942,7 +6942,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.UpdateDomainC
 --   to track the progress and completion of the action. If the request is
 --   not completed successfully, the domain registrant will be notified by
 --   email.
-module Network.AWS.Route53Domains.UpdateDomainNameservers
+module Amazonka.Route53Domains.UpdateDomainNameservers
 
 -- | Replaces the current set of name servers for the domain with the
 --   specified set of name servers. If you use Amazon Route 53 as your DNS
@@ -7037,29 +7037,29 @@ updateDomainNameserversResponse_httpStatus :: Lens' UpdateDomainNameserversRespo
 -- | Identifier for tracking the progress of the request. To query the
 --   operation status, use <a>GetOperationDetail</a>.
 updateDomainNameserversResponse_operationId :: Lens' UpdateDomainNameserversResponse Text
-instance GHC.Generics.Generic Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
-instance GHC.Show.Show Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
-instance GHC.Read.Read Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
-instance GHC.Classes.Eq Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
-instance GHC.Generics.Generic Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameserversResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameserversResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameserversResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameserversResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameserversResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
+instance GHC.Generics.Generic Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
+instance GHC.Show.Show Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
+instance GHC.Read.Read Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
+instance GHC.Classes.Eq Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
+instance GHC.Generics.Generic Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameserversResponse
+instance GHC.Show.Show Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameserversResponse
+instance GHC.Read.Read Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameserversResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameserversResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameserversResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.UpdateDomainNameservers.UpdateDomainNameservers
 
 
 -- | This operation adds or updates tags for a specified domain.
 --   
 --   All tag operations are eventually consistent; subsequent operations
 --   might not immediately represent all issued operations.
-module Network.AWS.Route53Domains.UpdateTagsForDomain
+module Amazonka.Route53Domains.UpdateTagsForDomain
 
 -- | The UpdateTagsForDomainRequest includes the following elements.
 --   
@@ -7125,29 +7125,29 @@ newUpdateTagsForDomainResponse :: Int -> UpdateTagsForDomainResponse
 
 -- | The response's http status code.
 updateTagsForDomainResponse_httpStatus :: Lens' UpdateTagsForDomainResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
-instance GHC.Show.Show Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
-instance GHC.Read.Read Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
-instance GHC.Classes.Eq Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
-instance GHC.Generics.Generic Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomainResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomainResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomainResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomainResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomainResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
+instance GHC.Generics.Generic Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
+instance GHC.Show.Show Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
+instance GHC.Read.Read Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
+instance GHC.Classes.Eq Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
+instance GHC.Generics.Generic Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomainResponse
+instance GHC.Show.Show Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomainResponse
+instance GHC.Read.Read Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomainResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomainResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomainResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.UpdateTagsForDomain.UpdateTagsForDomain
 
 
 -- | Returns all the domain-related billing records for the current AWS
 --   account for a specified period
 --   
 --   This operation returns paginated results.
-module Network.AWS.Route53Domains.ViewBilling
+module Amazonka.Route53Domains.ViewBilling
 
 -- | The ViewBilling request includes the following elements.
 --   
@@ -7298,26 +7298,26 @@ viewBillingResponse_billingRecords :: Lens' ViewBillingResponse (Maybe [BillingR
 
 -- | The response's http status code.
 viewBillingResponse_httpStatus :: Lens' ViewBillingResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53Domains.ViewBilling.ViewBilling
-instance GHC.Show.Show Network.AWS.Route53Domains.ViewBilling.ViewBilling
-instance GHC.Read.Read Network.AWS.Route53Domains.ViewBilling.ViewBilling
-instance GHC.Classes.Eq Network.AWS.Route53Domains.ViewBilling.ViewBilling
-instance GHC.Generics.Generic Network.AWS.Route53Domains.ViewBilling.ViewBillingResponse
-instance GHC.Show.Show Network.AWS.Route53Domains.ViewBilling.ViewBillingResponse
-instance GHC.Read.Read Network.AWS.Route53Domains.ViewBilling.ViewBillingResponse
-instance GHC.Classes.Eq Network.AWS.Route53Domains.ViewBilling.ViewBillingResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53Domains.ViewBilling.ViewBilling
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.ViewBilling.ViewBillingResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Route53Domains.ViewBilling.ViewBilling
-instance Data.Hashable.Class.Hashable Network.AWS.Route53Domains.ViewBilling.ViewBilling
-instance Control.DeepSeq.NFData Network.AWS.Route53Domains.ViewBilling.ViewBilling
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53Domains.ViewBilling.ViewBilling
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53Domains.ViewBilling.ViewBilling
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53Domains.ViewBilling.ViewBilling
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53Domains.ViewBilling.ViewBilling
+instance GHC.Generics.Generic Amazonka.Route53Domains.ViewBilling.ViewBilling
+instance GHC.Show.Show Amazonka.Route53Domains.ViewBilling.ViewBilling
+instance GHC.Read.Read Amazonka.Route53Domains.ViewBilling.ViewBilling
+instance GHC.Classes.Eq Amazonka.Route53Domains.ViewBilling.ViewBilling
+instance GHC.Generics.Generic Amazonka.Route53Domains.ViewBilling.ViewBillingResponse
+instance GHC.Show.Show Amazonka.Route53Domains.ViewBilling.ViewBillingResponse
+instance GHC.Read.Read Amazonka.Route53Domains.ViewBilling.ViewBillingResponse
+instance GHC.Classes.Eq Amazonka.Route53Domains.ViewBilling.ViewBillingResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53Domains.ViewBilling.ViewBilling
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.ViewBilling.ViewBillingResponse
+instance Amazonka.Pager.AWSPager Amazonka.Route53Domains.ViewBilling.ViewBilling
+instance Data.Hashable.Class.Hashable Amazonka.Route53Domains.ViewBilling.ViewBilling
+instance Control.DeepSeq.NFData Amazonka.Route53Domains.ViewBilling.ViewBilling
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53Domains.ViewBilling.ViewBilling
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53Domains.ViewBilling.ViewBilling
+instance Amazonka.Data.Path.ToPath Amazonka.Route53Domains.ViewBilling.ViewBilling
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53Domains.ViewBilling.ViewBilling
 
 
-module Network.AWS.Route53Domains.Lens
+module Amazonka.Route53Domains.Lens
 
 -- | For an initial request for a list of operations, omit this element. If
 --   the number of operations that are not yet complete is greater than the
@@ -8435,14 +8435,14 @@ tag_value :: Lens' Tag (Maybe Text)
 tag_key :: Lens' Tag (Maybe Text)
 
 
-module Network.AWS.Route53Domains.Waiters
+module Amazonka.Route53Domains.Waiters
 
 
 -- | Derived from API version <tt>2014-05-15</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   Pending
-module Network.AWS.Route53Domains
+module Amazonka.Route53Domains
 
 -- | API version <tt>2014-05-15</tt> of the Amazon Route 53 Domains SDK
 --   configuration.

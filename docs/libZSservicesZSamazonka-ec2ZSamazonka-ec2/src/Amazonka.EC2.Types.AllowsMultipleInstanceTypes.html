@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.AllowsMultipleInstanceTypes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.AllowsMultipleInstanceTypes</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes"><span class="hs-identifier">AllowsMultipleInstanceTypes</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes_Off"><span class="hs-identifier">AllowsMultipleInstanceTypes_Off</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes_On"><span class="hs-identifier">AllowsMultipleInstanceTypes_On</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681085157"><span id="local-6989586621681085158"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AllowsMultipleInstanceTypes"><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes"><span class="hs-identifier hs-var">AllowsMultipleInstanceTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllowsMultipleInstanceTypes%27"><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes%27"><span class="hs-identifier hs-var">AllowsMultipleInstanceTypes'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAllowsMultipleInstanceTypes"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; Text
+</span><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#fromAllowsMultipleInstanceTypes"><span class="hs-identifier hs-var hs-var">fromAllowsMultipleInstanceTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681085149"><span id="local-6989586621681085151"><span id="local-6989586621681085153"><span class="annot"><span class="annottext">Int -&gt; AllowsMultipleInstanceTypes -&gt; ShowS
+[AllowsMultipleInstanceTypes] -&gt; ShowS
+AllowsMultipleInstanceTypes -&gt; String
+(Int -&gt; AllowsMultipleInstanceTypes -&gt; ShowS)
+-&gt; (AllowsMultipleInstanceTypes -&gt; String)
+-&gt; ([AllowsMultipleInstanceTypes] -&gt; ShowS)
+-&gt; Show AllowsMultipleInstanceTypes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AllowsMultipleInstanceTypes] -&gt; ShowS
+$cshowList :: [AllowsMultipleInstanceTypes] -&gt; ShowS
+show :: AllowsMultipleInstanceTypes -&gt; String
+$cshow :: AllowsMultipleInstanceTypes -&gt; String
+showsPrec :: Int -&gt; AllowsMultipleInstanceTypes -&gt; ShowS
+$cshowsPrec :: Int -&gt; AllowsMultipleInstanceTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681085140"><span id="local-6989586621681085142"><span id="local-6989586621681085144"><span id="local-6989586621681085146"><span class="annot"><span class="annottext">ReadPrec [AllowsMultipleInstanceTypes]
+ReadPrec AllowsMultipleInstanceTypes
+Int -&gt; ReadS AllowsMultipleInstanceTypes
+ReadS [AllowsMultipleInstanceTypes]
+(Int -&gt; ReadS AllowsMultipleInstanceTypes)
+-&gt; ReadS [AllowsMultipleInstanceTypes]
+-&gt; ReadPrec AllowsMultipleInstanceTypes
+-&gt; ReadPrec [AllowsMultipleInstanceTypes]
+-&gt; Read AllowsMultipleInstanceTypes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AllowsMultipleInstanceTypes]
+$creadListPrec :: ReadPrec [AllowsMultipleInstanceTypes]
+readPrec :: ReadPrec AllowsMultipleInstanceTypes
+$creadPrec :: ReadPrec AllowsMultipleInstanceTypes
+readList :: ReadS [AllowsMultipleInstanceTypes]
+$creadList :: ReadS [AllowsMultipleInstanceTypes]
+readsPrec :: Int -&gt; ReadS AllowsMultipleInstanceTypes
+$creadsPrec :: Int -&gt; ReadS AllowsMultipleInstanceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681085135"><span id="local-6989586621681085137"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+(AllowsMultipleInstanceTypes
+ -&gt; AllowsMultipleInstanceTypes -&gt; Bool)
+-&gt; (AllowsMultipleInstanceTypes
+    -&gt; AllowsMultipleInstanceTypes -&gt; Bool)
+-&gt; Eq AllowsMultipleInstanceTypes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+$c/= :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+== :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+$c== :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681085119"><span id="local-6989586621681085121"><span id="local-6989586621681085123"><span id="local-6989586621681085125"><span id="local-6989586621681085127"><span id="local-6989586621681085129"><span id="local-6989586621681085131"><span class="annot"><span class="annottext">Eq AllowsMultipleInstanceTypes
+Eq AllowsMultipleInstanceTypes
+-&gt; (AllowsMultipleInstanceTypes
+    -&gt; AllowsMultipleInstanceTypes -&gt; Ordering)
+-&gt; (AllowsMultipleInstanceTypes
+    -&gt; AllowsMultipleInstanceTypes -&gt; Bool)
+-&gt; (AllowsMultipleInstanceTypes
+    -&gt; AllowsMultipleInstanceTypes -&gt; Bool)
+-&gt; (AllowsMultipleInstanceTypes
+    -&gt; AllowsMultipleInstanceTypes -&gt; Bool)
+-&gt; (AllowsMultipleInstanceTypes
+    -&gt; AllowsMultipleInstanceTypes -&gt; Bool)
+-&gt; (AllowsMultipleInstanceTypes
+    -&gt; AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes)
+-&gt; (AllowsMultipleInstanceTypes
+    -&gt; AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes)
+-&gt; Ord AllowsMultipleInstanceTypes
+AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+AllowsMultipleInstanceTypes
+-&gt; AllowsMultipleInstanceTypes -&gt; Ordering
+AllowsMultipleInstanceTypes
+-&gt; AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AllowsMultipleInstanceTypes
+-&gt; AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes
+$cmin :: AllowsMultipleInstanceTypes
+-&gt; AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes
+max :: AllowsMultipleInstanceTypes
+-&gt; AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes
+$cmax :: AllowsMultipleInstanceTypes
+-&gt; AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes
+&gt;= :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+$c&gt;= :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+&gt; :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+$c&gt; :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+&lt;= :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+$c&lt;= :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+&lt; :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+$c&lt; :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+compare :: AllowsMultipleInstanceTypes
+-&gt; AllowsMultipleInstanceTypes -&gt; Ordering
+$ccompare :: AllowsMultipleInstanceTypes
+-&gt; AllowsMultipleInstanceTypes -&gt; Ordering
+$cp1Ord :: Eq AllowsMultipleInstanceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AllowsMultipleInstanceTypes -&gt; Rep AllowsMultipleInstanceTypes x)
+-&gt; (forall x.
+    Rep AllowsMultipleInstanceTypes x -&gt; AllowsMultipleInstanceTypes)
+-&gt; Generic AllowsMultipleInstanceTypes
+forall x.
+Rep AllowsMultipleInstanceTypes x -&gt; AllowsMultipleInstanceTypes
+forall x.
+AllowsMultipleInstanceTypes -&gt; Rep AllowsMultipleInstanceTypes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AllowsMultipleInstanceTypes x -&gt; AllowsMultipleInstanceTypes
+$cfrom :: forall x.
+AllowsMultipleInstanceTypes -&gt; Rep AllowsMultipleInstanceTypes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681085111"><span id="local-6989586621681085113"><span class="annot"><span class="annottext">Int -&gt; AllowsMultipleInstanceTypes -&gt; Int
+AllowsMultipleInstanceTypes -&gt; Int
+(Int -&gt; AllowsMultipleInstanceTypes -&gt; Int)
+-&gt; (AllowsMultipleInstanceTypes -&gt; Int)
+-&gt; Hashable AllowsMultipleInstanceTypes
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AllowsMultipleInstanceTypes -&gt; Int
+$chash :: AllowsMultipleInstanceTypes -&gt; Int
+hashWithSalt :: Int -&gt; AllowsMultipleInstanceTypes -&gt; Int
+$chashWithSalt :: Int -&gt; AllowsMultipleInstanceTypes -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681085108"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; ()
+(AllowsMultipleInstanceTypes -&gt; ())
+-&gt; NFData AllowsMultipleInstanceTypes
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AllowsMultipleInstanceTypes -&gt; ()
+$crnf :: AllowsMultipleInstanceTypes -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681085105"><span class="annot"><span class="annottext">Text -&gt; Either String AllowsMultipleInstanceTypes
+(Text -&gt; Either String AllowsMultipleInstanceTypes)
+-&gt; FromText AllowsMultipleInstanceTypes
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AllowsMultipleInstanceTypes
+$cfromText :: Text -&gt; Either String AllowsMultipleInstanceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681085102"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; Text
+(AllowsMultipleInstanceTypes -&gt; Text)
+-&gt; ToText AllowsMultipleInstanceTypes
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AllowsMultipleInstanceTypes -&gt; Text
+$ctoText :: AllowsMultipleInstanceTypes -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681085099"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; ByteString
+(AllowsMultipleInstanceTypes -&gt; ByteString)
+-&gt; ToByteString AllowsMultipleInstanceTypes
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AllowsMultipleInstanceTypes -&gt; ByteString
+$ctoBS :: AllowsMultipleInstanceTypes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681085096"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; ByteStringBuilder
+(AllowsMultipleInstanceTypes -&gt; ByteStringBuilder)
+-&gt; ToLog AllowsMultipleInstanceTypes
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AllowsMultipleInstanceTypes -&gt; ByteStringBuilder
+$cbuild :: AllowsMultipleInstanceTypes -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681085093"><span class="annot"><span class="annottext">HeaderName -&gt; AllowsMultipleInstanceTypes -&gt; [Header]
+(HeaderName -&gt; AllowsMultipleInstanceTypes -&gt; [Header])
+-&gt; ToHeader AllowsMultipleInstanceTypes
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AllowsMultipleInstanceTypes -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AllowsMultipleInstanceTypes -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681085090"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; QueryString
+(AllowsMultipleInstanceTypes -&gt; QueryString)
+-&gt; ToQuery AllowsMultipleInstanceTypes
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AllowsMultipleInstanceTypes -&gt; QueryString
+$ctoQuery :: AllowsMultipleInstanceTypes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681085085"><span id="local-6989586621681085087"><span class="annot"><span class="annottext">Value -&gt; Parser [AllowsMultipleInstanceTypes]
+Value -&gt; Parser AllowsMultipleInstanceTypes
+(Value -&gt; Parser AllowsMultipleInstanceTypes)
+-&gt; (Value -&gt; Parser [AllowsMultipleInstanceTypes])
+-&gt; FromJSON AllowsMultipleInstanceTypes
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AllowsMultipleInstanceTypes]
+$cparseJSONList :: Value -&gt; Parser [AllowsMultipleInstanceTypes]
+parseJSON :: Value -&gt; Parser AllowsMultipleInstanceTypes
+$cparseJSON :: Value -&gt; Parser AllowsMultipleInstanceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681085080"><span id="local-6989586621681085082"><span class="annot"><span class="annottext">FromJSONKeyFunction [AllowsMultipleInstanceTypes]
+FromJSONKeyFunction AllowsMultipleInstanceTypes
+FromJSONKeyFunction AllowsMultipleInstanceTypes
+-&gt; FromJSONKeyFunction [AllowsMultipleInstanceTypes]
+-&gt; FromJSONKey AllowsMultipleInstanceTypes
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AllowsMultipleInstanceTypes]
+$cfromJSONKeyList :: FromJSONKeyFunction [AllowsMultipleInstanceTypes]
+fromJSONKey :: FromJSONKeyFunction AllowsMultipleInstanceTypes
+$cfromJSONKey :: FromJSONKeyFunction AllowsMultipleInstanceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681085071"><span id="local-6989586621681085073"><span id="local-6989586621681085075"><span id="local-6989586621681085077"><span class="annot"><span class="annottext">[AllowsMultipleInstanceTypes] -&gt; Encoding
+[AllowsMultipleInstanceTypes] -&gt; Value
+AllowsMultipleInstanceTypes -&gt; Encoding
+AllowsMultipleInstanceTypes -&gt; Value
+(AllowsMultipleInstanceTypes -&gt; Value)
+-&gt; (AllowsMultipleInstanceTypes -&gt; Encoding)
+-&gt; ([AllowsMultipleInstanceTypes] -&gt; Value)
+-&gt; ([AllowsMultipleInstanceTypes] -&gt; Encoding)
+-&gt; ToJSON AllowsMultipleInstanceTypes
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AllowsMultipleInstanceTypes] -&gt; Encoding
+$ctoEncodingList :: [AllowsMultipleInstanceTypes] -&gt; Encoding
+toJSONList :: [AllowsMultipleInstanceTypes] -&gt; Value
+$ctoJSONList :: [AllowsMultipleInstanceTypes] -&gt; Value
+toEncoding :: AllowsMultipleInstanceTypes -&gt; Encoding
+$ctoEncoding :: AllowsMultipleInstanceTypes -&gt; Encoding
+toJSON :: AllowsMultipleInstanceTypes -&gt; Value
+$ctoJSON :: AllowsMultipleInstanceTypes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681085066"><span id="local-6989586621681085068"><span class="annot"><span class="annottext">ToJSONKeyFunction [AllowsMultipleInstanceTypes]
+ToJSONKeyFunction AllowsMultipleInstanceTypes
+ToJSONKeyFunction AllowsMultipleInstanceTypes
+-&gt; ToJSONKeyFunction [AllowsMultipleInstanceTypes]
+-&gt; ToJSONKey AllowsMultipleInstanceTypes
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AllowsMultipleInstanceTypes]
+$ctoJSONKeyList :: ToJSONKeyFunction [AllowsMultipleInstanceTypes]
+toJSONKey :: ToJSONKeyFunction AllowsMultipleInstanceTypes
+$ctoJSONKey :: ToJSONKeyFunction AllowsMultipleInstanceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681085063"><span class="annot"><span class="annottext">[Node] -&gt; Either String AllowsMultipleInstanceTypes
+([Node] -&gt; Either String AllowsMultipleInstanceTypes)
+-&gt; FromXML AllowsMultipleInstanceTypes
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AllowsMultipleInstanceTypes
+$cparseXML :: [Node] -&gt; Either String AllowsMultipleInstanceTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681085060"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; XML
+(AllowsMultipleInstanceTypes -&gt; XML)
+-&gt; ToXML AllowsMultipleInstanceTypes
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AllowsMultipleInstanceTypes -&gt; XML
+$ctoXML :: AllowsMultipleInstanceTypes -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes_Off"><span class="hs-identifier hs-type">AllowsMultipleInstanceTypes_Off</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes"><span class="hs-identifier hs-type">AllowsMultipleInstanceTypes</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAllowsMultipleInstanceTypes_Off"><span id="%24mAllowsMultipleInstanceTypes_Off"><span id="AllowsMultipleInstanceTypes_Off"><span class="annot"><span class="annottext">$bAllowsMultipleInstanceTypes_Off :: AllowsMultipleInstanceTypes
+$mAllowsMultipleInstanceTypes_Off :: forall r.
+AllowsMultipleInstanceTypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#%24bAllowsMultipleInstanceTypes_Off"><span class="hs-identifier hs-var hs-var hs-var">AllowsMultipleInstanceTypes_Off</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes%27"><span class="hs-identifier hs-type">AllowsMultipleInstanceTypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;off&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes_On"><span class="hs-identifier hs-type">AllowsMultipleInstanceTypes_On</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes"><span class="hs-identifier hs-type">AllowsMultipleInstanceTypes</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAllowsMultipleInstanceTypes_On"><span id="%24mAllowsMultipleInstanceTypes_On"><span id="AllowsMultipleInstanceTypes_On"><span class="annot"><span class="annottext">$bAllowsMultipleInstanceTypes_On :: AllowsMultipleInstanceTypes
+$mAllowsMultipleInstanceTypes_On :: forall r.
+AllowsMultipleInstanceTypes -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#%24bAllowsMultipleInstanceTypes_On"><span class="hs-identifier hs-var hs-var hs-var">AllowsMultipleInstanceTypes_On</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes%27"><span class="hs-identifier hs-type">AllowsMultipleInstanceTypes'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;on&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes_Off"><span class="hs-pragma hs-type">AllowsMultipleInstanceTypes_Off</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes_On"><span class="hs-pragma hs-type">AllowsMultipleInstanceTypes_On</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes%27"><span class="hs-pragma hs-type">AllowsMultipleInstanceTypes'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

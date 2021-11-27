@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.VirtualNodeSpec</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualNodeSpec</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Backend.html"><span class="hs-identifier">Amazonka.AppMesh.Types.Backend</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html"><span class="hs-identifier">Amazonka.AppMesh.Types.BackendDefaults</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html"><span class="hs-identifier">Amazonka.AppMesh.Types.Listener</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Logging.html"><span class="hs-identifier">Amazonka.AppMesh.Types.Logging</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ServiceDiscovery.html"><span class="hs-identifier">Amazonka.AppMesh.Types.ServiceDiscovery</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | An object that represents the specification of a virtual node.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newVirtualNodeSpec' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679340998"><span id="local-6989586621679340999"></span></span><span class="hs-keyword">data</span><span> </span><span id="VirtualNodeSpec"><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-var">VirtualNodeSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualNodeSpec%27"><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-var">VirtualNodeSpec'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The backends that the virtual node is expected to send outbound traffic</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Abackends%3AVirtualNodeSpec%27"><span class="annot"><span class="annottext">VirtualNodeSpec -&gt; Maybe [Backend]
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3Abackends%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var hs-var">backends</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppMesh.Types.Backend.html#Backend"><span class="hs-identifier hs-type">Backend</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A reference to an object that represents the defaults for backends.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AbackendDefaults%3AVirtualNodeSpec%27"><span class="annot"><span class="annottext">VirtualNodeSpec -&gt; Maybe BackendDefaults
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3AbackendDefaults%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var hs-var">backendDefaults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults"><span class="hs-identifier hs-type">BackendDefaults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The service discovery information for the virtual node. If your virtual</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- node does not expect ingress traffic, you can omit this parameter. If</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- you specify a @listener@, then you must specify service discovery</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AserviceDiscovery%3AVirtualNodeSpec%27"><span class="annot"><span class="annottext">VirtualNodeSpec -&gt; Maybe ServiceDiscovery
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3AserviceDiscovery%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var hs-var">serviceDiscovery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ServiceDiscovery.html#ServiceDiscovery"><span class="hs-identifier hs-type">ServiceDiscovery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The listener that the virtual node is expected to receive inbound</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- traffic from. You can specify one listener.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Alisteners%3AVirtualNodeSpec%27"><span class="annot"><span class="annottext">VirtualNodeSpec -&gt; Maybe [Listener]
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3Alisteners%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var hs-var">listeners</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The inbound and outbound access logging information for the virtual</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- node.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Alogging%3AVirtualNodeSpec%27"><span class="annot"><span class="annottext">VirtualNodeSpec -&gt; Maybe Logging
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3Alogging%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var hs-var">logging</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Logging.html#Logging"><span class="hs-identifier hs-type">Logging</span></a></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340988"><span id="local-6989586621679340990"><span class="annot"><span class="annottext">VirtualNodeSpec -&gt; VirtualNodeSpec -&gt; Bool
+(VirtualNodeSpec -&gt; VirtualNodeSpec -&gt; Bool)
+-&gt; (VirtualNodeSpec -&gt; VirtualNodeSpec -&gt; Bool)
+-&gt; Eq VirtualNodeSpec
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VirtualNodeSpec -&gt; VirtualNodeSpec -&gt; Bool
+$c/= :: VirtualNodeSpec -&gt; VirtualNodeSpec -&gt; Bool
+== :: VirtualNodeSpec -&gt; VirtualNodeSpec -&gt; Bool
+$c== :: VirtualNodeSpec -&gt; VirtualNodeSpec -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340979"><span id="local-6989586621679340981"><span id="local-6989586621679340983"><span id="local-6989586621679340985"><span class="annot"><span class="annottext">ReadPrec [VirtualNodeSpec]
+ReadPrec VirtualNodeSpec
+Int -&gt; ReadS VirtualNodeSpec
+ReadS [VirtualNodeSpec]
+(Int -&gt; ReadS VirtualNodeSpec)
+-&gt; ReadS [VirtualNodeSpec]
+-&gt; ReadPrec VirtualNodeSpec
+-&gt; ReadPrec [VirtualNodeSpec]
+-&gt; Read VirtualNodeSpec
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VirtualNodeSpec]
+$creadListPrec :: ReadPrec [VirtualNodeSpec]
+readPrec :: ReadPrec VirtualNodeSpec
+$creadPrec :: ReadPrec VirtualNodeSpec
+readList :: ReadS [VirtualNodeSpec]
+$creadList :: ReadS [VirtualNodeSpec]
+readsPrec :: Int -&gt; ReadS VirtualNodeSpec
+$creadsPrec :: Int -&gt; ReadS VirtualNodeSpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340972"><span id="local-6989586621679340974"><span id="local-6989586621679340976"><span class="annot"><span class="annottext">Int -&gt; VirtualNodeSpec -&gt; ShowS
+[VirtualNodeSpec] -&gt; ShowS
+VirtualNodeSpec -&gt; String
+(Int -&gt; VirtualNodeSpec -&gt; ShowS)
+-&gt; (VirtualNodeSpec -&gt; String)
+-&gt; ([VirtualNodeSpec] -&gt; ShowS)
+-&gt; Show VirtualNodeSpec
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VirtualNodeSpec] -&gt; ShowS
+$cshowList :: [VirtualNodeSpec] -&gt; ShowS
+show :: VirtualNodeSpec -&gt; String
+$cshow :: VirtualNodeSpec -&gt; String
+showsPrec :: Int -&gt; VirtualNodeSpec -&gt; ShowS
+$cshowsPrec :: Int -&gt; VirtualNodeSpec -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VirtualNodeSpec -&gt; Rep VirtualNodeSpec x)
+-&gt; (forall x. Rep VirtualNodeSpec x -&gt; VirtualNodeSpec)
+-&gt; Generic VirtualNodeSpec
+forall x. Rep VirtualNodeSpec x -&gt; VirtualNodeSpec
+forall x. VirtualNodeSpec -&gt; Rep VirtualNodeSpec x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VirtualNodeSpec x -&gt; VirtualNodeSpec
+$cfrom :: forall x. VirtualNodeSpec -&gt; Rep VirtualNodeSpec x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'VirtualNodeSpec' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'backends', 'virtualNodeSpec_backends' - The backends that the virtual node is expected to send outbound traffic</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'backendDefaults', 'virtualNodeSpec_backendDefaults' - A reference to an object that represents the defaults for backends.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'serviceDiscovery', 'virtualNodeSpec_serviceDiscovery' - The service discovery information for the virtual node. If your virtual</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- node does not expect ingress traffic, you can omit this parameter. If</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- you specify a @listener@, then you must specify service discovery</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'listeners', 'virtualNodeSpec_listeners' - The listener that the virtual node is expected to receive inbound</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- traffic from. You can specify one listener.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'logging', 'virtualNodeSpec_logging' - The inbound and outbound access logging information for the virtual</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- node.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#newVirtualNodeSpec"><span class="hs-identifier hs-type">newVirtualNodeSpec</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span><span>
+</span><span id="line-79"></span><span id="newVirtualNodeSpec"><span class="annot"><span class="annottext">newVirtualNodeSpec :: VirtualNodeSpec
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#newVirtualNodeSpec"><span class="hs-identifier hs-var hs-var">newVirtualNodeSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">VirtualNodeSpec' :: Maybe [Backend]
+-&gt; Maybe BackendDefaults
+-&gt; Maybe ServiceDiscovery
+-&gt; Maybe [Listener]
+-&gt; Maybe Logging
+-&gt; VirtualNodeSpec
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-type">VirtualNodeSpec'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backends:VirtualNodeSpec' :: Maybe [Backend]
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3Abackends%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var">backends</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Backend]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:backendDefaults:VirtualNodeSpec' :: Maybe BackendDefaults
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3AbackendDefaults%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var">backendDefaults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackendDefaults
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceDiscovery:VirtualNodeSpec' :: Maybe ServiceDiscovery
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3AserviceDiscovery%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var">serviceDiscovery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceDiscovery
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:listeners:VirtualNodeSpec' :: Maybe [Listener]
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3Alisteners%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var">listeners</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Listener]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:logging:VirtualNodeSpec' :: Maybe Logging
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3Alogging%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var">logging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Logging
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The backends that the virtual node is expected to send outbound traffic</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#virtualNodeSpec_backends"><span class="hs-identifier hs-type">virtualNodeSpec_backends</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppMesh.Types.Backend.html#Backend"><span class="hs-identifier hs-type">Backend</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="virtualNodeSpec_backends"><span class="annot"><span class="annottext">virtualNodeSpec_backends :: (Maybe [Backend] -&gt; f (Maybe [Backend]))
+-&gt; VirtualNodeSpec -&gt; f VirtualNodeSpec
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#virtualNodeSpec_backends"><span class="hs-identifier hs-var hs-var">virtualNodeSpec_backends</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeSpec -&gt; Maybe [Backend])
+-&gt; (VirtualNodeSpec -&gt; Maybe [Backend] -&gt; VirtualNodeSpec)
+-&gt; Lens
+     VirtualNodeSpec VirtualNodeSpec (Maybe [Backend]) (Maybe [Backend])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-type">VirtualNodeSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340963"><span class="annot"><span class="annottext">Maybe [Backend]
+backends :: Maybe [Backend]
+$sel:backends:VirtualNodeSpec' :: VirtualNodeSpec -&gt; Maybe [Backend]
+</span><a href="#local-6989586621679340963"><span class="hs-identifier hs-var hs-var">backends</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Backend]
+</span><a href="#local-6989586621679340963"><span class="hs-identifier hs-var">backends</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340962"><span class="annot"><span class="annottext">s :: VirtualNodeSpec
+</span><a href="#local-6989586621679340962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-type">VirtualNodeSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340961"><span class="annot"><span class="annottext">Maybe [Backend]
+</span><a href="#local-6989586621679340961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualNodeSpec
+</span><a href="#local-6989586621679340962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backends:VirtualNodeSpec' :: Maybe [Backend]
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3Abackends%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var">backends</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Backend]
+</span><a href="#local-6989586621679340961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Backend] -&gt; f (Maybe [Backend]))
+ -&gt; VirtualNodeSpec -&gt; f VirtualNodeSpec)
+-&gt; ((Maybe [Backend] -&gt; f (Maybe [Backend]))
+    -&gt; Maybe [Backend] -&gt; f (Maybe [Backend]))
+-&gt; (Maybe [Backend] -&gt; f (Maybe [Backend]))
+-&gt; VirtualNodeSpec
+-&gt; f VirtualNodeSpec
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Backend] [Backend] [Backend] [Backend]
+-&gt; Iso
+     (Maybe [Backend])
+     (Maybe [Backend])
+     (Maybe [Backend])
+     (Maybe [Backend])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Backend] [Backend] [Backend] [Backend]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | A reference to an object that represents the defaults for backends.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#virtualNodeSpec_backendDefaults"><span class="hs-identifier hs-type">virtualNodeSpec_backendDefaults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.BackendDefaults.html#BackendDefaults"><span class="hs-identifier hs-type">BackendDefaults</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="virtualNodeSpec_backendDefaults"><span class="annot"><span class="annottext">virtualNodeSpec_backendDefaults :: (Maybe BackendDefaults -&gt; f (Maybe BackendDefaults))
+-&gt; VirtualNodeSpec -&gt; f VirtualNodeSpec
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#virtualNodeSpec_backendDefaults"><span class="hs-identifier hs-var hs-var">virtualNodeSpec_backendDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeSpec -&gt; Maybe BackendDefaults)
+-&gt; (VirtualNodeSpec -&gt; Maybe BackendDefaults -&gt; VirtualNodeSpec)
+-&gt; Lens
+     VirtualNodeSpec
+     VirtualNodeSpec
+     (Maybe BackendDefaults)
+     (Maybe BackendDefaults)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-type">VirtualNodeSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340956"><span class="annot"><span class="annottext">Maybe BackendDefaults
+backendDefaults :: Maybe BackendDefaults
+$sel:backendDefaults:VirtualNodeSpec' :: VirtualNodeSpec -&gt; Maybe BackendDefaults
+</span><a href="#local-6989586621679340956"><span class="hs-identifier hs-var hs-var">backendDefaults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BackendDefaults
+</span><a href="#local-6989586621679340956"><span class="hs-identifier hs-var">backendDefaults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340955"><span class="annot"><span class="annottext">s :: VirtualNodeSpec
+</span><a href="#local-6989586621679340955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-type">VirtualNodeSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340954"><span class="annot"><span class="annottext">Maybe BackendDefaults
+</span><a href="#local-6989586621679340954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualNodeSpec
+</span><a href="#local-6989586621679340955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backendDefaults:VirtualNodeSpec' :: Maybe BackendDefaults
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3AbackendDefaults%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var">backendDefaults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackendDefaults
+</span><a href="#local-6989586621679340954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The service discovery information for the virtual node. If your virtual</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- node does not expect ingress traffic, you can omit this parameter. If</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- you specify a @listener@, then you must specify service discovery</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- information.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#virtualNodeSpec_serviceDiscovery"><span class="hs-identifier hs-type">virtualNodeSpec_serviceDiscovery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.ServiceDiscovery.html#ServiceDiscovery"><span class="hs-identifier hs-type">ServiceDiscovery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="virtualNodeSpec_serviceDiscovery"><span class="annot"><span class="annottext">virtualNodeSpec_serviceDiscovery :: (Maybe ServiceDiscovery -&gt; f (Maybe ServiceDiscovery))
+-&gt; VirtualNodeSpec -&gt; f VirtualNodeSpec
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#virtualNodeSpec_serviceDiscovery"><span class="hs-identifier hs-var hs-var">virtualNodeSpec_serviceDiscovery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeSpec -&gt; Maybe ServiceDiscovery)
+-&gt; (VirtualNodeSpec -&gt; Maybe ServiceDiscovery -&gt; VirtualNodeSpec)
+-&gt; Lens
+     VirtualNodeSpec
+     VirtualNodeSpec
+     (Maybe ServiceDiscovery)
+     (Maybe ServiceDiscovery)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-type">VirtualNodeSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340952"><span class="annot"><span class="annottext">Maybe ServiceDiscovery
+serviceDiscovery :: Maybe ServiceDiscovery
+$sel:serviceDiscovery:VirtualNodeSpec' :: VirtualNodeSpec -&gt; Maybe ServiceDiscovery
+</span><a href="#local-6989586621679340952"><span class="hs-identifier hs-var hs-var">serviceDiscovery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceDiscovery
+</span><a href="#local-6989586621679340952"><span class="hs-identifier hs-var">serviceDiscovery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340951"><span class="annot"><span class="annottext">s :: VirtualNodeSpec
+</span><a href="#local-6989586621679340951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-type">VirtualNodeSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340950"><span class="annot"><span class="annottext">Maybe ServiceDiscovery
+</span><a href="#local-6989586621679340950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualNodeSpec
+</span><a href="#local-6989586621679340951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceDiscovery:VirtualNodeSpec' :: Maybe ServiceDiscovery
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3AserviceDiscovery%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var">serviceDiscovery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceDiscovery
+</span><a href="#local-6989586621679340950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The listener that the virtual node is expected to receive inbound</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- traffic from. You can specify one listener.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#virtualNodeSpec_listeners"><span class="hs-identifier hs-type">virtualNodeSpec_listeners</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppMesh.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="virtualNodeSpec_listeners"><span class="annot"><span class="annottext">virtualNodeSpec_listeners :: (Maybe [Listener] -&gt; f (Maybe [Listener]))
+-&gt; VirtualNodeSpec -&gt; f VirtualNodeSpec
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#virtualNodeSpec_listeners"><span class="hs-identifier hs-var hs-var">virtualNodeSpec_listeners</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeSpec -&gt; Maybe [Listener])
+-&gt; (VirtualNodeSpec -&gt; Maybe [Listener] -&gt; VirtualNodeSpec)
+-&gt; Lens
+     VirtualNodeSpec
+     VirtualNodeSpec
+     (Maybe [Listener])
+     (Maybe [Listener])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-type">VirtualNodeSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340948"><span class="annot"><span class="annottext">Maybe [Listener]
+listeners :: Maybe [Listener]
+$sel:listeners:VirtualNodeSpec' :: VirtualNodeSpec -&gt; Maybe [Listener]
+</span><a href="#local-6989586621679340948"><span class="hs-identifier hs-var hs-var">listeners</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Listener]
+</span><a href="#local-6989586621679340948"><span class="hs-identifier hs-var">listeners</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340947"><span class="annot"><span class="annottext">s :: VirtualNodeSpec
+</span><a href="#local-6989586621679340947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-type">VirtualNodeSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340946"><span class="annot"><span class="annottext">Maybe [Listener]
+</span><a href="#local-6989586621679340946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualNodeSpec
+</span><a href="#local-6989586621679340947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listeners:VirtualNodeSpec' :: Maybe [Listener]
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3Alisteners%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var">listeners</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Listener]
+</span><a href="#local-6989586621679340946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Listener] -&gt; f (Maybe [Listener]))
+ -&gt; VirtualNodeSpec -&gt; f VirtualNodeSpec)
+-&gt; ((Maybe [Listener] -&gt; f (Maybe [Listener]))
+    -&gt; Maybe [Listener] -&gt; f (Maybe [Listener]))
+-&gt; (Maybe [Listener] -&gt; f (Maybe [Listener]))
+-&gt; VirtualNodeSpec
+-&gt; f VirtualNodeSpec
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Listener] [Listener] [Listener] [Listener]
+-&gt; Iso
+     (Maybe [Listener])
+     (Maybe [Listener])
+     (Maybe [Listener])
+     (Maybe [Listener])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Listener] [Listener] [Listener] [Listener]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The inbound and outbound access logging information for the virtual</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- node.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#virtualNodeSpec_logging"><span class="hs-identifier hs-type">virtualNodeSpec_logging</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.Logging.html#Logging"><span class="hs-identifier hs-type">Logging</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="virtualNodeSpec_logging"><span class="annot"><span class="annottext">virtualNodeSpec_logging :: (Maybe Logging -&gt; f (Maybe Logging))
+-&gt; VirtualNodeSpec -&gt; f VirtualNodeSpec
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#virtualNodeSpec_logging"><span class="hs-identifier hs-var hs-var">virtualNodeSpec_logging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeSpec -&gt; Maybe Logging)
+-&gt; (VirtualNodeSpec -&gt; Maybe Logging -&gt; VirtualNodeSpec)
+-&gt; Lens
+     VirtualNodeSpec VirtualNodeSpec (Maybe Logging) (Maybe Logging)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-type">VirtualNodeSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340944"><span class="annot"><span class="annottext">Maybe Logging
+logging :: Maybe Logging
+$sel:logging:VirtualNodeSpec' :: VirtualNodeSpec -&gt; Maybe Logging
+</span><a href="#local-6989586621679340944"><span class="hs-identifier hs-var hs-var">logging</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Logging
+</span><a href="#local-6989586621679340944"><span class="hs-identifier hs-var">logging</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340943"><span class="annot"><span class="annottext">s :: VirtualNodeSpec
+</span><a href="#local-6989586621679340943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-type">VirtualNodeSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340942"><span class="annot"><span class="annottext">Maybe Logging
+</span><a href="#local-6989586621679340942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualNodeSpec
+</span><a href="#local-6989586621679340943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logging:VirtualNodeSpec' :: Maybe Logging
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#%24sel%3Alogging%3AVirtualNodeSpec%27"><span class="hs-identifier hs-var">logging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Logging
+</span><a href="#local-6989586621679340942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340939"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679340937"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VirtualNodeSpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VirtualNodeSpec)
+-&gt; Value
+-&gt; Parser VirtualNodeSpec
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VirtualNodeSpec&quot;</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679340934"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340934"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Backend]
+-&gt; Maybe BackendDefaults
+-&gt; Maybe ServiceDiscovery
+-&gt; Maybe [Listener]
+-&gt; Maybe Logging
+-&gt; VirtualNodeSpec
+</span><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-var">VirtualNodeSpec'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Backend]
+ -&gt; Maybe BackendDefaults
+ -&gt; Maybe ServiceDiscovery
+ -&gt; Maybe [Listener]
+ -&gt; Maybe Logging
+ -&gt; VirtualNodeSpec)
+-&gt; Parser (Maybe [Backend])
+-&gt; Parser
+     (Maybe BackendDefaults
+      -&gt; Maybe ServiceDiscovery
+      -&gt; Maybe [Listener]
+      -&gt; Maybe Logging
+      -&gt; VirtualNodeSpec)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Backend]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;backends&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Backend]))
+-&gt; Maybe [Backend] -&gt; Parser (Maybe [Backend])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Backend]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BackendDefaults
+   -&gt; Maybe ServiceDiscovery
+   -&gt; Maybe [Listener]
+   -&gt; Maybe Logging
+   -&gt; VirtualNodeSpec)
+-&gt; Parser (Maybe BackendDefaults)
+-&gt; Parser
+     (Maybe ServiceDiscovery
+      -&gt; Maybe [Listener] -&gt; Maybe Logging -&gt; VirtualNodeSpec)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BackendDefaults)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;backendDefaults&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ServiceDiscovery
+   -&gt; Maybe [Listener] -&gt; Maybe Logging -&gt; VirtualNodeSpec)
+-&gt; Parser (Maybe ServiceDiscovery)
+-&gt; Parser (Maybe [Listener] -&gt; Maybe Logging -&gt; VirtualNodeSpec)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceDiscovery)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceDiscovery&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Listener] -&gt; Maybe Logging -&gt; VirtualNodeSpec)
+-&gt; Parser (Maybe [Listener])
+-&gt; Parser (Maybe Logging -&gt; VirtualNodeSpec)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Listener]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;listeners&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Listener]))
+-&gt; Maybe [Listener] -&gt; Parser (Maybe [Listener])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Listener]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Logging -&gt; VirtualNodeSpec)
+-&gt; Parser (Maybe Logging) -&gt; Parser VirtualNodeSpec
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Logging)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logging&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340927"><span id="local-6989586621679340929"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340916"><span id="local-6989586621679340918"><span id="local-6989586621679340920"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec"><span class="hs-identifier hs-type">VirtualNodeSpec</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679340914"><span class="annot"><span class="annottext">toJSON :: VirtualNodeSpec -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualNodeSpec.html#VirtualNodeSpec%27"><span class="hs-identifier hs-type">VirtualNodeSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340908"><span id="local-6989586621679340909"><span id="local-6989586621679340910"><span id="local-6989586621679340911"><span id="local-6989586621679340912"><span class="annot"><span class="annottext">Maybe [Listener]
+Maybe [Backend]
+Maybe Logging
+Maybe ServiceDiscovery
+Maybe BackendDefaults
+logging :: Maybe Logging
+listeners :: Maybe [Listener]
+serviceDiscovery :: Maybe ServiceDiscovery
+backendDefaults :: Maybe BackendDefaults
+backends :: Maybe [Backend]
+$sel:logging:VirtualNodeSpec' :: VirtualNodeSpec -&gt; Maybe Logging
+$sel:listeners:VirtualNodeSpec' :: VirtualNodeSpec -&gt; Maybe [Listener]
+$sel:serviceDiscovery:VirtualNodeSpec' :: VirtualNodeSpec -&gt; Maybe ServiceDiscovery
+$sel:backendDefaults:VirtualNodeSpec' :: VirtualNodeSpec -&gt; Maybe BackendDefaults
+$sel:backends:VirtualNodeSpec' :: VirtualNodeSpec -&gt; Maybe [Backend]
+</span><a href="#local-6989586621679340908"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;backends&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Backend] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Backend] -&gt; Pair) -&gt; Maybe [Backend] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Backend]
+</span><a href="#local-6989586621679340912"><span class="hs-identifier hs-var">backends</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;backendDefaults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BackendDefaults -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">(BackendDefaults -&gt; Pair) -&gt; Maybe BackendDefaults -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BackendDefaults
+</span><a href="#local-6989586621679340911"><span class="hs-identifier hs-var">backendDefaults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceDiscovery&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ServiceDiscovery -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">(ServiceDiscovery -&gt; Pair) -&gt; Maybe ServiceDiscovery -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ServiceDiscovery
+</span><a href="#local-6989586621679340910"><span class="hs-identifier hs-var">serviceDiscovery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;listeners&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Listener] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Listener] -&gt; Pair) -&gt; Maybe [Listener] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Listener]
+</span><a href="#local-6989586621679340909"><span class="hs-identifier hs-var">listeners</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logging&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Logging -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Logging -&gt; Pair) -&gt; Maybe Logging -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Logging
+</span><a href="#local-6989586621679340908"><span class="hs-identifier hs-var">logging</span></a></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span></pre></body></html>

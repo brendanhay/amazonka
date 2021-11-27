@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.VpcDescription.html"><span class="hs-identifier">Amazonka.KafkaConnect.Types.VpcDescription</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The description of the Apache Kafka cluster to which the connector is</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- connected.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newApacheKafkaClusterDescription' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679205218"><span id="local-6989586621679205219"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApacheKafkaClusterDescription"><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription"><span class="hs-identifier hs-var">ApacheKafkaClusterDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApacheKafkaClusterDescription%27"><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription%27"><span class="hs-identifier hs-var">ApacheKafkaClusterDescription'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The bootstrap servers of the cluster.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AbootstrapServers%3AApacheKafkaClusterDescription%27"><span class="annot"><span class="annottext">ApacheKafkaClusterDescription -&gt; Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#%24sel%3AbootstrapServers%3AApacheKafkaClusterDescription%27"><span class="hs-identifier hs-var hs-var">bootstrapServers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Details of an Amazon VPC which has network connectivity to the Apache</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Kafka cluster.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Avpc%3AApacheKafkaClusterDescription%27"><span class="annot"><span class="annottext">ApacheKafkaClusterDescription -&gt; Maybe VpcDescription
+</span><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#%24sel%3Avpc%3AApacheKafkaClusterDescription%27"><span class="hs-identifier hs-var hs-var">vpc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.VpcDescription.html#VpcDescription"><span class="hs-identifier hs-type">VpcDescription</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205211"><span id="local-6989586621679205213"><span class="annot"><span class="annottext">ApacheKafkaClusterDescription
+-&gt; ApacheKafkaClusterDescription -&gt; Bool
+(ApacheKafkaClusterDescription
+ -&gt; ApacheKafkaClusterDescription -&gt; Bool)
+-&gt; (ApacheKafkaClusterDescription
+    -&gt; ApacheKafkaClusterDescription -&gt; Bool)
+-&gt; Eq ApacheKafkaClusterDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApacheKafkaClusterDescription
+-&gt; ApacheKafkaClusterDescription -&gt; Bool
+$c/= :: ApacheKafkaClusterDescription
+-&gt; ApacheKafkaClusterDescription -&gt; Bool
+== :: ApacheKafkaClusterDescription
+-&gt; ApacheKafkaClusterDescription -&gt; Bool
+$c== :: ApacheKafkaClusterDescription
+-&gt; ApacheKafkaClusterDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205202"><span id="local-6989586621679205204"><span id="local-6989586621679205206"><span id="local-6989586621679205208"><span class="annot"><span class="annottext">ReadPrec [ApacheKafkaClusterDescription]
+ReadPrec ApacheKafkaClusterDescription
+Int -&gt; ReadS ApacheKafkaClusterDescription
+ReadS [ApacheKafkaClusterDescription]
+(Int -&gt; ReadS ApacheKafkaClusterDescription)
+-&gt; ReadS [ApacheKafkaClusterDescription]
+-&gt; ReadPrec ApacheKafkaClusterDescription
+-&gt; ReadPrec [ApacheKafkaClusterDescription]
+-&gt; Read ApacheKafkaClusterDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApacheKafkaClusterDescription]
+$creadListPrec :: ReadPrec [ApacheKafkaClusterDescription]
+readPrec :: ReadPrec ApacheKafkaClusterDescription
+$creadPrec :: ReadPrec ApacheKafkaClusterDescription
+readList :: ReadS [ApacheKafkaClusterDescription]
+$creadList :: ReadS [ApacheKafkaClusterDescription]
+readsPrec :: Int -&gt; ReadS ApacheKafkaClusterDescription
+$creadsPrec :: Int -&gt; ReadS ApacheKafkaClusterDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205195"><span id="local-6989586621679205197"><span id="local-6989586621679205199"><span class="annot"><span class="annottext">Int -&gt; ApacheKafkaClusterDescription -&gt; ShowS
+[ApacheKafkaClusterDescription] -&gt; ShowS
+ApacheKafkaClusterDescription -&gt; String
+(Int -&gt; ApacheKafkaClusterDescription -&gt; ShowS)
+-&gt; (ApacheKafkaClusterDescription -&gt; String)
+-&gt; ([ApacheKafkaClusterDescription] -&gt; ShowS)
+-&gt; Show ApacheKafkaClusterDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApacheKafkaClusterDescription] -&gt; ShowS
+$cshowList :: [ApacheKafkaClusterDescription] -&gt; ShowS
+show :: ApacheKafkaClusterDescription -&gt; String
+$cshow :: ApacheKafkaClusterDescription -&gt; String
+showsPrec :: Int -&gt; ApacheKafkaClusterDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApacheKafkaClusterDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ApacheKafkaClusterDescription
+ -&gt; Rep ApacheKafkaClusterDescription x)
+-&gt; (forall x.
+    Rep ApacheKafkaClusterDescription x
+    -&gt; ApacheKafkaClusterDescription)
+-&gt; Generic ApacheKafkaClusterDescription
+forall x.
+Rep ApacheKafkaClusterDescription x
+-&gt; ApacheKafkaClusterDescription
+forall x.
+ApacheKafkaClusterDescription
+-&gt; Rep ApacheKafkaClusterDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ApacheKafkaClusterDescription x
+-&gt; ApacheKafkaClusterDescription
+$cfrom :: forall x.
+ApacheKafkaClusterDescription
+-&gt; Rep ApacheKafkaClusterDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'ApacheKafkaClusterDescription' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'bootstrapServers', 'apacheKafkaClusterDescription_bootstrapServers' - The bootstrap servers of the cluster.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'vpc', 'apacheKafkaClusterDescription_vpc' - Details of an Amazon VPC which has network connectivity to the Apache</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Kafka cluster.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#newApacheKafkaClusterDescription"><span class="hs-identifier hs-type">newApacheKafkaClusterDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription</span></a></span><span>
+</span><span id="line-54"></span><span id="newApacheKafkaClusterDescription"><span class="annot"><span class="annottext">newApacheKafkaClusterDescription :: ApacheKafkaClusterDescription
+</span><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#newApacheKafkaClusterDescription"><span class="hs-identifier hs-var hs-var">newApacheKafkaClusterDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ApacheKafkaClusterDescription' :: Maybe Text -&gt; Maybe VpcDescription -&gt; ApacheKafkaClusterDescription
+</span><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription%27"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bootstrapServers:ApacheKafkaClusterDescription' :: Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#%24sel%3AbootstrapServers%3AApacheKafkaClusterDescription%27"><span class="hs-identifier hs-var">bootstrapServers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpc:ApacheKafkaClusterDescription' :: Maybe VpcDescription
+</span><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#%24sel%3Avpc%3AApacheKafkaClusterDescription%27"><span class="hs-identifier hs-var">vpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The bootstrap servers of the cluster.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#apacheKafkaClusterDescription_bootstrapServers"><span class="hs-identifier hs-type">apacheKafkaClusterDescription_bootstrapServers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="apacheKafkaClusterDescription_bootstrapServers"><span class="annot"><span class="annottext">apacheKafkaClusterDescription_bootstrapServers :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApacheKafkaClusterDescription -&gt; f ApacheKafkaClusterDescription
+</span><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#apacheKafkaClusterDescription_bootstrapServers"><span class="hs-identifier hs-var hs-var">apacheKafkaClusterDescription_bootstrapServers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApacheKafkaClusterDescription -&gt; Maybe Text)
+-&gt; (ApacheKafkaClusterDescription
+    -&gt; Maybe Text -&gt; ApacheKafkaClusterDescription)
+-&gt; Lens
+     ApacheKafkaClusterDescription
+     ApacheKafkaClusterDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription%27"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205186"><span class="annot"><span class="annottext">Maybe Text
+bootstrapServers :: Maybe Text
+$sel:bootstrapServers:ApacheKafkaClusterDescription' :: ApacheKafkaClusterDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679205186"><span class="hs-identifier hs-var hs-var">bootstrapServers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205186"><span class="hs-identifier hs-var">bootstrapServers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205185"><span class="annot"><span class="annottext">s :: ApacheKafkaClusterDescription
+</span><a href="#local-6989586621679205185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription%27"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205184"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApacheKafkaClusterDescription
+</span><a href="#local-6989586621679205185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bootstrapServers:ApacheKafkaClusterDescription' :: Maybe Text
+</span><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#%24sel%3AbootstrapServers%3AApacheKafkaClusterDescription%27"><span class="hs-identifier hs-var">bootstrapServers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | Details of an Amazon VPC which has network connectivity to the Apache</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Kafka cluster.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#apacheKafkaClusterDescription_vpc"><span class="hs-identifier hs-type">apacheKafkaClusterDescription_vpc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.VpcDescription.html#VpcDescription"><span class="hs-identifier hs-type">VpcDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="apacheKafkaClusterDescription_vpc"><span class="annot"><span class="annottext">apacheKafkaClusterDescription_vpc :: (Maybe VpcDescription -&gt; f (Maybe VpcDescription))
+-&gt; ApacheKafkaClusterDescription -&gt; f ApacheKafkaClusterDescription
+</span><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#apacheKafkaClusterDescription_vpc"><span class="hs-identifier hs-var hs-var">apacheKafkaClusterDescription_vpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApacheKafkaClusterDescription -&gt; Maybe VpcDescription)
+-&gt; (ApacheKafkaClusterDescription
+    -&gt; Maybe VpcDescription -&gt; ApacheKafkaClusterDescription)
+-&gt; Lens
+     ApacheKafkaClusterDescription
+     ApacheKafkaClusterDescription
+     (Maybe VpcDescription)
+     (Maybe VpcDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription%27"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205182"><span class="annot"><span class="annottext">Maybe VpcDescription
+vpc :: Maybe VpcDescription
+$sel:vpc:ApacheKafkaClusterDescription' :: ApacheKafkaClusterDescription -&gt; Maybe VpcDescription
+</span><a href="#local-6989586621679205182"><span class="hs-identifier hs-var hs-var">vpc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcDescription
+</span><a href="#local-6989586621679205182"><span class="hs-identifier hs-var">vpc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205181"><span class="annot"><span class="annottext">s :: ApacheKafkaClusterDescription
+</span><a href="#local-6989586621679205181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription%27"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205180"><span class="annot"><span class="annottext">Maybe VpcDescription
+</span><a href="#local-6989586621679205180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApacheKafkaClusterDescription
+</span><a href="#local-6989586621679205181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpc:ApacheKafkaClusterDescription' :: Maybe VpcDescription
+</span><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#%24sel%3Avpc%3AApacheKafkaClusterDescription%27"><span class="hs-identifier hs-var">vpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcDescription
+</span><a href="#local-6989586621679205180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679205175"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApacheKafkaClusterDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ApacheKafkaClusterDescription)
+-&gt; Value
+-&gt; Parser ApacheKafkaClusterDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ApacheKafkaClusterDescription&quot;</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205172"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe VpcDescription -&gt; ApacheKafkaClusterDescription
+</span><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription%27"><span class="hs-identifier hs-var">ApacheKafkaClusterDescription'</span></a></span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe VpcDescription -&gt; ApacheKafkaClusterDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe VpcDescription -&gt; ApacheKafkaClusterDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bootstrapServers&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe VpcDescription -&gt; ApacheKafkaClusterDescription)
+-&gt; Parser (Maybe VpcDescription)
+-&gt; Parser ApacheKafkaClusterDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VpcDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpc&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679205166"><span id="local-6989586621679205168"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription</span></a></span></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.html#ApacheKafkaClusterDescription"><span class="hs-identifier hs-type">ApacheKafkaClusterDescription</span></a></span></span><span>
+</span><span id="line-85"></span></pre></body></html>

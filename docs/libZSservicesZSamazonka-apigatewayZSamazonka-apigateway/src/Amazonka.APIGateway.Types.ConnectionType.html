@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.APIGateway.Types.ConnectionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.APIGateway.Types.ConnectionType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier">ConnectionType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType_INTERNET"><span class="hs-identifier">ConnectionType_INTERNET</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType_VPC_LINK"><span class="hs-identifier">ConnectionType_VPC_LINK</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679365180"><span id="local-6989586621679365181"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectionType"><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-var">ConnectionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionType%27"><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType%27"><span class="hs-identifier hs-var">ConnectionType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectionType"><span class="annot"><span class="annottext">ConnectionType -&gt; Text
+</span><a href="Amazonka.APIGateway.Types.ConnectionType.html#fromConnectionType"><span class="hs-identifier hs-var hs-var">fromConnectionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365172"><span id="local-6989586621679365174"><span id="local-6989586621679365176"><span class="annot"><span class="annottext">Int -&gt; ConnectionType -&gt; ShowS
+[ConnectionType] -&gt; ShowS
+ConnectionType -&gt; String
+(Int -&gt; ConnectionType -&gt; ShowS)
+-&gt; (ConnectionType -&gt; String)
+-&gt; ([ConnectionType] -&gt; ShowS)
+-&gt; Show ConnectionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConnectionType] -&gt; ShowS
+$cshowList :: [ConnectionType] -&gt; ShowS
+show :: ConnectionType -&gt; String
+$cshow :: ConnectionType -&gt; String
+showsPrec :: Int -&gt; ConnectionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConnectionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679365163"><span id="local-6989586621679365165"><span id="local-6989586621679365167"><span id="local-6989586621679365169"><span class="annot"><span class="annottext">ReadPrec [ConnectionType]
+ReadPrec ConnectionType
+Int -&gt; ReadS ConnectionType
+ReadS [ConnectionType]
+(Int -&gt; ReadS ConnectionType)
+-&gt; ReadS [ConnectionType]
+-&gt; ReadPrec ConnectionType
+-&gt; ReadPrec [ConnectionType]
+-&gt; Read ConnectionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConnectionType]
+$creadListPrec :: ReadPrec [ConnectionType]
+readPrec :: ReadPrec ConnectionType
+$creadPrec :: ReadPrec ConnectionType
+readList :: ReadS [ConnectionType]
+$creadList :: ReadS [ConnectionType]
+readsPrec :: Int -&gt; ReadS ConnectionType
+$creadsPrec :: Int -&gt; ReadS ConnectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679365158"><span id="local-6989586621679365160"><span class="annot"><span class="annottext">ConnectionType -&gt; ConnectionType -&gt; Bool
+(ConnectionType -&gt; ConnectionType -&gt; Bool)
+-&gt; (ConnectionType -&gt; ConnectionType -&gt; Bool) -&gt; Eq ConnectionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConnectionType -&gt; ConnectionType -&gt; Bool
+$c/= :: ConnectionType -&gt; ConnectionType -&gt; Bool
+== :: ConnectionType -&gt; ConnectionType -&gt; Bool
+$c== :: ConnectionType -&gt; ConnectionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679365142"><span id="local-6989586621679365144"><span id="local-6989586621679365146"><span id="local-6989586621679365148"><span id="local-6989586621679365150"><span id="local-6989586621679365152"><span id="local-6989586621679365154"><span class="annot"><span class="annottext">Eq ConnectionType
+Eq ConnectionType
+-&gt; (ConnectionType -&gt; ConnectionType -&gt; Ordering)
+-&gt; (ConnectionType -&gt; ConnectionType -&gt; Bool)
+-&gt; (ConnectionType -&gt; ConnectionType -&gt; Bool)
+-&gt; (ConnectionType -&gt; ConnectionType -&gt; Bool)
+-&gt; (ConnectionType -&gt; ConnectionType -&gt; Bool)
+-&gt; (ConnectionType -&gt; ConnectionType -&gt; ConnectionType)
+-&gt; (ConnectionType -&gt; ConnectionType -&gt; ConnectionType)
+-&gt; Ord ConnectionType
+ConnectionType -&gt; ConnectionType -&gt; Bool
+ConnectionType -&gt; ConnectionType -&gt; Ordering
+ConnectionType -&gt; ConnectionType -&gt; ConnectionType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConnectionType -&gt; ConnectionType -&gt; ConnectionType
+$cmin :: ConnectionType -&gt; ConnectionType -&gt; ConnectionType
+max :: ConnectionType -&gt; ConnectionType -&gt; ConnectionType
+$cmax :: ConnectionType -&gt; ConnectionType -&gt; ConnectionType
+&gt;= :: ConnectionType -&gt; ConnectionType -&gt; Bool
+$c&gt;= :: ConnectionType -&gt; ConnectionType -&gt; Bool
+&gt; :: ConnectionType -&gt; ConnectionType -&gt; Bool
+$c&gt; :: ConnectionType -&gt; ConnectionType -&gt; Bool
+&lt;= :: ConnectionType -&gt; ConnectionType -&gt; Bool
+$c&lt;= :: ConnectionType -&gt; ConnectionType -&gt; Bool
+&lt; :: ConnectionType -&gt; ConnectionType -&gt; Bool
+$c&lt; :: ConnectionType -&gt; ConnectionType -&gt; Bool
+compare :: ConnectionType -&gt; ConnectionType -&gt; Ordering
+$ccompare :: ConnectionType -&gt; ConnectionType -&gt; Ordering
+$cp1Ord :: Eq ConnectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ConnectionType -&gt; Rep ConnectionType x)
+-&gt; (forall x. Rep ConnectionType x -&gt; ConnectionType)
+-&gt; Generic ConnectionType
+forall x. Rep ConnectionType x -&gt; ConnectionType
+forall x. ConnectionType -&gt; Rep ConnectionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConnectionType x -&gt; ConnectionType
+$cfrom :: forall x. ConnectionType -&gt; Rep ConnectionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365134"><span id="local-6989586621679365136"><span class="annot"><span class="annottext">Int -&gt; ConnectionType -&gt; Int
+ConnectionType -&gt; Int
+(Int -&gt; ConnectionType -&gt; Int)
+-&gt; (ConnectionType -&gt; Int) -&gt; Hashable ConnectionType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConnectionType -&gt; Int
+$chash :: ConnectionType -&gt; Int
+hashWithSalt :: Int -&gt; ConnectionType -&gt; Int
+$chashWithSalt :: Int -&gt; ConnectionType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679365131"><span class="annot"><span class="annottext">ConnectionType -&gt; ()
+(ConnectionType -&gt; ()) -&gt; NFData ConnectionType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConnectionType -&gt; ()
+$crnf :: ConnectionType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679365128"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectionType
+(Text -&gt; Either String ConnectionType) -&gt; FromText ConnectionType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConnectionType
+$cfromText :: Text -&gt; Either String ConnectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679365125"><span class="annot"><span class="annottext">ConnectionType -&gt; Text
+(ConnectionType -&gt; Text) -&gt; ToText ConnectionType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConnectionType -&gt; Text
+$ctoText :: ConnectionType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365122"><span class="annot"><span class="annottext">ConnectionType -&gt; ByteString
+(ConnectionType -&gt; ByteString) -&gt; ToByteString ConnectionType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConnectionType -&gt; ByteString
+$ctoBS :: ConnectionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365119"><span class="annot"><span class="annottext">ConnectionType -&gt; ByteStringBuilder
+(ConnectionType -&gt; ByteStringBuilder) -&gt; ToLog ConnectionType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConnectionType -&gt; ByteStringBuilder
+$cbuild :: ConnectionType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365116"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectionType -&gt; [Header]
+(HeaderName -&gt; ConnectionType -&gt; [Header])
+-&gt; ToHeader ConnectionType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConnectionType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConnectionType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365113"><span class="annot"><span class="annottext">ConnectionType -&gt; QueryString
+(ConnectionType -&gt; QueryString) -&gt; ToQuery ConnectionType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConnectionType -&gt; QueryString
+$ctoQuery :: ConnectionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365108"><span id="local-6989586621679365110"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectionType]
+Value -&gt; Parser ConnectionType
+(Value -&gt; Parser ConnectionType)
+-&gt; (Value -&gt; Parser [ConnectionType]) -&gt; FromJSON ConnectionType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConnectionType]
+$cparseJSONList :: Value -&gt; Parser [ConnectionType]
+parseJSON :: Value -&gt; Parser ConnectionType
+$cparseJSON :: Value -&gt; Parser ConnectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365103"><span id="local-6989586621679365105"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectionType]
+FromJSONKeyFunction ConnectionType
+FromJSONKeyFunction ConnectionType
+-&gt; FromJSONKeyFunction [ConnectionType]
+-&gt; FromJSONKey ConnectionType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConnectionType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConnectionType]
+fromJSONKey :: FromJSONKeyFunction ConnectionType
+$cfromJSONKey :: FromJSONKeyFunction ConnectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365094"><span id="local-6989586621679365096"><span id="local-6989586621679365098"><span id="local-6989586621679365100"><span class="annot"><span class="annottext">[ConnectionType] -&gt; Encoding
+[ConnectionType] -&gt; Value
+ConnectionType -&gt; Encoding
+ConnectionType -&gt; Value
+(ConnectionType -&gt; Value)
+-&gt; (ConnectionType -&gt; Encoding)
+-&gt; ([ConnectionType] -&gt; Value)
+-&gt; ([ConnectionType] -&gt; Encoding)
+-&gt; ToJSON ConnectionType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConnectionType] -&gt; Encoding
+$ctoEncodingList :: [ConnectionType] -&gt; Encoding
+toJSONList :: [ConnectionType] -&gt; Value
+$ctoJSONList :: [ConnectionType] -&gt; Value
+toEncoding :: ConnectionType -&gt; Encoding
+$ctoEncoding :: ConnectionType -&gt; Encoding
+toJSON :: ConnectionType -&gt; Value
+$ctoJSON :: ConnectionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365089"><span id="local-6989586621679365091"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectionType]
+ToJSONKeyFunction ConnectionType
+ToJSONKeyFunction ConnectionType
+-&gt; ToJSONKeyFunction [ConnectionType] -&gt; ToJSONKey ConnectionType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConnectionType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConnectionType]
+toJSONKey :: ToJSONKeyFunction ConnectionType
+$ctoJSONKey :: ToJSONKeyFunction ConnectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365086"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectionType
+([Node] -&gt; Either String ConnectionType) -&gt; FromXML ConnectionType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConnectionType
+$cparseXML :: [Node] -&gt; Either String ConnectionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365083"><span class="annot"><span class="annottext">ConnectionType -&gt; XML
+(ConnectionType -&gt; XML) -&gt; ToXML ConnectionType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConnectionType -&gt; XML
+$ctoXML :: ConnectionType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType_INTERNET"><span class="hs-identifier hs-type">ConnectionType_INTERNET</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-type">ConnectionType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionType_INTERNET"><span id="%24mConnectionType_INTERNET"><span id="ConnectionType_INTERNET"><span class="annot"><span class="annottext">$bConnectionType_INTERNET :: ConnectionType
+$mConnectionType_INTERNET :: forall r. ConnectionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.APIGateway.Types.ConnectionType.html#%24bConnectionType_INTERNET"><span class="hs-identifier hs-var hs-var hs-var">ConnectionType_INTERNET</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType%27"><span class="hs-identifier hs-type">ConnectionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNET&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType_VPC_LINK"><span class="hs-identifier hs-type">ConnectionType_VPC_LINK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-type">ConnectionType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionType_VPC_LINK"><span id="%24mConnectionType_VPC_LINK"><span id="ConnectionType_VPC_LINK"><span class="annot"><span class="annottext">$bConnectionType_VPC_LINK :: ConnectionType
+$mConnectionType_VPC_LINK :: forall r. ConnectionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.APIGateway.Types.ConnectionType.html#%24bConnectionType_VPC_LINK"><span class="hs-identifier hs-var hs-var hs-var">ConnectionType_VPC_LINK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType%27"><span class="hs-identifier hs-type">ConnectionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VPC_LINK&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType_INTERNET"><span class="hs-pragma hs-type">ConnectionType_INTERNET</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType_VPC_LINK"><span class="hs-pragma hs-type">ConnectionType_VPC_LINK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.APIGateway.Types.ConnectionType.html#ConnectionType%27"><span class="hs-pragma hs-type">ConnectionType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

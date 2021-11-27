@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ResourceGroups.Types.FailedResource
+module Amazonka.ResourceGroups.Types.FailedResource
 
 -- | A resource that failed to be added to or removed from a group.
 --   
@@ -51,16 +51,16 @@ failedResource_errorCode :: Lens' FailedResource (Maybe Text)
 
 -- | The error message text associated with the failure.
 failedResource_errorMessage :: Lens' FailedResource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.FailedResource.FailedResource
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.FailedResource.FailedResource
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.FailedResource.FailedResource
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.FailedResource.FailedResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.FailedResource.FailedResource
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.FailedResource.FailedResource
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.FailedResource.FailedResource
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.FailedResource.FailedResource
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.FailedResource.FailedResource
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.FailedResource.FailedResource
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.FailedResource.FailedResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.FailedResource.FailedResource
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.FailedResource.FailedResource
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.FailedResource.FailedResource
 
 
-module Network.AWS.ResourceGroups.Types.Group
+module Amazonka.ResourceGroups.Types.Group
 
 -- | A resource group that contains AWS resources. You can assign resources
 --   to the group by associating either of the following elements with the
@@ -116,16 +116,16 @@ group_groupArn :: Lens' Group Text
 
 -- | The name of the resource group.
 group_name :: Lens' Group Text
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.Group.Group
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.Group.Group
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.Group.Group
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.Group.Group
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.Group.Group
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.Group.Group
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.Group.Group
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.Group.Group
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.Group.Group
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.Group.Group
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.Group.Group
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.Group.Group
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.Group.Group
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.Group.Group
 
 
-module Network.AWS.ResourceGroups.Types.GroupConfigurationParameter
+module Amazonka.ResourceGroups.Types.GroupConfigurationParameter
 
 -- | A parameter for a group configuration item. For details about group
 --   service configuration syntax, see <a>Service configurations for
@@ -176,17 +176,17 @@ groupConfigurationParameter_values :: Lens' GroupConfigurationParameter (Maybe [
 --   parameters that you can use with each configuration item type, see
 --   <a>Supported resource types and parameters</a>.
 groupConfigurationParameter_name :: Lens' GroupConfigurationParameter Text
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Types.GroupConfigurationParameter.GroupConfigurationParameter
 
 
-module Network.AWS.ResourceGroups.Types.GroupConfigurationItem
+module Amazonka.ResourceGroups.Types.GroupConfigurationItem
 
 -- | An item in a group configuration. A group service configuration can
 --   have one or more items. For details about group service configuration
@@ -240,45 +240,45 @@ groupConfigurationItem_parameters :: Lens' GroupConfigurationItem (Maybe [GroupC
 --   specify for a configuration item, see <a>Supported resource types and
 --   parameters</a>.
 groupConfigurationItem_type :: Lens' GroupConfigurationItem Text
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Types.GroupConfigurationItem.GroupConfigurationItem
 
 
-module Network.AWS.ResourceGroups.Types.GroupConfigurationStatus
+module Amazonka.ResourceGroups.Types.GroupConfigurationStatus
 newtype GroupConfigurationStatus
 GroupConfigurationStatus' :: Text -> GroupConfigurationStatus
 [fromGroupConfigurationStatus] :: GroupConfigurationStatus -> Text
 pattern GroupConfigurationStatus_UPDATE_COMPLETE :: GroupConfigurationStatus
 pattern GroupConfigurationStatus_UPDATE_FAILED :: GroupConfigurationStatus
 pattern GroupConfigurationStatus_UPDATING :: GroupConfigurationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance GHC.Classes.Ord Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Amazonka.Data.Text.ToText Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Amazonka.Data.Text.FromText Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance GHC.Classes.Ord Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.GroupConfigurationStatus.GroupConfigurationStatus
 
 
-module Network.AWS.ResourceGroups.Types.GroupConfiguration
+module Amazonka.ResourceGroups.Types.GroupConfiguration
 
 -- | A service configuration associated with a resource group. The
 --   configuration options are determined by the AWS service that defines
@@ -346,43 +346,43 @@ groupConfiguration_proposedConfiguration :: Lens' GroupConfiguration (Maybe [Gro
 
 -- | The configuration currently associated with the group and in effect.
 groupConfiguration_configuration :: Lens' GroupConfiguration (Maybe [GroupConfigurationItem])
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
 
 
-module Network.AWS.ResourceGroups.Types.GroupFilterName
+module Amazonka.ResourceGroups.Types.GroupFilterName
 newtype GroupFilterName
 GroupFilterName' :: Text -> GroupFilterName
 [fromGroupFilterName] :: GroupFilterName -> Text
 pattern GroupFilterName_Configuration_type :: GroupFilterName
 pattern GroupFilterName_Resource_type :: GroupFilterName
-instance Network.AWS.Data.XML.ToXML Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Network.AWS.Data.XML.FromXML Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Network.AWS.Data.Log.ToLog Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Network.AWS.Data.Text.ToText Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Network.AWS.Data.Text.FromText Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance GHC.Classes.Ord Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Amazonka.Data.XML.ToXML Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Amazonka.Data.XML.FromXML Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Amazonka.Data.Headers.ToHeader Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Amazonka.Data.Log.ToLog Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Amazonka.Data.Text.ToText Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Amazonka.Data.Text.FromText Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance GHC.Classes.Ord Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.GroupFilterName.GroupFilterName
 
 
-module Network.AWS.ResourceGroups.Types.GroupFilter
+module Amazonka.ResourceGroups.Types.GroupFilter
 
 -- | A filter collection that you can use to restrict the results from a
 --   <tt>List</tt> operation to only those you want to include.
@@ -420,16 +420,16 @@ groupFilter_name :: Lens' GroupFilter GroupFilterName
 -- | One or more filter values. Allowed filter values vary by group filter
 --   name, and are case-sensitive.
 groupFilter_values :: Lens' GroupFilter (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.GroupFilter.GroupFilter
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.GroupFilter.GroupFilter
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.GroupFilter.GroupFilter
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.GroupFilter.GroupFilter
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.GroupFilter.GroupFilter
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.GroupFilter.GroupFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Types.GroupFilter.GroupFilter
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.GroupFilter.GroupFilter
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.GroupFilter.GroupFilter
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.GroupFilter.GroupFilter
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.GroupFilter.GroupFilter
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.GroupFilter.GroupFilter
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.GroupFilter.GroupFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Types.GroupFilter.GroupFilter
 
 
-module Network.AWS.ResourceGroups.Types.GroupIdentifier
+module Amazonka.ResourceGroups.Types.GroupIdentifier
 
 -- | The unique identifiers for a resource group.
 --   
@@ -464,16 +464,16 @@ groupIdentifier_groupArn :: Lens' GroupIdentifier (Maybe Text)
 
 -- | The name of the resource group.
 groupIdentifier_groupName :: Lens' GroupIdentifier (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
 
 
-module Network.AWS.ResourceGroups.Types.PendingResource
+module Amazonka.ResourceGroups.Types.PendingResource
 
 -- | A structure that identifies a resource that is currently pending
 --   addition to the group as a member. Adding a resource to a resource
@@ -505,43 +505,43 @@ newPendingResource :: PendingResource
 -- | The Amazon resource name (ARN) of the resource that's in a pending
 --   state.
 pendingResource_resourceArn :: Lens' PendingResource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.PendingResource.PendingResource
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.PendingResource.PendingResource
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.PendingResource.PendingResource
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.PendingResource.PendingResource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.PendingResource.PendingResource
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.PendingResource.PendingResource
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.PendingResource.PendingResource
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.PendingResource.PendingResource
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.PendingResource.PendingResource
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.PendingResource.PendingResource
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.PendingResource.PendingResource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.PendingResource.PendingResource
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.PendingResource.PendingResource
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.PendingResource.PendingResource
 
 
-module Network.AWS.ResourceGroups.Types.QueryErrorCode
+module Amazonka.ResourceGroups.Types.QueryErrorCode
 newtype QueryErrorCode
 QueryErrorCode' :: Text -> QueryErrorCode
 [fromQueryErrorCode] :: QueryErrorCode -> Text
 pattern QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE :: QueryErrorCode
 pattern QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING :: QueryErrorCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Network.AWS.Data.Text.ToText Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Network.AWS.Data.Text.FromText Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance GHC.Classes.Ord Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Amazonka.Data.XML.ToXML Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Amazonka.Data.XML.FromXML Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Amazonka.Data.Log.ToLog Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Amazonka.Data.Text.ToText Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Amazonka.Data.Text.FromText Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance GHC.Classes.Ord Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.QueryErrorCode.QueryErrorCode
 
 
-module Network.AWS.ResourceGroups.Types.QueryError
+module Amazonka.ResourceGroups.Types.QueryError
 
 -- | A two-part error structure that can occur in
 --   <tt>ListGroupResources</tt> or <tt>SearchResources</tt> operations on
@@ -597,69 +597,69 @@ queryError_errorCode :: Lens' QueryError (Maybe QueryErrorCode)
 --   message typically states that the CloudFormation stack has a status
 --   that is not (or no longer) active, such as <tt>CREATE_FAILED</tt>.
 queryError_message :: Lens' QueryError (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.QueryError.QueryError
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.QueryError.QueryError
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.QueryError.QueryError
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.QueryError.QueryError
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.QueryError.QueryError
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.QueryError.QueryError
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.QueryError.QueryError
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.QueryError.QueryError
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.QueryError.QueryError
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.QueryError.QueryError
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.QueryError.QueryError
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.QueryError.QueryError
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.QueryError.QueryError
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.QueryError.QueryError
 
 
-module Network.AWS.ResourceGroups.Types.QueryType
+module Amazonka.ResourceGroups.Types.QueryType
 newtype QueryType
 QueryType' :: Text -> QueryType
 [fromQueryType] :: QueryType -> Text
 pattern QueryType_CLOUDFORMATION_STACK_1_0 :: QueryType
 pattern QueryType_TAG_FILTERS_1_0 :: QueryType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Network.AWS.Data.Text.ToText Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Network.AWS.Data.Text.FromText Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance GHC.Classes.Ord Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.QueryType.QueryType
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.QueryType.QueryType
+instance Amazonka.Data.XML.ToXML Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Amazonka.Data.XML.FromXML Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Amazonka.Data.Log.ToLog Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Amazonka.Data.Text.ToText Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Amazonka.Data.Text.FromText Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance GHC.Classes.Ord Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.QueryType.QueryType
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.QueryType.QueryType
 
 
-module Network.AWS.ResourceGroups.Types.ResourceFilterName
+module Amazonka.ResourceGroups.Types.ResourceFilterName
 newtype ResourceFilterName
 ResourceFilterName' :: Text -> ResourceFilterName
 [fromResourceFilterName] :: ResourceFilterName -> Text
 pattern ResourceFilterName_Resource_type :: ResourceFilterName
-instance Network.AWS.Data.XML.ToXML Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Network.AWS.Data.XML.FromXML Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Network.AWS.Data.Log.ToLog Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Network.AWS.Data.Text.ToText Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Network.AWS.Data.Text.FromText Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance GHC.Classes.Ord Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Amazonka.Data.XML.ToXML Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Amazonka.Data.XML.FromXML Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Amazonka.Data.Headers.ToHeader Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Amazonka.Data.Log.ToLog Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Amazonka.Data.Text.ToText Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Amazonka.Data.Text.FromText Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance GHC.Classes.Ord Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.ResourceFilterName.ResourceFilterName
 
 
-module Network.AWS.ResourceGroups.Types.ResourceFilter
+module Amazonka.ResourceGroups.Types.ResourceFilter
 
 -- | A filter name and value pair that is used to obtain more specific
 --   results from a list of resources.
@@ -698,16 +698,16 @@ resourceFilter_name :: Lens' ResourceFilter ResourceFilterName
 -- | One or more filter values. Allowed filter values vary by resource
 --   filter name, and are case-sensitive.
 resourceFilter_values :: Lens' ResourceFilter (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.ResourceFilter.ResourceFilter
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.ResourceFilter.ResourceFilter
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.ResourceFilter.ResourceFilter
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.ResourceFilter.ResourceFilter
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.ResourceFilter.ResourceFilter
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.ResourceFilter.ResourceFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Types.ResourceFilter.ResourceFilter
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.ResourceFilter.ResourceFilter
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.ResourceFilter.ResourceFilter
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.ResourceFilter.ResourceFilter
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.ResourceFilter.ResourceFilter
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.ResourceFilter.ResourceFilter
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.ResourceFilter.ResourceFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Types.ResourceFilter.ResourceFilter
 
 
-module Network.AWS.ResourceGroups.Types.ResourceIdentifier
+module Amazonka.ResourceGroups.Types.ResourceIdentifier
 
 -- | A structure that contains the ARN of a resource and its resource type.
 --   
@@ -743,16 +743,16 @@ resourceIdentifier_resourceType :: Lens' ResourceIdentifier (Maybe Text)
 
 -- | The ARN of a resource.
 resourceIdentifier_resourceArn :: Lens' ResourceIdentifier (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
 
 
-module Network.AWS.ResourceGroups.Types.ResourceQuery
+module Amazonka.ResourceGroups.Types.ResourceQuery
 
 -- | The query that is used to define a resource group or a search for
 --   resources. A query specifies both a query type and a query string as a
@@ -941,17 +941,17 @@ resourceQuery_type :: Lens' ResourceQuery QueryType
 
 -- | The query that defines a group or a search.
 resourceQuery_searchQuery :: Lens' ResourceQuery Text
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.ResourceQuery.ResourceQuery
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.ResourceQuery.ResourceQuery
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.ResourceQuery.ResourceQuery
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.ResourceQuery.ResourceQuery
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.ResourceQuery.ResourceQuery
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.ResourceQuery.ResourceQuery
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.ResourceQuery.ResourceQuery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Types.ResourceQuery.ResourceQuery
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.ResourceQuery.ResourceQuery
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.ResourceQuery.ResourceQuery
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.ResourceQuery.ResourceQuery
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.ResourceQuery.ResourceQuery
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.ResourceQuery.ResourceQuery
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.ResourceQuery.ResourceQuery
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.ResourceQuery.ResourceQuery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Types.ResourceQuery.ResourceQuery
 
 
-module Network.AWS.ResourceGroups.Types.GroupQuery
+module Amazonka.ResourceGroups.Types.GroupQuery
 
 -- | A mapping of a query attached to a resource group that determines the
 --   AWS resources that are members of the group.
@@ -992,42 +992,42 @@ groupQuery_groupName :: Lens' GroupQuery Text
 -- | The resource query that determines which AWS resources are members of
 --   the associated resource group.
 groupQuery_resourceQuery :: Lens' GroupQuery ResourceQuery
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.GroupQuery.GroupQuery
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.GroupQuery.GroupQuery
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.GroupQuery.GroupQuery
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.GroupQuery.GroupQuery
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.GroupQuery.GroupQuery
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.GroupQuery.GroupQuery
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.GroupQuery.GroupQuery
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.GroupQuery.GroupQuery
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.GroupQuery.GroupQuery
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.GroupQuery.GroupQuery
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.GroupQuery.GroupQuery
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.GroupQuery.GroupQuery
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.GroupQuery.GroupQuery
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.GroupQuery.GroupQuery
 
 
-module Network.AWS.ResourceGroups.Types.ResourceStatusValue
+module Amazonka.ResourceGroups.Types.ResourceStatusValue
 newtype ResourceStatusValue
 ResourceStatusValue' :: Text -> ResourceStatusValue
 [fromResourceStatusValue] :: ResourceStatusValue -> Text
 pattern ResourceStatusValue_PENDING :: ResourceStatusValue
-instance Network.AWS.Data.XML.ToXML Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Network.AWS.Data.XML.FromXML Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Network.AWS.Data.Log.ToLog Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Network.AWS.Data.Text.ToText Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Network.AWS.Data.Text.FromText Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance GHC.Classes.Ord Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Amazonka.Data.XML.ToXML Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Amazonka.Data.XML.FromXML Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Amazonka.Data.Headers.ToHeader Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Amazonka.Data.Log.ToLog Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Amazonka.Data.Text.ToText Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Amazonka.Data.Text.FromText Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance GHC.Classes.Ord Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.ResourceStatusValue.ResourceStatusValue
 
 
-module Network.AWS.ResourceGroups.Types.ResourceStatus
+module Amazonka.ResourceGroups.Types.ResourceStatus
 
 -- | A structure that identifies the current group membership status for a
 --   resource. Adding a resource to a resource group is performed
@@ -1056,16 +1056,16 @@ newResourceStatus :: ResourceStatus
 
 -- | The current status.
 resourceStatus_name :: Lens' ResourceStatus (Maybe ResourceStatusValue)
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.ResourceStatus.ResourceStatus
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.ResourceStatus.ResourceStatus
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.ResourceStatus.ResourceStatus
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.ResourceStatus.ResourceStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.ResourceStatus.ResourceStatus
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.ResourceStatus.ResourceStatus
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.ResourceStatus.ResourceStatus
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.ResourceStatus.ResourceStatus
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.ResourceStatus.ResourceStatus
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.ResourceStatus.ResourceStatus
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.ResourceStatus.ResourceStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.ResourceStatus.ResourceStatus
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.ResourceStatus.ResourceStatus
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.ResourceStatus.ResourceStatus
 
 
-module Network.AWS.ResourceGroups.Types.ListGroupResourcesItem
+module Amazonka.ResourceGroups.Types.ListGroupResourcesItem
 
 -- | A structure returned by the ListGroupResources operation that contains
 --   identity and group membership status information for one of the
@@ -1112,16 +1112,16 @@ listGroupResourcesItem_status :: Lens' ListGroupResourcesItem (Maybe ResourceSta
 
 -- | Undocumented member.
 listGroupResourcesItem_identifier :: Lens' ListGroupResourcesItem (Maybe ResourceIdentifier)
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
-instance GHC.Show.Show Network.AWS.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
-instance GHC.Read.Read Network.AWS.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
+instance GHC.Show.Show Amazonka.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
+instance GHC.Read.Read Amazonka.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Types.ListGroupResourcesItem.ListGroupResourcesItem
 
 
-module Network.AWS.ResourceGroups.Types
+module Amazonka.ResourceGroups.Types
 
 -- | API version <tt>2017-11-27</tt> of the Amazon Resource Groups SDK
 --   configuration.
@@ -2001,7 +2001,7 @@ resourceStatus_name :: Lens' ResourceStatus (Maybe ResourceStatusValue)
 --   <ul>
 --   <li><pre>resource-groups:Tag</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.Tag
+module Amazonka.ResourceGroups.Tag
 
 -- | <i>See:</i> <a>newTag</a> smart constructor.
 data Tag
@@ -2076,22 +2076,22 @@ tagResponse_tags :: Lens' TagResponse (Maybe (HashMap Text Text))
 
 -- | The response's http status code.
 tagResponse_httpStatus :: Lens' TagResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Tag.Tag
-instance GHC.Show.Show Network.AWS.ResourceGroups.Tag.Tag
-instance GHC.Read.Read Network.AWS.ResourceGroups.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Tag.Tag
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Tag.TagResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.Tag.TagResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.Tag.TagResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Tag.TagResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Tag.TagResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Tag.Tag
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Tag.Tag
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.Tag.Tag
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.Tag.Tag
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Tag.Tag
+instance GHC.Show.Show Amazonka.ResourceGroups.Tag.Tag
+instance GHC.Read.Read Amazonka.ResourceGroups.Tag.Tag
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Tag.Tag
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Tag.TagResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.Tag.TagResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.Tag.TagResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Tag.TagResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Tag.TagResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Tag.Tag
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Tag.Tag
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.Tag.Tag
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.Tag.Tag
 
 
 -- | Returns a list of AWS resource identifiers that matches the specified
@@ -2110,7 +2110,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.Tag.Tag
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.ResourceGroups.SearchResources
+module Amazonka.ResourceGroups.SearchResources
 
 -- | <i>See:</i> <a>newSearchResources</a> smart constructor.
 data SearchResources
@@ -2279,23 +2279,23 @@ searchResourcesResponse_resourceIdentifiers :: Lens' SearchResourcesResponse (Ma
 
 -- | The response's http status code.
 searchResourcesResponse_httpStatus :: Lens' SearchResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.SearchResources.SearchResources
-instance GHC.Show.Show Network.AWS.ResourceGroups.SearchResources.SearchResources
-instance GHC.Read.Read Network.AWS.ResourceGroups.SearchResources.SearchResources
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.SearchResources.SearchResources
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.SearchResources.SearchResourcesResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.SearchResources.SearchResourcesResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.SearchResources.SearchResourcesResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.SearchResources.SearchResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.SearchResources.SearchResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.SearchResources.SearchResourcesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ResourceGroups.SearchResources.SearchResources
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.SearchResources.SearchResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.SearchResources.SearchResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.SearchResources.SearchResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.SearchResources.SearchResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.SearchResources.SearchResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.SearchResources.SearchResources
+instance GHC.Generics.Generic Amazonka.ResourceGroups.SearchResources.SearchResources
+instance GHC.Show.Show Amazonka.ResourceGroups.SearchResources.SearchResources
+instance GHC.Read.Read Amazonka.ResourceGroups.SearchResources.SearchResources
+instance GHC.Classes.Eq Amazonka.ResourceGroups.SearchResources.SearchResources
+instance GHC.Generics.Generic Amazonka.ResourceGroups.SearchResources.SearchResourcesResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.SearchResources.SearchResourcesResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.SearchResources.SearchResourcesResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.SearchResources.SearchResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.SearchResources.SearchResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.SearchResources.SearchResourcesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ResourceGroups.SearchResources.SearchResources
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.SearchResources.SearchResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.SearchResources.SearchResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.SearchResources.SearchResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.SearchResources.SearchResources
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.SearchResources.SearchResources
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.SearchResources.SearchResources
 
 
 -- | Attaches a service configuration to the specified group. This occurs
@@ -2309,7 +2309,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.SearchResourc
 --   <ul>
 --   <li><pre>resource-groups:PutGroupConfiguration</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.PutGroupConfiguration
+module Amazonka.ResourceGroups.PutGroupConfiguration
 
 -- | <i>See:</i> <a>newPutGroupConfiguration</a> smart constructor.
 data PutGroupConfiguration
@@ -2397,22 +2397,22 @@ newPutGroupConfigurationResponse :: Int -> PutGroupConfigurationResponse
 
 -- | The response's http status code.
 putGroupConfigurationResponse_httpStatus :: Lens' PutGroupConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
-instance GHC.Show.Show Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
-instance GHC.Read.Read Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfigurationResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfigurationResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
+instance GHC.Generics.Generic Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
+instance GHC.Show.Show Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
+instance GHC.Read.Read Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
+instance GHC.Classes.Eq Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
+instance GHC.Generics.Generic Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfigurationResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfigurationResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfigurationResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.PutGroupConfiguration.PutGroupConfiguration
 
 
 -- | Returns a list of existing resource groups in your account.
@@ -2426,7 +2426,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.PutGroupConfi
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.ResourceGroups.ListGroups
+module Amazonka.ResourceGroups.ListGroups
 
 -- | <i>See:</i> <a>newListGroups</a> smart constructor.
 data ListGroups
@@ -2615,23 +2615,23 @@ listGroupsResponse_groupIdentifiers :: Lens' ListGroupsResponse (Maybe [GroupIde
 
 -- | The response's http status code.
 listGroupsResponse_httpStatus :: Lens' ListGroupsResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.ListGroups.ListGroups
-instance GHC.Show.Show Network.AWS.ResourceGroups.ListGroups.ListGroups
-instance GHC.Read.Read Network.AWS.ResourceGroups.ListGroups.ListGroups
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.ListGroups.ListGroups
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.ListGroups.ListGroupsResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.ListGroups.ListGroupsResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.ListGroups.ListGroupsResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.ListGroups.ListGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.ListGroups.ListGroups
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.ListGroups.ListGroupsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ResourceGroups.ListGroups.ListGroups
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.ListGroups.ListGroups
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.ListGroups.ListGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.ListGroups.ListGroups
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.ListGroups.ListGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.ListGroups.ListGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.ListGroups.ListGroups
+instance GHC.Generics.Generic Amazonka.ResourceGroups.ListGroups.ListGroups
+instance GHC.Show.Show Amazonka.ResourceGroups.ListGroups.ListGroups
+instance GHC.Read.Read Amazonka.ResourceGroups.ListGroups.ListGroups
+instance GHC.Classes.Eq Amazonka.ResourceGroups.ListGroups.ListGroups
+instance GHC.Generics.Generic Amazonka.ResourceGroups.ListGroups.ListGroupsResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.ListGroups.ListGroupsResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.ListGroups.ListGroupsResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.ListGroups.ListGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.ListGroups.ListGroups
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.ListGroups.ListGroupsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ResourceGroups.ListGroups.ListGroups
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.ListGroups.ListGroups
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.ListGroups.ListGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.ListGroups.ListGroups
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.ListGroups.ListGroups
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.ListGroups.ListGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.ListGroups.ListGroups
 
 
 -- | Returns a list of ARNs of the resources that are members of a
@@ -2649,7 +2649,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.ListGroups.Li
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.ResourceGroups.ListGroupResources
+module Amazonka.ResourceGroups.ListGroupResources
 
 -- | <i>See:</i> <a>newListGroupResources</a> smart constructor.
 data ListGroupResources
@@ -2943,23 +2943,23 @@ listGroupResourcesResponse_resourceIdentifiers :: Lens' ListGroupResourcesRespon
 
 -- | The response's http status code.
 listGroupResourcesResponse_httpStatus :: Lens' ListGroupResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.ListGroupResources.ListGroupResources
-instance GHC.Show.Show Network.AWS.ResourceGroups.ListGroupResources.ListGroupResources
-instance GHC.Read.Read Network.AWS.ResourceGroups.ListGroupResources.ListGroupResources
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.ListGroupResources.ListGroupResources
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.ListGroupResources.ListGroupResourcesResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.ListGroupResources.ListGroupResourcesResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.ListGroupResources.ListGroupResourcesResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.ListGroupResources.ListGroupResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.ListGroupResources.ListGroupResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.ListGroupResources.ListGroupResourcesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ResourceGroups.ListGroupResources.ListGroupResources
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.ListGroupResources.ListGroupResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.ListGroupResources.ListGroupResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.ListGroupResources.ListGroupResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.ListGroupResources.ListGroupResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.ListGroupResources.ListGroupResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.ListGroupResources.ListGroupResources
+instance GHC.Generics.Generic Amazonka.ResourceGroups.ListGroupResources.ListGroupResources
+instance GHC.Show.Show Amazonka.ResourceGroups.ListGroupResources.ListGroupResources
+instance GHC.Read.Read Amazonka.ResourceGroups.ListGroupResources.ListGroupResources
+instance GHC.Classes.Eq Amazonka.ResourceGroups.ListGroupResources.ListGroupResources
+instance GHC.Generics.Generic Amazonka.ResourceGroups.ListGroupResources.ListGroupResourcesResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.ListGroupResources.ListGroupResourcesResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.ListGroupResources.ListGroupResourcesResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.ListGroupResources.ListGroupResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.ListGroupResources.ListGroupResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.ListGroupResources.ListGroupResourcesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ResourceGroups.ListGroupResources.ListGroupResources
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.ListGroupResources.ListGroupResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.ListGroupResources.ListGroupResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.ListGroupResources.ListGroupResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.ListGroupResources.ListGroupResources
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.ListGroupResources.ListGroupResources
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.ListGroupResources.ListGroupResources
 
 
 -- | Adds the specified resources to the specified group.
@@ -2971,7 +2971,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.ListGroupReso
 --   <ul>
 --   <li><pre>resource-groups:GroupResources</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.GroupResources
+module Amazonka.ResourceGroups.GroupResources
 
 -- | <i>See:</i> <a>newGroupResources</a> smart constructor.
 data GroupResources
@@ -3078,22 +3078,22 @@ groupResourcesResponse_failed :: Lens' GroupResourcesResponse (Maybe [FailedReso
 
 -- | The response's http status code.
 groupResourcesResponse_httpStatus :: Lens' GroupResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.GroupResources.GroupResources
-instance GHC.Show.Show Network.AWS.ResourceGroups.GroupResources.GroupResources
-instance GHC.Read.Read Network.AWS.ResourceGroups.GroupResources.GroupResources
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.GroupResources.GroupResources
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.GroupResources.GroupResourcesResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.GroupResources.GroupResourcesResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.GroupResources.GroupResourcesResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.GroupResources.GroupResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.GroupResources.GroupResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.GroupResources.GroupResourcesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.GroupResources.GroupResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.GroupResources.GroupResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.GroupResources.GroupResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.GroupResources.GroupResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.GroupResources.GroupResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.GroupResources.GroupResources
+instance GHC.Generics.Generic Amazonka.ResourceGroups.GroupResources.GroupResources
+instance GHC.Show.Show Amazonka.ResourceGroups.GroupResources.GroupResources
+instance GHC.Read.Read Amazonka.ResourceGroups.GroupResources.GroupResources
+instance GHC.Classes.Eq Amazonka.ResourceGroups.GroupResources.GroupResources
+instance GHC.Generics.Generic Amazonka.ResourceGroups.GroupResources.GroupResourcesResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.GroupResources.GroupResourcesResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.GroupResources.GroupResourcesResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.GroupResources.GroupResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.GroupResources.GroupResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.GroupResources.GroupResourcesResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.GroupResources.GroupResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.GroupResources.GroupResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.GroupResources.GroupResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.GroupResources.GroupResources
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.GroupResources.GroupResources
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.GroupResources.GroupResources
 
 
 -- | Returns a list of tags that are associated with a resource group,
@@ -3106,7 +3106,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.GroupResource
 --   <ul>
 --   <li><pre>resource-groups:GetTags</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.GetTags
+module Amazonka.ResourceGroups.GetTags
 
 -- | <i>See:</i> <a>newGetTags</a> smart constructor.
 data GetTags
@@ -3170,21 +3170,21 @@ getTagsResponse_tags :: Lens' GetTagsResponse (Maybe (HashMap Text Text))
 
 -- | The response's http status code.
 getTagsResponse_httpStatus :: Lens' GetTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.GetTags.GetTags
-instance GHC.Show.Show Network.AWS.ResourceGroups.GetTags.GetTags
-instance GHC.Read.Read Network.AWS.ResourceGroups.GetTags.GetTags
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.GetTags.GetTags
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.GetTags.GetTagsResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.GetTags.GetTagsResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.GetTags.GetTagsResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.GetTags.GetTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.GetTags.GetTags
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.GetTags.GetTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.GetTags.GetTags
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.GetTags.GetTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.GetTags.GetTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.GetTags.GetTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.GetTags.GetTags
+instance GHC.Generics.Generic Amazonka.ResourceGroups.GetTags.GetTags
+instance GHC.Show.Show Amazonka.ResourceGroups.GetTags.GetTags
+instance GHC.Read.Read Amazonka.ResourceGroups.GetTags.GetTags
+instance GHC.Classes.Eq Amazonka.ResourceGroups.GetTags.GetTags
+instance GHC.Generics.Generic Amazonka.ResourceGroups.GetTags.GetTagsResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.GetTags.GetTagsResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.GetTags.GetTagsResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.GetTags.GetTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.GetTags.GetTags
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.GetTags.GetTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.GetTags.GetTags
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.GetTags.GetTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.GetTags.GetTags
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.GetTags.GetTags
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.GetTags.GetTags
 
 
 -- | Retrieves the resource query associated with the specified resource
@@ -3198,7 +3198,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.GetTags.GetTa
 --   <ul>
 --   <li><pre>resource-groups:GetGroupQuery</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.GetGroupQuery
+module Amazonka.ResourceGroups.GetGroupQuery
 
 -- | <i>See:</i> <a>newGetGroupQuery</a> smart constructor.
 data GetGroupQuery
@@ -3271,22 +3271,22 @@ getGroupQueryResponse_groupQuery :: Lens' GetGroupQueryResponse (Maybe GroupQuer
 
 -- | The response's http status code.
 getGroupQueryResponse_httpStatus :: Lens' GetGroupQueryResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQuery
-instance GHC.Show.Show Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQuery
-instance GHC.Read.Read Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQuery
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQuery
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQueryResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQueryResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQueryResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQueryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQuery
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQueryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQuery
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQuery
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQuery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQuery
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQuery
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.GetGroupQuery.GetGroupQuery
+instance GHC.Generics.Generic Amazonka.ResourceGroups.GetGroupQuery.GetGroupQuery
+instance GHC.Show.Show Amazonka.ResourceGroups.GetGroupQuery.GetGroupQuery
+instance GHC.Read.Read Amazonka.ResourceGroups.GetGroupQuery.GetGroupQuery
+instance GHC.Classes.Eq Amazonka.ResourceGroups.GetGroupQuery.GetGroupQuery
+instance GHC.Generics.Generic Amazonka.ResourceGroups.GetGroupQuery.GetGroupQueryResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.GetGroupQuery.GetGroupQueryResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.GetGroupQuery.GetGroupQueryResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.GetGroupQuery.GetGroupQueryResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.GetGroupQuery.GetGroupQuery
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.GetGroupQuery.GetGroupQueryResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.GetGroupQuery.GetGroupQuery
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.GetGroupQuery.GetGroupQuery
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.GetGroupQuery.GetGroupQuery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.GetGroupQuery.GetGroupQuery
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.GetGroupQuery.GetGroupQuery
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.GetGroupQuery.GetGroupQuery
 
 
 -- | Returns the service configuration associated with the specified
@@ -3300,7 +3300,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.GetGroupQuery
 --   <ul>
 --   <li><pre>resource-groups:GetGroupConfiguration</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.GetGroupConfiguration
+module Amazonka.ResourceGroups.GetGroupConfiguration
 
 -- | <i>See:</i> <a>newGetGroupConfiguration</a> smart constructor.
 data GetGroupConfiguration
@@ -3365,22 +3365,22 @@ getGroupConfigurationResponse_groupConfiguration :: Lens' GetGroupConfigurationR
 
 -- | The response's http status code.
 getGroupConfigurationResponse_httpStatus :: Lens' GetGroupConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
-instance GHC.Show.Show Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
-instance GHC.Read.Read Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfigurationResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfigurationResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
+instance GHC.Generics.Generic Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
+instance GHC.Show.Show Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
+instance GHC.Read.Read Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
+instance GHC.Classes.Eq Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
+instance GHC.Generics.Generic Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfigurationResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfigurationResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfigurationResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.GetGroupConfiguration.GetGroupConfiguration
 
 
 -- | Returns information about a specified resource group.
@@ -3392,7 +3392,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.GetGroupConfi
 --   <ul>
 --   <li><pre>resource-groups:GetGroup</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.GetGroup
+module Amazonka.ResourceGroups.GetGroup
 
 -- | <i>See:</i> <a>newGetGroup</a> smart constructor.
 data GetGroup
@@ -3456,22 +3456,22 @@ getGroupResponse_group :: Lens' GetGroupResponse (Maybe Group)
 
 -- | The response's http status code.
 getGroupResponse_httpStatus :: Lens' GetGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.GetGroup.GetGroup
-instance GHC.Show.Show Network.AWS.ResourceGroups.GetGroup.GetGroup
-instance GHC.Read.Read Network.AWS.ResourceGroups.GetGroup.GetGroup
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.GetGroup.GetGroup
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.GetGroup.GetGroupResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.GetGroup.GetGroupResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.GetGroup.GetGroupResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.GetGroup.GetGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.GetGroup.GetGroup
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.GetGroup.GetGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.GetGroup.GetGroup
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.GetGroup.GetGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.GetGroup.GetGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.GetGroup.GetGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.GetGroup.GetGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.GetGroup.GetGroup
+instance GHC.Generics.Generic Amazonka.ResourceGroups.GetGroup.GetGroup
+instance GHC.Show.Show Amazonka.ResourceGroups.GetGroup.GetGroup
+instance GHC.Read.Read Amazonka.ResourceGroups.GetGroup.GetGroup
+instance GHC.Classes.Eq Amazonka.ResourceGroups.GetGroup.GetGroup
+instance GHC.Generics.Generic Amazonka.ResourceGroups.GetGroup.GetGroupResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.GetGroup.GetGroupResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.GetGroup.GetGroupResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.GetGroup.GetGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.GetGroup.GetGroup
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.GetGroup.GetGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.GetGroup.GetGroup
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.GetGroup.GetGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.GetGroup.GetGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.GetGroup.GetGroup
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.GetGroup.GetGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.GetGroup.GetGroup
 
 
 -- | Deletes the specified resource group. Deleting a resource group does
@@ -3485,7 +3485,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.GetGroup.GetG
 --   <ul>
 --   <li><pre>resource-groups:DeleteGroup</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.DeleteGroup
+module Amazonka.ResourceGroups.DeleteGroup
 
 -- | <i>See:</i> <a>newDeleteGroup</a> smart constructor.
 data DeleteGroup
@@ -3550,22 +3550,22 @@ deleteGroupResponse_group :: Lens' DeleteGroupResponse (Maybe Group)
 
 -- | The response's http status code.
 deleteGroupResponse_httpStatus :: Lens' DeleteGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.DeleteGroup.DeleteGroup
-instance GHC.Show.Show Network.AWS.ResourceGroups.DeleteGroup.DeleteGroup
-instance GHC.Read.Read Network.AWS.ResourceGroups.DeleteGroup.DeleteGroup
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.DeleteGroup.DeleteGroup
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.DeleteGroup.DeleteGroupResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.DeleteGroup.DeleteGroupResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.DeleteGroup.DeleteGroupResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.DeleteGroup.DeleteGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.DeleteGroup.DeleteGroup
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.DeleteGroup.DeleteGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.DeleteGroup.DeleteGroup
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.DeleteGroup.DeleteGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.DeleteGroup.DeleteGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.DeleteGroup.DeleteGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.DeleteGroup.DeleteGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.DeleteGroup.DeleteGroup
+instance GHC.Generics.Generic Amazonka.ResourceGroups.DeleteGroup.DeleteGroup
+instance GHC.Show.Show Amazonka.ResourceGroups.DeleteGroup.DeleteGroup
+instance GHC.Read.Read Amazonka.ResourceGroups.DeleteGroup.DeleteGroup
+instance GHC.Classes.Eq Amazonka.ResourceGroups.DeleteGroup.DeleteGroup
+instance GHC.Generics.Generic Amazonka.ResourceGroups.DeleteGroup.DeleteGroupResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.DeleteGroup.DeleteGroupResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.DeleteGroup.DeleteGroupResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.DeleteGroup.DeleteGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.DeleteGroup.DeleteGroup
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.DeleteGroup.DeleteGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.DeleteGroup.DeleteGroup
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.DeleteGroup.DeleteGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.DeleteGroup.DeleteGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.DeleteGroup.DeleteGroup
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.DeleteGroup.DeleteGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.DeleteGroup.DeleteGroup
 
 
 -- | Creates a resource group with the specified name and description. You
@@ -3582,7 +3582,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.DeleteGroup.D
 --   <ul>
 --   <li><pre>resource-groups:CreateGroup</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.CreateGroup
+module Amazonka.ResourceGroups.CreateGroup
 
 -- | <i>See:</i> <a>newCreateGroup</a> smart constructor.
 data CreateGroup
@@ -3771,22 +3771,22 @@ createGroupResponse_tags :: Lens' CreateGroupResponse (Maybe (HashMap Text Text)
 
 -- | The response's http status code.
 createGroupResponse_httpStatus :: Lens' CreateGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.CreateGroup.CreateGroup
-instance GHC.Show.Show Network.AWS.ResourceGroups.CreateGroup.CreateGroup
-instance GHC.Read.Read Network.AWS.ResourceGroups.CreateGroup.CreateGroup
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.CreateGroup.CreateGroup
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.CreateGroup.CreateGroupResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.CreateGroup.CreateGroupResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.CreateGroup.CreateGroupResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.CreateGroup.CreateGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.CreateGroup.CreateGroup
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.CreateGroup.CreateGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.CreateGroup.CreateGroup
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.CreateGroup.CreateGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.CreateGroup.CreateGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.CreateGroup.CreateGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.CreateGroup.CreateGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.CreateGroup.CreateGroup
+instance GHC.Generics.Generic Amazonka.ResourceGroups.CreateGroup.CreateGroup
+instance GHC.Show.Show Amazonka.ResourceGroups.CreateGroup.CreateGroup
+instance GHC.Read.Read Amazonka.ResourceGroups.CreateGroup.CreateGroup
+instance GHC.Classes.Eq Amazonka.ResourceGroups.CreateGroup.CreateGroup
+instance GHC.Generics.Generic Amazonka.ResourceGroups.CreateGroup.CreateGroupResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.CreateGroup.CreateGroupResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.CreateGroup.CreateGroupResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.CreateGroup.CreateGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.CreateGroup.CreateGroup
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.CreateGroup.CreateGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.CreateGroup.CreateGroup
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.CreateGroup.CreateGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.CreateGroup.CreateGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.CreateGroup.CreateGroup
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.CreateGroup.CreateGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.CreateGroup.CreateGroup
 
 
 -- | Removes the specified resources from the specified group.
@@ -3798,7 +3798,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.CreateGroup.C
 --   <ul>
 --   <li><pre>resource-groups:UngroupResources</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.UngroupResources
+module Amazonka.ResourceGroups.UngroupResources
 
 -- | <i>See:</i> <a>newUngroupResources</a> smart constructor.
 data UngroupResources
@@ -3905,22 +3905,22 @@ ungroupResourcesResponse_failed :: Lens' UngroupResourcesResponse (Maybe [Failed
 
 -- | The response's http status code.
 ungroupResourcesResponse_httpStatus :: Lens' UngroupResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.UngroupResources.UngroupResources
-instance GHC.Show.Show Network.AWS.ResourceGroups.UngroupResources.UngroupResources
-instance GHC.Read.Read Network.AWS.ResourceGroups.UngroupResources.UngroupResources
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.UngroupResources.UngroupResources
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.UngroupResources.UngroupResourcesResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.UngroupResources.UngroupResourcesResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.UngroupResources.UngroupResourcesResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.UngroupResources.UngroupResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.UngroupResources.UngroupResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.UngroupResources.UngroupResourcesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.UngroupResources.UngroupResources
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.UngroupResources.UngroupResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.UngroupResources.UngroupResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.UngroupResources.UngroupResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.UngroupResources.UngroupResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.UngroupResources.UngroupResources
+instance GHC.Generics.Generic Amazonka.ResourceGroups.UngroupResources.UngroupResources
+instance GHC.Show.Show Amazonka.ResourceGroups.UngroupResources.UngroupResources
+instance GHC.Read.Read Amazonka.ResourceGroups.UngroupResources.UngroupResources
+instance GHC.Classes.Eq Amazonka.ResourceGroups.UngroupResources.UngroupResources
+instance GHC.Generics.Generic Amazonka.ResourceGroups.UngroupResources.UngroupResourcesResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.UngroupResources.UngroupResourcesResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.UngroupResources.UngroupResourcesResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.UngroupResources.UngroupResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.UngroupResources.UngroupResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.UngroupResources.UngroupResourcesResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.UngroupResources.UngroupResources
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.UngroupResources.UngroupResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.UngroupResources.UngroupResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.UngroupResources.UngroupResources
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.UngroupResources.UngroupResources
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.UngroupResources.UngroupResources
 
 
 -- | Deletes tags from a specified resource group.
@@ -3932,7 +3932,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.UngroupResour
 --   <ul>
 --   <li><pre>resource-groups:Untag</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.Untag
+module Amazonka.ResourceGroups.Untag
 
 -- | <i>See:</i> <a>newUntag</a> smart constructor.
 data Untag
@@ -4010,22 +4010,22 @@ untagResponse_keys :: Lens' UntagResponse (Maybe [Text])
 
 -- | The response's http status code.
 untagResponse_httpStatus :: Lens' UntagResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Untag.Untag
-instance GHC.Show.Show Network.AWS.ResourceGroups.Untag.Untag
-instance GHC.Read.Read Network.AWS.ResourceGroups.Untag.Untag
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Untag.Untag
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.Untag.UntagResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.Untag.UntagResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.Untag.UntagResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.Untag.UntagResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.Untag.Untag
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Untag.UntagResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.Untag.Untag
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.Untag.Untag
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.Untag.Untag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.Untag.Untag
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.Untag.Untag
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.Untag.Untag
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Untag.Untag
+instance GHC.Show.Show Amazonka.ResourceGroups.Untag.Untag
+instance GHC.Read.Read Amazonka.ResourceGroups.Untag.Untag
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Untag.Untag
+instance GHC.Generics.Generic Amazonka.ResourceGroups.Untag.UntagResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.Untag.UntagResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.Untag.UntagResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.Untag.UntagResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.Untag.Untag
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Untag.UntagResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.Untag.Untag
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.Untag.Untag
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.Untag.Untag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.Untag.Untag
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.Untag.Untag
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.Untag.Untag
 
 
 -- | Updates the description for an existing group. You cannot update the
@@ -4038,7 +4038,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.Untag.Untag
 --   <ul>
 --   <li><pre>resource-groups:UpdateGroup</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.UpdateGroup
+module Amazonka.ResourceGroups.UpdateGroup
 
 -- | <i>See:</i> <a>newUpdateGroup</a> smart constructor.
 data UpdateGroup
@@ -4118,22 +4118,22 @@ updateGroupResponse_group :: Lens' UpdateGroupResponse (Maybe Group)
 
 -- | The response's http status code.
 updateGroupResponse_httpStatus :: Lens' UpdateGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.UpdateGroup.UpdateGroup
-instance GHC.Show.Show Network.AWS.ResourceGroups.UpdateGroup.UpdateGroup
-instance GHC.Read.Read Network.AWS.ResourceGroups.UpdateGroup.UpdateGroup
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.UpdateGroup.UpdateGroup
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.UpdateGroup.UpdateGroupResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.UpdateGroup.UpdateGroupResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.UpdateGroup.UpdateGroupResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.UpdateGroup.UpdateGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.UpdateGroup.UpdateGroup
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.UpdateGroup.UpdateGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.UpdateGroup.UpdateGroup
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.UpdateGroup.UpdateGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.UpdateGroup.UpdateGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.UpdateGroup.UpdateGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.UpdateGroup.UpdateGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.UpdateGroup.UpdateGroup
+instance GHC.Generics.Generic Amazonka.ResourceGroups.UpdateGroup.UpdateGroup
+instance GHC.Show.Show Amazonka.ResourceGroups.UpdateGroup.UpdateGroup
+instance GHC.Read.Read Amazonka.ResourceGroups.UpdateGroup.UpdateGroup
+instance GHC.Classes.Eq Amazonka.ResourceGroups.UpdateGroup.UpdateGroup
+instance GHC.Generics.Generic Amazonka.ResourceGroups.UpdateGroup.UpdateGroupResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.UpdateGroup.UpdateGroupResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.UpdateGroup.UpdateGroupResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.UpdateGroup.UpdateGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.UpdateGroup.UpdateGroup
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.UpdateGroup.UpdateGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.UpdateGroup.UpdateGroup
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.UpdateGroup.UpdateGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.UpdateGroup.UpdateGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.UpdateGroup.UpdateGroup
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.UpdateGroup.UpdateGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.UpdateGroup.UpdateGroup
 
 
 -- | Updates the resource query of a group. For more information about
@@ -4147,7 +4147,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.UpdateGroup.U
 --   <ul>
 --   <li><pre>resource-groups:UpdateGroupQuery</pre></li>
 --   </ul>
-module Network.AWS.ResourceGroups.UpdateGroupQuery
+module Amazonka.ResourceGroups.UpdateGroupQuery
 
 -- | <i>See:</i> <a>newUpdateGroupQuery</a> smart constructor.
 data UpdateGroupQuery
@@ -4238,25 +4238,25 @@ updateGroupQueryResponse_groupQuery :: Lens' UpdateGroupQueryResponse (Maybe Gro
 
 -- | The response's http status code.
 updateGroupQueryResponse_httpStatus :: Lens' UpdateGroupQueryResponse Int
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
-instance GHC.Show.Show Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
-instance GHC.Read.Read Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
-instance GHC.Generics.Generic Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQueryResponse
-instance GHC.Show.Show Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQueryResponse
-instance GHC.Read.Read Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQueryResponse
-instance GHC.Classes.Eq Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQueryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQueryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
-instance Control.DeepSeq.NFData Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
-instance Network.AWS.Data.Path.ToPath Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
+instance GHC.Generics.Generic Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
+instance GHC.Show.Show Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
+instance GHC.Read.Read Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
+instance GHC.Classes.Eq Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
+instance GHC.Generics.Generic Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQueryResponse
+instance GHC.Show.Show Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQueryResponse
+instance GHC.Read.Read Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQueryResponse
+instance GHC.Classes.Eq Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQueryResponse
+instance Amazonka.Types.AWSRequest Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQueryResponse
+instance Data.Hashable.Class.Hashable Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
+instance Control.DeepSeq.NFData Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
+instance Amazonka.Data.Path.ToPath Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
+instance Amazonka.Data.Query.ToQuery Amazonka.ResourceGroups.UpdateGroupQuery.UpdateGroupQuery
 
 
-module Network.AWS.ResourceGroups.Lens
+module Amazonka.ResourceGroups.Lens
 
 -- | The parameter for receiving additional results if you receive a
 --   <tt>NextToken</tt> response in a previous request. A
@@ -4847,7 +4847,7 @@ resourceQuery_searchQuery :: Lens' ResourceQuery Text
 resourceStatus_name :: Lens' ResourceStatus (Maybe ResourceStatusValue)
 
 
-module Network.AWS.ResourceGroups.Waiters
+module Amazonka.ResourceGroups.Waiters
 
 
 -- | Derived from API version <tt>2017-11-27</tt> of the AWS service
@@ -4888,7 +4888,7 @@ module Network.AWS.ResourceGroups.Waiters
 --   <li>Getting data about resources that are members of a group</li>
 --   <li>Searching AWS resources based on a resource query</li>
 --   </ul>
-module Network.AWS.ResourceGroups
+module Amazonka.ResourceGroups
 
 -- | API version <tt>2017-11-27</tt> of the Amazon Resource Groups SDK
 --   configuration.

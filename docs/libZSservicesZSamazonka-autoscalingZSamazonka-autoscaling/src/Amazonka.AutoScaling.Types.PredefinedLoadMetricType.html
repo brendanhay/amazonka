@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AutoScaling.Types.PredefinedLoadMetricType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AutoScaling.Types.PredefinedLoadMetricType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType"><span class="hs-identifier">PredefinedLoadMetricType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType_ALBTargetGroupRequestCount"><span class="hs-identifier">PredefinedLoadMetricType_ALBTargetGroupRequestCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType_ASGTotalCPUUtilization"><span class="hs-identifier">PredefinedLoadMetricType_ASGTotalCPUUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType_ASGTotalNetworkIn"><span class="hs-identifier">PredefinedLoadMetricType_ASGTotalNetworkIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType_ASGTotalNetworkOut"><span class="hs-identifier">PredefinedLoadMetricType_ASGTotalNetworkOut</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679329771"><span id="local-6989586621679329772"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PredefinedLoadMetricType"><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType"><span class="hs-identifier hs-var">PredefinedLoadMetricType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredefinedLoadMetricType%27"><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType%27"><span class="hs-identifier hs-var">PredefinedLoadMetricType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPredefinedLoadMetricType"><span class="annot"><span class="annottext">PredefinedLoadMetricType -&gt; Text
+</span><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#fromPredefinedLoadMetricType"><span class="hs-identifier hs-var hs-var">fromPredefinedLoadMetricType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329763"><span id="local-6989586621679329765"><span id="local-6989586621679329767"><span class="annot"><span class="annottext">Int -&gt; PredefinedLoadMetricType -&gt; ShowS
+[PredefinedLoadMetricType] -&gt; ShowS
+PredefinedLoadMetricType -&gt; String
+(Int -&gt; PredefinedLoadMetricType -&gt; ShowS)
+-&gt; (PredefinedLoadMetricType -&gt; String)
+-&gt; ([PredefinedLoadMetricType] -&gt; ShowS)
+-&gt; Show PredefinedLoadMetricType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PredefinedLoadMetricType] -&gt; ShowS
+$cshowList :: [PredefinedLoadMetricType] -&gt; ShowS
+show :: PredefinedLoadMetricType -&gt; String
+$cshow :: PredefinedLoadMetricType -&gt; String
+showsPrec :: Int -&gt; PredefinedLoadMetricType -&gt; ShowS
+$cshowsPrec :: Int -&gt; PredefinedLoadMetricType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679329754"><span id="local-6989586621679329756"><span id="local-6989586621679329758"><span id="local-6989586621679329760"><span class="annot"><span class="annottext">ReadPrec [PredefinedLoadMetricType]
+ReadPrec PredefinedLoadMetricType
+Int -&gt; ReadS PredefinedLoadMetricType
+ReadS [PredefinedLoadMetricType]
+(Int -&gt; ReadS PredefinedLoadMetricType)
+-&gt; ReadS [PredefinedLoadMetricType]
+-&gt; ReadPrec PredefinedLoadMetricType
+-&gt; ReadPrec [PredefinedLoadMetricType]
+-&gt; Read PredefinedLoadMetricType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PredefinedLoadMetricType]
+$creadListPrec :: ReadPrec [PredefinedLoadMetricType]
+readPrec :: ReadPrec PredefinedLoadMetricType
+$creadPrec :: ReadPrec PredefinedLoadMetricType
+readList :: ReadS [PredefinedLoadMetricType]
+$creadList :: ReadS [PredefinedLoadMetricType]
+readsPrec :: Int -&gt; ReadS PredefinedLoadMetricType
+$creadsPrec :: Int -&gt; ReadS PredefinedLoadMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679329749"><span id="local-6989586621679329751"><span class="annot"><span class="annottext">PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+(PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool)
+-&gt; (PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool)
+-&gt; Eq PredefinedLoadMetricType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+$c/= :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+== :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+$c== :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679329733"><span id="local-6989586621679329735"><span id="local-6989586621679329737"><span id="local-6989586621679329739"><span id="local-6989586621679329741"><span id="local-6989586621679329743"><span id="local-6989586621679329745"><span class="annot"><span class="annottext">Eq PredefinedLoadMetricType
+Eq PredefinedLoadMetricType
+-&gt; (PredefinedLoadMetricType
+    -&gt; PredefinedLoadMetricType -&gt; Ordering)
+-&gt; (PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool)
+-&gt; (PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool)
+-&gt; (PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool)
+-&gt; (PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool)
+-&gt; (PredefinedLoadMetricType
+    -&gt; PredefinedLoadMetricType -&gt; PredefinedLoadMetricType)
+-&gt; (PredefinedLoadMetricType
+    -&gt; PredefinedLoadMetricType -&gt; PredefinedLoadMetricType)
+-&gt; Ord PredefinedLoadMetricType
+PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Ordering
+PredefinedLoadMetricType
+-&gt; PredefinedLoadMetricType -&gt; PredefinedLoadMetricType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PredefinedLoadMetricType
+-&gt; PredefinedLoadMetricType -&gt; PredefinedLoadMetricType
+$cmin :: PredefinedLoadMetricType
+-&gt; PredefinedLoadMetricType -&gt; PredefinedLoadMetricType
+max :: PredefinedLoadMetricType
+-&gt; PredefinedLoadMetricType -&gt; PredefinedLoadMetricType
+$cmax :: PredefinedLoadMetricType
+-&gt; PredefinedLoadMetricType -&gt; PredefinedLoadMetricType
+&gt;= :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+$c&gt;= :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+&gt; :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+$c&gt; :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+&lt;= :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+$c&lt;= :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+&lt; :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+$c&lt; :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Bool
+compare :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Ordering
+$ccompare :: PredefinedLoadMetricType -&gt; PredefinedLoadMetricType -&gt; Ordering
+$cp1Ord :: Eq PredefinedLoadMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ PredefinedLoadMetricType -&gt; Rep PredefinedLoadMetricType x)
+-&gt; (forall x.
+    Rep PredefinedLoadMetricType x -&gt; PredefinedLoadMetricType)
+-&gt; Generic PredefinedLoadMetricType
+forall x.
+Rep PredefinedLoadMetricType x -&gt; PredefinedLoadMetricType
+forall x.
+PredefinedLoadMetricType -&gt; Rep PredefinedLoadMetricType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PredefinedLoadMetricType x -&gt; PredefinedLoadMetricType
+$cfrom :: forall x.
+PredefinedLoadMetricType -&gt; Rep PredefinedLoadMetricType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329725"><span id="local-6989586621679329727"><span class="annot"><span class="annottext">Int -&gt; PredefinedLoadMetricType -&gt; Int
+PredefinedLoadMetricType -&gt; Int
+(Int -&gt; PredefinedLoadMetricType -&gt; Int)
+-&gt; (PredefinedLoadMetricType -&gt; Int)
+-&gt; Hashable PredefinedLoadMetricType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PredefinedLoadMetricType -&gt; Int
+$chash :: PredefinedLoadMetricType -&gt; Int
+hashWithSalt :: Int -&gt; PredefinedLoadMetricType -&gt; Int
+$chashWithSalt :: Int -&gt; PredefinedLoadMetricType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679329722"><span class="annot"><span class="annottext">PredefinedLoadMetricType -&gt; ()
+(PredefinedLoadMetricType -&gt; ()) -&gt; NFData PredefinedLoadMetricType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PredefinedLoadMetricType -&gt; ()
+$crnf :: PredefinedLoadMetricType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329719"><span class="annot"><span class="annottext">Text -&gt; Either String PredefinedLoadMetricType
+(Text -&gt; Either String PredefinedLoadMetricType)
+-&gt; FromText PredefinedLoadMetricType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PredefinedLoadMetricType
+$cfromText :: Text -&gt; Either String PredefinedLoadMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329716"><span class="annot"><span class="annottext">PredefinedLoadMetricType -&gt; Text
+(PredefinedLoadMetricType -&gt; Text)
+-&gt; ToText PredefinedLoadMetricType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PredefinedLoadMetricType -&gt; Text
+$ctoText :: PredefinedLoadMetricType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329713"><span class="annot"><span class="annottext">PredefinedLoadMetricType -&gt; ByteString
+(PredefinedLoadMetricType -&gt; ByteString)
+-&gt; ToByteString PredefinedLoadMetricType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PredefinedLoadMetricType -&gt; ByteString
+$ctoBS :: PredefinedLoadMetricType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329710"><span class="annot"><span class="annottext">PredefinedLoadMetricType -&gt; ByteStringBuilder
+(PredefinedLoadMetricType -&gt; ByteStringBuilder)
+-&gt; ToLog PredefinedLoadMetricType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PredefinedLoadMetricType -&gt; ByteStringBuilder
+$cbuild :: PredefinedLoadMetricType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329707"><span class="annot"><span class="annottext">HeaderName -&gt; PredefinedLoadMetricType -&gt; [Header]
+(HeaderName -&gt; PredefinedLoadMetricType -&gt; [Header])
+-&gt; ToHeader PredefinedLoadMetricType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PredefinedLoadMetricType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PredefinedLoadMetricType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329704"><span class="annot"><span class="annottext">PredefinedLoadMetricType -&gt; QueryString
+(PredefinedLoadMetricType -&gt; QueryString)
+-&gt; ToQuery PredefinedLoadMetricType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PredefinedLoadMetricType -&gt; QueryString
+$ctoQuery :: PredefinedLoadMetricType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329699"><span id="local-6989586621679329701"><span class="annot"><span class="annottext">Value -&gt; Parser [PredefinedLoadMetricType]
+Value -&gt; Parser PredefinedLoadMetricType
+(Value -&gt; Parser PredefinedLoadMetricType)
+-&gt; (Value -&gt; Parser [PredefinedLoadMetricType])
+-&gt; FromJSON PredefinedLoadMetricType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PredefinedLoadMetricType]
+$cparseJSONList :: Value -&gt; Parser [PredefinedLoadMetricType]
+parseJSON :: Value -&gt; Parser PredefinedLoadMetricType
+$cparseJSON :: Value -&gt; Parser PredefinedLoadMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329694"><span id="local-6989586621679329696"><span class="annot"><span class="annottext">FromJSONKeyFunction [PredefinedLoadMetricType]
+FromJSONKeyFunction PredefinedLoadMetricType
+FromJSONKeyFunction PredefinedLoadMetricType
+-&gt; FromJSONKeyFunction [PredefinedLoadMetricType]
+-&gt; FromJSONKey PredefinedLoadMetricType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PredefinedLoadMetricType]
+$cfromJSONKeyList :: FromJSONKeyFunction [PredefinedLoadMetricType]
+fromJSONKey :: FromJSONKeyFunction PredefinedLoadMetricType
+$cfromJSONKey :: FromJSONKeyFunction PredefinedLoadMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329685"><span id="local-6989586621679329687"><span id="local-6989586621679329689"><span id="local-6989586621679329691"><span class="annot"><span class="annottext">[PredefinedLoadMetricType] -&gt; Encoding
+[PredefinedLoadMetricType] -&gt; Value
+PredefinedLoadMetricType -&gt; Encoding
+PredefinedLoadMetricType -&gt; Value
+(PredefinedLoadMetricType -&gt; Value)
+-&gt; (PredefinedLoadMetricType -&gt; Encoding)
+-&gt; ([PredefinedLoadMetricType] -&gt; Value)
+-&gt; ([PredefinedLoadMetricType] -&gt; Encoding)
+-&gt; ToJSON PredefinedLoadMetricType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PredefinedLoadMetricType] -&gt; Encoding
+$ctoEncodingList :: [PredefinedLoadMetricType] -&gt; Encoding
+toJSONList :: [PredefinedLoadMetricType] -&gt; Value
+$ctoJSONList :: [PredefinedLoadMetricType] -&gt; Value
+toEncoding :: PredefinedLoadMetricType -&gt; Encoding
+$ctoEncoding :: PredefinedLoadMetricType -&gt; Encoding
+toJSON :: PredefinedLoadMetricType -&gt; Value
+$ctoJSON :: PredefinedLoadMetricType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329680"><span id="local-6989586621679329682"><span class="annot"><span class="annottext">ToJSONKeyFunction [PredefinedLoadMetricType]
+ToJSONKeyFunction PredefinedLoadMetricType
+ToJSONKeyFunction PredefinedLoadMetricType
+-&gt; ToJSONKeyFunction [PredefinedLoadMetricType]
+-&gt; ToJSONKey PredefinedLoadMetricType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PredefinedLoadMetricType]
+$ctoJSONKeyList :: ToJSONKeyFunction [PredefinedLoadMetricType]
+toJSONKey :: ToJSONKeyFunction PredefinedLoadMetricType
+$ctoJSONKey :: ToJSONKeyFunction PredefinedLoadMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679329677"><span class="annot"><span class="annottext">[Node] -&gt; Either String PredefinedLoadMetricType
+([Node] -&gt; Either String PredefinedLoadMetricType)
+-&gt; FromXML PredefinedLoadMetricType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PredefinedLoadMetricType
+$cparseXML :: [Node] -&gt; Either String PredefinedLoadMetricType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679329674"><span class="annot"><span class="annottext">PredefinedLoadMetricType -&gt; XML
+(PredefinedLoadMetricType -&gt; XML) -&gt; ToXML PredefinedLoadMetricType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PredefinedLoadMetricType -&gt; XML
+$ctoXML :: PredefinedLoadMetricType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType_ALBTargetGroupRequestCount"><span class="hs-identifier hs-type">PredefinedLoadMetricType_ALBTargetGroupRequestCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType"><span class="hs-identifier hs-type">PredefinedLoadMetricType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPredefinedLoadMetricType_ALBTargetGroupRequestCount"><span id="%24mPredefinedLoadMetricType_ALBTargetGroupRequestCount"><span id="PredefinedLoadMetricType_ALBTargetGroupRequestCount"><span class="annot"><span class="annottext">$bPredefinedLoadMetricType_ALBTargetGroupRequestCount :: PredefinedLoadMetricType
+$mPredefinedLoadMetricType_ALBTargetGroupRequestCount :: forall r.
+PredefinedLoadMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#%24bPredefinedLoadMetricType_ALBTargetGroupRequestCount"><span class="hs-identifier hs-var hs-var hs-var">PredefinedLoadMetricType_ALBTargetGroupRequestCount</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType%27"><span class="hs-identifier hs-type">PredefinedLoadMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALBTargetGroupRequestCount&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType_ASGTotalCPUUtilization"><span class="hs-identifier hs-type">PredefinedLoadMetricType_ASGTotalCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType"><span class="hs-identifier hs-type">PredefinedLoadMetricType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPredefinedLoadMetricType_ASGTotalCPUUtilization"><span id="%24mPredefinedLoadMetricType_ASGTotalCPUUtilization"><span id="PredefinedLoadMetricType_ASGTotalCPUUtilization"><span class="annot"><span class="annottext">$bPredefinedLoadMetricType_ASGTotalCPUUtilization :: PredefinedLoadMetricType
+$mPredefinedLoadMetricType_ASGTotalCPUUtilization :: forall r.
+PredefinedLoadMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#%24bPredefinedLoadMetricType_ASGTotalCPUUtilization"><span class="hs-identifier hs-var hs-var hs-var">PredefinedLoadMetricType_ASGTotalCPUUtilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType%27"><span class="hs-identifier hs-type">PredefinedLoadMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASGTotalCPUUtilization&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType_ASGTotalNetworkIn"><span class="hs-identifier hs-type">PredefinedLoadMetricType_ASGTotalNetworkIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType"><span class="hs-identifier hs-type">PredefinedLoadMetricType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPredefinedLoadMetricType_ASGTotalNetworkIn"><span id="%24mPredefinedLoadMetricType_ASGTotalNetworkIn"><span id="PredefinedLoadMetricType_ASGTotalNetworkIn"><span class="annot"><span class="annottext">$bPredefinedLoadMetricType_ASGTotalNetworkIn :: PredefinedLoadMetricType
+$mPredefinedLoadMetricType_ASGTotalNetworkIn :: forall r.
+PredefinedLoadMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#%24bPredefinedLoadMetricType_ASGTotalNetworkIn"><span class="hs-identifier hs-var hs-var hs-var">PredefinedLoadMetricType_ASGTotalNetworkIn</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType%27"><span class="hs-identifier hs-type">PredefinedLoadMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASGTotalNetworkIn&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType_ASGTotalNetworkOut"><span class="hs-identifier hs-type">PredefinedLoadMetricType_ASGTotalNetworkOut</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType"><span class="hs-identifier hs-type">PredefinedLoadMetricType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPredefinedLoadMetricType_ASGTotalNetworkOut"><span id="%24mPredefinedLoadMetricType_ASGTotalNetworkOut"><span id="PredefinedLoadMetricType_ASGTotalNetworkOut"><span class="annot"><span class="annottext">$bPredefinedLoadMetricType_ASGTotalNetworkOut :: PredefinedLoadMetricType
+$mPredefinedLoadMetricType_ASGTotalNetworkOut :: forall r.
+PredefinedLoadMetricType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#%24bPredefinedLoadMetricType_ASGTotalNetworkOut"><span class="hs-identifier hs-var hs-var hs-var">PredefinedLoadMetricType_ASGTotalNetworkOut</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType%27"><span class="hs-identifier hs-type">PredefinedLoadMetricType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASGTotalNetworkOut&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType_ALBTargetGroupRequestCount"><span class="hs-pragma hs-type">PredefinedLoadMetricType_ALBTargetGroupRequestCount</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType_ASGTotalCPUUtilization"><span class="hs-pragma hs-type">PredefinedLoadMetricType_ASGTotalCPUUtilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType_ASGTotalNetworkIn"><span class="hs-pragma hs-type">PredefinedLoadMetricType_ASGTotalNetworkIn</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType_ASGTotalNetworkOut"><span class="hs-pragma hs-type">PredefinedLoadMetricType_ASGTotalNetworkOut</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.PredefinedLoadMetricType.html#PredefinedLoadMetricType%27"><span class="hs-pragma hs-type">PredefinedLoadMetricType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

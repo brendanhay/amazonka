@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.NetworkFirewall.Types.TCPFlag</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.NetworkFirewall.Types.TCPFlag</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag"><span class="hs-identifier">TCPFlag</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_ACK"><span class="hs-identifier">TCPFlag_ACK</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_CWR"><span class="hs-identifier">TCPFlag_CWR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_ECE"><span class="hs-identifier">TCPFlag_ECE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_FIN"><span class="hs-identifier">TCPFlag_FIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_PSH"><span class="hs-identifier">TCPFlag_PSH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_RST"><span class="hs-identifier">TCPFlag_RST</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_SYN"><span class="hs-identifier">TCPFlag_SYN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_URG"><span class="hs-identifier">TCPFlag_URG</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679241396"><span id="local-6989586621679241397"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TCPFlag"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag"><span class="hs-identifier hs-var">TCPFlag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TCPFlag%27"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag%27"><span class="hs-identifier hs-var">TCPFlag'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromTCPFlag"><span class="annot"><span class="annottext">TCPFlag -&gt; Text
+</span><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#fromTCPFlag"><span class="hs-identifier hs-var hs-var">fromTCPFlag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679241388"><span id="local-6989586621679241390"><span id="local-6989586621679241392"><span class="annot"><span class="annottext">Int -&gt; TCPFlag -&gt; ShowS
+[TCPFlag] -&gt; ShowS
+TCPFlag -&gt; String
+(Int -&gt; TCPFlag -&gt; ShowS)
+-&gt; (TCPFlag -&gt; String) -&gt; ([TCPFlag] -&gt; ShowS) -&gt; Show TCPFlag
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TCPFlag] -&gt; ShowS
+$cshowList :: [TCPFlag] -&gt; ShowS
+show :: TCPFlag -&gt; String
+$cshow :: TCPFlag -&gt; String
+showsPrec :: Int -&gt; TCPFlag -&gt; ShowS
+$cshowsPrec :: Int -&gt; TCPFlag -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679241379"><span id="local-6989586621679241381"><span id="local-6989586621679241383"><span id="local-6989586621679241385"><span class="annot"><span class="annottext">ReadPrec [TCPFlag]
+ReadPrec TCPFlag
+Int -&gt; ReadS TCPFlag
+ReadS [TCPFlag]
+(Int -&gt; ReadS TCPFlag)
+-&gt; ReadS [TCPFlag]
+-&gt; ReadPrec TCPFlag
+-&gt; ReadPrec [TCPFlag]
+-&gt; Read TCPFlag
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TCPFlag]
+$creadListPrec :: ReadPrec [TCPFlag]
+readPrec :: ReadPrec TCPFlag
+$creadPrec :: ReadPrec TCPFlag
+readList :: ReadS [TCPFlag]
+$creadList :: ReadS [TCPFlag]
+readsPrec :: Int -&gt; ReadS TCPFlag
+$creadsPrec :: Int -&gt; ReadS TCPFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679241374"><span id="local-6989586621679241376"><span class="annot"><span class="annottext">TCPFlag -&gt; TCPFlag -&gt; Bool
+(TCPFlag -&gt; TCPFlag -&gt; Bool)
+-&gt; (TCPFlag -&gt; TCPFlag -&gt; Bool) -&gt; Eq TCPFlag
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TCPFlag -&gt; TCPFlag -&gt; Bool
+$c/= :: TCPFlag -&gt; TCPFlag -&gt; Bool
+== :: TCPFlag -&gt; TCPFlag -&gt; Bool
+$c== :: TCPFlag -&gt; TCPFlag -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679241358"><span id="local-6989586621679241360"><span id="local-6989586621679241362"><span id="local-6989586621679241364"><span id="local-6989586621679241366"><span id="local-6989586621679241368"><span id="local-6989586621679241370"><span class="annot"><span class="annottext">Eq TCPFlag
+Eq TCPFlag
+-&gt; (TCPFlag -&gt; TCPFlag -&gt; Ordering)
+-&gt; (TCPFlag -&gt; TCPFlag -&gt; Bool)
+-&gt; (TCPFlag -&gt; TCPFlag -&gt; Bool)
+-&gt; (TCPFlag -&gt; TCPFlag -&gt; Bool)
+-&gt; (TCPFlag -&gt; TCPFlag -&gt; Bool)
+-&gt; (TCPFlag -&gt; TCPFlag -&gt; TCPFlag)
+-&gt; (TCPFlag -&gt; TCPFlag -&gt; TCPFlag)
+-&gt; Ord TCPFlag
+TCPFlag -&gt; TCPFlag -&gt; Bool
+TCPFlag -&gt; TCPFlag -&gt; Ordering
+TCPFlag -&gt; TCPFlag -&gt; TCPFlag
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TCPFlag -&gt; TCPFlag -&gt; TCPFlag
+$cmin :: TCPFlag -&gt; TCPFlag -&gt; TCPFlag
+max :: TCPFlag -&gt; TCPFlag -&gt; TCPFlag
+$cmax :: TCPFlag -&gt; TCPFlag -&gt; TCPFlag
+&gt;= :: TCPFlag -&gt; TCPFlag -&gt; Bool
+$c&gt;= :: TCPFlag -&gt; TCPFlag -&gt; Bool
+&gt; :: TCPFlag -&gt; TCPFlag -&gt; Bool
+$c&gt; :: TCPFlag -&gt; TCPFlag -&gt; Bool
+&lt;= :: TCPFlag -&gt; TCPFlag -&gt; Bool
+$c&lt;= :: TCPFlag -&gt; TCPFlag -&gt; Bool
+&lt; :: TCPFlag -&gt; TCPFlag -&gt; Bool
+$c&lt; :: TCPFlag -&gt; TCPFlag -&gt; Bool
+compare :: TCPFlag -&gt; TCPFlag -&gt; Ordering
+$ccompare :: TCPFlag -&gt; TCPFlag -&gt; Ordering
+$cp1Ord :: Eq TCPFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TCPFlag -&gt; Rep TCPFlag x)
+-&gt; (forall x. Rep TCPFlag x -&gt; TCPFlag) -&gt; Generic TCPFlag
+forall x. Rep TCPFlag x -&gt; TCPFlag
+forall x. TCPFlag -&gt; Rep TCPFlag x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TCPFlag x -&gt; TCPFlag
+$cfrom :: forall x. TCPFlag -&gt; Rep TCPFlag x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679241350"><span id="local-6989586621679241352"><span class="annot"><span class="annottext">Int -&gt; TCPFlag -&gt; Int
+TCPFlag -&gt; Int
+(Int -&gt; TCPFlag -&gt; Int) -&gt; (TCPFlag -&gt; Int) -&gt; Hashable TCPFlag
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TCPFlag -&gt; Int
+$chash :: TCPFlag -&gt; Int
+hashWithSalt :: Int -&gt; TCPFlag -&gt; Int
+$chashWithSalt :: Int -&gt; TCPFlag -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679241347"><span class="annot"><span class="annottext">TCPFlag -&gt; ()
+(TCPFlag -&gt; ()) -&gt; NFData TCPFlag
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TCPFlag -&gt; ()
+$crnf :: TCPFlag -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679241344"><span class="annot"><span class="annottext">Text -&gt; Either String TCPFlag
+(Text -&gt; Either String TCPFlag) -&gt; FromText TCPFlag
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TCPFlag
+$cfromText :: Text -&gt; Either String TCPFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679241341"><span class="annot"><span class="annottext">TCPFlag -&gt; Text
+(TCPFlag -&gt; Text) -&gt; ToText TCPFlag
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TCPFlag -&gt; Text
+$ctoText :: TCPFlag -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679241338"><span class="annot"><span class="annottext">TCPFlag -&gt; ByteString
+(TCPFlag -&gt; ByteString) -&gt; ToByteString TCPFlag
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TCPFlag -&gt; ByteString
+$ctoBS :: TCPFlag -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679241335"><span class="annot"><span class="annottext">TCPFlag -&gt; ByteStringBuilder
+(TCPFlag -&gt; ByteStringBuilder) -&gt; ToLog TCPFlag
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TCPFlag -&gt; ByteStringBuilder
+$cbuild :: TCPFlag -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679241332"><span class="annot"><span class="annottext">HeaderName -&gt; TCPFlag -&gt; [Header]
+(HeaderName -&gt; TCPFlag -&gt; [Header]) -&gt; ToHeader TCPFlag
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TCPFlag -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TCPFlag -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679241329"><span class="annot"><span class="annottext">TCPFlag -&gt; QueryString
+(TCPFlag -&gt; QueryString) -&gt; ToQuery TCPFlag
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TCPFlag -&gt; QueryString
+$ctoQuery :: TCPFlag -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679241324"><span id="local-6989586621679241326"><span class="annot"><span class="annottext">Value -&gt; Parser [TCPFlag]
+Value -&gt; Parser TCPFlag
+(Value -&gt; Parser TCPFlag)
+-&gt; (Value -&gt; Parser [TCPFlag]) -&gt; FromJSON TCPFlag
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TCPFlag]
+$cparseJSONList :: Value -&gt; Parser [TCPFlag]
+parseJSON :: Value -&gt; Parser TCPFlag
+$cparseJSON :: Value -&gt; Parser TCPFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679241319"><span id="local-6989586621679241321"><span class="annot"><span class="annottext">FromJSONKeyFunction [TCPFlag]
+FromJSONKeyFunction TCPFlag
+FromJSONKeyFunction TCPFlag
+-&gt; FromJSONKeyFunction [TCPFlag] -&gt; FromJSONKey TCPFlag
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TCPFlag]
+$cfromJSONKeyList :: FromJSONKeyFunction [TCPFlag]
+fromJSONKey :: FromJSONKeyFunction TCPFlag
+$cfromJSONKey :: FromJSONKeyFunction TCPFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679241310"><span id="local-6989586621679241312"><span id="local-6989586621679241314"><span id="local-6989586621679241316"><span class="annot"><span class="annottext">[TCPFlag] -&gt; Encoding
+[TCPFlag] -&gt; Value
+TCPFlag -&gt; Encoding
+TCPFlag -&gt; Value
+(TCPFlag -&gt; Value)
+-&gt; (TCPFlag -&gt; Encoding)
+-&gt; ([TCPFlag] -&gt; Value)
+-&gt; ([TCPFlag] -&gt; Encoding)
+-&gt; ToJSON TCPFlag
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TCPFlag] -&gt; Encoding
+$ctoEncodingList :: [TCPFlag] -&gt; Encoding
+toJSONList :: [TCPFlag] -&gt; Value
+$ctoJSONList :: [TCPFlag] -&gt; Value
+toEncoding :: TCPFlag -&gt; Encoding
+$ctoEncoding :: TCPFlag -&gt; Encoding
+toJSON :: TCPFlag -&gt; Value
+$ctoJSON :: TCPFlag -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679241305"><span id="local-6989586621679241307"><span class="annot"><span class="annottext">ToJSONKeyFunction [TCPFlag]
+ToJSONKeyFunction TCPFlag
+ToJSONKeyFunction TCPFlag
+-&gt; ToJSONKeyFunction [TCPFlag] -&gt; ToJSONKey TCPFlag
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TCPFlag]
+$ctoJSONKeyList :: ToJSONKeyFunction [TCPFlag]
+toJSONKey :: ToJSONKeyFunction TCPFlag
+$ctoJSONKey :: ToJSONKeyFunction TCPFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679241302"><span class="annot"><span class="annottext">[Node] -&gt; Either String TCPFlag
+([Node] -&gt; Either String TCPFlag) -&gt; FromXML TCPFlag
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TCPFlag
+$cparseXML :: [Node] -&gt; Either String TCPFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679241299"><span class="annot"><span class="annottext">TCPFlag -&gt; XML
+(TCPFlag -&gt; XML) -&gt; ToXML TCPFlag
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TCPFlag -&gt; XML
+$ctoXML :: TCPFlag -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_ACK"><span class="hs-identifier hs-type">TCPFlag_ACK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag"><span class="hs-identifier hs-type">TCPFlag</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTCPFlag_ACK"><span id="%24mTCPFlag_ACK"><span id="TCPFlag_ACK"><span class="annot"><span class="annottext">$bTCPFlag_ACK :: TCPFlag
+$mTCPFlag_ACK :: forall r. TCPFlag -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#%24bTCPFlag_ACK"><span class="hs-identifier hs-var hs-var hs-var">TCPFlag_ACK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag%27"><span class="hs-identifier hs-type">TCPFlag'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACK&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_CWR"><span class="hs-identifier hs-type">TCPFlag_CWR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag"><span class="hs-identifier hs-type">TCPFlag</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTCPFlag_CWR"><span id="%24mTCPFlag_CWR"><span id="TCPFlag_CWR"><span class="annot"><span class="annottext">$bTCPFlag_CWR :: TCPFlag
+$mTCPFlag_CWR :: forall r. TCPFlag -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#%24bTCPFlag_CWR"><span class="hs-identifier hs-var hs-var hs-var">TCPFlag_CWR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag%27"><span class="hs-identifier hs-type">TCPFlag'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CWR&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_ECE"><span class="hs-identifier hs-type">TCPFlag_ECE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag"><span class="hs-identifier hs-type">TCPFlag</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTCPFlag_ECE"><span id="%24mTCPFlag_ECE"><span id="TCPFlag_ECE"><span class="annot"><span class="annottext">$bTCPFlag_ECE :: TCPFlag
+$mTCPFlag_ECE :: forall r. TCPFlag -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#%24bTCPFlag_ECE"><span class="hs-identifier hs-var hs-var hs-var">TCPFlag_ECE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag%27"><span class="hs-identifier hs-type">TCPFlag'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECE&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_FIN"><span class="hs-identifier hs-type">TCPFlag_FIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag"><span class="hs-identifier hs-type">TCPFlag</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTCPFlag_FIN"><span id="%24mTCPFlag_FIN"><span id="TCPFlag_FIN"><span class="annot"><span class="annottext">$bTCPFlag_FIN :: TCPFlag
+$mTCPFlag_FIN :: forall r. TCPFlag -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#%24bTCPFlag_FIN"><span class="hs-identifier hs-var hs-var hs-var">TCPFlag_FIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag%27"><span class="hs-identifier hs-type">TCPFlag'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FIN&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_PSH"><span class="hs-identifier hs-type">TCPFlag_PSH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag"><span class="hs-identifier hs-type">TCPFlag</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTCPFlag_PSH"><span id="%24mTCPFlag_PSH"><span id="TCPFlag_PSH"><span class="annot"><span class="annottext">$bTCPFlag_PSH :: TCPFlag
+$mTCPFlag_PSH :: forall r. TCPFlag -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#%24bTCPFlag_PSH"><span class="hs-identifier hs-var hs-var hs-var">TCPFlag_PSH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag%27"><span class="hs-identifier hs-type">TCPFlag'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PSH&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_RST"><span class="hs-identifier hs-type">TCPFlag_RST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag"><span class="hs-identifier hs-type">TCPFlag</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTCPFlag_RST"><span id="%24mTCPFlag_RST"><span id="TCPFlag_RST"><span class="annot"><span class="annottext">$bTCPFlag_RST :: TCPFlag
+$mTCPFlag_RST :: forall r. TCPFlag -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#%24bTCPFlag_RST"><span class="hs-identifier hs-var hs-var hs-var">TCPFlag_RST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag%27"><span class="hs-identifier hs-type">TCPFlag'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RST&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_SYN"><span class="hs-identifier hs-type">TCPFlag_SYN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag"><span class="hs-identifier hs-type">TCPFlag</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTCPFlag_SYN"><span id="%24mTCPFlag_SYN"><span id="TCPFlag_SYN"><span class="annot"><span class="annottext">$bTCPFlag_SYN :: TCPFlag
+$mTCPFlag_SYN :: forall r. TCPFlag -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#%24bTCPFlag_SYN"><span class="hs-identifier hs-var hs-var hs-var">TCPFlag_SYN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag%27"><span class="hs-identifier hs-type">TCPFlag'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SYN&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_URG"><span class="hs-identifier hs-type">TCPFlag_URG</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag"><span class="hs-identifier hs-type">TCPFlag</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTCPFlag_URG"><span id="%24mTCPFlag_URG"><span id="TCPFlag_URG"><span class="annot"><span class="annottext">$bTCPFlag_URG :: TCPFlag
+$mTCPFlag_URG :: forall r. TCPFlag -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#%24bTCPFlag_URG"><span class="hs-identifier hs-var hs-var hs-var">TCPFlag_URG</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag%27"><span class="hs-identifier hs-type">TCPFlag'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;URG&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_ACK"><span class="hs-pragma hs-type">TCPFlag_ACK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_CWR"><span class="hs-pragma hs-type">TCPFlag_CWR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_ECE"><span class="hs-pragma hs-type">TCPFlag_ECE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_FIN"><span class="hs-pragma hs-type">TCPFlag_FIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_PSH"><span class="hs-pragma hs-type">TCPFlag_PSH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_RST"><span class="hs-pragma hs-type">TCPFlag_RST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_SYN"><span class="hs-pragma hs-type">TCPFlag_SYN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag_URG"><span class="hs-pragma hs-type">TCPFlag_URG</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TCPFlag.html#TCPFlag%27"><span class="hs-pragma hs-type">TCPFlag'</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-98"></span></pre></body></html>

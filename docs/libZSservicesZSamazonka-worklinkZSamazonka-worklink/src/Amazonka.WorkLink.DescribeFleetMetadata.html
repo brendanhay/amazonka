@@ -1,0 +1,924 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkLink.DescribeFleetMetadata</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provides basic information for the specified fleet, excluding identity</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- provider, networking, and device configuration details.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkLink.DescribeFleetMetadata</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier">DescribeFleetMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#newDescribeFleetMetadata"><span class="hs-identifier">newDescribeFleetMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadata_fleetArn"><span class="hs-identifier">describeFleetMetadata_fleetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier">DescribeFleetMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#newDescribeFleetMetadataResponse"><span class="hs-identifier">newDescribeFleetMetadataResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_lastUpdatedTime"><span class="hs-identifier">describeFleetMetadataResponse_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_fleetStatus"><span class="hs-identifier">describeFleetMetadataResponse_fleetStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_companyCode"><span class="hs-identifier">describeFleetMetadataResponse_companyCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_createdTime"><span class="hs-identifier">describeFleetMetadataResponse_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_optimizeForEndUserLocation"><span class="hs-identifier">describeFleetMetadataResponse_optimizeForEndUserLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_displayName"><span class="hs-identifier">describeFleetMetadataResponse_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_fleetName"><span class="hs-identifier">describeFleetMetadataResponse_fleetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_tags"><span class="hs-identifier">describeFleetMetadataResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_httpStatus"><span class="hs-identifier">describeFleetMetadataResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.html"><span class="hs-identifier">Amazonka.WorkLink.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeFleetMetadata' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679194436"><span id="local-6989586621679194437"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetMetadata"><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier hs-var">DescribeFleetMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetMetadata%27"><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata%27"><span class="hs-identifier hs-var">DescribeFleetMetadata'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the fleet.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AfleetArn%3ADescribeFleetMetadata%27"><span class="annot"><span class="annottext">DescribeFleetMetadata -&gt; Text
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AfleetArn%3ADescribeFleetMetadata%27"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194430"><span id="local-6989586621679194432"><span class="annot"><span class="annottext">DescribeFleetMetadata -&gt; DescribeFleetMetadata -&gt; Bool
+(DescribeFleetMetadata -&gt; DescribeFleetMetadata -&gt; Bool)
+-&gt; (DescribeFleetMetadata -&gt; DescribeFleetMetadata -&gt; Bool)
+-&gt; Eq DescribeFleetMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeFleetMetadata -&gt; DescribeFleetMetadata -&gt; Bool
+$c/= :: DescribeFleetMetadata -&gt; DescribeFleetMetadata -&gt; Bool
+== :: DescribeFleetMetadata -&gt; DescribeFleetMetadata -&gt; Bool
+$c== :: DescribeFleetMetadata -&gt; DescribeFleetMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194421"><span id="local-6989586621679194423"><span id="local-6989586621679194425"><span id="local-6989586621679194427"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetMetadata]
+ReadPrec DescribeFleetMetadata
+Int -&gt; ReadS DescribeFleetMetadata
+ReadS [DescribeFleetMetadata]
+(Int -&gt; ReadS DescribeFleetMetadata)
+-&gt; ReadS [DescribeFleetMetadata]
+-&gt; ReadPrec DescribeFleetMetadata
+-&gt; ReadPrec [DescribeFleetMetadata]
+-&gt; Read DescribeFleetMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeFleetMetadata]
+$creadListPrec :: ReadPrec [DescribeFleetMetadata]
+readPrec :: ReadPrec DescribeFleetMetadata
+$creadPrec :: ReadPrec DescribeFleetMetadata
+readList :: ReadS [DescribeFleetMetadata]
+$creadList :: ReadS [DescribeFleetMetadata]
+readsPrec :: Int -&gt; ReadS DescribeFleetMetadata
+$creadsPrec :: Int -&gt; ReadS DescribeFleetMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194414"><span id="local-6989586621679194416"><span id="local-6989586621679194418"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetMetadata -&gt; ShowS
+[DescribeFleetMetadata] -&gt; ShowS
+DescribeFleetMetadata -&gt; String
+(Int -&gt; DescribeFleetMetadata -&gt; ShowS)
+-&gt; (DescribeFleetMetadata -&gt; String)
+-&gt; ([DescribeFleetMetadata] -&gt; ShowS)
+-&gt; Show DescribeFleetMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeFleetMetadata] -&gt; ShowS
+$cshowList :: [DescribeFleetMetadata] -&gt; ShowS
+show :: DescribeFleetMetadata -&gt; String
+$cshow :: DescribeFleetMetadata -&gt; String
+showsPrec :: Int -&gt; DescribeFleetMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeFleetMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeFleetMetadata -&gt; Rep DescribeFleetMetadata x)
+-&gt; (forall x. Rep DescribeFleetMetadata x -&gt; DescribeFleetMetadata)
+-&gt; Generic DescribeFleetMetadata
+forall x. Rep DescribeFleetMetadata x -&gt; DescribeFleetMetadata
+forall x. DescribeFleetMetadata -&gt; Rep DescribeFleetMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeFleetMetadata x -&gt; DescribeFleetMetadata
+$cfrom :: forall x. DescribeFleetMetadata -&gt; Rep DescribeFleetMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DescribeFleetMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'fleetArn', 'describeFleetMetadata_fleetArn' - The Amazon Resource Name (ARN) of the fleet.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#newDescribeFleetMetadata"><span class="hs-identifier hs-type">newDescribeFleetMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'fleetArn'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier hs-type">DescribeFleetMetadata</span></a></span><span>
+</span><span id="line-77"></span><span id="newDescribeFleetMetadata"><span class="annot"><span class="annottext">newDescribeFleetMetadata :: Text -&gt; DescribeFleetMetadata
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#newDescribeFleetMetadata"><span class="hs-identifier hs-var hs-var">newDescribeFleetMetadata</span></a></span></span><span> </span><span id="local-6989586621679194409"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194409"><span class="hs-identifier hs-var">pFleetArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DescribeFleetMetadata' :: Text -&gt; DescribeFleetMetadata
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata%27"><span class="hs-identifier hs-type">DescribeFleetMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:DescribeFleetMetadata' :: Text
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AfleetArn%3ADescribeFleetMetadata%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194409"><span class="hs-identifier hs-var">pFleetArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the fleet.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadata_fleetArn"><span class="hs-identifier hs-type">describeFleetMetadata_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier hs-type">DescribeFleetMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="describeFleetMetadata_fleetArn"><span class="annot"><span class="annottext">describeFleetMetadata_fleetArn :: (Text -&gt; f Text)
+-&gt; DescribeFleetMetadata -&gt; f DescribeFleetMetadata
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadata_fleetArn"><span class="hs-identifier hs-var hs-var">describeFleetMetadata_fleetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetMetadata -&gt; Text)
+-&gt; (DescribeFleetMetadata -&gt; Text -&gt; DescribeFleetMetadata)
+-&gt; Lens DescribeFleetMetadata DescribeFleetMetadata Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata%27"><span class="hs-identifier hs-type">DescribeFleetMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194406"><span class="annot"><span class="annottext">Text
+fleetArn :: Text
+$sel:fleetArn:DescribeFleetMetadata' :: DescribeFleetMetadata -&gt; Text
+</span><a href="#local-6989586621679194406"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194406"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194405"><span class="annot"><span class="annottext">s :: DescribeFleetMetadata
+</span><a href="#local-6989586621679194405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata%27"><span class="hs-identifier hs-type">DescribeFleetMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194404"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetMetadata
+</span><a href="#local-6989586621679194405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:DescribeFleetMetadata' :: Text
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AfleetArn%3ADescribeFleetMetadata%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier hs-type">DescribeFleetMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier hs-type">DescribeFleetMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier hs-type">DescribeFleetMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679194400"><span class="annot"><span class="annottext">request :: DescribeFleetMetadata -&gt; Request DescribeFleetMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeFleetMetadata -&gt; Request DescribeFleetMetadata
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkLink.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679194396"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeFleetMetadata
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeFleetMetadata)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeFleetMetadata))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeFleetMetadata
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeFleetMetadata)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194393"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194393"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679194392"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679194392"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679194391"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194391"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe FleetStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; DescribeFleetMetadataResponse
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">DescribeFleetMetadataResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe FleetStatus
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; DescribeFleetMetadataResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe FleetStatus
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; DescribeFleetMetadataResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe FleetStatus
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; DescribeFleetMetadataResponse)
+-&gt; Either String (Maybe FleetStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; DescribeFleetMetadataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FleetStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; DescribeFleetMetadataResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; DescribeFleetMetadataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompanyCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; DescribeFleetMetadataResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; DescribeFleetMetadataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; DescribeFleetMetadataResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; DescribeFleetMetadataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OptimizeForEndUserLocation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; DescribeFleetMetadataResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; DescribeFleetMetadataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; DescribeFleetMetadataResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text) -&gt; Int -&gt; DescribeFleetMetadataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text) -&gt; Int -&gt; DescribeFleetMetadataResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; DescribeFleetMetadataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeFleetMetadataResponse)
+-&gt; Either String Int -&gt; Either String DescribeFleetMetadataResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194393"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194382"><span id="local-6989586621679194384"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier hs-type">DescribeFleetMetadata</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier hs-type">DescribeFleetMetadata</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier hs-type">DescribeFleetMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679194375"><span class="annot"><span class="annottext">toHeaders :: DescribeFleetMetadata -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeFleetMetadata -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194365"><span id="local-6989586621679194367"><span id="local-6989586621679194369"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier hs-type">DescribeFleetMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679194363"><span class="annot"><span class="annottext">toJSON :: DescribeFleetMetadata -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata%27"><span class="hs-identifier hs-type">DescribeFleetMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194361"><span class="annot"><span class="annottext">Text
+fleetArn :: Text
+$sel:fleetArn:DescribeFleetMetadata' :: DescribeFleetMetadata -&gt; Text
+</span><a href="#local-6989586621679194361"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194361"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier hs-type">DescribeFleetMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679194355"><span class="annot"><span class="annottext">toPath :: DescribeFleetMetadata -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeFleetMetadata -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/describeFleetMetadata&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadata"><span class="hs-identifier hs-type">DescribeFleetMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679194351"><span class="annot"><span class="annottext">toQuery :: DescribeFleetMetadata -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeFleetMetadata -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newDescribeFleetMetadataResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621679194348"><span id="local-6989586621679194349"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetMetadataResponse"><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-var">DescribeFleetMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetMetadataResponse%27"><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">DescribeFleetMetadataResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time that the fleet was last updated.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3ADescribeFleetMetadataResponse%27"><span class="annot"><span class="annottext">DescribeFleetMetadataResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AlastUpdatedTime%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The current state of the fleet.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AfleetStatus%3ADescribeFleetMetadataResponse%27"><span class="annot"><span class="annottext">DescribeFleetMetadataResponse -&gt; Maybe FleetStatus
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AfleetStatus%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var hs-var">fleetStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus"><span class="hs-identifier hs-type">FleetStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The identifier used by users to sign in to the Amazon WorkLink app.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AcompanyCode%3ADescribeFleetMetadataResponse%27"><span class="annot"><span class="annottext">DescribeFleetMetadataResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AcompanyCode%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var hs-var">companyCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The time that the fleet was created.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AcreatedTime%3ADescribeFleetMetadataResponse%27"><span class="annot"><span class="annottext">DescribeFleetMetadataResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AcreatedTime%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The option to optimize for better performance by routing traffic through</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- the closest AWS Region to users, which may be outside of your home</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- Region.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AoptimizeForEndUserLocation%3ADescribeFleetMetadataResponse%27"><span class="annot"><span class="annottext">DescribeFleetMetadataResponse -&gt; Maybe Bool
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AoptimizeForEndUserLocation%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var hs-var">optimizeForEndUserLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The name to display.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AdisplayName%3ADescribeFleetMetadataResponse%27"><span class="annot"><span class="annottext">DescribeFleetMetadataResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AdisplayName%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The name of the fleet.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AfleetName%3ADescribeFleetMetadataResponse%27"><span class="annot"><span class="annottext">DescribeFleetMetadataResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AfleetName%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The tags attached to the resource. A tag is a key-value pair.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3Atags%3ADescribeFleetMetadataResponse%27"><span class="annot"><span class="annottext">DescribeFleetMetadataResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3Atags%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeFleetMetadataResponse%27"><span class="annot"><span class="annottext">DescribeFleetMetadataResponse -&gt; Int
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AhttpStatus%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194335"><span id="local-6989586621679194337"><span class="annot"><span class="annottext">DescribeFleetMetadataResponse
+-&gt; DescribeFleetMetadataResponse -&gt; Bool
+(DescribeFleetMetadataResponse
+ -&gt; DescribeFleetMetadataResponse -&gt; Bool)
+-&gt; (DescribeFleetMetadataResponse
+    -&gt; DescribeFleetMetadataResponse -&gt; Bool)
+-&gt; Eq DescribeFleetMetadataResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeFleetMetadataResponse
+-&gt; DescribeFleetMetadataResponse -&gt; Bool
+$c/= :: DescribeFleetMetadataResponse
+-&gt; DescribeFleetMetadataResponse -&gt; Bool
+== :: DescribeFleetMetadataResponse
+-&gt; DescribeFleetMetadataResponse -&gt; Bool
+$c== :: DescribeFleetMetadataResponse
+-&gt; DescribeFleetMetadataResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194327"><span id="local-6989586621679194329"><span id="local-6989586621679194331"><span id="local-6989586621679194333"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetMetadataResponse]
+ReadPrec DescribeFleetMetadataResponse
+Int -&gt; ReadS DescribeFleetMetadataResponse
+ReadS [DescribeFleetMetadataResponse]
+(Int -&gt; ReadS DescribeFleetMetadataResponse)
+-&gt; ReadS [DescribeFleetMetadataResponse]
+-&gt; ReadPrec DescribeFleetMetadataResponse
+-&gt; ReadPrec [DescribeFleetMetadataResponse]
+-&gt; Read DescribeFleetMetadataResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeFleetMetadataResponse]
+$creadListPrec :: ReadPrec [DescribeFleetMetadataResponse]
+readPrec :: ReadPrec DescribeFleetMetadataResponse
+$creadPrec :: ReadPrec DescribeFleetMetadataResponse
+readList :: ReadS [DescribeFleetMetadataResponse]
+$creadList :: ReadS [DescribeFleetMetadataResponse]
+readsPrec :: Int -&gt; ReadS DescribeFleetMetadataResponse
+$creadsPrec :: Int -&gt; ReadS DescribeFleetMetadataResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194321"><span id="local-6989586621679194323"><span id="local-6989586621679194325"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetMetadataResponse -&gt; ShowS
+[DescribeFleetMetadataResponse] -&gt; ShowS
+DescribeFleetMetadataResponse -&gt; String
+(Int -&gt; DescribeFleetMetadataResponse -&gt; ShowS)
+-&gt; (DescribeFleetMetadataResponse -&gt; String)
+-&gt; ([DescribeFleetMetadataResponse] -&gt; ShowS)
+-&gt; Show DescribeFleetMetadataResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeFleetMetadataResponse] -&gt; ShowS
+$cshowList :: [DescribeFleetMetadataResponse] -&gt; ShowS
+show :: DescribeFleetMetadataResponse -&gt; String
+$cshow :: DescribeFleetMetadataResponse -&gt; String
+showsPrec :: Int -&gt; DescribeFleetMetadataResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeFleetMetadataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeFleetMetadataResponse
+ -&gt; Rep DescribeFleetMetadataResponse x)
+-&gt; (forall x.
+    Rep DescribeFleetMetadataResponse x
+    -&gt; DescribeFleetMetadataResponse)
+-&gt; Generic DescribeFleetMetadataResponse
+forall x.
+Rep DescribeFleetMetadataResponse x
+-&gt; DescribeFleetMetadataResponse
+forall x.
+DescribeFleetMetadataResponse
+-&gt; Rep DescribeFleetMetadataResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeFleetMetadataResponse x
+-&gt; DescribeFleetMetadataResponse
+$cfrom :: forall x.
+DescribeFleetMetadataResponse
+-&gt; Rep DescribeFleetMetadataResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'DescribeFleetMetadataResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'lastUpdatedTime', 'describeFleetMetadataResponse_lastUpdatedTime' - The time that the fleet was last updated.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'fleetStatus', 'describeFleetMetadataResponse_fleetStatus' - The current state of the fleet.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'companyCode', 'describeFleetMetadataResponse_companyCode' - The identifier used by users to sign in to the Amazon WorkLink app.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'createdTime', 'describeFleetMetadataResponse_createdTime' - The time that the fleet was created.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'optimizeForEndUserLocation', 'describeFleetMetadataResponse_optimizeForEndUserLocation' - The option to optimize for better performance by routing traffic through</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- the closest AWS Region to users, which may be outside of your home</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Region.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'displayName', 'describeFleetMetadataResponse_displayName' - The name to display.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'fleetName', 'describeFleetMetadataResponse_fleetName' - The name of the fleet.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'tags', 'describeFleetMetadataResponse_tags' - The tags attached to the resource. A tag is a key-value pair.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'httpStatus', 'describeFleetMetadataResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#newDescribeFleetMetadataResponse"><span class="hs-identifier hs-type">newDescribeFleetMetadataResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span>
+</span><span id="line-188"></span><span id="newDescribeFleetMetadataResponse"><span class="annot"><span class="annottext">newDescribeFleetMetadataResponse :: Int -&gt; DescribeFleetMetadataResponse
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#newDescribeFleetMetadataResponse"><span class="hs-identifier hs-var hs-var">newDescribeFleetMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679194318"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194318"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">DescribeFleetMetadataResponse' :: Maybe POSIX
+-&gt; Maybe FleetStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; DescribeFleetMetadataResponse
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:DescribeFleetMetadataResponse' :: Maybe POSIX
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AlastUpdatedTime%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetStatus:DescribeFleetMetadataResponse' :: Maybe FleetStatus
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AfleetStatus%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">fleetStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FleetStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:companyCode:DescribeFleetMetadataResponse' :: Maybe Text
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AcompanyCode%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">companyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:DescribeFleetMetadataResponse' :: Maybe POSIX
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AcreatedTime%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:optimizeForEndUserLocation:DescribeFleetMetadataResponse' :: Maybe Bool
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AoptimizeForEndUserLocation%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">optimizeForEndUserLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:DescribeFleetMetadataResponse' :: Maybe Text
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AdisplayName%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetName:DescribeFleetMetadataResponse' :: Maybe Text
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AfleetName%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:DescribeFleetMetadataResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3Atags%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFleetMetadataResponse' :: Int
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AhttpStatus%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194318"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The time that the fleet was last updated.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_lastUpdatedTime"><span class="hs-identifier hs-type">describeFleetMetadataResponse_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="describeFleetMetadataResponse_lastUpdatedTime"><span class="annot"><span class="annottext">describeFleetMetadataResponse_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeFleetMetadataResponse -&gt; f DescribeFleetMetadataResponse
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">describeFleetMetadataResponse_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetMetadataResponse -&gt; Maybe POSIX)
+-&gt; (DescribeFleetMetadataResponse
+    -&gt; Maybe POSIX -&gt; DescribeFleetMetadataResponse)
+-&gt; Lens
+     DescribeFleetMetadataResponse
+     DescribeFleetMetadataResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194317"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTime :: Maybe POSIX
+$sel:lastUpdatedTime:DescribeFleetMetadataResponse' :: DescribeFleetMetadataResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679194317"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679194317"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194316"><span class="annot"><span class="annottext">s :: DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194315"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679194315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:DescribeFleetMetadataResponse' :: Maybe POSIX
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AlastUpdatedTime%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679194315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeFleetMetadataResponse
+ -&gt; f DescribeFleetMetadataResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeFleetMetadataResponse
+-&gt; f DescribeFleetMetadataResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The current state of the fleet.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_fleetStatus"><span class="hs-identifier hs-type">describeFleetMetadataResponse_fleetStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.Types.FleetStatus.html#FleetStatus"><span class="hs-identifier hs-type">FleetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="describeFleetMetadataResponse_fleetStatus"><span class="annot"><span class="annottext">describeFleetMetadataResponse_fleetStatus :: (Maybe FleetStatus -&gt; f (Maybe FleetStatus))
+-&gt; DescribeFleetMetadataResponse -&gt; f DescribeFleetMetadataResponse
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_fleetStatus"><span class="hs-identifier hs-var hs-var">describeFleetMetadataResponse_fleetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetMetadataResponse -&gt; Maybe FleetStatus)
+-&gt; (DescribeFleetMetadataResponse
+    -&gt; Maybe FleetStatus -&gt; DescribeFleetMetadataResponse)
+-&gt; Lens
+     DescribeFleetMetadataResponse
+     DescribeFleetMetadataResponse
+     (Maybe FleetStatus)
+     (Maybe FleetStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194311"><span class="annot"><span class="annottext">Maybe FleetStatus
+fleetStatus :: Maybe FleetStatus
+$sel:fleetStatus:DescribeFleetMetadataResponse' :: DescribeFleetMetadataResponse -&gt; Maybe FleetStatus
+</span><a href="#local-6989586621679194311"><span class="hs-identifier hs-var hs-var">fleetStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetStatus
+</span><a href="#local-6989586621679194311"><span class="hs-identifier hs-var">fleetStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194310"><span class="annot"><span class="annottext">s :: DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194309"><span class="annot"><span class="annottext">Maybe FleetStatus
+</span><a href="#local-6989586621679194309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetStatus:DescribeFleetMetadataResponse' :: Maybe FleetStatus
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AfleetStatus%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">fleetStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FleetStatus
+</span><a href="#local-6989586621679194309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The identifier used by users to sign in to the Amazon WorkLink app.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_companyCode"><span class="hs-identifier hs-type">describeFleetMetadataResponse_companyCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="describeFleetMetadataResponse_companyCode"><span class="annot"><span class="annottext">describeFleetMetadataResponse_companyCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFleetMetadataResponse -&gt; f DescribeFleetMetadataResponse
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_companyCode"><span class="hs-identifier hs-var hs-var">describeFleetMetadataResponse_companyCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetMetadataResponse -&gt; Maybe Text)
+-&gt; (DescribeFleetMetadataResponse
+    -&gt; Maybe Text -&gt; DescribeFleetMetadataResponse)
+-&gt; Lens
+     DescribeFleetMetadataResponse
+     DescribeFleetMetadataResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194308"><span class="annot"><span class="annottext">Maybe Text
+companyCode :: Maybe Text
+$sel:companyCode:DescribeFleetMetadataResponse' :: DescribeFleetMetadataResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679194308"><span class="hs-identifier hs-var hs-var">companyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194308"><span class="hs-identifier hs-var">companyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194307"><span class="annot"><span class="annottext">s :: DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194306"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:companyCode:DescribeFleetMetadataResponse' :: Maybe Text
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AcompanyCode%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">companyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The time that the fleet was created.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_createdTime"><span class="hs-identifier hs-type">describeFleetMetadataResponse_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="describeFleetMetadataResponse_createdTime"><span class="annot"><span class="annottext">describeFleetMetadataResponse_createdTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeFleetMetadataResponse -&gt; f DescribeFleetMetadataResponse
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_createdTime"><span class="hs-identifier hs-var hs-var">describeFleetMetadataResponse_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetMetadataResponse -&gt; Maybe POSIX)
+-&gt; (DescribeFleetMetadataResponse
+    -&gt; Maybe POSIX -&gt; DescribeFleetMetadataResponse)
+-&gt; Lens
+     DescribeFleetMetadataResponse
+     DescribeFleetMetadataResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194305"><span class="annot"><span class="annottext">Maybe POSIX
+createdTime :: Maybe POSIX
+$sel:createdTime:DescribeFleetMetadataResponse' :: DescribeFleetMetadataResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679194305"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679194305"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194304"><span class="annot"><span class="annottext">s :: DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194303"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679194303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:DescribeFleetMetadataResponse' :: Maybe POSIX
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AcreatedTime%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679194303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeFleetMetadataResponse
+ -&gt; f DescribeFleetMetadataResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeFleetMetadataResponse
+-&gt; f DescribeFleetMetadataResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The option to optimize for better performance by routing traffic through</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- the closest AWS Region to users, which may be outside of your home</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Region.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_optimizeForEndUserLocation"><span class="hs-identifier hs-type">describeFleetMetadataResponse_optimizeForEndUserLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="describeFleetMetadataResponse_optimizeForEndUserLocation"><span class="annot"><span class="annottext">describeFleetMetadataResponse_optimizeForEndUserLocation :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeFleetMetadataResponse -&gt; f DescribeFleetMetadataResponse
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_optimizeForEndUserLocation"><span class="hs-identifier hs-var hs-var">describeFleetMetadataResponse_optimizeForEndUserLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetMetadataResponse -&gt; Maybe Bool)
+-&gt; (DescribeFleetMetadataResponse
+    -&gt; Maybe Bool -&gt; DescribeFleetMetadataResponse)
+-&gt; Lens
+     DescribeFleetMetadataResponse
+     DescribeFleetMetadataResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194302"><span class="annot"><span class="annottext">Maybe Bool
+optimizeForEndUserLocation :: Maybe Bool
+$sel:optimizeForEndUserLocation:DescribeFleetMetadataResponse' :: DescribeFleetMetadataResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679194302"><span class="hs-identifier hs-var hs-var">optimizeForEndUserLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679194302"><span class="hs-identifier hs-var">optimizeForEndUserLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194301"><span class="annot"><span class="annottext">s :: DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194300"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679194300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optimizeForEndUserLocation:DescribeFleetMetadataResponse' :: Maybe Bool
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AoptimizeForEndUserLocation%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">optimizeForEndUserLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679194300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The name to display.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_displayName"><span class="hs-identifier hs-type">describeFleetMetadataResponse_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="describeFleetMetadataResponse_displayName"><span class="annot"><span class="annottext">describeFleetMetadataResponse_displayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFleetMetadataResponse -&gt; f DescribeFleetMetadataResponse
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_displayName"><span class="hs-identifier hs-var hs-var">describeFleetMetadataResponse_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetMetadataResponse -&gt; Maybe Text)
+-&gt; (DescribeFleetMetadataResponse
+    -&gt; Maybe Text -&gt; DescribeFleetMetadataResponse)
+-&gt; Lens
+     DescribeFleetMetadataResponse
+     DescribeFleetMetadataResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194299"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:DescribeFleetMetadataResponse' :: DescribeFleetMetadataResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679194299"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194299"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194298"><span class="annot"><span class="annottext">s :: DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194297"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:DescribeFleetMetadataResponse' :: Maybe Text
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AdisplayName%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The name of the fleet.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_fleetName"><span class="hs-identifier hs-type">describeFleetMetadataResponse_fleetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="describeFleetMetadataResponse_fleetName"><span class="annot"><span class="annottext">describeFleetMetadataResponse_fleetName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFleetMetadataResponse -&gt; f DescribeFleetMetadataResponse
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_fleetName"><span class="hs-identifier hs-var hs-var">describeFleetMetadataResponse_fleetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetMetadataResponse -&gt; Maybe Text)
+-&gt; (DescribeFleetMetadataResponse
+    -&gt; Maybe Text -&gt; DescribeFleetMetadataResponse)
+-&gt; Lens
+     DescribeFleetMetadataResponse
+     DescribeFleetMetadataResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194296"><span class="annot"><span class="annottext">Maybe Text
+fleetName :: Maybe Text
+$sel:fleetName:DescribeFleetMetadataResponse' :: DescribeFleetMetadataResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679194296"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194296"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194295"><span class="annot"><span class="annottext">s :: DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194294"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetName:DescribeFleetMetadataResponse' :: Maybe Text
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AfleetName%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The tags attached to the resource. A tag is a key-value pair.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_tags"><span class="hs-identifier hs-type">describeFleetMetadataResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="describeFleetMetadataResponse_tags"><span class="annot"><span class="annottext">describeFleetMetadataResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DescribeFleetMetadataResponse -&gt; f DescribeFleetMetadataResponse
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_tags"><span class="hs-identifier hs-var hs-var">describeFleetMetadataResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetMetadataResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (DescribeFleetMetadataResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; DescribeFleetMetadataResponse)
+-&gt; Lens
+     DescribeFleetMetadataResponse
+     DescribeFleetMetadataResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194293"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:DescribeFleetMetadataResponse' :: DescribeFleetMetadataResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679194293"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679194293"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194292"><span class="annot"><span class="annottext">s :: DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194291"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679194291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DescribeFleetMetadataResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3Atags%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679194291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; DescribeFleetMetadataResponse
+ -&gt; f DescribeFleetMetadataResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DescribeFleetMetadataResponse
+-&gt; f DescribeFleetMetadataResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_httpStatus"><span class="hs-identifier hs-type">describeFleetMetadataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span id="describeFleetMetadataResponse_httpStatus"><span class="annot"><span class="annottext">describeFleetMetadataResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeFleetMetadataResponse -&gt; f DescribeFleetMetadataResponse
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#describeFleetMetadataResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeFleetMetadataResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetMetadataResponse -&gt; Int)
+-&gt; (DescribeFleetMetadataResponse
+    -&gt; Int -&gt; DescribeFleetMetadataResponse)
+-&gt; Lens
+     DescribeFleetMetadataResponse DescribeFleetMetadataResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194289"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeFleetMetadataResponse' :: DescribeFleetMetadataResponse -&gt; Int
+</span><a href="#local-6989586621679194289"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194289"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194288"><span class="annot"><span class="annottext">s :: DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse%27"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194287"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetMetadataResponse
+</span><a href="#local-6989586621679194288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFleetMetadataResponse' :: Int
+</span><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#%24sel%3AhttpStatus%3ADescribeFleetMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194285"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkLink.DescribeFleetMetadata.html#DescribeFleetMetadataResponse"><span class="hs-identifier hs-type">DescribeFleetMetadataResponse</span></a></span></span><span>
+</span><span id="line-241"></span></pre></body></html>

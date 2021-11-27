@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Redshift.Types.NodeConfigurationOptionsFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Redshift.Types.NodeConfigurationOptionsFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Internal.html"><span class="hs-identifier">Amazonka.Redshift.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilterName.html"><span class="hs-identifier">Amazonka.Redshift.Types.NodeConfigurationOptionsFilterName</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.OperatorType.html"><span class="hs-identifier">Amazonka.Redshift.Types.OperatorType</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A set of elements to filter the returned node configurations.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNodeConfigurationOptionsFilter' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679493536"><span id="local-6989586621679493537"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeConfigurationOptionsFilter"><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-var">NodeConfigurationOptionsFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeConfigurationOptionsFilter%27"><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-var">NodeConfigurationOptionsFilter'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of values. Compare Name using Operator to Values. If filter Name is</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- NumberOfNodes, then values can range from 0 to 200. If filter Name is</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- EstimatedDiskUtilizationPercent, then values can range from 0 to 100.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- For example, filter NumberOfNodes (name) GT (operator) 3 (values).</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Avalues%3ANodeConfigurationOptionsFilter%27"><span class="annot"><span class="annottext">NodeConfigurationOptionsFilter -&gt; Maybe [Text]
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#%24sel%3Avalues%3ANodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The filter operator. If filter Name is NodeType only the \'in\' operator</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- is supported. Provide one value to evaluate for \'eq\', \'lt\', \'le\',</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- \'gt\', and \'ge\'. Provide two values to evaluate for \'between\'.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Provide a list of values for \'in\'.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aoperator%3ANodeConfigurationOptionsFilter%27"><span class="annot"><span class="annottext">NodeConfigurationOptionsFilter -&gt; Maybe OperatorType
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#%24sel%3Aoperator%3ANodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.OperatorType.html#OperatorType"><span class="hs-identifier hs-type">OperatorType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the element to filter.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3ANodeConfigurationOptionsFilter%27"><span class="annot"><span class="annottext">NodeConfigurationOptionsFilter
+-&gt; Maybe NodeConfigurationOptionsFilterName
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#%24sel%3Aname%3ANodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilterName.html#NodeConfigurationOptionsFilterName"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilterName</span></a></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679493528"><span id="local-6989586621679493530"><span class="annot"><span class="annottext">NodeConfigurationOptionsFilter
+-&gt; NodeConfigurationOptionsFilter -&gt; Bool
+(NodeConfigurationOptionsFilter
+ -&gt; NodeConfigurationOptionsFilter -&gt; Bool)
+-&gt; (NodeConfigurationOptionsFilter
+    -&gt; NodeConfigurationOptionsFilter -&gt; Bool)
+-&gt; Eq NodeConfigurationOptionsFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NodeConfigurationOptionsFilter
+-&gt; NodeConfigurationOptionsFilter -&gt; Bool
+$c/= :: NodeConfigurationOptionsFilter
+-&gt; NodeConfigurationOptionsFilter -&gt; Bool
+== :: NodeConfigurationOptionsFilter
+-&gt; NodeConfigurationOptionsFilter -&gt; Bool
+$c== :: NodeConfigurationOptionsFilter
+-&gt; NodeConfigurationOptionsFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679493519"><span id="local-6989586621679493521"><span id="local-6989586621679493523"><span id="local-6989586621679493525"><span class="annot"><span class="annottext">ReadPrec [NodeConfigurationOptionsFilter]
+ReadPrec NodeConfigurationOptionsFilter
+Int -&gt; ReadS NodeConfigurationOptionsFilter
+ReadS [NodeConfigurationOptionsFilter]
+(Int -&gt; ReadS NodeConfigurationOptionsFilter)
+-&gt; ReadS [NodeConfigurationOptionsFilter]
+-&gt; ReadPrec NodeConfigurationOptionsFilter
+-&gt; ReadPrec [NodeConfigurationOptionsFilter]
+-&gt; Read NodeConfigurationOptionsFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NodeConfigurationOptionsFilter]
+$creadListPrec :: ReadPrec [NodeConfigurationOptionsFilter]
+readPrec :: ReadPrec NodeConfigurationOptionsFilter
+$creadPrec :: ReadPrec NodeConfigurationOptionsFilter
+readList :: ReadS [NodeConfigurationOptionsFilter]
+$creadList :: ReadS [NodeConfigurationOptionsFilter]
+readsPrec :: Int -&gt; ReadS NodeConfigurationOptionsFilter
+$creadsPrec :: Int -&gt; ReadS NodeConfigurationOptionsFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679493512"><span id="local-6989586621679493514"><span id="local-6989586621679493516"><span class="annot"><span class="annottext">Int -&gt; NodeConfigurationOptionsFilter -&gt; ShowS
+[NodeConfigurationOptionsFilter] -&gt; ShowS
+NodeConfigurationOptionsFilter -&gt; String
+(Int -&gt; NodeConfigurationOptionsFilter -&gt; ShowS)
+-&gt; (NodeConfigurationOptionsFilter -&gt; String)
+-&gt; ([NodeConfigurationOptionsFilter] -&gt; ShowS)
+-&gt; Show NodeConfigurationOptionsFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NodeConfigurationOptionsFilter] -&gt; ShowS
+$cshowList :: [NodeConfigurationOptionsFilter] -&gt; ShowS
+show :: NodeConfigurationOptionsFilter -&gt; String
+$cshow :: NodeConfigurationOptionsFilter -&gt; String
+showsPrec :: Int -&gt; NodeConfigurationOptionsFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; NodeConfigurationOptionsFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ NodeConfigurationOptionsFilter
+ -&gt; Rep NodeConfigurationOptionsFilter x)
+-&gt; (forall x.
+    Rep NodeConfigurationOptionsFilter x
+    -&gt; NodeConfigurationOptionsFilter)
+-&gt; Generic NodeConfigurationOptionsFilter
+forall x.
+Rep NodeConfigurationOptionsFilter x
+-&gt; NodeConfigurationOptionsFilter
+forall x.
+NodeConfigurationOptionsFilter
+-&gt; Rep NodeConfigurationOptionsFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NodeConfigurationOptionsFilter x
+-&gt; NodeConfigurationOptionsFilter
+$cfrom :: forall x.
+NodeConfigurationOptionsFilter
+-&gt; Rep NodeConfigurationOptionsFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'NodeConfigurationOptionsFilter' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'values', 'nodeConfigurationOptionsFilter_values' - List of values. Compare Name using Operator to Values. If filter Name is</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- NumberOfNodes, then values can range from 0 to 200. If filter Name is</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- EstimatedDiskUtilizationPercent, then values can range from 0 to 100.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- For example, filter NumberOfNodes (name) GT (operator) 3 (values).</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'operator', 'nodeConfigurationOptionsFilter_operator' - The filter operator. If filter Name is NodeType only the \'in\' operator</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- is supported. Provide one value to evaluate for \'eq\', \'lt\', \'le\',</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- \'gt\', and \'ge\'. Provide two values to evaluate for \'between\'.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Provide a list of values for \'in\'.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'name', 'nodeConfigurationOptionsFilter_name' - The name of the element to filter.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#newNodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">newNodeConfigurationOptionsFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span><span>
+</span><span id="line-69"></span><span id="newNodeConfigurationOptionsFilter"><span class="annot"><span class="annottext">newNodeConfigurationOptionsFilter :: NodeConfigurationOptionsFilter
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#newNodeConfigurationOptionsFilter"><span class="hs-identifier hs-var hs-var">newNodeConfigurationOptionsFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">NodeConfigurationOptionsFilter' :: Maybe [Text]
+-&gt; Maybe OperatorType
+-&gt; Maybe NodeConfigurationOptionsFilterName
+-&gt; NodeConfigurationOptionsFilter
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:values:NodeConfigurationOptionsFilter' :: Maybe [Text]
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#%24sel%3Avalues%3ANodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:operator:NodeConfigurationOptionsFilter' :: Maybe OperatorType
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#%24sel%3Aoperator%3ANodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatorType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:NodeConfigurationOptionsFilter' :: Maybe NodeConfigurationOptionsFilterName
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#%24sel%3Aname%3ANodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeConfigurationOptionsFilterName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | List of values. Compare Name using Operator to Values. If filter Name is</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- NumberOfNodes, then values can range from 0 to 200. If filter Name is</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- EstimatedDiskUtilizationPercent, then values can range from 0 to 100.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- For example, filter NumberOfNodes (name) GT (operator) 3 (values).</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#nodeConfigurationOptionsFilter_values"><span class="hs-identifier hs-type">nodeConfigurationOptionsFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="nodeConfigurationOptionsFilter_values"><span class="annot"><span class="annottext">nodeConfigurationOptionsFilter_values :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; NodeConfigurationOptionsFilter
+-&gt; f NodeConfigurationOptionsFilter
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#nodeConfigurationOptionsFilter_values"><span class="hs-identifier hs-var hs-var">nodeConfigurationOptionsFilter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeConfigurationOptionsFilter -&gt; Maybe [Text])
+-&gt; (NodeConfigurationOptionsFilter
+    -&gt; Maybe [Text] -&gt; NodeConfigurationOptionsFilter)
+-&gt; Lens
+     NodeConfigurationOptionsFilter
+     NodeConfigurationOptionsFilter
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679493503"><span class="annot"><span class="annottext">Maybe [Text]
+values :: Maybe [Text]
+$sel:values:NodeConfigurationOptionsFilter' :: NodeConfigurationOptionsFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679493503"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679493503"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679493502"><span class="annot"><span class="annottext">s :: NodeConfigurationOptionsFilter
+</span><a href="#local-6989586621679493502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679493501"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679493501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeConfigurationOptionsFilter
+</span><a href="#local-6989586621679493502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:NodeConfigurationOptionsFilter' :: Maybe [Text]
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#%24sel%3Avalues%3ANodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679493501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; NodeConfigurationOptionsFilter
+ -&gt; f NodeConfigurationOptionsFilter)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; NodeConfigurationOptionsFilter
+-&gt; f NodeConfigurationOptionsFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The filter operator. If filter Name is NodeType only the \'in\' operator</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- is supported. Provide one value to evaluate for \'eq\', \'lt\', \'le\',</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- \'gt\', and \'ge\'. Provide two values to evaluate for \'between\'.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Provide a list of values for \'in\'.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#nodeConfigurationOptionsFilter_operator"><span class="hs-identifier hs-type">nodeConfigurationOptionsFilter_operator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.OperatorType.html#OperatorType"><span class="hs-identifier hs-type">OperatorType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="nodeConfigurationOptionsFilter_operator"><span class="annot"><span class="annottext">nodeConfigurationOptionsFilter_operator :: (Maybe OperatorType -&gt; f (Maybe OperatorType))
+-&gt; NodeConfigurationOptionsFilter
+-&gt; f NodeConfigurationOptionsFilter
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#nodeConfigurationOptionsFilter_operator"><span class="hs-identifier hs-var hs-var">nodeConfigurationOptionsFilter_operator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeConfigurationOptionsFilter -&gt; Maybe OperatorType)
+-&gt; (NodeConfigurationOptionsFilter
+    -&gt; Maybe OperatorType -&gt; NodeConfigurationOptionsFilter)
+-&gt; Lens
+     NodeConfigurationOptionsFilter
+     NodeConfigurationOptionsFilter
+     (Maybe OperatorType)
+     (Maybe OperatorType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679493496"><span class="annot"><span class="annottext">Maybe OperatorType
+operator :: Maybe OperatorType
+$sel:operator:NodeConfigurationOptionsFilter' :: NodeConfigurationOptionsFilter -&gt; Maybe OperatorType
+</span><a href="#local-6989586621679493496"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatorType
+</span><a href="#local-6989586621679493496"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679493495"><span class="annot"><span class="annottext">s :: NodeConfigurationOptionsFilter
+</span><a href="#local-6989586621679493495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679493494"><span class="annot"><span class="annottext">Maybe OperatorType
+</span><a href="#local-6989586621679493494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeConfigurationOptionsFilter
+</span><a href="#local-6989586621679493495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:NodeConfigurationOptionsFilter' :: Maybe OperatorType
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#%24sel%3Aoperator%3ANodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatorType
+</span><a href="#local-6989586621679493494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The name of the element to filter.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#nodeConfigurationOptionsFilter_name"><span class="hs-identifier hs-type">nodeConfigurationOptionsFilter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilterName.html#NodeConfigurationOptionsFilterName"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilterName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="nodeConfigurationOptionsFilter_name"><span class="annot"><span class="annottext">nodeConfigurationOptionsFilter_name :: (Maybe NodeConfigurationOptionsFilterName
+ -&gt; f (Maybe NodeConfigurationOptionsFilterName))
+-&gt; NodeConfigurationOptionsFilter
+-&gt; f NodeConfigurationOptionsFilter
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#nodeConfigurationOptionsFilter_name"><span class="hs-identifier hs-var hs-var">nodeConfigurationOptionsFilter_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeConfigurationOptionsFilter
+ -&gt; Maybe NodeConfigurationOptionsFilterName)
+-&gt; (NodeConfigurationOptionsFilter
+    -&gt; Maybe NodeConfigurationOptionsFilterName
+    -&gt; NodeConfigurationOptionsFilter)
+-&gt; Lens
+     NodeConfigurationOptionsFilter
+     NodeConfigurationOptionsFilter
+     (Maybe NodeConfigurationOptionsFilterName)
+     (Maybe NodeConfigurationOptionsFilterName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679493492"><span class="annot"><span class="annottext">Maybe NodeConfigurationOptionsFilterName
+name :: Maybe NodeConfigurationOptionsFilterName
+$sel:name:NodeConfigurationOptionsFilter' :: NodeConfigurationOptionsFilter
+-&gt; Maybe NodeConfigurationOptionsFilterName
+</span><a href="#local-6989586621679493492"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NodeConfigurationOptionsFilterName
+</span><a href="#local-6989586621679493492"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679493491"><span class="annot"><span class="annottext">s :: NodeConfigurationOptionsFilter
+</span><a href="#local-6989586621679493491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679493490"><span class="annot"><span class="annottext">Maybe NodeConfigurationOptionsFilterName
+</span><a href="#local-6989586621679493490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeConfigurationOptionsFilter
+</span><a href="#local-6989586621679493491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:NodeConfigurationOptionsFilter' :: Maybe NodeConfigurationOptionsFilterName
+</span><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#%24sel%3Aname%3ANodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeConfigurationOptionsFilterName
+</span><a href="#local-6989586621679493490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679493486"><span id="local-6989586621679493488"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679493483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679493479"><span class="annot"><span class="annottext">toQuery :: NodeConfigurationOptionsFilter -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter%27"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679493475"><span id="local-6989586621679493476"><span id="local-6989586621679493477"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe NodeConfigurationOptionsFilterName
+Maybe OperatorType
+name :: Maybe NodeConfigurationOptionsFilterName
+operator :: Maybe OperatorType
+values :: Maybe [Text]
+$sel:name:NodeConfigurationOptionsFilter' :: NodeConfigurationOptionsFilter
+-&gt; Maybe NodeConfigurationOptionsFilterName
+$sel:operator:NodeConfigurationOptionsFilter' :: NodeConfigurationOptionsFilter -&gt; Maybe OperatorType
+$sel:values:NodeConfigurationOptionsFilter' :: NodeConfigurationOptionsFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679493475"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Value&quot;</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;item&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679493477"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Operator&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe OperatorType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe OperatorType
+</span><a href="#local-6989586621679493476"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; Maybe NodeConfigurationOptionsFilterName -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe NodeConfigurationOptionsFilterName
+</span><a href="#local-6989586621679493475"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span></pre></body></html>

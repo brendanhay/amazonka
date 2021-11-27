@@ -1,0 +1,834 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Amplify.Types.AutoBranchCreationConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Amplify.Types.AutoBranchCreationConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.Stage.html"><span class="hs-identifier">Amazonka.Amplify.Types.Stage</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes the automated branch creation configuration.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAutoBranchCreationConfig' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679244904"><span id="local-6989586621679244905"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoBranchCreationConfig"><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-var">AutoBranchCreationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoBranchCreationConfig%27"><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-var">AutoBranchCreationConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The framework for the autocreated branch.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aframework%3AAutoBranchCreationConfig%27"><span class="annot"><span class="annottext">AutoBranchCreationConfig -&gt; Maybe Text
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3Aframework%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var hs-var">framework</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Describes the current stage for the autocreated branch.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astage%3AAutoBranchCreationConfig%27"><span class="annot"><span class="annottext">AutoBranchCreationConfig -&gt; Maybe Stage
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3Astage%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.Stage.html#Stage"><span class="hs-identifier hs-type">Stage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Enables pull request previews for the autocreated branch.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AenablePullRequestPreview%3AAutoBranchCreationConfig%27"><span class="annot"><span class="annottext">AutoBranchCreationConfig -&gt; Maybe Bool
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenablePullRequestPreview%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var hs-var">enablePullRequestPreview</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The basic authorization credentials for the autocreated branch.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AbasicAuthCredentials%3AAutoBranchCreationConfig%27"><span class="annot"><span class="annottext">AutoBranchCreationConfig -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AbasicAuthCredentials%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var hs-var">basicAuthCredentials</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The build specification (build spec) for the autocreated branch.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AbuildSpec%3AAutoBranchCreationConfig%27"><span class="annot"><span class="annottext">AutoBranchCreationConfig -&gt; Maybe Text
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AbuildSpec%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var hs-var">buildSpec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Enables performance mode for the branch.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Performance mode optimizes for faster hosting performance by keeping</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- content cached at the edge for a longer interval. When performance mode</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- is enabled, hosting configuration or code changes can take up to 10</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- minutes to roll out.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AenablePerformanceMode%3AAutoBranchCreationConfig%27"><span class="annot"><span class="annottext">AutoBranchCreationConfig -&gt; Maybe Bool
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenablePerformanceMode%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var hs-var">enablePerformanceMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The environment variables for the autocreated branch.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AenvironmentVariables%3AAutoBranchCreationConfig%27"><span class="annot"><span class="annottext">AutoBranchCreationConfig -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenvironmentVariables%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var hs-var">environmentVariables</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Enables auto building for the autocreated branch.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AenableAutoBuild%3AAutoBranchCreationConfig%27"><span class="annot"><span class="annottext">AutoBranchCreationConfig -&gt; Maybe Bool
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenableAutoBuild%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var hs-var">enableAutoBuild</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Enables basic authorization for the autocreated branch.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AenableBasicAuth%3AAutoBranchCreationConfig%27"><span class="annot"><span class="annottext">AutoBranchCreationConfig -&gt; Maybe Bool
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenableBasicAuth%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var hs-var">enableBasicAuth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Amplify environment name for the pull request.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ApullRequestEnvironmentName%3AAutoBranchCreationConfig%27"><span class="annot"><span class="annottext">AutoBranchCreationConfig -&gt; Maybe Text
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3ApullRequestEnvironmentName%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var hs-var">pullRequestEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244889"><span id="local-6989586621679244891"><span class="annot"><span class="annottext">AutoBranchCreationConfig -&gt; AutoBranchCreationConfig -&gt; Bool
+(AutoBranchCreationConfig -&gt; AutoBranchCreationConfig -&gt; Bool)
+-&gt; (AutoBranchCreationConfig -&gt; AutoBranchCreationConfig -&gt; Bool)
+-&gt; Eq AutoBranchCreationConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutoBranchCreationConfig -&gt; AutoBranchCreationConfig -&gt; Bool
+$c/= :: AutoBranchCreationConfig -&gt; AutoBranchCreationConfig -&gt; Bool
+== :: AutoBranchCreationConfig -&gt; AutoBranchCreationConfig -&gt; Bool
+$c== :: AutoBranchCreationConfig -&gt; AutoBranchCreationConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244882"><span id="local-6989586621679244884"><span id="local-6989586621679244886"><span class="annot"><span class="annottext">Int -&gt; AutoBranchCreationConfig -&gt; ShowS
+[AutoBranchCreationConfig] -&gt; ShowS
+AutoBranchCreationConfig -&gt; String
+(Int -&gt; AutoBranchCreationConfig -&gt; ShowS)
+-&gt; (AutoBranchCreationConfig -&gt; String)
+-&gt; ([AutoBranchCreationConfig] -&gt; ShowS)
+-&gt; Show AutoBranchCreationConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutoBranchCreationConfig] -&gt; ShowS
+$cshowList :: [AutoBranchCreationConfig] -&gt; ShowS
+show :: AutoBranchCreationConfig -&gt; String
+$cshow :: AutoBranchCreationConfig -&gt; String
+showsPrec :: Int -&gt; AutoBranchCreationConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutoBranchCreationConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AutoBranchCreationConfig -&gt; Rep AutoBranchCreationConfig x)
+-&gt; (forall x.
+    Rep AutoBranchCreationConfig x -&gt; AutoBranchCreationConfig)
+-&gt; Generic AutoBranchCreationConfig
+forall x.
+Rep AutoBranchCreationConfig x -&gt; AutoBranchCreationConfig
+forall x.
+AutoBranchCreationConfig -&gt; Rep AutoBranchCreationConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AutoBranchCreationConfig x -&gt; AutoBranchCreationConfig
+$cfrom :: forall x.
+AutoBranchCreationConfig -&gt; Rep AutoBranchCreationConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'AutoBranchCreationConfig' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'framework', 'autoBranchCreationConfig_framework' - The framework for the autocreated branch.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'stage', 'autoBranchCreationConfig_stage' - Describes the current stage for the autocreated branch.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'enablePullRequestPreview', 'autoBranchCreationConfig_enablePullRequestPreview' - Enables pull request previews for the autocreated branch.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'basicAuthCredentials', 'autoBranchCreationConfig_basicAuthCredentials' - The basic authorization credentials for the autocreated branch.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'buildSpec', 'autoBranchCreationConfig_buildSpec' - The build specification (build spec) for the autocreated branch.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'enablePerformanceMode', 'autoBranchCreationConfig_enablePerformanceMode' - Enables performance mode for the branch.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Performance mode optimizes for faster hosting performance by keeping</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- content cached at the edge for a longer interval. When performance mode</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- is enabled, hosting configuration or code changes can take up to 10</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- minutes to roll out.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'environmentVariables', 'autoBranchCreationConfig_environmentVariables' - The environment variables for the autocreated branch.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'enableAutoBuild', 'autoBranchCreationConfig_enableAutoBuild' - Enables auto building for the autocreated branch.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'enableBasicAuth', 'autoBranchCreationConfig_enableBasicAuth' - Enables basic authorization for the autocreated branch.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'pullRequestEnvironmentName', 'autoBranchCreationConfig_pullRequestEnvironmentName' - The Amplify environment name for the pull request.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#newAutoBranchCreationConfig"><span class="hs-identifier hs-type">newAutoBranchCreationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span>
+</span><span id="line-93"></span><span id="newAutoBranchCreationConfig"><span class="annot"><span class="annottext">newAutoBranchCreationConfig :: AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#newAutoBranchCreationConfig"><span class="hs-identifier hs-var hs-var">newAutoBranchCreationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">AutoBranchCreationConfig' :: Maybe Text
+-&gt; Maybe Stage
+-&gt; Maybe Bool
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:framework:AutoBranchCreationConfig' :: Maybe Text
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3Aframework%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">framework</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:stage:AutoBranchCreationConfig' :: Maybe Stage
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3Astage%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">stage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Stage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:enablePullRequestPreview:AutoBranchCreationConfig' :: Maybe Bool
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenablePullRequestPreview%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">enablePullRequestPreview</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:basicAuthCredentials:AutoBranchCreationConfig' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AbasicAuthCredentials%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">basicAuthCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:buildSpec:AutoBranchCreationConfig' :: Maybe Text
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AbuildSpec%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">buildSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:enablePerformanceMode:AutoBranchCreationConfig' :: Maybe Bool
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenablePerformanceMode%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">enablePerformanceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentVariables:AutoBranchCreationConfig' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenvironmentVariables%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableAutoBuild:AutoBranchCreationConfig' :: Maybe Bool
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenableAutoBuild%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">enableAutoBuild</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableBasicAuth:AutoBranchCreationConfig' :: Maybe Bool
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenableBasicAuth%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">enableBasicAuth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:pullRequestEnvironmentName:AutoBranchCreationConfig' :: Maybe Text
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3ApullRequestEnvironmentName%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">pullRequestEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The framework for the autocreated branch.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_framework"><span class="hs-identifier hs-type">autoBranchCreationConfig_framework</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="autoBranchCreationConfig_framework"><span class="annot"><span class="annottext">autoBranchCreationConfig_framework :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AutoBranchCreationConfig -&gt; f AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_framework"><span class="hs-identifier hs-var hs-var">autoBranchCreationConfig_framework</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoBranchCreationConfig -&gt; Maybe Text)
+-&gt; (AutoBranchCreationConfig
+    -&gt; Maybe Text -&gt; AutoBranchCreationConfig)
+-&gt; Lens
+     AutoBranchCreationConfig
+     AutoBranchCreationConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244873"><span class="annot"><span class="annottext">Maybe Text
+framework :: Maybe Text
+$sel:framework:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679244873"><span class="hs-identifier hs-var hs-var">framework</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244873"><span class="hs-identifier hs-var">framework</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244872"><span class="annot"><span class="annottext">s :: AutoBranchCreationConfig
+</span><a href="#local-6989586621679244872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244871"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoBranchCreationConfig
+</span><a href="#local-6989586621679244872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framework:AutoBranchCreationConfig' :: Maybe Text
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3Aframework%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">framework</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Describes the current stage for the autocreated branch.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_stage"><span class="hs-identifier hs-type">autoBranchCreationConfig_stage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.Stage.html#Stage"><span class="hs-identifier hs-type">Stage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="autoBranchCreationConfig_stage"><span class="annot"><span class="annottext">autoBranchCreationConfig_stage :: (Maybe Stage -&gt; f (Maybe Stage))
+-&gt; AutoBranchCreationConfig -&gt; f AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_stage"><span class="hs-identifier hs-var hs-var">autoBranchCreationConfig_stage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoBranchCreationConfig -&gt; Maybe Stage)
+-&gt; (AutoBranchCreationConfig
+    -&gt; Maybe Stage -&gt; AutoBranchCreationConfig)
+-&gt; Lens
+     AutoBranchCreationConfig
+     AutoBranchCreationConfig
+     (Maybe Stage)
+     (Maybe Stage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244869"><span class="annot"><span class="annottext">Maybe Stage
+stage :: Maybe Stage
+$sel:stage:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Stage
+</span><a href="#local-6989586621679244869"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Stage
+</span><a href="#local-6989586621679244869"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244868"><span class="annot"><span class="annottext">s :: AutoBranchCreationConfig
+</span><a href="#local-6989586621679244868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244867"><span class="annot"><span class="annottext">Maybe Stage
+</span><a href="#local-6989586621679244867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoBranchCreationConfig
+</span><a href="#local-6989586621679244868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stage:AutoBranchCreationConfig' :: Maybe Stage
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3Astage%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">stage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Stage
+</span><a href="#local-6989586621679244867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Enables pull request previews for the autocreated branch.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_enablePullRequestPreview"><span class="hs-identifier hs-type">autoBranchCreationConfig_enablePullRequestPreview</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="autoBranchCreationConfig_enablePullRequestPreview"><span class="annot"><span class="annottext">autoBranchCreationConfig_enablePullRequestPreview :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AutoBranchCreationConfig -&gt; f AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_enablePullRequestPreview"><span class="hs-identifier hs-var hs-var">autoBranchCreationConfig_enablePullRequestPreview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoBranchCreationConfig -&gt; Maybe Bool)
+-&gt; (AutoBranchCreationConfig
+    -&gt; Maybe Bool -&gt; AutoBranchCreationConfig)
+-&gt; Lens
+     AutoBranchCreationConfig
+     AutoBranchCreationConfig
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244865"><span class="annot"><span class="annottext">Maybe Bool
+enablePullRequestPreview :: Maybe Bool
+$sel:enablePullRequestPreview:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Bool
+</span><a href="#local-6989586621679244865"><span class="hs-identifier hs-var hs-var">enablePullRequestPreview</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244865"><span class="hs-identifier hs-var">enablePullRequestPreview</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244864"><span class="annot"><span class="annottext">s :: AutoBranchCreationConfig
+</span><a href="#local-6989586621679244864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244863"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoBranchCreationConfig
+</span><a href="#local-6989586621679244864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enablePullRequestPreview:AutoBranchCreationConfig' :: Maybe Bool
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenablePullRequestPreview%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">enablePullRequestPreview</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The basic authorization credentials for the autocreated branch.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_basicAuthCredentials"><span class="hs-identifier hs-type">autoBranchCreationConfig_basicAuthCredentials</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="autoBranchCreationConfig_basicAuthCredentials"><span class="annot"><span class="annottext">autoBranchCreationConfig_basicAuthCredentials :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AutoBranchCreationConfig -&gt; f AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_basicAuthCredentials"><span class="hs-identifier hs-var hs-var">autoBranchCreationConfig_basicAuthCredentials</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoBranchCreationConfig -&gt; Maybe (Sensitive Text))
+-&gt; (AutoBranchCreationConfig
+    -&gt; Maybe (Sensitive Text) -&gt; AutoBranchCreationConfig)
+-&gt; Lens
+     AutoBranchCreationConfig
+     AutoBranchCreationConfig
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244861"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+basicAuthCredentials :: Maybe (Sensitive Text)
+$sel:basicAuthCredentials:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679244861"><span class="hs-identifier hs-var hs-var">basicAuthCredentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679244861"><span class="hs-identifier hs-var">basicAuthCredentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244860"><span class="annot"><span class="annottext">s :: AutoBranchCreationConfig
+</span><a href="#local-6989586621679244860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244859"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679244859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoBranchCreationConfig
+</span><a href="#local-6989586621679244860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:basicAuthCredentials:AutoBranchCreationConfig' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AbasicAuthCredentials%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">basicAuthCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679244859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; AutoBranchCreationConfig -&gt; f AutoBranchCreationConfig)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; AutoBranchCreationConfig
+-&gt; f AutoBranchCreationConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The build specification (build spec) for the autocreated branch.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_buildSpec"><span class="hs-identifier hs-type">autoBranchCreationConfig_buildSpec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="autoBranchCreationConfig_buildSpec"><span class="annot"><span class="annottext">autoBranchCreationConfig_buildSpec :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AutoBranchCreationConfig -&gt; f AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_buildSpec"><span class="hs-identifier hs-var hs-var">autoBranchCreationConfig_buildSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoBranchCreationConfig -&gt; Maybe Text)
+-&gt; (AutoBranchCreationConfig
+    -&gt; Maybe Text -&gt; AutoBranchCreationConfig)
+-&gt; Lens
+     AutoBranchCreationConfig
+     AutoBranchCreationConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244854"><span class="annot"><span class="annottext">Maybe Text
+buildSpec :: Maybe Text
+$sel:buildSpec:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679244854"><span class="hs-identifier hs-var hs-var">buildSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244854"><span class="hs-identifier hs-var">buildSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244853"><span class="annot"><span class="annottext">s :: AutoBranchCreationConfig
+</span><a href="#local-6989586621679244853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244852"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoBranchCreationConfig
+</span><a href="#local-6989586621679244853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildSpec:AutoBranchCreationConfig' :: Maybe Text
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AbuildSpec%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">buildSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Enables performance mode for the branch.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Performance mode optimizes for faster hosting performance by keeping</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- content cached at the edge for a longer interval. When performance mode</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- is enabled, hosting configuration or code changes can take up to 10</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- minutes to roll out.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_enablePerformanceMode"><span class="hs-identifier hs-type">autoBranchCreationConfig_enablePerformanceMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="autoBranchCreationConfig_enablePerformanceMode"><span class="annot"><span class="annottext">autoBranchCreationConfig_enablePerformanceMode :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AutoBranchCreationConfig -&gt; f AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_enablePerformanceMode"><span class="hs-identifier hs-var hs-var">autoBranchCreationConfig_enablePerformanceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoBranchCreationConfig -&gt; Maybe Bool)
+-&gt; (AutoBranchCreationConfig
+    -&gt; Maybe Bool -&gt; AutoBranchCreationConfig)
+-&gt; Lens
+     AutoBranchCreationConfig
+     AutoBranchCreationConfig
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244850"><span class="annot"><span class="annottext">Maybe Bool
+enablePerformanceMode :: Maybe Bool
+$sel:enablePerformanceMode:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Bool
+</span><a href="#local-6989586621679244850"><span class="hs-identifier hs-var hs-var">enablePerformanceMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244850"><span class="hs-identifier hs-var">enablePerformanceMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244849"><span class="annot"><span class="annottext">s :: AutoBranchCreationConfig
+</span><a href="#local-6989586621679244849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244848"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoBranchCreationConfig
+</span><a href="#local-6989586621679244849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enablePerformanceMode:AutoBranchCreationConfig' :: Maybe Bool
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenablePerformanceMode%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">enablePerformanceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The environment variables for the autocreated branch.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_environmentVariables"><span class="hs-identifier hs-type">autoBranchCreationConfig_environmentVariables</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="autoBranchCreationConfig_environmentVariables"><span class="annot"><span class="annottext">autoBranchCreationConfig_environmentVariables :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; AutoBranchCreationConfig -&gt; f AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_environmentVariables"><span class="hs-identifier hs-var hs-var">autoBranchCreationConfig_environmentVariables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoBranchCreationConfig -&gt; Maybe (HashMap Text Text))
+-&gt; (AutoBranchCreationConfig
+    -&gt; Maybe (HashMap Text Text) -&gt; AutoBranchCreationConfig)
+-&gt; Lens
+     AutoBranchCreationConfig
+     AutoBranchCreationConfig
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244846"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+environmentVariables :: Maybe (HashMap Text Text)
+$sel:environmentVariables:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244846"><span class="hs-identifier hs-var hs-var">environmentVariables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244846"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244845"><span class="annot"><span class="annottext">s :: AutoBranchCreationConfig
+</span><a href="#local-6989586621679244845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244844"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoBranchCreationConfig
+</span><a href="#local-6989586621679244845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentVariables:AutoBranchCreationConfig' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenvironmentVariables%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; AutoBranchCreationConfig -&gt; f AutoBranchCreationConfig)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; AutoBranchCreationConfig
+-&gt; f AutoBranchCreationConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Enables auto building for the autocreated branch.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_enableAutoBuild"><span class="hs-identifier hs-type">autoBranchCreationConfig_enableAutoBuild</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="autoBranchCreationConfig_enableAutoBuild"><span class="annot"><span class="annottext">autoBranchCreationConfig_enableAutoBuild :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AutoBranchCreationConfig -&gt; f AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_enableAutoBuild"><span class="hs-identifier hs-var hs-var">autoBranchCreationConfig_enableAutoBuild</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoBranchCreationConfig -&gt; Maybe Bool)
+-&gt; (AutoBranchCreationConfig
+    -&gt; Maybe Bool -&gt; AutoBranchCreationConfig)
+-&gt; Lens
+     AutoBranchCreationConfig
+     AutoBranchCreationConfig
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244841"><span class="annot"><span class="annottext">Maybe Bool
+enableAutoBuild :: Maybe Bool
+$sel:enableAutoBuild:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Bool
+</span><a href="#local-6989586621679244841"><span class="hs-identifier hs-var hs-var">enableAutoBuild</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244841"><span class="hs-identifier hs-var">enableAutoBuild</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244840"><span class="annot"><span class="annottext">s :: AutoBranchCreationConfig
+</span><a href="#local-6989586621679244840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244839"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoBranchCreationConfig
+</span><a href="#local-6989586621679244840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableAutoBuild:AutoBranchCreationConfig' :: Maybe Bool
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenableAutoBuild%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">enableAutoBuild</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Enables basic authorization for the autocreated branch.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_enableBasicAuth"><span class="hs-identifier hs-type">autoBranchCreationConfig_enableBasicAuth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="autoBranchCreationConfig_enableBasicAuth"><span class="annot"><span class="annottext">autoBranchCreationConfig_enableBasicAuth :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AutoBranchCreationConfig -&gt; f AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_enableBasicAuth"><span class="hs-identifier hs-var hs-var">autoBranchCreationConfig_enableBasicAuth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoBranchCreationConfig -&gt; Maybe Bool)
+-&gt; (AutoBranchCreationConfig
+    -&gt; Maybe Bool -&gt; AutoBranchCreationConfig)
+-&gt; Lens
+     AutoBranchCreationConfig
+     AutoBranchCreationConfig
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244837"><span class="annot"><span class="annottext">Maybe Bool
+enableBasicAuth :: Maybe Bool
+$sel:enableBasicAuth:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Bool
+</span><a href="#local-6989586621679244837"><span class="hs-identifier hs-var hs-var">enableBasicAuth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244837"><span class="hs-identifier hs-var">enableBasicAuth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244836"><span class="annot"><span class="annottext">s :: AutoBranchCreationConfig
+</span><a href="#local-6989586621679244836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244835"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoBranchCreationConfig
+</span><a href="#local-6989586621679244836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableBasicAuth:AutoBranchCreationConfig' :: Maybe Bool
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3AenableBasicAuth%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">enableBasicAuth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The Amplify environment name for the pull request.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_pullRequestEnvironmentName"><span class="hs-identifier hs-type">autoBranchCreationConfig_pullRequestEnvironmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="autoBranchCreationConfig_pullRequestEnvironmentName"><span class="annot"><span class="annottext">autoBranchCreationConfig_pullRequestEnvironmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AutoBranchCreationConfig -&gt; f AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#autoBranchCreationConfig_pullRequestEnvironmentName"><span class="hs-identifier hs-var hs-var">autoBranchCreationConfig_pullRequestEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoBranchCreationConfig -&gt; Maybe Text)
+-&gt; (AutoBranchCreationConfig
+    -&gt; Maybe Text -&gt; AutoBranchCreationConfig)
+-&gt; Lens
+     AutoBranchCreationConfig
+     AutoBranchCreationConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244833"><span class="annot"><span class="annottext">Maybe Text
+pullRequestEnvironmentName :: Maybe Text
+$sel:pullRequestEnvironmentName:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679244833"><span class="hs-identifier hs-var hs-var">pullRequestEnvironmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244833"><span class="hs-identifier hs-var">pullRequestEnvironmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244832"><span class="annot"><span class="annottext">s :: AutoBranchCreationConfig
+</span><a href="#local-6989586621679244832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244831"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoBranchCreationConfig
+</span><a href="#local-6989586621679244832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestEnvironmentName:AutoBranchCreationConfig' :: Maybe Text
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#%24sel%3ApullRequestEnvironmentName%3AAutoBranchCreationConfig%27"><span class="hs-identifier hs-var">pullRequestEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244828"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679244826"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoBranchCreationConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AutoBranchCreationConfig)
+-&gt; Value
+-&gt; Parser AutoBranchCreationConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AutoBranchCreationConfig&quot;</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244823"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244823"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Stage
+-&gt; Maybe Bool
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; AutoBranchCreationConfig
+</span><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-var">AutoBranchCreationConfig'</span></a></span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Stage
+ -&gt; Maybe Bool
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; AutoBranchCreationConfig)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Stage
+      -&gt; Maybe Bool
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; AutoBranchCreationConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framework&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Stage
+   -&gt; Maybe Bool
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; AutoBranchCreationConfig)
+-&gt; Parser (Maybe Stage)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; AutoBranchCreationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Stage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; AutoBranchCreationConfig)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; AutoBranchCreationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enablePullRequestPreview&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; AutoBranchCreationConfig)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; AutoBranchCreationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;basicAuthCredentials&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; AutoBranchCreationConfig)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; AutoBranchCreationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;buildSpec&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; AutoBranchCreationConfig)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; AutoBranchCreationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enablePerformanceMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; AutoBranchCreationConfig)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Bool -&gt; Maybe Text -&gt; AutoBranchCreationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environmentVariables&quot;</span></span><span>
+</span><span id="line-166"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-167"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Bool -&gt; Maybe Text -&gt; AutoBranchCreationConfig)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Bool -&gt; Maybe Text -&gt; AutoBranchCreationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enableAutoBuild&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Text -&gt; AutoBranchCreationConfig)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Text -&gt; AutoBranchCreationConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enableBasicAuth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AutoBranchCreationConfig)
+-&gt; Parser (Maybe Text) -&gt; Parser AutoBranchCreationConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pullRequestEnvironmentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244816"><span id="local-6989586621679244818"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span></span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244805"><span id="local-6989586621679244807"><span id="local-6989586621679244809"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig"><span class="hs-identifier hs-type">AutoBranchCreationConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679244803"><span class="annot"><span class="annottext">toJSON :: AutoBranchCreationConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Amplify.Types.AutoBranchCreationConfig.html#AutoBranchCreationConfig%27"><span class="hs-identifier hs-type">AutoBranchCreationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244792"><span id="local-6989586621679244793"><span id="local-6989586621679244794"><span id="local-6989586621679244795"><span id="local-6989586621679244796"><span id="local-6989586621679244797"><span id="local-6989586621679244798"><span id="local-6989586621679244799"><span id="local-6989586621679244800"><span id="local-6989586621679244801"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe (Sensitive Text)
+Maybe Stage
+pullRequestEnvironmentName :: Maybe Text
+enableBasicAuth :: Maybe Bool
+enableAutoBuild :: Maybe Bool
+environmentVariables :: Maybe (HashMap Text Text)
+enablePerformanceMode :: Maybe Bool
+buildSpec :: Maybe Text
+basicAuthCredentials :: Maybe (Sensitive Text)
+enablePullRequestPreview :: Maybe Bool
+stage :: Maybe Stage
+framework :: Maybe Text
+$sel:pullRequestEnvironmentName:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Text
+$sel:enableBasicAuth:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Bool
+$sel:enableAutoBuild:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Bool
+$sel:environmentVariables:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe (HashMap Text Text)
+$sel:enablePerformanceMode:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Bool
+$sel:buildSpec:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Text
+$sel:basicAuthCredentials:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe (Sensitive Text)
+$sel:enablePullRequestPreview:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Bool
+$sel:stage:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Stage
+$sel:framework:AutoBranchCreationConfig' :: AutoBranchCreationConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679244792"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framework&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244801"><span class="hs-identifier hs-var">framework</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Stage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Stage -&gt; Pair) -&gt; Maybe Stage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Stage
+</span><a href="#local-6989586621679244800"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enablePullRequestPreview&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244799"><span class="hs-identifier hs-var">enablePullRequestPreview</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;basicAuthCredentials&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679244798"><span class="hs-identifier hs-var">basicAuthCredentials</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;buildSpec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244797"><span class="hs-identifier hs-var">buildSpec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enablePerformanceMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244796"><span class="hs-identifier hs-var">enablePerformanceMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environmentVariables&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244795"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enableAutoBuild&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244794"><span class="hs-identifier hs-var">enableAutoBuild</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enableBasicAuth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679244793"><span class="hs-identifier hs-var">enableBasicAuth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pullRequestEnvironmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244792"><span class="hs-identifier hs-var">pullRequestEnvironmentName</span></a></span><span>
+</span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span></pre></body></html>

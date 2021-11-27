@@ -1,0 +1,734 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Grafana.Types.WorkspaceSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Grafana.Types.WorkspaceSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationSummary.html"><span class="hs-identifier">Amazonka.Grafana.Types.AuthenticationSummary</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.NotificationDestinationType.html"><span class="hs-identifier">Amazonka.Grafana.Types.NotificationDestinationType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceStatus.html"><span class="hs-identifier">Amazonka.Grafana.Types.WorkspaceStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A structure that contains some information about one workspace in the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newWorkspaceSummary' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679187004"><span id="local-6989586621679187005"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspaceSummary"><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-var">WorkspaceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceSummary%27"><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-var">WorkspaceSummary'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the workspace.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3AWorkspaceSummary%27"><span class="annot"><span class="annottext">WorkspaceSummary -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Aname%3AWorkspaceSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services notification channels that Amazon Managed</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Grafana can automatically create IAM roles and permissions for, which</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- allows Amazon Managed Grafana to use these channels.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AnotificationDestinations%3AWorkspaceSummary%27"><span class="annot"><span class="annottext">WorkspaceSummary -&gt; Maybe [NotificationDestinationType]
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3AnotificationDestinations%3AWorkspaceSummary%27"><span class="hs-identifier hs-var hs-var">notificationDestinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Grafana.Types.NotificationDestinationType.html#NotificationDestinationType"><span class="hs-identifier hs-type">NotificationDestinationType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The customer-entered description of the workspace.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Adescription%3AWorkspaceSummary%27"><span class="annot"><span class="annottext">WorkspaceSummary -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Adescription%3AWorkspaceSummary%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A structure containing information about the authentication methods used</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- in the workspace.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aauthentication%3AWorkspaceSummary%27"><span class="annot"><span class="annottext">WorkspaceSummary -&gt; AuthenticationSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Aauthentication%3AWorkspaceSummary%27"><span class="hs-identifier hs-var hs-var">authentication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationSummary.html#AuthenticationSummary"><span class="hs-identifier hs-type">AuthenticationSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The date that the workspace was created.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Acreated%3AWorkspaceSummary%27"><span class="annot"><span class="annottext">WorkspaceSummary -&gt; POSIX
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Acreated%3AWorkspaceSummary%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The URL endpoint to use to access the Grafana console in the workspace.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aendpoint%3AWorkspaceSummary%27"><span class="annot"><span class="annottext">WorkspaceSummary -&gt; Text
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Aendpoint%3AWorkspaceSummary%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The Grafana version that the workspace is running.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AgrafanaVersion%3AWorkspaceSummary%27"><span class="annot"><span class="annottext">WorkspaceSummary -&gt; Text
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3AgrafanaVersion%3AWorkspaceSummary%27"><span class="hs-identifier hs-var hs-var">grafanaVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The unique ID of the workspace.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aid%3AWorkspaceSummary%27"><span class="annot"><span class="annottext">WorkspaceSummary -&gt; Text
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Aid%3AWorkspaceSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The most recent date that the workspace was modified.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Amodified%3AWorkspaceSummary%27"><span class="annot"><span class="annottext">WorkspaceSummary -&gt; POSIX
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Amodified%3AWorkspaceSummary%27"><span class="hs-identifier hs-var hs-var">modified</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The current status of the workspace.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Astatus%3AWorkspaceSummary%27"><span class="annot"><span class="annottext">WorkspaceSummary -&gt; WorkspaceStatus
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Astatus%3AWorkspaceSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceStatus.html#WorkspaceStatus"><span class="hs-identifier hs-type">WorkspaceStatus</span></a></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186989"><span id="local-6989586621679186991"><span class="annot"><span class="annottext">WorkspaceSummary -&gt; WorkspaceSummary -&gt; Bool
+(WorkspaceSummary -&gt; WorkspaceSummary -&gt; Bool)
+-&gt; (WorkspaceSummary -&gt; WorkspaceSummary -&gt; Bool)
+-&gt; Eq WorkspaceSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkspaceSummary -&gt; WorkspaceSummary -&gt; Bool
+$c/= :: WorkspaceSummary -&gt; WorkspaceSummary -&gt; Bool
+== :: WorkspaceSummary -&gt; WorkspaceSummary -&gt; Bool
+$c== :: WorkspaceSummary -&gt; WorkspaceSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186982"><span id="local-6989586621679186984"><span id="local-6989586621679186986"><span class="annot"><span class="annottext">Int -&gt; WorkspaceSummary -&gt; ShowS
+[WorkspaceSummary] -&gt; ShowS
+WorkspaceSummary -&gt; String
+(Int -&gt; WorkspaceSummary -&gt; ShowS)
+-&gt; (WorkspaceSummary -&gt; String)
+-&gt; ([WorkspaceSummary] -&gt; ShowS)
+-&gt; Show WorkspaceSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkspaceSummary] -&gt; ShowS
+$cshowList :: [WorkspaceSummary] -&gt; ShowS
+show :: WorkspaceSummary -&gt; String
+$cshow :: WorkspaceSummary -&gt; String
+showsPrec :: Int -&gt; WorkspaceSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkspaceSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. WorkspaceSummary -&gt; Rep WorkspaceSummary x)
+-&gt; (forall x. Rep WorkspaceSummary x -&gt; WorkspaceSummary)
+-&gt; Generic WorkspaceSummary
+forall x. Rep WorkspaceSummary x -&gt; WorkspaceSummary
+forall x. WorkspaceSummary -&gt; Rep WorkspaceSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WorkspaceSummary x -&gt; WorkspaceSummary
+$cfrom :: forall x. WorkspaceSummary -&gt; Rep WorkspaceSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'WorkspaceSummary' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'name', 'workspaceSummary_name' - The name of the workspace.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'notificationDestinations', 'workspaceSummary_notificationDestinations' - The Amazon Web Services notification channels that Amazon Managed</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Grafana can automatically create IAM roles and permissions for, which</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- allows Amazon Managed Grafana to use these channels.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'description', 'workspaceSummary_description' - The customer-entered description of the workspace.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'authentication', 'workspaceSummary_authentication' - A structure containing information about the authentication methods used</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- in the workspace.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'created', 'workspaceSummary_created' - The date that the workspace was created.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'endpoint', 'workspaceSummary_endpoint' - The URL endpoint to use to access the Grafana console in the workspace.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'grafanaVersion', 'workspaceSummary_grafanaVersion' - The Grafana version that the workspace is running.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'id', 'workspaceSummary_id' - The unique ID of the workspace.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'modified', 'workspaceSummary_modified' - The most recent date that the workspace was modified.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'status', 'workspaceSummary_status' - The current status of the workspace.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#newWorkspaceSummary"><span class="hs-identifier hs-type">newWorkspaceSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'authentication'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationSummary.html#AuthenticationSummary"><span class="hs-identifier hs-type">AuthenticationSummary</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'created'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'endpoint'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'grafanaVersion'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'modified'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceStatus.html#WorkspaceStatus"><span class="hs-identifier hs-type">WorkspaceStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span>
+</span><span id="line-106"></span><span id="newWorkspaceSummary"><span class="annot"><span class="annottext">newWorkspaceSummary :: AuthenticationSummary
+-&gt; UTCTime
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; WorkspaceStatus
+-&gt; WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#newWorkspaceSummary"><span class="hs-identifier hs-var hs-var">newWorkspaceSummary</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679186976"><span class="annot"><span class="annottext">AuthenticationSummary
+</span><a href="#local-6989586621679186976"><span class="hs-identifier hs-var">pAuthentication_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679186975"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679186975"><span class="hs-identifier hs-var">pCreated_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679186974"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186974"><span class="hs-identifier hs-var">pEndpoint_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679186973"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186973"><span class="hs-identifier hs-var">pGrafanaVersion_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679186972"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186972"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679186971"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679186971"><span class="hs-identifier hs-var">pModified_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679186970"><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679186970"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">WorkspaceSummary' :: Maybe (Sensitive Text)
+-&gt; Maybe [NotificationDestinationType]
+-&gt; Maybe (Sensitive Text)
+-&gt; AuthenticationSummary
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; WorkspaceStatus
+-&gt; WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:WorkspaceSummary' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Aname%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:notificationDestinations:WorkspaceSummary' :: Maybe [NotificationDestinationType]
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3AnotificationDestinations%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">notificationDestinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NotificationDestinationType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:WorkspaceSummary' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Adescription%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:authentication:WorkspaceSummary' :: AuthenticationSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Aauthentication%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">authentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthenticationSummary
+</span><a href="#local-6989586621679186976"><span class="hs-identifier hs-var">pAuthentication_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:created:WorkspaceSummary' :: POSIX
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Acreated%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679186975"><span class="hs-identifier hs-var">pCreated_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:endpoint:WorkspaceSummary' :: Text
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Aendpoint%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186974"><span class="hs-identifier hs-var">pEndpoint_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:grafanaVersion:WorkspaceSummary' :: Text
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3AgrafanaVersion%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">grafanaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186973"><span class="hs-identifier hs-var">pGrafanaVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:WorkspaceSummary' :: Text
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Aid%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186972"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:modified:WorkspaceSummary' :: POSIX
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Amodified%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">modified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679186971"><span class="hs-identifier hs-var">pModified_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:WorkspaceSummary' :: WorkspaceStatus
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Astatus%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679186970"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The name of the workspace.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_name"><span class="hs-identifier hs-type">workspaceSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="workspaceSummary_name"><span class="annot"><span class="annottext">workspaceSummary_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceSummary -&gt; f WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_name"><span class="hs-identifier hs-var hs-var">workspaceSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceSummary -&gt; Maybe (Sensitive Text))
+-&gt; (WorkspaceSummary -&gt; Maybe (Sensitive Text) -&gt; WorkspaceSummary)
+-&gt; Lens
+     WorkspaceSummary
+     WorkspaceSummary
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186964"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+name :: Maybe (Sensitive Text)
+$sel:name:WorkspaceSummary' :: WorkspaceSummary -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679186964"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679186964"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186963"><span class="annot"><span class="annottext">s :: WorkspaceSummary
+</span><a href="#local-6989586621679186963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186962"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679186962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceSummary
+</span><a href="#local-6989586621679186963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:WorkspaceSummary' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Aname%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679186962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; WorkspaceSummary -&gt; f WorkspaceSummary)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceSummary
+-&gt; f WorkspaceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The Amazon Web Services notification channels that Amazon Managed</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Grafana can automatically create IAM roles and permissions for, which</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- allows Amazon Managed Grafana to use these channels.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_notificationDestinations"><span class="hs-identifier hs-type">workspaceSummary_notificationDestinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Grafana.Types.NotificationDestinationType.html#NotificationDestinationType"><span class="hs-identifier hs-type">NotificationDestinationType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="workspaceSummary_notificationDestinations"><span class="annot"><span class="annottext">workspaceSummary_notificationDestinations :: (Maybe [NotificationDestinationType]
+ -&gt; f (Maybe [NotificationDestinationType]))
+-&gt; WorkspaceSummary -&gt; f WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_notificationDestinations"><span class="hs-identifier hs-var hs-var">workspaceSummary_notificationDestinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceSummary -&gt; Maybe [NotificationDestinationType])
+-&gt; (WorkspaceSummary
+    -&gt; Maybe [NotificationDestinationType] -&gt; WorkspaceSummary)
+-&gt; Lens
+     WorkspaceSummary
+     WorkspaceSummary
+     (Maybe [NotificationDestinationType])
+     (Maybe [NotificationDestinationType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186957"><span class="annot"><span class="annottext">Maybe [NotificationDestinationType]
+notificationDestinations :: Maybe [NotificationDestinationType]
+$sel:notificationDestinations:WorkspaceSummary' :: WorkspaceSummary -&gt; Maybe [NotificationDestinationType]
+</span><a href="#local-6989586621679186957"><span class="hs-identifier hs-var hs-var">notificationDestinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NotificationDestinationType]
+</span><a href="#local-6989586621679186957"><span class="hs-identifier hs-var">notificationDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186956"><span class="annot"><span class="annottext">s :: WorkspaceSummary
+</span><a href="#local-6989586621679186956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186955"><span class="annot"><span class="annottext">Maybe [NotificationDestinationType]
+</span><a href="#local-6989586621679186955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceSummary
+</span><a href="#local-6989586621679186956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationDestinations:WorkspaceSummary' :: Maybe [NotificationDestinationType]
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3AnotificationDestinations%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">notificationDestinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NotificationDestinationType]
+</span><a href="#local-6989586621679186955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NotificationDestinationType]
+  -&gt; f (Maybe [NotificationDestinationType]))
+ -&gt; WorkspaceSummary -&gt; f WorkspaceSummary)
+-&gt; ((Maybe [NotificationDestinationType]
+     -&gt; f (Maybe [NotificationDestinationType]))
+    -&gt; Maybe [NotificationDestinationType]
+    -&gt; f (Maybe [NotificationDestinationType]))
+-&gt; (Maybe [NotificationDestinationType]
+    -&gt; f (Maybe [NotificationDestinationType]))
+-&gt; WorkspaceSummary
+-&gt; f WorkspaceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NotificationDestinationType]
+  [NotificationDestinationType]
+  [NotificationDestinationType]
+  [NotificationDestinationType]
+-&gt; Iso
+     (Maybe [NotificationDestinationType])
+     (Maybe [NotificationDestinationType])
+     (Maybe [NotificationDestinationType])
+     (Maybe [NotificationDestinationType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NotificationDestinationType]
+  [NotificationDestinationType]
+  [NotificationDestinationType]
+  [NotificationDestinationType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The customer-entered description of the workspace.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_description"><span class="hs-identifier hs-type">workspaceSummary_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="workspaceSummary_description"><span class="annot"><span class="annottext">workspaceSummary_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceSummary -&gt; f WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_description"><span class="hs-identifier hs-var hs-var">workspaceSummary_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceSummary -&gt; Maybe (Sensitive Text))
+-&gt; (WorkspaceSummary -&gt; Maybe (Sensitive Text) -&gt; WorkspaceSummary)
+-&gt; Lens
+     WorkspaceSummary
+     WorkspaceSummary
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186952"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+description :: Maybe (Sensitive Text)
+$sel:description:WorkspaceSummary' :: WorkspaceSummary -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679186952"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679186952"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186951"><span class="annot"><span class="annottext">s :: WorkspaceSummary
+</span><a href="#local-6989586621679186951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186950"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679186950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceSummary
+</span><a href="#local-6989586621679186951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:WorkspaceSummary' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Adescription%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679186950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; WorkspaceSummary -&gt; f WorkspaceSummary)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceSummary
+-&gt; f WorkspaceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | A structure containing information about the authentication methods used</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- in the workspace.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_authentication"><span class="hs-identifier hs-type">workspaceSummary_authentication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.AuthenticationSummary.html#AuthenticationSummary"><span class="hs-identifier hs-type">AuthenticationSummary</span></a></span><span>
+</span><span id="line-144"></span><span id="workspaceSummary_authentication"><span class="annot"><span class="annottext">workspaceSummary_authentication :: (AuthenticationSummary -&gt; f AuthenticationSummary)
+-&gt; WorkspaceSummary -&gt; f WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_authentication"><span class="hs-identifier hs-var hs-var">workspaceSummary_authentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceSummary -&gt; AuthenticationSummary)
+-&gt; (WorkspaceSummary -&gt; AuthenticationSummary -&gt; WorkspaceSummary)
+-&gt; Lens
+     WorkspaceSummary
+     WorkspaceSummary
+     AuthenticationSummary
+     AuthenticationSummary
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186948"><span class="annot"><span class="annottext">AuthenticationSummary
+authentication :: AuthenticationSummary
+$sel:authentication:WorkspaceSummary' :: WorkspaceSummary -&gt; AuthenticationSummary
+</span><a href="#local-6989586621679186948"><span class="hs-identifier hs-var hs-var">authentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationSummary
+</span><a href="#local-6989586621679186948"><span class="hs-identifier hs-var">authentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186947"><span class="annot"><span class="annottext">s :: WorkspaceSummary
+</span><a href="#local-6989586621679186947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186946"><span class="annot"><span class="annottext">AuthenticationSummary
+</span><a href="#local-6989586621679186946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceSummary
+</span><a href="#local-6989586621679186947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authentication:WorkspaceSummary' :: AuthenticationSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Aauthentication%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">authentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthenticationSummary
+</span><a href="#local-6989586621679186946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The date that the workspace was created.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_created"><span class="hs-identifier hs-type">workspaceSummary_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-148"></span><span id="workspaceSummary_created"><span class="annot"><span class="annottext">workspaceSummary_created :: (UTCTime -&gt; f UTCTime) -&gt; WorkspaceSummary -&gt; f WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_created"><span class="hs-identifier hs-var hs-var">workspaceSummary_created</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceSummary -&gt; POSIX)
+-&gt; (WorkspaceSummary -&gt; POSIX -&gt; WorkspaceSummary)
+-&gt; Lens WorkspaceSummary WorkspaceSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186944"><span class="annot"><span class="annottext">POSIX
+created :: POSIX
+$sel:created:WorkspaceSummary' :: WorkspaceSummary -&gt; POSIX
+</span><a href="#local-6989586621679186944"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679186944"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186943"><span class="annot"><span class="annottext">s :: WorkspaceSummary
+</span><a href="#local-6989586621679186943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186942"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679186942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceSummary
+</span><a href="#local-6989586621679186943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:WorkspaceSummary' :: POSIX
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Acreated%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679186942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; WorkspaceSummary -&gt; f WorkspaceSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; WorkspaceSummary
+-&gt; f WorkspaceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The URL endpoint to use to access the Grafana console in the workspace.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_endpoint"><span class="hs-identifier hs-type">workspaceSummary_endpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span id="workspaceSummary_endpoint"><span class="annot"><span class="annottext">workspaceSummary_endpoint :: (Text -&gt; f Text) -&gt; WorkspaceSummary -&gt; f WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_endpoint"><span class="hs-identifier hs-var hs-var">workspaceSummary_endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceSummary -&gt; Text)
+-&gt; (WorkspaceSummary -&gt; Text -&gt; WorkspaceSummary)
+-&gt; Lens WorkspaceSummary WorkspaceSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186940"><span class="annot"><span class="annottext">Text
+endpoint :: Text
+$sel:endpoint:WorkspaceSummary' :: WorkspaceSummary -&gt; Text
+</span><a href="#local-6989586621679186940"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186940"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186939"><span class="annot"><span class="annottext">s :: WorkspaceSummary
+</span><a href="#local-6989586621679186939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186938"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceSummary
+</span><a href="#local-6989586621679186939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:WorkspaceSummary' :: Text
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Aendpoint%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The Grafana version that the workspace is running.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_grafanaVersion"><span class="hs-identifier hs-type">workspaceSummary_grafanaVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-156"></span><span id="workspaceSummary_grafanaVersion"><span class="annot"><span class="annottext">workspaceSummary_grafanaVersion :: (Text -&gt; f Text) -&gt; WorkspaceSummary -&gt; f WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_grafanaVersion"><span class="hs-identifier hs-var hs-var">workspaceSummary_grafanaVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceSummary -&gt; Text)
+-&gt; (WorkspaceSummary -&gt; Text -&gt; WorkspaceSummary)
+-&gt; Lens WorkspaceSummary WorkspaceSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186936"><span class="annot"><span class="annottext">Text
+grafanaVersion :: Text
+$sel:grafanaVersion:WorkspaceSummary' :: WorkspaceSummary -&gt; Text
+</span><a href="#local-6989586621679186936"><span class="hs-identifier hs-var hs-var">grafanaVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186936"><span class="hs-identifier hs-var">grafanaVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186935"><span class="annot"><span class="annottext">s :: WorkspaceSummary
+</span><a href="#local-6989586621679186935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186934"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceSummary
+</span><a href="#local-6989586621679186935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grafanaVersion:WorkspaceSummary' :: Text
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3AgrafanaVersion%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">grafanaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The unique ID of the workspace.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_id"><span class="hs-identifier hs-type">workspaceSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-160"></span><span id="workspaceSummary_id"><span class="annot"><span class="annottext">workspaceSummary_id :: (Text -&gt; f Text) -&gt; WorkspaceSummary -&gt; f WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_id"><span class="hs-identifier hs-var hs-var">workspaceSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceSummary -&gt; Text)
+-&gt; (WorkspaceSummary -&gt; Text -&gt; WorkspaceSummary)
+-&gt; Lens WorkspaceSummary WorkspaceSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186932"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:WorkspaceSummary' :: WorkspaceSummary -&gt; Text
+</span><a href="#local-6989586621679186932"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186932"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186931"><span class="annot"><span class="annottext">s :: WorkspaceSummary
+</span><a href="#local-6989586621679186931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186930"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceSummary
+</span><a href="#local-6989586621679186931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:WorkspaceSummary' :: Text
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Aid%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The most recent date that the workspace was modified.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_modified"><span class="hs-identifier hs-type">workspaceSummary_modified</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-164"></span><span id="workspaceSummary_modified"><span class="annot"><span class="annottext">workspaceSummary_modified :: (UTCTime -&gt; f UTCTime) -&gt; WorkspaceSummary -&gt; f WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_modified"><span class="hs-identifier hs-var hs-var">workspaceSummary_modified</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceSummary -&gt; POSIX)
+-&gt; (WorkspaceSummary -&gt; POSIX -&gt; WorkspaceSummary)
+-&gt; Lens WorkspaceSummary WorkspaceSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186928"><span class="annot"><span class="annottext">POSIX
+modified :: POSIX
+$sel:modified:WorkspaceSummary' :: WorkspaceSummary -&gt; POSIX
+</span><a href="#local-6989586621679186928"><span class="hs-identifier hs-var hs-var">modified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679186928"><span class="hs-identifier hs-var">modified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186927"><span class="annot"><span class="annottext">s :: WorkspaceSummary
+</span><a href="#local-6989586621679186927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186926"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679186926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceSummary
+</span><a href="#local-6989586621679186927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modified:WorkspaceSummary' :: POSIX
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Amodified%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">modified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679186926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; WorkspaceSummary -&gt; f WorkspaceSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; WorkspaceSummary
+-&gt; f WorkspaceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The current status of the workspace.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_status"><span class="hs-identifier hs-type">workspaceSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceStatus.html#WorkspaceStatus"><span class="hs-identifier hs-type">WorkspaceStatus</span></a></span><span>
+</span><span id="line-168"></span><span id="workspaceSummary_status"><span class="annot"><span class="annottext">workspaceSummary_status :: (WorkspaceStatus -&gt; f WorkspaceStatus)
+-&gt; WorkspaceSummary -&gt; f WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#workspaceSummary_status"><span class="hs-identifier hs-var hs-var">workspaceSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceSummary -&gt; WorkspaceStatus)
+-&gt; (WorkspaceSummary -&gt; WorkspaceStatus -&gt; WorkspaceSummary)
+-&gt; Lens
+     WorkspaceSummary WorkspaceSummary WorkspaceStatus WorkspaceStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186924"><span class="annot"><span class="annottext">WorkspaceStatus
+status :: WorkspaceStatus
+$sel:status:WorkspaceSummary' :: WorkspaceSummary -&gt; WorkspaceStatus
+</span><a href="#local-6989586621679186924"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679186924"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186923"><span class="annot"><span class="annottext">s :: WorkspaceSummary
+</span><a href="#local-6989586621679186923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-type">WorkspaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186922"><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679186922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceSummary
+</span><a href="#local-6989586621679186923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:WorkspaceSummary' :: WorkspaceStatus
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#%24sel%3Astatus%3AWorkspaceSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkspaceStatus
+</span><a href="#local-6989586621679186922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186919"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679186917"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkspaceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser WorkspaceSummary)
+-&gt; Value
+-&gt; Parser WorkspaceSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;WorkspaceSummary&quot;</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186914"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186914"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+-&gt; Maybe [NotificationDestinationType]
+-&gt; Maybe (Sensitive Text)
+-&gt; AuthenticationSummary
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; WorkspaceStatus
+-&gt; WorkspaceSummary
+</span><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary%27"><span class="hs-identifier hs-var">WorkspaceSummary'</span></a></span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text)
+ -&gt; Maybe [NotificationDestinationType]
+ -&gt; Maybe (Sensitive Text)
+ -&gt; AuthenticationSummary
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; WorkspaceStatus
+ -&gt; WorkspaceSummary)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe [NotificationDestinationType]
+      -&gt; Maybe (Sensitive Text)
+      -&gt; AuthenticationSummary
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; WorkspaceStatus
+      -&gt; WorkspaceSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [NotificationDestinationType]
+   -&gt; Maybe (Sensitive Text)
+   -&gt; AuthenticationSummary
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; WorkspaceStatus
+   -&gt; WorkspaceSummary)
+-&gt; Parser (Maybe [NotificationDestinationType])
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; AuthenticationSummary
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; WorkspaceStatus
+      -&gt; WorkspaceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [NotificationDestinationType]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;notificationDestinations&quot;</span></span><span>
+</span><span id="line-178"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [NotificationDestinationType]))
+-&gt; Maybe [NotificationDestinationType]
+-&gt; Parser (Maybe [NotificationDestinationType])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NotificationDestinationType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-179"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; AuthenticationSummary
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; WorkspaceStatus
+   -&gt; WorkspaceSummary)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (AuthenticationSummary
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; WorkspaceStatus
+      -&gt; WorkspaceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (AuthenticationSummary
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; WorkspaceStatus
+   -&gt; WorkspaceSummary)
+-&gt; Parser AuthenticationSummary
+-&gt; Parser
+     (POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; WorkspaceStatus
+      -&gt; WorkspaceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AuthenticationSummary
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authentication&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; WorkspaceStatus
+   -&gt; WorkspaceSummary)
+-&gt; Parser POSIX
+-&gt; Parser
+     (Text
+      -&gt; Text -&gt; Text -&gt; POSIX -&gt; WorkspaceStatus -&gt; WorkspaceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;created&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text -&gt; Text -&gt; POSIX -&gt; WorkspaceStatus -&gt; WorkspaceSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; Text -&gt; POSIX -&gt; WorkspaceStatus -&gt; WorkspaceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; Text -&gt; POSIX -&gt; WorkspaceStatus -&gt; WorkspaceSummary)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; POSIX -&gt; WorkspaceStatus -&gt; WorkspaceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;grafanaVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; POSIX -&gt; WorkspaceStatus -&gt; WorkspaceSummary)
+-&gt; Parser Text
+-&gt; Parser (POSIX -&gt; WorkspaceStatus -&gt; WorkspaceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; WorkspaceStatus -&gt; WorkspaceSummary)
+-&gt; Parser POSIX -&gt; Parser (WorkspaceStatus -&gt; WorkspaceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modified&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser (WorkspaceStatus -&gt; WorkspaceSummary)
+-&gt; Parser WorkspaceStatus -&gt; Parser WorkspaceSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkspaceStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186906"><span id="local-6989586621679186908"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span></span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186903"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Grafana.Types.WorkspaceSummary.html#WorkspaceSummary"><span class="hs-identifier hs-type">WorkspaceSummary</span></a></span></span><span>
+</span><span id="line-193"></span></pre></body></html>

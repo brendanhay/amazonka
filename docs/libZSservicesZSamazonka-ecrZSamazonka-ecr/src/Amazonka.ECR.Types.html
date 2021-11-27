@@ -1,0 +1,1050 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.ECR.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECR.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_ImageTagAlreadyExistsException"><span class="hs-identifier">_ImageTagAlreadyExistsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_LayersNotFoundException"><span class="hs-identifier">_LayersNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_ReferencedImagesNotFoundException"><span class="hs-identifier">_ReferencedImagesNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_InvalidParameterException"><span class="hs-identifier">_InvalidParameterException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_LayerAlreadyExistsException"><span class="hs-identifier">_LayerAlreadyExistsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_ServerException"><span class="hs-identifier">_ServerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_LayerInaccessibleException"><span class="hs-identifier">_LayerInaccessibleException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_InvalidLayerException"><span class="hs-identifier">_InvalidLayerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_LayerPartTooSmallException"><span class="hs-identifier">_LayerPartTooSmallException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_LifecyclePolicyPreviewNotFoundException"><span class="hs-identifier">_LifecyclePolicyPreviewNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_ImageDigestDoesNotMatchException"><span class="hs-identifier">_ImageDigestDoesNotMatchException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_ImageNotFoundException"><span class="hs-identifier">_ImageNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_ImageAlreadyExistsException"><span class="hs-identifier">_ImageAlreadyExistsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_RepositoryNotFoundException"><span class="hs-identifier">_RepositoryNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_TooManyTagsException"><span class="hs-identifier">_TooManyTagsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_RegistryPolicyNotFoundException"><span class="hs-identifier">_RegistryPolicyNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_LifecyclePolicyPreviewInProgressException"><span class="hs-identifier">_LifecyclePolicyPreviewInProgressException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_UploadNotFoundException"><span class="hs-identifier">_UploadNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_LifecyclePolicyNotFoundException"><span class="hs-identifier">_LifecyclePolicyNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_KmsException"><span class="hs-identifier">_KmsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_InvalidLayerPartException"><span class="hs-identifier">_InvalidLayerPartException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_InvalidTagParameterException"><span class="hs-identifier">_InvalidTagParameterException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_RepositoryNotEmptyException"><span class="hs-identifier">_RepositoryNotEmptyException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_UnsupportedImageTypeException"><span class="hs-identifier">_UnsupportedImageTypeException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_RepositoryAlreadyExistsException"><span class="hs-identifier">_RepositoryAlreadyExistsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_ScanNotFoundException"><span class="hs-identifier">_ScanNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_RepositoryPolicyNotFoundException"><span class="hs-identifier">_RepositoryPolicyNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_EmptyUploadException"><span class="hs-identifier">_EmptyUploadException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EncryptionType</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.EncryptionType.html#EncryptionType"><span class="hs-identifier">EncryptionType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FindingSeverity</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.FindingSeverity.html#FindingSeverity"><span class="hs-identifier">FindingSeverity</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImageActionType</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageActionType.html#ImageActionType"><span class="hs-identifier">ImageActionType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImageFailureCode</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageFailureCode.html#ImageFailureCode"><span class="hs-identifier">ImageFailureCode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImageTagMutability</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability"><span class="hs-identifier">ImageTagMutability</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LayerAvailability</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LayerAvailability.html#LayerAvailability"><span class="hs-identifier">LayerAvailability</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LayerFailureCode</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LayerFailureCode.html#LayerFailureCode"><span class="hs-identifier">LayerFailureCode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LifecyclePolicyPreviewStatus</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewStatus.html#LifecyclePolicyPreviewStatus"><span class="hs-identifier">LifecyclePolicyPreviewStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ReplicationStatus</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationStatus.html#ReplicationStatus"><span class="hs-identifier">ReplicationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RepositoryFilterType</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.RepositoryFilterType.html#RepositoryFilterType"><span class="hs-identifier">RepositoryFilterType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScanStatus</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ScanStatus.html#ScanStatus"><span class="hs-identifier">ScanStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TagStatus</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.TagStatus.html#TagStatus"><span class="hs-identifier">TagStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Attribute</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Attribute.html#newAttribute"><span class="hs-identifier">newAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Attribute.html#attribute_value"><span class="hs-identifier">attribute_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Attribute.html#attribute_key"><span class="hs-identifier">attribute_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AuthorizationData</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.AuthorizationData.html#AuthorizationData"><span class="hs-identifier">AuthorizationData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.AuthorizationData.html#newAuthorizationData"><span class="hs-identifier">newAuthorizationData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.AuthorizationData.html#authorizationData_expiresAt"><span class="hs-identifier">authorizationData_expiresAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.AuthorizationData.html#authorizationData_proxyEndpoint"><span class="hs-identifier">authorizationData_proxyEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.AuthorizationData.html#authorizationData_authorizationToken"><span class="hs-identifier">authorizationData_authorizationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DescribeImagesFilter</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.DescribeImagesFilter.html#DescribeImagesFilter"><span class="hs-identifier">DescribeImagesFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.DescribeImagesFilter.html#newDescribeImagesFilter"><span class="hs-identifier">newDescribeImagesFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.DescribeImagesFilter.html#describeImagesFilter_tagStatus"><span class="hs-identifier">describeImagesFilter_tagStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EncryptionConfiguration</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier">EncryptionConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.EncryptionConfiguration.html#newEncryptionConfiguration"><span class="hs-identifier">newEncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.EncryptionConfiguration.html#encryptionConfiguration_kmsKey"><span class="hs-identifier">encryptionConfiguration_kmsKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.EncryptionConfiguration.html#encryptionConfiguration_encryptionType"><span class="hs-identifier">encryptionConfiguration_encryptionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Image</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Image.html#Image"><span class="hs-identifier">Image</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Image.html#newImage"><span class="hs-identifier">newImage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Image.html#image_registryId"><span class="hs-identifier">image_registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Image.html#image_imageManifestMediaType"><span class="hs-identifier">image_imageManifestMediaType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Image.html#image_imageId"><span class="hs-identifier">image_imageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Image.html#image_repositoryName"><span class="hs-identifier">image_repositoryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Image.html#image_imageManifest"><span class="hs-identifier">image_imageManifest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImageDetail</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#ImageDetail"><span class="hs-identifier">ImageDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#newImageDetail"><span class="hs-identifier">newImageDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#imageDetail_registryId"><span class="hs-identifier">imageDetail_registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#imageDetail_imageTags"><span class="hs-identifier">imageDetail_imageTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#imageDetail_imageScanStatus"><span class="hs-identifier">imageDetail_imageScanStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#imageDetail_imageManifestMediaType"><span class="hs-identifier">imageDetail_imageManifestMediaType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#imageDetail_imageSizeInBytes"><span class="hs-identifier">imageDetail_imageSizeInBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#imageDetail_imageDigest"><span class="hs-identifier">imageDetail_imageDigest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#imageDetail_imageScanFindingsSummary"><span class="hs-identifier">imageDetail_imageScanFindingsSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#imageDetail_artifactMediaType"><span class="hs-identifier">imageDetail_artifactMediaType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#imageDetail_imagePushedAt"><span class="hs-identifier">imageDetail_imagePushedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html#imageDetail_repositoryName"><span class="hs-identifier">imageDetail_repositoryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImageFailure</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier">ImageFailure</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageFailure.html#newImageFailure"><span class="hs-identifier">newImageFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageFailure.html#imageFailure_failureReason"><span class="hs-identifier">imageFailure_failureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageFailure.html#imageFailure_failureCode"><span class="hs-identifier">imageFailure_failureCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageFailure.html#imageFailure_imageId"><span class="hs-identifier">imageFailure_imageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImageIdentifier</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier">ImageIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageIdentifier.html#newImageIdentifier"><span class="hs-identifier">newImageIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageIdentifier.html#imageIdentifier_imageDigest"><span class="hs-identifier">imageIdentifier_imageDigest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageIdentifier.html#imageIdentifier_imageTag"><span class="hs-identifier">imageIdentifier_imageTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImageReplicationStatus</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageReplicationStatus.html#ImageReplicationStatus"><span class="hs-identifier">ImageReplicationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageReplicationStatus.html#newImageReplicationStatus"><span class="hs-identifier">newImageReplicationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageReplicationStatus.html#imageReplicationStatus_status"><span class="hs-identifier">imageReplicationStatus_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageReplicationStatus.html#imageReplicationStatus_failureCode"><span class="hs-identifier">imageReplicationStatus_failureCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageReplicationStatus.html#imageReplicationStatus_registryId"><span class="hs-identifier">imageReplicationStatus_registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageReplicationStatus.html#imageReplicationStatus_region"><span class="hs-identifier">imageReplicationStatus_region</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImageScanFinding</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier">ImageScanFinding</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFinding.html#newImageScanFinding"><span class="hs-identifier">newImageScanFinding</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFinding.html#imageScanFinding_severity"><span class="hs-identifier">imageScanFinding_severity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFinding.html#imageScanFinding_uri"><span class="hs-identifier">imageScanFinding_uri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFinding.html#imageScanFinding_name"><span class="hs-identifier">imageScanFinding_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFinding.html#imageScanFinding_attributes"><span class="hs-identifier">imageScanFinding_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFinding.html#imageScanFinding_description"><span class="hs-identifier">imageScanFinding_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImageScanFindings</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindings.html#ImageScanFindings"><span class="hs-identifier">ImageScanFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindings.html#newImageScanFindings"><span class="hs-identifier">newImageScanFindings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindings.html#imageScanFindings_imageScanCompletedAt"><span class="hs-identifier">imageScanFindings_imageScanCompletedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindings.html#imageScanFindings_findings"><span class="hs-identifier">imageScanFindings_findings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindings.html#imageScanFindings_findingSeverityCounts"><span class="hs-identifier">imageScanFindings_findingSeverityCounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindings.html#imageScanFindings_vulnerabilitySourceUpdatedAt"><span class="hs-identifier">imageScanFindings_vulnerabilitySourceUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImageScanFindingsSummary</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindingsSummary.html#ImageScanFindingsSummary"><span class="hs-identifier">ImageScanFindingsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindingsSummary.html#newImageScanFindingsSummary"><span class="hs-identifier">newImageScanFindingsSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindingsSummary.html#imageScanFindingsSummary_imageScanCompletedAt"><span class="hs-identifier">imageScanFindingsSummary_imageScanCompletedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindingsSummary.html#imageScanFindingsSummary_findingSeverityCounts"><span class="hs-identifier">imageScanFindingsSummary_findingSeverityCounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindingsSummary.html#imageScanFindingsSummary_vulnerabilitySourceUpdatedAt"><span class="hs-identifier">imageScanFindingsSummary_vulnerabilitySourceUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImageScanStatus</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanStatus.html#ImageScanStatus"><span class="hs-identifier">ImageScanStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanStatus.html#newImageScanStatus"><span class="hs-identifier">newImageScanStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanStatus.html#imageScanStatus_status"><span class="hs-identifier">imageScanStatus_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanStatus.html#imageScanStatus_description"><span class="hs-identifier">imageScanStatus_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImageScanningConfiguration</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanningConfiguration.html#ImageScanningConfiguration"><span class="hs-identifier">ImageScanningConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanningConfiguration.html#newImageScanningConfiguration"><span class="hs-identifier">newImageScanningConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanningConfiguration.html#imageScanningConfiguration_scanOnPush"><span class="hs-identifier">imageScanningConfiguration_scanOnPush</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Layer</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Layer.html#Layer"><span class="hs-identifier">Layer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Layer.html#newLayer"><span class="hs-identifier">newLayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Layer.html#layer_mediaType"><span class="hs-identifier">layer_mediaType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Layer.html#layer_layerDigest"><span class="hs-identifier">layer_layerDigest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Layer.html#layer_layerSize"><span class="hs-identifier">layer_layerSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Layer.html#layer_layerAvailability"><span class="hs-identifier">layer_layerAvailability</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LayerFailure</span></span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LayerFailure.html#LayerFailure"><span class="hs-identifier">LayerFailure</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LayerFailure.html#newLayerFailure"><span class="hs-identifier">newLayerFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LayerFailure.html#layerFailure_failureReason"><span class="hs-identifier">layerFailure_failureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LayerFailure.html#layerFailure_failureCode"><span class="hs-identifier">layerFailure_failureCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LayerFailure.html#layerFailure_layerDigest"><span class="hs-identifier">layerFailure_layerDigest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LifecyclePolicyPreviewFilter</span></span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewFilter.html#LifecyclePolicyPreviewFilter"><span class="hs-identifier">LifecyclePolicyPreviewFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewFilter.html#newLifecyclePolicyPreviewFilter"><span class="hs-identifier">newLifecyclePolicyPreviewFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewFilter.html#lifecyclePolicyPreviewFilter_tagStatus"><span class="hs-identifier">lifecyclePolicyPreviewFilter_tagStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LifecyclePolicyPreviewResult</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewResult.html#LifecyclePolicyPreviewResult"><span class="hs-identifier">LifecyclePolicyPreviewResult</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewResult.html#newLifecyclePolicyPreviewResult"><span class="hs-identifier">newLifecyclePolicyPreviewResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewResult.html#lifecyclePolicyPreviewResult_imageTags"><span class="hs-identifier">lifecyclePolicyPreviewResult_imageTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewResult.html#lifecyclePolicyPreviewResult_action"><span class="hs-identifier">lifecyclePolicyPreviewResult_action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewResult.html#lifecyclePolicyPreviewResult_imageDigest"><span class="hs-identifier">lifecyclePolicyPreviewResult_imageDigest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewResult.html#lifecyclePolicyPreviewResult_imagePushedAt"><span class="hs-identifier">lifecyclePolicyPreviewResult_imagePushedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewResult.html#lifecyclePolicyPreviewResult_appliedRulePriority"><span class="hs-identifier">lifecyclePolicyPreviewResult_appliedRulePriority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LifecyclePolicyPreviewSummary</span></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewSummary.html#LifecyclePolicyPreviewSummary"><span class="hs-identifier">LifecyclePolicyPreviewSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewSummary.html#newLifecyclePolicyPreviewSummary"><span class="hs-identifier">newLifecyclePolicyPreviewSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewSummary.html#lifecyclePolicyPreviewSummary_expiringImageTotalCount"><span class="hs-identifier">lifecyclePolicyPreviewSummary_expiringImageTotalCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LifecyclePolicyRuleAction</span></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyRuleAction.html#LifecyclePolicyRuleAction"><span class="hs-identifier">LifecyclePolicyRuleAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyRuleAction.html#newLifecyclePolicyRuleAction"><span class="hs-identifier">newLifecyclePolicyRuleAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyRuleAction.html#lifecyclePolicyRuleAction_type"><span class="hs-identifier">lifecyclePolicyRuleAction_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListImagesFilter</span></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ListImagesFilter.html#ListImagesFilter"><span class="hs-identifier">ListImagesFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ListImagesFilter.html#newListImagesFilter"><span class="hs-identifier">newListImagesFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ListImagesFilter.html#listImagesFilter_tagStatus"><span class="hs-identifier">listImagesFilter_tagStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ReplicationConfiguration</span></span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier">ReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationConfiguration.html#newReplicationConfiguration"><span class="hs-identifier">newReplicationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationConfiguration.html#replicationConfiguration_rules"><span class="hs-identifier">replicationConfiguration_rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ReplicationDestination</span></span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier">ReplicationDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#newReplicationDestination"><span class="hs-identifier">newReplicationDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#replicationDestination_region"><span class="hs-identifier">replicationDestination_region</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html#replicationDestination_registryId"><span class="hs-identifier">replicationDestination_registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ReplicationRule</span></span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier">ReplicationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationRule.html#newReplicationRule"><span class="hs-identifier">newReplicationRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationRule.html#replicationRule_repositoryFilters"><span class="hs-identifier">replicationRule_repositoryFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationRule.html#replicationRule_destinations"><span class="hs-identifier">replicationRule_destinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Repository</span></span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Repository.html#Repository"><span class="hs-identifier">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Repository.html#newRepository"><span class="hs-identifier">newRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Repository.html#repository_repositoryArn"><span class="hs-identifier">repository_repositoryArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Repository.html#repository_createdAt"><span class="hs-identifier">repository_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Repository.html#repository_registryId"><span class="hs-identifier">repository_registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Repository.html#repository_imageScanningConfiguration"><span class="hs-identifier">repository_imageScanningConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Repository.html#repository_repositoryUri"><span class="hs-identifier">repository_repositoryUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Repository.html#repository_encryptionConfiguration"><span class="hs-identifier">repository_encryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Repository.html#repository_repositoryName"><span class="hs-identifier">repository_repositoryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Repository.html#repository_imageTagMutability"><span class="hs-identifier">repository_imageTagMutability</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RepositoryFilter</span></span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier">RepositoryFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.RepositoryFilter.html#newRepositoryFilter"><span class="hs-identifier">newRepositoryFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.RepositoryFilter.html#repositoryFilter_filter"><span class="hs-identifier">repositoryFilter_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.RepositoryFilter.html#repositoryFilter_filterType"><span class="hs-identifier">repositoryFilter_filterType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tag</span></span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Tag.html#tag_value"><span class="hs-identifier">tag_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Amazonka.ECR.Types.Tag.html#tag_key"><span class="hs-identifier">tag_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.Attribute.html"><span class="hs-identifier">Amazonka.ECR.Types.Attribute</span></a></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.AuthorizationData.html"><span class="hs-identifier">Amazonka.ECR.Types.AuthorizationData</span></a></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.DescribeImagesFilter.html"><span class="hs-identifier">Amazonka.ECR.Types.DescribeImagesFilter</span></a></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.EncryptionConfiguration.html"><span class="hs-identifier">Amazonka.ECR.Types.EncryptionConfiguration</span></a></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.EncryptionType.html"><span class="hs-identifier">Amazonka.ECR.Types.EncryptionType</span></a></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.FindingSeverity.html"><span class="hs-identifier">Amazonka.ECR.Types.FindingSeverity</span></a></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.Image.html"><span class="hs-identifier">Amazonka.ECR.Types.Image</span></a></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageActionType.html"><span class="hs-identifier">Amazonka.ECR.Types.ImageActionType</span></a></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageDetail.html"><span class="hs-identifier">Amazonka.ECR.Types.ImageDetail</span></a></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageFailure.html"><span class="hs-identifier">Amazonka.ECR.Types.ImageFailure</span></a></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageFailureCode.html"><span class="hs-identifier">Amazonka.ECR.Types.ImageFailureCode</span></a></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageIdentifier.html"><span class="hs-identifier">Amazonka.ECR.Types.ImageIdentifier</span></a></span><span>
+</span><span id="line-290"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageReplicationStatus.html"><span class="hs-identifier">Amazonka.ECR.Types.ImageReplicationStatus</span></a></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFinding.html"><span class="hs-identifier">Amazonka.ECR.Types.ImageScanFinding</span></a></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindings.html"><span class="hs-identifier">Amazonka.ECR.Types.ImageScanFindings</span></a></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanFindingsSummary.html"><span class="hs-identifier">Amazonka.ECR.Types.ImageScanFindingsSummary</span></a></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanStatus.html"><span class="hs-identifier">Amazonka.ECR.Types.ImageScanStatus</span></a></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageScanningConfiguration.html"><span class="hs-identifier">Amazonka.ECR.Types.ImageScanningConfiguration</span></a></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html"><span class="hs-identifier">Amazonka.ECR.Types.ImageTagMutability</span></a></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.Layer.html"><span class="hs-identifier">Amazonka.ECR.Types.Layer</span></a></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.LayerAvailability.html"><span class="hs-identifier">Amazonka.ECR.Types.LayerAvailability</span></a></span><span>
+</span><span id="line-299"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.LayerFailure.html"><span class="hs-identifier">Amazonka.ECR.Types.LayerFailure</span></a></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.LayerFailureCode.html"><span class="hs-identifier">Amazonka.ECR.Types.LayerFailureCode</span></a></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewFilter.html"><span class="hs-identifier">Amazonka.ECR.Types.LifecyclePolicyPreviewFilter</span></a></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewResult.html"><span class="hs-identifier">Amazonka.ECR.Types.LifecyclePolicyPreviewResult</span></a></span><span>
+</span><span id="line-303"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewStatus.html"><span class="hs-identifier">Amazonka.ECR.Types.LifecyclePolicyPreviewStatus</span></a></span><span>
+</span><span id="line-304"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyPreviewSummary.html"><span class="hs-identifier">Amazonka.ECR.Types.LifecyclePolicyPreviewSummary</span></a></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.LifecyclePolicyRuleAction.html"><span class="hs-identifier">Amazonka.ECR.Types.LifecyclePolicyRuleAction</span></a></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ListImagesFilter.html"><span class="hs-identifier">Amazonka.ECR.Types.ListImagesFilter</span></a></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationConfiguration.html"><span class="hs-identifier">Amazonka.ECR.Types.ReplicationConfiguration</span></a></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationDestination.html"><span class="hs-identifier">Amazonka.ECR.Types.ReplicationDestination</span></a></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationRule.html"><span class="hs-identifier">Amazonka.ECR.Types.ReplicationRule</span></a></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ReplicationStatus.html"><span class="hs-identifier">Amazonka.ECR.Types.ReplicationStatus</span></a></span><span>
+</span><span id="line-311"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.Repository.html"><span class="hs-identifier">Amazonka.ECR.Types.Repository</span></a></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.RepositoryFilter.html"><span class="hs-identifier">Amazonka.ECR.Types.RepositoryFilter</span></a></span><span>
+</span><span id="line-313"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.RepositoryFilterType.html"><span class="hs-identifier">Amazonka.ECR.Types.RepositoryFilterType</span></a></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ScanStatus.html"><span class="hs-identifier">Amazonka.ECR.Types.ScanStatus</span></a></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.Tag.html"><span class="hs-identifier">Amazonka.ECR.Types.Tag</span></a></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.TagStatus.html"><span class="hs-identifier">Amazonka.ECR.Types.TagStatus</span></a></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-319"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-320"></span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- | API version @2015-09-21@ of the Amazon EC2 Container Registry SDK configuration.</span><span>
+</span><span id="line-322"></span><span class="annot"><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-323"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-324"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-325"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;ECR&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;api.ecr&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ecr&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-09-21&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;ECR&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679236186"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-336"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-337"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-338"></span><span>    </span><span id="local-6989586621679236186"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679236186"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-339"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-340"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679236180"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-344"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-345"></span><span>    </span><span id="local-6989586621679236180"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679236180"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679236179"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-346"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-347"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-348"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-349"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-351"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-352"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-353"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-354"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-355"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-356"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-357"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-359"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-360"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-361"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-362"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-363"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-364"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-365"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-366"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-367"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-368"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-369"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-370"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-372"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-373"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-374"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-375"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-376"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-377"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-378"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-379"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-380"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-381"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-382"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-383"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-384"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-385"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-386"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-387"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-388"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-389"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-390"></span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- | The specified image is tagged with a tag that already exists. The</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- repository is configured for tag immutability.</span><span>
+</span><span id="line-393"></span><span id="local-6989586621679236174"><span class="annot"><a href="Amazonka.ECR.Types.html#_ImageTagAlreadyExistsException"><span class="hs-identifier hs-type">_ImageTagAlreadyExistsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236174"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236174"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-394"></span><span id="_ImageTagAlreadyExistsException"><span class="annot"><span class="annottext">_ImageTagAlreadyExistsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_ImageTagAlreadyExistsException"><span class="hs-identifier hs-var hs-var">_ImageTagAlreadyExistsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-395"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-396"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-397"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ImageTagAlreadyExistsException&quot;</span></span><span>
+</span><span id="line-398"></span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- | There was an exception validating this request.</span><span>
+</span><span id="line-400"></span><span id="local-6989586621679236172"><span class="annot"><a href="Amazonka.ECR.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236172"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236172"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-401"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-402"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-403"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-404"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
+</span><span id="line-405"></span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- | The specified layers could not be found, or the specified layer is not</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- valid for this repository.</span><span>
+</span><span id="line-408"></span><span id="local-6989586621679236171"><span class="annot"><a href="Amazonka.ECR.Types.html#_LayersNotFoundException"><span class="hs-identifier hs-type">_LayersNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236171"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236171"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-409"></span><span id="_LayersNotFoundException"><span class="annot"><span class="annottext">_LayersNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_LayersNotFoundException"><span class="hs-identifier hs-var hs-var">_LayersNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-410"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-411"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-412"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LayersNotFoundException&quot;</span></span><span>
+</span><span id="line-413"></span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- | The manifest list is referencing an image that does not exist.</span><span>
+</span><span id="line-415"></span><span id="local-6989586621679236170"><span class="annot"><a href="Amazonka.ECR.Types.html#_ReferencedImagesNotFoundException"><span class="hs-identifier hs-type">_ReferencedImagesNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236170"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236170"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-416"></span><span id="_ReferencedImagesNotFoundException"><span class="annot"><span class="annottext">_ReferencedImagesNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_ReferencedImagesNotFoundException"><span class="hs-identifier hs-var hs-var">_ReferencedImagesNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-417"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-418"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-419"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ReferencedImagesNotFoundException&quot;</span></span><span>
+</span><span id="line-420"></span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- | The specified parameter is invalid. Review the available parameters for</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- the API request.</span><span>
+</span><span id="line-423"></span><span id="local-6989586621679236169"><span class="annot"><a href="Amazonka.ECR.Types.html#_InvalidParameterException"><span class="hs-identifier hs-type">_InvalidParameterException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236169"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236169"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-424"></span><span id="_InvalidParameterException"><span class="annot"><span class="annottext">_InvalidParameterException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_InvalidParameterException"><span class="hs-identifier hs-var hs-var">_InvalidParameterException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-425"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-426"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-427"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidParameterException&quot;</span></span><span>
+</span><span id="line-428"></span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- | The image layer already exists in the associated repository.</span><span>
+</span><span id="line-430"></span><span id="local-6989586621679236168"><span class="annot"><a href="Amazonka.ECR.Types.html#_LayerAlreadyExistsException"><span class="hs-identifier hs-type">_LayerAlreadyExistsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236168"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236168"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-431"></span><span id="_LayerAlreadyExistsException"><span class="annot"><span class="annottext">_LayerAlreadyExistsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_LayerAlreadyExistsException"><span class="hs-identifier hs-var hs-var">_LayerAlreadyExistsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-432"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-433"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-434"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LayerAlreadyExistsException&quot;</span></span><span>
+</span><span id="line-435"></span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- | These errors are usually caused by a server-side issue.</span><span>
+</span><span id="line-437"></span><span id="local-6989586621679236167"><span class="annot"><a href="Amazonka.ECR.Types.html#_ServerException"><span class="hs-identifier hs-type">_ServerException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236167"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236167"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-438"></span><span id="_ServerException"><span class="annot"><span class="annottext">_ServerException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_ServerException"><span class="hs-identifier hs-var hs-var">_ServerException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-439"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-440"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-441"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServerException&quot;</span></span><span>
+</span><span id="line-442"></span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- | The specified layer is not available because it is not associated with</span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- an image. Unassociated image layers may be cleaned up at any time.</span><span>
+</span><span id="line-445"></span><span id="local-6989586621679236166"><span class="annot"><a href="Amazonka.ECR.Types.html#_LayerInaccessibleException"><span class="hs-identifier hs-type">_LayerInaccessibleException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236166"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236166"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-446"></span><span id="_LayerInaccessibleException"><span class="annot"><span class="annottext">_LayerInaccessibleException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_LayerInaccessibleException"><span class="hs-identifier hs-var hs-var">_LayerInaccessibleException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-447"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-448"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-449"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LayerInaccessibleException&quot;</span></span><span>
+</span><span id="line-450"></span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- | The layer digest calculation performed by Amazon ECR upon receipt of the</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- image layer does not match the digest specified.</span><span>
+</span><span id="line-453"></span><span id="local-6989586621679236165"><span class="annot"><a href="Amazonka.ECR.Types.html#_InvalidLayerException"><span class="hs-identifier hs-type">_InvalidLayerException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236165"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236165"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-454"></span><span id="_InvalidLayerException"><span class="annot"><span class="annottext">_InvalidLayerException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_InvalidLayerException"><span class="hs-identifier hs-var hs-var">_InvalidLayerException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-455"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-456"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-457"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidLayerException&quot;</span></span><span>
+</span><span id="line-458"></span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- | Layer parts must be at least 5 MiB in size.</span><span>
+</span><span id="line-460"></span><span id="local-6989586621679236164"><span class="annot"><a href="Amazonka.ECR.Types.html#_LayerPartTooSmallException"><span class="hs-identifier hs-type">_LayerPartTooSmallException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236164"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236164"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-461"></span><span id="_LayerPartTooSmallException"><span class="annot"><span class="annottext">_LayerPartTooSmallException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_LayerPartTooSmallException"><span class="hs-identifier hs-var hs-var">_LayerPartTooSmallException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-462"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-463"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-464"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LayerPartTooSmallException&quot;</span></span><span>
+</span><span id="line-465"></span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- | There is no dry run for this repository.</span><span>
+</span><span id="line-467"></span><span id="local-6989586621679236163"><span class="annot"><a href="Amazonka.ECR.Types.html#_LifecyclePolicyPreviewNotFoundException"><span class="hs-identifier hs-type">_LifecyclePolicyPreviewNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236163"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236163"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-468"></span><span id="_LifecyclePolicyPreviewNotFoundException"><span class="annot"><span class="annottext">_LifecyclePolicyPreviewNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_LifecyclePolicyPreviewNotFoundException"><span class="hs-identifier hs-var hs-var">_LifecyclePolicyPreviewNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-469"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-470"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-471"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LifecyclePolicyPreviewNotFoundException&quot;</span></span><span>
+</span><span id="line-472"></span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- | The specified image digest does not match the digest that Amazon ECR</span><span>
+</span><span id="line-474"></span><span class="hs-comment">-- calculated for the image.</span><span>
+</span><span id="line-475"></span><span id="local-6989586621679236162"><span class="annot"><a href="Amazonka.ECR.Types.html#_ImageDigestDoesNotMatchException"><span class="hs-identifier hs-type">_ImageDigestDoesNotMatchException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236162"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236162"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-476"></span><span id="_ImageDigestDoesNotMatchException"><span class="annot"><span class="annottext">_ImageDigestDoesNotMatchException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_ImageDigestDoesNotMatchException"><span class="hs-identifier hs-var hs-var">_ImageDigestDoesNotMatchException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-477"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-478"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-479"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ImageDigestDoesNotMatchException&quot;</span></span><span>
+</span><span id="line-480"></span><span>
+</span><span id="line-481"></span><span class="hs-comment">-- | The image requested does not exist in the specified repository.</span><span>
+</span><span id="line-482"></span><span id="local-6989586621679236161"><span class="annot"><a href="Amazonka.ECR.Types.html#_ImageNotFoundException"><span class="hs-identifier hs-type">_ImageNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236161"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236161"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-483"></span><span id="_ImageNotFoundException"><span class="annot"><span class="annottext">_ImageNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_ImageNotFoundException"><span class="hs-identifier hs-var hs-var">_ImageNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-484"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-485"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-486"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ImageNotFoundException&quot;</span></span><span>
+</span><span id="line-487"></span><span>
+</span><span id="line-488"></span><span class="hs-comment">-- | The specified image has already been pushed, and there were no changes</span><span>
+</span><span id="line-489"></span><span class="hs-comment">-- to the manifest or image tag after the last push.</span><span>
+</span><span id="line-490"></span><span id="local-6989586621679236160"><span class="annot"><a href="Amazonka.ECR.Types.html#_ImageAlreadyExistsException"><span class="hs-identifier hs-type">_ImageAlreadyExistsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236160"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236160"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-491"></span><span id="_ImageAlreadyExistsException"><span class="annot"><span class="annottext">_ImageAlreadyExistsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_ImageAlreadyExistsException"><span class="hs-identifier hs-var hs-var">_ImageAlreadyExistsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-492"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-493"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-494"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ImageAlreadyExistsException&quot;</span></span><span>
+</span><span id="line-495"></span><span>
+</span><span id="line-496"></span><span class="hs-comment">-- | The specified repository could not be found. Check the spelling of the</span><span>
+</span><span id="line-497"></span><span class="hs-comment">-- specified repository and ensure that you are performing operations on</span><span>
+</span><span id="line-498"></span><span class="hs-comment">-- the correct registry.</span><span>
+</span><span id="line-499"></span><span id="local-6989586621679236159"><span class="annot"><a href="Amazonka.ECR.Types.html#_RepositoryNotFoundException"><span class="hs-identifier hs-type">_RepositoryNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236159"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236159"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-500"></span><span id="_RepositoryNotFoundException"><span class="annot"><span class="annottext">_RepositoryNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_RepositoryNotFoundException"><span class="hs-identifier hs-var hs-var">_RepositoryNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-501"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-502"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-503"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RepositoryNotFoundException&quot;</span></span><span>
+</span><span id="line-504"></span><span>
+</span><span id="line-505"></span><span class="hs-comment">-- | The list of tags on the repository is over the limit. The maximum number</span><span>
+</span><span id="line-506"></span><span class="hs-comment">-- of tags that can be applied to a repository is 50.</span><span>
+</span><span id="line-507"></span><span id="local-6989586621679236158"><span class="annot"><a href="Amazonka.ECR.Types.html#_TooManyTagsException"><span class="hs-identifier hs-type">_TooManyTagsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236158"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236158"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-508"></span><span id="_TooManyTagsException"><span class="annot"><span class="annottext">_TooManyTagsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_TooManyTagsException"><span class="hs-identifier hs-var hs-var">_TooManyTagsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-509"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-510"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-511"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;TooManyTagsException&quot;</span></span><span>
+</span><span id="line-512"></span><span>
+</span><span id="line-513"></span><span class="hs-comment">-- | The registry doesn\'t have an associated registry policy.</span><span>
+</span><span id="line-514"></span><span id="local-6989586621679236157"><span class="annot"><a href="Amazonka.ECR.Types.html#_RegistryPolicyNotFoundException"><span class="hs-identifier hs-type">_RegistryPolicyNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236157"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236157"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-515"></span><span id="_RegistryPolicyNotFoundException"><span class="annot"><span class="annottext">_RegistryPolicyNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_RegistryPolicyNotFoundException"><span class="hs-identifier hs-var hs-var">_RegistryPolicyNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-516"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-517"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-518"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RegistryPolicyNotFoundException&quot;</span></span><span>
+</span><span id="line-519"></span><span>
+</span><span id="line-520"></span><span class="hs-comment">-- | The previous lifecycle policy preview request has not completed. Wait</span><span>
+</span><span id="line-521"></span><span class="hs-comment">-- and try again.</span><span>
+</span><span id="line-522"></span><span id="local-6989586621679236156"><span class="annot"><a href="Amazonka.ECR.Types.html#_LifecyclePolicyPreviewInProgressException"><span class="hs-identifier hs-type">_LifecyclePolicyPreviewInProgressException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236156"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236156"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-523"></span><span id="_LifecyclePolicyPreviewInProgressException"><span class="annot"><span class="annottext">_LifecyclePolicyPreviewInProgressException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_LifecyclePolicyPreviewInProgressException"><span class="hs-identifier hs-var hs-var">_LifecyclePolicyPreviewInProgressException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-524"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-525"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-526"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LifecyclePolicyPreviewInProgressException&quot;</span></span><span>
+</span><span id="line-527"></span><span>
+</span><span id="line-528"></span><span class="hs-comment">-- | The upload could not be found, or the specified upload ID is not valid</span><span>
+</span><span id="line-529"></span><span class="hs-comment">-- for this repository.</span><span>
+</span><span id="line-530"></span><span id="local-6989586621679236155"><span class="annot"><a href="Amazonka.ECR.Types.html#_UploadNotFoundException"><span class="hs-identifier hs-type">_UploadNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236155"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236155"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-531"></span><span id="_UploadNotFoundException"><span class="annot"><span class="annottext">_UploadNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_UploadNotFoundException"><span class="hs-identifier hs-var hs-var">_UploadNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-532"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-533"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-534"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;UploadNotFoundException&quot;</span></span><span>
+</span><span id="line-535"></span><span>
+</span><span id="line-536"></span><span class="hs-comment">-- | The lifecycle policy could not be found, and no policy is set to the</span><span>
+</span><span id="line-537"></span><span class="hs-comment">-- repository.</span><span>
+</span><span id="line-538"></span><span id="local-6989586621679236154"><span class="annot"><a href="Amazonka.ECR.Types.html#_LifecyclePolicyNotFoundException"><span class="hs-identifier hs-type">_LifecyclePolicyNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236154"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236154"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-539"></span><span id="_LifecyclePolicyNotFoundException"><span class="annot"><span class="annottext">_LifecyclePolicyNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_LifecyclePolicyNotFoundException"><span class="hs-identifier hs-var hs-var">_LifecyclePolicyNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-540"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-541"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-542"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LifecyclePolicyNotFoundException&quot;</span></span><span>
+</span><span id="line-543"></span><span>
+</span><span id="line-544"></span><span class="hs-comment">-- | The operation failed due to a KMS exception.</span><span>
+</span><span id="line-545"></span><span id="local-6989586621679236153"><span class="annot"><a href="Amazonka.ECR.Types.html#_KmsException"><span class="hs-identifier hs-type">_KmsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236153"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236153"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-546"></span><span id="_KmsException"><span class="annot"><span class="annottext">_KmsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_KmsException"><span class="hs-identifier hs-var hs-var">_KmsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-547"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-548"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-549"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;KmsException&quot;</span></span><span>
+</span><span id="line-550"></span><span>
+</span><span id="line-551"></span><span class="hs-comment">-- | The layer part size is not valid, or the first byte specified is not</span><span>
+</span><span id="line-552"></span><span class="hs-comment">-- consecutive to the last byte of a previous layer part upload.</span><span>
+</span><span id="line-553"></span><span id="local-6989586621679236152"><span class="annot"><a href="Amazonka.ECR.Types.html#_InvalidLayerPartException"><span class="hs-identifier hs-type">_InvalidLayerPartException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236152"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236152"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-554"></span><span id="_InvalidLayerPartException"><span class="annot"><span class="annottext">_InvalidLayerPartException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_InvalidLayerPartException"><span class="hs-identifier hs-var hs-var">_InvalidLayerPartException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-555"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-556"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-557"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidLayerPartException&quot;</span></span><span>
+</span><span id="line-558"></span><span>
+</span><span id="line-559"></span><span class="hs-comment">-- | An invalid parameter has been specified. Tag keys can have a maximum</span><span>
+</span><span id="line-560"></span><span class="hs-comment">-- character length of 128 characters, and tag values can have a maximum</span><span>
+</span><span id="line-561"></span><span class="hs-comment">-- length of 256 characters.</span><span>
+</span><span id="line-562"></span><span id="local-6989586621679236151"><span class="annot"><a href="Amazonka.ECR.Types.html#_InvalidTagParameterException"><span class="hs-identifier hs-type">_InvalidTagParameterException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236151"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236151"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-563"></span><span id="_InvalidTagParameterException"><span class="annot"><span class="annottext">_InvalidTagParameterException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_InvalidTagParameterException"><span class="hs-identifier hs-var hs-var">_InvalidTagParameterException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-564"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-565"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-566"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidTagParameterException&quot;</span></span><span>
+</span><span id="line-567"></span><span>
+</span><span id="line-568"></span><span class="hs-comment">-- | The specified repository contains images. To delete a repository that</span><span>
+</span><span id="line-569"></span><span class="hs-comment">-- contains images, you must force the deletion with the @force@ parameter.</span><span>
+</span><span id="line-570"></span><span id="local-6989586621679236150"><span class="annot"><a href="Amazonka.ECR.Types.html#_RepositoryNotEmptyException"><span class="hs-identifier hs-type">_RepositoryNotEmptyException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236150"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236150"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-571"></span><span id="_RepositoryNotEmptyException"><span class="annot"><span class="annottext">_RepositoryNotEmptyException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_RepositoryNotEmptyException"><span class="hs-identifier hs-var hs-var">_RepositoryNotEmptyException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-572"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-573"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-574"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RepositoryNotEmptyException&quot;</span></span><span>
+</span><span id="line-575"></span><span>
+</span><span id="line-576"></span><span class="hs-comment">-- | The image is of a type that cannot be scanned.</span><span>
+</span><span id="line-577"></span><span id="local-6989586621679236149"><span class="annot"><a href="Amazonka.ECR.Types.html#_UnsupportedImageTypeException"><span class="hs-identifier hs-type">_UnsupportedImageTypeException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236149"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236149"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-578"></span><span id="_UnsupportedImageTypeException"><span class="annot"><span class="annottext">_UnsupportedImageTypeException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_UnsupportedImageTypeException"><span class="hs-identifier hs-var hs-var">_UnsupportedImageTypeException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-579"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-580"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-581"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;UnsupportedImageTypeException&quot;</span></span><span>
+</span><span id="line-582"></span><span>
+</span><span id="line-583"></span><span class="hs-comment">-- | The specified repository already exists in the specified registry.</span><span>
+</span><span id="line-584"></span><span id="local-6989586621679236148"><span class="annot"><a href="Amazonka.ECR.Types.html#_RepositoryAlreadyExistsException"><span class="hs-identifier hs-type">_RepositoryAlreadyExistsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236148"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236148"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-585"></span><span id="_RepositoryAlreadyExistsException"><span class="annot"><span class="annottext">_RepositoryAlreadyExistsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_RepositoryAlreadyExistsException"><span class="hs-identifier hs-var hs-var">_RepositoryAlreadyExistsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-586"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-587"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-588"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RepositoryAlreadyExistsException&quot;</span></span><span>
+</span><span id="line-589"></span><span>
+</span><span id="line-590"></span><span class="hs-comment">-- | The specified image scan could not be found. Ensure that image scanning</span><span>
+</span><span id="line-591"></span><span class="hs-comment">-- is enabled on the repository and try again.</span><span>
+</span><span id="line-592"></span><span id="local-6989586621679236147"><span class="annot"><a href="Amazonka.ECR.Types.html#_ScanNotFoundException"><span class="hs-identifier hs-type">_ScanNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236147"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236147"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-593"></span><span id="_ScanNotFoundException"><span class="annot"><span class="annottext">_ScanNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_ScanNotFoundException"><span class="hs-identifier hs-var hs-var">_ScanNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-594"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-595"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-596"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ScanNotFoundException&quot;</span></span><span>
+</span><span id="line-597"></span><span>
+</span><span id="line-598"></span><span class="hs-comment">-- | The specified repository and registry combination does not have an</span><span>
+</span><span id="line-599"></span><span class="hs-comment">-- associated repository policy.</span><span>
+</span><span id="line-600"></span><span id="local-6989586621679236146"><span class="annot"><a href="Amazonka.ECR.Types.html#_RepositoryPolicyNotFoundException"><span class="hs-identifier hs-type">_RepositoryPolicyNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236146"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236146"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-601"></span><span id="_RepositoryPolicyNotFoundException"><span class="annot"><span class="annottext">_RepositoryPolicyNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_RepositoryPolicyNotFoundException"><span class="hs-identifier hs-var hs-var">_RepositoryPolicyNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-602"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-603"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-604"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RepositoryPolicyNotFoundException&quot;</span></span><span>
+</span><span id="line-605"></span><span>
+</span><span id="line-606"></span><span class="hs-comment">-- | The specified layer upload does not contain any layer parts.</span><span>
+</span><span id="line-607"></span><span id="local-6989586621679236145"><span class="annot"><a href="Amazonka.ECR.Types.html#_EmptyUploadException"><span class="hs-identifier hs-type">_EmptyUploadException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236145"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236145"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-608"></span><span id="_EmptyUploadException"><span class="annot"><span class="annottext">_EmptyUploadException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_EmptyUploadException"><span class="hs-identifier hs-var hs-var">_EmptyUploadException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-609"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-610"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-611"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;EmptyUploadException&quot;</span></span><span>
+</span><span id="line-612"></span><span>
+</span><span id="line-613"></span><span class="hs-comment">-- | The operation did not succeed because it would have exceeded a service</span><span>
+</span><span id="line-614"></span><span class="hs-comment">-- limit for your account. For more information, see</span><span>
+</span><span id="line-615"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html Amazon ECR service quotas&gt;</span><span>
+</span><span id="line-616"></span><span class="hs-comment">-- in the Amazon Elastic Container Registry User Guide.</span><span>
+</span><span id="line-617"></span><span id="local-6989586621679236144"><span class="annot"><a href="Amazonka.ECR.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679236144"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679236144"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-618"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.ECR.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-619"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-620"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-621"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
+</span><span id="line-622"></span></pre></body></html>

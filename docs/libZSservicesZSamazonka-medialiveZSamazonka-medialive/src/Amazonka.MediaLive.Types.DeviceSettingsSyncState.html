@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.DeviceSettingsSyncState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.DeviceSettingsSyncState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState"><span class="hs-identifier">DeviceSettingsSyncState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState_SYNCED"><span class="hs-identifier">DeviceSettingsSyncState_SYNCED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState_SYNCING"><span class="hs-identifier">DeviceSettingsSyncState_SYNCING</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The status of the action to synchronize the device configuration. If you</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- change the configuration of the input device (for example, the maximum</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- bitrate), MediaLive sends the new data to the device. The device might</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- not update itself immediately. SYNCED means the device has updated its</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- configuration. SYNCING means that it has not updated its configuration.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679870232"><span id="local-6989586621679870233"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceSettingsSyncState"><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState"><span class="hs-identifier hs-var">DeviceSettingsSyncState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceSettingsSyncState%27"><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState%27"><span class="hs-identifier hs-var">DeviceSettingsSyncState'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeviceSettingsSyncState"><span class="annot"><span class="annottext">DeviceSettingsSyncState -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#fromDeviceSettingsSyncState"><span class="hs-identifier hs-var hs-var">fromDeviceSettingsSyncState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679870224"><span id="local-6989586621679870226"><span id="local-6989586621679870228"><span class="annot"><span class="annottext">Int -&gt; DeviceSettingsSyncState -&gt; ShowS
+[DeviceSettingsSyncState] -&gt; ShowS
+DeviceSettingsSyncState -&gt; String
+(Int -&gt; DeviceSettingsSyncState -&gt; ShowS)
+-&gt; (DeviceSettingsSyncState -&gt; String)
+-&gt; ([DeviceSettingsSyncState] -&gt; ShowS)
+-&gt; Show DeviceSettingsSyncState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeviceSettingsSyncState] -&gt; ShowS
+$cshowList :: [DeviceSettingsSyncState] -&gt; ShowS
+show :: DeviceSettingsSyncState -&gt; String
+$cshow :: DeviceSettingsSyncState -&gt; String
+showsPrec :: Int -&gt; DeviceSettingsSyncState -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeviceSettingsSyncState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679870215"><span id="local-6989586621679870217"><span id="local-6989586621679870219"><span id="local-6989586621679870221"><span class="annot"><span class="annottext">ReadPrec [DeviceSettingsSyncState]
+ReadPrec DeviceSettingsSyncState
+Int -&gt; ReadS DeviceSettingsSyncState
+ReadS [DeviceSettingsSyncState]
+(Int -&gt; ReadS DeviceSettingsSyncState)
+-&gt; ReadS [DeviceSettingsSyncState]
+-&gt; ReadPrec DeviceSettingsSyncState
+-&gt; ReadPrec [DeviceSettingsSyncState]
+-&gt; Read DeviceSettingsSyncState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeviceSettingsSyncState]
+$creadListPrec :: ReadPrec [DeviceSettingsSyncState]
+readPrec :: ReadPrec DeviceSettingsSyncState
+$creadPrec :: ReadPrec DeviceSettingsSyncState
+readList :: ReadS [DeviceSettingsSyncState]
+$creadList :: ReadS [DeviceSettingsSyncState]
+readsPrec :: Int -&gt; ReadS DeviceSettingsSyncState
+$creadsPrec :: Int -&gt; ReadS DeviceSettingsSyncState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679870210"><span id="local-6989586621679870212"><span class="annot"><span class="annottext">DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+(DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool)
+-&gt; (DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool)
+-&gt; Eq DeviceSettingsSyncState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+$c/= :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+== :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+$c== :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679870194"><span id="local-6989586621679870196"><span id="local-6989586621679870198"><span id="local-6989586621679870200"><span id="local-6989586621679870202"><span id="local-6989586621679870204"><span id="local-6989586621679870206"><span class="annot"><span class="annottext">Eq DeviceSettingsSyncState
+Eq DeviceSettingsSyncState
+-&gt; (DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Ordering)
+-&gt; (DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool)
+-&gt; (DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool)
+-&gt; (DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool)
+-&gt; (DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool)
+-&gt; (DeviceSettingsSyncState
+    -&gt; DeviceSettingsSyncState -&gt; DeviceSettingsSyncState)
+-&gt; (DeviceSettingsSyncState
+    -&gt; DeviceSettingsSyncState -&gt; DeviceSettingsSyncState)
+-&gt; Ord DeviceSettingsSyncState
+DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Ordering
+DeviceSettingsSyncState
+-&gt; DeviceSettingsSyncState -&gt; DeviceSettingsSyncState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeviceSettingsSyncState
+-&gt; DeviceSettingsSyncState -&gt; DeviceSettingsSyncState
+$cmin :: DeviceSettingsSyncState
+-&gt; DeviceSettingsSyncState -&gt; DeviceSettingsSyncState
+max :: DeviceSettingsSyncState
+-&gt; DeviceSettingsSyncState -&gt; DeviceSettingsSyncState
+$cmax :: DeviceSettingsSyncState
+-&gt; DeviceSettingsSyncState -&gt; DeviceSettingsSyncState
+&gt;= :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+$c&gt;= :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+&gt; :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+$c&gt; :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+&lt;= :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+$c&lt;= :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+&lt; :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+$c&lt; :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Bool
+compare :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Ordering
+$ccompare :: DeviceSettingsSyncState -&gt; DeviceSettingsSyncState -&gt; Ordering
+$cp1Ord :: Eq DeviceSettingsSyncState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DeviceSettingsSyncState -&gt; Rep DeviceSettingsSyncState x)
+-&gt; (forall x.
+    Rep DeviceSettingsSyncState x -&gt; DeviceSettingsSyncState)
+-&gt; Generic DeviceSettingsSyncState
+forall x. Rep DeviceSettingsSyncState x -&gt; DeviceSettingsSyncState
+forall x. DeviceSettingsSyncState -&gt; Rep DeviceSettingsSyncState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeviceSettingsSyncState x -&gt; DeviceSettingsSyncState
+$cfrom :: forall x. DeviceSettingsSyncState -&gt; Rep DeviceSettingsSyncState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679870186"><span id="local-6989586621679870188"><span class="annot"><span class="annottext">Int -&gt; DeviceSettingsSyncState -&gt; Int
+DeviceSettingsSyncState -&gt; Int
+(Int -&gt; DeviceSettingsSyncState -&gt; Int)
+-&gt; (DeviceSettingsSyncState -&gt; Int)
+-&gt; Hashable DeviceSettingsSyncState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeviceSettingsSyncState -&gt; Int
+$chash :: DeviceSettingsSyncState -&gt; Int
+hashWithSalt :: Int -&gt; DeviceSettingsSyncState -&gt; Int
+$chashWithSalt :: Int -&gt; DeviceSettingsSyncState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679870183"><span class="annot"><span class="annottext">DeviceSettingsSyncState -&gt; ()
+(DeviceSettingsSyncState -&gt; ()) -&gt; NFData DeviceSettingsSyncState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeviceSettingsSyncState -&gt; ()
+$crnf :: DeviceSettingsSyncState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679870180"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceSettingsSyncState
+(Text -&gt; Either String DeviceSettingsSyncState)
+-&gt; FromText DeviceSettingsSyncState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeviceSettingsSyncState
+$cfromText :: Text -&gt; Either String DeviceSettingsSyncState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679870177"><span class="annot"><span class="annottext">DeviceSettingsSyncState -&gt; Text
+(DeviceSettingsSyncState -&gt; Text) -&gt; ToText DeviceSettingsSyncState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeviceSettingsSyncState -&gt; Text
+$ctoText :: DeviceSettingsSyncState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679870174"><span class="annot"><span class="annottext">DeviceSettingsSyncState -&gt; ByteString
+(DeviceSettingsSyncState -&gt; ByteString)
+-&gt; ToByteString DeviceSettingsSyncState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeviceSettingsSyncState -&gt; ByteString
+$ctoBS :: DeviceSettingsSyncState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679870171"><span class="annot"><span class="annottext">DeviceSettingsSyncState -&gt; ByteStringBuilder
+(DeviceSettingsSyncState -&gt; ByteStringBuilder)
+-&gt; ToLog DeviceSettingsSyncState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeviceSettingsSyncState -&gt; ByteStringBuilder
+$cbuild :: DeviceSettingsSyncState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679870168"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceSettingsSyncState -&gt; [Header]
+(HeaderName -&gt; DeviceSettingsSyncState -&gt; [Header])
+-&gt; ToHeader DeviceSettingsSyncState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeviceSettingsSyncState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeviceSettingsSyncState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679870165"><span class="annot"><span class="annottext">DeviceSettingsSyncState -&gt; QueryString
+(DeviceSettingsSyncState -&gt; QueryString)
+-&gt; ToQuery DeviceSettingsSyncState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeviceSettingsSyncState -&gt; QueryString
+$ctoQuery :: DeviceSettingsSyncState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679870160"><span id="local-6989586621679870162"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceSettingsSyncState]
+Value -&gt; Parser DeviceSettingsSyncState
+(Value -&gt; Parser DeviceSettingsSyncState)
+-&gt; (Value -&gt; Parser [DeviceSettingsSyncState])
+-&gt; FromJSON DeviceSettingsSyncState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeviceSettingsSyncState]
+$cparseJSONList :: Value -&gt; Parser [DeviceSettingsSyncState]
+parseJSON :: Value -&gt; Parser DeviceSettingsSyncState
+$cparseJSON :: Value -&gt; Parser DeviceSettingsSyncState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679870155"><span id="local-6989586621679870157"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceSettingsSyncState]
+FromJSONKeyFunction DeviceSettingsSyncState
+FromJSONKeyFunction DeviceSettingsSyncState
+-&gt; FromJSONKeyFunction [DeviceSettingsSyncState]
+-&gt; FromJSONKey DeviceSettingsSyncState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeviceSettingsSyncState]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeviceSettingsSyncState]
+fromJSONKey :: FromJSONKeyFunction DeviceSettingsSyncState
+$cfromJSONKey :: FromJSONKeyFunction DeviceSettingsSyncState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679870146"><span id="local-6989586621679870148"><span id="local-6989586621679870150"><span id="local-6989586621679870152"><span class="annot"><span class="annottext">[DeviceSettingsSyncState] -&gt; Encoding
+[DeviceSettingsSyncState] -&gt; Value
+DeviceSettingsSyncState -&gt; Encoding
+DeviceSettingsSyncState -&gt; Value
+(DeviceSettingsSyncState -&gt; Value)
+-&gt; (DeviceSettingsSyncState -&gt; Encoding)
+-&gt; ([DeviceSettingsSyncState] -&gt; Value)
+-&gt; ([DeviceSettingsSyncState] -&gt; Encoding)
+-&gt; ToJSON DeviceSettingsSyncState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeviceSettingsSyncState] -&gt; Encoding
+$ctoEncodingList :: [DeviceSettingsSyncState] -&gt; Encoding
+toJSONList :: [DeviceSettingsSyncState] -&gt; Value
+$ctoJSONList :: [DeviceSettingsSyncState] -&gt; Value
+toEncoding :: DeviceSettingsSyncState -&gt; Encoding
+$ctoEncoding :: DeviceSettingsSyncState -&gt; Encoding
+toJSON :: DeviceSettingsSyncState -&gt; Value
+$ctoJSON :: DeviceSettingsSyncState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679870141"><span id="local-6989586621679870143"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceSettingsSyncState]
+ToJSONKeyFunction DeviceSettingsSyncState
+ToJSONKeyFunction DeviceSettingsSyncState
+-&gt; ToJSONKeyFunction [DeviceSettingsSyncState]
+-&gt; ToJSONKey DeviceSettingsSyncState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeviceSettingsSyncState]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeviceSettingsSyncState]
+toJSONKey :: ToJSONKeyFunction DeviceSettingsSyncState
+$ctoJSONKey :: ToJSONKeyFunction DeviceSettingsSyncState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679870138"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceSettingsSyncState
+([Node] -&gt; Either String DeviceSettingsSyncState)
+-&gt; FromXML DeviceSettingsSyncState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeviceSettingsSyncState
+$cparseXML :: [Node] -&gt; Either String DeviceSettingsSyncState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679870135"><span class="annot"><span class="annottext">DeviceSettingsSyncState -&gt; XML
+(DeviceSettingsSyncState -&gt; XML) -&gt; ToXML DeviceSettingsSyncState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeviceSettingsSyncState -&gt; XML
+$ctoXML :: DeviceSettingsSyncState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState_SYNCED"><span class="hs-identifier hs-type">DeviceSettingsSyncState_SYNCED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState"><span class="hs-identifier hs-type">DeviceSettingsSyncState</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceSettingsSyncState_SYNCED"><span id="%24mDeviceSettingsSyncState_SYNCED"><span id="DeviceSettingsSyncState_SYNCED"><span class="annot"><span class="annottext">$bDeviceSettingsSyncState_SYNCED :: DeviceSettingsSyncState
+$mDeviceSettingsSyncState_SYNCED :: forall r.
+DeviceSettingsSyncState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#%24bDeviceSettingsSyncState_SYNCED"><span class="hs-identifier hs-var hs-var hs-var">DeviceSettingsSyncState_SYNCED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState%27"><span class="hs-identifier hs-type">DeviceSettingsSyncState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SYNCED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState_SYNCING"><span class="hs-identifier hs-type">DeviceSettingsSyncState_SYNCING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState"><span class="hs-identifier hs-type">DeviceSettingsSyncState</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeviceSettingsSyncState_SYNCING"><span id="%24mDeviceSettingsSyncState_SYNCING"><span id="DeviceSettingsSyncState_SYNCING"><span class="annot"><span class="annottext">$bDeviceSettingsSyncState_SYNCING :: DeviceSettingsSyncState
+$mDeviceSettingsSyncState_SYNCING :: forall r.
+DeviceSettingsSyncState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#%24bDeviceSettingsSyncState_SYNCING"><span class="hs-identifier hs-var hs-var hs-var">DeviceSettingsSyncState_SYNCING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState%27"><span class="hs-identifier hs-type">DeviceSettingsSyncState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SYNCING&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState_SYNCED"><span class="hs-pragma hs-type">DeviceSettingsSyncState_SYNCED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState_SYNCING"><span class="hs-pragma hs-type">DeviceSettingsSyncState_SYNCING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState%27"><span class="hs-pragma hs-type">DeviceSettingsSyncState'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

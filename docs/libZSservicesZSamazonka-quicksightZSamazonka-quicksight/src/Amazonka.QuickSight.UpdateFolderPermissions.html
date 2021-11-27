@@ -1,0 +1,928 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.UpdateFolderPermissions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates permissions of a folder.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.UpdateFolderPermissions</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier">UpdateFolderPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#newUpdateFolderPermissions"><span class="hs-identifier">newUpdateFolderPermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissions_revokePermissions"><span class="hs-identifier">updateFolderPermissions_revokePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissions_grantPermissions"><span class="hs-identifier">updateFolderPermissions_grantPermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissions_awsAccountId"><span class="hs-identifier">updateFolderPermissions_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissions_folderId"><span class="hs-identifier">updateFolderPermissions_folderId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier">UpdateFolderPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#newUpdateFolderPermissionsResponse"><span class="hs-identifier">newUpdateFolderPermissionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_requestId"><span class="hs-identifier">updateFolderPermissionsResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_status"><span class="hs-identifier">updateFolderPermissionsResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_arn"><span class="hs-identifier">updateFolderPermissionsResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_folderId"><span class="hs-identifier">updateFolderPermissionsResponse_folderId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_permissions"><span class="hs-identifier">updateFolderPermissionsResponse_permissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_httpStatus"><span class="hs-identifier">updateFolderPermissionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newUpdateFolderPermissions' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679600700"><span id="local-6989586621679600701"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFolderPermissions"><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-var">UpdateFolderPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFolderPermissions%27"><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions%27"><span class="hs-identifier hs-var">UpdateFolderPermissions'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The permissions that you want to revoke from a resource.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3ArevokePermissions%3AUpdateFolderPermissions%27"><span class="annot"><span class="annottext">UpdateFolderPermissions -&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3ArevokePermissions%3AUpdateFolderPermissions%27"><span class="hs-identifier hs-var hs-var">revokePermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The permissions that you want to grant on a resource.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AgrantPermissions%3AUpdateFolderPermissions%27"><span class="annot"><span class="annottext">UpdateFolderPermissions -&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AgrantPermissions%3AUpdateFolderPermissions%27"><span class="hs-identifier hs-var hs-var">grantPermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The AWS account ID.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AawsAccountId%3AUpdateFolderPermissions%27"><span class="annot"><span class="annottext">UpdateFolderPermissions -&gt; Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AawsAccountId%3AUpdateFolderPermissions%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The folder ID.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AfolderId%3AUpdateFolderPermissions%27"><span class="annot"><span class="annottext">UpdateFolderPermissions -&gt; Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AfolderId%3AUpdateFolderPermissions%27"><span class="hs-identifier hs-var hs-var">folderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679600691"><span id="local-6989586621679600693"><span class="annot"><span class="annottext">UpdateFolderPermissions -&gt; UpdateFolderPermissions -&gt; Bool
+(UpdateFolderPermissions -&gt; UpdateFolderPermissions -&gt; Bool)
+-&gt; (UpdateFolderPermissions -&gt; UpdateFolderPermissions -&gt; Bool)
+-&gt; Eq UpdateFolderPermissions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateFolderPermissions -&gt; UpdateFolderPermissions -&gt; Bool
+$c/= :: UpdateFolderPermissions -&gt; UpdateFolderPermissions -&gt; Bool
+== :: UpdateFolderPermissions -&gt; UpdateFolderPermissions -&gt; Bool
+$c== :: UpdateFolderPermissions -&gt; UpdateFolderPermissions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679600682"><span id="local-6989586621679600684"><span id="local-6989586621679600686"><span id="local-6989586621679600688"><span class="annot"><span class="annottext">ReadPrec [UpdateFolderPermissions]
+ReadPrec UpdateFolderPermissions
+Int -&gt; ReadS UpdateFolderPermissions
+ReadS [UpdateFolderPermissions]
+(Int -&gt; ReadS UpdateFolderPermissions)
+-&gt; ReadS [UpdateFolderPermissions]
+-&gt; ReadPrec UpdateFolderPermissions
+-&gt; ReadPrec [UpdateFolderPermissions]
+-&gt; Read UpdateFolderPermissions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateFolderPermissions]
+$creadListPrec :: ReadPrec [UpdateFolderPermissions]
+readPrec :: ReadPrec UpdateFolderPermissions
+$creadPrec :: ReadPrec UpdateFolderPermissions
+readList :: ReadS [UpdateFolderPermissions]
+$creadList :: ReadS [UpdateFolderPermissions]
+readsPrec :: Int -&gt; ReadS UpdateFolderPermissions
+$creadsPrec :: Int -&gt; ReadS UpdateFolderPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679600675"><span id="local-6989586621679600677"><span id="local-6989586621679600679"><span class="annot"><span class="annottext">Int -&gt; UpdateFolderPermissions -&gt; ShowS
+[UpdateFolderPermissions] -&gt; ShowS
+UpdateFolderPermissions -&gt; String
+(Int -&gt; UpdateFolderPermissions -&gt; ShowS)
+-&gt; (UpdateFolderPermissions -&gt; String)
+-&gt; ([UpdateFolderPermissions] -&gt; ShowS)
+-&gt; Show UpdateFolderPermissions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateFolderPermissions] -&gt; ShowS
+$cshowList :: [UpdateFolderPermissions] -&gt; ShowS
+show :: UpdateFolderPermissions -&gt; String
+$cshow :: UpdateFolderPermissions -&gt; String
+showsPrec :: Int -&gt; UpdateFolderPermissions -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateFolderPermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateFolderPermissions -&gt; Rep UpdateFolderPermissions x)
+-&gt; (forall x.
+    Rep UpdateFolderPermissions x -&gt; UpdateFolderPermissions)
+-&gt; Generic UpdateFolderPermissions
+forall x. Rep UpdateFolderPermissions x -&gt; UpdateFolderPermissions
+forall x. UpdateFolderPermissions -&gt; Rep UpdateFolderPermissions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateFolderPermissions x -&gt; UpdateFolderPermissions
+$cfrom :: forall x. UpdateFolderPermissions -&gt; Rep UpdateFolderPermissions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'UpdateFolderPermissions' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'revokePermissions', 'updateFolderPermissions_revokePermissions' - The permissions that you want to revoke from a resource.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'grantPermissions', 'updateFolderPermissions_grantPermissions' - The permissions that you want to grant on a resource.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'awsAccountId', 'updateFolderPermissions_awsAccountId' - The AWS account ID.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'folderId', 'updateFolderPermissions_folderId' - The folder ID.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#newUpdateFolderPermissions"><span class="hs-identifier hs-type">newUpdateFolderPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'folderId'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span>
+</span><span id="line-90"></span><span id="newUpdateFolderPermissions"><span class="annot"><span class="annottext">newUpdateFolderPermissions :: Text -&gt; Text -&gt; UpdateFolderPermissions
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#newUpdateFolderPermissions"><span class="hs-identifier hs-var hs-var">newUpdateFolderPermissions</span></a></span></span><span> </span><span id="local-6989586621679600670"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600670"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span id="local-6989586621679600669"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600669"><span class="hs-identifier hs-var">pFolderId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">UpdateFolderPermissions' :: Maybe (NonEmpty ResourcePermission)
+-&gt; Maybe (NonEmpty ResourcePermission)
+-&gt; Text
+-&gt; Text
+-&gt; UpdateFolderPermissions
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions%27"><span class="hs-identifier hs-type">UpdateFolderPermissions'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:revokePermissions:UpdateFolderPermissions' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3ArevokePermissions%3AUpdateFolderPermissions%27"><span class="hs-identifier hs-var">revokePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:grantPermissions:UpdateFolderPermissions' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AgrantPermissions%3AUpdateFolderPermissions%27"><span class="hs-identifier hs-var">grantPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateFolderPermissions' :: Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AawsAccountId%3AUpdateFolderPermissions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600670"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:folderId:UpdateFolderPermissions' :: Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AfolderId%3AUpdateFolderPermissions%27"><span class="hs-identifier hs-var">folderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600669"><span class="hs-identifier hs-var">pFolderId_</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The permissions that you want to revoke from a resource.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissions_revokePermissions"><span class="hs-identifier hs-type">updateFolderPermissions_revokePermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="updateFolderPermissions_revokePermissions"><span class="annot"><span class="annottext">updateFolderPermissions_revokePermissions :: (Maybe (NonEmpty ResourcePermission)
+ -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; UpdateFolderPermissions -&gt; f UpdateFolderPermissions
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissions_revokePermissions"><span class="hs-identifier hs-var hs-var">updateFolderPermissions_revokePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFolderPermissions -&gt; Maybe (NonEmpty ResourcePermission))
+-&gt; (UpdateFolderPermissions
+    -&gt; Maybe (NonEmpty ResourcePermission) -&gt; UpdateFolderPermissions)
+-&gt; Lens
+     UpdateFolderPermissions
+     UpdateFolderPermissions
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions%27"><span class="hs-identifier hs-type">UpdateFolderPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600666"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+revokePermissions :: Maybe (NonEmpty ResourcePermission)
+$sel:revokePermissions:UpdateFolderPermissions' :: UpdateFolderPermissions -&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600666"><span class="hs-identifier hs-var hs-var">revokePermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600666"><span class="hs-identifier hs-var">revokePermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600665"><span class="annot"><span class="annottext">s :: UpdateFolderPermissions
+</span><a href="#local-6989586621679600665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions%27"><span class="hs-identifier hs-type">UpdateFolderPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600664"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFolderPermissions
+</span><a href="#local-6989586621679600665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revokePermissions:UpdateFolderPermissions' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3ArevokePermissions%3AUpdateFolderPermissions%27"><span class="hs-identifier hs-var">revokePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourcePermission)
+  -&gt; f (Maybe (NonEmpty ResourcePermission)))
+ -&gt; UpdateFolderPermissions -&gt; f UpdateFolderPermissions)
+-&gt; ((Maybe (NonEmpty ResourcePermission)
+     -&gt; f (Maybe (NonEmpty ResourcePermission)))
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; (Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; UpdateFolderPermissions
+-&gt; f UpdateFolderPermissions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+-&gt; Iso
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The permissions that you want to grant on a resource.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissions_grantPermissions"><span class="hs-identifier hs-type">updateFolderPermissions_grantPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="updateFolderPermissions_grantPermissions"><span class="annot"><span class="annottext">updateFolderPermissions_grantPermissions :: (Maybe (NonEmpty ResourcePermission)
+ -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; UpdateFolderPermissions -&gt; f UpdateFolderPermissions
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissions_grantPermissions"><span class="hs-identifier hs-var hs-var">updateFolderPermissions_grantPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFolderPermissions -&gt; Maybe (NonEmpty ResourcePermission))
+-&gt; (UpdateFolderPermissions
+    -&gt; Maybe (NonEmpty ResourcePermission) -&gt; UpdateFolderPermissions)
+-&gt; Lens
+     UpdateFolderPermissions
+     UpdateFolderPermissions
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions%27"><span class="hs-identifier hs-type">UpdateFolderPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600660"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+grantPermissions :: Maybe (NonEmpty ResourcePermission)
+$sel:grantPermissions:UpdateFolderPermissions' :: UpdateFolderPermissions -&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600660"><span class="hs-identifier hs-var hs-var">grantPermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600660"><span class="hs-identifier hs-var">grantPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600659"><span class="annot"><span class="annottext">s :: UpdateFolderPermissions
+</span><a href="#local-6989586621679600659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions%27"><span class="hs-identifier hs-type">UpdateFolderPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600658"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFolderPermissions
+</span><a href="#local-6989586621679600659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantPermissions:UpdateFolderPermissions' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AgrantPermissions%3AUpdateFolderPermissions%27"><span class="hs-identifier hs-var">grantPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourcePermission)
+  -&gt; f (Maybe (NonEmpty ResourcePermission)))
+ -&gt; UpdateFolderPermissions -&gt; f UpdateFolderPermissions)
+-&gt; ((Maybe (NonEmpty ResourcePermission)
+     -&gt; f (Maybe (NonEmpty ResourcePermission)))
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; (Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; UpdateFolderPermissions
+-&gt; f UpdateFolderPermissions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+-&gt; Iso
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The AWS account ID.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissions_awsAccountId"><span class="hs-identifier hs-type">updateFolderPermissions_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="updateFolderPermissions_awsAccountId"><span class="annot"><span class="annottext">updateFolderPermissions_awsAccountId :: (Text -&gt; f Text)
+-&gt; UpdateFolderPermissions -&gt; f UpdateFolderPermissions
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissions_awsAccountId"><span class="hs-identifier hs-var hs-var">updateFolderPermissions_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFolderPermissions -&gt; Text)
+-&gt; (UpdateFolderPermissions -&gt; Text -&gt; UpdateFolderPermissions)
+-&gt; Lens UpdateFolderPermissions UpdateFolderPermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions%27"><span class="hs-identifier hs-type">UpdateFolderPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600657"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:UpdateFolderPermissions' :: UpdateFolderPermissions -&gt; Text
+</span><a href="#local-6989586621679600657"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600657"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600656"><span class="annot"><span class="annottext">s :: UpdateFolderPermissions
+</span><a href="#local-6989586621679600656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions%27"><span class="hs-identifier hs-type">UpdateFolderPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600655"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFolderPermissions
+</span><a href="#local-6989586621679600656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateFolderPermissions' :: Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AawsAccountId%3AUpdateFolderPermissions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The folder ID.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissions_folderId"><span class="hs-identifier hs-type">updateFolderPermissions_folderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="updateFolderPermissions_folderId"><span class="annot"><span class="annottext">updateFolderPermissions_folderId :: (Text -&gt; f Text)
+-&gt; UpdateFolderPermissions -&gt; f UpdateFolderPermissions
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissions_folderId"><span class="hs-identifier hs-var hs-var">updateFolderPermissions_folderId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFolderPermissions -&gt; Text)
+-&gt; (UpdateFolderPermissions -&gt; Text -&gt; UpdateFolderPermissions)
+-&gt; Lens UpdateFolderPermissions UpdateFolderPermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions%27"><span class="hs-identifier hs-type">UpdateFolderPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600654"><span class="annot"><span class="annottext">Text
+folderId :: Text
+$sel:folderId:UpdateFolderPermissions' :: UpdateFolderPermissions -&gt; Text
+</span><a href="#local-6989586621679600654"><span class="hs-identifier hs-var hs-var">folderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600654"><span class="hs-identifier hs-var">folderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600653"><span class="annot"><span class="annottext">s :: UpdateFolderPermissions
+</span><a href="#local-6989586621679600653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions%27"><span class="hs-identifier hs-type">UpdateFolderPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600652"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFolderPermissions
+</span><a href="#local-6989586621679600653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderId:UpdateFolderPermissions' :: Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AfolderId%3AUpdateFolderPermissions%27"><span class="hs-identifier hs-var">folderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679600648"><span class="annot"><span class="annottext">request :: UpdateFolderPermissions -&gt; Request UpdateFolderPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateFolderPermissions -&gt; Request UpdateFolderPermissions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679600644"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateFolderPermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateFolderPermissions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateFolderPermissions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateFolderPermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateFolderPermissions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679600641"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679600640"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679600640"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679600639"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679600639"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty ResourcePermission)
+-&gt; Int
+-&gt; UpdateFolderPermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">UpdateFolderPermissionsResponse'</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty ResourcePermission)
+ -&gt; Int
+ -&gt; UpdateFolderPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty ResourcePermission)
+      -&gt; Int
+      -&gt; UpdateFolderPermissionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679600639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty ResourcePermission)
+   -&gt; Int
+   -&gt; UpdateFolderPermissionsResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty ResourcePermission)
+      -&gt; Int
+      -&gt; UpdateFolderPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679600639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty ResourcePermission)
+   -&gt; Int
+   -&gt; UpdateFolderPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (NonEmpty ResourcePermission)
+      -&gt; Int
+      -&gt; UpdateFolderPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679600639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (NonEmpty ResourcePermission)
+   -&gt; Int
+   -&gt; UpdateFolderPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (NonEmpty ResourcePermission)
+      -&gt; Int -&gt; UpdateFolderPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679600639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FolderId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (NonEmpty ResourcePermission)
+   -&gt; Int -&gt; UpdateFolderPermissionsResponse)
+-&gt; Either String (Maybe (NonEmpty ResourcePermission))
+-&gt; Either String (Int -&gt; UpdateFolderPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679600639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (NonEmpty ResourcePermission))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Permissions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateFolderPermissionsResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateFolderPermissionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679600631"><span id="local-6989586621679600633"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679600628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679600624"><span class="annot"><span class="annottext">toHeaders :: UpdateFolderPermissions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateFolderPermissions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679600614"><span id="local-6989586621679600616"><span id="local-6989586621679600618"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679600612"><span class="annot"><span class="annottext">toJSON :: UpdateFolderPermissions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions%27"><span class="hs-identifier hs-type">UpdateFolderPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600607"><span id="local-6989586621679600608"><span id="local-6989586621679600609"><span id="local-6989586621679600610"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+Text
+folderId :: Text
+awsAccountId :: Text
+grantPermissions :: Maybe (NonEmpty ResourcePermission)
+revokePermissions :: Maybe (NonEmpty ResourcePermission)
+$sel:folderId:UpdateFolderPermissions' :: UpdateFolderPermissions -&gt; Text
+$sel:awsAccountId:UpdateFolderPermissions' :: UpdateFolderPermissions -&gt; Text
+$sel:grantPermissions:UpdateFolderPermissions' :: UpdateFolderPermissions -&gt; Maybe (NonEmpty ResourcePermission)
+$sel:revokePermissions:UpdateFolderPermissions' :: UpdateFolderPermissions -&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600607"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RevokePermissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ResourcePermission -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty ResourcePermission -&gt; Pair)
+-&gt; Maybe (NonEmpty ResourcePermission) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600610"><span class="hs-identifier hs-var">revokePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GrantPermissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ResourcePermission -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty ResourcePermission -&gt; Pair)
+-&gt; Maybe (NonEmpty ResourcePermission) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600609"><span class="hs-identifier hs-var">grantPermissions</span></a></span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679600601"><span class="annot"><span class="annottext">toPath :: UpdateFolderPermissions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions%27"><span class="hs-identifier hs-type">UpdateFolderPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600596"><span id="local-6989586621679600597"><span id="local-6989586621679600598"><span id="local-6989586621679600599"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+Text
+folderId :: Text
+awsAccountId :: Text
+grantPermissions :: Maybe (NonEmpty ResourcePermission)
+revokePermissions :: Maybe (NonEmpty ResourcePermission)
+$sel:folderId:UpdateFolderPermissions' :: UpdateFolderPermissions -&gt; Text
+$sel:awsAccountId:UpdateFolderPermissions' :: UpdateFolderPermissions -&gt; Text
+$sel:grantPermissions:UpdateFolderPermissions' :: UpdateFolderPermissions -&gt; Maybe (NonEmpty ResourcePermission)
+$sel:revokePermissions:UpdateFolderPermissions' :: UpdateFolderPermissions -&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600596"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600597"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/folders/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679600596"><span class="hs-identifier hs-var">folderId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/permissions&quot;</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissions"><span class="hs-identifier hs-type">UpdateFolderPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679600592"><span class="annot"><span class="annottext">toQuery :: UpdateFolderPermissions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateFolderPermissions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | /See:/ 'newUpdateFolderPermissionsResponse' smart constructor.</span><span>
+</span><span id="line-172"></span><span id="local-6989586621679600589"><span id="local-6989586621679600590"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFolderPermissionsResponse"><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-var">UpdateFolderPermissionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFolderPermissionsResponse%27"><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">UpdateFolderPermissionsResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The request ID.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3ArequestId%3AUpdateFolderPermissionsResponse%27"><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3ArequestId%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The status. If succeeded, the status is @SC_OK@.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateFolderPermissionsResponse%27"><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse -&gt; Maybe Int
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3Astatus%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN).</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3Aarn%3AUpdateFolderPermissionsResponse%27"><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3Aarn%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The folder ID.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AfolderId%3AUpdateFolderPermissionsResponse%27"><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AfolderId%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">folderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | Information about the permissions on the dashboard.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3Apermissions%3AUpdateFolderPermissionsResponse%27"><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse
+-&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3Apermissions%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateFolderPermissionsResponse%27"><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AhttpStatus%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679600579"><span id="local-6989586621679600581"><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse
+-&gt; UpdateFolderPermissionsResponse -&gt; Bool
+(UpdateFolderPermissionsResponse
+ -&gt; UpdateFolderPermissionsResponse -&gt; Bool)
+-&gt; (UpdateFolderPermissionsResponse
+    -&gt; UpdateFolderPermissionsResponse -&gt; Bool)
+-&gt; Eq UpdateFolderPermissionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateFolderPermissionsResponse
+-&gt; UpdateFolderPermissionsResponse -&gt; Bool
+$c/= :: UpdateFolderPermissionsResponse
+-&gt; UpdateFolderPermissionsResponse -&gt; Bool
+== :: UpdateFolderPermissionsResponse
+-&gt; UpdateFolderPermissionsResponse -&gt; Bool
+$c== :: UpdateFolderPermissionsResponse
+-&gt; UpdateFolderPermissionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679600571"><span id="local-6989586621679600573"><span id="local-6989586621679600575"><span id="local-6989586621679600577"><span class="annot"><span class="annottext">ReadPrec [UpdateFolderPermissionsResponse]
+ReadPrec UpdateFolderPermissionsResponse
+Int -&gt; ReadS UpdateFolderPermissionsResponse
+ReadS [UpdateFolderPermissionsResponse]
+(Int -&gt; ReadS UpdateFolderPermissionsResponse)
+-&gt; ReadS [UpdateFolderPermissionsResponse]
+-&gt; ReadPrec UpdateFolderPermissionsResponse
+-&gt; ReadPrec [UpdateFolderPermissionsResponse]
+-&gt; Read UpdateFolderPermissionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateFolderPermissionsResponse]
+$creadListPrec :: ReadPrec [UpdateFolderPermissionsResponse]
+readPrec :: ReadPrec UpdateFolderPermissionsResponse
+$creadPrec :: ReadPrec UpdateFolderPermissionsResponse
+readList :: ReadS [UpdateFolderPermissionsResponse]
+$creadList :: ReadS [UpdateFolderPermissionsResponse]
+readsPrec :: Int -&gt; ReadS UpdateFolderPermissionsResponse
+$creadsPrec :: Int -&gt; ReadS UpdateFolderPermissionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679600565"><span id="local-6989586621679600567"><span id="local-6989586621679600569"><span class="annot"><span class="annottext">Int -&gt; UpdateFolderPermissionsResponse -&gt; ShowS
+[UpdateFolderPermissionsResponse] -&gt; ShowS
+UpdateFolderPermissionsResponse -&gt; String
+(Int -&gt; UpdateFolderPermissionsResponse -&gt; ShowS)
+-&gt; (UpdateFolderPermissionsResponse -&gt; String)
+-&gt; ([UpdateFolderPermissionsResponse] -&gt; ShowS)
+-&gt; Show UpdateFolderPermissionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateFolderPermissionsResponse] -&gt; ShowS
+$cshowList :: [UpdateFolderPermissionsResponse] -&gt; ShowS
+show :: UpdateFolderPermissionsResponse -&gt; String
+$cshow :: UpdateFolderPermissionsResponse -&gt; String
+showsPrec :: Int -&gt; UpdateFolderPermissionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateFolderPermissionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateFolderPermissionsResponse
+ -&gt; Rep UpdateFolderPermissionsResponse x)
+-&gt; (forall x.
+    Rep UpdateFolderPermissionsResponse x
+    -&gt; UpdateFolderPermissionsResponse)
+-&gt; Generic UpdateFolderPermissionsResponse
+forall x.
+Rep UpdateFolderPermissionsResponse x
+-&gt; UpdateFolderPermissionsResponse
+forall x.
+UpdateFolderPermissionsResponse
+-&gt; Rep UpdateFolderPermissionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateFolderPermissionsResponse x
+-&gt; UpdateFolderPermissionsResponse
+$cfrom :: forall x.
+UpdateFolderPermissionsResponse
+-&gt; Rep UpdateFolderPermissionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Create a value of 'UpdateFolderPermissionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'requestId', 'updateFolderPermissionsResponse_requestId' - The request ID.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'status', 'updateFolderPermissionsResponse_status' - The status. If succeeded, the status is @SC_OK@.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'arn', 'updateFolderPermissionsResponse_arn' - The Amazon Resource Name (ARN).</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'folderId', 'updateFolderPermissionsResponse_folderId' - The folder ID.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'permissions', 'updateFolderPermissionsResponse_permissions' - Information about the permissions on the dashboard.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'httpStatus', 'updateFolderPermissionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#newUpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">newUpdateFolderPermissionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span>
+</span><span id="line-211"></span><span id="newUpdateFolderPermissionsResponse"><span class="annot"><span class="annottext">newUpdateFolderPermissionsResponse :: Int -&gt; UpdateFolderPermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#newUpdateFolderPermissionsResponse"><span class="hs-identifier hs-var hs-var">newUpdateFolderPermissionsResponse</span></a></span></span><span> </span><span id="local-6989586621679600562"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600562"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty ResourcePermission)
+-&gt; Int
+-&gt; UpdateFolderPermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:UpdateFolderPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3ArequestId%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:UpdateFolderPermissionsResponse' :: Maybe Int
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3Astatus%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:UpdateFolderPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3Aarn%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:folderId:UpdateFolderPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AfolderId%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">folderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissions:UpdateFolderPermissionsResponse' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3Apermissions%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFolderPermissionsResponse' :: Int
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AhttpStatus%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600562"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The request ID.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_requestId"><span class="hs-identifier hs-type">updateFolderPermissionsResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="updateFolderPermissionsResponse_requestId"><span class="annot"><span class="annottext">updateFolderPermissionsResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFolderPermissionsResponse
+-&gt; f UpdateFolderPermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_requestId"><span class="hs-identifier hs-var hs-var">updateFolderPermissionsResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFolderPermissionsResponse -&gt; Maybe Text)
+-&gt; (UpdateFolderPermissionsResponse
+    -&gt; Maybe Text -&gt; UpdateFolderPermissionsResponse)
+-&gt; Lens
+     UpdateFolderPermissionsResponse
+     UpdateFolderPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600561"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:UpdateFolderPermissionsResponse' :: UpdateFolderPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679600561"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600561"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600560"><span class="annot"><span class="annottext">s :: UpdateFolderPermissionsResponse
+</span><a href="#local-6989586621679600560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600559"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse
+</span><a href="#local-6989586621679600560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:UpdateFolderPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3ArequestId%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The status. If succeeded, the status is @SC_OK@.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_status"><span class="hs-identifier hs-type">updateFolderPermissionsResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="updateFolderPermissionsResponse_status"><span class="annot"><span class="annottext">updateFolderPermissionsResponse_status :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; UpdateFolderPermissionsResponse
+-&gt; f UpdateFolderPermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_status"><span class="hs-identifier hs-var hs-var">updateFolderPermissionsResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFolderPermissionsResponse -&gt; Maybe Int)
+-&gt; (UpdateFolderPermissionsResponse
+    -&gt; Maybe Int -&gt; UpdateFolderPermissionsResponse)
+-&gt; Lens
+     UpdateFolderPermissionsResponse
+     UpdateFolderPermissionsResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600558"><span class="annot"><span class="annottext">Maybe Int
+status :: Maybe Int
+$sel:status:UpdateFolderPermissionsResponse' :: UpdateFolderPermissionsResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679600558"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679600558"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600557"><span class="annot"><span class="annottext">s :: UpdateFolderPermissionsResponse
+</span><a href="#local-6989586621679600557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600556"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679600556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse
+</span><a href="#local-6989586621679600557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateFolderPermissionsResponse' :: Maybe Int
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3Astatus%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679600556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN).</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_arn"><span class="hs-identifier hs-type">updateFolderPermissionsResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="updateFolderPermissionsResponse_arn"><span class="annot"><span class="annottext">updateFolderPermissionsResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFolderPermissionsResponse
+-&gt; f UpdateFolderPermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_arn"><span class="hs-identifier hs-var hs-var">updateFolderPermissionsResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFolderPermissionsResponse -&gt; Maybe Text)
+-&gt; (UpdateFolderPermissionsResponse
+    -&gt; Maybe Text -&gt; UpdateFolderPermissionsResponse)
+-&gt; Lens
+     UpdateFolderPermissionsResponse
+     UpdateFolderPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600555"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:UpdateFolderPermissionsResponse' :: UpdateFolderPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679600555"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600555"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600554"><span class="annot"><span class="annottext">s :: UpdateFolderPermissionsResponse
+</span><a href="#local-6989586621679600554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600553"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse
+</span><a href="#local-6989586621679600554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateFolderPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3Aarn%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The folder ID.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_folderId"><span class="hs-identifier hs-type">updateFolderPermissionsResponse_folderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="updateFolderPermissionsResponse_folderId"><span class="annot"><span class="annottext">updateFolderPermissionsResponse_folderId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFolderPermissionsResponse
+-&gt; f UpdateFolderPermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_folderId"><span class="hs-identifier hs-var hs-var">updateFolderPermissionsResponse_folderId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFolderPermissionsResponse -&gt; Maybe Text)
+-&gt; (UpdateFolderPermissionsResponse
+    -&gt; Maybe Text -&gt; UpdateFolderPermissionsResponse)
+-&gt; Lens
+     UpdateFolderPermissionsResponse
+     UpdateFolderPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600552"><span class="annot"><span class="annottext">Maybe Text
+folderId :: Maybe Text
+$sel:folderId:UpdateFolderPermissionsResponse' :: UpdateFolderPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679600552"><span class="hs-identifier hs-var hs-var">folderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600552"><span class="hs-identifier hs-var">folderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600551"><span class="annot"><span class="annottext">s :: UpdateFolderPermissionsResponse
+</span><a href="#local-6989586621679600551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600550"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse
+</span><a href="#local-6989586621679600551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderId:UpdateFolderPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AfolderId%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">folderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679600550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | Information about the permissions on the dashboard.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_permissions"><span class="hs-identifier hs-type">updateFolderPermissionsResponse_permissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="updateFolderPermissionsResponse_permissions"><span class="annot"><span class="annottext">updateFolderPermissionsResponse_permissions :: (Maybe (NonEmpty ResourcePermission)
+ -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; UpdateFolderPermissionsResponse
+-&gt; f UpdateFolderPermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_permissions"><span class="hs-identifier hs-var hs-var">updateFolderPermissionsResponse_permissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFolderPermissionsResponse
+ -&gt; Maybe (NonEmpty ResourcePermission))
+-&gt; (UpdateFolderPermissionsResponse
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; UpdateFolderPermissionsResponse)
+-&gt; Lens
+     UpdateFolderPermissionsResponse
+     UpdateFolderPermissionsResponse
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600549"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+permissions :: Maybe (NonEmpty ResourcePermission)
+$sel:permissions:UpdateFolderPermissionsResponse' :: UpdateFolderPermissionsResponse
+-&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600549"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600549"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600548"><span class="annot"><span class="annottext">s :: UpdateFolderPermissionsResponse
+</span><a href="#local-6989586621679600548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600547"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse
+</span><a href="#local-6989586621679600548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:UpdateFolderPermissionsResponse' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3Apermissions%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679600547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourcePermission)
+  -&gt; f (Maybe (NonEmpty ResourcePermission)))
+ -&gt; UpdateFolderPermissionsResponse
+ -&gt; f UpdateFolderPermissionsResponse)
+-&gt; ((Maybe (NonEmpty ResourcePermission)
+     -&gt; f (Maybe (NonEmpty ResourcePermission)))
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; (Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; UpdateFolderPermissionsResponse
+-&gt; f UpdateFolderPermissionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+-&gt; Iso
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_httpStatus"><span class="hs-identifier hs-type">updateFolderPermissionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-244"></span><span id="updateFolderPermissionsResponse_httpStatus"><span class="annot"><span class="annottext">updateFolderPermissionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateFolderPermissionsResponse
+-&gt; f UpdateFolderPermissionsResponse
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#updateFolderPermissionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateFolderPermissionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFolderPermissionsResponse -&gt; Int)
+-&gt; (UpdateFolderPermissionsResponse
+    -&gt; Int -&gt; UpdateFolderPermissionsResponse)
+-&gt; Lens
+     UpdateFolderPermissionsResponse
+     UpdateFolderPermissionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600546"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateFolderPermissionsResponse' :: UpdateFolderPermissionsResponse -&gt; Int
+</span><a href="#local-6989586621679600546"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600546"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600545"><span class="annot"><span class="annottext">s :: UpdateFolderPermissionsResponse
+</span><a href="#local-6989586621679600545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600544"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFolderPermissionsResponse
+</span><a href="#local-6989586621679600545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFolderPermissionsResponse' :: Int
+</span><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#%24sel%3AhttpStatus%3AUpdateFolderPermissionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679600544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679600542"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.UpdateFolderPermissions.html#UpdateFolderPermissionsResponse"><span class="hs-identifier hs-type">UpdateFolderPermissionsResponse</span></a></span></span><span>
+</span><span id="line-249"></span></pre></body></html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.AacCodecProfile</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.AacCodecProfile</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile"><span class="hs-identifier">AacCodecProfile</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile_HEV1"><span class="hs-identifier">AacCodecProfile_HEV1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile_HEV2"><span class="hs-identifier">AacCodecProfile_HEV2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile_LC"><span class="hs-identifier">AacCodecProfile_LC</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | AAC Profile.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679936572"><span id="local-6989586621679936573"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AacCodecProfile"><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile"><span class="hs-identifier hs-var">AacCodecProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacCodecProfile%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile%27"><span class="hs-identifier hs-var">AacCodecProfile'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAacCodecProfile"><span class="annot"><span class="annottext">AacCodecProfile -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#fromAacCodecProfile"><span class="hs-identifier hs-var hs-var">fromAacCodecProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679936564"><span id="local-6989586621679936566"><span id="local-6989586621679936568"><span class="annot"><span class="annottext">Int -&gt; AacCodecProfile -&gt; ShowS
+[AacCodecProfile] -&gt; ShowS
+AacCodecProfile -&gt; String
+(Int -&gt; AacCodecProfile -&gt; ShowS)
+-&gt; (AacCodecProfile -&gt; String)
+-&gt; ([AacCodecProfile] -&gt; ShowS)
+-&gt; Show AacCodecProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AacCodecProfile] -&gt; ShowS
+$cshowList :: [AacCodecProfile] -&gt; ShowS
+show :: AacCodecProfile -&gt; String
+$cshow :: AacCodecProfile -&gt; String
+showsPrec :: Int -&gt; AacCodecProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; AacCodecProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679936555"><span id="local-6989586621679936557"><span id="local-6989586621679936559"><span id="local-6989586621679936561"><span class="annot"><span class="annottext">ReadPrec [AacCodecProfile]
+ReadPrec AacCodecProfile
+Int -&gt; ReadS AacCodecProfile
+ReadS [AacCodecProfile]
+(Int -&gt; ReadS AacCodecProfile)
+-&gt; ReadS [AacCodecProfile]
+-&gt; ReadPrec AacCodecProfile
+-&gt; ReadPrec [AacCodecProfile]
+-&gt; Read AacCodecProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AacCodecProfile]
+$creadListPrec :: ReadPrec [AacCodecProfile]
+readPrec :: ReadPrec AacCodecProfile
+$creadPrec :: ReadPrec AacCodecProfile
+readList :: ReadS [AacCodecProfile]
+$creadList :: ReadS [AacCodecProfile]
+readsPrec :: Int -&gt; ReadS AacCodecProfile
+$creadsPrec :: Int -&gt; ReadS AacCodecProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679936550"><span id="local-6989586621679936552"><span class="annot"><span class="annottext">AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+(AacCodecProfile -&gt; AacCodecProfile -&gt; Bool)
+-&gt; (AacCodecProfile -&gt; AacCodecProfile -&gt; Bool)
+-&gt; Eq AacCodecProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+$c/= :: AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+== :: AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+$c== :: AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679936534"><span id="local-6989586621679936536"><span id="local-6989586621679936538"><span id="local-6989586621679936540"><span id="local-6989586621679936542"><span id="local-6989586621679936544"><span id="local-6989586621679936546"><span class="annot"><span class="annottext">Eq AacCodecProfile
+Eq AacCodecProfile
+-&gt; (AacCodecProfile -&gt; AacCodecProfile -&gt; Ordering)
+-&gt; (AacCodecProfile -&gt; AacCodecProfile -&gt; Bool)
+-&gt; (AacCodecProfile -&gt; AacCodecProfile -&gt; Bool)
+-&gt; (AacCodecProfile -&gt; AacCodecProfile -&gt; Bool)
+-&gt; (AacCodecProfile -&gt; AacCodecProfile -&gt; Bool)
+-&gt; (AacCodecProfile -&gt; AacCodecProfile -&gt; AacCodecProfile)
+-&gt; (AacCodecProfile -&gt; AacCodecProfile -&gt; AacCodecProfile)
+-&gt; Ord AacCodecProfile
+AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+AacCodecProfile -&gt; AacCodecProfile -&gt; Ordering
+AacCodecProfile -&gt; AacCodecProfile -&gt; AacCodecProfile
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AacCodecProfile -&gt; AacCodecProfile -&gt; AacCodecProfile
+$cmin :: AacCodecProfile -&gt; AacCodecProfile -&gt; AacCodecProfile
+max :: AacCodecProfile -&gt; AacCodecProfile -&gt; AacCodecProfile
+$cmax :: AacCodecProfile -&gt; AacCodecProfile -&gt; AacCodecProfile
+&gt;= :: AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+$c&gt;= :: AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+&gt; :: AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+$c&gt; :: AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+&lt;= :: AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+$c&lt;= :: AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+&lt; :: AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+$c&lt; :: AacCodecProfile -&gt; AacCodecProfile -&gt; Bool
+compare :: AacCodecProfile -&gt; AacCodecProfile -&gt; Ordering
+$ccompare :: AacCodecProfile -&gt; AacCodecProfile -&gt; Ordering
+$cp1Ord :: Eq AacCodecProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AacCodecProfile -&gt; Rep AacCodecProfile x)
+-&gt; (forall x. Rep AacCodecProfile x -&gt; AacCodecProfile)
+-&gt; Generic AacCodecProfile
+forall x. Rep AacCodecProfile x -&gt; AacCodecProfile
+forall x. AacCodecProfile -&gt; Rep AacCodecProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AacCodecProfile x -&gt; AacCodecProfile
+$cfrom :: forall x. AacCodecProfile -&gt; Rep AacCodecProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679936526"><span id="local-6989586621679936528"><span class="annot"><span class="annottext">Int -&gt; AacCodecProfile -&gt; Int
+AacCodecProfile -&gt; Int
+(Int -&gt; AacCodecProfile -&gt; Int)
+-&gt; (AacCodecProfile -&gt; Int) -&gt; Hashable AacCodecProfile
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AacCodecProfile -&gt; Int
+$chash :: AacCodecProfile -&gt; Int
+hashWithSalt :: Int -&gt; AacCodecProfile -&gt; Int
+$chashWithSalt :: Int -&gt; AacCodecProfile -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679936523"><span class="annot"><span class="annottext">AacCodecProfile -&gt; ()
+(AacCodecProfile -&gt; ()) -&gt; NFData AacCodecProfile
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AacCodecProfile -&gt; ()
+$crnf :: AacCodecProfile -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679936520"><span class="annot"><span class="annottext">Text -&gt; Either String AacCodecProfile
+(Text -&gt; Either String AacCodecProfile) -&gt; FromText AacCodecProfile
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AacCodecProfile
+$cfromText :: Text -&gt; Either String AacCodecProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679936517"><span class="annot"><span class="annottext">AacCodecProfile -&gt; Text
+(AacCodecProfile -&gt; Text) -&gt; ToText AacCodecProfile
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AacCodecProfile -&gt; Text
+$ctoText :: AacCodecProfile -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679936514"><span class="annot"><span class="annottext">AacCodecProfile -&gt; ByteString
+(AacCodecProfile -&gt; ByteString) -&gt; ToByteString AacCodecProfile
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AacCodecProfile -&gt; ByteString
+$ctoBS :: AacCodecProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679936511"><span class="annot"><span class="annottext">AacCodecProfile -&gt; ByteStringBuilder
+(AacCodecProfile -&gt; ByteStringBuilder) -&gt; ToLog AacCodecProfile
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AacCodecProfile -&gt; ByteStringBuilder
+$cbuild :: AacCodecProfile -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679936508"><span class="annot"><span class="annottext">HeaderName -&gt; AacCodecProfile -&gt; [Header]
+(HeaderName -&gt; AacCodecProfile -&gt; [Header])
+-&gt; ToHeader AacCodecProfile
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AacCodecProfile -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AacCodecProfile -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679936505"><span class="annot"><span class="annottext">AacCodecProfile -&gt; QueryString
+(AacCodecProfile -&gt; QueryString) -&gt; ToQuery AacCodecProfile
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AacCodecProfile -&gt; QueryString
+$ctoQuery :: AacCodecProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679936500"><span id="local-6989586621679936502"><span class="annot"><span class="annottext">Value -&gt; Parser [AacCodecProfile]
+Value -&gt; Parser AacCodecProfile
+(Value -&gt; Parser AacCodecProfile)
+-&gt; (Value -&gt; Parser [AacCodecProfile]) -&gt; FromJSON AacCodecProfile
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AacCodecProfile]
+$cparseJSONList :: Value -&gt; Parser [AacCodecProfile]
+parseJSON :: Value -&gt; Parser AacCodecProfile
+$cparseJSON :: Value -&gt; Parser AacCodecProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679936495"><span id="local-6989586621679936497"><span class="annot"><span class="annottext">FromJSONKeyFunction [AacCodecProfile]
+FromJSONKeyFunction AacCodecProfile
+FromJSONKeyFunction AacCodecProfile
+-&gt; FromJSONKeyFunction [AacCodecProfile]
+-&gt; FromJSONKey AacCodecProfile
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AacCodecProfile]
+$cfromJSONKeyList :: FromJSONKeyFunction [AacCodecProfile]
+fromJSONKey :: FromJSONKeyFunction AacCodecProfile
+$cfromJSONKey :: FromJSONKeyFunction AacCodecProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679936486"><span id="local-6989586621679936488"><span id="local-6989586621679936490"><span id="local-6989586621679936492"><span class="annot"><span class="annottext">[AacCodecProfile] -&gt; Encoding
+[AacCodecProfile] -&gt; Value
+AacCodecProfile -&gt; Encoding
+AacCodecProfile -&gt; Value
+(AacCodecProfile -&gt; Value)
+-&gt; (AacCodecProfile -&gt; Encoding)
+-&gt; ([AacCodecProfile] -&gt; Value)
+-&gt; ([AacCodecProfile] -&gt; Encoding)
+-&gt; ToJSON AacCodecProfile
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AacCodecProfile] -&gt; Encoding
+$ctoEncodingList :: [AacCodecProfile] -&gt; Encoding
+toJSONList :: [AacCodecProfile] -&gt; Value
+$ctoJSONList :: [AacCodecProfile] -&gt; Value
+toEncoding :: AacCodecProfile -&gt; Encoding
+$ctoEncoding :: AacCodecProfile -&gt; Encoding
+toJSON :: AacCodecProfile -&gt; Value
+$ctoJSON :: AacCodecProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679936481"><span id="local-6989586621679936483"><span class="annot"><span class="annottext">ToJSONKeyFunction [AacCodecProfile]
+ToJSONKeyFunction AacCodecProfile
+ToJSONKeyFunction AacCodecProfile
+-&gt; ToJSONKeyFunction [AacCodecProfile] -&gt; ToJSONKey AacCodecProfile
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AacCodecProfile]
+$ctoJSONKeyList :: ToJSONKeyFunction [AacCodecProfile]
+toJSONKey :: ToJSONKeyFunction AacCodecProfile
+$ctoJSONKey :: ToJSONKeyFunction AacCodecProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679936478"><span class="annot"><span class="annottext">[Node] -&gt; Either String AacCodecProfile
+([Node] -&gt; Either String AacCodecProfile)
+-&gt; FromXML AacCodecProfile
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AacCodecProfile
+$cparseXML :: [Node] -&gt; Either String AacCodecProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679936475"><span class="annot"><span class="annottext">AacCodecProfile -&gt; XML
+(AacCodecProfile -&gt; XML) -&gt; ToXML AacCodecProfile
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AacCodecProfile -&gt; XML
+$ctoXML :: AacCodecProfile -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile_HEV1"><span class="hs-identifier hs-type">AacCodecProfile_HEV1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile"><span class="hs-identifier hs-type">AacCodecProfile</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAacCodecProfile_HEV1"><span id="%24mAacCodecProfile_HEV1"><span id="AacCodecProfile_HEV1"><span class="annot"><span class="annottext">$bAacCodecProfile_HEV1 :: AacCodecProfile
+$mAacCodecProfile_HEV1 :: forall r. AacCodecProfile -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#%24bAacCodecProfile_HEV1"><span class="hs-identifier hs-var hs-var hs-var">AacCodecProfile_HEV1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile%27"><span class="hs-identifier hs-type">AacCodecProfile'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEV1&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile_HEV2"><span class="hs-identifier hs-type">AacCodecProfile_HEV2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile"><span class="hs-identifier hs-type">AacCodecProfile</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAacCodecProfile_HEV2"><span id="%24mAacCodecProfile_HEV2"><span id="AacCodecProfile_HEV2"><span class="annot"><span class="annottext">$bAacCodecProfile_HEV2 :: AacCodecProfile
+$mAacCodecProfile_HEV2 :: forall r. AacCodecProfile -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#%24bAacCodecProfile_HEV2"><span class="hs-identifier hs-var hs-var hs-var">AacCodecProfile_HEV2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile%27"><span class="hs-identifier hs-type">AacCodecProfile'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEV2&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile_LC"><span class="hs-identifier hs-type">AacCodecProfile_LC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile"><span class="hs-identifier hs-type">AacCodecProfile</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAacCodecProfile_LC"><span id="%24mAacCodecProfile_LC"><span id="AacCodecProfile_LC"><span class="annot"><span class="annottext">$bAacCodecProfile_LC :: AacCodecProfile
+$mAacCodecProfile_LC :: forall r. AacCodecProfile -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#%24bAacCodecProfile_LC"><span class="hs-identifier hs-var hs-var hs-var">AacCodecProfile_LC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile%27"><span class="hs-identifier hs-type">AacCodecProfile'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LC&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile_HEV1"><span class="hs-pragma hs-type">AacCodecProfile_HEV1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile_HEV2"><span class="hs-pragma hs-type">AacCodecProfile_HEV2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile_LC"><span class="hs-pragma hs-type">AacCodecProfile_LC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.AacCodecProfile.html#AacCodecProfile%27"><span class="hs-pragma hs-type">AacCodecProfile'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53AutoNaming.UpdateService</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Submits a request to perform the following operations:</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- -   Update the TTL setting for existing @DnsRecords@ configurations</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- -   Add, update, or delete @HealthCheckConfig@ for a specified service</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--     You can\'t add, update, or delete a @HealthCheckCustomConfig@</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--     configuration.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- For public and private DNS namespaces, note the following:</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   If you omit any existing @DnsRecords@ or @HealthCheckConfig@</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     configurations from an @UpdateService@ request, the configurations</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     are deleted from the service.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   If you omit an existing @HealthCheckCustomConfig@ configuration from</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     an @UpdateService@ request, the configuration isn\'t deleted from</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     the service.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- When you update settings for a service, Cloud Map also updates the</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- corresponding settings in all the records and health checks that were</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- created by using the specified service.</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53AutoNaming.UpdateService</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier">UpdateService</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#newUpdateService"><span class="hs-identifier">newUpdateService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#updateService_id"><span class="hs-identifier">updateService_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#updateService_service"><span class="hs-identifier">updateService_service</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier">UpdateServiceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#newUpdateServiceResponse"><span class="hs-identifier">newUpdateServiceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#updateServiceResponse_operationId"><span class="hs-identifier">updateServiceResponse_operationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#updateServiceResponse_httpStatus"><span class="hs-identifier">updateServiceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types</span></a></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newUpdateService' smart constructor.</span><span>
+</span><span id="line-72"></span><span id="local-6989586621679231874"><span id="local-6989586621679231875"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateService"><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-var">UpdateService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateService%27"><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-var">UpdateService'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the service that you want to update.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aid%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; Text
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#%24sel%3Aid%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A complex type that contains the new settings for the service.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Aservice%3AUpdateService%27"><span class="annot"><span class="annottext">UpdateService -&gt; ServiceChange
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#%24sel%3Aservice%3AUpdateService%27"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceChange.html#ServiceChange"><span class="hs-identifier hs-type">ServiceChange</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231867"><span id="local-6989586621679231869"><span class="annot"><span class="annottext">UpdateService -&gt; UpdateService -&gt; Bool
+(UpdateService -&gt; UpdateService -&gt; Bool)
+-&gt; (UpdateService -&gt; UpdateService -&gt; Bool) -&gt; Eq UpdateService
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateService -&gt; UpdateService -&gt; Bool
+$c/= :: UpdateService -&gt; UpdateService -&gt; Bool
+== :: UpdateService -&gt; UpdateService -&gt; Bool
+$c== :: UpdateService -&gt; UpdateService -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231858"><span id="local-6989586621679231860"><span id="local-6989586621679231862"><span id="local-6989586621679231864"><span class="annot"><span class="annottext">ReadPrec [UpdateService]
+ReadPrec UpdateService
+Int -&gt; ReadS UpdateService
+ReadS [UpdateService]
+(Int -&gt; ReadS UpdateService)
+-&gt; ReadS [UpdateService]
+-&gt; ReadPrec UpdateService
+-&gt; ReadPrec [UpdateService]
+-&gt; Read UpdateService
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateService]
+$creadListPrec :: ReadPrec [UpdateService]
+readPrec :: ReadPrec UpdateService
+$creadPrec :: ReadPrec UpdateService
+readList :: ReadS [UpdateService]
+$creadList :: ReadS [UpdateService]
+readsPrec :: Int -&gt; ReadS UpdateService
+$creadsPrec :: Int -&gt; ReadS UpdateService
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231851"><span id="local-6989586621679231853"><span id="local-6989586621679231855"><span class="annot"><span class="annottext">Int -&gt; UpdateService -&gt; ShowS
+[UpdateService] -&gt; ShowS
+UpdateService -&gt; String
+(Int -&gt; UpdateService -&gt; ShowS)
+-&gt; (UpdateService -&gt; String)
+-&gt; ([UpdateService] -&gt; ShowS)
+-&gt; Show UpdateService
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateService] -&gt; ShowS
+$cshowList :: [UpdateService] -&gt; ShowS
+show :: UpdateService -&gt; String
+$cshow :: UpdateService -&gt; String
+showsPrec :: Int -&gt; UpdateService -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateService -&gt; Rep UpdateService x)
+-&gt; (forall x. Rep UpdateService x -&gt; UpdateService)
+-&gt; Generic UpdateService
+forall x. Rep UpdateService x -&gt; UpdateService
+forall x. UpdateService -&gt; Rep UpdateService x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateService x -&gt; UpdateService
+$cfrom :: forall x. UpdateService -&gt; Rep UpdateService x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'UpdateService' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'id', 'updateService_id' - The ID of the service that you want to update.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'service', 'updateService_service' - A complex type that contains the new settings for the service.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#newUpdateService"><span class="hs-identifier hs-type">newUpdateService</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'service'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceChange.html#ServiceChange"><span class="hs-identifier hs-type">ServiceChange</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span>
+</span><span id="line-97"></span><span id="newUpdateService"><span class="annot"><span class="annottext">newUpdateService :: Text -&gt; ServiceChange -&gt; UpdateService
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#newUpdateService"><span class="hs-identifier hs-var hs-var">newUpdateService</span></a></span></span><span> </span><span id="local-6989586621679231846"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231846"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679231845"><span class="annot"><span class="annottext">ServiceChange
+</span><a href="#local-6989586621679231845"><span class="hs-identifier hs-var">pService_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">UpdateService' :: Text -&gt; ServiceChange -&gt; UpdateService
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdateService' :: Text
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#%24sel%3Aid%3AUpdateService%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231846"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:service:UpdateService' :: ServiceChange
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#%24sel%3Aservice%3AUpdateService%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceChange
+</span><a href="#local-6989586621679231845"><span class="hs-identifier hs-var">pService_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The ID of the service that you want to update.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#updateService_id"><span class="hs-identifier hs-type">updateService_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="updateService_id"><span class="annot"><span class="annottext">updateService_id :: (Text -&gt; f Text) -&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#updateService_id"><span class="hs-identifier hs-var hs-var">updateService_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; Text)
+-&gt; (UpdateService -&gt; Text -&gt; UpdateService)
+-&gt; Lens UpdateService UpdateService Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231842"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:UpdateService' :: UpdateService -&gt; Text
+</span><a href="#local-6989586621679231842"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231842"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231841"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679231841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231840"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679231841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdateService' :: Text
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#%24sel%3Aid%3AUpdateService%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | A complex type that contains the new settings for the service.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#updateService_service"><span class="hs-identifier hs-type">updateService_service</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.ServiceChange.html#ServiceChange"><span class="hs-identifier hs-type">ServiceChange</span></a></span><span>
+</span><span id="line-106"></span><span id="updateService_service"><span class="annot"><span class="annottext">updateService_service :: (ServiceChange -&gt; f ServiceChange)
+-&gt; UpdateService -&gt; f UpdateService
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#updateService_service"><span class="hs-identifier hs-var hs-var">updateService_service</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateService -&gt; ServiceChange)
+-&gt; (UpdateService -&gt; ServiceChange -&gt; UpdateService)
+-&gt; Lens UpdateService UpdateService ServiceChange ServiceChange
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231839"><span class="annot"><span class="annottext">ServiceChange
+service :: ServiceChange
+$sel:service:UpdateService' :: UpdateService -&gt; ServiceChange
+</span><a href="#local-6989586621679231839"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceChange
+</span><a href="#local-6989586621679231839"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231838"><span class="annot"><span class="annottext">s :: UpdateService
+</span><a href="#local-6989586621679231838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231837"><span class="annot"><span class="annottext">ServiceChange
+</span><a href="#local-6989586621679231837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateService
+</span><a href="#local-6989586621679231838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:service:UpdateService' :: ServiceChange
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#%24sel%3Aservice%3AUpdateService%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceChange
+</span><a href="#local-6989586621679231837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679231833"><span class="annot"><span class="annottext">request :: UpdateService -&gt; Request UpdateService
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateService -&gt; Request UpdateService
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679231829"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateService
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateService)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateService))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateService
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateService)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231826"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679231825"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679231825"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679231824"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdateServiceResponse
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-var">UpdateServiceResponse'</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdateServiceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateServiceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OperationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateServiceResponse)
+-&gt; Either String Int -&gt; Either String UpdateServiceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231826"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231816"><span id="local-6989586621679231818"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679231809"><span class="annot"><span class="annottext">toHeaders :: UpdateService -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateService -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Route53AutoNaming_v20170314.UpdateService&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231799"><span id="local-6989586621679231801"><span id="local-6989586621679231803"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679231797"><span class="annot"><span class="annottext">toJSON :: UpdateService -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService%27"><span class="hs-identifier hs-type">UpdateService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231794"><span id="local-6989586621679231795"><span class="annot"><span class="annottext">Text
+ServiceChange
+service :: ServiceChange
+id :: Text
+$sel:service:UpdateService' :: UpdateService -&gt; ServiceChange
+$sel:id:UpdateService' :: UpdateService -&gt; Text
+</span><a href="#local-6989586621679231794"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231795"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Service&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ServiceChange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ServiceChange
+</span><a href="#local-6989586621679231794"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679231788"><span class="annot"><span class="annottext">toPath :: UpdateService -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateService -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateService"><span class="hs-identifier hs-type">UpdateService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679231784"><span class="annot"><span class="annottext">toQuery :: UpdateService -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateService -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newUpdateServiceResponse' smart constructor.</span><span>
+</span><span id="line-156"></span><span id="local-6989586621679231781"><span id="local-6989586621679231782"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateServiceResponse"><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-var">UpdateServiceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateServiceResponse%27"><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-var">UpdateServiceResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that you can use to determine whether the request completed</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- successfully. To get the status of the operation, see</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation&gt;.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AoperationId%3AUpdateServiceResponse%27"><span class="annot"><span class="annottext">UpdateServiceResponse -&gt; Maybe Text
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#%24sel%3AoperationId%3AUpdateServiceResponse%27"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateServiceResponse%27"><span class="annot"><span class="annottext">UpdateServiceResponse -&gt; Int
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#%24sel%3AhttpStatus%3AUpdateServiceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231775"><span id="local-6989586621679231777"><span class="annot"><span class="annottext">UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool
+(UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool)
+-&gt; (UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool)
+-&gt; Eq UpdateServiceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool
+$c/= :: UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool
+== :: UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool
+$c== :: UpdateServiceResponse -&gt; UpdateServiceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231767"><span id="local-6989586621679231769"><span id="local-6989586621679231771"><span id="local-6989586621679231773"><span class="annot"><span class="annottext">ReadPrec [UpdateServiceResponse]
+ReadPrec UpdateServiceResponse
+Int -&gt; ReadS UpdateServiceResponse
+ReadS [UpdateServiceResponse]
+(Int -&gt; ReadS UpdateServiceResponse)
+-&gt; ReadS [UpdateServiceResponse]
+-&gt; ReadPrec UpdateServiceResponse
+-&gt; ReadPrec [UpdateServiceResponse]
+-&gt; Read UpdateServiceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateServiceResponse]
+$creadListPrec :: ReadPrec [UpdateServiceResponse]
+readPrec :: ReadPrec UpdateServiceResponse
+$creadPrec :: ReadPrec UpdateServiceResponse
+readList :: ReadS [UpdateServiceResponse]
+$creadList :: ReadS [UpdateServiceResponse]
+readsPrec :: Int -&gt; ReadS UpdateServiceResponse
+$creadsPrec :: Int -&gt; ReadS UpdateServiceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231761"><span id="local-6989586621679231763"><span id="local-6989586621679231765"><span class="annot"><span class="annottext">Int -&gt; UpdateServiceResponse -&gt; ShowS
+[UpdateServiceResponse] -&gt; ShowS
+UpdateServiceResponse -&gt; String
+(Int -&gt; UpdateServiceResponse -&gt; ShowS)
+-&gt; (UpdateServiceResponse -&gt; String)
+-&gt; ([UpdateServiceResponse] -&gt; ShowS)
+-&gt; Show UpdateServiceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateServiceResponse] -&gt; ShowS
+$cshowList :: [UpdateServiceResponse] -&gt; ShowS
+show :: UpdateServiceResponse -&gt; String
+$cshow :: UpdateServiceResponse -&gt; String
+showsPrec :: Int -&gt; UpdateServiceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateServiceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateServiceResponse -&gt; Rep UpdateServiceResponse x)
+-&gt; (forall x. Rep UpdateServiceResponse x -&gt; UpdateServiceResponse)
+-&gt; Generic UpdateServiceResponse
+forall x. Rep UpdateServiceResponse x -&gt; UpdateServiceResponse
+forall x. UpdateServiceResponse -&gt; Rep UpdateServiceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateServiceResponse x -&gt; UpdateServiceResponse
+$cfrom :: forall x. UpdateServiceResponse -&gt; Rep UpdateServiceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'UpdateServiceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'operationId', 'updateServiceResponse_operationId' - A value that you can use to determine whether the request completed</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- successfully. To get the status of the operation, see</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation&gt;.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'httpStatus', 'updateServiceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#newUpdateServiceResponse"><span class="hs-identifier hs-type">newUpdateServiceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span><span>
+</span><span id="line-183"></span><span id="newUpdateServiceResponse"><span class="annot"><span class="annottext">newUpdateServiceResponse :: Int -&gt; UpdateServiceResponse
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#newUpdateServiceResponse"><span class="hs-identifier hs-var hs-var">newUpdateServiceResponse</span></a></span></span><span> </span><span id="local-6989586621679231758"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">UpdateServiceResponse' :: Maybe Text -&gt; Int -&gt; UpdateServiceResponse
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-type">UpdateServiceResponse'</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operationId:UpdateServiceResponse' :: Maybe Text
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#%24sel%3AoperationId%3AUpdateServiceResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateServiceResponse' :: Int
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#%24sel%3AhttpStatus%3AUpdateServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | A value that you can use to determine whether the request completed</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- successfully. To get the status of the operation, see</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation&gt;.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#updateServiceResponse_operationId"><span class="hs-identifier hs-type">updateServiceResponse_operationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="updateServiceResponse_operationId"><span class="annot"><span class="annottext">updateServiceResponse_operationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateServiceResponse -&gt; f UpdateServiceResponse
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#updateServiceResponse_operationId"><span class="hs-identifier hs-var hs-var">updateServiceResponse_operationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateServiceResponse -&gt; Maybe Text)
+-&gt; (UpdateServiceResponse -&gt; Maybe Text -&gt; UpdateServiceResponse)
+-&gt; Lens
+     UpdateServiceResponse
+     UpdateServiceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-type">UpdateServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231757"><span class="annot"><span class="annottext">Maybe Text
+operationId :: Maybe Text
+$sel:operationId:UpdateServiceResponse' :: UpdateServiceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679231757"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231757"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231756"><span class="annot"><span class="annottext">s :: UpdateServiceResponse
+</span><a href="#local-6989586621679231756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-type">UpdateServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231755"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServiceResponse
+</span><a href="#local-6989586621679231756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:UpdateServiceResponse' :: Maybe Text
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#%24sel%3AoperationId%3AUpdateServiceResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#updateServiceResponse_httpStatus"><span class="hs-identifier hs-type">updateServiceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-198"></span><span id="updateServiceResponse_httpStatus"><span class="annot"><span class="annottext">updateServiceResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateServiceResponse -&gt; f UpdateServiceResponse
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#updateServiceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateServiceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateServiceResponse -&gt; Int)
+-&gt; (UpdateServiceResponse -&gt; Int -&gt; UpdateServiceResponse)
+-&gt; Lens UpdateServiceResponse UpdateServiceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-type">UpdateServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231754"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateServiceResponse' :: UpdateServiceResponse -&gt; Int
+</span><a href="#local-6989586621679231754"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231754"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231753"><span class="annot"><span class="annottext">s :: UpdateServiceResponse
+</span><a href="#local-6989586621679231753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse%27"><span class="hs-identifier hs-type">UpdateServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231752"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServiceResponse
+</span><a href="#local-6989586621679231753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateServiceResponse' :: Int
+</span><a href="Amazonka.Route53AutoNaming.UpdateService.html#%24sel%3AhttpStatus%3AUpdateServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateService.html#UpdateServiceResponse"><span class="hs-identifier hs-type">UpdateServiceResponse</span></a></span></span><span>
+</span><span id="line-201"></span></pre></body></html>

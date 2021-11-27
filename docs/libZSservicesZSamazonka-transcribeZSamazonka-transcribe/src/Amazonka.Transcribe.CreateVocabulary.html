@@ -1,0 +1,918 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Transcribe.CreateVocabulary</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new custom vocabulary that you can use to change the way</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon Transcribe handles transcription of an audio file.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transcribe.CreateVocabulary</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier">CreateVocabulary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#newCreateVocabulary"><span class="hs-identifier">newCreateVocabulary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_vocabularyFileUri"><span class="hs-identifier">createVocabulary_vocabularyFileUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_phrases"><span class="hs-identifier">createVocabulary_phrases</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_tags"><span class="hs-identifier">createVocabulary_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_vocabularyName"><span class="hs-identifier">createVocabulary_vocabularyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_languageCode"><span class="hs-identifier">createVocabulary_languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier">CreateVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#newCreateVocabularyResponse"><span class="hs-identifier">newCreateVocabularyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_failureReason"><span class="hs-identifier">createVocabularyResponse_failureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_languageCode"><span class="hs-identifier">createVocabularyResponse_languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_vocabularyName"><span class="hs-identifier">createVocabularyResponse_vocabularyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_lastModifiedTime"><span class="hs-identifier">createVocabularyResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_vocabularyState"><span class="hs-identifier">createVocabularyResponse_vocabularyState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_httpStatus"><span class="hs-identifier">createVocabularyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.html"><span class="hs-identifier">Amazonka.Transcribe.Types</span></a></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateVocabulary' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679286213"><span id="local-6989586621679286214"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVocabulary"><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-var">CreateVocabulary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVocabulary%27"><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-var">CreateVocabulary'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The S3 location of the text file that contains the definition of the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- custom vocabulary. The URI must be in the same region as the API</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- endpoint that you are calling. The general form is:</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- For more information about S3 object names, see</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys&gt;</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- in the /Amazon S3 Developer Guide/.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- For more information about custom vocabularies, see</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary Custom vocabularies&gt;.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AvocabularyFileUri%3ACreateVocabulary%27"><span class="annot"><span class="annottext">CreateVocabulary -&gt; Maybe Text
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AvocabularyFileUri%3ACreateVocabulary%27"><span class="hs-identifier hs-var hs-var">vocabularyFileUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | An array of strings that contains the vocabulary entries.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Aphrases%3ACreateVocabulary%27"><span class="annot"><span class="annottext">CreateVocabulary -&gt; Maybe [Text]
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3Aphrases%3ACreateVocabulary%27"><span class="hs-identifier hs-var hs-var">phrases</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Adds one or more tags, each in the form of a key:value pair, to a new</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Amazon Transcribe vocabulary at the time you create this new vocabulary.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Atags%3ACreateVocabulary%27"><span class="annot"><span class="annottext">CreateVocabulary -&gt; Maybe (NonEmpty Tag)
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3Atags%3ACreateVocabulary%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name of the vocabulary. The name must be unique within an Amazon Web</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Services account. The name is case sensitive. If you try to create a</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- vocabulary with the same name as a previous vocabulary you will receive</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- a @ConflictException@ error.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AvocabularyName%3ACreateVocabulary%27"><span class="annot"><span class="annottext">CreateVocabulary -&gt; Text
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AvocabularyName%3ACreateVocabulary%27"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The language code of the vocabulary entries. For a list of languages and</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- their corresponding language codes, see transcribe-whatis.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AlanguageCode%3ACreateVocabulary%27"><span class="annot"><span class="annottext">CreateVocabulary -&gt; LanguageCode
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AlanguageCode%3ACreateVocabulary%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286203"><span id="local-6989586621679286205"><span class="annot"><span class="annottext">CreateVocabulary -&gt; CreateVocabulary -&gt; Bool
+(CreateVocabulary -&gt; CreateVocabulary -&gt; Bool)
+-&gt; (CreateVocabulary -&gt; CreateVocabulary -&gt; Bool)
+-&gt; Eq CreateVocabulary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateVocabulary -&gt; CreateVocabulary -&gt; Bool
+$c/= :: CreateVocabulary -&gt; CreateVocabulary -&gt; Bool
+== :: CreateVocabulary -&gt; CreateVocabulary -&gt; Bool
+$c== :: CreateVocabulary -&gt; CreateVocabulary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286194"><span id="local-6989586621679286196"><span id="local-6989586621679286198"><span id="local-6989586621679286200"><span class="annot"><span class="annottext">ReadPrec [CreateVocabulary]
+ReadPrec CreateVocabulary
+Int -&gt; ReadS CreateVocabulary
+ReadS [CreateVocabulary]
+(Int -&gt; ReadS CreateVocabulary)
+-&gt; ReadS [CreateVocabulary]
+-&gt; ReadPrec CreateVocabulary
+-&gt; ReadPrec [CreateVocabulary]
+-&gt; Read CreateVocabulary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateVocabulary]
+$creadListPrec :: ReadPrec [CreateVocabulary]
+readPrec :: ReadPrec CreateVocabulary
+$creadPrec :: ReadPrec CreateVocabulary
+readList :: ReadS [CreateVocabulary]
+$creadList :: ReadS [CreateVocabulary]
+readsPrec :: Int -&gt; ReadS CreateVocabulary
+$creadsPrec :: Int -&gt; ReadS CreateVocabulary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286187"><span id="local-6989586621679286189"><span id="local-6989586621679286191"><span class="annot"><span class="annottext">Int -&gt; CreateVocabulary -&gt; ShowS
+[CreateVocabulary] -&gt; ShowS
+CreateVocabulary -&gt; String
+(Int -&gt; CreateVocabulary -&gt; ShowS)
+-&gt; (CreateVocabulary -&gt; String)
+-&gt; ([CreateVocabulary] -&gt; ShowS)
+-&gt; Show CreateVocabulary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateVocabulary] -&gt; ShowS
+$cshowList :: [CreateVocabulary] -&gt; ShowS
+show :: CreateVocabulary -&gt; String
+$cshow :: CreateVocabulary -&gt; String
+showsPrec :: Int -&gt; CreateVocabulary -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateVocabulary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateVocabulary -&gt; Rep CreateVocabulary x)
+-&gt; (forall x. Rep CreateVocabulary x -&gt; CreateVocabulary)
+-&gt; Generic CreateVocabulary
+forall x. Rep CreateVocabulary x -&gt; CreateVocabulary
+forall x. CreateVocabulary -&gt; Rep CreateVocabulary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateVocabulary x -&gt; CreateVocabulary
+$cfrom :: forall x. CreateVocabulary -&gt; Rep CreateVocabulary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Create a value of 'CreateVocabulary' with all optional fields omitted.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'vocabularyFileUri', 'createVocabulary_vocabularyFileUri' - The S3 location of the text file that contains the definition of the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- custom vocabulary. The URI must be in the same region as the API</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- endpoint that you are calling. The general form is:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- For more information about S3 object names, see</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys&gt;</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- in the /Amazon S3 Developer Guide/.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- For more information about custom vocabularies, see</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary Custom vocabularies&gt;.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'phrases', 'createVocabulary_phrases' - An array of strings that contains the vocabulary entries.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'tags', 'createVocabulary_tags' - Adds one or more tags, each in the form of a key:value pair, to a new</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Amazon Transcribe vocabulary at the time you create this new vocabulary.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'vocabularyName', 'createVocabulary_vocabularyName' - The name of the vocabulary. The name must be unique within an Amazon Web</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Services account. The name is case sensitive. If you try to create a</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- vocabulary with the same name as a previous vocabulary you will receive</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- a @ConflictException@ error.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'languageCode', 'createVocabulary_languageCode' - The language code of the vocabulary entries. For a list of languages and</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- their corresponding language codes, see transcribe-whatis.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#newCreateVocabulary"><span class="hs-identifier hs-type">newCreateVocabulary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'vocabularyName'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'languageCode'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span>
+</span><span id="line-124"></span><span id="newCreateVocabulary"><span class="annot"><span class="annottext">newCreateVocabulary :: Text -&gt; LanguageCode -&gt; CreateVocabulary
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#newCreateVocabulary"><span class="hs-identifier hs-var hs-var">newCreateVocabulary</span></a></span></span><span> </span><span id="local-6989586621679286182"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286182"><span class="hs-identifier hs-var">pVocabularyName_</span></a></span></span><span> </span><span id="local-6989586621679286181"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679286181"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">CreateVocabulary' :: Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe (NonEmpty Tag)
+-&gt; Text
+-&gt; LanguageCode
+-&gt; CreateVocabulary
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-type">CreateVocabulary'</span></a></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vocabularyFileUri:CreateVocabulary' :: Maybe Text
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AvocabularyFileUri%3ACreateVocabulary%27"><span class="hs-identifier hs-var">vocabularyFileUri</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:phrases:CreateVocabulary' :: Maybe [Text]
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3Aphrases%3ACreateVocabulary%27"><span class="hs-identifier hs-var">phrases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateVocabulary' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3Atags%3ACreateVocabulary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyName:CreateVocabulary' :: Text
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AvocabularyName%3ACreateVocabulary%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286182"><span class="hs-identifier hs-var">pVocabularyName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:CreateVocabulary' :: LanguageCode
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AlanguageCode%3ACreateVocabulary%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679286181"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The S3 location of the text file that contains the definition of the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- custom vocabulary. The URI must be in the same region as the API</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- endpoint that you are calling. The general form is:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- For more information about S3 object names, see</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys&gt;</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- in the /Amazon S3 Developer Guide/.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- For more information about custom vocabularies, see</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary Custom vocabularies&gt;.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_vocabularyFileUri"><span class="hs-identifier hs-type">createVocabulary_vocabularyFileUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="createVocabulary_vocabularyFileUri"><span class="annot"><span class="annottext">createVocabulary_vocabularyFileUri :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateVocabulary -&gt; f CreateVocabulary
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_vocabularyFileUri"><span class="hs-identifier hs-var hs-var">createVocabulary_vocabularyFileUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVocabulary -&gt; Maybe Text)
+-&gt; (CreateVocabulary -&gt; Maybe Text -&gt; CreateVocabulary)
+-&gt; Lens CreateVocabulary CreateVocabulary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-type">CreateVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286178"><span class="annot"><span class="annottext">Maybe Text
+vocabularyFileUri :: Maybe Text
+$sel:vocabularyFileUri:CreateVocabulary' :: CreateVocabulary -&gt; Maybe Text
+</span><a href="#local-6989586621679286178"><span class="hs-identifier hs-var hs-var">vocabularyFileUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286178"><span class="hs-identifier hs-var">vocabularyFileUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286177"><span class="annot"><span class="annottext">s :: CreateVocabulary
+</span><a href="#local-6989586621679286177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-type">CreateVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286176"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVocabulary
+</span><a href="#local-6989586621679286177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFileUri:CreateVocabulary' :: Maybe Text
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AvocabularyFileUri%3ACreateVocabulary%27"><span class="hs-identifier hs-var">vocabularyFileUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | An array of strings that contains the vocabulary entries.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_phrases"><span class="hs-identifier hs-type">createVocabulary_phrases</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="createVocabulary_phrases"><span class="annot"><span class="annottext">createVocabulary_phrases :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateVocabulary -&gt; f CreateVocabulary
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_phrases"><span class="hs-identifier hs-var hs-var">createVocabulary_phrases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVocabulary -&gt; Maybe [Text])
+-&gt; (CreateVocabulary -&gt; Maybe [Text] -&gt; CreateVocabulary)
+-&gt; Lens
+     CreateVocabulary CreateVocabulary (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-type">CreateVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286175"><span class="annot"><span class="annottext">Maybe [Text]
+phrases :: Maybe [Text]
+$sel:phrases:CreateVocabulary' :: CreateVocabulary -&gt; Maybe [Text]
+</span><a href="#local-6989586621679286175"><span class="hs-identifier hs-var hs-var">phrases</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679286175"><span class="hs-identifier hs-var">phrases</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286174"><span class="annot"><span class="annottext">s :: CreateVocabulary
+</span><a href="#local-6989586621679286174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-type">CreateVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286173"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679286173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVocabulary
+</span><a href="#local-6989586621679286174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phrases:CreateVocabulary' :: Maybe [Text]
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3Aphrases%3ACreateVocabulary%27"><span class="hs-identifier hs-var">phrases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679286173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateVocabulary -&gt; f CreateVocabulary)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateVocabulary
+-&gt; f CreateVocabulary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Adds one or more tags, each in the form of a key:value pair, to a new</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Amazon Transcribe vocabulary at the time you create this new vocabulary.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_tags"><span class="hs-identifier hs-type">createVocabulary_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="createVocabulary_tags"><span class="annot"><span class="annottext">createVocabulary_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateVocabulary -&gt; f CreateVocabulary
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_tags"><span class="hs-identifier hs-var hs-var">createVocabulary_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVocabulary -&gt; Maybe (NonEmpty Tag))
+-&gt; (CreateVocabulary -&gt; Maybe (NonEmpty Tag) -&gt; CreateVocabulary)
+-&gt; Lens
+     CreateVocabulary
+     CreateVocabulary
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-type">CreateVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286169"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+tags :: Maybe (NonEmpty Tag)
+$sel:tags:CreateVocabulary' :: CreateVocabulary -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679286169"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679286169"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286168"><span class="annot"><span class="annottext">s :: CreateVocabulary
+</span><a href="#local-6989586621679286168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-type">CreateVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286167"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679286167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVocabulary
+</span><a href="#local-6989586621679286168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateVocabulary' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3Atags%3ACreateVocabulary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679286167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+ -&gt; CreateVocabulary -&gt; f CreateVocabulary)
+-&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+    -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateVocabulary
+-&gt; f CreateVocabulary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+-&gt; Iso
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The name of the vocabulary. The name must be unique within an Amazon Web</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Services account. The name is case sensitive. If you try to create a</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- vocabulary with the same name as a previous vocabulary you will receive</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- a @ConflictException@ error.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_vocabularyName"><span class="hs-identifier hs-type">createVocabulary_vocabularyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-161"></span><span id="createVocabulary_vocabularyName"><span class="annot"><span class="annottext">createVocabulary_vocabularyName :: (Text -&gt; f Text) -&gt; CreateVocabulary -&gt; f CreateVocabulary
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_vocabularyName"><span class="hs-identifier hs-var hs-var">createVocabulary_vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVocabulary -&gt; Text)
+-&gt; (CreateVocabulary -&gt; Text -&gt; CreateVocabulary)
+-&gt; Lens CreateVocabulary CreateVocabulary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-type">CreateVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286166"><span class="annot"><span class="annottext">Text
+vocabularyName :: Text
+$sel:vocabularyName:CreateVocabulary' :: CreateVocabulary -&gt; Text
+</span><a href="#local-6989586621679286166"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286166"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286165"><span class="annot"><span class="annottext">s :: CreateVocabulary
+</span><a href="#local-6989586621679286165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-type">CreateVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286164"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVocabulary
+</span><a href="#local-6989586621679286165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:CreateVocabulary' :: Text
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AvocabularyName%3ACreateVocabulary%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The language code of the vocabulary entries. For a list of languages and</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- their corresponding language codes, see transcribe-whatis.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_languageCode"><span class="hs-identifier hs-type">createVocabulary_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
+</span><span id="line-166"></span><span id="createVocabulary_languageCode"><span class="annot"><span class="annottext">createVocabulary_languageCode :: (LanguageCode -&gt; f LanguageCode)
+-&gt; CreateVocabulary -&gt; f CreateVocabulary
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabulary_languageCode"><span class="hs-identifier hs-var hs-var">createVocabulary_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVocabulary -&gt; LanguageCode)
+-&gt; (CreateVocabulary -&gt; LanguageCode -&gt; CreateVocabulary)
+-&gt; Lens CreateVocabulary CreateVocabulary LanguageCode LanguageCode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-type">CreateVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286163"><span class="annot"><span class="annottext">LanguageCode
+languageCode :: LanguageCode
+$sel:languageCode:CreateVocabulary' :: CreateVocabulary -&gt; LanguageCode
+</span><a href="#local-6989586621679286163"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679286163"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286162"><span class="annot"><span class="annottext">s :: CreateVocabulary
+</span><a href="#local-6989586621679286162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-type">CreateVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286161"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679286161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVocabulary
+</span><a href="#local-6989586621679286162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:CreateVocabulary' :: LanguageCode
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AlanguageCode%3ACreateVocabulary%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679286161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-170"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679286157"><span class="annot"><span class="annottext">request :: CreateVocabulary -&gt; Request CreateVocabulary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateVocabulary -&gt; Request CreateVocabulary
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Transcribe.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679286153"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateVocabulary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateVocabulary)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateVocabulary))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateVocabulary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateVocabulary)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286150"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286150"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286149"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679286149"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286148"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286148"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe LanguageCode
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe VocabularyState
+-&gt; Int
+-&gt; CreateVocabularyResponse
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-var">CreateVocabularyResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe LanguageCode
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe VocabularyState
+ -&gt; Int
+ -&gt; CreateVocabularyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe LanguageCode
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe VocabularyState
+      -&gt; Int
+      -&gt; CreateVocabularyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LanguageCode
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe VocabularyState
+   -&gt; Int
+   -&gt; CreateVocabularyResponse)
+-&gt; Either String (Maybe LanguageCode)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe VocabularyState
+      -&gt; Int
+      -&gt; CreateVocabularyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LanguageCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe VocabularyState
+   -&gt; Int
+   -&gt; CreateVocabularyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe VocabularyState -&gt; Int -&gt; CreateVocabularyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe VocabularyState -&gt; Int -&gt; CreateVocabularyResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String (Maybe VocabularyState -&gt; Int -&gt; CreateVocabularyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe VocabularyState -&gt; Int -&gt; CreateVocabularyResponse)
+-&gt; Either String (Maybe VocabularyState)
+-&gt; Either String (Int -&gt; CreateVocabularyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286148"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VocabularyState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateVocabularyResponse)
+-&gt; Either String Int -&gt; Either String CreateVocabularyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286150"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286140"><span id="local-6989586621679286142"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span></span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286137"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679286133"><span class="annot"><span class="annottext">toHeaders :: CreateVocabulary -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateVocabulary -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-193"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-194"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Transcribe.CreateVocabulary&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-196"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-198"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-200"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286123"><span id="local-6989586621679286125"><span id="local-6989586621679286127"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679286121"><span class="annot"><span class="annottext">toJSON :: CreateVocabulary -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary%27"><span class="hs-identifier hs-type">CreateVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286115"><span id="local-6989586621679286116"><span id="local-6989586621679286117"><span id="local-6989586621679286118"><span id="local-6989586621679286119"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe (NonEmpty Tag)
+Maybe Text
+Text
+LanguageCode
+languageCode :: LanguageCode
+vocabularyName :: Text
+tags :: Maybe (NonEmpty Tag)
+phrases :: Maybe [Text]
+vocabularyFileUri :: Maybe Text
+$sel:languageCode:CreateVocabulary' :: CreateVocabulary -&gt; LanguageCode
+$sel:vocabularyName:CreateVocabulary' :: CreateVocabulary -&gt; Text
+$sel:tags:CreateVocabulary' :: CreateVocabulary -&gt; Maybe (NonEmpty Tag)
+$sel:phrases:CreateVocabulary' :: CreateVocabulary -&gt; Maybe [Text]
+$sel:vocabularyFileUri:CreateVocabulary' :: CreateVocabulary -&gt; Maybe Text
+</span><a href="#local-6989586621679286115"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-208"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyFileUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286119"><span class="hs-identifier hs-var">vocabularyFileUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Phrases&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679286118"><span class="hs-identifier hs-var">phrases</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679286117"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-213"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286116"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LanguageCode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679286115"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679286109"><span class="annot"><span class="annottext">toPath :: CreateVocabulary -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateVocabulary -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabulary"><span class="hs-identifier hs-type">CreateVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679286105"><span class="annot"><span class="annottext">toQuery :: CreateVocabulary -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateVocabulary -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | /See:/ 'newCreateVocabularyResponse' smart constructor.</span><span>
+</span><span id="line-225"></span><span id="local-6989586621679286102"><span id="local-6989586621679286103"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVocabularyResponse"><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-var">CreateVocabularyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVocabularyResponse%27"><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-var">CreateVocabularyResponse'</span></a></span></span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the @VocabularyState@ field is @FAILED@, this field contains</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- information about why the job failed.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3AfailureReason%3ACreateVocabularyResponse%27"><span class="annot"><span class="annottext">CreateVocabularyResponse -&gt; Maybe Text
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AfailureReason%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | The language code of the vocabulary entries.</span><span>
+</span><span id="line-230"></span><span>    </span><span id="%24sel%3AlanguageCode%3ACreateVocabularyResponse%27"><span class="annot"><span class="annottext">CreateVocabularyResponse -&gt; Maybe LanguageCode
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AlanguageCode%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- | The name of the vocabulary.</span><span>
+</span><span id="line-232"></span><span>    </span><span id="%24sel%3AvocabularyName%3ACreateVocabularyResponse%27"><span class="annot"><span class="annottext">CreateVocabularyResponse -&gt; Maybe Text
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AvocabularyName%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- | The date and time that the vocabulary was created.</span><span>
+</span><span id="line-234"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ACreateVocabularyResponse%27"><span class="annot"><span class="annottext">CreateVocabularyResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AlastModifiedTime%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- | The processing state of the vocabulary. When the @VocabularyState@ field</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- contains @READY@ the vocabulary is ready to be used in a</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- @StartTranscriptionJob@ request.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3AvocabularyState%3ACreateVocabularyResponse%27"><span class="annot"><span class="annottext">CreateVocabularyResponse -&gt; Maybe VocabularyState
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AvocabularyState%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">vocabularyState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.VocabularyState.html#VocabularyState"><span class="hs-identifier hs-type">VocabularyState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateVocabularyResponse%27"><span class="annot"><span class="annottext">CreateVocabularyResponse -&gt; Int
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AhttpStatus%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286092"><span id="local-6989586621679286094"><span class="annot"><span class="annottext">CreateVocabularyResponse -&gt; CreateVocabularyResponse -&gt; Bool
+(CreateVocabularyResponse -&gt; CreateVocabularyResponse -&gt; Bool)
+-&gt; (CreateVocabularyResponse -&gt; CreateVocabularyResponse -&gt; Bool)
+-&gt; Eq CreateVocabularyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateVocabularyResponse -&gt; CreateVocabularyResponse -&gt; Bool
+$c/= :: CreateVocabularyResponse -&gt; CreateVocabularyResponse -&gt; Bool
+== :: CreateVocabularyResponse -&gt; CreateVocabularyResponse -&gt; Bool
+$c== :: CreateVocabularyResponse -&gt; CreateVocabularyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286084"><span id="local-6989586621679286086"><span id="local-6989586621679286088"><span id="local-6989586621679286090"><span class="annot"><span class="annottext">ReadPrec [CreateVocabularyResponse]
+ReadPrec CreateVocabularyResponse
+Int -&gt; ReadS CreateVocabularyResponse
+ReadS [CreateVocabularyResponse]
+(Int -&gt; ReadS CreateVocabularyResponse)
+-&gt; ReadS [CreateVocabularyResponse]
+-&gt; ReadPrec CreateVocabularyResponse
+-&gt; ReadPrec [CreateVocabularyResponse]
+-&gt; Read CreateVocabularyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateVocabularyResponse]
+$creadListPrec :: ReadPrec [CreateVocabularyResponse]
+readPrec :: ReadPrec CreateVocabularyResponse
+$creadPrec :: ReadPrec CreateVocabularyResponse
+readList :: ReadS [CreateVocabularyResponse]
+$creadList :: ReadS [CreateVocabularyResponse]
+readsPrec :: Int -&gt; ReadS CreateVocabularyResponse
+$creadsPrec :: Int -&gt; ReadS CreateVocabularyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286078"><span id="local-6989586621679286080"><span id="local-6989586621679286082"><span class="annot"><span class="annottext">Int -&gt; CreateVocabularyResponse -&gt; ShowS
+[CreateVocabularyResponse] -&gt; ShowS
+CreateVocabularyResponse -&gt; String
+(Int -&gt; CreateVocabularyResponse -&gt; ShowS)
+-&gt; (CreateVocabularyResponse -&gt; String)
+-&gt; ([CreateVocabularyResponse] -&gt; ShowS)
+-&gt; Show CreateVocabularyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateVocabularyResponse] -&gt; ShowS
+$cshowList :: [CreateVocabularyResponse] -&gt; ShowS
+show :: CreateVocabularyResponse -&gt; String
+$cshow :: CreateVocabularyResponse -&gt; String
+showsPrec :: Int -&gt; CreateVocabularyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateVocabularyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateVocabularyResponse -&gt; Rep CreateVocabularyResponse x)
+-&gt; (forall x.
+    Rep CreateVocabularyResponse x -&gt; CreateVocabularyResponse)
+-&gt; Generic CreateVocabularyResponse
+forall x.
+Rep CreateVocabularyResponse x -&gt; CreateVocabularyResponse
+forall x.
+CreateVocabularyResponse -&gt; Rep CreateVocabularyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateVocabularyResponse x -&gt; CreateVocabularyResponse
+$cfrom :: forall x.
+CreateVocabularyResponse -&gt; Rep CreateVocabularyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Create a value of 'CreateVocabularyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'failureReason', 'createVocabularyResponse_failureReason' - If the @VocabularyState@ field is @FAILED@, this field contains</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- information about why the job failed.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'languageCode', 'createVocabularyResponse_languageCode' - The language code of the vocabulary entries.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'vocabularyName', 'createVocabularyResponse_vocabularyName' - The name of the vocabulary.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- 'lastModifiedTime', 'createVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was created.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'vocabularyState', 'createVocabularyResponse_vocabularyState' - The processing state of the vocabulary. When the @VocabularyState@ field</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- contains @READY@ the vocabulary is ready to be used in a</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- @StartTranscriptionJob@ request.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- 'httpStatus', 'createVocabularyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#newCreateVocabularyResponse"><span class="hs-identifier hs-type">newCreateVocabularyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-267"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-269"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span>
+</span><span id="line-270"></span><span id="newCreateVocabularyResponse"><span class="annot"><span class="annottext">newCreateVocabularyResponse :: Int -&gt; CreateVocabularyResponse
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#newCreateVocabularyResponse"><span class="hs-identifier hs-var hs-var">newCreateVocabularyResponse</span></a></span></span><span> </span><span id="local-6989586621679286075"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286075"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>  </span><span class="annot"><span class="annottext">CreateVocabularyResponse' :: Maybe Text
+-&gt; Maybe LanguageCode
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe VocabularyState
+-&gt; Int
+-&gt; CreateVocabularyResponse
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureReason:CreateVocabularyResponse' :: Maybe Text
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AfailureReason%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:CreateVocabularyResponse' :: Maybe LanguageCode
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AlanguageCode%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyName:CreateVocabularyResponse' :: Maybe Text
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AvocabularyName%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CreateVocabularyResponse' :: Maybe POSIX
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AlastModifiedTime%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyState:CreateVocabularyResponse' :: Maybe VocabularyState
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AvocabularyState%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVocabularyResponse' :: Int
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AhttpStatus%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286075"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | If the @VocabularyState@ field is @FAILED@, this field contains</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- information about why the job failed.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_failureReason"><span class="hs-identifier hs-type">createVocabularyResponse_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="createVocabularyResponse_failureReason"><span class="annot"><span class="annottext">createVocabularyResponse_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateVocabularyResponse -&gt; f CreateVocabularyResponse
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_failureReason"><span class="hs-identifier hs-var hs-var">createVocabularyResponse_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVocabularyResponse -&gt; Maybe Text)
+-&gt; (CreateVocabularyResponse
+    -&gt; Maybe Text -&gt; CreateVocabularyResponse)
+-&gt; Lens
+     CreateVocabularyResponse
+     CreateVocabularyResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286074"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:CreateVocabularyResponse' :: CreateVocabularyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679286074"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286074"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286073"><span class="annot"><span class="annottext">s :: CreateVocabularyResponse
+</span><a href="#local-6989586621679286073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286072"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVocabularyResponse
+</span><a href="#local-6989586621679286073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:CreateVocabularyResponse' :: Maybe Text
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AfailureReason%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | The language code of the vocabulary entries.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_languageCode"><span class="hs-identifier hs-type">createVocabularyResponse_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span id="createVocabularyResponse_languageCode"><span class="annot"><span class="annottext">createVocabularyResponse_languageCode :: (Maybe LanguageCode -&gt; f (Maybe LanguageCode))
+-&gt; CreateVocabularyResponse -&gt; f CreateVocabularyResponse
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_languageCode"><span class="hs-identifier hs-var hs-var">createVocabularyResponse_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVocabularyResponse -&gt; Maybe LanguageCode)
+-&gt; (CreateVocabularyResponse
+    -&gt; Maybe LanguageCode -&gt; CreateVocabularyResponse)
+-&gt; Lens
+     CreateVocabularyResponse
+     CreateVocabularyResponse
+     (Maybe LanguageCode)
+     (Maybe LanguageCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286071"><span class="annot"><span class="annottext">Maybe LanguageCode
+languageCode :: Maybe LanguageCode
+$sel:languageCode:CreateVocabularyResponse' :: CreateVocabularyResponse -&gt; Maybe LanguageCode
+</span><a href="#local-6989586621679286071"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679286071"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286070"><span class="annot"><span class="annottext">s :: CreateVocabularyResponse
+</span><a href="#local-6989586621679286070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286069"><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679286069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVocabularyResponse
+</span><a href="#local-6989586621679286070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:CreateVocabularyResponse' :: Maybe LanguageCode
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AlanguageCode%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679286069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | The name of the vocabulary.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_vocabularyName"><span class="hs-identifier hs-type">createVocabularyResponse_vocabularyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="createVocabularyResponse_vocabularyName"><span class="annot"><span class="annottext">createVocabularyResponse_vocabularyName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateVocabularyResponse -&gt; f CreateVocabularyResponse
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_vocabularyName"><span class="hs-identifier hs-var hs-var">createVocabularyResponse_vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVocabularyResponse -&gt; Maybe Text)
+-&gt; (CreateVocabularyResponse
+    -&gt; Maybe Text -&gt; CreateVocabularyResponse)
+-&gt; Lens
+     CreateVocabularyResponse
+     CreateVocabularyResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286068"><span class="annot"><span class="annottext">Maybe Text
+vocabularyName :: Maybe Text
+$sel:vocabularyName:CreateVocabularyResponse' :: CreateVocabularyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679286068"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286068"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286067"><span class="annot"><span class="annottext">s :: CreateVocabularyResponse
+</span><a href="#local-6989586621679286067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286066"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVocabularyResponse
+</span><a href="#local-6989586621679286067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:CreateVocabularyResponse' :: Maybe Text
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AvocabularyName%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The date and time that the vocabulary was created.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_lastModifiedTime"><span class="hs-identifier hs-type">createVocabularyResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="createVocabularyResponse_lastModifiedTime"><span class="annot"><span class="annottext">createVocabularyResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateVocabularyResponse -&gt; f CreateVocabularyResponse
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_lastModifiedTime"><span class="hs-identifier hs-var hs-var">createVocabularyResponse_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVocabularyResponse -&gt; Maybe POSIX)
+-&gt; (CreateVocabularyResponse
+    -&gt; Maybe POSIX -&gt; CreateVocabularyResponse)
+-&gt; Lens
+     CreateVocabularyResponse
+     CreateVocabularyResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286065"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:CreateVocabularyResponse' :: CreateVocabularyResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679286065"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679286065"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286064"><span class="annot"><span class="annottext">s :: CreateVocabularyResponse
+</span><a href="#local-6989586621679286064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286063"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679286063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVocabularyResponse
+</span><a href="#local-6989586621679286064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CreateVocabularyResponse' :: Maybe POSIX
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AlastModifiedTime%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679286063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CreateVocabularyResponse -&gt; f CreateVocabularyResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateVocabularyResponse
+-&gt; f CreateVocabularyResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The processing state of the vocabulary. When the @VocabularyState@ field</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- contains @READY@ the vocabulary is ready to be used in a</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- @StartTranscriptionJob@ request.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_vocabularyState"><span class="hs-identifier hs-type">createVocabularyResponse_vocabularyState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.VocabularyState.html#VocabularyState"><span class="hs-identifier hs-type">VocabularyState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span id="createVocabularyResponse_vocabularyState"><span class="annot"><span class="annottext">createVocabularyResponse_vocabularyState :: (Maybe VocabularyState -&gt; f (Maybe VocabularyState))
+-&gt; CreateVocabularyResponse -&gt; f CreateVocabularyResponse
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_vocabularyState"><span class="hs-identifier hs-var hs-var">createVocabularyResponse_vocabularyState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVocabularyResponse -&gt; Maybe VocabularyState)
+-&gt; (CreateVocabularyResponse
+    -&gt; Maybe VocabularyState -&gt; CreateVocabularyResponse)
+-&gt; Lens
+     CreateVocabularyResponse
+     CreateVocabularyResponse
+     (Maybe VocabularyState)
+     (Maybe VocabularyState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286061"><span class="annot"><span class="annottext">Maybe VocabularyState
+vocabularyState :: Maybe VocabularyState
+$sel:vocabularyState:CreateVocabularyResponse' :: CreateVocabularyResponse -&gt; Maybe VocabularyState
+</span><a href="#local-6989586621679286061"><span class="hs-identifier hs-var hs-var">vocabularyState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679286061"><span class="hs-identifier hs-var">vocabularyState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286060"><span class="annot"><span class="annottext">s :: CreateVocabularyResponse
+</span><a href="#local-6989586621679286060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286059"><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679286059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVocabularyResponse
+</span><a href="#local-6989586621679286060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyState:CreateVocabularyResponse' :: Maybe VocabularyState
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AvocabularyState%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679286059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_httpStatus"><span class="hs-identifier hs-type">createVocabularyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-306"></span><span id="createVocabularyResponse_httpStatus"><span class="annot"><span class="annottext">createVocabularyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateVocabularyResponse -&gt; f CreateVocabularyResponse
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#createVocabularyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createVocabularyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVocabularyResponse -&gt; Int)
+-&gt; (CreateVocabularyResponse -&gt; Int -&gt; CreateVocabularyResponse)
+-&gt; Lens CreateVocabularyResponse CreateVocabularyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286058"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateVocabularyResponse' :: CreateVocabularyResponse -&gt; Int
+</span><a href="#local-6989586621679286058"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286058"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286057"><span class="annot"><span class="annottext">s :: CreateVocabularyResponse
+</span><a href="#local-6989586621679286057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse%27"><span class="hs-identifier hs-type">CreateVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286056"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVocabularyResponse
+</span><a href="#local-6989586621679286057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVocabularyResponse' :: Int
+</span><a href="Amazonka.Transcribe.CreateVocabulary.html#%24sel%3AhttpStatus%3ACreateVocabularyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.CreateVocabulary.html#CreateVocabularyResponse"><span class="hs-identifier hs-type">CreateVocabularyResponse</span></a></span></span><span>
+</span><span id="line-309"></span></pre></body></html>

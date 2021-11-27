@@ -1,0 +1,715 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Budgets.ExecuteBudgetAction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Executes a budget action.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Budgets.ExecuteBudgetAction</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier">ExecuteBudgetAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#newExecuteBudgetAction"><span class="hs-identifier">newExecuteBudgetAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetAction_accountId"><span class="hs-identifier">executeBudgetAction_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetAction_budgetName"><span class="hs-identifier">executeBudgetAction_budgetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetAction_actionId"><span class="hs-identifier">executeBudgetAction_actionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetAction_executionType"><span class="hs-identifier">executeBudgetAction_executionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier">ExecuteBudgetActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#newExecuteBudgetActionResponse"><span class="hs-identifier">newExecuteBudgetActionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_httpStatus"><span class="hs-identifier">executeBudgetActionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_accountId"><span class="hs-identifier">executeBudgetActionResponse_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_budgetName"><span class="hs-identifier">executeBudgetActionResponse_budgetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_actionId"><span class="hs-identifier">executeBudgetActionResponse_actionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_executionType"><span class="hs-identifier">executeBudgetActionResponse_executionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.html"><span class="hs-identifier">Amazonka.Budgets.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newExecuteBudgetAction' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679210292"><span id="local-6989586621679210293"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteBudgetAction"><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-var">ExecuteBudgetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteBudgetAction%27"><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-var">ExecuteBudgetAction'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AaccountId%3AExecuteBudgetAction%27"><span class="annot"><span class="annottext">ExecuteBudgetAction -&gt; Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AaccountId%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AbudgetName%3AExecuteBudgetAction%27"><span class="annot"><span class="annottext">ExecuteBudgetAction -&gt; Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AbudgetName%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A system-generated universally unique identifier (UUID) for the action.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AactionId%3AExecuteBudgetAction%27"><span class="annot"><span class="annottext">ExecuteBudgetAction -&gt; Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AactionId%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The type of execution.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AexecutionType%3AExecuteBudgetAction%27"><span class="annot"><span class="annottext">ExecuteBudgetAction -&gt; ExecutionType
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AexecutionType%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var hs-var">executionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.ExecutionType.html#ExecutionType"><span class="hs-identifier hs-type">ExecutionType</span></a></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210283"><span id="local-6989586621679210285"><span class="annot"><span class="annottext">ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool
+(ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool)
+-&gt; (ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool)
+-&gt; Eq ExecuteBudgetAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool
+$c/= :: ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool
+== :: ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool
+$c== :: ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210274"><span id="local-6989586621679210276"><span id="local-6989586621679210278"><span id="local-6989586621679210280"><span class="annot"><span class="annottext">ReadPrec [ExecuteBudgetAction]
+ReadPrec ExecuteBudgetAction
+Int -&gt; ReadS ExecuteBudgetAction
+ReadS [ExecuteBudgetAction]
+(Int -&gt; ReadS ExecuteBudgetAction)
+-&gt; ReadS [ExecuteBudgetAction]
+-&gt; ReadPrec ExecuteBudgetAction
+-&gt; ReadPrec [ExecuteBudgetAction]
+-&gt; Read ExecuteBudgetAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecuteBudgetAction]
+$creadListPrec :: ReadPrec [ExecuteBudgetAction]
+readPrec :: ReadPrec ExecuteBudgetAction
+$creadPrec :: ReadPrec ExecuteBudgetAction
+readList :: ReadS [ExecuteBudgetAction]
+$creadList :: ReadS [ExecuteBudgetAction]
+readsPrec :: Int -&gt; ReadS ExecuteBudgetAction
+$creadsPrec :: Int -&gt; ReadS ExecuteBudgetAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210267"><span id="local-6989586621679210269"><span id="local-6989586621679210271"><span class="annot"><span class="annottext">Int -&gt; ExecuteBudgetAction -&gt; ShowS
+[ExecuteBudgetAction] -&gt; ShowS
+ExecuteBudgetAction -&gt; String
+(Int -&gt; ExecuteBudgetAction -&gt; ShowS)
+-&gt; (ExecuteBudgetAction -&gt; String)
+-&gt; ([ExecuteBudgetAction] -&gt; ShowS)
+-&gt; Show ExecuteBudgetAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecuteBudgetAction] -&gt; ShowS
+$cshowList :: [ExecuteBudgetAction] -&gt; ShowS
+show :: ExecuteBudgetAction -&gt; String
+$cshow :: ExecuteBudgetAction -&gt; String
+showsPrec :: Int -&gt; ExecuteBudgetAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecuteBudgetAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExecuteBudgetAction -&gt; Rep ExecuteBudgetAction x)
+-&gt; (forall x. Rep ExecuteBudgetAction x -&gt; ExecuteBudgetAction)
+-&gt; Generic ExecuteBudgetAction
+forall x. Rep ExecuteBudgetAction x -&gt; ExecuteBudgetAction
+forall x. ExecuteBudgetAction -&gt; Rep ExecuteBudgetAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExecuteBudgetAction x -&gt; ExecuteBudgetAction
+$cfrom :: forall x. ExecuteBudgetAction -&gt; Rep ExecuteBudgetAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'ExecuteBudgetAction' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'accountId', 'executeBudgetAction_accountId' - Undocumented member.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'budgetName', 'executeBudgetAction_budgetName' - Undocumented member.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'actionId', 'executeBudgetAction_actionId' - A system-generated universally unique identifier (UUID) for the action.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'executionType', 'executeBudgetAction_executionType' - The type of execution.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#newExecuteBudgetAction"><span class="hs-identifier hs-type">newExecuteBudgetAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'budgetName'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'actionId'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'executionType'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.Budgets.Types.ExecutionType.html#ExecutionType"><span class="hs-identifier hs-type">ExecutionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span>
+</span><span id="line-91"></span><span id="newExecuteBudgetAction"><span class="annot"><span class="annottext">newExecuteBudgetAction :: Text -&gt; Text -&gt; Text -&gt; ExecutionType -&gt; ExecuteBudgetAction
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#newExecuteBudgetAction"><span class="hs-identifier hs-var hs-var">newExecuteBudgetAction</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679210262"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210262"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679210261"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210261"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679210260"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210260"><span class="hs-identifier hs-var">pActionId_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679210259"><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210259"><span class="hs-identifier hs-var">pExecutionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ExecuteBudgetAction' :: Text -&gt; Text -&gt; Text -&gt; ExecutionType -&gt; ExecuteBudgetAction
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:ExecuteBudgetAction' :: Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AaccountId%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210262"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:budgetName:ExecuteBudgetAction' :: Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AbudgetName%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210261"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:actionId:ExecuteBudgetAction' :: Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AactionId%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210260"><span class="hs-identifier hs-var">pActionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:executionType:ExecuteBudgetAction' :: ExecutionType
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AexecutionType%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">executionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210259"><span class="hs-identifier hs-var">pExecutionType_</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetAction_accountId"><span class="hs-identifier hs-type">executeBudgetAction_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="executeBudgetAction_accountId"><span class="annot"><span class="annottext">executeBudgetAction_accountId :: (Text -&gt; f Text) -&gt; ExecuteBudgetAction -&gt; f ExecuteBudgetAction
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetAction_accountId"><span class="hs-identifier hs-var hs-var">executeBudgetAction_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteBudgetAction -&gt; Text)
+-&gt; (ExecuteBudgetAction -&gt; Text -&gt; ExecuteBudgetAction)
+-&gt; Lens ExecuteBudgetAction ExecuteBudgetAction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210256"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
+</span><a href="#local-6989586621679210256"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210256"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210255"><span class="annot"><span class="annottext">s :: ExecuteBudgetAction
+</span><a href="#local-6989586621679210255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210254"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetAction
+</span><a href="#local-6989586621679210255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ExecuteBudgetAction' :: Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AaccountId%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetAction_budgetName"><span class="hs-identifier hs-type">executeBudgetAction_budgetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="executeBudgetAction_budgetName"><span class="annot"><span class="annottext">executeBudgetAction_budgetName :: (Text -&gt; f Text) -&gt; ExecuteBudgetAction -&gt; f ExecuteBudgetAction
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetAction_budgetName"><span class="hs-identifier hs-var hs-var">executeBudgetAction_budgetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteBudgetAction -&gt; Text)
+-&gt; (ExecuteBudgetAction -&gt; Text -&gt; ExecuteBudgetAction)
+-&gt; Lens ExecuteBudgetAction ExecuteBudgetAction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210253"><span class="annot"><span class="annottext">Text
+budgetName :: Text
+$sel:budgetName:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
+</span><a href="#local-6989586621679210253"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210253"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210252"><span class="annot"><span class="annottext">s :: ExecuteBudgetAction
+</span><a href="#local-6989586621679210252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210251"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetAction
+</span><a href="#local-6989586621679210252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:ExecuteBudgetAction' :: Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AbudgetName%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | A system-generated universally unique identifier (UUID) for the action.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetAction_actionId"><span class="hs-identifier hs-type">executeBudgetAction_actionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="executeBudgetAction_actionId"><span class="annot"><span class="annottext">executeBudgetAction_actionId :: (Text -&gt; f Text) -&gt; ExecuteBudgetAction -&gt; f ExecuteBudgetAction
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetAction_actionId"><span class="hs-identifier hs-var hs-var">executeBudgetAction_actionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteBudgetAction -&gt; Text)
+-&gt; (ExecuteBudgetAction -&gt; Text -&gt; ExecuteBudgetAction)
+-&gt; Lens ExecuteBudgetAction ExecuteBudgetAction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210250"><span class="annot"><span class="annottext">Text
+actionId :: Text
+$sel:actionId:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
+</span><a href="#local-6989586621679210250"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210250"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210249"><span class="annot"><span class="annottext">s :: ExecuteBudgetAction
+</span><a href="#local-6989586621679210249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210248"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetAction
+</span><a href="#local-6989586621679210249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:ExecuteBudgetAction' :: Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AactionId%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The type of execution.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetAction_executionType"><span class="hs-identifier hs-type">executeBudgetAction_executionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.ExecutionType.html#ExecutionType"><span class="hs-identifier hs-type">ExecutionType</span></a></span><span>
+</span><span id="line-117"></span><span id="executeBudgetAction_executionType"><span class="annot"><span class="annottext">executeBudgetAction_executionType :: (ExecutionType -&gt; f ExecutionType)
+-&gt; ExecuteBudgetAction -&gt; f ExecuteBudgetAction
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetAction_executionType"><span class="hs-identifier hs-var hs-var">executeBudgetAction_executionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteBudgetAction -&gt; ExecutionType)
+-&gt; (ExecuteBudgetAction -&gt; ExecutionType -&gt; ExecuteBudgetAction)
+-&gt; Lens
+     ExecuteBudgetAction ExecuteBudgetAction ExecutionType ExecutionType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210247"><span class="annot"><span class="annottext">ExecutionType
+executionType :: ExecutionType
+$sel:executionType:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; ExecutionType
+</span><a href="#local-6989586621679210247"><span class="hs-identifier hs-var hs-var">executionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210247"><span class="hs-identifier hs-var">executionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210246"><span class="annot"><span class="annottext">s :: ExecuteBudgetAction
+</span><a href="#local-6989586621679210246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210245"><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetAction
+</span><a href="#local-6989586621679210246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionType:ExecuteBudgetAction' :: ExecutionType
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AexecutionType%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">executionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679210241"><span class="annot"><span class="annottext">request :: ExecuteBudgetAction -&gt; Request ExecuteBudgetAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ExecuteBudgetAction -&gt; Request ExecuteBudgetAction
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Budgets.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679210237"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ExecuteBudgetAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ExecuteBudgetAction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ExecuteBudgetAction))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ExecuteBudgetAction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ExecuteBudgetAction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210234"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210234"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679210233"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679210233"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679210232"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210232"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ExecutionType
+-&gt; ExecuteBudgetActionResponse
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">ExecuteBudgetActionResponse'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; ExecutionType
+ -&gt; ExecuteBudgetActionResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text
+      -&gt; Text -&gt; Text -&gt; ExecutionType -&gt; ExecuteBudgetActionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210234"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text -&gt; Text -&gt; ExecutionType -&gt; ExecuteBudgetActionResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text -&gt; Text -&gt; ExecutionType -&gt; ExecuteBudgetActionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text -&gt; Text -&gt; ExecutionType -&gt; ExecuteBudgetActionResponse)
+-&gt; Either String Text
+-&gt; Either
+     String (Text -&gt; ExecutionType -&gt; ExecuteBudgetActionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BudgetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Text -&gt; ExecutionType -&gt; ExecuteBudgetActionResponse)
+-&gt; Either String Text
+-&gt; Either String (ExecutionType -&gt; ExecuteBudgetActionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Either String (ExecutionType -&gt; ExecuteBudgetActionResponse)
+-&gt; Either String ExecutionType
+-&gt; Either String ExecuteBudgetActionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ExecutionType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExecutionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210224"><span id="local-6989586621679210226"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679210217"><span class="annot"><span class="annottext">toHeaders :: ExecuteBudgetAction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ExecuteBudgetAction -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSBudgetServiceGateway.ExecuteBudgetAction&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-146"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-150"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210207"><span id="local-6989586621679210209"><span id="local-6989586621679210211"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679210205"><span class="annot"><span class="annottext">toJSON :: ExecuteBudgetAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210200"><span id="local-6989586621679210201"><span id="local-6989586621679210202"><span id="local-6989586621679210203"><span class="annot"><span class="annottext">Text
+ExecutionType
+executionType :: ExecutionType
+actionId :: Text
+budgetName :: Text
+accountId :: Text
+$sel:executionType:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; ExecutionType
+$sel:actionId:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
+$sel:budgetName:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
+$sel:accountId:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
+</span><a href="#local-6989586621679210200"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210203"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BudgetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210202"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210201"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExecutionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExecutionType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210200"><span class="hs-identifier hs-var">executionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679210194"><span class="annot"><span class="annottext">toPath :: ExecuteBudgetAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ExecuteBudgetAction -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679210190"><span class="annot"><span class="annottext">toQuery :: ExecuteBudgetAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ExecuteBudgetAction -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newExecuteBudgetActionResponse' smart constructor.</span><span>
+</span><span id="line-173"></span><span id="local-6989586621679210187"><span id="local-6989586621679210188"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteBudgetActionResponse"><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-var">ExecuteBudgetActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteBudgetActionResponse%27"><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">ExecuteBudgetActionResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3AExecuteBudgetActionResponse%27"><span class="annot"><span class="annottext">ExecuteBudgetActionResponse -&gt; Int
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AhttpStatus%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AaccountId%3AExecuteBudgetActionResponse%27"><span class="annot"><span class="annottext">ExecuteBudgetActionResponse -&gt; Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AaccountId%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AbudgetName%3AExecuteBudgetActionResponse%27"><span class="annot"><span class="annottext">ExecuteBudgetActionResponse -&gt; Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AbudgetName%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | A system-generated universally unique identifier (UUID) for the action.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AactionId%3AExecuteBudgetActionResponse%27"><span class="annot"><span class="annottext">ExecuteBudgetActionResponse -&gt; Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AactionId%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The type of execution.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AexecutionType%3AExecuteBudgetActionResponse%27"><span class="annot"><span class="annottext">ExecuteBudgetActionResponse -&gt; ExecutionType
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AexecutionType%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var hs-var">executionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.ExecutionType.html#ExecutionType"><span class="hs-identifier hs-type">ExecutionType</span></a></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210178"><span id="local-6989586621679210180"><span class="annot"><span class="annottext">ExecuteBudgetActionResponse -&gt; ExecuteBudgetActionResponse -&gt; Bool
+(ExecuteBudgetActionResponse
+ -&gt; ExecuteBudgetActionResponse -&gt; Bool)
+-&gt; (ExecuteBudgetActionResponse
+    -&gt; ExecuteBudgetActionResponse -&gt; Bool)
+-&gt; Eq ExecuteBudgetActionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecuteBudgetActionResponse -&gt; ExecuteBudgetActionResponse -&gt; Bool
+$c/= :: ExecuteBudgetActionResponse -&gt; ExecuteBudgetActionResponse -&gt; Bool
+== :: ExecuteBudgetActionResponse -&gt; ExecuteBudgetActionResponse -&gt; Bool
+$c== :: ExecuteBudgetActionResponse -&gt; ExecuteBudgetActionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210170"><span id="local-6989586621679210172"><span id="local-6989586621679210174"><span id="local-6989586621679210176"><span class="annot"><span class="annottext">ReadPrec [ExecuteBudgetActionResponse]
+ReadPrec ExecuteBudgetActionResponse
+Int -&gt; ReadS ExecuteBudgetActionResponse
+ReadS [ExecuteBudgetActionResponse]
+(Int -&gt; ReadS ExecuteBudgetActionResponse)
+-&gt; ReadS [ExecuteBudgetActionResponse]
+-&gt; ReadPrec ExecuteBudgetActionResponse
+-&gt; ReadPrec [ExecuteBudgetActionResponse]
+-&gt; Read ExecuteBudgetActionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecuteBudgetActionResponse]
+$creadListPrec :: ReadPrec [ExecuteBudgetActionResponse]
+readPrec :: ReadPrec ExecuteBudgetActionResponse
+$creadPrec :: ReadPrec ExecuteBudgetActionResponse
+readList :: ReadS [ExecuteBudgetActionResponse]
+$creadList :: ReadS [ExecuteBudgetActionResponse]
+readsPrec :: Int -&gt; ReadS ExecuteBudgetActionResponse
+$creadsPrec :: Int -&gt; ReadS ExecuteBudgetActionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210164"><span id="local-6989586621679210166"><span id="local-6989586621679210168"><span class="annot"><span class="annottext">Int -&gt; ExecuteBudgetActionResponse -&gt; ShowS
+[ExecuteBudgetActionResponse] -&gt; ShowS
+ExecuteBudgetActionResponse -&gt; String
+(Int -&gt; ExecuteBudgetActionResponse -&gt; ShowS)
+-&gt; (ExecuteBudgetActionResponse -&gt; String)
+-&gt; ([ExecuteBudgetActionResponse] -&gt; ShowS)
+-&gt; Show ExecuteBudgetActionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecuteBudgetActionResponse] -&gt; ShowS
+$cshowList :: [ExecuteBudgetActionResponse] -&gt; ShowS
+show :: ExecuteBudgetActionResponse -&gt; String
+$cshow :: ExecuteBudgetActionResponse -&gt; String
+showsPrec :: Int -&gt; ExecuteBudgetActionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecuteBudgetActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExecuteBudgetActionResponse -&gt; Rep ExecuteBudgetActionResponse x)
+-&gt; (forall x.
+    Rep ExecuteBudgetActionResponse x -&gt; ExecuteBudgetActionResponse)
+-&gt; Generic ExecuteBudgetActionResponse
+forall x.
+Rep ExecuteBudgetActionResponse x -&gt; ExecuteBudgetActionResponse
+forall x.
+ExecuteBudgetActionResponse -&gt; Rep ExecuteBudgetActionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExecuteBudgetActionResponse x -&gt; ExecuteBudgetActionResponse
+$cfrom :: forall x.
+ExecuteBudgetActionResponse -&gt; Rep ExecuteBudgetActionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Create a value of 'ExecuteBudgetActionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'executeBudgetActionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'accountId', 'executeBudgetActionResponse_accountId' - Undocumented member.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'budgetName', 'executeBudgetActionResponse_budgetName' - Undocumented member.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'actionId', 'executeBudgetActionResponse_actionId' - A system-generated universally unique identifier (UUID) for the action.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'executionType', 'executeBudgetActionResponse_executionType' - The type of execution.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#newExecuteBudgetActionResponse"><span class="hs-identifier hs-type">newExecuteBudgetActionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'budgetName'</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'actionId'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'executionType'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><a href="Amazonka.Budgets.Types.ExecutionType.html#ExecutionType"><span class="hs-identifier hs-type">ExecutionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newExecuteBudgetActionResponse"><span class="annot"><span class="annottext">newExecuteBudgetActionResponse :: Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ExecutionType
+-&gt; ExecuteBudgetActionResponse
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#newExecuteBudgetActionResponse"><span class="hs-identifier hs-var hs-var">newExecuteBudgetActionResponse</span></a></span></span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679210161"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210161"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679210160"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210160"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679210159"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210159"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679210158"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210158"><span class="hs-identifier hs-var">pActionId_</span></a></span></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679210157"><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210157"><span class="hs-identifier hs-var">pExecutionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse' :: Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ExecutionType
+-&gt; ExecuteBudgetActionResponse
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ExecuteBudgetActionResponse' :: Int
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AhttpStatus%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210161"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:accountId:ExecuteBudgetActionResponse' :: Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AaccountId%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210160"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:budgetName:ExecuteBudgetActionResponse' :: Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AbudgetName%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210159"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:actionId:ExecuteBudgetActionResponse' :: Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AactionId%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210158"><span class="hs-identifier hs-var">pActionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">$sel:executionType:ExecuteBudgetActionResponse' :: ExecutionType
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AexecutionType%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">executionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210157"><span class="hs-identifier hs-var">pExecutionType_</span></a></span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_httpStatus"><span class="hs-identifier hs-type">executeBudgetActionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-231"></span><span id="executeBudgetActionResponse_httpStatus"><span class="annot"><span class="annottext">executeBudgetActionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ExecuteBudgetActionResponse -&gt; f ExecuteBudgetActionResponse
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">executeBudgetActionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteBudgetActionResponse -&gt; Int)
+-&gt; (ExecuteBudgetActionResponse
+    -&gt; Int -&gt; ExecuteBudgetActionResponse)
+-&gt; Lens
+     ExecuteBudgetActionResponse ExecuteBudgetActionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210156"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt; Int
+</span><a href="#local-6989586621679210156"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210156"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210155"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210154"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExecuteBudgetActionResponse' :: Int
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AhttpStatus%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_accountId"><span class="hs-identifier hs-type">executeBudgetActionResponse_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-235"></span><span id="executeBudgetActionResponse_accountId"><span class="annot"><span class="annottext">executeBudgetActionResponse_accountId :: (Text -&gt; f Text)
+-&gt; ExecuteBudgetActionResponse -&gt; f ExecuteBudgetActionResponse
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_accountId"><span class="hs-identifier hs-var hs-var">executeBudgetActionResponse_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteBudgetActionResponse -&gt; Text)
+-&gt; (ExecuteBudgetActionResponse
+    -&gt; Text -&gt; ExecuteBudgetActionResponse)
+-&gt; Lens
+     ExecuteBudgetActionResponse ExecuteBudgetActionResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210153"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt; Text
+</span><a href="#local-6989586621679210153"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210153"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210152"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ExecuteBudgetActionResponse' :: Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AaccountId%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_budgetName"><span class="hs-identifier hs-type">executeBudgetActionResponse_budgetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-239"></span><span id="executeBudgetActionResponse_budgetName"><span class="annot"><span class="annottext">executeBudgetActionResponse_budgetName :: (Text -&gt; f Text)
+-&gt; ExecuteBudgetActionResponse -&gt; f ExecuteBudgetActionResponse
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_budgetName"><span class="hs-identifier hs-var hs-var">executeBudgetActionResponse_budgetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteBudgetActionResponse -&gt; Text)
+-&gt; (ExecuteBudgetActionResponse
+    -&gt; Text -&gt; ExecuteBudgetActionResponse)
+-&gt; Lens
+     ExecuteBudgetActionResponse ExecuteBudgetActionResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210150"><span class="annot"><span class="annottext">Text
+budgetName :: Text
+$sel:budgetName:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt; Text
+</span><a href="#local-6989586621679210150"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210150"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210149"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:ExecuteBudgetActionResponse' :: Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AbudgetName%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | A system-generated universally unique identifier (UUID) for the action.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_actionId"><span class="hs-identifier hs-type">executeBudgetActionResponse_actionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-243"></span><span id="executeBudgetActionResponse_actionId"><span class="annot"><span class="annottext">executeBudgetActionResponse_actionId :: (Text -&gt; f Text)
+-&gt; ExecuteBudgetActionResponse -&gt; f ExecuteBudgetActionResponse
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_actionId"><span class="hs-identifier hs-var hs-var">executeBudgetActionResponse_actionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteBudgetActionResponse -&gt; Text)
+-&gt; (ExecuteBudgetActionResponse
+    -&gt; Text -&gt; ExecuteBudgetActionResponse)
+-&gt; Lens
+     ExecuteBudgetActionResponse ExecuteBudgetActionResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210147"><span class="annot"><span class="annottext">Text
+actionId :: Text
+$sel:actionId:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt; Text
+</span><a href="#local-6989586621679210147"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210147"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210146"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210145"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:ExecuteBudgetActionResponse' :: Text
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AactionId%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The type of execution.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_executionType"><span class="hs-identifier hs-type">executeBudgetActionResponse_executionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.ExecutionType.html#ExecutionType"><span class="hs-identifier hs-type">ExecutionType</span></a></span><span>
+</span><span id="line-247"></span><span id="executeBudgetActionResponse_executionType"><span class="annot"><span class="annottext">executeBudgetActionResponse_executionType :: (ExecutionType -&gt; f ExecutionType)
+-&gt; ExecuteBudgetActionResponse -&gt; f ExecuteBudgetActionResponse
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_executionType"><span class="hs-identifier hs-var hs-var">executeBudgetActionResponse_executionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecuteBudgetActionResponse -&gt; ExecutionType)
+-&gt; (ExecuteBudgetActionResponse
+    -&gt; ExecutionType -&gt; ExecuteBudgetActionResponse)
+-&gt; Lens
+     ExecuteBudgetActionResponse
+     ExecuteBudgetActionResponse
+     ExecutionType
+     ExecutionType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210144"><span class="annot"><span class="annottext">ExecutionType
+executionType :: ExecutionType
+$sel:executionType:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt; ExecutionType
+</span><a href="#local-6989586621679210144"><span class="hs-identifier hs-var hs-var">executionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210144"><span class="hs-identifier hs-var">executionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210143"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210142"><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionType:ExecuteBudgetActionResponse' :: ExecutionType
+</span><a href="Amazonka.Budgets.ExecuteBudgetAction.html#%24sel%3AexecutionType%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">executionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210140"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span></span><span>
+</span><span id="line-250"></span></pre></body></html>

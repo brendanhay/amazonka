@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.StopNotebookInstance</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Terminates the ML compute instance. Before terminating the instance,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon SageMaker disconnects the ML storage volume from it. Amazon</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- SageMaker preserves the ML storage volume. Amazon SageMaker stops</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- charging you for the ML compute instance when you call</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @StopNotebookInstance@.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- To access data on the ML storage volume for a notebook instance that has</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- been terminated, call the @StartNotebookInstance@ API.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @StartNotebookInstance@ launches another ML compute instance, configures</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- it, and attaches the preserved ML storage volume so you can continue</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- your work.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.StopNotebookInstance</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier">StopNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#newStopNotebookInstance"><span class="hs-identifier">newStopNotebookInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#stopNotebookInstance_notebookInstanceName"><span class="hs-identifier">stopNotebookInstance_notebookInstanceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstanceResponse"><span class="hs-identifier">StopNotebookInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#newStopNotebookInstanceResponse"><span class="hs-identifier">newStopNotebookInstanceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newStopNotebookInstance' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621680367638"><span id="local-6989586621680367639"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopNotebookInstance"><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier hs-var">StopNotebookInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopNotebookInstance%27"><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance%27"><span class="hs-identifier hs-var">StopNotebookInstance'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the notebook instance to terminate.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnotebookInstanceName%3AStopNotebookInstance%27"><span class="annot"><span class="annottext">StopNotebookInstance -&gt; Text
+</span><a href="Amazonka.SageMaker.StopNotebookInstance.html#%24sel%3AnotebookInstanceName%3AStopNotebookInstance%27"><span class="hs-identifier hs-var hs-var">notebookInstanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680367632"><span id="local-6989586621680367634"><span class="annot"><span class="annottext">StopNotebookInstance -&gt; StopNotebookInstance -&gt; Bool
+(StopNotebookInstance -&gt; StopNotebookInstance -&gt; Bool)
+-&gt; (StopNotebookInstance -&gt; StopNotebookInstance -&gt; Bool)
+-&gt; Eq StopNotebookInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopNotebookInstance -&gt; StopNotebookInstance -&gt; Bool
+$c/= :: StopNotebookInstance -&gt; StopNotebookInstance -&gt; Bool
+== :: StopNotebookInstance -&gt; StopNotebookInstance -&gt; Bool
+$c== :: StopNotebookInstance -&gt; StopNotebookInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680367623"><span id="local-6989586621680367625"><span id="local-6989586621680367627"><span id="local-6989586621680367629"><span class="annot"><span class="annottext">ReadPrec [StopNotebookInstance]
+ReadPrec StopNotebookInstance
+Int -&gt; ReadS StopNotebookInstance
+ReadS [StopNotebookInstance]
+(Int -&gt; ReadS StopNotebookInstance)
+-&gt; ReadS [StopNotebookInstance]
+-&gt; ReadPrec StopNotebookInstance
+-&gt; ReadPrec [StopNotebookInstance]
+-&gt; Read StopNotebookInstance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopNotebookInstance]
+$creadListPrec :: ReadPrec [StopNotebookInstance]
+readPrec :: ReadPrec StopNotebookInstance
+$creadPrec :: ReadPrec StopNotebookInstance
+readList :: ReadS [StopNotebookInstance]
+$creadList :: ReadS [StopNotebookInstance]
+readsPrec :: Int -&gt; ReadS StopNotebookInstance
+$creadsPrec :: Int -&gt; ReadS StopNotebookInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680367616"><span id="local-6989586621680367618"><span id="local-6989586621680367620"><span class="annot"><span class="annottext">Int -&gt; StopNotebookInstance -&gt; ShowS
+[StopNotebookInstance] -&gt; ShowS
+StopNotebookInstance -&gt; String
+(Int -&gt; StopNotebookInstance -&gt; ShowS)
+-&gt; (StopNotebookInstance -&gt; String)
+-&gt; ([StopNotebookInstance] -&gt; ShowS)
+-&gt; Show StopNotebookInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopNotebookInstance] -&gt; ShowS
+$cshowList :: [StopNotebookInstance] -&gt; ShowS
+show :: StopNotebookInstance -&gt; String
+$cshow :: StopNotebookInstance -&gt; String
+showsPrec :: Int -&gt; StopNotebookInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopNotebookInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopNotebookInstance -&gt; Rep StopNotebookInstance x)
+-&gt; (forall x. Rep StopNotebookInstance x -&gt; StopNotebookInstance)
+-&gt; Generic StopNotebookInstance
+forall x. Rep StopNotebookInstance x -&gt; StopNotebookInstance
+forall x. StopNotebookInstance -&gt; Rep StopNotebookInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopNotebookInstance x -&gt; StopNotebookInstance
+$cfrom :: forall x. StopNotebookInstance -&gt; Rep StopNotebookInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'StopNotebookInstance' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'notebookInstanceName', 'stopNotebookInstance_notebookInstanceName' - The name of the notebook instance to terminate.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#newStopNotebookInstance"><span class="hs-identifier hs-type">newStopNotebookInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'notebookInstanceName'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier hs-type">StopNotebookInstance</span></a></span><span>
+</span><span id="line-75"></span><span id="newStopNotebookInstance"><span class="annot"><span class="annottext">newStopNotebookInstance :: Text -&gt; StopNotebookInstance
+</span><a href="Amazonka.SageMaker.StopNotebookInstance.html#newStopNotebookInstance"><span class="hs-identifier hs-var hs-var">newStopNotebookInstance</span></a></span></span><span> </span><span id="local-6989586621680367611"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680367611"><span class="hs-identifier hs-var">pNotebookInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">StopNotebookInstance' :: Text -&gt; StopNotebookInstance
+</span><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance%27"><span class="hs-identifier hs-type">StopNotebookInstance'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notebookInstanceName:StopNotebookInstance' :: Text
+</span><a href="Amazonka.SageMaker.StopNotebookInstance.html#%24sel%3AnotebookInstanceName%3AStopNotebookInstance%27"><span class="hs-identifier hs-var">notebookInstanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680367611"><span class="hs-identifier hs-var">pNotebookInstanceName_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The name of the notebook instance to terminate.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#stopNotebookInstance_notebookInstanceName"><span class="hs-identifier hs-type">stopNotebookInstance_notebookInstanceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier hs-type">StopNotebookInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="stopNotebookInstance_notebookInstanceName"><span class="annot"><span class="annottext">stopNotebookInstance_notebookInstanceName :: (Text -&gt; f Text) -&gt; StopNotebookInstance -&gt; f StopNotebookInstance
+</span><a href="Amazonka.SageMaker.StopNotebookInstance.html#stopNotebookInstance_notebookInstanceName"><span class="hs-identifier hs-var hs-var">stopNotebookInstance_notebookInstanceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopNotebookInstance -&gt; Text)
+-&gt; (StopNotebookInstance -&gt; Text -&gt; StopNotebookInstance)
+-&gt; Lens StopNotebookInstance StopNotebookInstance Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance%27"><span class="hs-identifier hs-type">StopNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680367608"><span class="annot"><span class="annottext">Text
+notebookInstanceName :: Text
+$sel:notebookInstanceName:StopNotebookInstance' :: StopNotebookInstance -&gt; Text
+</span><a href="#local-6989586621680367608"><span class="hs-identifier hs-var hs-var">notebookInstanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680367608"><span class="hs-identifier hs-var">notebookInstanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680367607"><span class="annot"><span class="annottext">s :: StopNotebookInstance
+</span><a href="#local-6989586621680367607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance%27"><span class="hs-identifier hs-type">StopNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680367606"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680367606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopNotebookInstance
+</span><a href="#local-6989586621680367607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notebookInstanceName:StopNotebookInstance' :: Text
+</span><a href="Amazonka.SageMaker.StopNotebookInstance.html#%24sel%3AnotebookInstanceName%3AStopNotebookInstance%27"><span class="hs-identifier hs-var">notebookInstanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680367606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier hs-type">StopNotebookInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier hs-type">StopNotebookInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier hs-type">StopNotebookInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstanceResponse"><span class="hs-identifier hs-type">StopNotebookInstanceResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680367602"><span class="annot"><span class="annottext">request :: StopNotebookInstance -&gt; Request StopNotebookInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopNotebookInstance -&gt; Request StopNotebookInstance
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621680367598"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopNotebookInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StopNotebookInstance)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse StopNotebookInstance
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopNotebookInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StopNotebookInstance)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse StopNotebookInstance
+StopNotebookInstanceResponse
+</span><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstanceResponse%27"><span class="hs-identifier hs-var">StopNotebookInstanceResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680367591"><span id="local-6989586621680367593"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier hs-type">StopNotebookInstance</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680367588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier hs-type">StopNotebookInstance</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier hs-type">StopNotebookInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621680367584"><span class="annot"><span class="annottext">toHeaders :: StopNotebookInstance -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; StopNotebookInstance -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.StopNotebookInstance&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-108"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680367574"><span id="local-6989586621680367576"><span id="local-6989586621680367578"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier hs-type">StopNotebookInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621680367572"><span class="annot"><span class="annottext">toJSON :: StopNotebookInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance%27"><span class="hs-identifier hs-type">StopNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680367570"><span class="annot"><span class="annottext">Text
+notebookInstanceName :: Text
+$sel:notebookInstanceName:StopNotebookInstance' :: StopNotebookInstance -&gt; Text
+</span><a href="#local-6989586621680367570"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotebookInstanceName&quot;</span></span><span>
+</span><span id="line-118"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680367570"><span class="hs-identifier hs-var">notebookInstanceName</span></a></span><span>
+</span><span id="line-119"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier hs-type">StopNotebookInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621680367564"><span class="annot"><span class="annottext">toPath :: StopNotebookInstance -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopNotebookInstance -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstance"><span class="hs-identifier hs-type">StopNotebookInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621680367560"><span class="annot"><span class="annottext">toQuery :: StopNotebookInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopNotebookInstance -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newStopNotebookInstanceResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621680367557"><span id="local-6989586621680367558"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopNotebookInstanceResponse"><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstanceResponse"><span class="hs-identifier hs-var">StopNotebookInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopNotebookInstanceResponse%27"><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstanceResponse%27"><span class="hs-identifier hs-var">StopNotebookInstanceResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680367553"><span id="local-6989586621680367555"><span class="annot"><span class="annottext">StopNotebookInstanceResponse
+-&gt; StopNotebookInstanceResponse -&gt; Bool
+(StopNotebookInstanceResponse
+ -&gt; StopNotebookInstanceResponse -&gt; Bool)
+-&gt; (StopNotebookInstanceResponse
+    -&gt; StopNotebookInstanceResponse -&gt; Bool)
+-&gt; Eq StopNotebookInstanceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopNotebookInstanceResponse
+-&gt; StopNotebookInstanceResponse -&gt; Bool
+$c/= :: StopNotebookInstanceResponse
+-&gt; StopNotebookInstanceResponse -&gt; Bool
+== :: StopNotebookInstanceResponse
+-&gt; StopNotebookInstanceResponse -&gt; Bool
+$c== :: StopNotebookInstanceResponse
+-&gt; StopNotebookInstanceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680367545"><span id="local-6989586621680367547"><span id="local-6989586621680367549"><span id="local-6989586621680367551"><span class="annot"><span class="annottext">ReadPrec [StopNotebookInstanceResponse]
+ReadPrec StopNotebookInstanceResponse
+Int -&gt; ReadS StopNotebookInstanceResponse
+ReadS [StopNotebookInstanceResponse]
+(Int -&gt; ReadS StopNotebookInstanceResponse)
+-&gt; ReadS [StopNotebookInstanceResponse]
+-&gt; ReadPrec StopNotebookInstanceResponse
+-&gt; ReadPrec [StopNotebookInstanceResponse]
+-&gt; Read StopNotebookInstanceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopNotebookInstanceResponse]
+$creadListPrec :: ReadPrec [StopNotebookInstanceResponse]
+readPrec :: ReadPrec StopNotebookInstanceResponse
+$creadPrec :: ReadPrec StopNotebookInstanceResponse
+readList :: ReadS [StopNotebookInstanceResponse]
+$creadList :: ReadS [StopNotebookInstanceResponse]
+readsPrec :: Int -&gt; ReadS StopNotebookInstanceResponse
+$creadsPrec :: Int -&gt; ReadS StopNotebookInstanceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680367539"><span id="local-6989586621680367541"><span id="local-6989586621680367543"><span class="annot"><span class="annottext">Int -&gt; StopNotebookInstanceResponse -&gt; ShowS
+[StopNotebookInstanceResponse] -&gt; ShowS
+StopNotebookInstanceResponse -&gt; String
+(Int -&gt; StopNotebookInstanceResponse -&gt; ShowS)
+-&gt; (StopNotebookInstanceResponse -&gt; String)
+-&gt; ([StopNotebookInstanceResponse] -&gt; ShowS)
+-&gt; Show StopNotebookInstanceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopNotebookInstanceResponse] -&gt; ShowS
+$cshowList :: [StopNotebookInstanceResponse] -&gt; ShowS
+show :: StopNotebookInstanceResponse -&gt; String
+$cshow :: StopNotebookInstanceResponse -&gt; String
+showsPrec :: Int -&gt; StopNotebookInstanceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopNotebookInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StopNotebookInstanceResponse -&gt; Rep StopNotebookInstanceResponse x)
+-&gt; (forall x.
+    Rep StopNotebookInstanceResponse x -&gt; StopNotebookInstanceResponse)
+-&gt; Generic StopNotebookInstanceResponse
+forall x.
+Rep StopNotebookInstanceResponse x -&gt; StopNotebookInstanceResponse
+forall x.
+StopNotebookInstanceResponse -&gt; Rep StopNotebookInstanceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StopNotebookInstanceResponse x -&gt; StopNotebookInstanceResponse
+$cfrom :: forall x.
+StopNotebookInstanceResponse -&gt; Rep StopNotebookInstanceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Create a value of 'StopNotebookInstanceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#newStopNotebookInstanceResponse"><span class="hs-identifier hs-type">newStopNotebookInstanceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstanceResponse"><span class="hs-identifier hs-type">StopNotebookInstanceResponse</span></a></span><span>
+</span><span id="line-141"></span><span id="newStopNotebookInstanceResponse"><span class="annot"><span class="annottext">newStopNotebookInstanceResponse :: StopNotebookInstanceResponse
+</span><a href="Amazonka.SageMaker.StopNotebookInstance.html#newStopNotebookInstanceResponse"><span class="hs-identifier hs-var hs-var">newStopNotebookInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">StopNotebookInstanceResponse
+</span><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstanceResponse%27"><span class="hs-identifier hs-var">StopNotebookInstanceResponse'</span></a></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680367535"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.StopNotebookInstance.html#StopNotebookInstanceResponse"><span class="hs-identifier hs-type">StopNotebookInstanceResponse</span></a></span></span><span>
+</span><span id="line-145"></span></pre></body></html>

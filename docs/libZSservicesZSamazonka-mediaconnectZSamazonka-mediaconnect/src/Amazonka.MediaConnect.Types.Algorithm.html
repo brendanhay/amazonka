@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConnect.Types.Algorithm</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConnect.Types.Algorithm</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm"><span class="hs-identifier">Algorithm</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm_Aes128"><span class="hs-identifier">Algorithm_Aes128</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm_Aes192"><span class="hs-identifier">Algorithm_Aes192</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm_Aes256"><span class="hs-identifier">Algorithm_Aes256</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679264601"><span id="local-6989586621679264602"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Algorithm"><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm"><span class="hs-identifier hs-var">Algorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Algorithm%27"><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm%27"><span class="hs-identifier hs-var">Algorithm'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAlgorithm"><span class="annot"><span class="annottext">Algorithm -&gt; Text
+</span><a href="Amazonka.MediaConnect.Types.Algorithm.html#fromAlgorithm"><span class="hs-identifier hs-var hs-var">fromAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679264593"><span id="local-6989586621679264595"><span id="local-6989586621679264597"><span class="annot"><span class="annottext">Int -&gt; Algorithm -&gt; ShowS
+[Algorithm] -&gt; ShowS
+Algorithm -&gt; String
+(Int -&gt; Algorithm -&gt; ShowS)
+-&gt; (Algorithm -&gt; String)
+-&gt; ([Algorithm] -&gt; ShowS)
+-&gt; Show Algorithm
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Algorithm] -&gt; ShowS
+$cshowList :: [Algorithm] -&gt; ShowS
+show :: Algorithm -&gt; String
+$cshow :: Algorithm -&gt; String
+showsPrec :: Int -&gt; Algorithm -&gt; ShowS
+$cshowsPrec :: Int -&gt; Algorithm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679264584"><span id="local-6989586621679264586"><span id="local-6989586621679264588"><span id="local-6989586621679264590"><span class="annot"><span class="annottext">ReadPrec [Algorithm]
+ReadPrec Algorithm
+Int -&gt; ReadS Algorithm
+ReadS [Algorithm]
+(Int -&gt; ReadS Algorithm)
+-&gt; ReadS [Algorithm]
+-&gt; ReadPrec Algorithm
+-&gt; ReadPrec [Algorithm]
+-&gt; Read Algorithm
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Algorithm]
+$creadListPrec :: ReadPrec [Algorithm]
+readPrec :: ReadPrec Algorithm
+$creadPrec :: ReadPrec Algorithm
+readList :: ReadS [Algorithm]
+$creadList :: ReadS [Algorithm]
+readsPrec :: Int -&gt; ReadS Algorithm
+$creadsPrec :: Int -&gt; ReadS Algorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679264579"><span id="local-6989586621679264581"><span class="annot"><span class="annottext">Algorithm -&gt; Algorithm -&gt; Bool
+(Algorithm -&gt; Algorithm -&gt; Bool)
+-&gt; (Algorithm -&gt; Algorithm -&gt; Bool) -&gt; Eq Algorithm
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Algorithm -&gt; Algorithm -&gt; Bool
+$c/= :: Algorithm -&gt; Algorithm -&gt; Bool
+== :: Algorithm -&gt; Algorithm -&gt; Bool
+$c== :: Algorithm -&gt; Algorithm -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679264563"><span id="local-6989586621679264565"><span id="local-6989586621679264567"><span id="local-6989586621679264569"><span id="local-6989586621679264571"><span id="local-6989586621679264573"><span id="local-6989586621679264575"><span class="annot"><span class="annottext">Eq Algorithm
+Eq Algorithm
+-&gt; (Algorithm -&gt; Algorithm -&gt; Ordering)
+-&gt; (Algorithm -&gt; Algorithm -&gt; Bool)
+-&gt; (Algorithm -&gt; Algorithm -&gt; Bool)
+-&gt; (Algorithm -&gt; Algorithm -&gt; Bool)
+-&gt; (Algorithm -&gt; Algorithm -&gt; Bool)
+-&gt; (Algorithm -&gt; Algorithm -&gt; Algorithm)
+-&gt; (Algorithm -&gt; Algorithm -&gt; Algorithm)
+-&gt; Ord Algorithm
+Algorithm -&gt; Algorithm -&gt; Bool
+Algorithm -&gt; Algorithm -&gt; Ordering
+Algorithm -&gt; Algorithm -&gt; Algorithm
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Algorithm -&gt; Algorithm -&gt; Algorithm
+$cmin :: Algorithm -&gt; Algorithm -&gt; Algorithm
+max :: Algorithm -&gt; Algorithm -&gt; Algorithm
+$cmax :: Algorithm -&gt; Algorithm -&gt; Algorithm
+&gt;= :: Algorithm -&gt; Algorithm -&gt; Bool
+$c&gt;= :: Algorithm -&gt; Algorithm -&gt; Bool
+&gt; :: Algorithm -&gt; Algorithm -&gt; Bool
+$c&gt; :: Algorithm -&gt; Algorithm -&gt; Bool
+&lt;= :: Algorithm -&gt; Algorithm -&gt; Bool
+$c&lt;= :: Algorithm -&gt; Algorithm -&gt; Bool
+&lt; :: Algorithm -&gt; Algorithm -&gt; Bool
+$c&lt; :: Algorithm -&gt; Algorithm -&gt; Bool
+compare :: Algorithm -&gt; Algorithm -&gt; Ordering
+$ccompare :: Algorithm -&gt; Algorithm -&gt; Ordering
+$cp1Ord :: Eq Algorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Algorithm -&gt; Rep Algorithm x)
+-&gt; (forall x. Rep Algorithm x -&gt; Algorithm) -&gt; Generic Algorithm
+forall x. Rep Algorithm x -&gt; Algorithm
+forall x. Algorithm -&gt; Rep Algorithm x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Algorithm x -&gt; Algorithm
+$cfrom :: forall x. Algorithm -&gt; Rep Algorithm x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679264555"><span id="local-6989586621679264557"><span class="annot"><span class="annottext">Int -&gt; Algorithm -&gt; Int
+Algorithm -&gt; Int
+(Int -&gt; Algorithm -&gt; Int)
+-&gt; (Algorithm -&gt; Int) -&gt; Hashable Algorithm
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Algorithm -&gt; Int
+$chash :: Algorithm -&gt; Int
+hashWithSalt :: Int -&gt; Algorithm -&gt; Int
+$chashWithSalt :: Int -&gt; Algorithm -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679264552"><span class="annot"><span class="annottext">Algorithm -&gt; ()
+(Algorithm -&gt; ()) -&gt; NFData Algorithm
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Algorithm -&gt; ()
+$crnf :: Algorithm -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679264549"><span class="annot"><span class="annottext">Text -&gt; Either String Algorithm
+(Text -&gt; Either String Algorithm) -&gt; FromText Algorithm
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Algorithm
+$cfromText :: Text -&gt; Either String Algorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679264546"><span class="annot"><span class="annottext">Algorithm -&gt; Text
+(Algorithm -&gt; Text) -&gt; ToText Algorithm
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Algorithm -&gt; Text
+$ctoText :: Algorithm -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679264543"><span class="annot"><span class="annottext">Algorithm -&gt; ByteString
+(Algorithm -&gt; ByteString) -&gt; ToByteString Algorithm
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Algorithm -&gt; ByteString
+$ctoBS :: Algorithm -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679264540"><span class="annot"><span class="annottext">Algorithm -&gt; ByteStringBuilder
+(Algorithm -&gt; ByteStringBuilder) -&gt; ToLog Algorithm
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Algorithm -&gt; ByteStringBuilder
+$cbuild :: Algorithm -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679264537"><span class="annot"><span class="annottext">HeaderName -&gt; Algorithm -&gt; [Header]
+(HeaderName -&gt; Algorithm -&gt; [Header]) -&gt; ToHeader Algorithm
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Algorithm -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Algorithm -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679264534"><span class="annot"><span class="annottext">Algorithm -&gt; QueryString
+(Algorithm -&gt; QueryString) -&gt; ToQuery Algorithm
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Algorithm -&gt; QueryString
+$ctoQuery :: Algorithm -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679264529"><span id="local-6989586621679264531"><span class="annot"><span class="annottext">Value -&gt; Parser [Algorithm]
+Value -&gt; Parser Algorithm
+(Value -&gt; Parser Algorithm)
+-&gt; (Value -&gt; Parser [Algorithm]) -&gt; FromJSON Algorithm
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Algorithm]
+$cparseJSONList :: Value -&gt; Parser [Algorithm]
+parseJSON :: Value -&gt; Parser Algorithm
+$cparseJSON :: Value -&gt; Parser Algorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679264524"><span id="local-6989586621679264526"><span class="annot"><span class="annottext">FromJSONKeyFunction [Algorithm]
+FromJSONKeyFunction Algorithm
+FromJSONKeyFunction Algorithm
+-&gt; FromJSONKeyFunction [Algorithm] -&gt; FromJSONKey Algorithm
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Algorithm]
+$cfromJSONKeyList :: FromJSONKeyFunction [Algorithm]
+fromJSONKey :: FromJSONKeyFunction Algorithm
+$cfromJSONKey :: FromJSONKeyFunction Algorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679264515"><span id="local-6989586621679264517"><span id="local-6989586621679264519"><span id="local-6989586621679264521"><span class="annot"><span class="annottext">[Algorithm] -&gt; Encoding
+[Algorithm] -&gt; Value
+Algorithm -&gt; Encoding
+Algorithm -&gt; Value
+(Algorithm -&gt; Value)
+-&gt; (Algorithm -&gt; Encoding)
+-&gt; ([Algorithm] -&gt; Value)
+-&gt; ([Algorithm] -&gt; Encoding)
+-&gt; ToJSON Algorithm
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Algorithm] -&gt; Encoding
+$ctoEncodingList :: [Algorithm] -&gt; Encoding
+toJSONList :: [Algorithm] -&gt; Value
+$ctoJSONList :: [Algorithm] -&gt; Value
+toEncoding :: Algorithm -&gt; Encoding
+$ctoEncoding :: Algorithm -&gt; Encoding
+toJSON :: Algorithm -&gt; Value
+$ctoJSON :: Algorithm -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679264510"><span id="local-6989586621679264512"><span class="annot"><span class="annottext">ToJSONKeyFunction [Algorithm]
+ToJSONKeyFunction Algorithm
+ToJSONKeyFunction Algorithm
+-&gt; ToJSONKeyFunction [Algorithm] -&gt; ToJSONKey Algorithm
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Algorithm]
+$ctoJSONKeyList :: ToJSONKeyFunction [Algorithm]
+toJSONKey :: ToJSONKeyFunction Algorithm
+$ctoJSONKey :: ToJSONKeyFunction Algorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679264507"><span class="annot"><span class="annottext">[Node] -&gt; Either String Algorithm
+([Node] -&gt; Either String Algorithm) -&gt; FromXML Algorithm
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Algorithm
+$cparseXML :: [Node] -&gt; Either String Algorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679264504"><span class="annot"><span class="annottext">Algorithm -&gt; XML
+(Algorithm -&gt; XML) -&gt; ToXML Algorithm
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Algorithm -&gt; XML
+$ctoXML :: Algorithm -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm_Aes128"><span class="hs-identifier hs-type">Algorithm_Aes128</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlgorithm_Aes128"><span id="%24mAlgorithm_Aes128"><span id="Algorithm_Aes128"><span class="annot"><span class="annottext">$bAlgorithm_Aes128 :: Algorithm
+$mAlgorithm_Aes128 :: forall r. Algorithm -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConnect.Types.Algorithm.html#%24bAlgorithm_Aes128"><span class="hs-identifier hs-var hs-var hs-var">Algorithm_Aes128</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm%27"><span class="hs-identifier hs-type">Algorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;aes128&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm_Aes192"><span class="hs-identifier hs-type">Algorithm_Aes192</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlgorithm_Aes192"><span id="%24mAlgorithm_Aes192"><span id="Algorithm_Aes192"><span class="annot"><span class="annottext">$bAlgorithm_Aes192 :: Algorithm
+$mAlgorithm_Aes192 :: forall r. Algorithm -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConnect.Types.Algorithm.html#%24bAlgorithm_Aes192"><span class="hs-identifier hs-var hs-var hs-var">Algorithm_Aes192</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm%27"><span class="hs-identifier hs-type">Algorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;aes192&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm_Aes256"><span class="hs-identifier hs-type">Algorithm_Aes256</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlgorithm_Aes256"><span id="%24mAlgorithm_Aes256"><span id="Algorithm_Aes256"><span class="annot"><span class="annottext">$bAlgorithm_Aes256 :: Algorithm
+$mAlgorithm_Aes256 :: forall r. Algorithm -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConnect.Types.Algorithm.html#%24bAlgorithm_Aes256"><span class="hs-identifier hs-var hs-var hs-var">Algorithm_Aes256</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm%27"><span class="hs-identifier hs-type">Algorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;aes256&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm_Aes128"><span class="hs-pragma hs-type">Algorithm_Aes128</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm_Aes192"><span class="hs-pragma hs-type">Algorithm_Aes192</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm_Aes256"><span class="hs-pragma hs-type">Algorithm_Aes256</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Algorithm.html#Algorithm%27"><span class="hs-pragma hs-type">Algorithm'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

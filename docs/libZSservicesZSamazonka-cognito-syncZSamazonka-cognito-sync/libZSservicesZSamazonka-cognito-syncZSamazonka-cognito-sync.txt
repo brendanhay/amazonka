@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.CognitoSync.Types.BulkPublishStatus
+module Amazonka.CognitoSync.Types.BulkPublishStatus
 newtype BulkPublishStatus
 BulkPublishStatus' :: Text -> BulkPublishStatus
 [fromBulkPublishStatus] :: BulkPublishStatus -> Text
@@ -13,28 +13,28 @@ pattern BulkPublishStatus_FAILED :: BulkPublishStatus
 pattern BulkPublishStatus_IN_PROGRESS :: BulkPublishStatus
 pattern BulkPublishStatus_NOT_STARTED :: BulkPublishStatus
 pattern BulkPublishStatus_SUCCEEDED :: BulkPublishStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance GHC.Classes.Ord Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance GHC.Classes.Eq Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance GHC.Read.Read Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
-instance GHC.Show.Show Network.AWS.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Amazonka.Data.XML.ToXML Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Amazonka.Data.Log.ToLog Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Amazonka.Data.Text.ToText Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Amazonka.Data.Text.FromText Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance GHC.Generics.Generic Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance GHC.Classes.Ord Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance GHC.Classes.Eq Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance GHC.Read.Read Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
+instance GHC.Show.Show Amazonka.CognitoSync.Types.BulkPublishStatus.BulkPublishStatus
 
 
-module Network.AWS.CognitoSync.Types.Dataset
+module Amazonka.CognitoSync.Types.Dataset
 
 -- | A collection of data for an identity pool. An identity pool can have
 --   multiple datasets. A dataset is per identity and can be general or
@@ -127,16 +127,16 @@ dataset_lastModifiedBy :: Lens' Dataset (Maybe Text)
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
 dataset_identityId :: Lens' Dataset (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.Dataset.Dataset
-instance GHC.Show.Show Network.AWS.CognitoSync.Types.Dataset.Dataset
-instance GHC.Read.Read Network.AWS.CognitoSync.Types.Dataset.Dataset
-instance GHC.Classes.Eq Network.AWS.CognitoSync.Types.Dataset.Dataset
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoSync.Types.Dataset.Dataset
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.Types.Dataset.Dataset
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.Types.Dataset.Dataset
+instance GHC.Generics.Generic Amazonka.CognitoSync.Types.Dataset.Dataset
+instance GHC.Show.Show Amazonka.CognitoSync.Types.Dataset.Dataset
+instance GHC.Read.Read Amazonka.CognitoSync.Types.Dataset.Dataset
+instance GHC.Classes.Eq Amazonka.CognitoSync.Types.Dataset.Dataset
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoSync.Types.Dataset.Dataset
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.Types.Dataset.Dataset
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.Types.Dataset.Dataset
 
 
-module Network.AWS.CognitoSync.Types.IdentityPoolUsage
+module Amazonka.CognitoSync.Types.IdentityPoolUsage
 
 -- | Usage information for the identity pool.
 --   
@@ -198,16 +198,16 @@ identityPoolUsage_dataStorage :: Lens' IdentityPoolUsage (Maybe Integer)
 
 -- | Number of sync sessions for the identity pool.
 identityPoolUsage_syncSessionsCount :: Lens' IdentityPoolUsage (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
-instance GHC.Show.Show Network.AWS.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
-instance GHC.Read.Read Network.AWS.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
-instance GHC.Classes.Eq Network.AWS.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
+instance GHC.Generics.Generic Amazonka.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
+instance GHC.Show.Show Amazonka.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
+instance GHC.Read.Read Amazonka.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
+instance GHC.Classes.Eq Amazonka.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
 
 
-module Network.AWS.CognitoSync.Types.IdentityUsage
+module Amazonka.CognitoSync.Types.IdentityUsage
 
 -- | Usage information for the identity.
 --   
@@ -284,43 +284,43 @@ identityUsage_dataStorage :: Lens' IdentityUsage (Maybe Integer)
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
 identityUsage_identityId :: Lens' IdentityUsage (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.IdentityUsage.IdentityUsage
-instance GHC.Show.Show Network.AWS.CognitoSync.Types.IdentityUsage.IdentityUsage
-instance GHC.Read.Read Network.AWS.CognitoSync.Types.IdentityUsage.IdentityUsage
-instance GHC.Classes.Eq Network.AWS.CognitoSync.Types.IdentityUsage.IdentityUsage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoSync.Types.IdentityUsage.IdentityUsage
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.Types.IdentityUsage.IdentityUsage
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.Types.IdentityUsage.IdentityUsage
+instance GHC.Generics.Generic Amazonka.CognitoSync.Types.IdentityUsage.IdentityUsage
+instance GHC.Show.Show Amazonka.CognitoSync.Types.IdentityUsage.IdentityUsage
+instance GHC.Read.Read Amazonka.CognitoSync.Types.IdentityUsage.IdentityUsage
+instance GHC.Classes.Eq Amazonka.CognitoSync.Types.IdentityUsage.IdentityUsage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoSync.Types.IdentityUsage.IdentityUsage
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.Types.IdentityUsage.IdentityUsage
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.Types.IdentityUsage.IdentityUsage
 
 
-module Network.AWS.CognitoSync.Types.Operation
+module Amazonka.CognitoSync.Types.Operation
 newtype Operation
 Operation' :: Text -> Operation
 [fromOperation] :: Operation -> Text
 pattern Operation_Remove :: Operation
 pattern Operation_Replace :: Operation
-instance Network.AWS.Data.XML.ToXML Network.AWS.CognitoSync.Types.Operation.Operation
-instance Network.AWS.Data.XML.FromXML Network.AWS.CognitoSync.Types.Operation.Operation
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CognitoSync.Types.Operation.Operation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.Types.Operation.Operation
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CognitoSync.Types.Operation.Operation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoSync.Types.Operation.Operation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.Types.Operation.Operation
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CognitoSync.Types.Operation.Operation
-instance Network.AWS.Data.Log.ToLog Network.AWS.CognitoSync.Types.Operation.Operation
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CognitoSync.Types.Operation.Operation
-instance Network.AWS.Data.Text.ToText Network.AWS.CognitoSync.Types.Operation.Operation
-instance Network.AWS.Data.Text.FromText Network.AWS.CognitoSync.Types.Operation.Operation
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.Types.Operation.Operation
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.Types.Operation.Operation
-instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.Operation.Operation
-instance GHC.Classes.Ord Network.AWS.CognitoSync.Types.Operation.Operation
-instance GHC.Classes.Eq Network.AWS.CognitoSync.Types.Operation.Operation
-instance GHC.Read.Read Network.AWS.CognitoSync.Types.Operation.Operation
-instance GHC.Show.Show Network.AWS.CognitoSync.Types.Operation.Operation
+instance Amazonka.Data.XML.ToXML Amazonka.CognitoSync.Types.Operation.Operation
+instance Amazonka.Data.XML.FromXML Amazonka.CognitoSync.Types.Operation.Operation
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CognitoSync.Types.Operation.Operation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.Types.Operation.Operation
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CognitoSync.Types.Operation.Operation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoSync.Types.Operation.Operation
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.Types.Operation.Operation
+instance Amazonka.Data.Headers.ToHeader Amazonka.CognitoSync.Types.Operation.Operation
+instance Amazonka.Data.Log.ToLog Amazonka.CognitoSync.Types.Operation.Operation
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CognitoSync.Types.Operation.Operation
+instance Amazonka.Data.Text.ToText Amazonka.CognitoSync.Types.Operation.Operation
+instance Amazonka.Data.Text.FromText Amazonka.CognitoSync.Types.Operation.Operation
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.Types.Operation.Operation
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.Types.Operation.Operation
+instance GHC.Generics.Generic Amazonka.CognitoSync.Types.Operation.Operation
+instance GHC.Classes.Ord Amazonka.CognitoSync.Types.Operation.Operation
+instance GHC.Classes.Eq Amazonka.CognitoSync.Types.Operation.Operation
+instance GHC.Read.Read Amazonka.CognitoSync.Types.Operation.Operation
+instance GHC.Show.Show Amazonka.CognitoSync.Types.Operation.Operation
 
 
-module Network.AWS.CognitoSync.Types.Platform
+module Amazonka.CognitoSync.Types.Platform
 newtype Platform
 Platform' :: Text -> Platform
 [fromPlatform] :: Platform -> Text
@@ -328,28 +328,28 @@ pattern Platform_ADM :: Platform
 pattern Platform_APNS :: Platform
 pattern Platform_APNS_SANDBOX :: Platform
 pattern Platform_GCM :: Platform
-instance Network.AWS.Data.XML.ToXML Network.AWS.CognitoSync.Types.Platform.Platform
-instance Network.AWS.Data.XML.FromXML Network.AWS.CognitoSync.Types.Platform.Platform
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CognitoSync.Types.Platform.Platform
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.Types.Platform.Platform
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CognitoSync.Types.Platform.Platform
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoSync.Types.Platform.Platform
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.Types.Platform.Platform
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CognitoSync.Types.Platform.Platform
-instance Network.AWS.Data.Log.ToLog Network.AWS.CognitoSync.Types.Platform.Platform
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CognitoSync.Types.Platform.Platform
-instance Network.AWS.Data.Text.ToText Network.AWS.CognitoSync.Types.Platform.Platform
-instance Network.AWS.Data.Text.FromText Network.AWS.CognitoSync.Types.Platform.Platform
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.Types.Platform.Platform
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.Types.Platform.Platform
-instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.Platform.Platform
-instance GHC.Classes.Ord Network.AWS.CognitoSync.Types.Platform.Platform
-instance GHC.Classes.Eq Network.AWS.CognitoSync.Types.Platform.Platform
-instance GHC.Read.Read Network.AWS.CognitoSync.Types.Platform.Platform
-instance GHC.Show.Show Network.AWS.CognitoSync.Types.Platform.Platform
+instance Amazonka.Data.XML.ToXML Amazonka.CognitoSync.Types.Platform.Platform
+instance Amazonka.Data.XML.FromXML Amazonka.CognitoSync.Types.Platform.Platform
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CognitoSync.Types.Platform.Platform
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.Types.Platform.Platform
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CognitoSync.Types.Platform.Platform
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoSync.Types.Platform.Platform
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.Types.Platform.Platform
+instance Amazonka.Data.Headers.ToHeader Amazonka.CognitoSync.Types.Platform.Platform
+instance Amazonka.Data.Log.ToLog Amazonka.CognitoSync.Types.Platform.Platform
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CognitoSync.Types.Platform.Platform
+instance Amazonka.Data.Text.ToText Amazonka.CognitoSync.Types.Platform.Platform
+instance Amazonka.Data.Text.FromText Amazonka.CognitoSync.Types.Platform.Platform
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.Types.Platform.Platform
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.Types.Platform.Platform
+instance GHC.Generics.Generic Amazonka.CognitoSync.Types.Platform.Platform
+instance GHC.Classes.Ord Amazonka.CognitoSync.Types.Platform.Platform
+instance GHC.Classes.Eq Amazonka.CognitoSync.Types.Platform.Platform
+instance GHC.Read.Read Amazonka.CognitoSync.Types.Platform.Platform
+instance GHC.Show.Show Amazonka.CognitoSync.Types.Platform.Platform
 
 
-module Network.AWS.CognitoSync.Types.PushSync
+module Amazonka.CognitoSync.Types.PushSync
 
 -- | Configuration options to be applied to the identity pool.
 --   
@@ -385,17 +385,17 @@ pushSync_applicationArns :: Lens' PushSync (Maybe [Text])
 -- | A role configured to allow Cognito to call SNS on behalf of the
 --   developer.
 pushSync_roleArn :: Lens' PushSync (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.PushSync.PushSync
-instance GHC.Show.Show Network.AWS.CognitoSync.Types.PushSync.PushSync
-instance GHC.Read.Read Network.AWS.CognitoSync.Types.PushSync.PushSync
-instance GHC.Classes.Eq Network.AWS.CognitoSync.Types.PushSync.PushSync
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoSync.Types.PushSync.PushSync
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.Types.PushSync.PushSync
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.Types.PushSync.PushSync
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.Types.PushSync.PushSync
+instance GHC.Generics.Generic Amazonka.CognitoSync.Types.PushSync.PushSync
+instance GHC.Show.Show Amazonka.CognitoSync.Types.PushSync.PushSync
+instance GHC.Read.Read Amazonka.CognitoSync.Types.PushSync.PushSync
+instance GHC.Classes.Eq Amazonka.CognitoSync.Types.PushSync.PushSync
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoSync.Types.PushSync.PushSync
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.Types.PushSync.PushSync
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.Types.PushSync.PushSync
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.Types.PushSync.PushSync
 
 
-module Network.AWS.CognitoSync.Types.Record
+module Amazonka.CognitoSync.Types.Record
 
 -- | The basic data structure of a dataset.
 --   
@@ -465,16 +465,16 @@ record_key :: Lens' Record (Maybe Text)
 
 -- | The user/device that made the last change to this record.
 record_lastModifiedBy :: Lens' Record (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.Record.Record
-instance GHC.Show.Show Network.AWS.CognitoSync.Types.Record.Record
-instance GHC.Read.Read Network.AWS.CognitoSync.Types.Record.Record
-instance GHC.Classes.Eq Network.AWS.CognitoSync.Types.Record.Record
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoSync.Types.Record.Record
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.Types.Record.Record
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.Types.Record.Record
+instance GHC.Generics.Generic Amazonka.CognitoSync.Types.Record.Record
+instance GHC.Show.Show Amazonka.CognitoSync.Types.Record.Record
+instance GHC.Read.Read Amazonka.CognitoSync.Types.Record.Record
+instance GHC.Classes.Eq Amazonka.CognitoSync.Types.Record.Record
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoSync.Types.Record.Record
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.Types.Record.Record
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.Types.Record.Record
 
 
-module Network.AWS.CognitoSync.Types.RecordPatch
+module Amazonka.CognitoSync.Types.RecordPatch
 
 -- | An update operation for a record.
 --   
@@ -536,43 +536,43 @@ recordPatch_key :: Lens' RecordPatch Text
 
 -- | Last known server sync count for this record. Set to 0 if unknown.
 recordPatch_syncCount :: Lens' RecordPatch Integer
-instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.RecordPatch.RecordPatch
-instance GHC.Show.Show Network.AWS.CognitoSync.Types.RecordPatch.RecordPatch
-instance GHC.Read.Read Network.AWS.CognitoSync.Types.RecordPatch.RecordPatch
-instance GHC.Classes.Eq Network.AWS.CognitoSync.Types.RecordPatch.RecordPatch
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.Types.RecordPatch.RecordPatch
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.Types.RecordPatch.RecordPatch
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.Types.RecordPatch.RecordPatch
+instance GHC.Generics.Generic Amazonka.CognitoSync.Types.RecordPatch.RecordPatch
+instance GHC.Show.Show Amazonka.CognitoSync.Types.RecordPatch.RecordPatch
+instance GHC.Read.Read Amazonka.CognitoSync.Types.RecordPatch.RecordPatch
+instance GHC.Classes.Eq Amazonka.CognitoSync.Types.RecordPatch.RecordPatch
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.Types.RecordPatch.RecordPatch
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.Types.RecordPatch.RecordPatch
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.Types.RecordPatch.RecordPatch
 
 
-module Network.AWS.CognitoSync.Types.StreamingStatus
+module Amazonka.CognitoSync.Types.StreamingStatus
 newtype StreamingStatus
 StreamingStatus' :: Text -> StreamingStatus
 [fromStreamingStatus] :: StreamingStatus -> Text
 pattern StreamingStatus_DISABLED :: StreamingStatus
 pattern StreamingStatus_ENABLED :: StreamingStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance GHC.Classes.Ord Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance GHC.Classes.Eq Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance GHC.Read.Read Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
-instance GHC.Show.Show Network.AWS.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.XML.ToXML Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.XML.FromXML Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.Log.ToLog Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.Text.ToText Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Amazonka.Data.Text.FromText Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance GHC.Generics.Generic Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance GHC.Classes.Ord Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance GHC.Classes.Eq Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance GHC.Read.Read Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
+instance GHC.Show.Show Amazonka.CognitoSync.Types.StreamingStatus.StreamingStatus
 
 
-module Network.AWS.CognitoSync.Types.CognitoStreams
+module Amazonka.CognitoSync.Types.CognitoStreams
 
 -- | Configuration options for configure Cognito streams.
 --   
@@ -642,17 +642,17 @@ cognitoStreams_streamName :: Lens' CognitoStreams (Maybe Text)
 --   the stream. This role must grant access to Amazon Cognito
 --   (cognito-sync) to invoke PutRecord on your Cognito stream.
 cognitoStreams_roleArn :: Lens' CognitoStreams (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.CognitoStreams.CognitoStreams
-instance GHC.Show.Show Network.AWS.CognitoSync.Types.CognitoStreams.CognitoStreams
-instance GHC.Read.Read Network.AWS.CognitoSync.Types.CognitoStreams.CognitoStreams
-instance GHC.Classes.Eq Network.AWS.CognitoSync.Types.CognitoStreams.CognitoStreams
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoSync.Types.CognitoStreams.CognitoStreams
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.Types.CognitoStreams.CognitoStreams
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.Types.CognitoStreams.CognitoStreams
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.Types.CognitoStreams.CognitoStreams
+instance GHC.Generics.Generic Amazonka.CognitoSync.Types.CognitoStreams.CognitoStreams
+instance GHC.Show.Show Amazonka.CognitoSync.Types.CognitoStreams.CognitoStreams
+instance GHC.Read.Read Amazonka.CognitoSync.Types.CognitoStreams.CognitoStreams
+instance GHC.Classes.Eq Amazonka.CognitoSync.Types.CognitoStreams.CognitoStreams
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoSync.Types.CognitoStreams.CognitoStreams
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.Types.CognitoStreams.CognitoStreams
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.Types.CognitoStreams.CognitoStreams
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.Types.CognitoStreams.CognitoStreams
 
 
-module Network.AWS.CognitoSync.Types
+module Amazonka.CognitoSync.Types
 
 -- | API version <tt>2014-06-30</tt> of the Amazon Cognito Sync SDK
 --   configuration.
@@ -1196,7 +1196,7 @@ recordPatch_syncCount :: Lens' RecordPatch Integer
 --   
 --   This API can only be called with temporary credentials provided by
 --   Cognito Identity. You cannot call this API with developer credentials.
-module Network.AWS.CognitoSync.SubscribeToDataset
+module Amazonka.CognitoSync.SubscribeToDataset
 
 -- | A request to SubscribeToDatasetRequest.
 --   
@@ -1283,22 +1283,22 @@ newSubscribeToDatasetResponse :: Int -> SubscribeToDatasetResponse
 
 -- | The response's http status code.
 subscribeToDatasetResponse_httpStatus :: Lens' SubscribeToDatasetResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDataset
-instance GHC.Show.Show Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDataset
-instance GHC.Read.Read Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDataset
-instance GHC.Classes.Eq Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDataset
-instance GHC.Generics.Generic Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDatasetResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDatasetResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDatasetResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDatasetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDataset
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDatasetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDataset
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDataset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDataset
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDataset
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDataset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.SubscribeToDataset.SubscribeToDataset
+instance GHC.Generics.Generic Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDataset
+instance GHC.Show.Show Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDataset
+instance GHC.Read.Read Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDataset
+instance GHC.Classes.Eq Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDataset
+instance GHC.Generics.Generic Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDatasetResponse
+instance GHC.Show.Show Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDatasetResponse
+instance GHC.Read.Read Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDatasetResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDatasetResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDataset
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDatasetResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDataset
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDataset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDataset
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDataset
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDataset
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.SubscribeToDataset.SubscribeToDataset
 
 
 -- | Sets the necessary configuration for push sync.
@@ -1306,7 +1306,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.SubscribeToDatas
 --   This API can only be called with developer credentials. You cannot
 --   call this API with the temporary user credentials provided by Cognito
 --   Identity.
-module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
+module Amazonka.CognitoSync.SetIdentityPoolConfiguration
 
 -- | The input for the SetIdentityPoolConfiguration operation.
 --   
@@ -1421,22 +1421,22 @@ setIdentityPoolConfigurationResponse_pushSync :: Lens' SetIdentityPoolConfigurat
 
 -- | The response's http status code.
 setIdentityPoolConfigurationResponse_httpStatus :: Lens' SetIdentityPoolConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
-instance GHC.Show.Show Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
-instance GHC.Read.Read Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
-instance GHC.Classes.Eq Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
-instance GHC.Generics.Generic Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfigurationResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfigurationResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
+instance GHC.Generics.Generic Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
+instance GHC.Show.Show Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
+instance GHC.Read.Read Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
+instance GHC.Classes.Eq Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
+instance GHC.Generics.Generic Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfigurationResponse
+instance GHC.Show.Show Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfigurationResponse
+instance GHC.Read.Read Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfigurationResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.SetIdentityPoolConfiguration.SetIdentityPoolConfiguration
 
 
 -- | Sets the AWS Lambda function for a given event type for an identity
@@ -1447,7 +1447,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.SetIdentityPoolC
 --   This API can only be called with developer credentials. You cannot
 --   call this API with the temporary user credentials provided by Cognito
 --   Identity.
-module Network.AWS.CognitoSync.SetCognitoEvents
+module Amazonka.CognitoSync.SetCognitoEvents
 
 -- | A request to configure Cognito Events"
 --   
@@ -1496,29 +1496,29 @@ SetCognitoEventsResponse' :: SetCognitoEventsResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSetCognitoEventsResponse :: SetCognitoEventsResponse
-instance GHC.Generics.Generic Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEvents
-instance GHC.Show.Show Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEvents
-instance GHC.Read.Read Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEvents
-instance GHC.Classes.Eq Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEvents
-instance GHC.Generics.Generic Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEventsResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEventsResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEventsResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEventsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEvents
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEventsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEvents
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEvents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEvents
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEvents
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEvents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.SetCognitoEvents.SetCognitoEvents
+instance GHC.Generics.Generic Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEvents
+instance GHC.Show.Show Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEvents
+instance GHC.Read.Read Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEvents
+instance GHC.Classes.Eq Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEvents
+instance GHC.Generics.Generic Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEventsResponse
+instance GHC.Show.Show Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEventsResponse
+instance GHC.Read.Read Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEventsResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEventsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEvents
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEventsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEvents
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEvents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEvents
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEvents
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEvents
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.SetCognitoEvents.SetCognitoEvents
 
 
 -- | Registers a device to receive push sync notifications.
 --   
 --   This API can only be called with temporary credentials provided by
 --   Cognito Identity. You cannot call this API with developer credentials.
-module Network.AWS.CognitoSync.RegisterDevice
+module Amazonka.CognitoSync.RegisterDevice
 
 -- | A request to RegisterDevice.
 --   
@@ -1613,22 +1613,22 @@ registerDeviceResponse_deviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 
 -- | The response's http status code.
 registerDeviceResponse_httpStatus :: Lens' RegisterDeviceResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.RegisterDevice.RegisterDevice
-instance GHC.Show.Show Network.AWS.CognitoSync.RegisterDevice.RegisterDevice
-instance GHC.Read.Read Network.AWS.CognitoSync.RegisterDevice.RegisterDevice
-instance GHC.Classes.Eq Network.AWS.CognitoSync.RegisterDevice.RegisterDevice
-instance GHC.Generics.Generic Network.AWS.CognitoSync.RegisterDevice.RegisterDeviceResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.RegisterDevice.RegisterDeviceResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.RegisterDevice.RegisterDeviceResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.RegisterDevice.RegisterDeviceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.RegisterDevice.RegisterDevice
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.RegisterDevice.RegisterDeviceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.RegisterDevice.RegisterDevice
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.RegisterDevice.RegisterDevice
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.RegisterDevice.RegisterDevice
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.RegisterDevice.RegisterDevice
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.RegisterDevice.RegisterDevice
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.RegisterDevice.RegisterDevice
+instance GHC.Generics.Generic Amazonka.CognitoSync.RegisterDevice.RegisterDevice
+instance GHC.Show.Show Amazonka.CognitoSync.RegisterDevice.RegisterDevice
+instance GHC.Read.Read Amazonka.CognitoSync.RegisterDevice.RegisterDevice
+instance GHC.Classes.Eq Amazonka.CognitoSync.RegisterDevice.RegisterDevice
+instance GHC.Generics.Generic Amazonka.CognitoSync.RegisterDevice.RegisterDeviceResponse
+instance GHC.Show.Show Amazonka.CognitoSync.RegisterDevice.RegisterDeviceResponse
+instance GHC.Read.Read Amazonka.CognitoSync.RegisterDevice.RegisterDeviceResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.RegisterDevice.RegisterDeviceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.RegisterDevice.RegisterDevice
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.RegisterDevice.RegisterDeviceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.RegisterDevice.RegisterDevice
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.RegisterDevice.RegisterDevice
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.RegisterDevice.RegisterDevice
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.RegisterDevice.RegisterDevice
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.RegisterDevice.RegisterDevice
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.RegisterDevice.RegisterDevice
 
 
 -- | Gets paginated records, optionally changed after a particular sync
@@ -1639,7 +1639,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.RegisterDevice.R
 --   ListRecords can be called with temporary user credentials provided by
 --   Cognito Identity or with developer credentials. You should use Cognito
 --   Identity credentials to make this API call.
-module Network.AWS.CognitoSync.ListRecords
+module Amazonka.CognitoSync.ListRecords
 
 -- | A request for a list of records.
 --   
@@ -1850,21 +1850,21 @@ listRecordsResponse_datasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer
 
 -- | The response's http status code.
 listRecordsResponse_httpStatus :: Lens' ListRecordsResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.ListRecords.ListRecords
-instance GHC.Show.Show Network.AWS.CognitoSync.ListRecords.ListRecords
-instance GHC.Read.Read Network.AWS.CognitoSync.ListRecords.ListRecords
-instance GHC.Classes.Eq Network.AWS.CognitoSync.ListRecords.ListRecords
-instance GHC.Generics.Generic Network.AWS.CognitoSync.ListRecords.ListRecordsResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.ListRecords.ListRecordsResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.ListRecords.ListRecordsResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.ListRecords.ListRecordsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.ListRecords.ListRecords
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.ListRecords.ListRecordsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.ListRecords.ListRecords
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.ListRecords.ListRecords
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.ListRecords.ListRecords
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.ListRecords.ListRecords
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.ListRecords.ListRecords
+instance GHC.Generics.Generic Amazonka.CognitoSync.ListRecords.ListRecords
+instance GHC.Show.Show Amazonka.CognitoSync.ListRecords.ListRecords
+instance GHC.Read.Read Amazonka.CognitoSync.ListRecords.ListRecords
+instance GHC.Classes.Eq Amazonka.CognitoSync.ListRecords.ListRecords
+instance GHC.Generics.Generic Amazonka.CognitoSync.ListRecords.ListRecordsResponse
+instance GHC.Show.Show Amazonka.CognitoSync.ListRecords.ListRecordsResponse
+instance GHC.Read.Read Amazonka.CognitoSync.ListRecords.ListRecordsResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.ListRecords.ListRecordsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.ListRecords.ListRecords
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.ListRecords.ListRecordsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.ListRecords.ListRecords
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.ListRecords.ListRecords
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.ListRecords.ListRecords
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.ListRecords.ListRecords
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.ListRecords.ListRecords
 
 
 -- | Gets a list of identity pools registered with Cognito.
@@ -1872,7 +1872,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.ListRecords.List
 --   ListIdentityPoolUsage can only be called with developer credentials.
 --   You cannot make this API call with the temporary user credentials
 --   provided by Cognito Identity.
-module Network.AWS.CognitoSync.ListIdentityPoolUsage
+module Amazonka.CognitoSync.ListIdentityPoolUsage
 
 -- | A request for usage information on an identity pool.
 --   
@@ -1975,21 +1975,21 @@ listIdentityPoolUsageResponse_maxResults :: Lens' ListIdentityPoolUsageResponse 
 
 -- | The response's http status code.
 listIdentityPoolUsageResponse_httpStatus :: Lens' ListIdentityPoolUsageResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
-instance GHC.Show.Show Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
-instance GHC.Read.Read Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
-instance GHC.Classes.Eq Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
-instance GHC.Generics.Generic Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsageResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsageResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsageResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
+instance GHC.Generics.Generic Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
+instance GHC.Show.Show Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
+instance GHC.Read.Read Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
+instance GHC.Classes.Eq Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
+instance GHC.Generics.Generic Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsageResponse
+instance GHC.Show.Show Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsageResponse
+instance GHC.Read.Read Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsageResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsageResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsageResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.ListIdentityPoolUsage.ListIdentityPoolUsage
 
 
 -- | Lists datasets for an identity. With Amazon Cognito Sync, each
@@ -1999,7 +1999,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.ListIdentityPool
 --   ListDatasets can be called with temporary user credentials provided by
 --   Cognito Identity or with developer credentials. You should use the
 --   Cognito Identity credentials to make this API call.
-module Network.AWS.CognitoSync.ListDatasets
+module Amazonka.CognitoSync.ListDatasets
 
 -- | Request for a list of datasets for an identity.
 --   
@@ -2118,21 +2118,21 @@ listDatasetsResponse_datasets :: Lens' ListDatasetsResponse (Maybe [Dataset])
 
 -- | The response's http status code.
 listDatasetsResponse_httpStatus :: Lens' ListDatasetsResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.ListDatasets.ListDatasets
-instance GHC.Show.Show Network.AWS.CognitoSync.ListDatasets.ListDatasets
-instance GHC.Read.Read Network.AWS.CognitoSync.ListDatasets.ListDatasets
-instance GHC.Classes.Eq Network.AWS.CognitoSync.ListDatasets.ListDatasets
-instance GHC.Generics.Generic Network.AWS.CognitoSync.ListDatasets.ListDatasetsResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.ListDatasets.ListDatasetsResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.ListDatasets.ListDatasetsResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.ListDatasets.ListDatasetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.ListDatasets.ListDatasets
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.ListDatasets.ListDatasetsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.ListDatasets.ListDatasets
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.ListDatasets.ListDatasets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.ListDatasets.ListDatasets
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.ListDatasets.ListDatasets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.ListDatasets.ListDatasets
+instance GHC.Generics.Generic Amazonka.CognitoSync.ListDatasets.ListDatasets
+instance GHC.Show.Show Amazonka.CognitoSync.ListDatasets.ListDatasets
+instance GHC.Read.Read Amazonka.CognitoSync.ListDatasets.ListDatasets
+instance GHC.Classes.Eq Amazonka.CognitoSync.ListDatasets.ListDatasets
+instance GHC.Generics.Generic Amazonka.CognitoSync.ListDatasets.ListDatasetsResponse
+instance GHC.Show.Show Amazonka.CognitoSync.ListDatasets.ListDatasetsResponse
+instance GHC.Read.Read Amazonka.CognitoSync.ListDatasets.ListDatasetsResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.ListDatasets.ListDatasetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.ListDatasets.ListDatasets
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.ListDatasets.ListDatasetsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.ListDatasets.ListDatasets
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.ListDatasets.ListDatasets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.ListDatasets.ListDatasets
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.ListDatasets.ListDatasets
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.ListDatasets.ListDatasets
 
 
 -- | Gets the configuration settings of an identity pool.
@@ -2140,7 +2140,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.ListDatasets.Lis
 --   This API can only be called with developer credentials. You cannot
 --   call this API with the temporary user credentials provided by Cognito
 --   Identity.
-module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
+module Amazonka.CognitoSync.GetIdentityPoolConfiguration
 
 -- | The input for the GetIdentityPoolConfiguration operation.
 --   
@@ -2238,21 +2238,21 @@ getIdentityPoolConfigurationResponse_pushSync :: Lens' GetIdentityPoolConfigurat
 
 -- | The response's http status code.
 getIdentityPoolConfigurationResponse_httpStatus :: Lens' GetIdentityPoolConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
-instance GHC.Show.Show Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
-instance GHC.Read.Read Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
-instance GHC.Classes.Eq Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
-instance GHC.Generics.Generic Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfigurationResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfigurationResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
+instance GHC.Generics.Generic Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
+instance GHC.Show.Show Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
+instance GHC.Read.Read Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
+instance GHC.Classes.Eq Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
+instance GHC.Generics.Generic Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfigurationResponse
+instance GHC.Show.Show Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfigurationResponse
+instance GHC.Read.Read Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfigurationResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.GetIdentityPoolConfiguration.GetIdentityPoolConfiguration
 
 
 -- | Gets the events and the corresponding Lambda functions associated with
@@ -2261,7 +2261,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.GetIdentityPoolC
 --   This API can only be called with developer credentials. You cannot
 --   call this API with the temporary user credentials provided by Cognito
 --   Identity.
-module Network.AWS.CognitoSync.GetCognitoEvents
+module Amazonka.CognitoSync.GetCognitoEvents
 
 -- | A request for a list of the configured Cognito Events
 --   
@@ -2324,21 +2324,21 @@ getCognitoEventsResponse_events :: Lens' GetCognitoEventsResponse (Maybe (HashMa
 
 -- | The response's http status code.
 getCognitoEventsResponse_httpStatus :: Lens' GetCognitoEventsResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEvents
-instance GHC.Show.Show Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEvents
-instance GHC.Read.Read Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEvents
-instance GHC.Classes.Eq Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEvents
-instance GHC.Generics.Generic Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEventsResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEventsResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEventsResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEventsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEvents
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEventsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEvents
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEvents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEvents
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEvents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.GetCognitoEvents.GetCognitoEvents
+instance GHC.Generics.Generic Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEvents
+instance GHC.Show.Show Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEvents
+instance GHC.Read.Read Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEvents
+instance GHC.Classes.Eq Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEvents
+instance GHC.Generics.Generic Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEventsResponse
+instance GHC.Show.Show Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEventsResponse
+instance GHC.Read.Read Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEventsResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEventsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEvents
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEventsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEvents
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEvents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEvents
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEvents
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.GetCognitoEvents.GetCognitoEvents
 
 
 -- | Get the status of the last BulkPublish operation for an identity pool.
@@ -2346,7 +2346,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.GetCognitoEvents
 --   This API can only be called with developer credentials. You cannot
 --   call this API with the temporary user credentials provided by Cognito
 --   Identity.
-module Network.AWS.CognitoSync.GetBulkPublishDetails
+module Amazonka.CognitoSync.GetBulkPublishDetails
 
 -- | The input for the GetBulkPublishDetails operation.
 --   
@@ -2498,22 +2498,22 @@ getBulkPublishDetailsResponse_bulkPublishStatus :: Lens' GetBulkPublishDetailsRe
 
 -- | The response's http status code.
 getBulkPublishDetailsResponse_httpStatus :: Lens' GetBulkPublishDetailsResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
-instance GHC.Show.Show Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
-instance GHC.Read.Read Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
-instance GHC.Classes.Eq Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
-instance GHC.Generics.Generic Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetailsResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetailsResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetailsResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetailsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetailsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
+instance GHC.Generics.Generic Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
+instance GHC.Show.Show Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
+instance GHC.Read.Read Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
+instance GHC.Classes.Eq Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
+instance GHC.Generics.Generic Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetailsResponse
+instance GHC.Show.Show Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetailsResponse
+instance GHC.Read.Read Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetailsResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetailsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetailsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.GetBulkPublishDetails.GetBulkPublishDetails
 
 
 -- | Gets usage information for an identity, including number of datasets
@@ -2521,7 +2521,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.GetBulkPublishDe
 --   
 --   This API can be called with temporary user credentials provided by
 --   Cognito Identity or with developer credentials.
-module Network.AWS.CognitoSync.DescribeIdentityUsage
+module Amazonka.CognitoSync.DescribeIdentityUsage
 
 -- | A request for information about the usage of an identity pool.
 --   
@@ -2604,21 +2604,21 @@ describeIdentityUsageResponse_identityUsage :: Lens' DescribeIdentityUsageRespon
 
 -- | The response's http status code.
 describeIdentityUsageResponse_httpStatus :: Lens' DescribeIdentityUsageResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
-instance GHC.Show.Show Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
-instance GHC.Read.Read Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
-instance GHC.Classes.Eq Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
-instance GHC.Generics.Generic Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsageResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsageResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsageResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
+instance GHC.Generics.Generic Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
+instance GHC.Show.Show Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
+instance GHC.Read.Read Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
+instance GHC.Classes.Eq Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
+instance GHC.Generics.Generic Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsageResponse
+instance GHC.Show.Show Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsageResponse
+instance GHC.Read.Read Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsageResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsageResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsageResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.DescribeIdentityUsage.DescribeIdentityUsage
 
 
 -- | Gets usage details (for example, data storage) about a particular
@@ -2627,7 +2627,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.DescribeIdentity
 --   This API can only be called with developer credentials. You cannot
 --   call this API with the temporary user credentials provided by Cognito
 --   Identity.
-module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
+module Amazonka.CognitoSync.DescribeIdentityPoolUsage
 
 -- | A request for usage information about the identity pool.
 --   
@@ -2696,21 +2696,21 @@ describeIdentityPoolUsageResponse_identityPoolUsage :: Lens' DescribeIdentityPoo
 
 -- | The response's http status code.
 describeIdentityPoolUsageResponse_httpStatus :: Lens' DescribeIdentityPoolUsageResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
-instance GHC.Show.Show Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
-instance GHC.Read.Read Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
-instance GHC.Classes.Eq Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
-instance GHC.Generics.Generic Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsageResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsageResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsageResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
+instance GHC.Generics.Generic Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
+instance GHC.Show.Show Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
+instance GHC.Read.Read Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
+instance GHC.Classes.Eq Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
+instance GHC.Generics.Generic Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsageResponse
+instance GHC.Show.Show Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsageResponse
+instance GHC.Read.Read Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsageResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsageResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsageResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.DescribeIdentityPoolUsage.DescribeIdentityPoolUsage
 
 
 -- | Gets meta data about a dataset by identity and dataset name. With
@@ -2721,7 +2721,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.DescribeIdentity
 --   This API can be called with temporary user credentials provided by
 --   Cognito Identity or with developer credentials. You should use Cognito
 --   Identity credentials to make this API call.
-module Network.AWS.CognitoSync.DescribeDataset
+module Amazonka.CognitoSync.DescribeDataset
 
 -- | A request for meta data about a dataset (creation date, number of
 --   records, size) by owner and dataset name.
@@ -2830,21 +2830,21 @@ describeDatasetResponse_dataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
 
 -- | The response's http status code.
 describeDatasetResponse_httpStatus :: Lens' DescribeDatasetResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.DescribeDataset.DescribeDataset
-instance GHC.Show.Show Network.AWS.CognitoSync.DescribeDataset.DescribeDataset
-instance GHC.Read.Read Network.AWS.CognitoSync.DescribeDataset.DescribeDataset
-instance GHC.Classes.Eq Network.AWS.CognitoSync.DescribeDataset.DescribeDataset
-instance GHC.Generics.Generic Network.AWS.CognitoSync.DescribeDataset.DescribeDatasetResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.DescribeDataset.DescribeDatasetResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.DescribeDataset.DescribeDatasetResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.DescribeDataset.DescribeDatasetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.DescribeDataset.DescribeDataset
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.DescribeDataset.DescribeDatasetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.DescribeDataset.DescribeDataset
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.DescribeDataset.DescribeDataset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.DescribeDataset.DescribeDataset
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.DescribeDataset.DescribeDataset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.DescribeDataset.DescribeDataset
+instance GHC.Generics.Generic Amazonka.CognitoSync.DescribeDataset.DescribeDataset
+instance GHC.Show.Show Amazonka.CognitoSync.DescribeDataset.DescribeDataset
+instance GHC.Read.Read Amazonka.CognitoSync.DescribeDataset.DescribeDataset
+instance GHC.Classes.Eq Amazonka.CognitoSync.DescribeDataset.DescribeDataset
+instance GHC.Generics.Generic Amazonka.CognitoSync.DescribeDataset.DescribeDatasetResponse
+instance GHC.Show.Show Amazonka.CognitoSync.DescribeDataset.DescribeDatasetResponse
+instance GHC.Read.Read Amazonka.CognitoSync.DescribeDataset.DescribeDatasetResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.DescribeDataset.DescribeDatasetResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.DescribeDataset.DescribeDataset
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.DescribeDataset.DescribeDatasetResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.DescribeDataset.DescribeDataset
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.DescribeDataset.DescribeDataset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.DescribeDataset.DescribeDataset
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.DescribeDataset.DescribeDataset
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.DescribeDataset.DescribeDataset
 
 
 -- | Deletes the specific dataset. The dataset will be deleted permanently,
@@ -2854,7 +2854,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.DescribeDataset.
 --   
 --   This API can be called with temporary user credentials provided by
 --   Cognito Identity or with developer credentials.
-module Network.AWS.CognitoSync.DeleteDataset
+module Amazonka.CognitoSync.DeleteDataset
 
 -- | A request to delete the specific dataset.
 --   
@@ -2964,21 +2964,21 @@ deleteDatasetResponse_dataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
 
 -- | The response's http status code.
 deleteDatasetResponse_httpStatus :: Lens' DeleteDatasetResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.DeleteDataset.DeleteDataset
-instance GHC.Show.Show Network.AWS.CognitoSync.DeleteDataset.DeleteDataset
-instance GHC.Read.Read Network.AWS.CognitoSync.DeleteDataset.DeleteDataset
-instance GHC.Classes.Eq Network.AWS.CognitoSync.DeleteDataset.DeleteDataset
-instance GHC.Generics.Generic Network.AWS.CognitoSync.DeleteDataset.DeleteDatasetResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.DeleteDataset.DeleteDatasetResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.DeleteDataset.DeleteDatasetResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.DeleteDataset.DeleteDatasetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.DeleteDataset.DeleteDataset
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.DeleteDataset.DeleteDatasetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.DeleteDataset.DeleteDataset
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.DeleteDataset.DeleteDataset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.DeleteDataset.DeleteDataset
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.DeleteDataset.DeleteDataset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.DeleteDataset.DeleteDataset
+instance GHC.Generics.Generic Amazonka.CognitoSync.DeleteDataset.DeleteDataset
+instance GHC.Show.Show Amazonka.CognitoSync.DeleteDataset.DeleteDataset
+instance GHC.Read.Read Amazonka.CognitoSync.DeleteDataset.DeleteDataset
+instance GHC.Classes.Eq Amazonka.CognitoSync.DeleteDataset.DeleteDataset
+instance GHC.Generics.Generic Amazonka.CognitoSync.DeleteDataset.DeleteDatasetResponse
+instance GHC.Show.Show Amazonka.CognitoSync.DeleteDataset.DeleteDatasetResponse
+instance GHC.Read.Read Amazonka.CognitoSync.DeleteDataset.DeleteDatasetResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.DeleteDataset.DeleteDatasetResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.DeleteDataset.DeleteDataset
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.DeleteDataset.DeleteDatasetResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.DeleteDataset.DeleteDataset
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.DeleteDataset.DeleteDataset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.DeleteDataset.DeleteDataset
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.DeleteDataset.DeleteDataset
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.DeleteDataset.DeleteDataset
 
 
 -- | Initiates a bulk publish of all existing datasets for an Identity Pool
@@ -2990,7 +2990,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.DeleteDataset.De
 --   This API can only be called with developer credentials. You cannot
 --   call this API with the temporary user credentials provided by Cognito
 --   Identity.
-module Network.AWS.CognitoSync.BulkPublish
+module Amazonka.CognitoSync.BulkPublish
 
 -- | The input for the BulkPublish operation.
 --   
@@ -3062,22 +3062,22 @@ bulkPublishResponse_identityPoolId :: Lens' BulkPublishResponse (Maybe Text)
 
 -- | The response's http status code.
 bulkPublishResponse_httpStatus :: Lens' BulkPublishResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.BulkPublish.BulkPublish
-instance GHC.Show.Show Network.AWS.CognitoSync.BulkPublish.BulkPublish
-instance GHC.Read.Read Network.AWS.CognitoSync.BulkPublish.BulkPublish
-instance GHC.Classes.Eq Network.AWS.CognitoSync.BulkPublish.BulkPublish
-instance GHC.Generics.Generic Network.AWS.CognitoSync.BulkPublish.BulkPublishResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.BulkPublish.BulkPublishResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.BulkPublish.BulkPublishResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.BulkPublish.BulkPublishResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.BulkPublish.BulkPublish
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.BulkPublish.BulkPublishResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.BulkPublish.BulkPublish
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.BulkPublish.BulkPublish
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.BulkPublish.BulkPublish
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.BulkPublish.BulkPublish
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.BulkPublish.BulkPublish
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.BulkPublish.BulkPublish
+instance GHC.Generics.Generic Amazonka.CognitoSync.BulkPublish.BulkPublish
+instance GHC.Show.Show Amazonka.CognitoSync.BulkPublish.BulkPublish
+instance GHC.Read.Read Amazonka.CognitoSync.BulkPublish.BulkPublish
+instance GHC.Classes.Eq Amazonka.CognitoSync.BulkPublish.BulkPublish
+instance GHC.Generics.Generic Amazonka.CognitoSync.BulkPublish.BulkPublishResponse
+instance GHC.Show.Show Amazonka.CognitoSync.BulkPublish.BulkPublishResponse
+instance GHC.Read.Read Amazonka.CognitoSync.BulkPublish.BulkPublishResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.BulkPublish.BulkPublishResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.BulkPublish.BulkPublish
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.BulkPublish.BulkPublishResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.BulkPublish.BulkPublish
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.BulkPublish.BulkPublish
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.BulkPublish.BulkPublish
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.BulkPublish.BulkPublish
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.BulkPublish.BulkPublish
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.BulkPublish.BulkPublish
 
 
 -- | Unsubscribes from receiving notifications when a dataset is modified
@@ -3085,7 +3085,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.BulkPublish.Bulk
 --   
 --   This API can only be called with temporary credentials provided by
 --   Cognito Identity. You cannot call this API with developer credentials.
-module Network.AWS.CognitoSync.UnsubscribeFromDataset
+module Amazonka.CognitoSync.UnsubscribeFromDataset
 
 -- | A request to UnsubscribeFromDataset.
 --   
@@ -3174,21 +3174,21 @@ newUnsubscribeFromDatasetResponse :: Int -> UnsubscribeFromDatasetResponse
 
 -- | The response's http status code.
 unsubscribeFromDatasetResponse_httpStatus :: Lens' UnsubscribeFromDatasetResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
-instance GHC.Show.Show Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
-instance GHC.Read.Read Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
-instance GHC.Classes.Eq Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
-instance GHC.Generics.Generic Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDatasetResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDatasetResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDatasetResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDatasetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDatasetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
+instance GHC.Generics.Generic Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
+instance GHC.Show.Show Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
+instance GHC.Read.Read Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
+instance GHC.Classes.Eq Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
+instance GHC.Generics.Generic Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDatasetResponse
+instance GHC.Show.Show Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDatasetResponse
+instance GHC.Read.Read Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDatasetResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDatasetResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDatasetResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.UnsubscribeFromDataset.UnsubscribeFromDataset
 
 
 -- | Posts updates to records and adds and deletes records for a dataset
@@ -3209,7 +3209,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.UnsubscribeFromD
 --   
 --   This API can be called with temporary user credentials provided by
 --   Cognito Identity or with developer credentials.
-module Network.AWS.CognitoSync.UpdateRecords
+module Amazonka.CognitoSync.UpdateRecords
 
 -- | A request to post updates to records or add and delete records for a
 --   dataset and user.
@@ -3351,25 +3351,25 @@ updateRecordsResponse_records :: Lens' UpdateRecordsResponse (Maybe [Record])
 
 -- | The response's http status code.
 updateRecordsResponse_httpStatus :: Lens' UpdateRecordsResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoSync.UpdateRecords.UpdateRecords
-instance GHC.Show.Show Network.AWS.CognitoSync.UpdateRecords.UpdateRecords
-instance GHC.Read.Read Network.AWS.CognitoSync.UpdateRecords.UpdateRecords
-instance GHC.Classes.Eq Network.AWS.CognitoSync.UpdateRecords.UpdateRecords
-instance GHC.Generics.Generic Network.AWS.CognitoSync.UpdateRecords.UpdateRecordsResponse
-instance GHC.Show.Show Network.AWS.CognitoSync.UpdateRecords.UpdateRecordsResponse
-instance GHC.Read.Read Network.AWS.CognitoSync.UpdateRecords.UpdateRecordsResponse
-instance GHC.Classes.Eq Network.AWS.CognitoSync.UpdateRecords.UpdateRecordsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoSync.UpdateRecords.UpdateRecords
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.UpdateRecords.UpdateRecordsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoSync.UpdateRecords.UpdateRecords
-instance Control.DeepSeq.NFData Network.AWS.CognitoSync.UpdateRecords.UpdateRecords
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoSync.UpdateRecords.UpdateRecords
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoSync.UpdateRecords.UpdateRecords
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoSync.UpdateRecords.UpdateRecords
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.UpdateRecords.UpdateRecords
+instance GHC.Generics.Generic Amazonka.CognitoSync.UpdateRecords.UpdateRecords
+instance GHC.Show.Show Amazonka.CognitoSync.UpdateRecords.UpdateRecords
+instance GHC.Read.Read Amazonka.CognitoSync.UpdateRecords.UpdateRecords
+instance GHC.Classes.Eq Amazonka.CognitoSync.UpdateRecords.UpdateRecords
+instance GHC.Generics.Generic Amazonka.CognitoSync.UpdateRecords.UpdateRecordsResponse
+instance GHC.Show.Show Amazonka.CognitoSync.UpdateRecords.UpdateRecordsResponse
+instance GHC.Read.Read Amazonka.CognitoSync.UpdateRecords.UpdateRecordsResponse
+instance GHC.Classes.Eq Amazonka.CognitoSync.UpdateRecords.UpdateRecordsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoSync.UpdateRecords.UpdateRecords
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.UpdateRecords.UpdateRecordsResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoSync.UpdateRecords.UpdateRecords
+instance Control.DeepSeq.NFData Amazonka.CognitoSync.UpdateRecords.UpdateRecords
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoSync.UpdateRecords.UpdateRecords
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoSync.UpdateRecords.UpdateRecords
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoSync.UpdateRecords.UpdateRecords
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoSync.UpdateRecords.UpdateRecords
 
 
-module Network.AWS.CognitoSync.Lens
+module Amazonka.CognitoSync.Lens
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -3867,7 +3867,7 @@ recordPatch_key :: Lens' RecordPatch Text
 recordPatch_syncCount :: Lens' RecordPatch Integer
 
 
-module Network.AWS.CognitoSync.Waiters
+module Amazonka.CognitoSync.Waiters
 
 
 -- | Derived from API version <tt>2014-06-30</tt> of the AWS service
@@ -3894,7 +3894,7 @@ module Network.AWS.CognitoSync.Waiters
 --   will probably want to make API calls via the AWS Mobile SDK. To learn
 --   more, see the <a>Developer Guide for Android</a> and the <a>Developer
 --   Guide for iOS</a>.
-module Network.AWS.CognitoSync
+module Amazonka.CognitoSync
 
 -- | API version <tt>2014-06-30</tt> of the Amazon Cognito Sync SDK
 --   configuration.

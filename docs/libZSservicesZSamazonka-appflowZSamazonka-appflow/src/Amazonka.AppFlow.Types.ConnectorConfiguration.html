@@ -1,0 +1,637 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppFlow.Types.ConnectorConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppFlow.Types.ConnectorConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorMetadata.html"><span class="hs-identifier">Amazonka.AppFlow.Types.ConnectorMetadata</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html"><span class="hs-identifier">Amazonka.AppFlow.Types.ConnectorType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ScheduleFrequencyType.html"><span class="hs-identifier">Amazonka.AppFlow.Types.ScheduleFrequencyType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TriggerType.html"><span class="hs-identifier">Amazonka.AppFlow.Types.TriggerType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | The configuration settings related to a given connector.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newConnectorConfiguration' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679330934"><span id="local-6989586621679330935"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectorConfiguration"><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-var">ConnectorConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectorConfiguration%27"><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-var">ConnectorConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies if PrivateLink is enabled for that connector.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AisPrivateLinkEnabled%3AConnectorConfiguration%27"><span class="annot"><span class="annottext">ConnectorConfiguration -&gt; Maybe Bool
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AisPrivateLinkEnabled%3AConnectorConfiguration%27"><span class="hs-identifier hs-var hs-var">isPrivateLinkEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Specifies the supported trigger types for the flow.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsupportedTriggerTypes%3AConnectorConfiguration%27"><span class="annot"><span class="annottext">ConnectorConfiguration -&gt; Maybe [TriggerType]
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AsupportedTriggerTypes%3AConnectorConfiguration%27"><span class="hs-identifier hs-var hs-var">supportedTriggerTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppFlow.Types.TriggerType.html#TriggerType"><span class="hs-identifier hs-type">TriggerType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Specifies whether the connector can be used as a source.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcanUseAsSource%3AConnectorConfiguration%27"><span class="annot"><span class="annottext">ConnectorConfiguration -&gt; Maybe Bool
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AcanUseAsSource%3AConnectorConfiguration%27"><span class="hs-identifier hs-var hs-var">canUseAsSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Specifies connector-specific metadata such as @oAuthScopes@,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @supportedRegions@, @privateLinkServiceUrl@, and so on.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AconnectorMetadata%3AConnectorConfiguration%27"><span class="annot"><span class="annottext">ConnectorConfiguration -&gt; Maybe ConnectorMetadata
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AconnectorMetadata%3AConnectorConfiguration%27"><span class="hs-identifier hs-var hs-var">connectorMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Specifies whether the connector can be used as a destination.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcanUseAsDestination%3AConnectorConfiguration%27"><span class="annot"><span class="annottext">ConnectorConfiguration -&gt; Maybe Bool
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AcanUseAsDestination%3AConnectorConfiguration%27"><span class="hs-identifier hs-var hs-var">canUseAsDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Specifies the supported flow frequency for that connector.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AsupportedSchedulingFrequencies%3AConnectorConfiguration%27"><span class="annot"><span class="annottext">ConnectorConfiguration -&gt; Maybe [ScheduleFrequencyType]
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AsupportedSchedulingFrequencies%3AConnectorConfiguration%27"><span class="hs-identifier hs-var hs-var">supportedSchedulingFrequencies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppFlow.Types.ScheduleFrequencyType.html#ScheduleFrequencyType"><span class="hs-identifier hs-type">ScheduleFrequencyType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Lists the connectors that are available for use as destinations.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AsupportedDestinationConnectors%3AConnectorConfiguration%27"><span class="annot"><span class="annottext">ConnectorConfiguration -&gt; Maybe [ConnectorType]
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AsupportedDestinationConnectors%3AConnectorConfiguration%27"><span class="hs-identifier hs-var hs-var">supportedDestinationConnectors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Specifies if a PrivateLink endpoint URL is required.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AisPrivateLinkEndpointUrlRequired%3AConnectorConfiguration%27"><span class="annot"><span class="annottext">ConnectorConfiguration -&gt; Maybe Bool
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AisPrivateLinkEndpointUrlRequired%3AConnectorConfiguration%27"><span class="hs-identifier hs-var hs-var">isPrivateLinkEndpointUrlRequired</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330921"><span id="local-6989586621679330923"><span class="annot"><span class="annottext">ConnectorConfiguration -&gt; ConnectorConfiguration -&gt; Bool
+(ConnectorConfiguration -&gt; ConnectorConfiguration -&gt; Bool)
+-&gt; (ConnectorConfiguration -&gt; ConnectorConfiguration -&gt; Bool)
+-&gt; Eq ConnectorConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConnectorConfiguration -&gt; ConnectorConfiguration -&gt; Bool
+$c/= :: ConnectorConfiguration -&gt; ConnectorConfiguration -&gt; Bool
+== :: ConnectorConfiguration -&gt; ConnectorConfiguration -&gt; Bool
+$c== :: ConnectorConfiguration -&gt; ConnectorConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330912"><span id="local-6989586621679330914"><span id="local-6989586621679330916"><span id="local-6989586621679330918"><span class="annot"><span class="annottext">ReadPrec [ConnectorConfiguration]
+ReadPrec ConnectorConfiguration
+Int -&gt; ReadS ConnectorConfiguration
+ReadS [ConnectorConfiguration]
+(Int -&gt; ReadS ConnectorConfiguration)
+-&gt; ReadS [ConnectorConfiguration]
+-&gt; ReadPrec ConnectorConfiguration
+-&gt; ReadPrec [ConnectorConfiguration]
+-&gt; Read ConnectorConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConnectorConfiguration]
+$creadListPrec :: ReadPrec [ConnectorConfiguration]
+readPrec :: ReadPrec ConnectorConfiguration
+$creadPrec :: ReadPrec ConnectorConfiguration
+readList :: ReadS [ConnectorConfiguration]
+$creadList :: ReadS [ConnectorConfiguration]
+readsPrec :: Int -&gt; ReadS ConnectorConfiguration
+$creadsPrec :: Int -&gt; ReadS ConnectorConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330905"><span id="local-6989586621679330907"><span id="local-6989586621679330909"><span class="annot"><span class="annottext">Int -&gt; ConnectorConfiguration -&gt; ShowS
+[ConnectorConfiguration] -&gt; ShowS
+ConnectorConfiguration -&gt; String
+(Int -&gt; ConnectorConfiguration -&gt; ShowS)
+-&gt; (ConnectorConfiguration -&gt; String)
+-&gt; ([ConnectorConfiguration] -&gt; ShowS)
+-&gt; Show ConnectorConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConnectorConfiguration] -&gt; ShowS
+$cshowList :: [ConnectorConfiguration] -&gt; ShowS
+show :: ConnectorConfiguration -&gt; String
+$cshow :: ConnectorConfiguration -&gt; String
+showsPrec :: Int -&gt; ConnectorConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConnectorConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ConnectorConfiguration -&gt; Rep ConnectorConfiguration x)
+-&gt; (forall x.
+    Rep ConnectorConfiguration x -&gt; ConnectorConfiguration)
+-&gt; Generic ConnectorConfiguration
+forall x. Rep ConnectorConfiguration x -&gt; ConnectorConfiguration
+forall x. ConnectorConfiguration -&gt; Rep ConnectorConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConnectorConfiguration x -&gt; ConnectorConfiguration
+$cfrom :: forall x. ConnectorConfiguration -&gt; Rep ConnectorConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'ConnectorConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'isPrivateLinkEnabled', 'connectorConfiguration_isPrivateLinkEnabled' - Specifies if PrivateLink is enabled for that connector.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'supportedTriggerTypes', 'connectorConfiguration_supportedTriggerTypes' - Specifies the supported trigger types for the flow.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'canUseAsSource', 'connectorConfiguration_canUseAsSource' - Specifies whether the connector can be used as a source.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'connectorMetadata', 'connectorConfiguration_connectorMetadata' - Specifies connector-specific metadata such as @oAuthScopes@,</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- @supportedRegions@, @privateLinkServiceUrl@, and so on.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'canUseAsDestination', 'connectorConfiguration_canUseAsDestination' - Specifies whether the connector can be used as a destination.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'supportedSchedulingFrequencies', 'connectorConfiguration_supportedSchedulingFrequencies' - Specifies the supported flow frequency for that connector.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'supportedDestinationConnectors', 'connectorConfiguration_supportedDestinationConnectors' - Lists the connectors that are available for use as destinations.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'isPrivateLinkEndpointUrlRequired', 'connectorConfiguration_isPrivateLinkEndpointUrlRequired' - Specifies if a PrivateLink endpoint URL is required.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#newConnectorConfiguration"><span class="hs-identifier hs-type">newConnectorConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span>
+</span><span id="line-80"></span><span id="newConnectorConfiguration"><span class="annot"><span class="annottext">newConnectorConfiguration :: ConnectorConfiguration
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#newConnectorConfiguration"><span class="hs-identifier hs-var hs-var">newConnectorConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ConnectorConfiguration' :: Maybe Bool
+-&gt; Maybe [TriggerType]
+-&gt; Maybe Bool
+-&gt; Maybe ConnectorMetadata
+-&gt; Maybe Bool
+-&gt; Maybe [ScheduleFrequencyType]
+-&gt; Maybe [ConnectorType]
+-&gt; Maybe Bool
+-&gt; ConnectorConfiguration
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isPrivateLinkEnabled:ConnectorConfiguration' :: Maybe Bool
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AisPrivateLinkEnabled%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">isPrivateLinkEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedTriggerTypes:ConnectorConfiguration' :: Maybe [TriggerType]
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AsupportedTriggerTypes%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">supportedTriggerTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TriggerType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:canUseAsSource:ConnectorConfiguration' :: Maybe Bool
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AcanUseAsSource%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">canUseAsSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectorMetadata:ConnectorConfiguration' :: Maybe ConnectorMetadata
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AconnectorMetadata%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">connectorMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:canUseAsDestination:ConnectorConfiguration' :: Maybe Bool
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AcanUseAsDestination%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">canUseAsDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedSchedulingFrequencies:ConnectorConfiguration' :: Maybe [ScheduleFrequencyType]
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AsupportedSchedulingFrequencies%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">supportedSchedulingFrequencies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduleFrequencyType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedDestinationConnectors:ConnectorConfiguration' :: Maybe [ConnectorType]
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AsupportedDestinationConnectors%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">supportedDestinationConnectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectorType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:isPrivateLinkEndpointUrlRequired:ConnectorConfiguration' :: Maybe Bool
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AisPrivateLinkEndpointUrlRequired%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">isPrivateLinkEndpointUrlRequired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Specifies if PrivateLink is enabled for that connector.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_isPrivateLinkEnabled"><span class="hs-identifier hs-type">connectorConfiguration_isPrivateLinkEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="connectorConfiguration_isPrivateLinkEnabled"><span class="annot"><span class="annottext">connectorConfiguration_isPrivateLinkEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ConnectorConfiguration -&gt; f ConnectorConfiguration
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_isPrivateLinkEnabled"><span class="hs-identifier hs-var hs-var">connectorConfiguration_isPrivateLinkEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorConfiguration -&gt; Maybe Bool)
+-&gt; (ConnectorConfiguration -&gt; Maybe Bool -&gt; ConnectorConfiguration)
+-&gt; Lens
+     ConnectorConfiguration
+     ConnectorConfiguration
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330896"><span class="annot"><span class="annottext">Maybe Bool
+isPrivateLinkEnabled :: Maybe Bool
+$sel:isPrivateLinkEnabled:ConnectorConfiguration' :: ConnectorConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679330896"><span class="hs-identifier hs-var hs-var">isPrivateLinkEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330896"><span class="hs-identifier hs-var">isPrivateLinkEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330895"><span class="annot"><span class="annottext">s :: ConnectorConfiguration
+</span><a href="#local-6989586621679330895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330894"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorConfiguration
+</span><a href="#local-6989586621679330895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isPrivateLinkEnabled:ConnectorConfiguration' :: Maybe Bool
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AisPrivateLinkEnabled%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">isPrivateLinkEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Specifies the supported trigger types for the flow.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_supportedTriggerTypes"><span class="hs-identifier hs-type">connectorConfiguration_supportedTriggerTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppFlow.Types.TriggerType.html#TriggerType"><span class="hs-identifier hs-type">TriggerType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="connectorConfiguration_supportedTriggerTypes"><span class="annot"><span class="annottext">connectorConfiguration_supportedTriggerTypes :: (Maybe [TriggerType] -&gt; f (Maybe [TriggerType]))
+-&gt; ConnectorConfiguration -&gt; f ConnectorConfiguration
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_supportedTriggerTypes"><span class="hs-identifier hs-var hs-var">connectorConfiguration_supportedTriggerTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorConfiguration -&gt; Maybe [TriggerType])
+-&gt; (ConnectorConfiguration
+    -&gt; Maybe [TriggerType] -&gt; ConnectorConfiguration)
+-&gt; Lens
+     ConnectorConfiguration
+     ConnectorConfiguration
+     (Maybe [TriggerType])
+     (Maybe [TriggerType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330892"><span class="annot"><span class="annottext">Maybe [TriggerType]
+supportedTriggerTypes :: Maybe [TriggerType]
+$sel:supportedTriggerTypes:ConnectorConfiguration' :: ConnectorConfiguration -&gt; Maybe [TriggerType]
+</span><a href="#local-6989586621679330892"><span class="hs-identifier hs-var hs-var">supportedTriggerTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TriggerType]
+</span><a href="#local-6989586621679330892"><span class="hs-identifier hs-var">supportedTriggerTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330891"><span class="annot"><span class="annottext">s :: ConnectorConfiguration
+</span><a href="#local-6989586621679330891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330890"><span class="annot"><span class="annottext">Maybe [TriggerType]
+</span><a href="#local-6989586621679330890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorConfiguration
+</span><a href="#local-6989586621679330891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedTriggerTypes:ConnectorConfiguration' :: Maybe [TriggerType]
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AsupportedTriggerTypes%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">supportedTriggerTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TriggerType]
+</span><a href="#local-6989586621679330890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TriggerType] -&gt; f (Maybe [TriggerType]))
+ -&gt; ConnectorConfiguration -&gt; f ConnectorConfiguration)
+-&gt; ((Maybe [TriggerType] -&gt; f (Maybe [TriggerType]))
+    -&gt; Maybe [TriggerType] -&gt; f (Maybe [TriggerType]))
+-&gt; (Maybe [TriggerType] -&gt; f (Maybe [TriggerType]))
+-&gt; ConnectorConfiguration
+-&gt; f ConnectorConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TriggerType] [TriggerType] [TriggerType] [TriggerType]
+-&gt; Iso
+     (Maybe [TriggerType])
+     (Maybe [TriggerType])
+     (Maybe [TriggerType])
+     (Maybe [TriggerType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TriggerType] [TriggerType] [TriggerType] [TriggerType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Specifies whether the connector can be used as a source.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_canUseAsSource"><span class="hs-identifier hs-type">connectorConfiguration_canUseAsSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="connectorConfiguration_canUseAsSource"><span class="annot"><span class="annottext">connectorConfiguration_canUseAsSource :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ConnectorConfiguration -&gt; f ConnectorConfiguration
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_canUseAsSource"><span class="hs-identifier hs-var hs-var">connectorConfiguration_canUseAsSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorConfiguration -&gt; Maybe Bool)
+-&gt; (ConnectorConfiguration -&gt; Maybe Bool -&gt; ConnectorConfiguration)
+-&gt; Lens
+     ConnectorConfiguration
+     ConnectorConfiguration
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330885"><span class="annot"><span class="annottext">Maybe Bool
+canUseAsSource :: Maybe Bool
+$sel:canUseAsSource:ConnectorConfiguration' :: ConnectorConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679330885"><span class="hs-identifier hs-var hs-var">canUseAsSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330885"><span class="hs-identifier hs-var">canUseAsSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330884"><span class="annot"><span class="annottext">s :: ConnectorConfiguration
+</span><a href="#local-6989586621679330884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330883"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorConfiguration
+</span><a href="#local-6989586621679330884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:canUseAsSource:ConnectorConfiguration' :: Maybe Bool
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AcanUseAsSource%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">canUseAsSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Specifies connector-specific metadata such as @oAuthScopes@,</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @supportedRegions@, @privateLinkServiceUrl@, and so on.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_connectorMetadata"><span class="hs-identifier hs-type">connectorConfiguration_connectorMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorMetadata.html#ConnectorMetadata"><span class="hs-identifier hs-type">ConnectorMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="connectorConfiguration_connectorMetadata"><span class="annot"><span class="annottext">connectorConfiguration_connectorMetadata :: (Maybe ConnectorMetadata -&gt; f (Maybe ConnectorMetadata))
+-&gt; ConnectorConfiguration -&gt; f ConnectorConfiguration
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_connectorMetadata"><span class="hs-identifier hs-var hs-var">connectorConfiguration_connectorMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorConfiguration -&gt; Maybe ConnectorMetadata)
+-&gt; (ConnectorConfiguration
+    -&gt; Maybe ConnectorMetadata -&gt; ConnectorConfiguration)
+-&gt; Lens
+     ConnectorConfiguration
+     ConnectorConfiguration
+     (Maybe ConnectorMetadata)
+     (Maybe ConnectorMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330881"><span class="annot"><span class="annottext">Maybe ConnectorMetadata
+connectorMetadata :: Maybe ConnectorMetadata
+$sel:connectorMetadata:ConnectorConfiguration' :: ConnectorConfiguration -&gt; Maybe ConnectorMetadata
+</span><a href="#local-6989586621679330881"><span class="hs-identifier hs-var hs-var">connectorMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorMetadata
+</span><a href="#local-6989586621679330881"><span class="hs-identifier hs-var">connectorMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330880"><span class="annot"><span class="annottext">s :: ConnectorConfiguration
+</span><a href="#local-6989586621679330880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330879"><span class="annot"><span class="annottext">Maybe ConnectorMetadata
+</span><a href="#local-6989586621679330879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorConfiguration
+</span><a href="#local-6989586621679330880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorMetadata:ConnectorConfiguration' :: Maybe ConnectorMetadata
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AconnectorMetadata%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">connectorMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorMetadata
+</span><a href="#local-6989586621679330879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Specifies whether the connector can be used as a destination.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_canUseAsDestination"><span class="hs-identifier hs-type">connectorConfiguration_canUseAsDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="connectorConfiguration_canUseAsDestination"><span class="annot"><span class="annottext">connectorConfiguration_canUseAsDestination :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ConnectorConfiguration -&gt; f ConnectorConfiguration
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_canUseAsDestination"><span class="hs-identifier hs-var hs-var">connectorConfiguration_canUseAsDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorConfiguration -&gt; Maybe Bool)
+-&gt; (ConnectorConfiguration -&gt; Maybe Bool -&gt; ConnectorConfiguration)
+-&gt; Lens
+     ConnectorConfiguration
+     ConnectorConfiguration
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330877"><span class="annot"><span class="annottext">Maybe Bool
+canUseAsDestination :: Maybe Bool
+$sel:canUseAsDestination:ConnectorConfiguration' :: ConnectorConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679330877"><span class="hs-identifier hs-var hs-var">canUseAsDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330877"><span class="hs-identifier hs-var">canUseAsDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330876"><span class="annot"><span class="annottext">s :: ConnectorConfiguration
+</span><a href="#local-6989586621679330876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330875"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorConfiguration
+</span><a href="#local-6989586621679330876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:canUseAsDestination:ConnectorConfiguration' :: Maybe Bool
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AcanUseAsDestination%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">canUseAsDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Specifies the supported flow frequency for that connector.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_supportedSchedulingFrequencies"><span class="hs-identifier hs-type">connectorConfiguration_supportedSchedulingFrequencies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppFlow.Types.ScheduleFrequencyType.html#ScheduleFrequencyType"><span class="hs-identifier hs-type">ScheduleFrequencyType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="connectorConfiguration_supportedSchedulingFrequencies"><span class="annot"><span class="annottext">connectorConfiguration_supportedSchedulingFrequencies :: (Maybe [ScheduleFrequencyType]
+ -&gt; f (Maybe [ScheduleFrequencyType]))
+-&gt; ConnectorConfiguration -&gt; f ConnectorConfiguration
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_supportedSchedulingFrequencies"><span class="hs-identifier hs-var hs-var">connectorConfiguration_supportedSchedulingFrequencies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorConfiguration -&gt; Maybe [ScheduleFrequencyType])
+-&gt; (ConnectorConfiguration
+    -&gt; Maybe [ScheduleFrequencyType] -&gt; ConnectorConfiguration)
+-&gt; Lens
+     ConnectorConfiguration
+     ConnectorConfiguration
+     (Maybe [ScheduleFrequencyType])
+     (Maybe [ScheduleFrequencyType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330873"><span class="annot"><span class="annottext">Maybe [ScheduleFrequencyType]
+supportedSchedulingFrequencies :: Maybe [ScheduleFrequencyType]
+$sel:supportedSchedulingFrequencies:ConnectorConfiguration' :: ConnectorConfiguration -&gt; Maybe [ScheduleFrequencyType]
+</span><a href="#local-6989586621679330873"><span class="hs-identifier hs-var hs-var">supportedSchedulingFrequencies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduleFrequencyType]
+</span><a href="#local-6989586621679330873"><span class="hs-identifier hs-var">supportedSchedulingFrequencies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330872"><span class="annot"><span class="annottext">s :: ConnectorConfiguration
+</span><a href="#local-6989586621679330872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330871"><span class="annot"><span class="annottext">Maybe [ScheduleFrequencyType]
+</span><a href="#local-6989586621679330871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorConfiguration
+</span><a href="#local-6989586621679330872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedSchedulingFrequencies:ConnectorConfiguration' :: Maybe [ScheduleFrequencyType]
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AsupportedSchedulingFrequencies%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">supportedSchedulingFrequencies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduleFrequencyType]
+</span><a href="#local-6989586621679330871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScheduleFrequencyType]
+  -&gt; f (Maybe [ScheduleFrequencyType]))
+ -&gt; ConnectorConfiguration -&gt; f ConnectorConfiguration)
+-&gt; ((Maybe [ScheduleFrequencyType]
+     -&gt; f (Maybe [ScheduleFrequencyType]))
+    -&gt; Maybe [ScheduleFrequencyType]
+    -&gt; f (Maybe [ScheduleFrequencyType]))
+-&gt; (Maybe [ScheduleFrequencyType]
+    -&gt; f (Maybe [ScheduleFrequencyType]))
+-&gt; ConnectorConfiguration
+-&gt; f ConnectorConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScheduleFrequencyType]
+  [ScheduleFrequencyType]
+  [ScheduleFrequencyType]
+  [ScheduleFrequencyType]
+-&gt; Iso
+     (Maybe [ScheduleFrequencyType])
+     (Maybe [ScheduleFrequencyType])
+     (Maybe [ScheduleFrequencyType])
+     (Maybe [ScheduleFrequencyType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScheduleFrequencyType]
+  [ScheduleFrequencyType]
+  [ScheduleFrequencyType]
+  [ScheduleFrequencyType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Lists the connectors that are available for use as destinations.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_supportedDestinationConnectors"><span class="hs-identifier hs-type">connectorConfiguration_supportedDestinationConnectors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="connectorConfiguration_supportedDestinationConnectors"><span class="annot"><span class="annottext">connectorConfiguration_supportedDestinationConnectors :: (Maybe [ConnectorType] -&gt; f (Maybe [ConnectorType]))
+-&gt; ConnectorConfiguration -&gt; f ConnectorConfiguration
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_supportedDestinationConnectors"><span class="hs-identifier hs-var hs-var">connectorConfiguration_supportedDestinationConnectors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorConfiguration -&gt; Maybe [ConnectorType])
+-&gt; (ConnectorConfiguration
+    -&gt; Maybe [ConnectorType] -&gt; ConnectorConfiguration)
+-&gt; Lens
+     ConnectorConfiguration
+     ConnectorConfiguration
+     (Maybe [ConnectorType])
+     (Maybe [ConnectorType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330869"><span class="annot"><span class="annottext">Maybe [ConnectorType]
+supportedDestinationConnectors :: Maybe [ConnectorType]
+$sel:supportedDestinationConnectors:ConnectorConfiguration' :: ConnectorConfiguration -&gt; Maybe [ConnectorType]
+</span><a href="#local-6989586621679330869"><span class="hs-identifier hs-var hs-var">supportedDestinationConnectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectorType]
+</span><a href="#local-6989586621679330869"><span class="hs-identifier hs-var">supportedDestinationConnectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330868"><span class="annot"><span class="annottext">s :: ConnectorConfiguration
+</span><a href="#local-6989586621679330868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330867"><span class="annot"><span class="annottext">Maybe [ConnectorType]
+</span><a href="#local-6989586621679330867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorConfiguration
+</span><a href="#local-6989586621679330868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedDestinationConnectors:ConnectorConfiguration' :: Maybe [ConnectorType]
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AsupportedDestinationConnectors%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">supportedDestinationConnectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectorType]
+</span><a href="#local-6989586621679330867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConnectorType] -&gt; f (Maybe [ConnectorType]))
+ -&gt; ConnectorConfiguration -&gt; f ConnectorConfiguration)
+-&gt; ((Maybe [ConnectorType] -&gt; f (Maybe [ConnectorType]))
+    -&gt; Maybe [ConnectorType] -&gt; f (Maybe [ConnectorType]))
+-&gt; (Maybe [ConnectorType] -&gt; f (Maybe [ConnectorType]))
+-&gt; ConnectorConfiguration
+-&gt; f ConnectorConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConnectorType] [ConnectorType] [ConnectorType] [ConnectorType]
+-&gt; Iso
+     (Maybe [ConnectorType])
+     (Maybe [ConnectorType])
+     (Maybe [ConnectorType])
+     (Maybe [ConnectorType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConnectorType] [ConnectorType] [ConnectorType] [ConnectorType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Specifies if a PrivateLink endpoint URL is required.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_isPrivateLinkEndpointUrlRequired"><span class="hs-identifier hs-type">connectorConfiguration_isPrivateLinkEndpointUrlRequired</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="connectorConfiguration_isPrivateLinkEndpointUrlRequired"><span class="annot"><span class="annottext">connectorConfiguration_isPrivateLinkEndpointUrlRequired :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ConnectorConfiguration -&gt; f ConnectorConfiguration
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#connectorConfiguration_isPrivateLinkEndpointUrlRequired"><span class="hs-identifier hs-var hs-var">connectorConfiguration_isPrivateLinkEndpointUrlRequired</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectorConfiguration -&gt; Maybe Bool)
+-&gt; (ConnectorConfiguration -&gt; Maybe Bool -&gt; ConnectorConfiguration)
+-&gt; Lens
+     ConnectorConfiguration
+     ConnectorConfiguration
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330865"><span class="annot"><span class="annottext">Maybe Bool
+isPrivateLinkEndpointUrlRequired :: Maybe Bool
+$sel:isPrivateLinkEndpointUrlRequired:ConnectorConfiguration' :: ConnectorConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679330865"><span class="hs-identifier hs-var hs-var">isPrivateLinkEndpointUrlRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330865"><span class="hs-identifier hs-var">isPrivateLinkEndpointUrlRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330864"><span class="annot"><span class="annottext">s :: ConnectorConfiguration
+</span><a href="#local-6989586621679330864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-type">ConnectorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330863"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectorConfiguration
+</span><a href="#local-6989586621679330864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isPrivateLinkEndpointUrlRequired:ConnectorConfiguration' :: Maybe Bool
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#%24sel%3AisPrivateLinkEndpointUrlRequired%3AConnectorConfiguration%27"><span class="hs-identifier hs-var">isPrivateLinkEndpointUrlRequired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679330863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330860"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679330858"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectorConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ConnectorConfiguration)
+-&gt; Value
+-&gt; Parser ConnectorConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ConnectorConfiguration&quot;</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330855"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330855"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe [TriggerType]
+-&gt; Maybe Bool
+-&gt; Maybe ConnectorMetadata
+-&gt; Maybe Bool
+-&gt; Maybe [ScheduleFrequencyType]
+-&gt; Maybe [ConnectorType]
+-&gt; Maybe Bool
+-&gt; ConnectorConfiguration
+</span><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration%27"><span class="hs-identifier hs-var">ConnectorConfiguration'</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe [TriggerType]
+ -&gt; Maybe Bool
+ -&gt; Maybe ConnectorMetadata
+ -&gt; Maybe Bool
+ -&gt; Maybe [ScheduleFrequencyType]
+ -&gt; Maybe [ConnectorType]
+ -&gt; Maybe Bool
+ -&gt; ConnectorConfiguration)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe [TriggerType]
+      -&gt; Maybe Bool
+      -&gt; Maybe ConnectorMetadata
+      -&gt; Maybe Bool
+      -&gt; Maybe [ScheduleFrequencyType]
+      -&gt; Maybe [ConnectorType]
+      -&gt; Maybe Bool
+      -&gt; ConnectorConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isPrivateLinkEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [TriggerType]
+   -&gt; Maybe Bool
+   -&gt; Maybe ConnectorMetadata
+   -&gt; Maybe Bool
+   -&gt; Maybe [ScheduleFrequencyType]
+   -&gt; Maybe [ConnectorType]
+   -&gt; Maybe Bool
+   -&gt; ConnectorConfiguration)
+-&gt; Parser (Maybe [TriggerType])
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe ConnectorMetadata
+      -&gt; Maybe Bool
+      -&gt; Maybe [ScheduleFrequencyType]
+      -&gt; Maybe [ConnectorType]
+      -&gt; Maybe Bool
+      -&gt; ConnectorConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TriggerType]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportedTriggerTypes&quot;</span></span><span>
+</span><span id="line-134"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [TriggerType]))
+-&gt; Maybe [TriggerType] -&gt; Parser (Maybe [TriggerType])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TriggerType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe ConnectorMetadata
+   -&gt; Maybe Bool
+   -&gt; Maybe [ScheduleFrequencyType]
+   -&gt; Maybe [ConnectorType]
+   -&gt; Maybe Bool
+   -&gt; ConnectorConfiguration)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe ConnectorMetadata
+      -&gt; Maybe Bool
+      -&gt; Maybe [ScheduleFrequencyType]
+      -&gt; Maybe [ConnectorType]
+      -&gt; Maybe Bool
+      -&gt; ConnectorConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;canUseAsSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConnectorMetadata
+   -&gt; Maybe Bool
+   -&gt; Maybe [ScheduleFrequencyType]
+   -&gt; Maybe [ConnectorType]
+   -&gt; Maybe Bool
+   -&gt; ConnectorConfiguration)
+-&gt; Parser (Maybe ConnectorMetadata)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe [ScheduleFrequencyType]
+      -&gt; Maybe [ConnectorType]
+      -&gt; Maybe Bool
+      -&gt; ConnectorConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectorMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorMetadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe [ScheduleFrequencyType]
+   -&gt; Maybe [ConnectorType]
+   -&gt; Maybe Bool
+   -&gt; ConnectorConfiguration)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe [ScheduleFrequencyType]
+      -&gt; Maybe [ConnectorType] -&gt; Maybe Bool -&gt; ConnectorConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;canUseAsDestination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ScheduleFrequencyType]
+   -&gt; Maybe [ConnectorType] -&gt; Maybe Bool -&gt; ConnectorConfiguration)
+-&gt; Parser (Maybe [ScheduleFrequencyType])
+-&gt; Parser
+     (Maybe [ConnectorType] -&gt; Maybe Bool -&gt; ConnectorConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ScheduleFrequencyType]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportedSchedulingFrequencies&quot;</span></span><span>
+</span><span id="line-140"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ScheduleFrequencyType]))
+-&gt; Maybe [ScheduleFrequencyType]
+-&gt; Parser (Maybe [ScheduleFrequencyType])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduleFrequencyType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ConnectorType] -&gt; Maybe Bool -&gt; ConnectorConfiguration)
+-&gt; Parser (Maybe [ConnectorType])
+-&gt; Parser (Maybe Bool -&gt; ConnectorConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ConnectorType]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportedDestinationConnectors&quot;</span></span><span>
+</span><span id="line-143"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ConnectorType]))
+-&gt; Maybe [ConnectorType] -&gt; Parser (Maybe [ConnectorType])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectorType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; ConnectorConfiguration)
+-&gt; Parser (Maybe Bool) -&gt; Parser ConnectorConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isPrivateLinkEndpointUrlRequired&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330848"><span id="local-6989586621679330850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorConfiguration.html#ConnectorConfiguration"><span class="hs-identifier hs-type">ConnectorConfiguration</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>

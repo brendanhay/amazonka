@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.Types.LoRaWANDevice</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.Types.LoRaWANDevice</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.AbpV1_0_x.html"><span class="hs-identifier">Amazonka.IoTWireless.Types.AbpV1_0_x</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.AbpV1_1.html"><span class="hs-identifier">Amazonka.IoTWireless.Types.AbpV1_1</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.OtaaV1_0_x.html"><span class="hs-identifier">Amazonka.IoTWireless.Types.OtaaV1_0_x</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.OtaaV1_1.html"><span class="hs-identifier">Amazonka.IoTWireless.Types.OtaaV1_1</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | LoRaWAN object for create functions.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newLoRaWANDevice' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679277084"><span id="local-6989586621679277085"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoRaWANDevice"><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-var">LoRaWANDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoRaWANDevice%27"><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-var">LoRaWANDevice'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | LoRaWAN object for create APIs</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AabpV1_0_x%3ALoRaWANDevice%27"><span class="annot"><span class="annottext">LoRaWANDevice -&gt; Maybe AbpV1_0_x
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AabpV1_0_x%3ALoRaWANDevice%27"><span class="hs-identifier hs-var hs-var">abpV1_0_x</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.AbpV1_0_x.html#AbpV1_0_x"><span class="hs-identifier hs-type">AbpV1_0_x</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | OTAA device object for v1.1 for create APIs</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AotaaV1_1%3ALoRaWANDevice%27"><span class="annot"><span class="annottext">LoRaWANDevice -&gt; Maybe OtaaV1_1
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AotaaV1_1%3ALoRaWANDevice%27"><span class="hs-identifier hs-var hs-var">otaaV1_1</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.OtaaV1_1.html#OtaaV1_1"><span class="hs-identifier hs-type">OtaaV1_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the service profile.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AserviceProfileId%3ALoRaWANDevice%27"><span class="annot"><span class="annottext">LoRaWANDevice -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AserviceProfileId%3ALoRaWANDevice%27"><span class="hs-identifier hs-var hs-var">serviceProfileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the device profile for the new wireless device.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdeviceProfileId%3ALoRaWANDevice%27"><span class="annot"><span class="annottext">LoRaWANDevice -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AdeviceProfileId%3ALoRaWANDevice%27"><span class="hs-identifier hs-var hs-var">deviceProfileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | OTAA device object for create APIs for v1.0.x</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AotaaV1_0_x%3ALoRaWANDevice%27"><span class="annot"><span class="annottext">LoRaWANDevice -&gt; Maybe OtaaV1_0_x
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AotaaV1_0_x%3ALoRaWANDevice%27"><span class="hs-identifier hs-var hs-var">otaaV1_0_x</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.OtaaV1_0_x.html#OtaaV1_0_x"><span class="hs-identifier hs-type">OtaaV1_0_x</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | ABP device object for create APIs for v1.1</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AabpV1_1%3ALoRaWANDevice%27"><span class="annot"><span class="annottext">LoRaWANDevice -&gt; Maybe AbpV1_1
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AabpV1_1%3ALoRaWANDevice%27"><span class="hs-identifier hs-var hs-var">abpV1_1</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.AbpV1_1.html#AbpV1_1"><span class="hs-identifier hs-type">AbpV1_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The DevEUI value.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AdevEui%3ALoRaWANDevice%27"><span class="annot"><span class="annottext">LoRaWANDevice -&gt; Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AdevEui%3ALoRaWANDevice%27"><span class="hs-identifier hs-var hs-var">devEui</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277072"><span id="local-6989586621679277074"><span class="annot"><span class="annottext">LoRaWANDevice -&gt; LoRaWANDevice -&gt; Bool
+(LoRaWANDevice -&gt; LoRaWANDevice -&gt; Bool)
+-&gt; (LoRaWANDevice -&gt; LoRaWANDevice -&gt; Bool) -&gt; Eq LoRaWANDevice
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LoRaWANDevice -&gt; LoRaWANDevice -&gt; Bool
+$c/= :: LoRaWANDevice -&gt; LoRaWANDevice -&gt; Bool
+== :: LoRaWANDevice -&gt; LoRaWANDevice -&gt; Bool
+$c== :: LoRaWANDevice -&gt; LoRaWANDevice -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277063"><span id="local-6989586621679277065"><span id="local-6989586621679277067"><span id="local-6989586621679277069"><span class="annot"><span class="annottext">ReadPrec [LoRaWANDevice]
+ReadPrec LoRaWANDevice
+Int -&gt; ReadS LoRaWANDevice
+ReadS [LoRaWANDevice]
+(Int -&gt; ReadS LoRaWANDevice)
+-&gt; ReadS [LoRaWANDevice]
+-&gt; ReadPrec LoRaWANDevice
+-&gt; ReadPrec [LoRaWANDevice]
+-&gt; Read LoRaWANDevice
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LoRaWANDevice]
+$creadListPrec :: ReadPrec [LoRaWANDevice]
+readPrec :: ReadPrec LoRaWANDevice
+$creadPrec :: ReadPrec LoRaWANDevice
+readList :: ReadS [LoRaWANDevice]
+$creadList :: ReadS [LoRaWANDevice]
+readsPrec :: Int -&gt; ReadS LoRaWANDevice
+$creadsPrec :: Int -&gt; ReadS LoRaWANDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277056"><span id="local-6989586621679277058"><span id="local-6989586621679277060"><span class="annot"><span class="annottext">Int -&gt; LoRaWANDevice -&gt; ShowS
+[LoRaWANDevice] -&gt; ShowS
+LoRaWANDevice -&gt; String
+(Int -&gt; LoRaWANDevice -&gt; ShowS)
+-&gt; (LoRaWANDevice -&gt; String)
+-&gt; ([LoRaWANDevice] -&gt; ShowS)
+-&gt; Show LoRaWANDevice
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LoRaWANDevice] -&gt; ShowS
+$cshowList :: [LoRaWANDevice] -&gt; ShowS
+show :: LoRaWANDevice -&gt; String
+$cshow :: LoRaWANDevice -&gt; String
+showsPrec :: Int -&gt; LoRaWANDevice -&gt; ShowS
+$cshowsPrec :: Int -&gt; LoRaWANDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LoRaWANDevice -&gt; Rep LoRaWANDevice x)
+-&gt; (forall x. Rep LoRaWANDevice x -&gt; LoRaWANDevice)
+-&gt; Generic LoRaWANDevice
+forall x. Rep LoRaWANDevice x -&gt; LoRaWANDevice
+forall x. LoRaWANDevice -&gt; Rep LoRaWANDevice x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LoRaWANDevice x -&gt; LoRaWANDevice
+$cfrom :: forall x. LoRaWANDevice -&gt; Rep LoRaWANDevice x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'LoRaWANDevice' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'abpV1_0_x', 'loRaWANDevice_abpV1_0_x' - LoRaWAN object for create APIs</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'otaaV1_1', 'loRaWANDevice_otaaV1_1' - OTAA device object for v1.1 for create APIs</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'serviceProfileId', 'loRaWANDevice_serviceProfileId' - The ID of the service profile.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'deviceProfileId', 'loRaWANDevice_deviceProfileId' - The ID of the device profile for the new wireless device.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'otaaV1_0_x', 'loRaWANDevice_otaaV1_0_x' - OTAA device object for create APIs for v1.0.x</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'abpV1_1', 'loRaWANDevice_abpV1_1' - ABP device object for create APIs for v1.1</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'devEui', 'loRaWANDevice_devEui' - The DevEUI value.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#newLoRaWANDevice"><span class="hs-identifier hs-type">newLoRaWANDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span>
+</span><span id="line-74"></span><span id="newLoRaWANDevice"><span class="annot"><span class="annottext">newLoRaWANDevice :: LoRaWANDevice
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#newLoRaWANDevice"><span class="hs-identifier hs-var hs-var">newLoRaWANDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">LoRaWANDevice' :: Maybe AbpV1_0_x
+-&gt; Maybe OtaaV1_1
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe OtaaV1_0_x
+-&gt; Maybe AbpV1_1
+-&gt; Maybe Text
+-&gt; LoRaWANDevice
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:abpV1_0_x:LoRaWANDevice' :: Maybe AbpV1_0_x
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AabpV1_0_x%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">abpV1_0_x</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbpV1_0_x
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:otaaV1_1:LoRaWANDevice' :: Maybe OtaaV1_1
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AotaaV1_1%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">otaaV1_1</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OtaaV1_1
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceProfileId:LoRaWANDevice' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AserviceProfileId%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">serviceProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceProfileId:LoRaWANDevice' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AdeviceProfileId%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">deviceProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:otaaV1_0_x:LoRaWANDevice' :: Maybe OtaaV1_0_x
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AotaaV1_0_x%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">otaaV1_0_x</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OtaaV1_0_x
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:abpV1_1:LoRaWANDevice' :: Maybe AbpV1_1
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AabpV1_1%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">abpV1_1</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbpV1_1
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:devEui:LoRaWANDevice' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AdevEui%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">devEui</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | LoRaWAN object for create APIs</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_abpV1_0_x"><span class="hs-identifier hs-type">loRaWANDevice_abpV1_0_x</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.AbpV1_0_x.html#AbpV1_0_x"><span class="hs-identifier hs-type">AbpV1_0_x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="loRaWANDevice_abpV1_0_x"><span class="annot"><span class="annottext">loRaWANDevice_abpV1_0_x :: (Maybe AbpV1_0_x -&gt; f (Maybe AbpV1_0_x))
+-&gt; LoRaWANDevice -&gt; f LoRaWANDevice
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_abpV1_0_x"><span class="hs-identifier hs-var hs-var">loRaWANDevice_abpV1_0_x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANDevice -&gt; Maybe AbpV1_0_x)
+-&gt; (LoRaWANDevice -&gt; Maybe AbpV1_0_x -&gt; LoRaWANDevice)
+-&gt; Lens
+     LoRaWANDevice LoRaWANDevice (Maybe AbpV1_0_x) (Maybe AbpV1_0_x)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277047"><span class="annot"><span class="annottext">Maybe AbpV1_0_x
+abpV1_0_x :: Maybe AbpV1_0_x
+$sel:abpV1_0_x:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe AbpV1_0_x
+</span><a href="#local-6989586621679277047"><span class="hs-identifier hs-var hs-var">abpV1_0_x</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbpV1_0_x
+</span><a href="#local-6989586621679277047"><span class="hs-identifier hs-var">abpV1_0_x</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277046"><span class="annot"><span class="annottext">s :: LoRaWANDevice
+</span><a href="#local-6989586621679277046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277045"><span class="annot"><span class="annottext">Maybe AbpV1_0_x
+</span><a href="#local-6989586621679277045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANDevice
+</span><a href="#local-6989586621679277046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abpV1_0_x:LoRaWANDevice' :: Maybe AbpV1_0_x
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AabpV1_0_x%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">abpV1_0_x</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbpV1_0_x
+</span><a href="#local-6989586621679277045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | OTAA device object for v1.1 for create APIs</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_otaaV1_1"><span class="hs-identifier hs-type">loRaWANDevice_otaaV1_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.OtaaV1_1.html#OtaaV1_1"><span class="hs-identifier hs-type">OtaaV1_1</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="loRaWANDevice_otaaV1_1"><span class="annot"><span class="annottext">loRaWANDevice_otaaV1_1 :: (Maybe OtaaV1_1 -&gt; f (Maybe OtaaV1_1))
+-&gt; LoRaWANDevice -&gt; f LoRaWANDevice
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_otaaV1_1"><span class="hs-identifier hs-var hs-var">loRaWANDevice_otaaV1_1</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANDevice -&gt; Maybe OtaaV1_1)
+-&gt; (LoRaWANDevice -&gt; Maybe OtaaV1_1 -&gt; LoRaWANDevice)
+-&gt; Lens
+     LoRaWANDevice LoRaWANDevice (Maybe OtaaV1_1) (Maybe OtaaV1_1)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277043"><span class="annot"><span class="annottext">Maybe OtaaV1_1
+otaaV1_1 :: Maybe OtaaV1_1
+$sel:otaaV1_1:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe OtaaV1_1
+</span><a href="#local-6989586621679277043"><span class="hs-identifier hs-var hs-var">otaaV1_1</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OtaaV1_1
+</span><a href="#local-6989586621679277043"><span class="hs-identifier hs-var">otaaV1_1</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277042"><span class="annot"><span class="annottext">s :: LoRaWANDevice
+</span><a href="#local-6989586621679277042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277041"><span class="annot"><span class="annottext">Maybe OtaaV1_1
+</span><a href="#local-6989586621679277041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANDevice
+</span><a href="#local-6989586621679277042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaaV1_1:LoRaWANDevice' :: Maybe OtaaV1_1
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AotaaV1_1%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">otaaV1_1</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OtaaV1_1
+</span><a href="#local-6989586621679277041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The ID of the service profile.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_serviceProfileId"><span class="hs-identifier hs-type">loRaWANDevice_serviceProfileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="loRaWANDevice_serviceProfileId"><span class="annot"><span class="annottext">loRaWANDevice_serviceProfileId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LoRaWANDevice -&gt; f LoRaWANDevice
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_serviceProfileId"><span class="hs-identifier hs-var hs-var">loRaWANDevice_serviceProfileId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANDevice -&gt; Maybe Text)
+-&gt; (LoRaWANDevice -&gt; Maybe Text -&gt; LoRaWANDevice)
+-&gt; Lens LoRaWANDevice LoRaWANDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277039"><span class="annot"><span class="annottext">Maybe Text
+serviceProfileId :: Maybe Text
+$sel:serviceProfileId:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679277039"><span class="hs-identifier hs-var hs-var">serviceProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277039"><span class="hs-identifier hs-var">serviceProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277038"><span class="annot"><span class="annottext">s :: LoRaWANDevice
+</span><a href="#local-6989586621679277038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277037"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANDevice
+</span><a href="#local-6989586621679277038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceProfileId:LoRaWANDevice' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AserviceProfileId%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">serviceProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The ID of the device profile for the new wireless device.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_deviceProfileId"><span class="hs-identifier hs-type">loRaWANDevice_deviceProfileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="loRaWANDevice_deviceProfileId"><span class="annot"><span class="annottext">loRaWANDevice_deviceProfileId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LoRaWANDevice -&gt; f LoRaWANDevice
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_deviceProfileId"><span class="hs-identifier hs-var hs-var">loRaWANDevice_deviceProfileId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANDevice -&gt; Maybe Text)
+-&gt; (LoRaWANDevice -&gt; Maybe Text -&gt; LoRaWANDevice)
+-&gt; Lens LoRaWANDevice LoRaWANDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277035"><span class="annot"><span class="annottext">Maybe Text
+deviceProfileId :: Maybe Text
+$sel:deviceProfileId:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679277035"><span class="hs-identifier hs-var hs-var">deviceProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277035"><span class="hs-identifier hs-var">deviceProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277034"><span class="annot"><span class="annottext">s :: LoRaWANDevice
+</span><a href="#local-6989586621679277034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277033"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANDevice
+</span><a href="#local-6989586621679277034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceProfileId:LoRaWANDevice' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AdeviceProfileId%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">deviceProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | OTAA device object for create APIs for v1.0.x</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_otaaV1_0_x"><span class="hs-identifier hs-type">loRaWANDevice_otaaV1_0_x</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.OtaaV1_0_x.html#OtaaV1_0_x"><span class="hs-identifier hs-type">OtaaV1_0_x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="loRaWANDevice_otaaV1_0_x"><span class="annot"><span class="annottext">loRaWANDevice_otaaV1_0_x :: (Maybe OtaaV1_0_x -&gt; f (Maybe OtaaV1_0_x))
+-&gt; LoRaWANDevice -&gt; f LoRaWANDevice
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_otaaV1_0_x"><span class="hs-identifier hs-var hs-var">loRaWANDevice_otaaV1_0_x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANDevice -&gt; Maybe OtaaV1_0_x)
+-&gt; (LoRaWANDevice -&gt; Maybe OtaaV1_0_x -&gt; LoRaWANDevice)
+-&gt; Lens
+     LoRaWANDevice LoRaWANDevice (Maybe OtaaV1_0_x) (Maybe OtaaV1_0_x)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277031"><span class="annot"><span class="annottext">Maybe OtaaV1_0_x
+otaaV1_0_x :: Maybe OtaaV1_0_x
+$sel:otaaV1_0_x:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe OtaaV1_0_x
+</span><a href="#local-6989586621679277031"><span class="hs-identifier hs-var hs-var">otaaV1_0_x</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OtaaV1_0_x
+</span><a href="#local-6989586621679277031"><span class="hs-identifier hs-var">otaaV1_0_x</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277030"><span class="annot"><span class="annottext">s :: LoRaWANDevice
+</span><a href="#local-6989586621679277030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277029"><span class="annot"><span class="annottext">Maybe OtaaV1_0_x
+</span><a href="#local-6989586621679277029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANDevice
+</span><a href="#local-6989586621679277030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaaV1_0_x:LoRaWANDevice' :: Maybe OtaaV1_0_x
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AotaaV1_0_x%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">otaaV1_0_x</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OtaaV1_0_x
+</span><a href="#local-6989586621679277029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | ABP device object for create APIs for v1.1</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_abpV1_1"><span class="hs-identifier hs-type">loRaWANDevice_abpV1_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.AbpV1_1.html#AbpV1_1"><span class="hs-identifier hs-type">AbpV1_1</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="loRaWANDevice_abpV1_1"><span class="annot"><span class="annottext">loRaWANDevice_abpV1_1 :: (Maybe AbpV1_1 -&gt; f (Maybe AbpV1_1))
+-&gt; LoRaWANDevice -&gt; f LoRaWANDevice
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_abpV1_1"><span class="hs-identifier hs-var hs-var">loRaWANDevice_abpV1_1</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANDevice -&gt; Maybe AbpV1_1)
+-&gt; (LoRaWANDevice -&gt; Maybe AbpV1_1 -&gt; LoRaWANDevice)
+-&gt; Lens LoRaWANDevice LoRaWANDevice (Maybe AbpV1_1) (Maybe AbpV1_1)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277027"><span class="annot"><span class="annottext">Maybe AbpV1_1
+abpV1_1 :: Maybe AbpV1_1
+$sel:abpV1_1:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe AbpV1_1
+</span><a href="#local-6989586621679277027"><span class="hs-identifier hs-var hs-var">abpV1_1</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbpV1_1
+</span><a href="#local-6989586621679277027"><span class="hs-identifier hs-var">abpV1_1</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277026"><span class="annot"><span class="annottext">s :: LoRaWANDevice
+</span><a href="#local-6989586621679277026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277025"><span class="annot"><span class="annottext">Maybe AbpV1_1
+</span><a href="#local-6989586621679277025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANDevice
+</span><a href="#local-6989586621679277026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abpV1_1:LoRaWANDevice' :: Maybe AbpV1_1
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AabpV1_1%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">abpV1_1</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbpV1_1
+</span><a href="#local-6989586621679277025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The DevEUI value.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_devEui"><span class="hs-identifier hs-type">loRaWANDevice_devEui</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="loRaWANDevice_devEui"><span class="annot"><span class="annottext">loRaWANDevice_devEui :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LoRaWANDevice -&gt; f LoRaWANDevice
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#loRaWANDevice_devEui"><span class="hs-identifier hs-var hs-var">loRaWANDevice_devEui</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoRaWANDevice -&gt; Maybe Text)
+-&gt; (LoRaWANDevice -&gt; Maybe Text -&gt; LoRaWANDevice)
+-&gt; Lens LoRaWANDevice LoRaWANDevice (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277023"><span class="annot"><span class="annottext">Maybe Text
+devEui :: Maybe Text
+$sel:devEui:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe Text
+</span><a href="#local-6989586621679277023"><span class="hs-identifier hs-var hs-var">devEui</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277023"><span class="hs-identifier hs-var">devEui</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277022"><span class="annot"><span class="annottext">s :: LoRaWANDevice
+</span><a href="#local-6989586621679277022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277021"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoRaWANDevice
+</span><a href="#local-6989586621679277022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devEui:LoRaWANDevice' :: Maybe Text
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#%24sel%3AdevEui%3ALoRaWANDevice%27"><span class="hs-identifier hs-var">devEui</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277018"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679277016"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LoRaWANDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LoRaWANDevice)
+-&gt; Value
+-&gt; Parser LoRaWANDevice
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LoRaWANDevice&quot;</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277013"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277013"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe AbpV1_0_x
+-&gt; Maybe OtaaV1_1
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe OtaaV1_0_x
+-&gt; Maybe AbpV1_1
+-&gt; Maybe Text
+-&gt; LoRaWANDevice
+</span><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-var">LoRaWANDevice'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AbpV1_0_x
+ -&gt; Maybe OtaaV1_1
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe OtaaV1_0_x
+ -&gt; Maybe AbpV1_1
+ -&gt; Maybe Text
+ -&gt; LoRaWANDevice)
+-&gt; Parser (Maybe AbpV1_0_x)
+-&gt; Parser
+     (Maybe OtaaV1_1
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe OtaaV1_0_x
+      -&gt; Maybe AbpV1_1
+      -&gt; Maybe Text
+      -&gt; LoRaWANDevice)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AbpV1_0_x)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AbpV1_0_x&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OtaaV1_1
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe OtaaV1_0_x
+   -&gt; Maybe AbpV1_1
+   -&gt; Maybe Text
+   -&gt; LoRaWANDevice)
+-&gt; Parser (Maybe OtaaV1_1)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe OtaaV1_0_x
+      -&gt; Maybe AbpV1_1
+      -&gt; Maybe Text
+      -&gt; LoRaWANDevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OtaaV1_1)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OtaaV1_1&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe OtaaV1_0_x
+   -&gt; Maybe AbpV1_1
+   -&gt; Maybe Text
+   -&gt; LoRaWANDevice)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe OtaaV1_0_x
+      -&gt; Maybe AbpV1_1
+      -&gt; Maybe Text
+      -&gt; LoRaWANDevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceProfileId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe OtaaV1_0_x
+   -&gt; Maybe AbpV1_1
+   -&gt; Maybe Text
+   -&gt; LoRaWANDevice)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe OtaaV1_0_x -&gt; Maybe AbpV1_1 -&gt; Maybe Text -&gt; LoRaWANDevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceProfileId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OtaaV1_0_x -&gt; Maybe AbpV1_1 -&gt; Maybe Text -&gt; LoRaWANDevice)
+-&gt; Parser (Maybe OtaaV1_0_x)
+-&gt; Parser (Maybe AbpV1_1 -&gt; Maybe Text -&gt; LoRaWANDevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OtaaV1_0_x)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OtaaV1_0_x&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AbpV1_1 -&gt; Maybe Text -&gt; LoRaWANDevice)
+-&gt; Parser (Maybe AbpV1_1) -&gt; Parser (Maybe Text -&gt; LoRaWANDevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AbpV1_1)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AbpV1_1&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; LoRaWANDevice)
+-&gt; Parser (Maybe Text) -&gt; Parser LoRaWANDevice
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DevEui&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277007"><span id="local-6989586621679277009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276996"><span id="local-6989586621679276998"><span id="local-6989586621679277000"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice"><span class="hs-identifier hs-type">LoRaWANDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679276994"><span class="annot"><span class="annottext">toJSON :: LoRaWANDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.LoRaWANDevice.html#LoRaWANDevice%27"><span class="hs-identifier hs-type">LoRaWANDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276986"><span id="local-6989586621679276987"><span id="local-6989586621679276988"><span id="local-6989586621679276989"><span id="local-6989586621679276990"><span id="local-6989586621679276991"><span id="local-6989586621679276992"><span class="annot"><span class="annottext">Maybe Text
+Maybe OtaaV1_0_x
+Maybe OtaaV1_1
+Maybe AbpV1_0_x
+Maybe AbpV1_1
+devEui :: Maybe Text
+abpV1_1 :: Maybe AbpV1_1
+otaaV1_0_x :: Maybe OtaaV1_0_x
+deviceProfileId :: Maybe Text
+serviceProfileId :: Maybe Text
+otaaV1_1 :: Maybe OtaaV1_1
+abpV1_0_x :: Maybe AbpV1_0_x
+$sel:devEui:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe Text
+$sel:abpV1_1:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe AbpV1_1
+$sel:otaaV1_0_x:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe OtaaV1_0_x
+$sel:deviceProfileId:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe Text
+$sel:serviceProfileId:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe Text
+$sel:otaaV1_1:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe OtaaV1_1
+$sel:abpV1_0_x:LoRaWANDevice' :: LoRaWANDevice -&gt; Maybe AbpV1_0_x
+</span><a href="#local-6989586621679276986"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AbpV1_0_x&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AbpV1_0_x -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AbpV1_0_x -&gt; Pair) -&gt; Maybe AbpV1_0_x -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AbpV1_0_x
+</span><a href="#local-6989586621679276992"><span class="hs-identifier hs-var">abpV1_0_x</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OtaaV1_1&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OtaaV1_1 -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OtaaV1_1 -&gt; Pair) -&gt; Maybe OtaaV1_1 -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OtaaV1_1
+</span><a href="#local-6989586621679276991"><span class="hs-identifier hs-var">otaaV1_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceProfileId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276990"><span class="hs-identifier hs-var">serviceProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceProfileId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276989"><span class="hs-identifier hs-var">deviceProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OtaaV1_0_x&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OtaaV1_0_x -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OtaaV1_0_x -&gt; Pair) -&gt; Maybe OtaaV1_0_x -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OtaaV1_0_x
+</span><a href="#local-6989586621679276988"><span class="hs-identifier hs-var">otaaV1_0_x</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AbpV1_1&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AbpV1_1 -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AbpV1_1 -&gt; Pair) -&gt; Maybe AbpV1_1 -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AbpV1_1
+</span><a href="#local-6989586621679276987"><span class="hs-identifier hs-var">abpV1_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DevEui&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276986"><span class="hs-identifier hs-var">devEui</span></a></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span></pre></body></html>

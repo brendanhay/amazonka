@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.PersonalizeRuntime.Types.PredictedItem
+module Amazonka.PersonalizeRuntime.Types.PredictedItem
 
 -- | An object that identifies an item.
 --   
@@ -48,16 +48,16 @@ predictedItem_score :: Lens' PredictedItem (Maybe Double)
 
 -- | The recommended item ID.
 predictedItem_itemId :: Lens' PredictedItem (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.PersonalizeRuntime.Types.PredictedItem.PredictedItem
-instance GHC.Show.Show Network.AWS.PersonalizeRuntime.Types.PredictedItem.PredictedItem
-instance GHC.Read.Read Network.AWS.PersonalizeRuntime.Types.PredictedItem.PredictedItem
-instance GHC.Classes.Eq Network.AWS.PersonalizeRuntime.Types.PredictedItem.PredictedItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.PersonalizeRuntime.Types.PredictedItem.PredictedItem
-instance Data.Hashable.Class.Hashable Network.AWS.PersonalizeRuntime.Types.PredictedItem.PredictedItem
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeRuntime.Types.PredictedItem.PredictedItem
+instance GHC.Generics.Generic Amazonka.PersonalizeRuntime.Types.PredictedItem.PredictedItem
+instance GHC.Show.Show Amazonka.PersonalizeRuntime.Types.PredictedItem.PredictedItem
+instance GHC.Read.Read Amazonka.PersonalizeRuntime.Types.PredictedItem.PredictedItem
+instance GHC.Classes.Eq Amazonka.PersonalizeRuntime.Types.PredictedItem.PredictedItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.PersonalizeRuntime.Types.PredictedItem.PredictedItem
+instance Data.Hashable.Class.Hashable Amazonka.PersonalizeRuntime.Types.PredictedItem.PredictedItem
+instance Control.DeepSeq.NFData Amazonka.PersonalizeRuntime.Types.PredictedItem.PredictedItem
 
 
-module Network.AWS.PersonalizeRuntime.Types
+module Amazonka.PersonalizeRuntime.Types
 
 -- | API version <tt>2018-05-22</tt> of the Amazon Personalize Runtime SDK
 --   configuration.
@@ -125,7 +125,7 @@ predictedItem_itemId :: Lens' PredictedItem (Maybe Text)
 --   
 --   Campaigns that are backed by a solution created using a recipe of type
 --   PERSONALIZED_RANKING use the API.
-module Network.AWS.PersonalizeRuntime.GetRecommendations
+module Amazonka.PersonalizeRuntime.GetRecommendations
 
 -- | <i>See:</i> <a>newGetRecommendations</a> smart constructor.
 data GetRecommendations
@@ -329,21 +329,21 @@ getRecommendationsResponse_itemList :: Lens' GetRecommendationsResponse (Maybe [
 
 -- | The response's http status code.
 getRecommendationsResponse_httpStatus :: Lens' GetRecommendationsResponse Int
-instance GHC.Generics.Generic Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendations
-instance GHC.Show.Show Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendations
-instance GHC.Classes.Eq Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendations
-instance GHC.Generics.Generic Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendationsResponse
-instance GHC.Show.Show Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendationsResponse
-instance GHC.Read.Read Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendationsResponse
-instance GHC.Classes.Eq Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendations
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendations
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendations
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendations
-instance Network.AWS.Data.Path.ToPath Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PersonalizeRuntime.GetRecommendations.GetRecommendations
+instance GHC.Generics.Generic Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendations
+instance GHC.Show.Show Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendations
+instance GHC.Classes.Eq Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendations
+instance GHC.Generics.Generic Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendationsResponse
+instance GHC.Show.Show Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendationsResponse
+instance GHC.Read.Read Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendationsResponse
+instance GHC.Classes.Eq Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendations
+instance Control.DeepSeq.NFData Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendations
+instance Control.DeepSeq.NFData Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendations
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendations
+instance Amazonka.Data.Path.ToPath Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendations
+instance Amazonka.Data.Query.ToQuery Amazonka.PersonalizeRuntime.GetRecommendations.GetRecommendations
 
 
 -- | Re-ranks a list of recommended items for the given user. The first
@@ -352,7 +352,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.PersonalizeRuntime.GetRecomm
 --   
 --   The solution backing the campaign must have been created using a
 --   recipe of type PERSONALIZED_RANKING.
-module Network.AWS.PersonalizeRuntime.GetPersonalizedRanking
+module Amazonka.PersonalizeRuntime.GetPersonalizedRanking
 
 -- | <i>See:</i> <a>newGetPersonalizedRanking</a> smart constructor.
 data GetPersonalizedRanking
@@ -535,24 +535,24 @@ getPersonalizedRankingResponse_recommendationId :: Lens' GetPersonalizedRankingR
 
 -- | The response's http status code.
 getPersonalizedRankingResponse_httpStatus :: Lens' GetPersonalizedRankingResponse Int
-instance GHC.Generics.Generic Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
-instance GHC.Show.Show Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
-instance GHC.Classes.Eq Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
-instance GHC.Generics.Generic Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRankingResponse
-instance GHC.Show.Show Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRankingResponse
-instance GHC.Read.Read Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRankingResponse
-instance GHC.Classes.Eq Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRankingResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRankingResponse
-instance Data.Hashable.Class.Hashable Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
-instance Control.DeepSeq.NFData Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
-instance Network.AWS.Data.Path.ToPath Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
+instance GHC.Generics.Generic Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
+instance GHC.Show.Show Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
+instance GHC.Classes.Eq Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
+instance GHC.Generics.Generic Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRankingResponse
+instance GHC.Show.Show Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRankingResponse
+instance GHC.Read.Read Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRankingResponse
+instance GHC.Classes.Eq Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRankingResponse
+instance Amazonka.Types.AWSRequest Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
+instance Control.DeepSeq.NFData Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRankingResponse
+instance Data.Hashable.Class.Hashable Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
+instance Control.DeepSeq.NFData Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
+instance Amazonka.Data.Headers.ToHeaders Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
+instance Amazonka.Data.Path.ToPath Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
+instance Amazonka.Data.Query.ToQuery Amazonka.PersonalizeRuntime.GetPersonalizedRanking.GetPersonalizedRanking
 
 
-module Network.AWS.PersonalizeRuntime.Lens
+module Amazonka.PersonalizeRuntime.Lens
 
 -- | The contextual metadata to use when getting recommendations.
 --   Contextual metadata includes any interaction information that might be
@@ -668,12 +668,12 @@ predictedItem_score :: Lens' PredictedItem (Maybe Double)
 predictedItem_itemId :: Lens' PredictedItem (Maybe Text)
 
 
-module Network.AWS.PersonalizeRuntime.Waiters
+module Amazonka.PersonalizeRuntime.Waiters
 
 
 -- | Derived from API version <tt>2018-05-22</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
-module Network.AWS.PersonalizeRuntime
+module Amazonka.PersonalizeRuntime
 
 -- | API version <tt>2018-05-22</tt> of the Amazon Personalize Runtime SDK
 --   configuration.

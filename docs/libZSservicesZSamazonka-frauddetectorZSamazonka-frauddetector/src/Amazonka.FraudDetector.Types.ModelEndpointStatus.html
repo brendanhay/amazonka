@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.FraudDetector.Types.ModelEndpointStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelEndpointStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus"><span class="hs-identifier">ModelEndpointStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus_ASSOCIATED"><span class="hs-identifier">ModelEndpointStatus_ASSOCIATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus_DISSOCIATED"><span class="hs-identifier">ModelEndpointStatus_DISSOCIATED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679304803"><span id="local-6989586621679304804"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelEndpointStatus"><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus"><span class="hs-identifier hs-var">ModelEndpointStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelEndpointStatus%27"><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus%27"><span class="hs-identifier hs-var">ModelEndpointStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModelEndpointStatus"><span class="annot"><span class="annottext">ModelEndpointStatus -&gt; Text
+</span><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#fromModelEndpointStatus"><span class="hs-identifier hs-var hs-var">fromModelEndpointStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304795"><span id="local-6989586621679304797"><span id="local-6989586621679304799"><span class="annot"><span class="annottext">Int -&gt; ModelEndpointStatus -&gt; ShowS
+[ModelEndpointStatus] -&gt; ShowS
+ModelEndpointStatus -&gt; String
+(Int -&gt; ModelEndpointStatus -&gt; ShowS)
+-&gt; (ModelEndpointStatus -&gt; String)
+-&gt; ([ModelEndpointStatus] -&gt; ShowS)
+-&gt; Show ModelEndpointStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModelEndpointStatus] -&gt; ShowS
+$cshowList :: [ModelEndpointStatus] -&gt; ShowS
+show :: ModelEndpointStatus -&gt; String
+$cshow :: ModelEndpointStatus -&gt; String
+showsPrec :: Int -&gt; ModelEndpointStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModelEndpointStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679304786"><span id="local-6989586621679304788"><span id="local-6989586621679304790"><span id="local-6989586621679304792"><span class="annot"><span class="annottext">ReadPrec [ModelEndpointStatus]
+ReadPrec ModelEndpointStatus
+Int -&gt; ReadS ModelEndpointStatus
+ReadS [ModelEndpointStatus]
+(Int -&gt; ReadS ModelEndpointStatus)
+-&gt; ReadS [ModelEndpointStatus]
+-&gt; ReadPrec ModelEndpointStatus
+-&gt; ReadPrec [ModelEndpointStatus]
+-&gt; Read ModelEndpointStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModelEndpointStatus]
+$creadListPrec :: ReadPrec [ModelEndpointStatus]
+readPrec :: ReadPrec ModelEndpointStatus
+$creadPrec :: ReadPrec ModelEndpointStatus
+readList :: ReadS [ModelEndpointStatus]
+$creadList :: ReadS [ModelEndpointStatus]
+readsPrec :: Int -&gt; ReadS ModelEndpointStatus
+$creadsPrec :: Int -&gt; ReadS ModelEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679304781"><span id="local-6989586621679304783"><span class="annot"><span class="annottext">ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+(ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool)
+-&gt; (ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool)
+-&gt; Eq ModelEndpointStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+$c/= :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+== :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+$c== :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679304765"><span id="local-6989586621679304767"><span id="local-6989586621679304769"><span id="local-6989586621679304771"><span id="local-6989586621679304773"><span id="local-6989586621679304775"><span id="local-6989586621679304777"><span class="annot"><span class="annottext">Eq ModelEndpointStatus
+Eq ModelEndpointStatus
+-&gt; (ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Ordering)
+-&gt; (ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool)
+-&gt; (ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool)
+-&gt; (ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool)
+-&gt; (ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool)
+-&gt; (ModelEndpointStatus
+    -&gt; ModelEndpointStatus -&gt; ModelEndpointStatus)
+-&gt; (ModelEndpointStatus
+    -&gt; ModelEndpointStatus -&gt; ModelEndpointStatus)
+-&gt; Ord ModelEndpointStatus
+ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Ordering
+ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; ModelEndpointStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; ModelEndpointStatus
+$cmin :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; ModelEndpointStatus
+max :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; ModelEndpointStatus
+$cmax :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; ModelEndpointStatus
+&gt;= :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+$c&gt;= :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+&gt; :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+$c&gt; :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+&lt;= :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+$c&lt;= :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+&lt; :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+$c&lt; :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Bool
+compare :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Ordering
+$ccompare :: ModelEndpointStatus -&gt; ModelEndpointStatus -&gt; Ordering
+$cp1Ord :: Eq ModelEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ModelEndpointStatus -&gt; Rep ModelEndpointStatus x)
+-&gt; (forall x. Rep ModelEndpointStatus x -&gt; ModelEndpointStatus)
+-&gt; Generic ModelEndpointStatus
+forall x. Rep ModelEndpointStatus x -&gt; ModelEndpointStatus
+forall x. ModelEndpointStatus -&gt; Rep ModelEndpointStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModelEndpointStatus x -&gt; ModelEndpointStatus
+$cfrom :: forall x. ModelEndpointStatus -&gt; Rep ModelEndpointStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304757"><span id="local-6989586621679304759"><span class="annot"><span class="annottext">Int -&gt; ModelEndpointStatus -&gt; Int
+ModelEndpointStatus -&gt; Int
+(Int -&gt; ModelEndpointStatus -&gt; Int)
+-&gt; (ModelEndpointStatus -&gt; Int) -&gt; Hashable ModelEndpointStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ModelEndpointStatus -&gt; Int
+$chash :: ModelEndpointStatus -&gt; Int
+hashWithSalt :: Int -&gt; ModelEndpointStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ModelEndpointStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679304754"><span class="annot"><span class="annottext">ModelEndpointStatus -&gt; ()
+(ModelEndpointStatus -&gt; ()) -&gt; NFData ModelEndpointStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ModelEndpointStatus -&gt; ()
+$crnf :: ModelEndpointStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679304751"><span class="annot"><span class="annottext">Text -&gt; Either String ModelEndpointStatus
+(Text -&gt; Either String ModelEndpointStatus)
+-&gt; FromText ModelEndpointStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ModelEndpointStatus
+$cfromText :: Text -&gt; Either String ModelEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679304748"><span class="annot"><span class="annottext">ModelEndpointStatus -&gt; Text
+(ModelEndpointStatus -&gt; Text) -&gt; ToText ModelEndpointStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ModelEndpointStatus -&gt; Text
+$ctoText :: ModelEndpointStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679304745"><span class="annot"><span class="annottext">ModelEndpointStatus -&gt; ByteString
+(ModelEndpointStatus -&gt; ByteString)
+-&gt; ToByteString ModelEndpointStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ModelEndpointStatus -&gt; ByteString
+$ctoBS :: ModelEndpointStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679304742"><span class="annot"><span class="annottext">ModelEndpointStatus -&gt; ByteStringBuilder
+(ModelEndpointStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ModelEndpointStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ModelEndpointStatus -&gt; ByteStringBuilder
+$cbuild :: ModelEndpointStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679304739"><span class="annot"><span class="annottext">HeaderName -&gt; ModelEndpointStatus -&gt; [Header]
+(HeaderName -&gt; ModelEndpointStatus -&gt; [Header])
+-&gt; ToHeader ModelEndpointStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ModelEndpointStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ModelEndpointStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679304736"><span class="annot"><span class="annottext">ModelEndpointStatus -&gt; QueryString
+(ModelEndpointStatus -&gt; QueryString) -&gt; ToQuery ModelEndpointStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ModelEndpointStatus -&gt; QueryString
+$ctoQuery :: ModelEndpointStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679304731"><span id="local-6989586621679304733"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelEndpointStatus]
+Value -&gt; Parser ModelEndpointStatus
+(Value -&gt; Parser ModelEndpointStatus)
+-&gt; (Value -&gt; Parser [ModelEndpointStatus])
+-&gt; FromJSON ModelEndpointStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ModelEndpointStatus]
+$cparseJSONList :: Value -&gt; Parser [ModelEndpointStatus]
+parseJSON :: Value -&gt; Parser ModelEndpointStatus
+$cparseJSON :: Value -&gt; Parser ModelEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679304726"><span id="local-6989586621679304728"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelEndpointStatus]
+FromJSONKeyFunction ModelEndpointStatus
+FromJSONKeyFunction ModelEndpointStatus
+-&gt; FromJSONKeyFunction [ModelEndpointStatus]
+-&gt; FromJSONKey ModelEndpointStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ModelEndpointStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ModelEndpointStatus]
+fromJSONKey :: FromJSONKeyFunction ModelEndpointStatus
+$cfromJSONKey :: FromJSONKeyFunction ModelEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679304717"><span id="local-6989586621679304719"><span id="local-6989586621679304721"><span id="local-6989586621679304723"><span class="annot"><span class="annottext">[ModelEndpointStatus] -&gt; Encoding
+[ModelEndpointStatus] -&gt; Value
+ModelEndpointStatus -&gt; Encoding
+ModelEndpointStatus -&gt; Value
+(ModelEndpointStatus -&gt; Value)
+-&gt; (ModelEndpointStatus -&gt; Encoding)
+-&gt; ([ModelEndpointStatus] -&gt; Value)
+-&gt; ([ModelEndpointStatus] -&gt; Encoding)
+-&gt; ToJSON ModelEndpointStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ModelEndpointStatus] -&gt; Encoding
+$ctoEncodingList :: [ModelEndpointStatus] -&gt; Encoding
+toJSONList :: [ModelEndpointStatus] -&gt; Value
+$ctoJSONList :: [ModelEndpointStatus] -&gt; Value
+toEncoding :: ModelEndpointStatus -&gt; Encoding
+$ctoEncoding :: ModelEndpointStatus -&gt; Encoding
+toJSON :: ModelEndpointStatus -&gt; Value
+$ctoJSON :: ModelEndpointStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679304712"><span id="local-6989586621679304714"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelEndpointStatus]
+ToJSONKeyFunction ModelEndpointStatus
+ToJSONKeyFunction ModelEndpointStatus
+-&gt; ToJSONKeyFunction [ModelEndpointStatus]
+-&gt; ToJSONKey ModelEndpointStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ModelEndpointStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ModelEndpointStatus]
+toJSONKey :: ToJSONKeyFunction ModelEndpointStatus
+$ctoJSONKey :: ToJSONKeyFunction ModelEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679304709"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelEndpointStatus
+([Node] -&gt; Either String ModelEndpointStatus)
+-&gt; FromXML ModelEndpointStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ModelEndpointStatus
+$cparseXML :: [Node] -&gt; Either String ModelEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679304706"><span class="annot"><span class="annottext">ModelEndpointStatus -&gt; XML
+(ModelEndpointStatus -&gt; XML) -&gt; ToXML ModelEndpointStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ModelEndpointStatus -&gt; XML
+$ctoXML :: ModelEndpointStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus_ASSOCIATED"><span class="hs-identifier hs-type">ModelEndpointStatus_ASSOCIATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus"><span class="hs-identifier hs-type">ModelEndpointStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelEndpointStatus_ASSOCIATED"><span id="%24mModelEndpointStatus_ASSOCIATED"><span id="ModelEndpointStatus_ASSOCIATED"><span class="annot"><span class="annottext">$bModelEndpointStatus_ASSOCIATED :: ModelEndpointStatus
+$mModelEndpointStatus_ASSOCIATED :: forall r. ModelEndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#%24bModelEndpointStatus_ASSOCIATED"><span class="hs-identifier hs-var hs-var hs-var">ModelEndpointStatus_ASSOCIATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus%27"><span class="hs-identifier hs-type">ModelEndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASSOCIATED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus_DISSOCIATED"><span class="hs-identifier hs-type">ModelEndpointStatus_DISSOCIATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus"><span class="hs-identifier hs-type">ModelEndpointStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelEndpointStatus_DISSOCIATED"><span id="%24mModelEndpointStatus_DISSOCIATED"><span id="ModelEndpointStatus_DISSOCIATED"><span class="annot"><span class="annottext">$bModelEndpointStatus_DISSOCIATED :: ModelEndpointStatus
+$mModelEndpointStatus_DISSOCIATED :: forall r. ModelEndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#%24bModelEndpointStatus_DISSOCIATED"><span class="hs-identifier hs-var hs-var hs-var">ModelEndpointStatus_DISSOCIATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus%27"><span class="hs-identifier hs-type">ModelEndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISSOCIATED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus_ASSOCIATED"><span class="hs-pragma hs-type">ModelEndpointStatus_ASSOCIATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus_DISSOCIATED"><span class="hs-pragma hs-type">ModelEndpointStatus_DISSOCIATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus%27"><span class="hs-pragma hs-type">ModelEndpointStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

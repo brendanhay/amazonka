@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.CaptionLanguageMapping</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.CaptionLanguageMapping</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Maps a caption channel to an ISO 693-2 language code</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- (http:\/\/www.loc.gov\/standards\/iso639-2), with an optional</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- description.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCaptionLanguageMapping' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679868974"><span id="local-6989586621679868975"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaptionLanguageMapping"><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping"><span class="hs-identifier hs-var">CaptionLanguageMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionLanguageMapping%27"><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping%27"><span class="hs-identifier hs-var">CaptionLanguageMapping'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Three character ISO 639-2 language code (see</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- http:\/\/www.loc.gov\/standards\/iso639-2)</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlanguageCode%3ACaptionLanguageMapping%27"><span class="annot"><span class="annottext">CaptionLanguageMapping -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#%24sel%3AlanguageCode%3ACaptionLanguageMapping%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Textual description of language</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlanguageDescription%3ACaptionLanguageMapping%27"><span class="annot"><span class="annottext">CaptionLanguageMapping -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#%24sel%3AlanguageDescription%3ACaptionLanguageMapping%27"><span class="hs-identifier hs-var hs-var">languageDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The closed caption channel being described by this</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- CaptionLanguageMapping. Each channel mapping must have a unique channel</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- number (maximum of 4)</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcaptionChannel%3ACaptionLanguageMapping%27"><span class="annot"><span class="annottext">CaptionLanguageMapping -&gt; Natural
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#%24sel%3AcaptionChannel%3ACaptionLanguageMapping%27"><span class="hs-identifier hs-var hs-var">captionChannel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679868966"><span id="local-6989586621679868968"><span class="annot"><span class="annottext">CaptionLanguageMapping -&gt; CaptionLanguageMapping -&gt; Bool
+(CaptionLanguageMapping -&gt; CaptionLanguageMapping -&gt; Bool)
+-&gt; (CaptionLanguageMapping -&gt; CaptionLanguageMapping -&gt; Bool)
+-&gt; Eq CaptionLanguageMapping
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CaptionLanguageMapping -&gt; CaptionLanguageMapping -&gt; Bool
+$c/= :: CaptionLanguageMapping -&gt; CaptionLanguageMapping -&gt; Bool
+== :: CaptionLanguageMapping -&gt; CaptionLanguageMapping -&gt; Bool
+$c== :: CaptionLanguageMapping -&gt; CaptionLanguageMapping -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679868957"><span id="local-6989586621679868959"><span id="local-6989586621679868961"><span id="local-6989586621679868963"><span class="annot"><span class="annottext">ReadPrec [CaptionLanguageMapping]
+ReadPrec CaptionLanguageMapping
+Int -&gt; ReadS CaptionLanguageMapping
+ReadS [CaptionLanguageMapping]
+(Int -&gt; ReadS CaptionLanguageMapping)
+-&gt; ReadS [CaptionLanguageMapping]
+-&gt; ReadPrec CaptionLanguageMapping
+-&gt; ReadPrec [CaptionLanguageMapping]
+-&gt; Read CaptionLanguageMapping
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CaptionLanguageMapping]
+$creadListPrec :: ReadPrec [CaptionLanguageMapping]
+readPrec :: ReadPrec CaptionLanguageMapping
+$creadPrec :: ReadPrec CaptionLanguageMapping
+readList :: ReadS [CaptionLanguageMapping]
+$creadList :: ReadS [CaptionLanguageMapping]
+readsPrec :: Int -&gt; ReadS CaptionLanguageMapping
+$creadsPrec :: Int -&gt; ReadS CaptionLanguageMapping
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679868950"><span id="local-6989586621679868952"><span id="local-6989586621679868954"><span class="annot"><span class="annottext">Int -&gt; CaptionLanguageMapping -&gt; ShowS
+[CaptionLanguageMapping] -&gt; ShowS
+CaptionLanguageMapping -&gt; String
+(Int -&gt; CaptionLanguageMapping -&gt; ShowS)
+-&gt; (CaptionLanguageMapping -&gt; String)
+-&gt; ([CaptionLanguageMapping] -&gt; ShowS)
+-&gt; Show CaptionLanguageMapping
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CaptionLanguageMapping] -&gt; ShowS
+$cshowList :: [CaptionLanguageMapping] -&gt; ShowS
+show :: CaptionLanguageMapping -&gt; String
+$cshow :: CaptionLanguageMapping -&gt; String
+showsPrec :: Int -&gt; CaptionLanguageMapping -&gt; ShowS
+$cshowsPrec :: Int -&gt; CaptionLanguageMapping -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CaptionLanguageMapping -&gt; Rep CaptionLanguageMapping x)
+-&gt; (forall x.
+    Rep CaptionLanguageMapping x -&gt; CaptionLanguageMapping)
+-&gt; Generic CaptionLanguageMapping
+forall x. Rep CaptionLanguageMapping x -&gt; CaptionLanguageMapping
+forall x. CaptionLanguageMapping -&gt; Rep CaptionLanguageMapping x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CaptionLanguageMapping x -&gt; CaptionLanguageMapping
+$cfrom :: forall x. CaptionLanguageMapping -&gt; Rep CaptionLanguageMapping x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'CaptionLanguageMapping' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'languageCode', 'captionLanguageMapping_languageCode' - Three character ISO 639-2 language code (see</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- http:\/\/www.loc.gov\/standards\/iso639-2)</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'languageDescription', 'captionLanguageMapping_languageDescription' - Textual description of language</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'captionChannel', 'captionLanguageMapping_captionChannel' - The closed caption channel being described by this</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- CaptionLanguageMapping. Each channel mapping must have a unique channel</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- number (maximum of 4)</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#newCaptionLanguageMapping"><span class="hs-identifier hs-type">newCaptionLanguageMapping</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'languageCode'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'languageDescription'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'captionChannel'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping"><span class="hs-identifier hs-type">CaptionLanguageMapping</span></a></span><span>
+</span><span id="line-68"></span><span id="newCaptionLanguageMapping"><span class="annot"><span class="annottext">newCaptionLanguageMapping :: Text -&gt; Text -&gt; Natural -&gt; CaptionLanguageMapping
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#newCaptionLanguageMapping"><span class="hs-identifier hs-var hs-var">newCaptionLanguageMapping</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679868944"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679868944"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679868943"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679868943"><span class="hs-identifier hs-var">pLanguageDescription_</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679868942"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679868942"><span class="hs-identifier hs-var">pCaptionChannel_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">CaptionLanguageMapping' :: Text -&gt; Text -&gt; Natural -&gt; CaptionLanguageMapping
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping%27"><span class="hs-identifier hs-type">CaptionLanguageMapping'</span></a></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:languageCode:CaptionLanguageMapping' :: Text
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#%24sel%3AlanguageCode%3ACaptionLanguageMapping%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679868944"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">$sel:languageDescription:CaptionLanguageMapping' :: Text
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#%24sel%3AlanguageDescription%3ACaptionLanguageMapping%27"><span class="hs-identifier hs-var">languageDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679868943"><span class="hs-identifier hs-var">pLanguageDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">$sel:captionChannel:CaptionLanguageMapping' :: Natural
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#%24sel%3AcaptionChannel%3ACaptionLanguageMapping%27"><span class="hs-identifier hs-var">captionChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679868942"><span class="hs-identifier hs-var">pCaptionChannel_</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Three character ISO 639-2 language code (see</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- http:\/\/www.loc.gov\/standards\/iso639-2)</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#captionLanguageMapping_languageCode"><span class="hs-identifier hs-type">captionLanguageMapping_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping"><span class="hs-identifier hs-type">CaptionLanguageMapping</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="captionLanguageMapping_languageCode"><span class="annot"><span class="annottext">captionLanguageMapping_languageCode :: (Text -&gt; f Text)
+-&gt; CaptionLanguageMapping -&gt; f CaptionLanguageMapping
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#captionLanguageMapping_languageCode"><span class="hs-identifier hs-var hs-var">captionLanguageMapping_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionLanguageMapping -&gt; Text)
+-&gt; (CaptionLanguageMapping -&gt; Text -&gt; CaptionLanguageMapping)
+-&gt; Lens CaptionLanguageMapping CaptionLanguageMapping Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping%27"><span class="hs-identifier hs-type">CaptionLanguageMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679868938"><span class="annot"><span class="annottext">Text
+languageCode :: Text
+$sel:languageCode:CaptionLanguageMapping' :: CaptionLanguageMapping -&gt; Text
+</span><a href="#local-6989586621679868938"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679868938"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679868937"><span class="annot"><span class="annottext">s :: CaptionLanguageMapping
+</span><a href="#local-6989586621679868937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping%27"><span class="hs-identifier hs-type">CaptionLanguageMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679868936"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679868936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionLanguageMapping
+</span><a href="#local-6989586621679868937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:CaptionLanguageMapping' :: Text
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#%24sel%3AlanguageCode%3ACaptionLanguageMapping%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679868936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping"><span class="hs-identifier hs-type">CaptionLanguageMapping</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Textual description of language</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#captionLanguageMapping_languageDescription"><span class="hs-identifier hs-type">captionLanguageMapping_languageDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping"><span class="hs-identifier hs-type">CaptionLanguageMapping</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="captionLanguageMapping_languageDescription"><span class="annot"><span class="annottext">captionLanguageMapping_languageDescription :: (Text -&gt; f Text)
+-&gt; CaptionLanguageMapping -&gt; f CaptionLanguageMapping
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#captionLanguageMapping_languageDescription"><span class="hs-identifier hs-var hs-var">captionLanguageMapping_languageDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionLanguageMapping -&gt; Text)
+-&gt; (CaptionLanguageMapping -&gt; Text -&gt; CaptionLanguageMapping)
+-&gt; Lens CaptionLanguageMapping CaptionLanguageMapping Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping%27"><span class="hs-identifier hs-type">CaptionLanguageMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679868934"><span class="annot"><span class="annottext">Text
+languageDescription :: Text
+$sel:languageDescription:CaptionLanguageMapping' :: CaptionLanguageMapping -&gt; Text
+</span><a href="#local-6989586621679868934"><span class="hs-identifier hs-var hs-var">languageDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679868934"><span class="hs-identifier hs-var">languageDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679868933"><span class="annot"><span class="annottext">s :: CaptionLanguageMapping
+</span><a href="#local-6989586621679868933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping%27"><span class="hs-identifier hs-type">CaptionLanguageMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679868932"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679868932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionLanguageMapping
+</span><a href="#local-6989586621679868933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageDescription:CaptionLanguageMapping' :: Text
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#%24sel%3AlanguageDescription%3ACaptionLanguageMapping%27"><span class="hs-identifier hs-var">languageDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679868932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping"><span class="hs-identifier hs-type">CaptionLanguageMapping</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The closed caption channel being described by this</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- CaptionLanguageMapping. Each channel mapping must have a unique channel</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- number (maximum of 4)</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#captionLanguageMapping_captionChannel"><span class="hs-identifier hs-type">captionLanguageMapping_captionChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping"><span class="hs-identifier hs-type">CaptionLanguageMapping</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-92"></span><span id="captionLanguageMapping_captionChannel"><span class="annot"><span class="annottext">captionLanguageMapping_captionChannel :: (Natural -&gt; f Natural)
+-&gt; CaptionLanguageMapping -&gt; f CaptionLanguageMapping
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#captionLanguageMapping_captionChannel"><span class="hs-identifier hs-var hs-var">captionLanguageMapping_captionChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionLanguageMapping -&gt; Natural)
+-&gt; (CaptionLanguageMapping -&gt; Natural -&gt; CaptionLanguageMapping)
+-&gt; Lens
+     CaptionLanguageMapping CaptionLanguageMapping Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping%27"><span class="hs-identifier hs-type">CaptionLanguageMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679868930"><span class="annot"><span class="annottext">Natural
+captionChannel :: Natural
+$sel:captionChannel:CaptionLanguageMapping' :: CaptionLanguageMapping -&gt; Natural
+</span><a href="#local-6989586621679868930"><span class="hs-identifier hs-var hs-var">captionChannel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679868930"><span class="hs-identifier hs-var">captionChannel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679868929"><span class="annot"><span class="annottext">s :: CaptionLanguageMapping
+</span><a href="#local-6989586621679868929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping%27"><span class="hs-identifier hs-type">CaptionLanguageMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679868928"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679868928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionLanguageMapping
+</span><a href="#local-6989586621679868929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionChannel:CaptionLanguageMapping' :: Natural
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#%24sel%3AcaptionChannel%3ACaptionLanguageMapping%27"><span class="hs-identifier hs-var">captionChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679868928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping"><span class="hs-identifier hs-type">CaptionLanguageMapping</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679868925"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping"><span class="hs-identifier hs-type">CaptionLanguageMapping</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679868923"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaptionLanguageMapping
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CaptionLanguageMapping)
+-&gt; Value
+-&gt; Parser CaptionLanguageMapping
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CaptionLanguageMapping&quot;</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679868920"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679868920"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Natural -&gt; CaptionLanguageMapping
+</span><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping%27"><span class="hs-identifier hs-var">CaptionLanguageMapping'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Natural -&gt; CaptionLanguageMapping)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; Natural -&gt; CaptionLanguageMapping)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679868920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;languageCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Natural -&gt; CaptionLanguageMapping)
+-&gt; Parser Text -&gt; Parser (Natural -&gt; CaptionLanguageMapping)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679868920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;languageDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; CaptionLanguageMapping)
+-&gt; Parser Natural -&gt; Parser CaptionLanguageMapping
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679868920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;captionChannel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679868914"><span id="local-6989586621679868916"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping"><span class="hs-identifier hs-type">CaptionLanguageMapping</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679868911"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping"><span class="hs-identifier hs-type">CaptionLanguageMapping</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679868903"><span id="local-6989586621679868905"><span id="local-6989586621679868907"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping"><span class="hs-identifier hs-type">CaptionLanguageMapping</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679868901"><span class="annot"><span class="annottext">toJSON :: CaptionLanguageMapping -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.CaptionLanguageMapping.html#CaptionLanguageMapping%27"><span class="hs-identifier hs-type">CaptionLanguageMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679868897"><span id="local-6989586621679868898"><span id="local-6989586621679868899"><span class="annot"><span class="annottext">Natural
+Text
+captionChannel :: Natural
+languageDescription :: Text
+languageCode :: Text
+$sel:captionChannel:CaptionLanguageMapping' :: CaptionLanguageMapping -&gt; Natural
+$sel:languageDescription:CaptionLanguageMapping' :: CaptionLanguageMapping -&gt; Text
+$sel:languageCode:CaptionLanguageMapping' :: CaptionLanguageMapping -&gt; Text
+</span><a href="#local-6989586621679868897"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;languageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679868899"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;languageDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679868898"><span class="hs-identifier hs-var">languageDescription</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;captionChannel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679868897"><span class="hs-identifier hs-var">captionChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span></pre></body></html>

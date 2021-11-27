@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Budgets.DescribeBudget</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes a budget.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- The Request Syntax section shows the @BudgetLimit@ syntax. For</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @PlannedBudgetLimits@, see the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudget.html#API_DescribeBudget_Examples Examples&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- section.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Budgets.DescribeBudget</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier">DescribeBudget</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#newDescribeBudget"><span class="hs-identifier">newDescribeBudget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#describeBudget_accountId"><span class="hs-identifier">describeBudget_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#describeBudget_budgetName"><span class="hs-identifier">describeBudget_budgetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse"><span class="hs-identifier">DescribeBudgetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#newDescribeBudgetResponse"><span class="hs-identifier">newDescribeBudgetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#describeBudgetResponse_budget"><span class="hs-identifier">describeBudgetResponse_budget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#describeBudgetResponse_httpStatus"><span class="hs-identifier">describeBudgetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.html"><span class="hs-identifier">Amazonka.Budgets.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | Request of DescribeBudget</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newDescribeBudget' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679212754"><span id="local-6989586621679212755"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeBudget"><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-var">DescribeBudget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeBudget%27"><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget%27"><span class="hs-identifier hs-var">DescribeBudget'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @accountId@ that is associated with the budget that you want a</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- description of.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AaccountId%3ADescribeBudget%27"><span class="annot"><span class="annottext">DescribeBudget -&gt; Text
+</span><a href="Amazonka.Budgets.DescribeBudget.html#%24sel%3AaccountId%3ADescribeBudget%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The name of the budget that you want a description of.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AbudgetName%3ADescribeBudget%27"><span class="annot"><span class="annottext">DescribeBudget -&gt; Text
+</span><a href="Amazonka.Budgets.DescribeBudget.html#%24sel%3AbudgetName%3ADescribeBudget%27"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212747"><span id="local-6989586621679212749"><span class="annot"><span class="annottext">DescribeBudget -&gt; DescribeBudget -&gt; Bool
+(DescribeBudget -&gt; DescribeBudget -&gt; Bool)
+-&gt; (DescribeBudget -&gt; DescribeBudget -&gt; Bool) -&gt; Eq DescribeBudget
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeBudget -&gt; DescribeBudget -&gt; Bool
+$c/= :: DescribeBudget -&gt; DescribeBudget -&gt; Bool
+== :: DescribeBudget -&gt; DescribeBudget -&gt; Bool
+$c== :: DescribeBudget -&gt; DescribeBudget -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212738"><span id="local-6989586621679212740"><span id="local-6989586621679212742"><span id="local-6989586621679212744"><span class="annot"><span class="annottext">ReadPrec [DescribeBudget]
+ReadPrec DescribeBudget
+Int -&gt; ReadS DescribeBudget
+ReadS [DescribeBudget]
+(Int -&gt; ReadS DescribeBudget)
+-&gt; ReadS [DescribeBudget]
+-&gt; ReadPrec DescribeBudget
+-&gt; ReadPrec [DescribeBudget]
+-&gt; Read DescribeBudget
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeBudget]
+$creadListPrec :: ReadPrec [DescribeBudget]
+readPrec :: ReadPrec DescribeBudget
+$creadPrec :: ReadPrec DescribeBudget
+readList :: ReadS [DescribeBudget]
+$creadList :: ReadS [DescribeBudget]
+readsPrec :: Int -&gt; ReadS DescribeBudget
+$creadsPrec :: Int -&gt; ReadS DescribeBudget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212731"><span id="local-6989586621679212733"><span id="local-6989586621679212735"><span class="annot"><span class="annottext">Int -&gt; DescribeBudget -&gt; ShowS
+[DescribeBudget] -&gt; ShowS
+DescribeBudget -&gt; String
+(Int -&gt; DescribeBudget -&gt; ShowS)
+-&gt; (DescribeBudget -&gt; String)
+-&gt; ([DescribeBudget] -&gt; ShowS)
+-&gt; Show DescribeBudget
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeBudget] -&gt; ShowS
+$cshowList :: [DescribeBudget] -&gt; ShowS
+show :: DescribeBudget -&gt; String
+$cshow :: DescribeBudget -&gt; String
+showsPrec :: Int -&gt; DescribeBudget -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeBudget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeBudget -&gt; Rep DescribeBudget x)
+-&gt; (forall x. Rep DescribeBudget x -&gt; DescribeBudget)
+-&gt; Generic DescribeBudget
+forall x. Rep DescribeBudget x -&gt; DescribeBudget
+forall x. DescribeBudget -&gt; Rep DescribeBudget x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeBudget x -&gt; DescribeBudget
+$cfrom :: forall x. DescribeBudget -&gt; Rep DescribeBudget x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'DescribeBudget' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'accountId', 'describeBudget_accountId' - The @accountId@ that is associated with the budget that you want a</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- description of.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'budgetName', 'describeBudget_budgetName' - The name of the budget that you want a description of.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#newDescribeBudget"><span class="hs-identifier hs-type">newDescribeBudget</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'budgetName'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span><span>
+</span><span id="line-85"></span><span id="newDescribeBudget"><span class="annot"><span class="annottext">newDescribeBudget :: Text -&gt; Text -&gt; DescribeBudget
+</span><a href="Amazonka.Budgets.DescribeBudget.html#newDescribeBudget"><span class="hs-identifier hs-var hs-var">newDescribeBudget</span></a></span></span><span> </span><span id="local-6989586621679212726"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212726"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679212725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212725"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">DescribeBudget' :: Text -&gt; Text -&gt; DescribeBudget
+</span><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget%27"><span class="hs-identifier hs-type">DescribeBudget'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:DescribeBudget' :: Text
+</span><a href="Amazonka.Budgets.DescribeBudget.html#%24sel%3AaccountId%3ADescribeBudget%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212726"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:budgetName:DescribeBudget' :: Text
+</span><a href="Amazonka.Budgets.DescribeBudget.html#%24sel%3AbudgetName%3ADescribeBudget%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212725"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The @accountId@ that is associated with the budget that you want a</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- description of.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#describeBudget_accountId"><span class="hs-identifier hs-type">describeBudget_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="describeBudget_accountId"><span class="annot"><span class="annottext">describeBudget_accountId :: (Text -&gt; f Text) -&gt; DescribeBudget -&gt; f DescribeBudget
+</span><a href="Amazonka.Budgets.DescribeBudget.html#describeBudget_accountId"><span class="hs-identifier hs-var hs-var">describeBudget_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBudget -&gt; Text)
+-&gt; (DescribeBudget -&gt; Text -&gt; DescribeBudget)
+-&gt; Lens DescribeBudget DescribeBudget Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget%27"><span class="hs-identifier hs-type">DescribeBudget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212722"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:DescribeBudget' :: DescribeBudget -&gt; Text
+</span><a href="#local-6989586621679212722"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212722"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212721"><span class="annot"><span class="annottext">s :: DescribeBudget
+</span><a href="#local-6989586621679212721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget%27"><span class="hs-identifier hs-type">DescribeBudget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBudget
+</span><a href="#local-6989586621679212721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DescribeBudget' :: Text
+</span><a href="Amazonka.Budgets.DescribeBudget.html#%24sel%3AaccountId%3ADescribeBudget%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The name of the budget that you want a description of.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#describeBudget_budgetName"><span class="hs-identifier hs-type">describeBudget_budgetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="describeBudget_budgetName"><span class="annot"><span class="annottext">describeBudget_budgetName :: (Text -&gt; f Text) -&gt; DescribeBudget -&gt; f DescribeBudget
+</span><a href="Amazonka.Budgets.DescribeBudget.html#describeBudget_budgetName"><span class="hs-identifier hs-var hs-var">describeBudget_budgetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBudget -&gt; Text)
+-&gt; (DescribeBudget -&gt; Text -&gt; DescribeBudget)
+-&gt; Lens DescribeBudget DescribeBudget Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget%27"><span class="hs-identifier hs-type">DescribeBudget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212719"><span class="annot"><span class="annottext">Text
+budgetName :: Text
+$sel:budgetName:DescribeBudget' :: DescribeBudget -&gt; Text
+</span><a href="#local-6989586621679212719"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212719"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212718"><span class="annot"><span class="annottext">s :: DescribeBudget
+</span><a href="#local-6989586621679212718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget%27"><span class="hs-identifier hs-type">DescribeBudget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212717"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBudget
+</span><a href="#local-6989586621679212718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:DescribeBudget' :: Text
+</span><a href="Amazonka.Budgets.DescribeBudget.html#%24sel%3AbudgetName%3ADescribeBudget%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse"><span class="hs-identifier hs-type">DescribeBudgetResponse</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679212713"><span class="annot"><span class="annottext">request :: DescribeBudget -&gt; Request DescribeBudget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeBudget -&gt; Request DescribeBudget
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Budgets.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679212709"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeBudget
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeBudget)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeBudget))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeBudget
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeBudget)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212706"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212706"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679212705"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679212705"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679212704"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212704"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Budget -&gt; Int -&gt; DescribeBudgetResponse
+</span><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse%27"><span class="hs-identifier hs-var">DescribeBudgetResponse'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Budget -&gt; Int -&gt; DescribeBudgetResponse)
+-&gt; Either String (Maybe Budget)
+-&gt; Either String (Int -&gt; DescribeBudgetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Budget)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Budget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeBudgetResponse)
+-&gt; Either String Int -&gt; Either String DescribeBudgetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212706"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212696"><span id="local-6989586621679212698"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212693"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679212689"><span class="annot"><span class="annottext">toHeaders :: DescribeBudget -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeBudget -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSBudgetServiceGateway.DescribeBudget&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212679"><span id="local-6989586621679212681"><span id="local-6989586621679212683"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679212677"><span class="annot"><span class="annottext">toJSON :: DescribeBudget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget%27"><span class="hs-identifier hs-type">DescribeBudget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212674"><span id="local-6989586621679212675"><span class="annot"><span class="annottext">Text
+budgetName :: Text
+accountId :: Text
+$sel:budgetName:DescribeBudget' :: DescribeBudget -&gt; Text
+$sel:accountId:DescribeBudget' :: DescribeBudget -&gt; Text
+</span><a href="#local-6989586621679212674"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212675"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BudgetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212674"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679212668"><span class="annot"><span class="annottext">toPath :: DescribeBudget -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeBudget -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudget"><span class="hs-identifier hs-type">DescribeBudget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679212664"><span class="annot"><span class="annottext">toQuery :: DescribeBudget -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeBudget -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Response of DescribeBudget</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- /See:/ 'newDescribeBudgetResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679212661"><span id="local-6989586621679212662"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeBudgetResponse"><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse"><span class="hs-identifier hs-var">DescribeBudgetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeBudgetResponse%27"><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse%27"><span class="hs-identifier hs-var">DescribeBudgetResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the budget.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3Abudget%3ADescribeBudgetResponse%27"><span class="annot"><span class="annottext">DescribeBudgetResponse -&gt; Maybe Budget
+</span><a href="Amazonka.Budgets.DescribeBudget.html#%24sel%3Abudget%3ADescribeBudgetResponse%27"><span class="hs-identifier hs-var hs-var">budget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.Budget.html#Budget"><span class="hs-identifier hs-type">Budget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeBudgetResponse%27"><span class="annot"><span class="annottext">DescribeBudgetResponse -&gt; Int
+</span><a href="Amazonka.Budgets.DescribeBudget.html#%24sel%3AhttpStatus%3ADescribeBudgetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212655"><span id="local-6989586621679212657"><span class="annot"><span class="annottext">DescribeBudgetResponse -&gt; DescribeBudgetResponse -&gt; Bool
+(DescribeBudgetResponse -&gt; DescribeBudgetResponse -&gt; Bool)
+-&gt; (DescribeBudgetResponse -&gt; DescribeBudgetResponse -&gt; Bool)
+-&gt; Eq DescribeBudgetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeBudgetResponse -&gt; DescribeBudgetResponse -&gt; Bool
+$c/= :: DescribeBudgetResponse -&gt; DescribeBudgetResponse -&gt; Bool
+== :: DescribeBudgetResponse -&gt; DescribeBudgetResponse -&gt; Bool
+$c== :: DescribeBudgetResponse -&gt; DescribeBudgetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212647"><span id="local-6989586621679212649"><span id="local-6989586621679212651"><span id="local-6989586621679212653"><span class="annot"><span class="annottext">ReadPrec [DescribeBudgetResponse]
+ReadPrec DescribeBudgetResponse
+Int -&gt; ReadS DescribeBudgetResponse
+ReadS [DescribeBudgetResponse]
+(Int -&gt; ReadS DescribeBudgetResponse)
+-&gt; ReadS [DescribeBudgetResponse]
+-&gt; ReadPrec DescribeBudgetResponse
+-&gt; ReadPrec [DescribeBudgetResponse]
+-&gt; Read DescribeBudgetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeBudgetResponse]
+$creadListPrec :: ReadPrec [DescribeBudgetResponse]
+readPrec :: ReadPrec DescribeBudgetResponse
+$creadPrec :: ReadPrec DescribeBudgetResponse
+readList :: ReadS [DescribeBudgetResponse]
+$creadList :: ReadS [DescribeBudgetResponse]
+readsPrec :: Int -&gt; ReadS DescribeBudgetResponse
+$creadsPrec :: Int -&gt; ReadS DescribeBudgetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212641"><span id="local-6989586621679212643"><span id="local-6989586621679212645"><span class="annot"><span class="annottext">Int -&gt; DescribeBudgetResponse -&gt; ShowS
+[DescribeBudgetResponse] -&gt; ShowS
+DescribeBudgetResponse -&gt; String
+(Int -&gt; DescribeBudgetResponse -&gt; ShowS)
+-&gt; (DescribeBudgetResponse -&gt; String)
+-&gt; ([DescribeBudgetResponse] -&gt; ShowS)
+-&gt; Show DescribeBudgetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeBudgetResponse] -&gt; ShowS
+$cshowList :: [DescribeBudgetResponse] -&gt; ShowS
+show :: DescribeBudgetResponse -&gt; String
+$cshow :: DescribeBudgetResponse -&gt; String
+showsPrec :: Int -&gt; DescribeBudgetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeBudgetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeBudgetResponse -&gt; Rep DescribeBudgetResponse x)
+-&gt; (forall x.
+    Rep DescribeBudgetResponse x -&gt; DescribeBudgetResponse)
+-&gt; Generic DescribeBudgetResponse
+forall x. Rep DescribeBudgetResponse x -&gt; DescribeBudgetResponse
+forall x. DescribeBudgetResponse -&gt; Rep DescribeBudgetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeBudgetResponse x -&gt; DescribeBudgetResponse
+$cfrom :: forall x. DescribeBudgetResponse -&gt; Rep DescribeBudgetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'DescribeBudgetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'budget', 'describeBudgetResponse_budget' - The description of the budget.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'httpStatus', 'describeBudgetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#newDescribeBudgetResponse"><span class="hs-identifier hs-type">newDescribeBudgetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse"><span class="hs-identifier hs-type">DescribeBudgetResponse</span></a></span><span>
+</span><span id="line-173"></span><span id="newDescribeBudgetResponse"><span class="annot"><span class="annottext">newDescribeBudgetResponse :: Int -&gt; DescribeBudgetResponse
+</span><a href="Amazonka.Budgets.DescribeBudget.html#newDescribeBudgetResponse"><span class="hs-identifier hs-var hs-var">newDescribeBudgetResponse</span></a></span></span><span> </span><span id="local-6989586621679212638"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212638"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">DescribeBudgetResponse' :: Maybe Budget -&gt; Int -&gt; DescribeBudgetResponse
+</span><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse%27"><span class="hs-identifier hs-type">DescribeBudgetResponse'</span></a></span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:budget:DescribeBudgetResponse' :: Maybe Budget
+</span><a href="Amazonka.Budgets.DescribeBudget.html#%24sel%3Abudget%3ADescribeBudgetResponse%27"><span class="hs-identifier hs-var">budget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Budget
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeBudgetResponse' :: Int
+</span><a href="Amazonka.Budgets.DescribeBudget.html#%24sel%3AhttpStatus%3ADescribeBudgetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212638"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The description of the budget.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#describeBudgetResponse_budget"><span class="hs-identifier hs-type">describeBudgetResponse_budget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse"><span class="hs-identifier hs-type">DescribeBudgetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.Types.Budget.html#Budget"><span class="hs-identifier hs-type">Budget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="describeBudgetResponse_budget"><span class="annot"><span class="annottext">describeBudgetResponse_budget :: (Maybe Budget -&gt; f (Maybe Budget))
+-&gt; DescribeBudgetResponse -&gt; f DescribeBudgetResponse
+</span><a href="Amazonka.Budgets.DescribeBudget.html#describeBudgetResponse_budget"><span class="hs-identifier hs-var hs-var">describeBudgetResponse_budget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBudgetResponse -&gt; Maybe Budget)
+-&gt; (DescribeBudgetResponse
+    -&gt; Maybe Budget -&gt; DescribeBudgetResponse)
+-&gt; Lens
+     DescribeBudgetResponse
+     DescribeBudgetResponse
+     (Maybe Budget)
+     (Maybe Budget)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse%27"><span class="hs-identifier hs-type">DescribeBudgetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212637"><span class="annot"><span class="annottext">Maybe Budget
+budget :: Maybe Budget
+$sel:budget:DescribeBudgetResponse' :: DescribeBudgetResponse -&gt; Maybe Budget
+</span><a href="#local-6989586621679212637"><span class="hs-identifier hs-var hs-var">budget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Budget
+</span><a href="#local-6989586621679212637"><span class="hs-identifier hs-var">budget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212636"><span class="annot"><span class="annottext">s :: DescribeBudgetResponse
+</span><a href="#local-6989586621679212636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse%27"><span class="hs-identifier hs-type">DescribeBudgetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212635"><span class="annot"><span class="annottext">Maybe Budget
+</span><a href="#local-6989586621679212635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBudgetResponse
+</span><a href="#local-6989586621679212636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budget:DescribeBudgetResponse' :: Maybe Budget
+</span><a href="Amazonka.Budgets.DescribeBudget.html#%24sel%3Abudget%3ADescribeBudgetResponse%27"><span class="hs-identifier hs-var">budget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Budget
+</span><a href="#local-6989586621679212635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse"><span class="hs-identifier hs-type">DescribeBudgetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#describeBudgetResponse_httpStatus"><span class="hs-identifier hs-type">describeBudgetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse"><span class="hs-identifier hs-type">DescribeBudgetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="describeBudgetResponse_httpStatus"><span class="annot"><span class="annottext">describeBudgetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeBudgetResponse -&gt; f DescribeBudgetResponse
+</span><a href="Amazonka.Budgets.DescribeBudget.html#describeBudgetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeBudgetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBudgetResponse -&gt; Int)
+-&gt; (DescribeBudgetResponse -&gt; Int -&gt; DescribeBudgetResponse)
+-&gt; Lens DescribeBudgetResponse DescribeBudgetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse%27"><span class="hs-identifier hs-type">DescribeBudgetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212634"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeBudgetResponse' :: DescribeBudgetResponse -&gt; Int
+</span><a href="#local-6989586621679212634"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212634"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212633"><span class="annot"><span class="annottext">s :: DescribeBudgetResponse
+</span><a href="#local-6989586621679212633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse%27"><span class="hs-identifier hs-type">DescribeBudgetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212632"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBudgetResponse
+</span><a href="#local-6989586621679212633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeBudgetResponse' :: Int
+</span><a href="Amazonka.Budgets.DescribeBudget.html#%24sel%3AhttpStatus%3ADescribeBudgetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse"><span class="hs-identifier hs-type">DescribeBudgetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212630"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Budgets.DescribeBudget.html#DescribeBudgetResponse"><span class="hs-identifier hs-type">DescribeBudgetResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

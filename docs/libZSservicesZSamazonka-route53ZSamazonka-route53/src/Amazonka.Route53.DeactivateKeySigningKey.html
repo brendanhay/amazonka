@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53.DeactivateKeySigningKey</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deactivates a key-signing key (KSK) so that it will not be used for</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- signing by DNSSEC. This operation changes the KSK status to @INACTIVE@.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53.DeactivateKeySigningKey</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier">DeactivateKeySigningKey</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#newDeactivateKeySigningKey"><span class="hs-identifier">newDeactivateKeySigningKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#deactivateKeySigningKey_hostedZoneId"><span class="hs-identifier">deactivateKeySigningKey_hostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#deactivateKeySigningKey_name"><span class="hs-identifier">deactivateKeySigningKey_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse"><span class="hs-identifier">DeactivateKeySigningKeyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#newDeactivateKeySigningKeyResponse"><span class="hs-identifier">newDeactivateKeySigningKeyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#deactivateKeySigningKeyResponse_httpStatus"><span class="hs-identifier">deactivateKeySigningKeyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#deactivateKeySigningKeyResponse_changeInfo"><span class="hs-identifier">deactivateKeySigningKeyResponse_changeInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.html"><span class="hs-identifier">Amazonka.Route53.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeactivateKeySigningKey' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679309815"><span id="local-6989586621679309816"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeactivateKeySigningKey"><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-var">DeactivateKeySigningKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeactivateKeySigningKey%27"><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey%27"><span class="hs-identifier hs-var">DeactivateKeySigningKey'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique string used to identify a hosted zone.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AhostedZoneId%3ADeactivateKeySigningKey%27"><span class="annot"><span class="annottext">DeactivateKeySigningKey -&gt; ResourceId
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#%24sel%3AhostedZoneId%3ADeactivateKeySigningKey%27"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | A string used to identify a key-signing key (KSK).</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aname%3ADeactivateKeySigningKey%27"><span class="annot"><span class="annottext">DeactivateKeySigningKey -&gt; Text
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#%24sel%3Aname%3ADeactivateKeySigningKey%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309808"><span id="local-6989586621679309810"><span class="annot"><span class="annottext">DeactivateKeySigningKey -&gt; DeactivateKeySigningKey -&gt; Bool
+(DeactivateKeySigningKey -&gt; DeactivateKeySigningKey -&gt; Bool)
+-&gt; (DeactivateKeySigningKey -&gt; DeactivateKeySigningKey -&gt; Bool)
+-&gt; Eq DeactivateKeySigningKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeactivateKeySigningKey -&gt; DeactivateKeySigningKey -&gt; Bool
+$c/= :: DeactivateKeySigningKey -&gt; DeactivateKeySigningKey -&gt; Bool
+== :: DeactivateKeySigningKey -&gt; DeactivateKeySigningKey -&gt; Bool
+$c== :: DeactivateKeySigningKey -&gt; DeactivateKeySigningKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309799"><span id="local-6989586621679309801"><span id="local-6989586621679309803"><span id="local-6989586621679309805"><span class="annot"><span class="annottext">ReadPrec [DeactivateKeySigningKey]
+ReadPrec DeactivateKeySigningKey
+Int -&gt; ReadS DeactivateKeySigningKey
+ReadS [DeactivateKeySigningKey]
+(Int -&gt; ReadS DeactivateKeySigningKey)
+-&gt; ReadS [DeactivateKeySigningKey]
+-&gt; ReadPrec DeactivateKeySigningKey
+-&gt; ReadPrec [DeactivateKeySigningKey]
+-&gt; Read DeactivateKeySigningKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeactivateKeySigningKey]
+$creadListPrec :: ReadPrec [DeactivateKeySigningKey]
+readPrec :: ReadPrec DeactivateKeySigningKey
+$creadPrec :: ReadPrec DeactivateKeySigningKey
+readList :: ReadS [DeactivateKeySigningKey]
+$creadList :: ReadS [DeactivateKeySigningKey]
+readsPrec :: Int -&gt; ReadS DeactivateKeySigningKey
+$creadsPrec :: Int -&gt; ReadS DeactivateKeySigningKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309792"><span id="local-6989586621679309794"><span id="local-6989586621679309796"><span class="annot"><span class="annottext">Int -&gt; DeactivateKeySigningKey -&gt; ShowS
+[DeactivateKeySigningKey] -&gt; ShowS
+DeactivateKeySigningKey -&gt; String
+(Int -&gt; DeactivateKeySigningKey -&gt; ShowS)
+-&gt; (DeactivateKeySigningKey -&gt; String)
+-&gt; ([DeactivateKeySigningKey] -&gt; ShowS)
+-&gt; Show DeactivateKeySigningKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeactivateKeySigningKey] -&gt; ShowS
+$cshowList :: [DeactivateKeySigningKey] -&gt; ShowS
+show :: DeactivateKeySigningKey -&gt; String
+$cshow :: DeactivateKeySigningKey -&gt; String
+showsPrec :: Int -&gt; DeactivateKeySigningKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeactivateKeySigningKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeactivateKeySigningKey -&gt; Rep DeactivateKeySigningKey x)
+-&gt; (forall x.
+    Rep DeactivateKeySigningKey x -&gt; DeactivateKeySigningKey)
+-&gt; Generic DeactivateKeySigningKey
+forall x. Rep DeactivateKeySigningKey x -&gt; DeactivateKeySigningKey
+forall x. DeactivateKeySigningKey -&gt; Rep DeactivateKeySigningKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeactivateKeySigningKey x -&gt; DeactivateKeySigningKey
+$cfrom :: forall x. DeactivateKeySigningKey -&gt; Rep DeactivateKeySigningKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DeactivateKeySigningKey' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'hostedZoneId', 'deactivateKeySigningKey_hostedZoneId' - A unique string used to identify a hosted zone.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'name', 'deactivateKeySigningKey_name' - A string used to identify a key-signing key (KSK).</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#newDeactivateKeySigningKey"><span class="hs-identifier hs-type">newDeactivateKeySigningKey</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'hostedZoneId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-type">DeactivateKeySigningKey</span></a></span><span>
+</span><span id="line-77"></span><span id="newDeactivateKeySigningKey"><span class="annot"><span class="annottext">newDeactivateKeySigningKey :: ResourceId -&gt; Text -&gt; DeactivateKeySigningKey
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#newDeactivateKeySigningKey"><span class="hs-identifier hs-var hs-var">newDeactivateKeySigningKey</span></a></span></span><span> </span><span id="local-6989586621679309787"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679309787"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span></span><span> </span><span id="local-6989586621679309786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309786"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DeactivateKeySigningKey' :: ResourceId -&gt; Text -&gt; DeactivateKeySigningKey
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey%27"><span class="hs-identifier hs-type">DeactivateKeySigningKey'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hostedZoneId:DeactivateKeySigningKey' :: ResourceId
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#%24sel%3AhostedZoneId%3ADeactivateKeySigningKey%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679309787"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DeactivateKeySigningKey' :: Text
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#%24sel%3Aname%3ADeactivateKeySigningKey%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309786"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | A unique string used to identify a hosted zone.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#deactivateKeySigningKey_hostedZoneId"><span class="hs-identifier hs-type">deactivateKeySigningKey_hostedZoneId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-type">DeactivateKeySigningKey</span></a></span><span> </span><span class="annot"><a href="Amazonka.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span>
+</span><span id="line-86"></span><span id="deactivateKeySigningKey_hostedZoneId"><span class="annot"><span class="annottext">deactivateKeySigningKey_hostedZoneId :: (ResourceId -&gt; f ResourceId)
+-&gt; DeactivateKeySigningKey -&gt; f DeactivateKeySigningKey
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#deactivateKeySigningKey_hostedZoneId"><span class="hs-identifier hs-var hs-var">deactivateKeySigningKey_hostedZoneId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeactivateKeySigningKey -&gt; ResourceId)
+-&gt; (DeactivateKeySigningKey
+    -&gt; ResourceId -&gt; DeactivateKeySigningKey)
+-&gt; Lens
+     DeactivateKeySigningKey
+     DeactivateKeySigningKey
+     ResourceId
+     ResourceId
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey%27"><span class="hs-identifier hs-type">DeactivateKeySigningKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309783"><span class="annot"><span class="annottext">ResourceId
+hostedZoneId :: ResourceId
+$sel:hostedZoneId:DeactivateKeySigningKey' :: DeactivateKeySigningKey -&gt; ResourceId
+</span><a href="#local-6989586621679309783"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679309783"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309782"><span class="annot"><span class="annottext">s :: DeactivateKeySigningKey
+</span><a href="#local-6989586621679309782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey%27"><span class="hs-identifier hs-type">DeactivateKeySigningKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309781"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679309781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeactivateKeySigningKey
+</span><a href="#local-6989586621679309782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:DeactivateKeySigningKey' :: ResourceId
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#%24sel%3AhostedZoneId%3ADeactivateKeySigningKey%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679309781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-type">DeactivateKeySigningKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | A string used to identify a key-signing key (KSK).</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#deactivateKeySigningKey_name"><span class="hs-identifier hs-type">deactivateKeySigningKey_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-type">DeactivateKeySigningKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="deactivateKeySigningKey_name"><span class="annot"><span class="annottext">deactivateKeySigningKey_name :: (Text -&gt; f Text)
+-&gt; DeactivateKeySigningKey -&gt; f DeactivateKeySigningKey
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#deactivateKeySigningKey_name"><span class="hs-identifier hs-var hs-var">deactivateKeySigningKey_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeactivateKeySigningKey -&gt; Text)
+-&gt; (DeactivateKeySigningKey -&gt; Text -&gt; DeactivateKeySigningKey)
+-&gt; Lens DeactivateKeySigningKey DeactivateKeySigningKey Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey%27"><span class="hs-identifier hs-type">DeactivateKeySigningKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309780"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DeactivateKeySigningKey' :: DeactivateKeySigningKey -&gt; Text
+</span><a href="#local-6989586621679309780"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309780"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309779"><span class="annot"><span class="annottext">s :: DeactivateKeySigningKey
+</span><a href="#local-6989586621679309779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey%27"><span class="hs-identifier hs-type">DeactivateKeySigningKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309778"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeactivateKeySigningKey
+</span><a href="#local-6989586621679309779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeactivateKeySigningKey' :: Text
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#%24sel%3Aname%3ADeactivateKeySigningKey%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-type">DeactivateKeySigningKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-type">DeactivateKeySigningKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-type">DeactivateKeySigningKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse"><span class="hs-identifier hs-type">DeactivateKeySigningKeyResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679309774"><span class="annot"><span class="annottext">request :: DeactivateKeySigningKey -&gt; Request DeactivateKeySigningKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeactivateKeySigningKey -&gt; Request DeactivateKeySigningKey
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.post</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679309770"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeactivateKeySigningKey
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeactivateKeySigningKey)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DeactivateKeySigningKey))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeactivateKeySigningKey
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeactivateKeySigningKey)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309767"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309767"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309766"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679309766"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309765"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679309765"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ChangeInfo -&gt; DeactivateKeySigningKeyResponse
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-var">DeactivateKeySigningKeyResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ChangeInfo -&gt; DeactivateKeySigningKeyResponse)
+-&gt; Either String Int
+-&gt; Either String (ChangeInfo -&gt; DeactivateKeySigningKeyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309767"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (ChangeInfo -&gt; DeactivateKeySigningKeyResponse)
+-&gt; Either String ChangeInfo
+-&gt; Either String DeactivateKeySigningKeyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679309765"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ChangeInfo
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309757"><span id="local-6989586621679309759"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-type">DeactivateKeySigningKey</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-type">DeactivateKeySigningKey</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-type">DeactivateKeySigningKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679309750"><span class="annot"><span class="annottext">toHeaders :: DeactivateKeySigningKey -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeactivateKeySigningKey -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-type">DeactivateKeySigningKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679309745"><span class="annot"><span class="annottext">toPath :: DeactivateKeySigningKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey%27"><span class="hs-identifier hs-type">DeactivateKeySigningKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309742"><span id="local-6989586621679309743"><span class="annot"><span class="annottext">Text
+ResourceId
+name :: Text
+hostedZoneId :: ResourceId
+$sel:name:DeactivateKeySigningKey' :: DeactivateKeySigningKey -&gt; Text
+$sel:hostedZoneId:DeactivateKeySigningKey' :: DeactivateKeySigningKey -&gt; ResourceId
+</span><a href="#local-6989586621679309742"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2013-04-01/keysigningkey/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">ResourceId -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679309743"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309742"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/deactivate&quot;</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKey"><span class="hs-identifier hs-type">DeactivateKeySigningKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679309738"><span class="annot"><span class="annottext">toQuery :: DeactivateKeySigningKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeactivateKeySigningKey -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newDeactivateKeySigningKeyResponse' smart constructor.</span><span>
+</span><span id="line-126"></span><span id="local-6989586621679309735"><span id="local-6989586621679309736"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeactivateKeySigningKeyResponse"><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse"><span class="hs-identifier hs-var">DeactivateKeySigningKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeactivateKeySigningKeyResponse%27"><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-var">DeactivateKeySigningKeyResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeactivateKeySigningKeyResponse%27"><span class="annot"><span class="annottext">DeactivateKeySigningKeyResponse -&gt; Int
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#%24sel%3AhttpStatus%3ADeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AchangeInfo%3ADeactivateKeySigningKeyResponse%27"><span class="annot"><span class="annottext">DeactivateKeySigningKeyResponse -&gt; ChangeInfo
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#%24sel%3AchangeInfo%3ADeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-var hs-var">changeInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeInfo.html#ChangeInfo"><span class="hs-identifier hs-type">ChangeInfo</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309729"><span id="local-6989586621679309731"><span class="annot"><span class="annottext">DeactivateKeySigningKeyResponse
+-&gt; DeactivateKeySigningKeyResponse -&gt; Bool
+(DeactivateKeySigningKeyResponse
+ -&gt; DeactivateKeySigningKeyResponse -&gt; Bool)
+-&gt; (DeactivateKeySigningKeyResponse
+    -&gt; DeactivateKeySigningKeyResponse -&gt; Bool)
+-&gt; Eq DeactivateKeySigningKeyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeactivateKeySigningKeyResponse
+-&gt; DeactivateKeySigningKeyResponse -&gt; Bool
+$c/= :: DeactivateKeySigningKeyResponse
+-&gt; DeactivateKeySigningKeyResponse -&gt; Bool
+== :: DeactivateKeySigningKeyResponse
+-&gt; DeactivateKeySigningKeyResponse -&gt; Bool
+$c== :: DeactivateKeySigningKeyResponse
+-&gt; DeactivateKeySigningKeyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309721"><span id="local-6989586621679309723"><span id="local-6989586621679309725"><span id="local-6989586621679309727"><span class="annot"><span class="annottext">ReadPrec [DeactivateKeySigningKeyResponse]
+ReadPrec DeactivateKeySigningKeyResponse
+Int -&gt; ReadS DeactivateKeySigningKeyResponse
+ReadS [DeactivateKeySigningKeyResponse]
+(Int -&gt; ReadS DeactivateKeySigningKeyResponse)
+-&gt; ReadS [DeactivateKeySigningKeyResponse]
+-&gt; ReadPrec DeactivateKeySigningKeyResponse
+-&gt; ReadPrec [DeactivateKeySigningKeyResponse]
+-&gt; Read DeactivateKeySigningKeyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeactivateKeySigningKeyResponse]
+$creadListPrec :: ReadPrec [DeactivateKeySigningKeyResponse]
+readPrec :: ReadPrec DeactivateKeySigningKeyResponse
+$creadPrec :: ReadPrec DeactivateKeySigningKeyResponse
+readList :: ReadS [DeactivateKeySigningKeyResponse]
+$creadList :: ReadS [DeactivateKeySigningKeyResponse]
+readsPrec :: Int -&gt; ReadS DeactivateKeySigningKeyResponse
+$creadsPrec :: Int -&gt; ReadS DeactivateKeySigningKeyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309715"><span id="local-6989586621679309717"><span id="local-6989586621679309719"><span class="annot"><span class="annottext">Int -&gt; DeactivateKeySigningKeyResponse -&gt; ShowS
+[DeactivateKeySigningKeyResponse] -&gt; ShowS
+DeactivateKeySigningKeyResponse -&gt; String
+(Int -&gt; DeactivateKeySigningKeyResponse -&gt; ShowS)
+-&gt; (DeactivateKeySigningKeyResponse -&gt; String)
+-&gt; ([DeactivateKeySigningKeyResponse] -&gt; ShowS)
+-&gt; Show DeactivateKeySigningKeyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeactivateKeySigningKeyResponse] -&gt; ShowS
+$cshowList :: [DeactivateKeySigningKeyResponse] -&gt; ShowS
+show :: DeactivateKeySigningKeyResponse -&gt; String
+$cshow :: DeactivateKeySigningKeyResponse -&gt; String
+showsPrec :: Int -&gt; DeactivateKeySigningKeyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeactivateKeySigningKeyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeactivateKeySigningKeyResponse
+ -&gt; Rep DeactivateKeySigningKeyResponse x)
+-&gt; (forall x.
+    Rep DeactivateKeySigningKeyResponse x
+    -&gt; DeactivateKeySigningKeyResponse)
+-&gt; Generic DeactivateKeySigningKeyResponse
+forall x.
+Rep DeactivateKeySigningKeyResponse x
+-&gt; DeactivateKeySigningKeyResponse
+forall x.
+DeactivateKeySigningKeyResponse
+-&gt; Rep DeactivateKeySigningKeyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeactivateKeySigningKeyResponse x
+-&gt; DeactivateKeySigningKeyResponse
+$cfrom :: forall x.
+DeactivateKeySigningKeyResponse
+-&gt; Rep DeactivateKeySigningKeyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Create a value of 'DeactivateKeySigningKeyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'httpStatus', 'deactivateKeySigningKeyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'changeInfo', 'deactivateKeySigningKeyResponse_changeInfo' - Undocumented member.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#newDeactivateKeySigningKeyResponse"><span class="hs-identifier hs-type">newDeactivateKeySigningKeyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'changeInfo'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeInfo.html#ChangeInfo"><span class="hs-identifier hs-type">ChangeInfo</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse"><span class="hs-identifier hs-type">DeactivateKeySigningKeyResponse</span></a></span><span>
+</span><span id="line-150"></span><span id="newDeactivateKeySigningKeyResponse"><span class="annot"><span class="annottext">newDeactivateKeySigningKeyResponse :: Int -&gt; ChangeInfo -&gt; DeactivateKeySigningKeyResponse
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#newDeactivateKeySigningKeyResponse"><span class="hs-identifier hs-var hs-var">newDeactivateKeySigningKeyResponse</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679309712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679309711"><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679309711"><span class="hs-identifier hs-var">pChangeInfo_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">DeactivateKeySigningKeyResponse' :: Int -&gt; ChangeInfo -&gt; DeactivateKeySigningKeyResponse
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-type">DeactivateKeySigningKeyResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeactivateKeySigningKeyResponse' :: Int
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#%24sel%3AhttpStatus%3ADeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:changeInfo:DeactivateKeySigningKeyResponse' :: ChangeInfo
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#%24sel%3AchangeInfo%3ADeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-var">changeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679309711"><span class="hs-identifier hs-var">pChangeInfo_</span></a></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#deactivateKeySigningKeyResponse_httpStatus"><span class="hs-identifier hs-type">deactivateKeySigningKeyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse"><span class="hs-identifier hs-type">DeactivateKeySigningKeyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span id="deactivateKeySigningKeyResponse_httpStatus"><span class="annot"><span class="annottext">deactivateKeySigningKeyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeactivateKeySigningKeyResponse
+-&gt; f DeactivateKeySigningKeyResponse
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#deactivateKeySigningKeyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deactivateKeySigningKeyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeactivateKeySigningKeyResponse -&gt; Int)
+-&gt; (DeactivateKeySigningKeyResponse
+    -&gt; Int -&gt; DeactivateKeySigningKeyResponse)
+-&gt; Lens
+     DeactivateKeySigningKeyResponse
+     DeactivateKeySigningKeyResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-type">DeactivateKeySigningKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309710"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeactivateKeySigningKeyResponse' :: DeactivateKeySigningKeyResponse -&gt; Int
+</span><a href="#local-6989586621679309710"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309710"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309709"><span class="annot"><span class="annottext">s :: DeactivateKeySigningKeyResponse
+</span><a href="#local-6989586621679309709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-type">DeactivateKeySigningKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309708"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeactivateKeySigningKeyResponse
+</span><a href="#local-6989586621679309709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeactivateKeySigningKeyResponse' :: Int
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#%24sel%3AhttpStatus%3ADeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse"><span class="hs-identifier hs-type">DeactivateKeySigningKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#deactivateKeySigningKeyResponse_changeInfo"><span class="hs-identifier hs-type">deactivateKeySigningKeyResponse_changeInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse"><span class="hs-identifier hs-type">DeactivateKeySigningKeyResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.ChangeInfo.html#ChangeInfo"><span class="hs-identifier hs-type">ChangeInfo</span></a></span><span>
+</span><span id="line-165"></span><span id="deactivateKeySigningKeyResponse_changeInfo"><span class="annot"><span class="annottext">deactivateKeySigningKeyResponse_changeInfo :: (ChangeInfo -&gt; f ChangeInfo)
+-&gt; DeactivateKeySigningKeyResponse
+-&gt; f DeactivateKeySigningKeyResponse
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#deactivateKeySigningKeyResponse_changeInfo"><span class="hs-identifier hs-var hs-var">deactivateKeySigningKeyResponse_changeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeactivateKeySigningKeyResponse -&gt; ChangeInfo)
+-&gt; (DeactivateKeySigningKeyResponse
+    -&gt; ChangeInfo -&gt; DeactivateKeySigningKeyResponse)
+-&gt; Lens
+     DeactivateKeySigningKeyResponse
+     DeactivateKeySigningKeyResponse
+     ChangeInfo
+     ChangeInfo
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-type">DeactivateKeySigningKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309707"><span class="annot"><span class="annottext">ChangeInfo
+changeInfo :: ChangeInfo
+$sel:changeInfo:DeactivateKeySigningKeyResponse' :: DeactivateKeySigningKeyResponse -&gt; ChangeInfo
+</span><a href="#local-6989586621679309707"><span class="hs-identifier hs-var hs-var">changeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679309707"><span class="hs-identifier hs-var">changeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309706"><span class="annot"><span class="annottext">s :: DeactivateKeySigningKeyResponse
+</span><a href="#local-6989586621679309706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-type">DeactivateKeySigningKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309705"><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679309705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeactivateKeySigningKeyResponse
+</span><a href="#local-6989586621679309706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeInfo:DeactivateKeySigningKeyResponse' :: ChangeInfo
+</span><a href="Amazonka.Route53.DeactivateKeySigningKey.html#%24sel%3AchangeInfo%3ADeactivateKeySigningKeyResponse%27"><span class="hs-identifier hs-var">changeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679309705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse"><span class="hs-identifier hs-type">DeactivateKeySigningKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679309703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.DeactivateKeySigningKey.html#DeactivateKeySigningKeyResponse"><span class="hs-identifier hs-type">DeactivateKeySigningKeyResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

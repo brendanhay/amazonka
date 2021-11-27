@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.PersonalizeEvents.PutUsers</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds one or more users to a Users dataset. For more information see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html Importing Users Incrementally&gt;.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.PersonalizeEvents.PutUsers</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier">PutUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#newPutUsers"><span class="hs-identifier">newPutUsers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#putUsers_datasetArn"><span class="hs-identifier">putUsers_datasetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#putUsers_users"><span class="hs-identifier">putUsers_users</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsersResponse"><span class="hs-identifier">PutUsersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#newPutUsersResponse"><span class="hs-identifier">newPutUsersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.Types.html"><span class="hs-identifier">Amazonka.PersonalizeEvents.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newPutUsers' smart constructor.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679139501"><span id="local-6989586621679139502"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutUsers"><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-var">PutUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutUsers%27"><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers%27"><span class="hs-identifier hs-var">PutUsers'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Users dataset you are adding the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- user or users to.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AdatasetArn%3APutUsers%27"><span class="annot"><span class="annottext">PutUsers -&gt; Text
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#%24sel%3AdatasetArn%3APutUsers%27"><span class="hs-identifier hs-var hs-var">datasetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A list of user data.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Ausers%3APutUsers%27"><span class="annot"><span class="annottext">PutUsers -&gt; NonEmpty User
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#%24sel%3Ausers%3APutUsers%27"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679139494"><span id="local-6989586621679139496"><span class="annot"><span class="annottext">PutUsers -&gt; PutUsers -&gt; Bool
+(PutUsers -&gt; PutUsers -&gt; Bool)
+-&gt; (PutUsers -&gt; PutUsers -&gt; Bool) -&gt; Eq PutUsers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutUsers -&gt; PutUsers -&gt; Bool
+$c/= :: PutUsers -&gt; PutUsers -&gt; Bool
+== :: PutUsers -&gt; PutUsers -&gt; Bool
+$c== :: PutUsers -&gt; PutUsers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139485"><span id="local-6989586621679139487"><span id="local-6989586621679139489"><span id="local-6989586621679139491"><span class="annot"><span class="annottext">ReadPrec [PutUsers]
+ReadPrec PutUsers
+Int -&gt; ReadS PutUsers
+ReadS [PutUsers]
+(Int -&gt; ReadS PutUsers)
+-&gt; ReadS [PutUsers]
+-&gt; ReadPrec PutUsers
+-&gt; ReadPrec [PutUsers]
+-&gt; Read PutUsers
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutUsers]
+$creadListPrec :: ReadPrec [PutUsers]
+readPrec :: ReadPrec PutUsers
+$creadPrec :: ReadPrec PutUsers
+readList :: ReadS [PutUsers]
+$creadList :: ReadS [PutUsers]
+readsPrec :: Int -&gt; ReadS PutUsers
+$creadsPrec :: Int -&gt; ReadS PutUsers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139478"><span id="local-6989586621679139480"><span id="local-6989586621679139482"><span class="annot"><span class="annottext">Int -&gt; PutUsers -&gt; ShowS
+[PutUsers] -&gt; ShowS
+PutUsers -&gt; String
+(Int -&gt; PutUsers -&gt; ShowS)
+-&gt; (PutUsers -&gt; String) -&gt; ([PutUsers] -&gt; ShowS) -&gt; Show PutUsers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutUsers] -&gt; ShowS
+$cshowList :: [PutUsers] -&gt; ShowS
+show :: PutUsers -&gt; String
+$cshow :: PutUsers -&gt; String
+showsPrec :: Int -&gt; PutUsers -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutUsers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutUsers -&gt; Rep PutUsers x)
+-&gt; (forall x. Rep PutUsers x -&gt; PutUsers) -&gt; Generic PutUsers
+forall x. Rep PutUsers x -&gt; PutUsers
+forall x. PutUsers -&gt; Rep PutUsers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutUsers x -&gt; PutUsers
+$cfrom :: forall x. PutUsers -&gt; Rep PutUsers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'PutUsers' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'datasetArn', 'putUsers_datasetArn' - The Amazon Resource Name (ARN) of the Users dataset you are adding the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- user or users to.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'users', 'putUsers_users' - A list of user data.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#newPutUsers"><span class="hs-identifier hs-type">newPutUsers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'datasetArn'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'users'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span><span>
+</span><span id="line-75"></span><span id="newPutUsers"><span class="annot"><span class="annottext">newPutUsers :: Text -&gt; NonEmpty User -&gt; PutUsers
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#newPutUsers"><span class="hs-identifier hs-var hs-var">newPutUsers</span></a></span></span><span> </span><span id="local-6989586621679139473"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139473"><span class="hs-identifier hs-var">pDatasetArn_</span></a></span></span><span> </span><span id="local-6989586621679139472"><span class="annot"><span class="annottext">NonEmpty User
+</span><a href="#local-6989586621679139472"><span class="hs-identifier hs-var">pUsers_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">PutUsers' :: Text -&gt; NonEmpty User -&gt; PutUsers
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers%27"><span class="hs-identifier hs-type">PutUsers'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:datasetArn:PutUsers' :: Text
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#%24sel%3AdatasetArn%3APutUsers%27"><span class="hs-identifier hs-var">datasetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139473"><span class="hs-identifier hs-var">pDatasetArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:users:PutUsers' :: NonEmpty User
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#%24sel%3Ausers%3APutUsers%27"><span class="hs-identifier hs-var">users</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty User) (Identity (NonEmpty User))
+-&gt; Tagged (NonEmpty User) (Identity (NonEmpty User))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty User) (Identity (NonEmpty User))
+ -&gt; Tagged (NonEmpty User) (Identity (NonEmpty User)))
+-&gt; NonEmpty User -&gt; NonEmpty User
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty User
+</span><a href="#local-6989586621679139472"><span class="hs-identifier hs-var">pUsers_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Users dataset you are adding the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- user or users to.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#putUsers_datasetArn"><span class="hs-identifier hs-type">putUsers_datasetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="putUsers_datasetArn"><span class="annot"><span class="annottext">putUsers_datasetArn :: (Text -&gt; f Text) -&gt; PutUsers -&gt; f PutUsers
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#putUsers_datasetArn"><span class="hs-identifier hs-var hs-var">putUsers_datasetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutUsers -&gt; Text)
+-&gt; (PutUsers -&gt; Text -&gt; PutUsers)
+-&gt; Lens PutUsers PutUsers Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers%27"><span class="hs-identifier hs-type">PutUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139467"><span class="annot"><span class="annottext">Text
+datasetArn :: Text
+$sel:datasetArn:PutUsers' :: PutUsers -&gt; Text
+</span><a href="#local-6989586621679139467"><span class="hs-identifier hs-var hs-var">datasetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139467"><span class="hs-identifier hs-var">datasetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139466"><span class="annot"><span class="annottext">s :: PutUsers
+</span><a href="#local-6989586621679139466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers%27"><span class="hs-identifier hs-type">PutUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139465"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutUsers
+</span><a href="#local-6989586621679139466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetArn:PutUsers' :: Text
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#%24sel%3AdatasetArn%3APutUsers%27"><span class="hs-identifier hs-var">datasetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | A list of user data.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#putUsers_users"><span class="hs-identifier hs-type">putUsers_users</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="putUsers_users"><span class="annot"><span class="annottext">putUsers_users :: (NonEmpty User -&gt; f (NonEmpty User)) -&gt; PutUsers -&gt; f PutUsers
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#putUsers_users"><span class="hs-identifier hs-var hs-var">putUsers_users</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutUsers -&gt; NonEmpty User)
+-&gt; (PutUsers -&gt; NonEmpty User -&gt; PutUsers)
+-&gt; Lens PutUsers PutUsers (NonEmpty User) (NonEmpty User)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers%27"><span class="hs-identifier hs-type">PutUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139464"><span class="annot"><span class="annottext">NonEmpty User
+users :: NonEmpty User
+$sel:users:PutUsers' :: PutUsers -&gt; NonEmpty User
+</span><a href="#local-6989586621679139464"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty User
+</span><a href="#local-6989586621679139464"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139463"><span class="annot"><span class="annottext">s :: PutUsers
+</span><a href="#local-6989586621679139463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers%27"><span class="hs-identifier hs-type">PutUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139462"><span class="annot"><span class="annottext">NonEmpty User
+</span><a href="#local-6989586621679139462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutUsers
+</span><a href="#local-6989586621679139463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:users:PutUsers' :: NonEmpty User
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#%24sel%3Ausers%3APutUsers%27"><span class="hs-identifier hs-var">users</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty User
+</span><a href="#local-6989586621679139462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty User -&gt; f (NonEmpty User)) -&gt; PutUsers -&gt; f PutUsers)
+-&gt; ((NonEmpty User -&gt; f (NonEmpty User))
+    -&gt; NonEmpty User -&gt; f (NonEmpty User))
+-&gt; (NonEmpty User -&gt; f (NonEmpty User))
+-&gt; PutUsers
+-&gt; f PutUsers
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty User -&gt; f (NonEmpty User))
+-&gt; NonEmpty User -&gt; f (NonEmpty User)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsersResponse"><span class="hs-identifier hs-type">PutUsersResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679139457"><span class="annot"><span class="annottext">request :: PutUsers -&gt; Request PutUsers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutUsers -&gt; Request PutUsers
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.PersonalizeEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679139453"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutUsers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutUsers)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSResponse PutUsers
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutUsers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutUsers)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse PutUsers
+PutUsersResponse
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsersResponse%27"><span class="hs-identifier hs-var">PutUsersResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139446"><span id="local-6989586621679139448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679139439"><span class="annot"><span class="annottext">toHeaders :: PutUsers -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutUsers -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139429"><span id="local-6989586621679139431"><span id="local-6989586621679139433"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679139427"><span class="annot"><span class="annottext">toJSON :: PutUsers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers%27"><span class="hs-identifier hs-type">PutUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139424"><span id="local-6989586621679139425"><span class="annot"><span class="annottext">NonEmpty User
+Text
+users :: NonEmpty User
+datasetArn :: Text
+$sel:users:PutUsers' :: PutUsers -&gt; NonEmpty User
+$sel:datasetArn:PutUsers' :: PutUsers -&gt; Text
+</span><a href="#local-6989586621679139424"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139425"><span class="hs-identifier hs-var">datasetArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;users&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty User -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty User
+</span><a href="#local-6989586621679139424"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679139418"><span class="annot"><span class="annottext">toPath :: PutUsers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutUsers -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/users&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier hs-type">PutUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679139414"><span class="annot"><span class="annottext">toQuery :: PutUsers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutUsers -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newPutUsersResponse' smart constructor.</span><span>
+</span><span id="line-126"></span><span id="local-6989586621679139411"><span id="local-6989586621679139412"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutUsersResponse"><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsersResponse"><span class="hs-identifier hs-var">PutUsersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutUsersResponse%27"><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsersResponse%27"><span class="hs-identifier hs-var">PutUsersResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679139407"><span id="local-6989586621679139409"><span class="annot"><span class="annottext">PutUsersResponse -&gt; PutUsersResponse -&gt; Bool
+(PutUsersResponse -&gt; PutUsersResponse -&gt; Bool)
+-&gt; (PutUsersResponse -&gt; PutUsersResponse -&gt; Bool)
+-&gt; Eq PutUsersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutUsersResponse -&gt; PutUsersResponse -&gt; Bool
+$c/= :: PutUsersResponse -&gt; PutUsersResponse -&gt; Bool
+== :: PutUsersResponse -&gt; PutUsersResponse -&gt; Bool
+$c== :: PutUsersResponse -&gt; PutUsersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139399"><span id="local-6989586621679139401"><span id="local-6989586621679139403"><span id="local-6989586621679139405"><span class="annot"><span class="annottext">ReadPrec [PutUsersResponse]
+ReadPrec PutUsersResponse
+Int -&gt; ReadS PutUsersResponse
+ReadS [PutUsersResponse]
+(Int -&gt; ReadS PutUsersResponse)
+-&gt; ReadS [PutUsersResponse]
+-&gt; ReadPrec PutUsersResponse
+-&gt; ReadPrec [PutUsersResponse]
+-&gt; Read PutUsersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutUsersResponse]
+$creadListPrec :: ReadPrec [PutUsersResponse]
+readPrec :: ReadPrec PutUsersResponse
+$creadPrec :: ReadPrec PutUsersResponse
+readList :: ReadS [PutUsersResponse]
+$creadList :: ReadS [PutUsersResponse]
+readsPrec :: Int -&gt; ReadS PutUsersResponse
+$creadsPrec :: Int -&gt; ReadS PutUsersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139393"><span id="local-6989586621679139395"><span id="local-6989586621679139397"><span class="annot"><span class="annottext">Int -&gt; PutUsersResponse -&gt; ShowS
+[PutUsersResponse] -&gt; ShowS
+PutUsersResponse -&gt; String
+(Int -&gt; PutUsersResponse -&gt; ShowS)
+-&gt; (PutUsersResponse -&gt; String)
+-&gt; ([PutUsersResponse] -&gt; ShowS)
+-&gt; Show PutUsersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutUsersResponse] -&gt; ShowS
+$cshowList :: [PutUsersResponse] -&gt; ShowS
+show :: PutUsersResponse -&gt; String
+$cshow :: PutUsersResponse -&gt; String
+showsPrec :: Int -&gt; PutUsersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutUsersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutUsersResponse -&gt; Rep PutUsersResponse x)
+-&gt; (forall x. Rep PutUsersResponse x -&gt; PutUsersResponse)
+-&gt; Generic PutUsersResponse
+forall x. Rep PutUsersResponse x -&gt; PutUsersResponse
+forall x. PutUsersResponse -&gt; Rep PutUsersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutUsersResponse x -&gt; PutUsersResponse
+$cfrom :: forall x. PutUsersResponse -&gt; Rep PutUsersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'PutUsersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#newPutUsersResponse"><span class="hs-identifier hs-type">newPutUsersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsersResponse"><span class="hs-identifier hs-type">PutUsersResponse</span></a></span><span>
+</span><span id="line-137"></span><span id="newPutUsersResponse"><span class="annot"><span class="annottext">newPutUsersResponse :: PutUsersResponse
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#newPutUsersResponse"><span class="hs-identifier hs-var hs-var">newPutUsersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutUsersResponse
+</span><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsersResponse%27"><span class="hs-identifier hs-var">PutUsersResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutUsers.html#PutUsersResponse"><span class="hs-identifier hs-type">PutUsersResponse</span></a></span></span><span>
+</span><span id="line-140"></span></pre></body></html>

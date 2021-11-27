@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppConfig.Types.HostedConfigurationVersionSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppConfig.Types.HostedConfigurationVersionSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about the configuration.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHostedConfigurationVersionSummary' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679200156"><span id="local-6989586621679200157"></span></span><span class="hs-keyword">data</span><span> </span><span id="HostedConfigurationVersionSummary"><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-var">HostedConfigurationVersionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostedConfigurationVersionSummary%27"><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var">HostedConfigurationVersionSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration version.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AversionNumber%3AHostedConfigurationVersionSummary%27"><span class="annot"><span class="annottext">HostedConfigurationVersionSummary -&gt; Maybe Int
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3AversionNumber%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The application ID.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AapplicationId%3AHostedConfigurationVersionSummary%27"><span class="annot"><span class="annottext">HostedConfigurationVersionSummary -&gt; Maybe Text
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3AapplicationId%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A description of the configuration.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Adescription%3AHostedConfigurationVersionSummary%27"><span class="annot"><span class="annottext">HostedConfigurationVersionSummary -&gt; Maybe Text
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3Adescription%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The configuration profile ID.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AconfigurationProfileId%3AHostedConfigurationVersionSummary%27"><span class="annot"><span class="annottext">HostedConfigurationVersionSummary -&gt; Maybe Text
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3AconfigurationProfileId%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var hs-var">configurationProfileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A standard MIME type describing the format of the configuration content.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type&gt;.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcontentType%3AHostedConfigurationVersionSummary%27"><span class="annot"><span class="annottext">HostedConfigurationVersionSummary -&gt; Maybe Text
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3AcontentType%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200146"><span id="local-6989586621679200148"><span class="annot"><span class="annottext">HostedConfigurationVersionSummary
+-&gt; HostedConfigurationVersionSummary -&gt; Bool
+(HostedConfigurationVersionSummary
+ -&gt; HostedConfigurationVersionSummary -&gt; Bool)
+-&gt; (HostedConfigurationVersionSummary
+    -&gt; HostedConfigurationVersionSummary -&gt; Bool)
+-&gt; Eq HostedConfigurationVersionSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HostedConfigurationVersionSummary
+-&gt; HostedConfigurationVersionSummary -&gt; Bool
+$c/= :: HostedConfigurationVersionSummary
+-&gt; HostedConfigurationVersionSummary -&gt; Bool
+== :: HostedConfigurationVersionSummary
+-&gt; HostedConfigurationVersionSummary -&gt; Bool
+$c== :: HostedConfigurationVersionSummary
+-&gt; HostedConfigurationVersionSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200137"><span id="local-6989586621679200139"><span id="local-6989586621679200141"><span id="local-6989586621679200143"><span class="annot"><span class="annottext">ReadPrec [HostedConfigurationVersionSummary]
+ReadPrec HostedConfigurationVersionSummary
+Int -&gt; ReadS HostedConfigurationVersionSummary
+ReadS [HostedConfigurationVersionSummary]
+(Int -&gt; ReadS HostedConfigurationVersionSummary)
+-&gt; ReadS [HostedConfigurationVersionSummary]
+-&gt; ReadPrec HostedConfigurationVersionSummary
+-&gt; ReadPrec [HostedConfigurationVersionSummary]
+-&gt; Read HostedConfigurationVersionSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HostedConfigurationVersionSummary]
+$creadListPrec :: ReadPrec [HostedConfigurationVersionSummary]
+readPrec :: ReadPrec HostedConfigurationVersionSummary
+$creadPrec :: ReadPrec HostedConfigurationVersionSummary
+readList :: ReadS [HostedConfigurationVersionSummary]
+$creadList :: ReadS [HostedConfigurationVersionSummary]
+readsPrec :: Int -&gt; ReadS HostedConfigurationVersionSummary
+$creadsPrec :: Int -&gt; ReadS HostedConfigurationVersionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200130"><span id="local-6989586621679200132"><span id="local-6989586621679200134"><span class="annot"><span class="annottext">Int -&gt; HostedConfigurationVersionSummary -&gt; ShowS
+[HostedConfigurationVersionSummary] -&gt; ShowS
+HostedConfigurationVersionSummary -&gt; String
+(Int -&gt; HostedConfigurationVersionSummary -&gt; ShowS)
+-&gt; (HostedConfigurationVersionSummary -&gt; String)
+-&gt; ([HostedConfigurationVersionSummary] -&gt; ShowS)
+-&gt; Show HostedConfigurationVersionSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HostedConfigurationVersionSummary] -&gt; ShowS
+$cshowList :: [HostedConfigurationVersionSummary] -&gt; ShowS
+show :: HostedConfigurationVersionSummary -&gt; String
+$cshow :: HostedConfigurationVersionSummary -&gt; String
+showsPrec :: Int -&gt; HostedConfigurationVersionSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; HostedConfigurationVersionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ HostedConfigurationVersionSummary
+ -&gt; Rep HostedConfigurationVersionSummary x)
+-&gt; (forall x.
+    Rep HostedConfigurationVersionSummary x
+    -&gt; HostedConfigurationVersionSummary)
+-&gt; Generic HostedConfigurationVersionSummary
+forall x.
+Rep HostedConfigurationVersionSummary x
+-&gt; HostedConfigurationVersionSummary
+forall x.
+HostedConfigurationVersionSummary
+-&gt; Rep HostedConfigurationVersionSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep HostedConfigurationVersionSummary x
+-&gt; HostedConfigurationVersionSummary
+$cfrom :: forall x.
+HostedConfigurationVersionSummary
+-&gt; Rep HostedConfigurationVersionSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'HostedConfigurationVersionSummary' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'versionNumber', 'hostedConfigurationVersionSummary_versionNumber' - The configuration version.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'applicationId', 'hostedConfigurationVersionSummary_applicationId' - The application ID.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'description', 'hostedConfigurationVersionSummary_description' - A description of the configuration.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'configurationProfileId', 'hostedConfigurationVersionSummary_configurationProfileId' - The configuration profile ID.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'contentType', 'hostedConfigurationVersionSummary_contentType' - A standard MIME type describing the format of the configuration content.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type&gt;.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#newHostedConfigurationVersionSummary"><span class="hs-identifier hs-type">newHostedConfigurationVersionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span><span>
+</span><span id="line-66"></span><span id="newHostedConfigurationVersionSummary"><span class="annot"><span class="annottext">newHostedConfigurationVersionSummary :: HostedConfigurationVersionSummary
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#newHostedConfigurationVersionSummary"><span class="hs-identifier hs-var hs-var">newHostedConfigurationVersionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">HostedConfigurationVersionSummary' :: Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; HostedConfigurationVersionSummary
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionNumber:HostedConfigurationVersionSummary' :: Maybe Int
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3AversionNumber%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var">versionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:HostedConfigurationVersionSummary' :: Maybe Text
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3AapplicationId%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:HostedConfigurationVersionSummary' :: Maybe Text
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3Adescription%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurationProfileId:HostedConfigurationVersionSummary' :: Maybe Text
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3AconfigurationProfileId%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var">configurationProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:HostedConfigurationVersionSummary' :: Maybe Text
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3AcontentType%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The configuration version.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#hostedConfigurationVersionSummary_versionNumber"><span class="hs-identifier hs-type">hostedConfigurationVersionSummary_versionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="hostedConfigurationVersionSummary_versionNumber"><span class="annot"><span class="annottext">hostedConfigurationVersionSummary_versionNumber :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; HostedConfigurationVersionSummary
+-&gt; f HostedConfigurationVersionSummary
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#hostedConfigurationVersionSummary_versionNumber"><span class="hs-identifier hs-var hs-var">hostedConfigurationVersionSummary_versionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HostedConfigurationVersionSummary -&gt; Maybe Int)
+-&gt; (HostedConfigurationVersionSummary
+    -&gt; Maybe Int -&gt; HostedConfigurationVersionSummary)
+-&gt; Lens
+     HostedConfigurationVersionSummary
+     HostedConfigurationVersionSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200121"><span class="annot"><span class="annottext">Maybe Int
+versionNumber :: Maybe Int
+$sel:versionNumber:HostedConfigurationVersionSummary' :: HostedConfigurationVersionSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679200121"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679200121"><span class="hs-identifier hs-var">versionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200120"><span class="annot"><span class="annottext">s :: HostedConfigurationVersionSummary
+</span><a href="#local-6989586621679200120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200119"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679200119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedConfigurationVersionSummary
+</span><a href="#local-6989586621679200120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionNumber:HostedConfigurationVersionSummary' :: Maybe Int
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3AversionNumber%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var">versionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679200119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The application ID.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#hostedConfigurationVersionSummary_applicationId"><span class="hs-identifier hs-type">hostedConfigurationVersionSummary_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="hostedConfigurationVersionSummary_applicationId"><span class="annot"><span class="annottext">hostedConfigurationVersionSummary_applicationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HostedConfigurationVersionSummary
+-&gt; f HostedConfigurationVersionSummary
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#hostedConfigurationVersionSummary_applicationId"><span class="hs-identifier hs-var hs-var">hostedConfigurationVersionSummary_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HostedConfigurationVersionSummary -&gt; Maybe Text)
+-&gt; (HostedConfigurationVersionSummary
+    -&gt; Maybe Text -&gt; HostedConfigurationVersionSummary)
+-&gt; Lens
+     HostedConfigurationVersionSummary
+     HostedConfigurationVersionSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200117"><span class="annot"><span class="annottext">Maybe Text
+applicationId :: Maybe Text
+$sel:applicationId:HostedConfigurationVersionSummary' :: HostedConfigurationVersionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679200117"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200117"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200116"><span class="annot"><span class="annottext">s :: HostedConfigurationVersionSummary
+</span><a href="#local-6989586621679200116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200115"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedConfigurationVersionSummary
+</span><a href="#local-6989586621679200116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:HostedConfigurationVersionSummary' :: Maybe Text
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3AapplicationId%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | A description of the configuration.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#hostedConfigurationVersionSummary_description"><span class="hs-identifier hs-type">hostedConfigurationVersionSummary_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="hostedConfigurationVersionSummary_description"><span class="annot"><span class="annottext">hostedConfigurationVersionSummary_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HostedConfigurationVersionSummary
+-&gt; f HostedConfigurationVersionSummary
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#hostedConfigurationVersionSummary_description"><span class="hs-identifier hs-var hs-var">hostedConfigurationVersionSummary_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HostedConfigurationVersionSummary -&gt; Maybe Text)
+-&gt; (HostedConfigurationVersionSummary
+    -&gt; Maybe Text -&gt; HostedConfigurationVersionSummary)
+-&gt; Lens
+     HostedConfigurationVersionSummary
+     HostedConfigurationVersionSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200113"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:HostedConfigurationVersionSummary' :: HostedConfigurationVersionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679200113"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200113"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200112"><span class="annot"><span class="annottext">s :: HostedConfigurationVersionSummary
+</span><a href="#local-6989586621679200112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200111"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedConfigurationVersionSummary
+</span><a href="#local-6989586621679200112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:HostedConfigurationVersionSummary' :: Maybe Text
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3Adescription%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The configuration profile ID.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#hostedConfigurationVersionSummary_configurationProfileId"><span class="hs-identifier hs-type">hostedConfigurationVersionSummary_configurationProfileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="hostedConfigurationVersionSummary_configurationProfileId"><span class="annot"><span class="annottext">hostedConfigurationVersionSummary_configurationProfileId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HostedConfigurationVersionSummary
+-&gt; f HostedConfigurationVersionSummary
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#hostedConfigurationVersionSummary_configurationProfileId"><span class="hs-identifier hs-var hs-var">hostedConfigurationVersionSummary_configurationProfileId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HostedConfigurationVersionSummary -&gt; Maybe Text)
+-&gt; (HostedConfigurationVersionSummary
+    -&gt; Maybe Text -&gt; HostedConfigurationVersionSummary)
+-&gt; Lens
+     HostedConfigurationVersionSummary
+     HostedConfigurationVersionSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200109"><span class="annot"><span class="annottext">Maybe Text
+configurationProfileId :: Maybe Text
+$sel:configurationProfileId:HostedConfigurationVersionSummary' :: HostedConfigurationVersionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679200109"><span class="hs-identifier hs-var hs-var">configurationProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200109"><span class="hs-identifier hs-var">configurationProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200108"><span class="annot"><span class="annottext">s :: HostedConfigurationVersionSummary
+</span><a href="#local-6989586621679200108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200107"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedConfigurationVersionSummary
+</span><a href="#local-6989586621679200108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationProfileId:HostedConfigurationVersionSummary' :: Maybe Text
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3AconfigurationProfileId%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var">configurationProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | A standard MIME type describing the format of the configuration content.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type&gt;.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#hostedConfigurationVersionSummary_contentType"><span class="hs-identifier hs-type">hostedConfigurationVersionSummary_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="hostedConfigurationVersionSummary_contentType"><span class="annot"><span class="annottext">hostedConfigurationVersionSummary_contentType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HostedConfigurationVersionSummary
+-&gt; f HostedConfigurationVersionSummary
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#hostedConfigurationVersionSummary_contentType"><span class="hs-identifier hs-var hs-var">hostedConfigurationVersionSummary_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HostedConfigurationVersionSummary -&gt; Maybe Text)
+-&gt; (HostedConfigurationVersionSummary
+    -&gt; Maybe Text -&gt; HostedConfigurationVersionSummary)
+-&gt; Lens
+     HostedConfigurationVersionSummary
+     HostedConfigurationVersionSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200105"><span class="annot"><span class="annottext">Maybe Text
+contentType :: Maybe Text
+$sel:contentType:HostedConfigurationVersionSummary' :: HostedConfigurationVersionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679200105"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200105"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200104"><span class="annot"><span class="annottext">s :: HostedConfigurationVersionSummary
+</span><a href="#local-6989586621679200104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200103"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedConfigurationVersionSummary
+</span><a href="#local-6989586621679200104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:HostedConfigurationVersionSummary' :: Maybe Text
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#%24sel%3AcontentType%3AHostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679200100"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679200098"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HostedConfigurationVersionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser HostedConfigurationVersionSummary)
+-&gt; Value
+-&gt; Parser HostedConfigurationVersionSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;HostedConfigurationVersionSummary&quot;</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200095"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200095"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; HostedConfigurationVersionSummary
+</span><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary%27"><span class="hs-identifier hs-var">HostedConfigurationVersionSummary'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; HostedConfigurationVersionSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; HostedConfigurationVersionSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VersionNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; HostedConfigurationVersionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; HostedConfigurationVersionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; HostedConfigurationVersionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; HostedConfigurationVersionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; HostedConfigurationVersionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; HostedConfigurationVersionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConfigurationProfileId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; HostedConfigurationVersionSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser HostedConfigurationVersionSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContentType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679200089"><span id="local-6989586621679200091"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679200086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.HostedConfigurationVersionSummary.html#HostedConfigurationVersionSummary"><span class="hs-identifier hs-type">HostedConfigurationVersionSummary</span></a></span></span><span>
+</span><span id="line-121"></span></pre></body></html>

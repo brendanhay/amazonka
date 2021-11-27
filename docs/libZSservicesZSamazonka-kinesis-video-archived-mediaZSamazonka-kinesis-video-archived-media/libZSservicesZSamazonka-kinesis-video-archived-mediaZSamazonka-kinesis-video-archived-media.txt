@@ -5,34 +5,34 @@
 @version 2.0
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
+module Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
 newtype ClipFragmentSelectorType
 ClipFragmentSelectorType' :: Text -> ClipFragmentSelectorType
 [fromClipFragmentSelectorType] :: ClipFragmentSelectorType -> Text
 pattern ClipFragmentSelectorType_PRODUCER_TIMESTAMP :: ClipFragmentSelectorType
 pattern ClipFragmentSelectorType_SERVER_TIMESTAMP :: ClipFragmentSelectorType
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance GHC.Classes.Ord Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance GHC.Classes.Ord Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType.ClipFragmentSelectorType
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange
+module Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange
 
 -- | The range of timestamps for which to return fragments.
 --   
@@ -125,16 +125,16 @@ clipTimestampRange_startTimestamp :: Lens' ClipTimestampRange UTCTime
 --   <tt>EndTimestamp</tt> value and continue past it are included in the
 --   session.
 clipTimestampRange_endTimestamp :: Lens' ClipTimestampRange UTCTime
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange.ClipTimestampRange
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector
+module Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector
 
 -- | Describes the timestamp range and timestamp origin of a range of
 --   fragments.
@@ -180,152 +180,152 @@ clipFragmentSelector_fragmentSelectorType :: Lens' ClipFragmentSelector ClipFrag
 
 -- | The range of timestamps to return.
 clipFragmentSelector_timestampRange :: Lens' ClipFragmentSelector ClipTimestampRange
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector.ClipFragmentSelector
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat
+module Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat
 newtype ContainerFormat
 ContainerFormat' :: Text -> ContainerFormat
 [fromContainerFormat] :: ContainerFormat -> Text
 pattern ContainerFormat_FRAGMENTED_MP4 :: ContainerFormat
 pattern ContainerFormat_MPEG_TS :: ContainerFormat
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance GHC.Classes.Ord Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance GHC.Classes.Ord Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat.ContainerFormat
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber
+module Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber
 newtype DASHDisplayFragmentNumber
 DASHDisplayFragmentNumber' :: Text -> DASHDisplayFragmentNumber
 [fromDASHDisplayFragmentNumber] :: DASHDisplayFragmentNumber -> Text
 pattern DASHDisplayFragmentNumber_ALWAYS :: DASHDisplayFragmentNumber
 pattern DASHDisplayFragmentNumber_NEVER :: DASHDisplayFragmentNumber
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance GHC.Classes.Ord Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance GHC.Classes.Ord Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber.DASHDisplayFragmentNumber
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp
+module Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp
 newtype DASHDisplayFragmentTimestamp
 DASHDisplayFragmentTimestamp' :: Text -> DASHDisplayFragmentTimestamp
 [fromDASHDisplayFragmentTimestamp] :: DASHDisplayFragmentTimestamp -> Text
 pattern DASHDisplayFragmentTimestamp_ALWAYS :: DASHDisplayFragmentTimestamp
 pattern DASHDisplayFragmentTimestamp_NEVER :: DASHDisplayFragmentTimestamp
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance GHC.Classes.Ord Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance GHC.Classes.Ord Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp.DASHDisplayFragmentTimestamp
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
+module Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
 newtype DASHFragmentSelectorType
 DASHFragmentSelectorType' :: Text -> DASHFragmentSelectorType
 [fromDASHFragmentSelectorType] :: DASHFragmentSelectorType -> Text
 pattern DASHFragmentSelectorType_PRODUCER_TIMESTAMP :: DASHFragmentSelectorType
 pattern DASHFragmentSelectorType_SERVER_TIMESTAMP :: DASHFragmentSelectorType
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance GHC.Classes.Ord Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance GHC.Classes.Ord Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType.DASHFragmentSelectorType
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode
+module Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode
 newtype DASHPlaybackMode
 DASHPlaybackMode' :: Text -> DASHPlaybackMode
 [fromDASHPlaybackMode] :: DASHPlaybackMode -> Text
 pattern DASHPlaybackMode_LIVE :: DASHPlaybackMode
 pattern DASHPlaybackMode_LIVE_REPLAY :: DASHPlaybackMode
 pattern DASHPlaybackMode_ON_DEMAND :: DASHPlaybackMode
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance GHC.Classes.Ord Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance GHC.Classes.Ord Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.DASHPlaybackMode
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange
+module Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange
 
 -- | The start and end of the timestamp range for the requested media.
 --   
@@ -448,16 +448,16 @@ dASHTimestampRange_endTimestamp :: Lens' DASHTimestampRange (Maybe UTCTime)
 --   <tt>SERVER_TIMESTAMP</tt>, the <tt>StartTimestamp</tt> must be later
 --   than the stream head.
 dASHTimestampRange_startTimestamp :: Lens' DASHTimestampRange (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange.DASHTimestampRange
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelector
+module Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector
 
 -- | Contains the range of timestamps for the requested media, and the
 --   source of the timestamps.
@@ -594,16 +594,16 @@ dASHFragmentSelector_fragmentSelectorType :: Lens' DASHFragmentSelector (Maybe D
 --   This value should not be present if <tt>PlaybackType</tt> is
 --   <tt>LIVE</tt>.
 dASHFragmentSelector_timestampRange :: Lens' DASHFragmentSelector (Maybe DASHTimestampRange)
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector.DASHFragmentSelector
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.Fragment
+module Amazonka.KinesisVideoArchivedMedia.Types.Fragment
 
 -- | Represents a segment of video or other time-delimited data.
 --   
@@ -674,153 +674,153 @@ fragment_fragmentNumber :: Lens' Fragment (Maybe Text)
 
 -- | The timestamp from the producer corresponding to the fragment.
 fragment_producerTimestamp :: Lens' Fragment (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.Fragment.Fragment
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.Fragment.Fragment
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.Fragment.Fragment
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.Fragment.Fragment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoArchivedMedia.Types.Fragment.Fragment
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.Fragment.Fragment
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.Fragment.Fragment
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.Fragment.Fragment
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.Fragment.Fragment
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.Fragment.Fragment
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.Fragment.Fragment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoArchivedMedia.Types.Fragment.Fragment
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.Fragment.Fragment
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.Fragment.Fragment
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType
+module Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType
 newtype FragmentSelectorType
 FragmentSelectorType' :: Text -> FragmentSelectorType
 [fromFragmentSelectorType] :: FragmentSelectorType -> Text
 pattern FragmentSelectorType_PRODUCER_TIMESTAMP :: FragmentSelectorType
 pattern FragmentSelectorType_SERVER_TIMESTAMP :: FragmentSelectorType
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance GHC.Classes.Ord Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance GHC.Classes.Ord Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType.FragmentSelectorType
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode
+module Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode
 newtype HLSDiscontinuityMode
 HLSDiscontinuityMode' :: Text -> HLSDiscontinuityMode
 [fromHLSDiscontinuityMode] :: HLSDiscontinuityMode -> Text
 pattern HLSDiscontinuityMode_ALWAYS :: HLSDiscontinuityMode
 pattern HLSDiscontinuityMode_NEVER :: HLSDiscontinuityMode
 pattern HLSDiscontinuityMode_ON_DISCONTINUITY :: HLSDiscontinuityMode
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance GHC.Classes.Ord Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance GHC.Classes.Ord Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.HLSDiscontinuityMode
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp
+module Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp
 newtype HLSDisplayFragmentTimestamp
 HLSDisplayFragmentTimestamp' :: Text -> HLSDisplayFragmentTimestamp
 [fromHLSDisplayFragmentTimestamp] :: HLSDisplayFragmentTimestamp -> Text
 pattern HLSDisplayFragmentTimestamp_ALWAYS :: HLSDisplayFragmentTimestamp
 pattern HLSDisplayFragmentTimestamp_NEVER :: HLSDisplayFragmentTimestamp
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance GHC.Classes.Ord Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance GHC.Classes.Ord Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.HLSDisplayFragmentTimestamp
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType
+module Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType
 newtype HLSFragmentSelectorType
 HLSFragmentSelectorType' :: Text -> HLSFragmentSelectorType
 [fromHLSFragmentSelectorType] :: HLSFragmentSelectorType -> Text
 pattern HLSFragmentSelectorType_PRODUCER_TIMESTAMP :: HLSFragmentSelectorType
 pattern HLSFragmentSelectorType_SERVER_TIMESTAMP :: HLSFragmentSelectorType
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance GHC.Classes.Ord Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance GHC.Classes.Ord Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.HLSFragmentSelectorType
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode
+module Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode
 newtype HLSPlaybackMode
 HLSPlaybackMode' :: Text -> HLSPlaybackMode
 [fromHLSPlaybackMode] :: HLSPlaybackMode -> Text
 pattern HLSPlaybackMode_LIVE :: HLSPlaybackMode
 pattern HLSPlaybackMode_LIVE_REPLAY :: HLSPlaybackMode
 pattern HLSPlaybackMode_ON_DEMAND :: HLSPlaybackMode
-instance Network.AWS.Data.XML.ToXML Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Network.AWS.Data.XML.FromXML Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Network.AWS.Data.Log.ToLog Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Network.AWS.Data.Text.ToText Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Network.AWS.Data.Text.FromText Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance GHC.Classes.Ord Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Amazonka.Data.XML.ToXML Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Amazonka.Data.XML.FromXML Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Amazonka.Data.Headers.ToHeader Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Amazonka.Data.Log.ToLog Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Amazonka.Data.Text.ToText Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Amazonka.Data.Text.FromText Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance GHC.Classes.Ord Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.HLSPlaybackMode
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange
+module Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange
 
 -- | The start and end of the timestamp range for the requested media.
 --   
@@ -938,16 +938,16 @@ hLSTimestampRange_endTimestamp :: Lens' HLSTimestampRange (Maybe UTCTime)
 --   <tt>SERVER_TIMESTAMP</tt>, the <tt>StartTimestamp</tt> must be later
 --   than the stream head.
 hLSTimestampRange_startTimestamp :: Lens' HLSTimestampRange (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange.HLSTimestampRange
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector
+module Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector
 
 -- | Contains the range of timestamps for the requested media, and the
 --   source of the timestamps.
@@ -1084,16 +1084,16 @@ hLSFragmentSelector_fragmentSelectorType :: Lens' HLSFragmentSelector (Maybe HLS
 --   This value should not be present if <tt>PlaybackType</tt> is
 --   <tt>LIVE</tt>.
 hLSFragmentSelector_timestampRange :: Lens' HLSFragmentSelector (Maybe HLSTimestampRange)
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector.HLSFragmentSelector
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange
+module Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange
 
 -- | The range of timestamps for which to return fragments.
 --   
@@ -1134,16 +1134,16 @@ timestampRange_startTimestamp :: Lens' TimestampRange UTCTime
 -- | The ending timestamp in the range of timestamps for which to return
 --   fragments.
 timestampRange_endTimestamp :: Lens' TimestampRange UTCTime
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange.TimestampRange
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector
+module Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector
 
 -- | Describes the timestamp range and timestamp origin of a range of
 --   fragments.
@@ -1197,16 +1197,16 @@ fragmentSelector_fragmentSelectorType :: Lens' FragmentSelector FragmentSelector
 
 -- | The range of timestamps to return.
 fragmentSelector_timestampRange :: Lens' FragmentSelector TimestampRange
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector.FragmentSelector
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Types
+module Amazonka.KinesisVideoArchivedMedia.Types
 
 -- | API version <tt>2017-09-30</tt> of the Amazon Kinesis Video Streams
 --   Archived Media SDK configuration.
@@ -2165,7 +2165,7 @@ timestampRange_endTimestamp :: Lens' TimestampRange UTCTime
 --   this topic, as well as <a>Common Errors</a>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.KinesisVideoArchivedMedia.ListFragments
+module Amazonka.KinesisVideoArchivedMedia.ListFragments
 
 -- | <i>See:</i> <a>newListFragments</a> smart constructor.
 data ListFragments
@@ -2304,23 +2304,23 @@ listFragmentsResponse_fragments :: Lens' ListFragmentsResponse (Maybe [Fragment]
 
 -- | The response's http status code.
 listFragmentsResponse_httpStatus :: Lens' ListFragmentsResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragments
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragments
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragments
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragments
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragmentsResponse
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragmentsResponse
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragmentsResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragmentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragments
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragmentsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragments
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragments
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragments
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragments
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.ListFragments.ListFragments
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragments
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragments
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragments
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragments
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragmentsResponse
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragmentsResponse
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragmentsResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragmentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragments
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragmentsResponse
+instance Amazonka.Pager.AWSPager Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragments
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragments
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragments
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragments
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragments
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.ListFragments.ListFragments
 
 
 -- | Gets media for a list of fragments (specified by fragment number) from
@@ -2352,7 +2352,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Li
 --   
 --   For more information, see the <b>Errors</b> section at the bottom of
 --   this topic, as well as <a>Common Errors</a>.
-module Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList
+module Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList
 
 -- | <i>See:</i> <a>newGetMediaForFragmentList</a> smart constructor.
 data GetMediaForFragmentList
@@ -2525,19 +2525,19 @@ getMediaForFragmentListResponse_httpStatus :: Lens' GetMediaForFragmentListRespo
 --   exception</li>
 --   </ul>
 getMediaForFragmentListResponse_payload :: Lens' GetMediaForFragmentListResponse ResponseBody
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentListResponse
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentListResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentListResponse
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentListResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList.GetMediaForFragmentList
 
 
 -- | Retrieves an HTTP Live Streaming (HLS) URL for the stream. You can
@@ -2685,7 +2685,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Ge
 --   
 --   For more information, see the <b>Errors</b> section at the bottom of
 --   this topic, as well as <a>Common Errors</a>.
-module Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
+module Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
 
 -- | <i>See:</i> <a>newGetHLSStreamingSessionURL</a> smart constructor.
 data GetHLSStreamingSessionURL
@@ -3285,22 +3285,22 @@ getHLSStreamingSessionURLResponse_hLSStreamingSessionURL :: Lens' GetHLSStreamin
 
 -- | The response's http status code.
 getHLSStreamingSessionURLResponse_httpStatus :: Lens' GetHLSStreamingSessionURLResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURLResponse
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURLResponse
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURLResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURLResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURLResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURLResponse
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURLResponse
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURLResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURLResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURLResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL.GetHLSStreamingSessionURL
 
 
 -- | Retrieves an MPEG Dynamic Adaptive Streaming over HTTP (DASH) URL for
@@ -3421,7 +3421,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Ge
 --   
 --   For more information, see the <b>Errors</b> section at the bottom of
 --   this topic, as well as <a>Common Errors</a>.
-module Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
+module Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
 
 -- | <i>See:</i> <a>newGetDASHStreamingSessionURL</a> smart constructor.
 data GetDASHStreamingSessionURL
@@ -3912,22 +3912,22 @@ getDASHStreamingSessionURLResponse_dASHStreamingSessionURL :: Lens' GetDASHStrea
 
 -- | The response's http status code.
 getDASHStreamingSessionURLResponse_httpStatus :: Lens' GetDASHStreamingSessionURLResponse Int
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURLResponse
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURLResponse
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURLResponse
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURLResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURLResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURLResponse
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURLResponse
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURLResponse
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURLResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURLResponse
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL.GetDASHStreamingSessionURL
 
 
 -- | Downloads an MP4 file (clip) containing the archived, on-demand media
@@ -3967,7 +3967,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Ge
 --   see <a>Monitoring Kinesis Video Streams</a>. For pricing information,
 --   see <a>Amazon Kinesis Video Streams Pricing</a> and <a>AWS
 --   Pricing</a>. Charges for outgoing AWS data apply.
-module Network.AWS.KinesisVideoArchivedMedia.GetClip
+module Amazonka.KinesisVideoArchivedMedia.GetClip
 
 -- | <i>See:</i> <a>newGetClip</a> smart constructor.
 data GetClip
@@ -4075,22 +4075,22 @@ getClipResponse_httpStatus :: Lens' GetClipResponse Int
 --   200 fragments from the specified start timestamp. For more
 --   information, see <a>Kinesis Video Streams Limits</a>.
 getClipResponse_payload :: Lens' GetClipResponse ResponseBody
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClip
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClip
-instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClip
-instance GHC.Classes.Eq Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClip
-instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClipResponse
-instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClipResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClip
-instance Data.Hashable.Class.Hashable Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClip
-instance Control.DeepSeq.NFData Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClip
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClip
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClip
-instance Network.AWS.Data.Path.ToPath Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClip
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.GetClip.GetClip
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.GetClip.GetClip
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.GetClip.GetClip
+instance GHC.Read.Read Amazonka.KinesisVideoArchivedMedia.GetClip.GetClip
+instance GHC.Classes.Eq Amazonka.KinesisVideoArchivedMedia.GetClip.GetClip
+instance GHC.Generics.Generic Amazonka.KinesisVideoArchivedMedia.GetClip.GetClipResponse
+instance GHC.Show.Show Amazonka.KinesisVideoArchivedMedia.GetClip.GetClipResponse
+instance Amazonka.Types.AWSRequest Amazonka.KinesisVideoArchivedMedia.GetClip.GetClip
+instance Data.Hashable.Class.Hashable Amazonka.KinesisVideoArchivedMedia.GetClip.GetClip
+instance Control.DeepSeq.NFData Amazonka.KinesisVideoArchivedMedia.GetClip.GetClip
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KinesisVideoArchivedMedia.GetClip.GetClip
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KinesisVideoArchivedMedia.GetClip.GetClip
+instance Amazonka.Data.Path.ToPath Amazonka.KinesisVideoArchivedMedia.GetClip.GetClip
+instance Amazonka.Data.Query.ToQuery Amazonka.KinesisVideoArchivedMedia.GetClip.GetClip
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Lens
+module Amazonka.KinesisVideoArchivedMedia.Lens
 
 -- | Specifies when the fragment start timestamps should be included in the
 --   HLS media playlist. Typically, media players report the playhead
@@ -4744,12 +4744,12 @@ timestampRange_startTimestamp :: Lens' TimestampRange UTCTime
 timestampRange_endTimestamp :: Lens' TimestampRange UTCTime
 
 
-module Network.AWS.KinesisVideoArchivedMedia.Waiters
+module Amazonka.KinesisVideoArchivedMedia.Waiters
 
 
 -- | Derived from API version <tt>2017-09-30</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
-module Network.AWS.KinesisVideoArchivedMedia
+module Amazonka.KinesisVideoArchivedMedia
 
 -- | API version <tt>2017-09-30</tt> of the Amazon Kinesis Video Streams
 --   Archived Media SDK configuration.

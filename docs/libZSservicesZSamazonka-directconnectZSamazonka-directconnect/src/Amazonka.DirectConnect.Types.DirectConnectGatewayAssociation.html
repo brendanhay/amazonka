@@ -1,0 +1,821 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.AssociatedGateway.html"><span class="hs-identifier">Amazonka.DirectConnect.Types.AssociatedGateway</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationState.html"><span class="hs-identifier">Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationState</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.RouteFilterPrefix.html"><span class="hs-identifier">Amazonka.DirectConnect.Types.RouteFilterPrefix</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Information about an association between a Direct Connect gateway and a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- virtual private gateway or transit gateway.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDirectConnectGatewayAssociation' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679289345"><span id="local-6989586621679289346"></span></span><span class="hs-keyword">data</span><span> </span><span id="DirectConnectGatewayAssociation"><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-var">DirectConnectGatewayAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectConnectGatewayAssociation%27"><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">DirectConnectGatewayAssociation'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the virtual private gateway. Applies only to private virtual</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- interfaces.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AvirtualGatewayId%3ADirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AvirtualGatewayId%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">virtualGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the Direct Connect gateway association.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AassociationId%3ADirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AassociationId%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the Direct Connect gateway.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdirectConnectGatewayId%3ADirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AdirectConnectGatewayId%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">directConnectGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the virtual private</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AvirtualGatewayOwnerAccount%3ADirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AvirtualGatewayOwnerAccount%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">virtualGatewayOwnerAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The error message if the state of an object failed to advance.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AstateChangeError%3ADirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AstateChangeError%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">stateChangeError</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services Region where the virtual private gateway is</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- located.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AvirtualGatewayRegion%3ADirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AvirtualGatewayRegion%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">virtualGatewayRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Information about the associated gateway.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AassociatedGateway%3ADirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">DirectConnectGatewayAssociation -&gt; Maybe AssociatedGateway
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AassociatedGateway%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">associatedGateway</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.AssociatedGateway.html#AssociatedGateway"><span class="hs-identifier hs-type">AssociatedGateway</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the associated</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdirectConnectGatewayOwnerAccount%3ADirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AdirectConnectGatewayOwnerAccount%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">directConnectGatewayOwnerAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AallowedPrefixesToDirectConnectGateway%3ADirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">DirectConnectGatewayAssociation -&gt; Maybe [RouteFilterPrefix]
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AallowedPrefixesToDirectConnectGateway%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">allowedPrefixesToDirectConnectGateway</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The state of the association. The following are the possible values:</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   @associating@: The initial state after calling</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     CreateDirectConnectGatewayAssociation.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- -   @associated@: The Direct Connect gateway and virtual private gateway</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     or transit gateway are successfully associated and ready to pass</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     traffic.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   @disassociating@: The initial state after calling</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     DeleteDirectConnectGatewayAssociation.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @disassociated@: The virtual private gateway or transit gateway is</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     disassociated from the Direct Connect gateway. Traffic flow between</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     the Direct Connect gateway and virtual private gateway or transit</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     gateway is stopped.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AassociationState%3ADirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">DirectConnectGatewayAssociation
+-&gt; Maybe DirectConnectGatewayAssociationState
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AassociationState%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">associationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationState.html#DirectConnectGatewayAssociationState"><span class="hs-identifier hs-type">DirectConnectGatewayAssociationState</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289330"><span id="local-6989586621679289332"><span class="annot"><span class="annottext">DirectConnectGatewayAssociation
+-&gt; DirectConnectGatewayAssociation -&gt; Bool
+(DirectConnectGatewayAssociation
+ -&gt; DirectConnectGatewayAssociation -&gt; Bool)
+-&gt; (DirectConnectGatewayAssociation
+    -&gt; DirectConnectGatewayAssociation -&gt; Bool)
+-&gt; Eq DirectConnectGatewayAssociation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DirectConnectGatewayAssociation
+-&gt; DirectConnectGatewayAssociation -&gt; Bool
+$c/= :: DirectConnectGatewayAssociation
+-&gt; DirectConnectGatewayAssociation -&gt; Bool
+== :: DirectConnectGatewayAssociation
+-&gt; DirectConnectGatewayAssociation -&gt; Bool
+$c== :: DirectConnectGatewayAssociation
+-&gt; DirectConnectGatewayAssociation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289321"><span id="local-6989586621679289323"><span id="local-6989586621679289325"><span id="local-6989586621679289327"><span class="annot"><span class="annottext">ReadPrec [DirectConnectGatewayAssociation]
+ReadPrec DirectConnectGatewayAssociation
+Int -&gt; ReadS DirectConnectGatewayAssociation
+ReadS [DirectConnectGatewayAssociation]
+(Int -&gt; ReadS DirectConnectGatewayAssociation)
+-&gt; ReadS [DirectConnectGatewayAssociation]
+-&gt; ReadPrec DirectConnectGatewayAssociation
+-&gt; ReadPrec [DirectConnectGatewayAssociation]
+-&gt; Read DirectConnectGatewayAssociation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DirectConnectGatewayAssociation]
+$creadListPrec :: ReadPrec [DirectConnectGatewayAssociation]
+readPrec :: ReadPrec DirectConnectGatewayAssociation
+$creadPrec :: ReadPrec DirectConnectGatewayAssociation
+readList :: ReadS [DirectConnectGatewayAssociation]
+$creadList :: ReadS [DirectConnectGatewayAssociation]
+readsPrec :: Int -&gt; ReadS DirectConnectGatewayAssociation
+$creadsPrec :: Int -&gt; ReadS DirectConnectGatewayAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289314"><span id="local-6989586621679289316"><span id="local-6989586621679289318"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAssociation -&gt; ShowS
+[DirectConnectGatewayAssociation] -&gt; ShowS
+DirectConnectGatewayAssociation -&gt; String
+(Int -&gt; DirectConnectGatewayAssociation -&gt; ShowS)
+-&gt; (DirectConnectGatewayAssociation -&gt; String)
+-&gt; ([DirectConnectGatewayAssociation] -&gt; ShowS)
+-&gt; Show DirectConnectGatewayAssociation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DirectConnectGatewayAssociation] -&gt; ShowS
+$cshowList :: [DirectConnectGatewayAssociation] -&gt; ShowS
+show :: DirectConnectGatewayAssociation -&gt; String
+$cshow :: DirectConnectGatewayAssociation -&gt; String
+showsPrec :: Int -&gt; DirectConnectGatewayAssociation -&gt; ShowS
+$cshowsPrec :: Int -&gt; DirectConnectGatewayAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DirectConnectGatewayAssociation
+ -&gt; Rep DirectConnectGatewayAssociation x)
+-&gt; (forall x.
+    Rep DirectConnectGatewayAssociation x
+    -&gt; DirectConnectGatewayAssociation)
+-&gt; Generic DirectConnectGatewayAssociation
+forall x.
+Rep DirectConnectGatewayAssociation x
+-&gt; DirectConnectGatewayAssociation
+forall x.
+DirectConnectGatewayAssociation
+-&gt; Rep DirectConnectGatewayAssociation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DirectConnectGatewayAssociation x
+-&gt; DirectConnectGatewayAssociation
+$cfrom :: forall x.
+DirectConnectGatewayAssociation
+-&gt; Rep DirectConnectGatewayAssociation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'DirectConnectGatewayAssociation' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'virtualGatewayId', 'directConnectGatewayAssociation_virtualGatewayId' - The ID of the virtual private gateway. Applies only to private virtual</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- interfaces.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'associationId', 'directConnectGatewayAssociation_associationId' - The ID of the Direct Connect gateway association.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'directConnectGatewayId', 'directConnectGatewayAssociation_directConnectGatewayId' - The ID of the Direct Connect gateway.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'virtualGatewayOwnerAccount', 'directConnectGatewayAssociation_virtualGatewayOwnerAccount' - The ID of the Amazon Web Services account that owns the virtual private</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'stateChangeError', 'directConnectGatewayAssociation_stateChangeError' - The error message if the state of an object failed to advance.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'virtualGatewayRegion', 'directConnectGatewayAssociation_virtualGatewayRegion' - The Amazon Web Services Region where the virtual private gateway is</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- located.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'associatedGateway', 'directConnectGatewayAssociation_associatedGateway' - Information about the associated gateway.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'directConnectGatewayOwnerAccount', 'directConnectGatewayAssociation_directConnectGatewayOwnerAccount' - The ID of the Amazon Web Services account that owns the associated</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'allowedPrefixesToDirectConnectGateway', 'directConnectGatewayAssociation_allowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'associationState', 'directConnectGatewayAssociation_associationState' - The state of the association. The following are the possible values:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- -   @associating@: The initial state after calling</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     CreateDirectConnectGatewayAssociation.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   @associated@: The Direct Connect gateway and virtual private gateway</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--     or transit gateway are successfully associated and ready to pass</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     traffic.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   @disassociating@: The initial state after calling</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     DeleteDirectConnectGatewayAssociation.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @disassociated@: The virtual private gateway or transit gateway is</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     disassociated from the Direct Connect gateway. Traffic flow between</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     the Direct Connect gateway and virtual private gateway or transit</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     gateway is stopped.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#newDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">newDirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span>
+</span><span id="line-124"></span><span id="newDirectConnectGatewayAssociation"><span class="annot"><span class="annottext">newDirectConnectGatewayAssociation :: DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#newDirectConnectGatewayAssociation"><span class="hs-identifier hs-var hs-var">newDirectConnectGatewayAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">DirectConnectGatewayAssociation' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AssociatedGateway
+-&gt; Maybe Text
+-&gt; Maybe [RouteFilterPrefix]
+-&gt; Maybe DirectConnectGatewayAssociationState
+-&gt; DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:virtualGatewayId:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AvirtualGatewayId%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">virtualGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationId:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AassociationId%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:directConnectGatewayId:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AdirectConnectGatewayId%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualGatewayOwnerAccount:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AvirtualGatewayOwnerAccount%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">virtualGatewayOwnerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateChangeError:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AstateChangeError%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">stateChangeError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualGatewayRegion:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AvirtualGatewayRegion%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">virtualGatewayRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:associatedGateway:DirectConnectGatewayAssociation' :: Maybe AssociatedGateway
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AassociatedGateway%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">associatedGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssociatedGateway
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:directConnectGatewayOwnerAccount:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AdirectConnectGatewayOwnerAccount%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">directConnectGatewayOwnerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowedPrefixesToDirectConnectGateway:DirectConnectGatewayAssociation' :: Maybe [RouteFilterPrefix]
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AallowedPrefixesToDirectConnectGateway%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">allowedPrefixesToDirectConnectGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationState:DirectConnectGatewayAssociation' :: Maybe DirectConnectGatewayAssociationState
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AassociationState%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">associationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAssociationState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The ID of the virtual private gateway. Applies only to private virtual</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- interfaces.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_virtualGatewayId"><span class="hs-identifier hs-type">directConnectGatewayAssociation_virtualGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="directConnectGatewayAssociation_virtualGatewayId"><span class="annot"><span class="annottext">directConnectGatewayAssociation_virtualGatewayId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DirectConnectGatewayAssociation
+-&gt; f DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_virtualGatewayId"><span class="hs-identifier hs-var hs-var">directConnectGatewayAssociation_virtualGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAssociation -&gt; Maybe Text)
+-&gt; (DirectConnectGatewayAssociation
+    -&gt; Maybe Text -&gt; DirectConnectGatewayAssociation)
+-&gt; Lens
+     DirectConnectGatewayAssociation
+     DirectConnectGatewayAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289305"><span class="annot"><span class="annottext">Maybe Text
+virtualGatewayId :: Maybe Text
+$sel:virtualGatewayId:DirectConnectGatewayAssociation' :: DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679289305"><span class="hs-identifier hs-var hs-var">virtualGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289305"><span class="hs-identifier hs-var">virtualGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289304"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289303"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualGatewayId:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AvirtualGatewayId%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">virtualGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The ID of the Direct Connect gateway association.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_associationId"><span class="hs-identifier hs-type">directConnectGatewayAssociation_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="directConnectGatewayAssociation_associationId"><span class="annot"><span class="annottext">directConnectGatewayAssociation_associationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DirectConnectGatewayAssociation
+-&gt; f DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_associationId"><span class="hs-identifier hs-var hs-var">directConnectGatewayAssociation_associationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAssociation -&gt; Maybe Text)
+-&gt; (DirectConnectGatewayAssociation
+    -&gt; Maybe Text -&gt; DirectConnectGatewayAssociation)
+-&gt; Lens
+     DirectConnectGatewayAssociation
+     DirectConnectGatewayAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289301"><span class="annot"><span class="annottext">Maybe Text
+associationId :: Maybe Text
+$sel:associationId:DirectConnectGatewayAssociation' :: DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679289301"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289301"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289300"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289299"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AassociationId%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The ID of the Direct Connect gateway.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_directConnectGatewayId"><span class="hs-identifier hs-type">directConnectGatewayAssociation_directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="directConnectGatewayAssociation_directConnectGatewayId"><span class="annot"><span class="annottext">directConnectGatewayAssociation_directConnectGatewayId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DirectConnectGatewayAssociation
+-&gt; f DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_directConnectGatewayId"><span class="hs-identifier hs-var hs-var">directConnectGatewayAssociation_directConnectGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAssociation -&gt; Maybe Text)
+-&gt; (DirectConnectGatewayAssociation
+    -&gt; Maybe Text -&gt; DirectConnectGatewayAssociation)
+-&gt; Lens
+     DirectConnectGatewayAssociation
+     DirectConnectGatewayAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289297"><span class="annot"><span class="annottext">Maybe Text
+directConnectGatewayId :: Maybe Text
+$sel:directConnectGatewayId:DirectConnectGatewayAssociation' :: DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679289297"><span class="hs-identifier hs-var hs-var">directConnectGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289297"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289296"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directConnectGatewayId:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AdirectConnectGatewayId%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the virtual private</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_virtualGatewayOwnerAccount"><span class="hs-identifier hs-type">directConnectGatewayAssociation_virtualGatewayOwnerAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="directConnectGatewayAssociation_virtualGatewayOwnerAccount"><span class="annot"><span class="annottext">directConnectGatewayAssociation_virtualGatewayOwnerAccount :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DirectConnectGatewayAssociation
+-&gt; f DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_virtualGatewayOwnerAccount"><span class="hs-identifier hs-var hs-var">directConnectGatewayAssociation_virtualGatewayOwnerAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAssociation -&gt; Maybe Text)
+-&gt; (DirectConnectGatewayAssociation
+    -&gt; Maybe Text -&gt; DirectConnectGatewayAssociation)
+-&gt; Lens
+     DirectConnectGatewayAssociation
+     DirectConnectGatewayAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289293"><span class="annot"><span class="annottext">Maybe Text
+virtualGatewayOwnerAccount :: Maybe Text
+$sel:virtualGatewayOwnerAccount:DirectConnectGatewayAssociation' :: DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679289293"><span class="hs-identifier hs-var hs-var">virtualGatewayOwnerAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289293"><span class="hs-identifier hs-var">virtualGatewayOwnerAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289292"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289291"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualGatewayOwnerAccount:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AvirtualGatewayOwnerAccount%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">virtualGatewayOwnerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The error message if the state of an object failed to advance.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_stateChangeError"><span class="hs-identifier hs-type">directConnectGatewayAssociation_stateChangeError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="directConnectGatewayAssociation_stateChangeError"><span class="annot"><span class="annottext">directConnectGatewayAssociation_stateChangeError :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DirectConnectGatewayAssociation
+-&gt; f DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_stateChangeError"><span class="hs-identifier hs-var hs-var">directConnectGatewayAssociation_stateChangeError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAssociation -&gt; Maybe Text)
+-&gt; (DirectConnectGatewayAssociation
+    -&gt; Maybe Text -&gt; DirectConnectGatewayAssociation)
+-&gt; Lens
+     DirectConnectGatewayAssociation
+     DirectConnectGatewayAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289289"><span class="annot"><span class="annottext">Maybe Text
+stateChangeError :: Maybe Text
+$sel:stateChangeError:DirectConnectGatewayAssociation' :: DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679289289"><span class="hs-identifier hs-var hs-var">stateChangeError</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289289"><span class="hs-identifier hs-var">stateChangeError</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289288"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289287"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChangeError:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AstateChangeError%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">stateChangeError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The Amazon Web Services Region where the virtual private gateway is</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- located.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_virtualGatewayRegion"><span class="hs-identifier hs-type">directConnectGatewayAssociation_virtualGatewayRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="directConnectGatewayAssociation_virtualGatewayRegion"><span class="annot"><span class="annottext">directConnectGatewayAssociation_virtualGatewayRegion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DirectConnectGatewayAssociation
+-&gt; f DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_virtualGatewayRegion"><span class="hs-identifier hs-var hs-var">directConnectGatewayAssociation_virtualGatewayRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAssociation -&gt; Maybe Text)
+-&gt; (DirectConnectGatewayAssociation
+    -&gt; Maybe Text -&gt; DirectConnectGatewayAssociation)
+-&gt; Lens
+     DirectConnectGatewayAssociation
+     DirectConnectGatewayAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289285"><span class="annot"><span class="annottext">Maybe Text
+virtualGatewayRegion :: Maybe Text
+$sel:virtualGatewayRegion:DirectConnectGatewayAssociation' :: DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679289285"><span class="hs-identifier hs-var hs-var">virtualGatewayRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289285"><span class="hs-identifier hs-var">virtualGatewayRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289284"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289283"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualGatewayRegion:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AvirtualGatewayRegion%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">virtualGatewayRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Information about the associated gateway.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_associatedGateway"><span class="hs-identifier hs-type">directConnectGatewayAssociation_associatedGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.AssociatedGateway.html#AssociatedGateway"><span class="hs-identifier hs-type">AssociatedGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="directConnectGatewayAssociation_associatedGateway"><span class="annot"><span class="annottext">directConnectGatewayAssociation_associatedGateway :: (Maybe AssociatedGateway -&gt; f (Maybe AssociatedGateway))
+-&gt; DirectConnectGatewayAssociation
+-&gt; f DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_associatedGateway"><span class="hs-identifier hs-var hs-var">directConnectGatewayAssociation_associatedGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAssociation -&gt; Maybe AssociatedGateway)
+-&gt; (DirectConnectGatewayAssociation
+    -&gt; Maybe AssociatedGateway -&gt; DirectConnectGatewayAssociation)
+-&gt; Lens
+     DirectConnectGatewayAssociation
+     DirectConnectGatewayAssociation
+     (Maybe AssociatedGateway)
+     (Maybe AssociatedGateway)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289281"><span class="annot"><span class="annottext">Maybe AssociatedGateway
+associatedGateway :: Maybe AssociatedGateway
+$sel:associatedGateway:DirectConnectGatewayAssociation' :: DirectConnectGatewayAssociation -&gt; Maybe AssociatedGateway
+</span><a href="#local-6989586621679289281"><span class="hs-identifier hs-var hs-var">associatedGateway</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssociatedGateway
+</span><a href="#local-6989586621679289281"><span class="hs-identifier hs-var">associatedGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289280"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289279"><span class="annot"><span class="annottext">Maybe AssociatedGateway
+</span><a href="#local-6989586621679289279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedGateway:DirectConnectGatewayAssociation' :: Maybe AssociatedGateway
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AassociatedGateway%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">associatedGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssociatedGateway
+</span><a href="#local-6989586621679289279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the associated</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_directConnectGatewayOwnerAccount"><span class="hs-identifier hs-type">directConnectGatewayAssociation_directConnectGatewayOwnerAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="directConnectGatewayAssociation_directConnectGatewayOwnerAccount"><span class="annot"><span class="annottext">directConnectGatewayAssociation_directConnectGatewayOwnerAccount :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DirectConnectGatewayAssociation
+-&gt; f DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_directConnectGatewayOwnerAccount"><span class="hs-identifier hs-var hs-var">directConnectGatewayAssociation_directConnectGatewayOwnerAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAssociation -&gt; Maybe Text)
+-&gt; (DirectConnectGatewayAssociation
+    -&gt; Maybe Text -&gt; DirectConnectGatewayAssociation)
+-&gt; Lens
+     DirectConnectGatewayAssociation
+     DirectConnectGatewayAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289277"><span class="annot"><span class="annottext">Maybe Text
+directConnectGatewayOwnerAccount :: Maybe Text
+$sel:directConnectGatewayOwnerAccount:DirectConnectGatewayAssociation' :: DirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679289277"><span class="hs-identifier hs-var hs-var">directConnectGatewayOwnerAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289277"><span class="hs-identifier hs-var">directConnectGatewayOwnerAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289276"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289275"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directConnectGatewayOwnerAccount:DirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AdirectConnectGatewayOwnerAccount%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">directConnectGatewayOwnerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_allowedPrefixesToDirectConnectGateway"><span class="hs-identifier hs-type">directConnectGatewayAssociation_allowedPrefixesToDirectConnectGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="directConnectGatewayAssociation_allowedPrefixesToDirectConnectGateway"><span class="annot"><span class="annottext">directConnectGatewayAssociation_allowedPrefixesToDirectConnectGateway :: (Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
+-&gt; DirectConnectGatewayAssociation
+-&gt; f DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_allowedPrefixesToDirectConnectGateway"><span class="hs-identifier hs-var hs-var">directConnectGatewayAssociation_allowedPrefixesToDirectConnectGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAssociation -&gt; Maybe [RouteFilterPrefix])
+-&gt; (DirectConnectGatewayAssociation
+    -&gt; Maybe [RouteFilterPrefix] -&gt; DirectConnectGatewayAssociation)
+-&gt; Lens
+     DirectConnectGatewayAssociation
+     DirectConnectGatewayAssociation
+     (Maybe [RouteFilterPrefix])
+     (Maybe [RouteFilterPrefix])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289273"><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+allowedPrefixesToDirectConnectGateway :: Maybe [RouteFilterPrefix]
+$sel:allowedPrefixesToDirectConnectGateway:DirectConnectGatewayAssociation' :: DirectConnectGatewayAssociation -&gt; Maybe [RouteFilterPrefix]
+</span><a href="#local-6989586621679289273"><span class="hs-identifier hs-var hs-var">allowedPrefixesToDirectConnectGateway</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+</span><a href="#local-6989586621679289273"><span class="hs-identifier hs-var">allowedPrefixesToDirectConnectGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289272"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289271"><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+</span><a href="#local-6989586621679289271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedPrefixesToDirectConnectGateway:DirectConnectGatewayAssociation' :: Maybe [RouteFilterPrefix]
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AallowedPrefixesToDirectConnectGateway%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">allowedPrefixesToDirectConnectGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+</span><a href="#local-6989586621679289271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
+ -&gt; DirectConnectGatewayAssociation
+ -&gt; f DirectConnectGatewayAssociation)
+-&gt; ((Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
+    -&gt; Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
+-&gt; (Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
+-&gt; DirectConnectGatewayAssociation
+-&gt; f DirectConnectGatewayAssociation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RouteFilterPrefix]
+  [RouteFilterPrefix]
+  [RouteFilterPrefix]
+  [RouteFilterPrefix]
+-&gt; Iso
+     (Maybe [RouteFilterPrefix])
+     (Maybe [RouteFilterPrefix])
+     (Maybe [RouteFilterPrefix])
+     (Maybe [RouteFilterPrefix])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RouteFilterPrefix]
+  [RouteFilterPrefix]
+  [RouteFilterPrefix]
+  [RouteFilterPrefix]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The state of the association. The following are the possible values:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   @associating@: The initial state after calling</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     CreateDirectConnectGatewayAssociation.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- -   @associated@: The Direct Connect gateway and virtual private gateway</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--     or transit gateway are successfully associated and ready to pass</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     traffic.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -   @disassociating@: The initial state after calling</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     DeleteDirectConnectGatewayAssociation.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- -   @disassociated@: The virtual private gateway or transit gateway is</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     disassociated from the Direct Connect gateway. Traffic flow between</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     the Direct Connect gateway and virtual private gateway or transit</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     gateway is stopped.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_associationState"><span class="hs-identifier hs-type">directConnectGatewayAssociation_associationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationState.html#DirectConnectGatewayAssociationState"><span class="hs-identifier hs-type">DirectConnectGatewayAssociationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="directConnectGatewayAssociation_associationState"><span class="annot"><span class="annottext">directConnectGatewayAssociation_associationState :: (Maybe DirectConnectGatewayAssociationState
+ -&gt; f (Maybe DirectConnectGatewayAssociationState))
+-&gt; DirectConnectGatewayAssociation
+-&gt; f DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#directConnectGatewayAssociation_associationState"><span class="hs-identifier hs-var hs-var">directConnectGatewayAssociation_associationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAssociation
+ -&gt; Maybe DirectConnectGatewayAssociationState)
+-&gt; (DirectConnectGatewayAssociation
+    -&gt; Maybe DirectConnectGatewayAssociationState
+    -&gt; DirectConnectGatewayAssociation)
+-&gt; Lens
+     DirectConnectGatewayAssociation
+     DirectConnectGatewayAssociation
+     (Maybe DirectConnectGatewayAssociationState)
+     (Maybe DirectConnectGatewayAssociationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289266"><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAssociationState
+associationState :: Maybe DirectConnectGatewayAssociationState
+$sel:associationState:DirectConnectGatewayAssociation' :: DirectConnectGatewayAssociation
+-&gt; Maybe DirectConnectGatewayAssociationState
+</span><a href="#local-6989586621679289266"><span class="hs-identifier hs-var hs-var">associationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAssociationState
+</span><a href="#local-6989586621679289266"><span class="hs-identifier hs-var">associationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289265"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289264"><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAssociationState
+</span><a href="#local-6989586621679289264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679289265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationState:DirectConnectGatewayAssociation' :: Maybe DirectConnectGatewayAssociationState
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#%24sel%3AassociationState%3ADirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">associationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAssociationState
+</span><a href="#local-6989586621679289264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679289261"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span></span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679289259"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DirectConnectGatewayAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DirectConnectGatewayAssociation)
+-&gt; Value
+-&gt; Parser DirectConnectGatewayAssociation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DirectConnectGatewayAssociation&quot;</span></span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289256"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289256"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AssociatedGateway
+-&gt; Maybe Text
+-&gt; Maybe [RouteFilterPrefix]
+-&gt; Maybe DirectConnectGatewayAssociationState
+-&gt; DirectConnectGatewayAssociation
+</span><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">DirectConnectGatewayAssociation'</span></a></span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe AssociatedGateway
+ -&gt; Maybe Text
+ -&gt; Maybe [RouteFilterPrefix]
+ -&gt; Maybe DirectConnectGatewayAssociationState
+ -&gt; DirectConnectGatewayAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AssociatedGateway
+      -&gt; Maybe Text
+      -&gt; Maybe [RouteFilterPrefix]
+      -&gt; Maybe DirectConnectGatewayAssociationState
+      -&gt; DirectConnectGatewayAssociation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualGatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AssociatedGateway
+   -&gt; Maybe Text
+   -&gt; Maybe [RouteFilterPrefix]
+   -&gt; Maybe DirectConnectGatewayAssociationState
+   -&gt; DirectConnectGatewayAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AssociatedGateway
+      -&gt; Maybe Text
+      -&gt; Maybe [RouteFilterPrefix]
+      -&gt; Maybe DirectConnectGatewayAssociationState
+      -&gt; DirectConnectGatewayAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;associationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AssociatedGateway
+   -&gt; Maybe Text
+   -&gt; Maybe [RouteFilterPrefix]
+   -&gt; Maybe DirectConnectGatewayAssociationState
+   -&gt; DirectConnectGatewayAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AssociatedGateway
+      -&gt; Maybe Text
+      -&gt; Maybe [RouteFilterPrefix]
+      -&gt; Maybe DirectConnectGatewayAssociationState
+      -&gt; DirectConnectGatewayAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;directConnectGatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AssociatedGateway
+   -&gt; Maybe Text
+   -&gt; Maybe [RouteFilterPrefix]
+   -&gt; Maybe DirectConnectGatewayAssociationState
+   -&gt; DirectConnectGatewayAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AssociatedGateway
+      -&gt; Maybe Text
+      -&gt; Maybe [RouteFilterPrefix]
+      -&gt; Maybe DirectConnectGatewayAssociationState
+      -&gt; DirectConnectGatewayAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualGatewayOwnerAccount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AssociatedGateway
+   -&gt; Maybe Text
+   -&gt; Maybe [RouteFilterPrefix]
+   -&gt; Maybe DirectConnectGatewayAssociationState
+   -&gt; DirectConnectGatewayAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AssociatedGateway
+      -&gt; Maybe Text
+      -&gt; Maybe [RouteFilterPrefix]
+      -&gt; Maybe DirectConnectGatewayAssociationState
+      -&gt; DirectConnectGatewayAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stateChangeError&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AssociatedGateway
+   -&gt; Maybe Text
+   -&gt; Maybe [RouteFilterPrefix]
+   -&gt; Maybe DirectConnectGatewayAssociationState
+   -&gt; DirectConnectGatewayAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AssociatedGateway
+      -&gt; Maybe Text
+      -&gt; Maybe [RouteFilterPrefix]
+      -&gt; Maybe DirectConnectGatewayAssociationState
+      -&gt; DirectConnectGatewayAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualGatewayRegion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AssociatedGateway
+   -&gt; Maybe Text
+   -&gt; Maybe [RouteFilterPrefix]
+   -&gt; Maybe DirectConnectGatewayAssociationState
+   -&gt; DirectConnectGatewayAssociation)
+-&gt; Parser (Maybe AssociatedGateway)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [RouteFilterPrefix]
+      -&gt; Maybe DirectConnectGatewayAssociationState
+      -&gt; DirectConnectGatewayAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AssociatedGateway)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;associatedGateway&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [RouteFilterPrefix]
+   -&gt; Maybe DirectConnectGatewayAssociationState
+   -&gt; DirectConnectGatewayAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [RouteFilterPrefix]
+      -&gt; Maybe DirectConnectGatewayAssociationState
+      -&gt; DirectConnectGatewayAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;directConnectGatewayOwnerAccount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [RouteFilterPrefix]
+   -&gt; Maybe DirectConnectGatewayAssociationState
+   -&gt; DirectConnectGatewayAssociation)
+-&gt; Parser (Maybe [RouteFilterPrefix])
+-&gt; Parser
+     (Maybe DirectConnectGatewayAssociationState
+      -&gt; DirectConnectGatewayAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RouteFilterPrefix]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;allowedPrefixesToDirectConnectGateway&quot;</span></span><span>
+</span><span id="line-219"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RouteFilterPrefix]))
+-&gt; Maybe [RouteFilterPrefix] -&gt; Parser (Maybe [RouteFilterPrefix])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-220"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DirectConnectGatewayAssociationState
+   -&gt; DirectConnectGatewayAssociation)
+-&gt; Parser (Maybe DirectConnectGatewayAssociationState)
+-&gt; Parser DirectConnectGatewayAssociation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe DirectConnectGatewayAssociationState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;associationState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679289249"><span id="local-6989586621679289251"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span></span></span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679289246"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span></span><span>
+</span><span id="line-231"></span></pre></body></html>

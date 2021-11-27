@@ -1,0 +1,550 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaPackage.Types.HarvestJob</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaPackage.Types.HarvestJob</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.S3Destination.html"><span class="hs-identifier">Amazonka.MediaPackage.Types.S3Destination</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.Status.html"><span class="hs-identifier">Amazonka.MediaPackage.Types.Status</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A HarvestJob resource configuration</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newHarvestJob' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679238686"><span id="local-6989586621679238687"></span></span><span class="hs-keyword">data</span><span> </span><span id="HarvestJob"><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-var">HarvestJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HarvestJob%27"><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-var">HarvestJob'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the HarvestJob. Consider setting up a CloudWatch</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Event to listen for HarvestJobs as they succeed or fail. In the event of</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- failure, the CloudWatch Event will include an explanation of why the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- HarvestJob failed.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3AHarvestJob%27"><span class="annot"><span class="annottext">HarvestJob -&gt; Maybe Status
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3Astatus%3AHarvestJob%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.Status.html#Status"><span class="hs-identifier hs-type">Status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the OriginEndpoint that the HarvestJob will harvest from. This</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- cannot be changed after the HarvestJob is submitted.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AoriginEndpointId%3AHarvestJob%27"><span class="annot"><span class="annottext">HarvestJob -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AoriginEndpointId%3AHarvestJob%27"><span class="hs-identifier hs-var hs-var">originEndpointId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The start of the time-window which will be harvested.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AstartTime%3AHarvestJob%27"><span class="annot"><span class="annottext">HarvestJob -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AstartTime%3AHarvestJob%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) assigned to the HarvestJob.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aarn%3AHarvestJob%27"><span class="annot"><span class="annottext">HarvestJob -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3Aarn%3AHarvestJob%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The time the HarvestJob was submitted</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcreatedAt%3AHarvestJob%27"><span class="annot"><span class="annottext">HarvestJob -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AcreatedAt%3AHarvestJob%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The ID of the Channel that the HarvestJob will harvest from.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AchannelId%3AHarvestJob%27"><span class="annot"><span class="annottext">HarvestJob -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AchannelId%3AHarvestJob%27"><span class="hs-identifier hs-var hs-var">channelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3As3Destination%3AHarvestJob%27"><span class="annot"><span class="annottext">HarvestJob -&gt; Maybe S3Destination
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3As3Destination%3AHarvestJob%27"><span class="hs-identifier hs-var hs-var">s3Destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The end of the time-window which will be harvested.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AendTime%3AHarvestJob%27"><span class="annot"><span class="annottext">HarvestJob -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AendTime%3AHarvestJob%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The ID of the HarvestJob. The ID must be unique within the region and it</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- cannot be changed after the HarvestJob is submitted.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aid%3AHarvestJob%27"><span class="annot"><span class="annottext">HarvestJob -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3Aid%3AHarvestJob%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238672"><span id="local-6989586621679238674"><span class="annot"><span class="annottext">HarvestJob -&gt; HarvestJob -&gt; Bool
+(HarvestJob -&gt; HarvestJob -&gt; Bool)
+-&gt; (HarvestJob -&gt; HarvestJob -&gt; Bool) -&gt; Eq HarvestJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HarvestJob -&gt; HarvestJob -&gt; Bool
+$c/= :: HarvestJob -&gt; HarvestJob -&gt; Bool
+== :: HarvestJob -&gt; HarvestJob -&gt; Bool
+$c== :: HarvestJob -&gt; HarvestJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238663"><span id="local-6989586621679238665"><span id="local-6989586621679238667"><span id="local-6989586621679238669"><span class="annot"><span class="annottext">ReadPrec [HarvestJob]
+ReadPrec HarvestJob
+Int -&gt; ReadS HarvestJob
+ReadS [HarvestJob]
+(Int -&gt; ReadS HarvestJob)
+-&gt; ReadS [HarvestJob]
+-&gt; ReadPrec HarvestJob
+-&gt; ReadPrec [HarvestJob]
+-&gt; Read HarvestJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HarvestJob]
+$creadListPrec :: ReadPrec [HarvestJob]
+readPrec :: ReadPrec HarvestJob
+$creadPrec :: ReadPrec HarvestJob
+readList :: ReadS [HarvestJob]
+$creadList :: ReadS [HarvestJob]
+readsPrec :: Int -&gt; ReadS HarvestJob
+$creadsPrec :: Int -&gt; ReadS HarvestJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238656"><span id="local-6989586621679238658"><span id="local-6989586621679238660"><span class="annot"><span class="annottext">Int -&gt; HarvestJob -&gt; ShowS
+[HarvestJob] -&gt; ShowS
+HarvestJob -&gt; String
+(Int -&gt; HarvestJob -&gt; ShowS)
+-&gt; (HarvestJob -&gt; String)
+-&gt; ([HarvestJob] -&gt; ShowS)
+-&gt; Show HarvestJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HarvestJob] -&gt; ShowS
+$cshowList :: [HarvestJob] -&gt; ShowS
+show :: HarvestJob -&gt; String
+$cshow :: HarvestJob -&gt; String
+showsPrec :: Int -&gt; HarvestJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; HarvestJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. HarvestJob -&gt; Rep HarvestJob x)
+-&gt; (forall x. Rep HarvestJob x -&gt; HarvestJob) -&gt; Generic HarvestJob
+forall x. Rep HarvestJob x -&gt; HarvestJob
+forall x. HarvestJob -&gt; Rep HarvestJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HarvestJob x -&gt; HarvestJob
+$cfrom :: forall x. HarvestJob -&gt; Rep HarvestJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'HarvestJob' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'status', 'harvestJob_status' - The current status of the HarvestJob. Consider setting up a CloudWatch</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Event to listen for HarvestJobs as they succeed or fail. In the event of</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- failure, the CloudWatch Event will include an explanation of why the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- HarvestJob failed.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'originEndpointId', 'harvestJob_originEndpointId' - The ID of the OriginEndpoint that the HarvestJob will harvest from. This</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- cannot be changed after the HarvestJob is submitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'startTime', 'harvestJob_startTime' - The start of the time-window which will be harvested.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'arn', 'harvestJob_arn' - The Amazon Resource Name (ARN) assigned to the HarvestJob.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'createdAt', 'harvestJob_createdAt' - The time the HarvestJob was submitted</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'channelId', 'harvestJob_channelId' - The ID of the Channel that the HarvestJob will harvest from.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 's3Destination', 'harvestJob_s3Destination' - Undocumented member.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'endTime', 'harvestJob_endTime' - The end of the time-window which will be harvested.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'id', 'harvestJob_id' - The ID of the HarvestJob. The ID must be unique within the region and it</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- cannot be changed after the HarvestJob is submitted.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#newHarvestJob"><span class="hs-identifier hs-type">newHarvestJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span>
+</span><span id="line-89"></span><span id="newHarvestJob"><span class="annot"><span class="annottext">newHarvestJob :: HarvestJob
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#newHarvestJob"><span class="hs-identifier hs-var hs-var">newHarvestJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">HarvestJob' :: Maybe Status
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe S3Destination
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; HarvestJob
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:HarvestJob' :: Maybe Status
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3Astatus%3AHarvestJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Status
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:originEndpointId:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AoriginEndpointId%3AHarvestJob%27"><span class="hs-identifier hs-var">originEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AstartTime%3AHarvestJob%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3Aarn%3AHarvestJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AcreatedAt%3AHarvestJob%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelId:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AchannelId%3AHarvestJob%27"><span class="hs-identifier hs-var">channelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Destination:HarvestJob' :: Maybe S3Destination
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3As3Destination%3AHarvestJob%27"><span class="hs-identifier hs-var">s3Destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Destination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AendTime%3AHarvestJob%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3Aid%3AHarvestJob%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The current status of the HarvestJob. Consider setting up a CloudWatch</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Event to listen for HarvestJobs as they succeed or fail. In the event of</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- failure, the CloudWatch Event will include an explanation of why the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- HarvestJob failed.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_status"><span class="hs-identifier hs-type">harvestJob_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.Status.html#Status"><span class="hs-identifier hs-type">Status</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="harvestJob_status"><span class="annot"><span class="annottext">harvestJob_status :: (Maybe Status -&gt; f (Maybe Status)) -&gt; HarvestJob -&gt; f HarvestJob
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_status"><span class="hs-identifier hs-var hs-var">harvestJob_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HarvestJob -&gt; Maybe Status)
+-&gt; (HarvestJob -&gt; Maybe Status -&gt; HarvestJob)
+-&gt; Lens HarvestJob HarvestJob (Maybe Status) (Maybe Status)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238647"><span class="annot"><span class="annottext">Maybe Status
+status :: Maybe Status
+$sel:status:HarvestJob' :: HarvestJob -&gt; Maybe Status
+</span><a href="#local-6989586621679238647"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679238647"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238646"><span class="annot"><span class="annottext">s :: HarvestJob
+</span><a href="#local-6989586621679238646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238645"><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679238645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HarvestJob
+</span><a href="#local-6989586621679238646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:HarvestJob' :: Maybe Status
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3Astatus%3AHarvestJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679238645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The ID of the OriginEndpoint that the HarvestJob will harvest from. This</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- cannot be changed after the HarvestJob is submitted.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_originEndpointId"><span class="hs-identifier hs-type">harvestJob_originEndpointId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="harvestJob_originEndpointId"><span class="annot"><span class="annottext">harvestJob_originEndpointId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HarvestJob -&gt; f HarvestJob
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_originEndpointId"><span class="hs-identifier hs-var hs-var">harvestJob_originEndpointId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HarvestJob -&gt; Maybe Text)
+-&gt; (HarvestJob -&gt; Maybe Text -&gt; HarvestJob)
+-&gt; Lens HarvestJob HarvestJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238643"><span class="annot"><span class="annottext">Maybe Text
+originEndpointId :: Maybe Text
+$sel:originEndpointId:HarvestJob' :: HarvestJob -&gt; Maybe Text
+</span><a href="#local-6989586621679238643"><span class="hs-identifier hs-var hs-var">originEndpointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238643"><span class="hs-identifier hs-var">originEndpointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238642"><span class="annot"><span class="annottext">s :: HarvestJob
+</span><a href="#local-6989586621679238642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238641"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HarvestJob
+</span><a href="#local-6989586621679238642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originEndpointId:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AoriginEndpointId%3AHarvestJob%27"><span class="hs-identifier hs-var">originEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The start of the time-window which will be harvested.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_startTime"><span class="hs-identifier hs-type">harvestJob_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="harvestJob_startTime"><span class="annot"><span class="annottext">harvestJob_startTime :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HarvestJob -&gt; f HarvestJob
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_startTime"><span class="hs-identifier hs-var hs-var">harvestJob_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HarvestJob -&gt; Maybe Text)
+-&gt; (HarvestJob -&gt; Maybe Text -&gt; HarvestJob)
+-&gt; Lens HarvestJob HarvestJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238639"><span class="annot"><span class="annottext">Maybe Text
+startTime :: Maybe Text
+$sel:startTime:HarvestJob' :: HarvestJob -&gt; Maybe Text
+</span><a href="#local-6989586621679238639"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238639"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238638"><span class="annot"><span class="annottext">s :: HarvestJob
+</span><a href="#local-6989586621679238638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238637"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HarvestJob
+</span><a href="#local-6989586621679238638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AstartTime%3AHarvestJob%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) assigned to the HarvestJob.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_arn"><span class="hs-identifier hs-type">harvestJob_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="harvestJob_arn"><span class="annot"><span class="annottext">harvestJob_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HarvestJob -&gt; f HarvestJob
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_arn"><span class="hs-identifier hs-var hs-var">harvestJob_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HarvestJob -&gt; Maybe Text)
+-&gt; (HarvestJob -&gt; Maybe Text -&gt; HarvestJob)
+-&gt; Lens HarvestJob HarvestJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238635"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:HarvestJob' :: HarvestJob -&gt; Maybe Text
+</span><a href="#local-6989586621679238635"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238635"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238634"><span class="annot"><span class="annottext">s :: HarvestJob
+</span><a href="#local-6989586621679238634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238633"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HarvestJob
+</span><a href="#local-6989586621679238634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3Aarn%3AHarvestJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The time the HarvestJob was submitted</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_createdAt"><span class="hs-identifier hs-type">harvestJob_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="harvestJob_createdAt"><span class="annot"><span class="annottext">harvestJob_createdAt :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HarvestJob -&gt; f HarvestJob
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_createdAt"><span class="hs-identifier hs-var hs-var">harvestJob_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HarvestJob -&gt; Maybe Text)
+-&gt; (HarvestJob -&gt; Maybe Text -&gt; HarvestJob)
+-&gt; Lens HarvestJob HarvestJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238631"><span class="annot"><span class="annottext">Maybe Text
+createdAt :: Maybe Text
+$sel:createdAt:HarvestJob' :: HarvestJob -&gt; Maybe Text
+</span><a href="#local-6989586621679238631"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238631"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238630"><span class="annot"><span class="annottext">s :: HarvestJob
+</span><a href="#local-6989586621679238630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238629"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HarvestJob
+</span><a href="#local-6989586621679238630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AcreatedAt%3AHarvestJob%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The ID of the Channel that the HarvestJob will harvest from.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_channelId"><span class="hs-identifier hs-type">harvestJob_channelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="harvestJob_channelId"><span class="annot"><span class="annottext">harvestJob_channelId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HarvestJob -&gt; f HarvestJob
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_channelId"><span class="hs-identifier hs-var hs-var">harvestJob_channelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HarvestJob -&gt; Maybe Text)
+-&gt; (HarvestJob -&gt; Maybe Text -&gt; HarvestJob)
+-&gt; Lens HarvestJob HarvestJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238627"><span class="annot"><span class="annottext">Maybe Text
+channelId :: Maybe Text
+$sel:channelId:HarvestJob' :: HarvestJob -&gt; Maybe Text
+</span><a href="#local-6989586621679238627"><span class="hs-identifier hs-var hs-var">channelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238627"><span class="hs-identifier hs-var">channelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238626"><span class="annot"><span class="annottext">s :: HarvestJob
+</span><a href="#local-6989586621679238626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238625"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HarvestJob
+</span><a href="#local-6989586621679238626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelId:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AchannelId%3AHarvestJob%27"><span class="hs-identifier hs-var">channelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_s3Destination"><span class="hs-identifier hs-type">harvestJob_s3Destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.S3Destination.html#S3Destination"><span class="hs-identifier hs-type">S3Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="harvestJob_s3Destination"><span class="annot"><span class="annottext">harvestJob_s3Destination :: (Maybe S3Destination -&gt; f (Maybe S3Destination))
+-&gt; HarvestJob -&gt; f HarvestJob
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_s3Destination"><span class="hs-identifier hs-var hs-var">harvestJob_s3Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HarvestJob -&gt; Maybe S3Destination)
+-&gt; (HarvestJob -&gt; Maybe S3Destination -&gt; HarvestJob)
+-&gt; Lens
+     HarvestJob HarvestJob (Maybe S3Destination) (Maybe S3Destination)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238623"><span class="annot"><span class="annottext">Maybe S3Destination
+s3Destination :: Maybe S3Destination
+$sel:s3Destination:HarvestJob' :: HarvestJob -&gt; Maybe S3Destination
+</span><a href="#local-6989586621679238623"><span class="hs-identifier hs-var hs-var">s3Destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Destination
+</span><a href="#local-6989586621679238623"><span class="hs-identifier hs-var">s3Destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238622"><span class="annot"><span class="annottext">s :: HarvestJob
+</span><a href="#local-6989586621679238622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238621"><span class="annot"><span class="annottext">Maybe S3Destination
+</span><a href="#local-6989586621679238621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HarvestJob
+</span><a href="#local-6989586621679238622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Destination:HarvestJob' :: Maybe S3Destination
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3As3Destination%3AHarvestJob%27"><span class="hs-identifier hs-var">s3Destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Destination
+</span><a href="#local-6989586621679238621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The end of the time-window which will be harvested.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_endTime"><span class="hs-identifier hs-type">harvestJob_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="harvestJob_endTime"><span class="annot"><span class="annottext">harvestJob_endTime :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HarvestJob -&gt; f HarvestJob
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_endTime"><span class="hs-identifier hs-var hs-var">harvestJob_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HarvestJob -&gt; Maybe Text)
+-&gt; (HarvestJob -&gt; Maybe Text -&gt; HarvestJob)
+-&gt; Lens HarvestJob HarvestJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238619"><span class="annot"><span class="annottext">Maybe Text
+endTime :: Maybe Text
+$sel:endTime:HarvestJob' :: HarvestJob -&gt; Maybe Text
+</span><a href="#local-6989586621679238619"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238619"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238618"><span class="annot"><span class="annottext">s :: HarvestJob
+</span><a href="#local-6989586621679238618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238617"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HarvestJob
+</span><a href="#local-6989586621679238618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3AendTime%3AHarvestJob%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The ID of the HarvestJob. The ID must be unique within the region and it</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- cannot be changed after the HarvestJob is submitted.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_id"><span class="hs-identifier hs-type">harvestJob_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="harvestJob_id"><span class="annot"><span class="annottext">harvestJob_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HarvestJob -&gt; f HarvestJob
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#harvestJob_id"><span class="hs-identifier hs-var hs-var">harvestJob_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HarvestJob -&gt; Maybe Text)
+-&gt; (HarvestJob -&gt; Maybe Text -&gt; HarvestJob)
+-&gt; Lens HarvestJob HarvestJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238615"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:HarvestJob' :: HarvestJob -&gt; Maybe Text
+</span><a href="#local-6989586621679238615"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238615"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238614"><span class="annot"><span class="annottext">s :: HarvestJob
+</span><a href="#local-6989586621679238614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-type">HarvestJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238613"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HarvestJob
+</span><a href="#local-6989586621679238614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:HarvestJob' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#%24sel%3Aid%3AHarvestJob%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238610"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679238608"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HarvestJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser HarvestJob) -&gt; Value -&gt; Parser HarvestJob
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;HarvestJob&quot;</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238605"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238605"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe Status
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe S3Destination
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; HarvestJob
+</span><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob%27"><span class="hs-identifier hs-var">HarvestJob'</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Status
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe S3Destination
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; HarvestJob)
+-&gt; Parser (Maybe Status)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe S3Destination
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; HarvestJob)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Status)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe S3Destination
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; HarvestJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe S3Destination
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; HarvestJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;originEndpointId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe S3Destination
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; HarvestJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe S3Destination
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; HarvestJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe S3Destination
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; HarvestJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe S3Destination
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; HarvestJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe S3Destination
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; HarvestJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe S3Destination -&gt; Maybe Text -&gt; Maybe Text -&gt; HarvestJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe S3Destination -&gt; Maybe Text -&gt; Maybe Text -&gt; HarvestJob)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe S3Destination -&gt; Maybe Text -&gt; Maybe Text -&gt; HarvestJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;channelId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe S3Destination -&gt; Maybe Text -&gt; Maybe Text -&gt; HarvestJob)
+-&gt; Parser (Maybe S3Destination)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; HarvestJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Destination)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3Destination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; HarvestJob)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; HarvestJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; HarvestJob)
+-&gt; Parser (Maybe Text) -&gt; Parser HarvestJob
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238599"><span id="local-6989586621679238601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HarvestJob.html#HarvestJob"><span class="hs-identifier hs-type">HarvestJob</span></a></span></span><span>
+</span><span id="line-163"></span></pre></body></html>

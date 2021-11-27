@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Snowball.CancelJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Cancels the specified job. You can only cancel a job before its</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- @JobState@ value changes to @PreparingAppliance@. Requesting the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @ListJobs@ or @DescribeJob@ action returns a job\'s @JobState@ as part</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- of the response element data returned.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Snowball.CancelJob</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier">CancelJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#newCancelJob"><span class="hs-identifier">newCancelJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#cancelJob_jobId"><span class="hs-identifier">cancelJob_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJobResponse"><span class="hs-identifier">CancelJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#newCancelJobResponse"><span class="hs-identifier">newCancelJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#cancelJobResponse_httpStatus"><span class="hs-identifier">cancelJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Snowball.Types.html"><span class="hs-identifier">Amazonka.Snowball.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCancelJob' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679232697"><span id="local-6989586621679232698"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelJob"><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier hs-var">CancelJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelJob%27"><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-var">CancelJob'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The 39-character job ID for the job that you want to cancel, for example</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @JID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AjobId%3ACancelJob%27"><span class="annot"><span class="annottext">CancelJob -&gt; Text
+</span><a href="Amazonka.Snowball.CancelJob.html#%24sel%3AjobId%3ACancelJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232691"><span id="local-6989586621679232693"><span class="annot"><span class="annottext">CancelJob -&gt; CancelJob -&gt; Bool
+(CancelJob -&gt; CancelJob -&gt; Bool)
+-&gt; (CancelJob -&gt; CancelJob -&gt; Bool) -&gt; Eq CancelJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelJob -&gt; CancelJob -&gt; Bool
+$c/= :: CancelJob -&gt; CancelJob -&gt; Bool
+== :: CancelJob -&gt; CancelJob -&gt; Bool
+$c== :: CancelJob -&gt; CancelJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232682"><span id="local-6989586621679232684"><span id="local-6989586621679232686"><span id="local-6989586621679232688"><span class="annot"><span class="annottext">ReadPrec [CancelJob]
+ReadPrec CancelJob
+Int -&gt; ReadS CancelJob
+ReadS [CancelJob]
+(Int -&gt; ReadS CancelJob)
+-&gt; ReadS [CancelJob]
+-&gt; ReadPrec CancelJob
+-&gt; ReadPrec [CancelJob]
+-&gt; Read CancelJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelJob]
+$creadListPrec :: ReadPrec [CancelJob]
+readPrec :: ReadPrec CancelJob
+$creadPrec :: ReadPrec CancelJob
+readList :: ReadS [CancelJob]
+$creadList :: ReadS [CancelJob]
+readsPrec :: Int -&gt; ReadS CancelJob
+$creadsPrec :: Int -&gt; ReadS CancelJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232675"><span id="local-6989586621679232677"><span id="local-6989586621679232679"><span class="annot"><span class="annottext">Int -&gt; CancelJob -&gt; ShowS
+[CancelJob] -&gt; ShowS
+CancelJob -&gt; String
+(Int -&gt; CancelJob -&gt; ShowS)
+-&gt; (CancelJob -&gt; String)
+-&gt; ([CancelJob] -&gt; ShowS)
+-&gt; Show CancelJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelJob] -&gt; ShowS
+$cshowList :: [CancelJob] -&gt; ShowS
+show :: CancelJob -&gt; String
+$cshow :: CancelJob -&gt; String
+showsPrec :: Int -&gt; CancelJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CancelJob -&gt; Rep CancelJob x)
+-&gt; (forall x. Rep CancelJob x -&gt; CancelJob) -&gt; Generic CancelJob
+forall x. Rep CancelJob x -&gt; CancelJob
+forall x. CancelJob -&gt; Rep CancelJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CancelJob x -&gt; CancelJob
+$cfrom :: forall x. CancelJob -&gt; Rep CancelJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'CancelJob' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'jobId', 'cancelJob_jobId' - The 39-character job ID for the job that you want to cancel, for example</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- @JID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#newCancelJob"><span class="hs-identifier hs-type">newCancelJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span>
+</span><span id="line-73"></span><span id="newCancelJob"><span class="annot"><span class="annottext">newCancelJob :: Text -&gt; CancelJob
+</span><a href="Amazonka.Snowball.CancelJob.html#newCancelJob"><span class="hs-identifier hs-var hs-var">newCancelJob</span></a></span></span><span> </span><span id="local-6989586621679232670"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232670"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CancelJob' :: Text -&gt; CancelJob
+</span><a href="Amazonka.Snowball.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:CancelJob' :: Text
+</span><a href="Amazonka.Snowball.CancelJob.html#%24sel%3AjobId%3ACancelJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232670"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The 39-character job ID for the job that you want to cancel, for example</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @JID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#cancelJob_jobId"><span class="hs-identifier hs-type">cancelJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="cancelJob_jobId"><span class="annot"><span class="annottext">cancelJob_jobId :: (Text -&gt; f Text) -&gt; CancelJob -&gt; f CancelJob
+</span><a href="Amazonka.Snowball.CancelJob.html#cancelJob_jobId"><span class="hs-identifier hs-var hs-var">cancelJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelJob -&gt; Text)
+-&gt; (CancelJob -&gt; Text -&gt; CancelJob)
+-&gt; Lens CancelJob CancelJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232667"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:CancelJob' :: CancelJob -&gt; Text
+</span><a href="#local-6989586621679232667"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232667"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232666"><span class="annot"><span class="annottext">s :: CancelJob
+</span><a href="#local-6989586621679232666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232665"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJob
+</span><a href="#local-6989586621679232666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:CancelJob' :: Text
+</span><a href="Amazonka.Snowball.CancelJob.html#%24sel%3AjobId%3ACancelJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679232661"><span class="annot"><span class="annottext">request :: CancelJob -&gt; Request CancelJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelJob -&gt; Request CancelJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Snowball.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679232657"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CancelJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CancelJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse CancelJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CancelJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CancelJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232654"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232654"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679232653"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679232653"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679232652"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679232652"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CancelJobResponse
+</span><a href="Amazonka.Snowball.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-var">CancelJobResponse'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CancelJobResponse)
+-&gt; Either String Int -&gt; Either String CancelJobResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232654"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232645"><span id="local-6989586621679232647"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679232638"><span class="annot"><span class="annottext">toHeaders :: CancelJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CancelJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSIESnowballJobManagementService.CancelJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-105"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232628"><span id="local-6989586621679232630"><span id="local-6989586621679232632"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679232626"><span class="annot"><span class="annottext">toJSON :: CancelJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232624"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:CancelJob' :: CancelJob -&gt; Text
+</span><a href="#local-6989586621679232624"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232624"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679232618"><span class="annot"><span class="annottext">toPath :: CancelJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CancelJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679232614"><span class="annot"><span class="annottext">toQuery :: CancelJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CancelJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newCancelJobResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679232611"><span id="local-6989586621679232612"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelJobResponse"><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-var">CancelJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelJobResponse%27"><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-var">CancelJobResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACancelJobResponse%27"><span class="annot"><span class="annottext">CancelJobResponse -&gt; Int
+</span><a href="Amazonka.Snowball.CancelJob.html#%24sel%3AhttpStatus%3ACancelJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232606"><span id="local-6989586621679232608"><span class="annot"><span class="annottext">CancelJobResponse -&gt; CancelJobResponse -&gt; Bool
+(CancelJobResponse -&gt; CancelJobResponse -&gt; Bool)
+-&gt; (CancelJobResponse -&gt; CancelJobResponse -&gt; Bool)
+-&gt; Eq CancelJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelJobResponse -&gt; CancelJobResponse -&gt; Bool
+$c/= :: CancelJobResponse -&gt; CancelJobResponse -&gt; Bool
+== :: CancelJobResponse -&gt; CancelJobResponse -&gt; Bool
+$c== :: CancelJobResponse -&gt; CancelJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232598"><span id="local-6989586621679232600"><span id="local-6989586621679232602"><span id="local-6989586621679232604"><span class="annot"><span class="annottext">ReadPrec [CancelJobResponse]
+ReadPrec CancelJobResponse
+Int -&gt; ReadS CancelJobResponse
+ReadS [CancelJobResponse]
+(Int -&gt; ReadS CancelJobResponse)
+-&gt; ReadS [CancelJobResponse]
+-&gt; ReadPrec CancelJobResponse
+-&gt; ReadPrec [CancelJobResponse]
+-&gt; Read CancelJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelJobResponse]
+$creadListPrec :: ReadPrec [CancelJobResponse]
+readPrec :: ReadPrec CancelJobResponse
+$creadPrec :: ReadPrec CancelJobResponse
+readList :: ReadS [CancelJobResponse]
+$creadList :: ReadS [CancelJobResponse]
+readsPrec :: Int -&gt; ReadS CancelJobResponse
+$creadsPrec :: Int -&gt; ReadS CancelJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232592"><span id="local-6989586621679232594"><span id="local-6989586621679232596"><span class="annot"><span class="annottext">Int -&gt; CancelJobResponse -&gt; ShowS
+[CancelJobResponse] -&gt; ShowS
+CancelJobResponse -&gt; String
+(Int -&gt; CancelJobResponse -&gt; ShowS)
+-&gt; (CancelJobResponse -&gt; String)
+-&gt; ([CancelJobResponse] -&gt; ShowS)
+-&gt; Show CancelJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelJobResponse] -&gt; ShowS
+$cshowList :: [CancelJobResponse] -&gt; ShowS
+show :: CancelJobResponse -&gt; String
+$cshow :: CancelJobResponse -&gt; String
+showsPrec :: Int -&gt; CancelJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CancelJobResponse -&gt; Rep CancelJobResponse x)
+-&gt; (forall x. Rep CancelJobResponse x -&gt; CancelJobResponse)
+-&gt; Generic CancelJobResponse
+forall x. Rep CancelJobResponse x -&gt; CancelJobResponse
+forall x. CancelJobResponse -&gt; Rep CancelJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CancelJobResponse x -&gt; CancelJobResponse
+$cfrom :: forall x. CancelJobResponse -&gt; Rep CancelJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Create a value of 'CancelJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'httpStatus', 'cancelJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#newCancelJobResponse"><span class="hs-identifier hs-type">newCancelJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span>
+</span><span id="line-142"></span><span id="newCancelJobResponse"><span class="annot"><span class="annottext">newCancelJobResponse :: Int -&gt; CancelJobResponse
+</span><a href="Amazonka.Snowball.CancelJob.html#newCancelJobResponse"><span class="hs-identifier hs-var hs-var">newCancelJobResponse</span></a></span></span><span> </span><span id="local-6989586621679232589"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232589"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">CancelJobResponse' :: Int -&gt; CancelJobResponse
+</span><a href="Amazonka.Snowball.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelJobResponse' :: Int
+</span><a href="Amazonka.Snowball.CancelJob.html#%24sel%3AhttpStatus%3ACancelJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232589"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#cancelJobResponse_httpStatus"><span class="hs-identifier hs-type">cancelJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span id="cancelJobResponse_httpStatus"><span class="annot"><span class="annottext">cancelJobResponse_httpStatus :: (Int -&gt; f Int) -&gt; CancelJobResponse -&gt; f CancelJobResponse
+</span><a href="Amazonka.Snowball.CancelJob.html#cancelJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">cancelJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelJobResponse -&gt; Int)
+-&gt; (CancelJobResponse -&gt; Int -&gt; CancelJobResponse)
+-&gt; Lens CancelJobResponse CancelJobResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232588"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CancelJobResponse' :: CancelJobResponse -&gt; Int
+</span><a href="#local-6989586621679232588"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232588"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232587"><span class="annot"><span class="annottext">s :: CancelJobResponse
+</span><a href="#local-6989586621679232587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232586"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJobResponse
+</span><a href="#local-6989586621679232587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelJobResponse' :: Int
+</span><a href="Amazonka.Snowball.CancelJob.html#%24sel%3AhttpStatus%3ACancelJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232584"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Snowball.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span></span><span>
+</span><span id="line-150"></span></pre></body></html>

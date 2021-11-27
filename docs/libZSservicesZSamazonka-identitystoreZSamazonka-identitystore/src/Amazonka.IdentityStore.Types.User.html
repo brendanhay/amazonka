@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IdentityStore.Types.User</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IdentityStore.Types.User</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A user object, which contains a specified user&#8217;s metadata and</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- attributes.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUser' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679141034"><span id="local-6989586621679141035"></span></span><span class="hs-keyword">data</span><span> </span><span id="User"><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User"><span class="hs-identifier hs-var">User</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="User%27"><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User%27"><span class="hs-identifier hs-var">User'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the user&#8217;s user name value. The length limit is 128 characters.</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- This value can consist of letters, accented characters, symbols,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- numbers, and punctuation. The characters @\&lt;&gt;;:%@ are excluded. This</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- value is specified at the time the user is created and stored as an</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- attribute of the user object in the identity store.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AuserName%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Sensitive Text
+</span><a href="Amazonka.IdentityStore.Types.User.html#%24sel%3AuserName%3AUser%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The identifier for a user in the identity store.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AuserId%3AUser%27"><span class="annot"><span class="annottext">User -&gt; Text
+</span><a href="Amazonka.IdentityStore.Types.User.html#%24sel%3AuserId%3AUser%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679141027"><span id="local-6989586621679141029"><span class="annot"><span class="annottext">User -&gt; User -&gt; Bool
+(User -&gt; User -&gt; Bool) -&gt; (User -&gt; User -&gt; Bool) -&gt; Eq User
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: User -&gt; User -&gt; Bool
+$c/= :: User -&gt; User -&gt; Bool
+== :: User -&gt; User -&gt; Bool
+$c== :: User -&gt; User -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141020"><span id="local-6989586621679141022"><span id="local-6989586621679141024"><span class="annot"><span class="annottext">Int -&gt; User -&gt; ShowS
+[User] -&gt; ShowS
+User -&gt; String
+(Int -&gt; User -&gt; ShowS)
+-&gt; (User -&gt; String) -&gt; ([User] -&gt; ShowS) -&gt; Show User
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [User] -&gt; ShowS
+$cshowList :: [User] -&gt; ShowS
+show :: User -&gt; String
+$cshow :: User -&gt; String
+showsPrec :: Int -&gt; User -&gt; ShowS
+$cshowsPrec :: Int -&gt; User -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. User -&gt; Rep User x)
+-&gt; (forall x. Rep User x -&gt; User) -&gt; Generic User
+forall x. Rep User x -&gt; User
+forall x. User -&gt; Rep User x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep User x -&gt; User
+$cfrom :: forall x. User -&gt; Rep User x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'User' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'userName', 'user_userName' - Contains the user&#8217;s user name value. The length limit is 128 characters.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- This value can consist of letters, accented characters, symbols,</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- numbers, and punctuation. The characters @\&lt;&gt;;:%@ are excluded. This</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- value is specified at the time the user is created and stored as an</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- attribute of the user object in the identity store.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'userId', 'user_userId' - The identifier for a user in the identity store.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#newUser"><span class="hs-identifier hs-type">newUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'userName'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'userId'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span>
+</span><span id="line-63"></span><span id="newUser"><span class="annot"><span class="annottext">newUser :: Text -&gt; Text -&gt; User
+</span><a href="Amazonka.IdentityStore.Types.User.html#newUser"><span class="hs-identifier hs-var hs-var">newUser</span></a></span></span><span> </span><span id="local-6989586621679141014"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141014"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span id="local-6989586621679141013"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141013"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">User' :: Sensitive Text -&gt; Text -&gt; User
+</span><a href="Amazonka.IdentityStore.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userName:User' :: Sensitive Text
+</span><a href="Amazonka.IdentityStore.Types.User.html#%24sel%3AuserName%3AUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141014"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:User' :: Text
+</span><a href="Amazonka.IdentityStore.Types.User.html#%24sel%3AuserId%3AUser%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141013"><span class="hs-identifier hs-var">pUserId_</span></a></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | Contains the user&#8217;s user name value. The length limit is 128 characters.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- This value can consist of letters, accented characters, symbols,</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- numbers, and punctuation. The characters @\&lt;&gt;;:%@ are excluded. This</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- value is specified at the time the user is created and stored as an</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- attribute of the user object in the identity store.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#user_userName"><span class="hs-identifier hs-type">user_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="user_userName"><span class="annot"><span class="annottext">user_userName :: (Text -&gt; f Text) -&gt; User -&gt; f User
+</span><a href="Amazonka.IdentityStore.Types.User.html#user_userName"><span class="hs-identifier hs-var hs-var">user_userName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Sensitive Text)
+-&gt; (User -&gt; Sensitive Text -&gt; User)
+-&gt; Lens User User (Sensitive Text) (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141007"><span class="annot"><span class="annottext">Sensitive Text
+userName :: Sensitive Text
+$sel:userName:User' :: User -&gt; Sensitive Text
+</span><a href="#local-6989586621679141007"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679141007"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141006"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679141006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141005"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679141005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679141006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:User' :: Sensitive Text
+</span><a href="Amazonka.IdentityStore.Types.User.html#%24sel%3AuserName%3AUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679141005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text)) -&gt; User -&gt; f User)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; User
+-&gt; f User
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The identifier for a user in the identity store.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#user_userId"><span class="hs-identifier hs-type">user_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span id="user_userId"><span class="annot"><span class="annottext">user_userId :: (Text -&gt; f Text) -&gt; User -&gt; f User
+</span><a href="Amazonka.IdentityStore.Types.User.html#user_userId"><span class="hs-identifier hs-var hs-var">user_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(User -&gt; Text)
+-&gt; (User -&gt; Text -&gt; User) -&gt; Lens User User Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141002"><span class="annot"><span class="annottext">Text
+userId :: Text
+$sel:userId:User' :: User -&gt; Text
+</span><a href="#local-6989586621679141002"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141002"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141001"><span class="annot"><span class="annottext">s :: User
+</span><a href="#local-6989586621679141001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User%27"><span class="hs-identifier hs-type">User'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141000"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">User
+</span><a href="#local-6989586621679141001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:User' :: Text
+</span><a href="Amazonka.IdentityStore.Types.User.html#%24sel%3AuserId%3AUser%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679140997"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679140995"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser User
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser User) -&gt; Value -&gt; Parser User
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;User&quot;</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679140992"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679140992"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Sensitive Text -&gt; Text -&gt; User
+</span><a href="Amazonka.IdentityStore.Types.User.html#User%27"><span class="hs-identifier hs-var">User'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Text -&gt; User)
+-&gt; Parser (Sensitive Text) -&gt; Parser (Text -&gt; User)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679140992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; User) -&gt; Parser Text -&gt; Parser User
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679140992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679140986"><span id="local-6989586621679140988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679140983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IdentityStore.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span></span><span>
+</span><span id="line-94"></span></pre></body></html>

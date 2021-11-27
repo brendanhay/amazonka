@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.OriginRequestPolicy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.OriginRequestPolicy</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicyConfig.html"><span class="hs-identifier">Amazonka.CloudFront.Types.OriginRequestPolicyConfig</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An origin request policy.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- When it&#8217;s attached to a cache behavior, the origin request policy</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- determines the values that CloudFront includes in requests that it sends</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- to the origin. Each request that CloudFront sends to the origin includes</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- the following:</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   The request body and the URL path (without the domain name) from the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     viewer request.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   The headers that CloudFront automatically includes in every origin</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     request, including @Host@, @User-Agent@, and @X-Amz-Cf-Id@.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   All HTTP headers, cookies, and URL query strings that are specified</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     in the cache policy or the origin request policy. These can include</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     items from the viewer request and, in the case of headers,</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     additional ones that are added by CloudFront.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- CloudFront sends a request when it can&#8217;t find an object in its cache</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- that matches the request. If you want to send values to the origin and</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- also include them in the cache key, use @CachePolicy@.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newOriginRequestPolicy' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679399533"><span id="local-6989586621679399534"></span></span><span class="hs-keyword">data</span><span> </span><span id="OriginRequestPolicy"><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy"><span class="hs-identifier hs-var">OriginRequestPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OriginRequestPolicy%27"><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy%27"><span class="hs-identifier hs-var">OriginRequestPolicy'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the origin request policy.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aid%3AOriginRequestPolicy%27"><span class="annot"><span class="annottext">OriginRequestPolicy -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#%24sel%3Aid%3AOriginRequestPolicy%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The date and time when the origin request policy was last modified.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AOriginRequestPolicy%27"><span class="annot"><span class="annottext">OriginRequestPolicy -&gt; ISO8601
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#%24sel%3AlastModifiedTime%3AOriginRequestPolicy%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The origin request policy configuration.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AoriginRequestPolicyConfig%3AOriginRequestPolicy%27"><span class="annot"><span class="annottext">OriginRequestPolicy -&gt; OriginRequestPolicyConfig
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#%24sel%3AoriginRequestPolicyConfig%3AOriginRequestPolicy%27"><span class="hs-identifier hs-var hs-var">originRequestPolicyConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicyConfig.html#OriginRequestPolicyConfig"><span class="hs-identifier hs-type">OriginRequestPolicyConfig</span></a></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399525"><span id="local-6989586621679399527"><span class="annot"><span class="annottext">OriginRequestPolicy -&gt; OriginRequestPolicy -&gt; Bool
+(OriginRequestPolicy -&gt; OriginRequestPolicy -&gt; Bool)
+-&gt; (OriginRequestPolicy -&gt; OriginRequestPolicy -&gt; Bool)
+-&gt; Eq OriginRequestPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OriginRequestPolicy -&gt; OriginRequestPolicy -&gt; Bool
+$c/= :: OriginRequestPolicy -&gt; OriginRequestPolicy -&gt; Bool
+== :: OriginRequestPolicy -&gt; OriginRequestPolicy -&gt; Bool
+$c== :: OriginRequestPolicy -&gt; OriginRequestPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399516"><span id="local-6989586621679399518"><span id="local-6989586621679399520"><span id="local-6989586621679399522"><span class="annot"><span class="annottext">ReadPrec [OriginRequestPolicy]
+ReadPrec OriginRequestPolicy
+Int -&gt; ReadS OriginRequestPolicy
+ReadS [OriginRequestPolicy]
+(Int -&gt; ReadS OriginRequestPolicy)
+-&gt; ReadS [OriginRequestPolicy]
+-&gt; ReadPrec OriginRequestPolicy
+-&gt; ReadPrec [OriginRequestPolicy]
+-&gt; Read OriginRequestPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OriginRequestPolicy]
+$creadListPrec :: ReadPrec [OriginRequestPolicy]
+readPrec :: ReadPrec OriginRequestPolicy
+$creadPrec :: ReadPrec OriginRequestPolicy
+readList :: ReadS [OriginRequestPolicy]
+$creadList :: ReadS [OriginRequestPolicy]
+readsPrec :: Int -&gt; ReadS OriginRequestPolicy
+$creadsPrec :: Int -&gt; ReadS OriginRequestPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399509"><span id="local-6989586621679399511"><span id="local-6989586621679399513"><span class="annot"><span class="annottext">Int -&gt; OriginRequestPolicy -&gt; ShowS
+[OriginRequestPolicy] -&gt; ShowS
+OriginRequestPolicy -&gt; String
+(Int -&gt; OriginRequestPolicy -&gt; ShowS)
+-&gt; (OriginRequestPolicy -&gt; String)
+-&gt; ([OriginRequestPolicy] -&gt; ShowS)
+-&gt; Show OriginRequestPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OriginRequestPolicy] -&gt; ShowS
+$cshowList :: [OriginRequestPolicy] -&gt; ShowS
+show :: OriginRequestPolicy -&gt; String
+$cshow :: OriginRequestPolicy -&gt; String
+showsPrec :: Int -&gt; OriginRequestPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; OriginRequestPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. OriginRequestPolicy -&gt; Rep OriginRequestPolicy x)
+-&gt; (forall x. Rep OriginRequestPolicy x -&gt; OriginRequestPolicy)
+-&gt; Generic OriginRequestPolicy
+forall x. Rep OriginRequestPolicy x -&gt; OriginRequestPolicy
+forall x. OriginRequestPolicy -&gt; Rep OriginRequestPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OriginRequestPolicy x -&gt; OriginRequestPolicy
+$cfrom :: forall x. OriginRequestPolicy -&gt; Rep OriginRequestPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'OriginRequestPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'id', 'originRequestPolicy_id' - The unique identifier for the origin request policy.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'lastModifiedTime', 'originRequestPolicy_lastModifiedTime' - The date and time when the origin request policy was last modified.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'originRequestPolicyConfig', 'originRequestPolicy_originRequestPolicyConfig' - The origin request policy configuration.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#newOriginRequestPolicy"><span class="hs-identifier hs-type">newOriginRequestPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'lastModifiedTime'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'originRequestPolicyConfig'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicyConfig.html#OriginRequestPolicyConfig"><span class="hs-identifier hs-type">OriginRequestPolicyConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy"><span class="hs-identifier hs-type">OriginRequestPolicy</span></a></span><span>
+</span><span id="line-81"></span><span id="newOriginRequestPolicy"><span class="annot"><span class="annottext">newOriginRequestPolicy :: Text -&gt; UTCTime -&gt; OriginRequestPolicyConfig -&gt; OriginRequestPolicy
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#newOriginRequestPolicy"><span class="hs-identifier hs-var hs-var">newOriginRequestPolicy</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679399503"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399503"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679399502"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679399502"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679399501"><span class="annot"><span class="annottext">OriginRequestPolicyConfig
+</span><a href="#local-6989586621679399501"><span class="hs-identifier hs-var">pOriginRequestPolicyConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">OriginRequestPolicy' :: Text -&gt; ISO8601 -&gt; OriginRequestPolicyConfig -&gt; OriginRequestPolicy
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy%27"><span class="hs-identifier hs-type">OriginRequestPolicy'</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:OriginRequestPolicy' :: Text
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#%24sel%3Aid%3AOriginRequestPolicy%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399503"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:OriginRequestPolicy' :: ISO8601
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#%24sel%3AlastModifiedTime%3AOriginRequestPolicy%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
+-&gt; Tagged ISO8601 (Identity ISO8601)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged ISO8601 (Identity ISO8601))
+-&gt; UTCTime -&gt; ISO8601
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679399502"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:originRequestPolicyConfig:OriginRequestPolicy' :: OriginRequestPolicyConfig
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#%24sel%3AoriginRequestPolicyConfig%3AOriginRequestPolicy%27"><span class="hs-identifier hs-var">originRequestPolicyConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">OriginRequestPolicyConfig
+</span><a href="#local-6989586621679399501"><span class="hs-identifier hs-var">pOriginRequestPolicyConfig_</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The unique identifier for the origin request policy.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#originRequestPolicy_id"><span class="hs-identifier hs-type">originRequestPolicy_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy"><span class="hs-identifier hs-type">OriginRequestPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="originRequestPolicy_id"><span class="annot"><span class="annottext">originRequestPolicy_id :: (Text -&gt; f Text) -&gt; OriginRequestPolicy -&gt; f OriginRequestPolicy
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#originRequestPolicy_id"><span class="hs-identifier hs-var hs-var">originRequestPolicy_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OriginRequestPolicy -&gt; Text)
+-&gt; (OriginRequestPolicy -&gt; Text -&gt; OriginRequestPolicy)
+-&gt; Lens OriginRequestPolicy OriginRequestPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy%27"><span class="hs-identifier hs-type">OriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399495"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:OriginRequestPolicy' :: OriginRequestPolicy -&gt; Text
+</span><a href="#local-6989586621679399495"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399495"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399494"><span class="annot"><span class="annottext">s :: OriginRequestPolicy
+</span><a href="#local-6989586621679399494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy%27"><span class="hs-identifier hs-type">OriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399493"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginRequestPolicy
+</span><a href="#local-6989586621679399494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:OriginRequestPolicy' :: Text
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#%24sel%3Aid%3AOriginRequestPolicy%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy"><span class="hs-identifier hs-type">OriginRequestPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The date and time when the origin request policy was last modified.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#originRequestPolicy_lastModifiedTime"><span class="hs-identifier hs-type">originRequestPolicy_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy"><span class="hs-identifier hs-type">OriginRequestPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-99"></span><span id="originRequestPolicy_lastModifiedTime"><span class="annot"><span class="annottext">originRequestPolicy_lastModifiedTime :: (UTCTime -&gt; f UTCTime)
+-&gt; OriginRequestPolicy -&gt; f OriginRequestPolicy
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#originRequestPolicy_lastModifiedTime"><span class="hs-identifier hs-var hs-var">originRequestPolicy_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OriginRequestPolicy -&gt; ISO8601)
+-&gt; (OriginRequestPolicy -&gt; ISO8601 -&gt; OriginRequestPolicy)
+-&gt; Lens OriginRequestPolicy OriginRequestPolicy ISO8601 ISO8601
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy%27"><span class="hs-identifier hs-type">OriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399491"><span class="annot"><span class="annottext">ISO8601
+lastModifiedTime :: ISO8601
+$sel:lastModifiedTime:OriginRequestPolicy' :: OriginRequestPolicy -&gt; ISO8601
+</span><a href="#local-6989586621679399491"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679399491"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399490"><span class="annot"><span class="annottext">s :: OriginRequestPolicy
+</span><a href="#local-6989586621679399490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy%27"><span class="hs-identifier hs-type">OriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399489"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679399489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginRequestPolicy
+</span><a href="#local-6989586621679399490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:OriginRequestPolicy' :: ISO8601
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#%24sel%3AlastModifiedTime%3AOriginRequestPolicy%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679399489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy"><span class="hs-identifier hs-type">OriginRequestPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601)
+ -&gt; OriginRequestPolicy -&gt; f OriginRequestPolicy)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; OriginRequestPolicy
+-&gt; f OriginRequestPolicy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The origin request policy configuration.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#originRequestPolicy_originRequestPolicyConfig"><span class="hs-identifier hs-type">originRequestPolicy_originRequestPolicyConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy"><span class="hs-identifier hs-type">OriginRequestPolicy</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicyConfig.html#OriginRequestPolicyConfig"><span class="hs-identifier hs-type">OriginRequestPolicyConfig</span></a></span><span>
+</span><span id="line-103"></span><span id="originRequestPolicy_originRequestPolicyConfig"><span class="annot"><span class="annottext">originRequestPolicy_originRequestPolicyConfig :: (OriginRequestPolicyConfig -&gt; f OriginRequestPolicyConfig)
+-&gt; OriginRequestPolicy -&gt; f OriginRequestPolicy
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#originRequestPolicy_originRequestPolicyConfig"><span class="hs-identifier hs-var hs-var">originRequestPolicy_originRequestPolicyConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OriginRequestPolicy -&gt; OriginRequestPolicyConfig)
+-&gt; (OriginRequestPolicy
+    -&gt; OriginRequestPolicyConfig -&gt; OriginRequestPolicy)
+-&gt; Lens
+     OriginRequestPolicy
+     OriginRequestPolicy
+     OriginRequestPolicyConfig
+     OriginRequestPolicyConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy%27"><span class="hs-identifier hs-type">OriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399486"><span class="annot"><span class="annottext">OriginRequestPolicyConfig
+originRequestPolicyConfig :: OriginRequestPolicyConfig
+$sel:originRequestPolicyConfig:OriginRequestPolicy' :: OriginRequestPolicy -&gt; OriginRequestPolicyConfig
+</span><a href="#local-6989586621679399486"><span class="hs-identifier hs-var hs-var">originRequestPolicyConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginRequestPolicyConfig
+</span><a href="#local-6989586621679399486"><span class="hs-identifier hs-var">originRequestPolicyConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399485"><span class="annot"><span class="annottext">s :: OriginRequestPolicy
+</span><a href="#local-6989586621679399485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy%27"><span class="hs-identifier hs-type">OriginRequestPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399484"><span class="annot"><span class="annottext">OriginRequestPolicyConfig
+</span><a href="#local-6989586621679399484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginRequestPolicy
+</span><a href="#local-6989586621679399485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originRequestPolicyConfig:OriginRequestPolicy' :: OriginRequestPolicyConfig
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#%24sel%3AoriginRequestPolicyConfig%3AOriginRequestPolicy%27"><span class="hs-identifier hs-var">originRequestPolicyConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OriginRequestPolicyConfig
+</span><a href="#local-6989586621679399484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy"><span class="hs-identifier hs-type">OriginRequestPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy"><span class="hs-identifier hs-type">OriginRequestPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679399481"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OriginRequestPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679399479"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399479"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; ISO8601 -&gt; OriginRequestPolicyConfig -&gt; OriginRequestPolicy
+</span><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy%27"><span class="hs-identifier hs-var">OriginRequestPolicy'</span></a></span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">(Text
+ -&gt; ISO8601 -&gt; OriginRequestPolicyConfig -&gt; OriginRequestPolicy)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (ISO8601 -&gt; OriginRequestPolicyConfig -&gt; OriginRequestPolicy)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (ISO8601 -&gt; OriginRequestPolicyConfig -&gt; OriginRequestPolicy)
+-&gt; Either String ISO8601
+-&gt; Either String (OriginRequestPolicyConfig -&gt; OriginRequestPolicy)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Either String (OriginRequestPolicyConfig -&gt; OriginRequestPolicy)
+-&gt; Either String OriginRequestPolicyConfig
+-&gt; Either String OriginRequestPolicy
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String OriginRequestPolicyConfig
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OriginRequestPolicyConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399473"><span id="local-6989586621679399475"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy"><span class="hs-identifier hs-type">OriginRequestPolicy</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399470"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginRequestPolicy.html#OriginRequestPolicy"><span class="hs-identifier hs-type">OriginRequestPolicy</span></a></span></span><span>
+</span><span id="line-115"></span></pre></body></html>

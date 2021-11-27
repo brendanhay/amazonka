@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTSiteWise.DisassociateAssets</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disassociates a child asset from the given parent asset through a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- hierarchy defined in the parent asset\'s model.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTSiteWise.DisassociateAssets</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier">DisassociateAssets</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#newDisassociateAssets"><span class="hs-identifier">newDisassociateAssets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#disassociateAssets_clientToken"><span class="hs-identifier">disassociateAssets_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#disassociateAssets_assetId"><span class="hs-identifier">disassociateAssets_assetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#disassociateAssets_hierarchyId"><span class="hs-identifier">disassociateAssets_hierarchyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#disassociateAssets_childAssetId"><span class="hs-identifier">disassociateAssets_childAssetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssetsResponse"><span class="hs-identifier">DisassociateAssetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#newDisassociateAssetsResponse"><span class="hs-identifier">newDisassociateAssetsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.html"><span class="hs-identifier">Amazonka.IoTSiteWise.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDisassociateAssets' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679353095"><span id="local-6989586621679353096"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateAssets"><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-var">DisassociateAssets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateAssets%27"><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets%27"><span class="hs-identifier hs-var">DisassociateAssets'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AclientToken%3ADisassociateAssets%27"><span class="annot"><span class="annottext">DisassociateAssets -&gt; Maybe Text
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#%24sel%3AclientToken%3ADisassociateAssets%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ID of the parent asset from which to disassociate the child asset.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AassetId%3ADisassociateAssets%27"><span class="annot"><span class="annottext">DisassociateAssets -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#%24sel%3AassetId%3ADisassociateAssets%27"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The ID of a hierarchy in the parent asset\'s model. Hierarchies allow</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- different groupings of assets to be formed that all come from the same</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- asset model. You can use the hierarchy ID to identify the correct asset</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- to disassociate. For more information, see</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html Asset hierarchies&gt;</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AhierarchyId%3ADisassociateAssets%27"><span class="annot"><span class="annottext">DisassociateAssets -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#%24sel%3AhierarchyId%3ADisassociateAssets%27"><span class="hs-identifier hs-var hs-var">hierarchyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of the child asset to disassociate.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AchildAssetId%3ADisassociateAssets%27"><span class="annot"><span class="annottext">DisassociateAssets -&gt; Text
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#%24sel%3AchildAssetId%3ADisassociateAssets%27"><span class="hs-identifier hs-var hs-var">childAssetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353086"><span id="local-6989586621679353088"><span class="annot"><span class="annottext">DisassociateAssets -&gt; DisassociateAssets -&gt; Bool
+(DisassociateAssets -&gt; DisassociateAssets -&gt; Bool)
+-&gt; (DisassociateAssets -&gt; DisassociateAssets -&gt; Bool)
+-&gt; Eq DisassociateAssets
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateAssets -&gt; DisassociateAssets -&gt; Bool
+$c/= :: DisassociateAssets -&gt; DisassociateAssets -&gt; Bool
+== :: DisassociateAssets -&gt; DisassociateAssets -&gt; Bool
+$c== :: DisassociateAssets -&gt; DisassociateAssets -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353077"><span id="local-6989586621679353079"><span id="local-6989586621679353081"><span id="local-6989586621679353083"><span class="annot"><span class="annottext">ReadPrec [DisassociateAssets]
+ReadPrec DisassociateAssets
+Int -&gt; ReadS DisassociateAssets
+ReadS [DisassociateAssets]
+(Int -&gt; ReadS DisassociateAssets)
+-&gt; ReadS [DisassociateAssets]
+-&gt; ReadPrec DisassociateAssets
+-&gt; ReadPrec [DisassociateAssets]
+-&gt; Read DisassociateAssets
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateAssets]
+$creadListPrec :: ReadPrec [DisassociateAssets]
+readPrec :: ReadPrec DisassociateAssets
+$creadPrec :: ReadPrec DisassociateAssets
+readList :: ReadS [DisassociateAssets]
+$creadList :: ReadS [DisassociateAssets]
+readsPrec :: Int -&gt; ReadS DisassociateAssets
+$creadsPrec :: Int -&gt; ReadS DisassociateAssets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353070"><span id="local-6989586621679353072"><span id="local-6989586621679353074"><span class="annot"><span class="annottext">Int -&gt; DisassociateAssets -&gt; ShowS
+[DisassociateAssets] -&gt; ShowS
+DisassociateAssets -&gt; String
+(Int -&gt; DisassociateAssets -&gt; ShowS)
+-&gt; (DisassociateAssets -&gt; String)
+-&gt; ([DisassociateAssets] -&gt; ShowS)
+-&gt; Show DisassociateAssets
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateAssets] -&gt; ShowS
+$cshowList :: [DisassociateAssets] -&gt; ShowS
+show :: DisassociateAssets -&gt; String
+$cshow :: DisassociateAssets -&gt; String
+showsPrec :: Int -&gt; DisassociateAssets -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateAssets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DisassociateAssets -&gt; Rep DisassociateAssets x)
+-&gt; (forall x. Rep DisassociateAssets x -&gt; DisassociateAssets)
+-&gt; Generic DisassociateAssets
+forall x. Rep DisassociateAssets x -&gt; DisassociateAssets
+forall x. DisassociateAssets -&gt; Rep DisassociateAssets x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DisassociateAssets x -&gt; DisassociateAssets
+$cfrom :: forall x. DisassociateAssets -&gt; Rep DisassociateAssets x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DisassociateAssets' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'clientToken', 'disassociateAssets_clientToken' - A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'assetId', 'disassociateAssets_assetId' - The ID of the parent asset from which to disassociate the child asset.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'hierarchyId', 'disassociateAssets_hierarchyId' - The ID of a hierarchy in the parent asset\'s model. Hierarchies allow</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- different groupings of assets to be formed that all come from the same</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- asset model. You can use the hierarchy ID to identify the correct asset</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- to disassociate. For more information, see</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html Asset hierarchies&gt;</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'childAssetId', 'disassociateAssets_childAssetId' - The ID of the child asset to disassociate.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#newDisassociateAssets"><span class="hs-identifier hs-type">newDisassociateAssets</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'assetId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'hierarchyId'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'childAssetId'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span>
+</span><span id="line-99"></span><span id="newDisassociateAssets"><span class="annot"><span class="annottext">newDisassociateAssets :: Text -&gt; Text -&gt; Text -&gt; DisassociateAssets
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#newDisassociateAssets"><span class="hs-identifier hs-var hs-var">newDisassociateAssets</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679353065"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353065"><span class="hs-identifier hs-var">pAssetId_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679353064"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353064"><span class="hs-identifier hs-var">pHierarchyId_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679353063"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353063"><span class="hs-identifier hs-var">pChildAssetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">DisassociateAssets' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; DisassociateAssets
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets%27"><span class="hs-identifier hs-type">DisassociateAssets'</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:DisassociateAssets' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#%24sel%3AclientToken%3ADisassociateAssets%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:assetId:DisassociateAssets' :: Text
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#%24sel%3AassetId%3ADisassociateAssets%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353065"><span class="hs-identifier hs-var">pAssetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:hierarchyId:DisassociateAssets' :: Text
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#%24sel%3AhierarchyId%3ADisassociateAssets%27"><span class="hs-identifier hs-var">hierarchyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353064"><span class="hs-identifier hs-var">pHierarchyId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:childAssetId:DisassociateAssets' :: Text
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#%24sel%3AchildAssetId%3ADisassociateAssets%27"><span class="hs-identifier hs-var">childAssetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353063"><span class="hs-identifier hs-var">pChildAssetId_</span></a></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | A unique case-sensitive identifier that you can provide to ensure the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- idempotency of the request. Don\'t reuse this client token if a new</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- idempotent request is required.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#disassociateAssets_clientToken"><span class="hs-identifier hs-type">disassociateAssets_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="disassociateAssets_clientToken"><span class="annot"><span class="annottext">disassociateAssets_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DisassociateAssets -&gt; f DisassociateAssets
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#disassociateAssets_clientToken"><span class="hs-identifier hs-var hs-var">disassociateAssets_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateAssets -&gt; Maybe Text)
+-&gt; (DisassociateAssets -&gt; Maybe Text -&gt; DisassociateAssets)
+-&gt; Lens
+     DisassociateAssets DisassociateAssets (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets%27"><span class="hs-identifier hs-type">DisassociateAssets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353060"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:DisassociateAssets' :: DisassociateAssets -&gt; Maybe Text
+</span><a href="#local-6989586621679353060"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353060"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353059"><span class="annot"><span class="annottext">s :: DisassociateAssets
+</span><a href="#local-6989586621679353059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets%27"><span class="hs-identifier hs-type">DisassociateAssets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353058"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateAssets
+</span><a href="#local-6989586621679353059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:DisassociateAssets' :: Maybe Text
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#%24sel%3AclientToken%3ADisassociateAssets%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The ID of the parent asset from which to disassociate the child asset.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#disassociateAssets_assetId"><span class="hs-identifier hs-type">disassociateAssets_assetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="disassociateAssets_assetId"><span class="annot"><span class="annottext">disassociateAssets_assetId :: (Text -&gt; f Text) -&gt; DisassociateAssets -&gt; f DisassociateAssets
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#disassociateAssets_assetId"><span class="hs-identifier hs-var hs-var">disassociateAssets_assetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateAssets -&gt; Text)
+-&gt; (DisassociateAssets -&gt; Text -&gt; DisassociateAssets)
+-&gt; Lens DisassociateAssets DisassociateAssets Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets%27"><span class="hs-identifier hs-type">DisassociateAssets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353057"><span class="annot"><span class="annottext">Text
+assetId :: Text
+$sel:assetId:DisassociateAssets' :: DisassociateAssets -&gt; Text
+</span><a href="#local-6989586621679353057"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353057"><span class="hs-identifier hs-var">assetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353056"><span class="annot"><span class="annottext">s :: DisassociateAssets
+</span><a href="#local-6989586621679353056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets%27"><span class="hs-identifier hs-type">DisassociateAssets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353055"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateAssets
+</span><a href="#local-6989586621679353056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetId:DisassociateAssets' :: Text
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#%24sel%3AassetId%3ADisassociateAssets%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The ID of a hierarchy in the parent asset\'s model. Hierarchies allow</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- different groupings of assets to be formed that all come from the same</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- asset model. You can use the hierarchy ID to identify the correct asset</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- to disassociate. For more information, see</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html Asset hierarchies&gt;</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#disassociateAssets_hierarchyId"><span class="hs-identifier hs-type">disassociateAssets_hierarchyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="disassociateAssets_hierarchyId"><span class="annot"><span class="annottext">disassociateAssets_hierarchyId :: (Text -&gt; f Text) -&gt; DisassociateAssets -&gt; f DisassociateAssets
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#disassociateAssets_hierarchyId"><span class="hs-identifier hs-var hs-var">disassociateAssets_hierarchyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateAssets -&gt; Text)
+-&gt; (DisassociateAssets -&gt; Text -&gt; DisassociateAssets)
+-&gt; Lens DisassociateAssets DisassociateAssets Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets%27"><span class="hs-identifier hs-type">DisassociateAssets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353054"><span class="annot"><span class="annottext">Text
+hierarchyId :: Text
+$sel:hierarchyId:DisassociateAssets' :: DisassociateAssets -&gt; Text
+</span><a href="#local-6989586621679353054"><span class="hs-identifier hs-var hs-var">hierarchyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353054"><span class="hs-identifier hs-var">hierarchyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353053"><span class="annot"><span class="annottext">s :: DisassociateAssets
+</span><a href="#local-6989586621679353053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets%27"><span class="hs-identifier hs-type">DisassociateAssets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353052"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateAssets
+</span><a href="#local-6989586621679353053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hierarchyId:DisassociateAssets' :: Text
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#%24sel%3AhierarchyId%3ADisassociateAssets%27"><span class="hs-identifier hs-var">hierarchyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The ID of the child asset to disassociate.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#disassociateAssets_childAssetId"><span class="hs-identifier hs-type">disassociateAssets_childAssetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="disassociateAssets_childAssetId"><span class="annot"><span class="annottext">disassociateAssets_childAssetId :: (Text -&gt; f Text) -&gt; DisassociateAssets -&gt; f DisassociateAssets
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#disassociateAssets_childAssetId"><span class="hs-identifier hs-var hs-var">disassociateAssets_childAssetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateAssets -&gt; Text)
+-&gt; (DisassociateAssets -&gt; Text -&gt; DisassociateAssets)
+-&gt; Lens DisassociateAssets DisassociateAssets Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets%27"><span class="hs-identifier hs-type">DisassociateAssets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353051"><span class="annot"><span class="annottext">Text
+childAssetId :: Text
+$sel:childAssetId:DisassociateAssets' :: DisassociateAssets -&gt; Text
+</span><a href="#local-6989586621679353051"><span class="hs-identifier hs-var hs-var">childAssetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353051"><span class="hs-identifier hs-var">childAssetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353050"><span class="annot"><span class="annottext">s :: DisassociateAssets
+</span><a href="#local-6989586621679353050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets%27"><span class="hs-identifier hs-type">DisassociateAssets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353049"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateAssets
+</span><a href="#local-6989586621679353050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childAssetId:DisassociateAssets' :: Text
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#%24sel%3AchildAssetId%3ADisassociateAssets%27"><span class="hs-identifier hs-var">childAssetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssetsResponse"><span class="hs-identifier hs-type">DisassociateAssetsResponse</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679353045"><span class="annot"><span class="annottext">request :: DisassociateAssets -&gt; Request DisassociateAssets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisassociateAssets -&gt; Request DisassociateAssets
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTSiteWise.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679353041"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisassociateAssets
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisassociateAssets)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DisassociateAssets
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisassociateAssets
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisassociateAssets)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DisassociateAssets
+DisassociateAssetsResponse
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssetsResponse%27"><span class="hs-identifier hs-var">DisassociateAssetsResponse'</span></a></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353034"><span id="local-6989586621679353036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679353027"><span class="annot"><span class="annottext">toHeaders :: DisassociateAssets -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DisassociateAssets -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-152"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353017"><span id="local-6989586621679353019"><span id="local-6989586621679353021"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679353015"><span class="annot"><span class="annottext">toJSON :: DisassociateAssets -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets%27"><span class="hs-identifier hs-type">DisassociateAssets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353010"><span id="local-6989586621679353011"><span id="local-6989586621679353012"><span id="local-6989586621679353013"><span class="annot"><span class="annottext">Maybe Text
+Text
+childAssetId :: Text
+hierarchyId :: Text
+assetId :: Text
+clientToken :: Maybe Text
+$sel:childAssetId:DisassociateAssets' :: DisassociateAssets -&gt; Text
+$sel:hierarchyId:DisassociateAssets' :: DisassociateAssets -&gt; Text
+$sel:assetId:DisassociateAssets' :: DisassociateAssets -&gt; Text
+$sel:clientToken:DisassociateAssets' :: DisassociateAssets -&gt; Maybe Text
+</span><a href="#local-6989586621679353010"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353013"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hierarchyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353011"><span class="hs-identifier hs-var">hierarchyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;childAssetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353010"><span class="hs-identifier hs-var">childAssetId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679353003"><span class="annot"><span class="annottext">toPath :: DisassociateAssets -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets%27"><span class="hs-identifier hs-type">DisassociateAssets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352998"><span id="local-6989586621679352999"><span id="local-6989586621679353000"><span id="local-6989586621679353001"><span class="annot"><span class="annottext">Maybe Text
+Text
+childAssetId :: Text
+hierarchyId :: Text
+assetId :: Text
+clientToken :: Maybe Text
+$sel:childAssetId:DisassociateAssets' :: DisassociateAssets -&gt; Text
+$sel:hierarchyId:DisassociateAssets' :: DisassociateAssets -&gt; Text
+$sel:assetId:DisassociateAssets' :: DisassociateAssets -&gt; Text
+$sel:clientToken:DisassociateAssets' :: DisassociateAssets -&gt; Maybe Text
+</span><a href="#local-6989586621679352998"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/assets/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353000"><span class="hs-identifier hs-var">assetId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/disassociate&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssets"><span class="hs-identifier hs-type">DisassociateAssets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679352994"><span class="annot"><span class="annottext">toQuery :: DisassociateAssets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisassociateAssets -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newDisassociateAssetsResponse' smart constructor.</span><span>
+</span><span id="line-175"></span><span id="local-6989586621679352991"><span id="local-6989586621679352992"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateAssetsResponse"><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssetsResponse"><span class="hs-identifier hs-var">DisassociateAssetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateAssetsResponse%27"><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssetsResponse%27"><span class="hs-identifier hs-var">DisassociateAssetsResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352987"><span id="local-6989586621679352989"><span class="annot"><span class="annottext">DisassociateAssetsResponse -&gt; DisassociateAssetsResponse -&gt; Bool
+(DisassociateAssetsResponse -&gt; DisassociateAssetsResponse -&gt; Bool)
+-&gt; (DisassociateAssetsResponse
+    -&gt; DisassociateAssetsResponse -&gt; Bool)
+-&gt; Eq DisassociateAssetsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateAssetsResponse -&gt; DisassociateAssetsResponse -&gt; Bool
+$c/= :: DisassociateAssetsResponse -&gt; DisassociateAssetsResponse -&gt; Bool
+== :: DisassociateAssetsResponse -&gt; DisassociateAssetsResponse -&gt; Bool
+$c== :: DisassociateAssetsResponse -&gt; DisassociateAssetsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352979"><span id="local-6989586621679352981"><span id="local-6989586621679352983"><span id="local-6989586621679352985"><span class="annot"><span class="annottext">ReadPrec [DisassociateAssetsResponse]
+ReadPrec DisassociateAssetsResponse
+Int -&gt; ReadS DisassociateAssetsResponse
+ReadS [DisassociateAssetsResponse]
+(Int -&gt; ReadS DisassociateAssetsResponse)
+-&gt; ReadS [DisassociateAssetsResponse]
+-&gt; ReadPrec DisassociateAssetsResponse
+-&gt; ReadPrec [DisassociateAssetsResponse]
+-&gt; Read DisassociateAssetsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateAssetsResponse]
+$creadListPrec :: ReadPrec [DisassociateAssetsResponse]
+readPrec :: ReadPrec DisassociateAssetsResponse
+$creadPrec :: ReadPrec DisassociateAssetsResponse
+readList :: ReadS [DisassociateAssetsResponse]
+$creadList :: ReadS [DisassociateAssetsResponse]
+readsPrec :: Int -&gt; ReadS DisassociateAssetsResponse
+$creadsPrec :: Int -&gt; ReadS DisassociateAssetsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352973"><span id="local-6989586621679352975"><span id="local-6989586621679352977"><span class="annot"><span class="annottext">Int -&gt; DisassociateAssetsResponse -&gt; ShowS
+[DisassociateAssetsResponse] -&gt; ShowS
+DisassociateAssetsResponse -&gt; String
+(Int -&gt; DisassociateAssetsResponse -&gt; ShowS)
+-&gt; (DisassociateAssetsResponse -&gt; String)
+-&gt; ([DisassociateAssetsResponse] -&gt; ShowS)
+-&gt; Show DisassociateAssetsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateAssetsResponse] -&gt; ShowS
+$cshowList :: [DisassociateAssetsResponse] -&gt; ShowS
+show :: DisassociateAssetsResponse -&gt; String
+$cshow :: DisassociateAssetsResponse -&gt; String
+showsPrec :: Int -&gt; DisassociateAssetsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateAssetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateAssetsResponse -&gt; Rep DisassociateAssetsResponse x)
+-&gt; (forall x.
+    Rep DisassociateAssetsResponse x -&gt; DisassociateAssetsResponse)
+-&gt; Generic DisassociateAssetsResponse
+forall x.
+Rep DisassociateAssetsResponse x -&gt; DisassociateAssetsResponse
+forall x.
+DisassociateAssetsResponse -&gt; Rep DisassociateAssetsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateAssetsResponse x -&gt; DisassociateAssetsResponse
+$cfrom :: forall x.
+DisassociateAssetsResponse -&gt; Rep DisassociateAssetsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Create a value of 'DisassociateAssetsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#newDisassociateAssetsResponse"><span class="hs-identifier hs-type">newDisassociateAssetsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssetsResponse"><span class="hs-identifier hs-type">DisassociateAssetsResponse</span></a></span><span>
+</span><span id="line-186"></span><span id="newDisassociateAssetsResponse"><span class="annot"><span class="annottext">newDisassociateAssetsResponse :: DisassociateAssetsResponse
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#newDisassociateAssetsResponse"><span class="hs-identifier hs-var hs-var">newDisassociateAssetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="annottext">DisassociateAssetsResponse
+</span><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssetsResponse%27"><span class="hs-identifier hs-var">DisassociateAssetsResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.DisassociateAssets.html#DisassociateAssetsResponse"><span class="hs-identifier hs-type">DisassociateAssetsResponse</span></a></span></span><span>
+</span><span id="line-190"></span></pre></body></html>

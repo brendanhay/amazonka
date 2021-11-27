@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IAM.SetSecurityTokenServicePreferences</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sets the specified version of the global endpoint token as the token</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- version used for the Amazon Web Services account.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- By default, Security Token Service (STS) is available as a global</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- service, and all STS requests go to a single endpoint at</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @https:\/\/sts.amazonaws.com@. Amazon Web Services recommends using</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Regional STS endpoints to reduce latency, build in redundancy, and</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- increase session token availability. For information about Regional</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- endpoints for STS, see</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/sts.html Security Token Service endpoints and quotas&gt;</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- If you make an STS call to the global endpoint, the resulting session</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- tokens might be valid in some Regions but not others. It depends on the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- version that is set in this operation. Version 1 tokens are valid only</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- in Amazon Web Services Regions that are available by default. These</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- tokens do not work in manually enabled Regions, such as Asia Pacific</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- (Hong Kong). Version 2 tokens are valid in all Regions. However, version</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- 2 tokens are longer and might affect systems where you temporarily store</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- tokens. For information, see</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an Amazon Web Services Region&gt;</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- To view the current session token version, see the</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- @GlobalEndpointTokenVersion@ entry in the response of the</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- GetAccountSummary operation.</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.SetSecurityTokenServicePreferences</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences"><span class="hs-identifier">SetSecurityTokenServicePreferences</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#newSetSecurityTokenServicePreferences"><span class="hs-identifier">newSetSecurityTokenServicePreferences</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#setSecurityTokenServicePreferences_globalEndpointTokenVersion"><span class="hs-identifier">setSecurityTokenServicePreferences_globalEndpointTokenVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferencesResponse"><span class="hs-identifier">SetSecurityTokenServicePreferencesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#newSetSecurityTokenServicePreferencesResponse"><span class="hs-identifier">newSetSecurityTokenServicePreferencesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.html"><span class="hs-identifier">Amazonka.IAM.Types</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newSetSecurityTokenServicePreferences' smart constructor.</span><span>
+</span><span id="line-71"></span><span id="local-6989586621679436558"><span id="local-6989586621679436559"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetSecurityTokenServicePreferences"><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences"><span class="hs-identifier hs-var">SetSecurityTokenServicePreferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetSecurityTokenServicePreferences%27"><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences%27"><span class="hs-identifier hs-var">SetSecurityTokenServicePreferences'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the global endpoint token. Version 1 tokens are valid</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- only in Amazon Web Services Regions that are available by default. These</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- tokens do not work in manually enabled Regions, such as Asia Pacific</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- (Hong Kong). Version 2 tokens are valid in all Regions. However, version</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- 2 tokens are longer and might affect systems where you temporarily store</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- tokens.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- For information, see</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an Amazon Web Services Region&gt;</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AglobalEndpointTokenVersion%3ASetSecurityTokenServicePreferences%27"><span class="annot"><span class="annottext">SetSecurityTokenServicePreferences -&gt; GlobalEndpointTokenVersion
+</span><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#%24sel%3AglobalEndpointTokenVersion%3ASetSecurityTokenServicePreferences%27"><span class="hs-identifier hs-var hs-var">globalEndpointTokenVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.GlobalEndpointTokenVersion.html#GlobalEndpointTokenVersion"><span class="hs-identifier hs-type">GlobalEndpointTokenVersion</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436552"><span id="local-6989586621679436554"><span class="annot"><span class="annottext">SetSecurityTokenServicePreferences
+-&gt; SetSecurityTokenServicePreferences -&gt; Bool
+(SetSecurityTokenServicePreferences
+ -&gt; SetSecurityTokenServicePreferences -&gt; Bool)
+-&gt; (SetSecurityTokenServicePreferences
+    -&gt; SetSecurityTokenServicePreferences -&gt; Bool)
+-&gt; Eq SetSecurityTokenServicePreferences
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetSecurityTokenServicePreferences
+-&gt; SetSecurityTokenServicePreferences -&gt; Bool
+$c/= :: SetSecurityTokenServicePreferences
+-&gt; SetSecurityTokenServicePreferences -&gt; Bool
+== :: SetSecurityTokenServicePreferences
+-&gt; SetSecurityTokenServicePreferences -&gt; Bool
+$c== :: SetSecurityTokenServicePreferences
+-&gt; SetSecurityTokenServicePreferences -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436543"><span id="local-6989586621679436545"><span id="local-6989586621679436547"><span id="local-6989586621679436549"><span class="annot"><span class="annottext">ReadPrec [SetSecurityTokenServicePreferences]
+ReadPrec SetSecurityTokenServicePreferences
+Int -&gt; ReadS SetSecurityTokenServicePreferences
+ReadS [SetSecurityTokenServicePreferences]
+(Int -&gt; ReadS SetSecurityTokenServicePreferences)
+-&gt; ReadS [SetSecurityTokenServicePreferences]
+-&gt; ReadPrec SetSecurityTokenServicePreferences
+-&gt; ReadPrec [SetSecurityTokenServicePreferences]
+-&gt; Read SetSecurityTokenServicePreferences
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetSecurityTokenServicePreferences]
+$creadListPrec :: ReadPrec [SetSecurityTokenServicePreferences]
+readPrec :: ReadPrec SetSecurityTokenServicePreferences
+$creadPrec :: ReadPrec SetSecurityTokenServicePreferences
+readList :: ReadS [SetSecurityTokenServicePreferences]
+$creadList :: ReadS [SetSecurityTokenServicePreferences]
+readsPrec :: Int -&gt; ReadS SetSecurityTokenServicePreferences
+$creadsPrec :: Int -&gt; ReadS SetSecurityTokenServicePreferences
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436536"><span id="local-6989586621679436538"><span id="local-6989586621679436540"><span class="annot"><span class="annottext">Int -&gt; SetSecurityTokenServicePreferences -&gt; ShowS
+[SetSecurityTokenServicePreferences] -&gt; ShowS
+SetSecurityTokenServicePreferences -&gt; String
+(Int -&gt; SetSecurityTokenServicePreferences -&gt; ShowS)
+-&gt; (SetSecurityTokenServicePreferences -&gt; String)
+-&gt; ([SetSecurityTokenServicePreferences] -&gt; ShowS)
+-&gt; Show SetSecurityTokenServicePreferences
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetSecurityTokenServicePreferences] -&gt; ShowS
+$cshowList :: [SetSecurityTokenServicePreferences] -&gt; ShowS
+show :: SetSecurityTokenServicePreferences -&gt; String
+$cshow :: SetSecurityTokenServicePreferences -&gt; String
+showsPrec :: Int -&gt; SetSecurityTokenServicePreferences -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetSecurityTokenServicePreferences -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetSecurityTokenServicePreferences
+ -&gt; Rep SetSecurityTokenServicePreferences x)
+-&gt; (forall x.
+    Rep SetSecurityTokenServicePreferences x
+    -&gt; SetSecurityTokenServicePreferences)
+-&gt; Generic SetSecurityTokenServicePreferences
+forall x.
+Rep SetSecurityTokenServicePreferences x
+-&gt; SetSecurityTokenServicePreferences
+forall x.
+SetSecurityTokenServicePreferences
+-&gt; Rep SetSecurityTokenServicePreferences x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetSecurityTokenServicePreferences x
+-&gt; SetSecurityTokenServicePreferences
+$cfrom :: forall x.
+SetSecurityTokenServicePreferences
+-&gt; Rep SetSecurityTokenServicePreferences x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'SetSecurityTokenServicePreferences' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'globalEndpointTokenVersion', 'setSecurityTokenServicePreferences_globalEndpointTokenVersion' - The version of the global endpoint token. Version 1 tokens are valid</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- only in Amazon Web Services Regions that are available by default. These</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- tokens do not work in manually enabled Regions, such as Asia Pacific</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- (Hong Kong). Version 2 tokens are valid in all Regions. However, version</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 2 tokens are longer and might affect systems where you temporarily store</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- tokens.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- For information, see</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an Amazon Web Services Region&gt;</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#newSetSecurityTokenServicePreferences"><span class="hs-identifier hs-type">newSetSecurityTokenServicePreferences</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'globalEndpointTokenVersion'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.GlobalEndpointTokenVersion.html#GlobalEndpointTokenVersion"><span class="hs-identifier hs-type">GlobalEndpointTokenVersion</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences</span></a></span><span>
+</span><span id="line-108"></span><span id="newSetSecurityTokenServicePreferences"><span class="annot"><span class="annottext">newSetSecurityTokenServicePreferences :: GlobalEndpointTokenVersion -&gt; SetSecurityTokenServicePreferences
+</span><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#newSetSecurityTokenServicePreferences"><span class="hs-identifier hs-var hs-var">newSetSecurityTokenServicePreferences</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679436531"><span class="annot"><span class="annottext">GlobalEndpointTokenVersion
+</span><a href="#local-6989586621679436531"><span class="hs-identifier hs-var">pGlobalEndpointTokenVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">SetSecurityTokenServicePreferences' :: GlobalEndpointTokenVersion -&gt; SetSecurityTokenServicePreferences
+</span><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences%27"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences'</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalEndpointTokenVersion:SetSecurityTokenServicePreferences' :: GlobalEndpointTokenVersion
+</span><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#%24sel%3AglobalEndpointTokenVersion%3ASetSecurityTokenServicePreferences%27"><span class="hs-identifier hs-var">globalEndpointTokenVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">GlobalEndpointTokenVersion
+</span><a href="#local-6989586621679436531"><span class="hs-identifier hs-var">pGlobalEndpointTokenVersion_</span></a></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The version of the global endpoint token. Version 1 tokens are valid</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- only in Amazon Web Services Regions that are available by default. These</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- tokens do not work in manually enabled Regions, such as Asia Pacific</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- (Hong Kong). Version 2 tokens are valid in all Regions. However, version</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 2 tokens are longer and might affect systems where you temporarily store</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- tokens.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- For information, see</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an Amazon Web Services Region&gt;</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#setSecurityTokenServicePreferences_globalEndpointTokenVersion"><span class="hs-identifier hs-type">setSecurityTokenServicePreferences_globalEndpointTokenVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences</span></a></span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.GlobalEndpointTokenVersion.html#GlobalEndpointTokenVersion"><span class="hs-identifier hs-type">GlobalEndpointTokenVersion</span></a></span><span>
+</span><span id="line-126"></span><span id="setSecurityTokenServicePreferences_globalEndpointTokenVersion"><span class="annot"><span class="annottext">setSecurityTokenServicePreferences_globalEndpointTokenVersion :: (GlobalEndpointTokenVersion -&gt; f GlobalEndpointTokenVersion)
+-&gt; SetSecurityTokenServicePreferences
+-&gt; f SetSecurityTokenServicePreferences
+</span><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#setSecurityTokenServicePreferences_globalEndpointTokenVersion"><span class="hs-identifier hs-var hs-var">setSecurityTokenServicePreferences_globalEndpointTokenVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSecurityTokenServicePreferences -&gt; GlobalEndpointTokenVersion)
+-&gt; (SetSecurityTokenServicePreferences
+    -&gt; GlobalEndpointTokenVersion
+    -&gt; SetSecurityTokenServicePreferences)
+-&gt; Lens
+     SetSecurityTokenServicePreferences
+     SetSecurityTokenServicePreferences
+     GlobalEndpointTokenVersion
+     GlobalEndpointTokenVersion
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences%27"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436528"><span class="annot"><span class="annottext">GlobalEndpointTokenVersion
+globalEndpointTokenVersion :: GlobalEndpointTokenVersion
+$sel:globalEndpointTokenVersion:SetSecurityTokenServicePreferences' :: SetSecurityTokenServicePreferences -&gt; GlobalEndpointTokenVersion
+</span><a href="#local-6989586621679436528"><span class="hs-identifier hs-var hs-var">globalEndpointTokenVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalEndpointTokenVersion
+</span><a href="#local-6989586621679436528"><span class="hs-identifier hs-var">globalEndpointTokenVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436527"><span class="annot"><span class="annottext">s :: SetSecurityTokenServicePreferences
+</span><a href="#local-6989586621679436527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences%27"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436526"><span class="annot"><span class="annottext">GlobalEndpointTokenVersion
+</span><a href="#local-6989586621679436526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSecurityTokenServicePreferences
+</span><a href="#local-6989586621679436527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalEndpointTokenVersion:SetSecurityTokenServicePreferences' :: GlobalEndpointTokenVersion
+</span><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#%24sel%3AglobalEndpointTokenVersion%3ASetSecurityTokenServicePreferences%27"><span class="hs-identifier hs-var">globalEndpointTokenVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GlobalEndpointTokenVersion
+</span><a href="#local-6989586621679436526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferencesResponse"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferencesResponse</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679436522"><span class="annot"><span class="annottext">request :: SetSecurityTokenServicePreferences
+-&gt; Request SetSecurityTokenServicePreferences
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; SetSecurityTokenServicePreferences
+-&gt; Request SetSecurityTokenServicePreferences
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679436518"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SetSecurityTokenServicePreferences
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse SetSecurityTokenServicePreferences)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse SetSecurityTokenServicePreferences
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SetSecurityTokenServicePreferences
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse SetSecurityTokenServicePreferences)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse SetSecurityTokenServicePreferences
+SetSecurityTokenServicePreferencesResponse
+</span><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferencesResponse%27"><span class="hs-identifier hs-var">SetSecurityTokenServicePreferencesResponse'</span></a></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679436511"><span id="local-6989586621679436513"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679436508"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences</span></a></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences</span></a></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679436504"><span class="annot"><span class="annottext">toHeaders :: SetSecurityTokenServicePreferences -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; SetSecurityTokenServicePreferences -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences</span></a></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679436499"><span class="annot"><span class="annottext">toPath :: SetSecurityTokenServicePreferences -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetSecurityTokenServicePreferences -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679436495"><span class="annot"><span class="annottext">toQuery :: SetSecurityTokenServicePreferences -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferences%27"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436493"><span class="annot"><span class="annottext">GlobalEndpointTokenVersion
+globalEndpointTokenVersion :: GlobalEndpointTokenVersion
+$sel:globalEndpointTokenVersion:SetSecurityTokenServicePreferences' :: SetSecurityTokenServicePreferences -&gt; GlobalEndpointTokenVersion
+</span><a href="#local-6989586621679436493"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SetSecurityTokenServicePreferences&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-169"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GlobalEndpointTokenVersion&quot;</span></span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; GlobalEndpointTokenVersion -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">GlobalEndpointTokenVersion
+</span><a href="#local-6989586621679436493"><span class="hs-identifier hs-var">globalEndpointTokenVersion</span></a></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | /See:/ 'newSetSecurityTokenServicePreferencesResponse' smart constructor.</span><span>
+</span><span id="line-177"></span><span id="local-6989586621679436490"><span id="local-6989586621679436491"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetSecurityTokenServicePreferencesResponse"><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferencesResponse"><span class="hs-identifier hs-var">SetSecurityTokenServicePreferencesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetSecurityTokenServicePreferencesResponse%27"><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferencesResponse%27"><span class="hs-identifier hs-var">SetSecurityTokenServicePreferencesResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436486"><span id="local-6989586621679436488"><span class="annot"><span class="annottext">SetSecurityTokenServicePreferencesResponse
+-&gt; SetSecurityTokenServicePreferencesResponse -&gt; Bool
+(SetSecurityTokenServicePreferencesResponse
+ -&gt; SetSecurityTokenServicePreferencesResponse -&gt; Bool)
+-&gt; (SetSecurityTokenServicePreferencesResponse
+    -&gt; SetSecurityTokenServicePreferencesResponse -&gt; Bool)
+-&gt; Eq SetSecurityTokenServicePreferencesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetSecurityTokenServicePreferencesResponse
+-&gt; SetSecurityTokenServicePreferencesResponse -&gt; Bool
+$c/= :: SetSecurityTokenServicePreferencesResponse
+-&gt; SetSecurityTokenServicePreferencesResponse -&gt; Bool
+== :: SetSecurityTokenServicePreferencesResponse
+-&gt; SetSecurityTokenServicePreferencesResponse -&gt; Bool
+$c== :: SetSecurityTokenServicePreferencesResponse
+-&gt; SetSecurityTokenServicePreferencesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436478"><span id="local-6989586621679436480"><span id="local-6989586621679436482"><span id="local-6989586621679436484"><span class="annot"><span class="annottext">ReadPrec [SetSecurityTokenServicePreferencesResponse]
+ReadPrec SetSecurityTokenServicePreferencesResponse
+Int -&gt; ReadS SetSecurityTokenServicePreferencesResponse
+ReadS [SetSecurityTokenServicePreferencesResponse]
+(Int -&gt; ReadS SetSecurityTokenServicePreferencesResponse)
+-&gt; ReadS [SetSecurityTokenServicePreferencesResponse]
+-&gt; ReadPrec SetSecurityTokenServicePreferencesResponse
+-&gt; ReadPrec [SetSecurityTokenServicePreferencesResponse]
+-&gt; Read SetSecurityTokenServicePreferencesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetSecurityTokenServicePreferencesResponse]
+$creadListPrec :: ReadPrec [SetSecurityTokenServicePreferencesResponse]
+readPrec :: ReadPrec SetSecurityTokenServicePreferencesResponse
+$creadPrec :: ReadPrec SetSecurityTokenServicePreferencesResponse
+readList :: ReadS [SetSecurityTokenServicePreferencesResponse]
+$creadList :: ReadS [SetSecurityTokenServicePreferencesResponse]
+readsPrec :: Int -&gt; ReadS SetSecurityTokenServicePreferencesResponse
+$creadsPrec :: Int -&gt; ReadS SetSecurityTokenServicePreferencesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436472"><span id="local-6989586621679436474"><span id="local-6989586621679436476"><span class="annot"><span class="annottext">Int -&gt; SetSecurityTokenServicePreferencesResponse -&gt; ShowS
+[SetSecurityTokenServicePreferencesResponse] -&gt; ShowS
+SetSecurityTokenServicePreferencesResponse -&gt; String
+(Int -&gt; SetSecurityTokenServicePreferencesResponse -&gt; ShowS)
+-&gt; (SetSecurityTokenServicePreferencesResponse -&gt; String)
+-&gt; ([SetSecurityTokenServicePreferencesResponse] -&gt; ShowS)
+-&gt; Show SetSecurityTokenServicePreferencesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetSecurityTokenServicePreferencesResponse] -&gt; ShowS
+$cshowList :: [SetSecurityTokenServicePreferencesResponse] -&gt; ShowS
+show :: SetSecurityTokenServicePreferencesResponse -&gt; String
+$cshow :: SetSecurityTokenServicePreferencesResponse -&gt; String
+showsPrec :: Int -&gt; SetSecurityTokenServicePreferencesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetSecurityTokenServicePreferencesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetSecurityTokenServicePreferencesResponse
+ -&gt; Rep SetSecurityTokenServicePreferencesResponse x)
+-&gt; (forall x.
+    Rep SetSecurityTokenServicePreferencesResponse x
+    -&gt; SetSecurityTokenServicePreferencesResponse)
+-&gt; Generic SetSecurityTokenServicePreferencesResponse
+forall x.
+Rep SetSecurityTokenServicePreferencesResponse x
+-&gt; SetSecurityTokenServicePreferencesResponse
+forall x.
+SetSecurityTokenServicePreferencesResponse
+-&gt; Rep SetSecurityTokenServicePreferencesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetSecurityTokenServicePreferencesResponse x
+-&gt; SetSecurityTokenServicePreferencesResponse
+$cfrom :: forall x.
+SetSecurityTokenServicePreferencesResponse
+-&gt; Rep SetSecurityTokenServicePreferencesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'SetSecurityTokenServicePreferencesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#newSetSecurityTokenServicePreferencesResponse"><span class="hs-identifier hs-type">newSetSecurityTokenServicePreferencesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferencesResponse"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferencesResponse</span></a></span><span>
+</span><span id="line-188"></span><span id="newSetSecurityTokenServicePreferencesResponse"><span class="annot"><span class="annottext">newSetSecurityTokenServicePreferencesResponse :: SetSecurityTokenServicePreferencesResponse
+</span><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#newSetSecurityTokenServicePreferencesResponse"><span class="hs-identifier hs-var hs-var">newSetSecurityTokenServicePreferencesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">SetSecurityTokenServicePreferencesResponse
+</span><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferencesResponse%27"><span class="hs-identifier hs-var">SetSecurityTokenServicePreferencesResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679436468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.SetSecurityTokenServicePreferences.html#SetSecurityTokenServicePreferencesResponse"><span class="hs-identifier hs-type">SetSecurityTokenServicePreferencesResponse</span></a></span></span><span>
+</span><span id="line-194"></span></pre></body></html>

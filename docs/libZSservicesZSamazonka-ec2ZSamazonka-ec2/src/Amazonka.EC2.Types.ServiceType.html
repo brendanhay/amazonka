@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ServiceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ServiceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType"><span class="hs-identifier">ServiceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType_Gateway"><span class="hs-identifier">ServiceType_Gateway</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType_GatewayLoadBalancer"><span class="hs-identifier">ServiceType_GatewayLoadBalancer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType_Interface"><span class="hs-identifier">ServiceType_Interface</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681149608"><span id="local-6989586621681149609"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceType"><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType"><span class="hs-identifier hs-var">ServiceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceType%27"><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType%27"><span class="hs-identifier hs-var">ServiceType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServiceType"><span class="annot"><span class="annottext">ServiceType -&gt; Text
+</span><a href="Amazonka.EC2.Types.ServiceType.html#fromServiceType"><span class="hs-identifier hs-var hs-var">fromServiceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681149600"><span id="local-6989586621681149602"><span id="local-6989586621681149604"><span class="annot"><span class="annottext">Int -&gt; ServiceType -&gt; ShowS
+[ServiceType] -&gt; ShowS
+ServiceType -&gt; String
+(Int -&gt; ServiceType -&gt; ShowS)
+-&gt; (ServiceType -&gt; String)
+-&gt; ([ServiceType] -&gt; ShowS)
+-&gt; Show ServiceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ServiceType] -&gt; ShowS
+$cshowList :: [ServiceType] -&gt; ShowS
+show :: ServiceType -&gt; String
+$cshow :: ServiceType -&gt; String
+showsPrec :: Int -&gt; ServiceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ServiceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681149591"><span id="local-6989586621681149593"><span id="local-6989586621681149595"><span id="local-6989586621681149597"><span class="annot"><span class="annottext">ReadPrec [ServiceType]
+ReadPrec ServiceType
+Int -&gt; ReadS ServiceType
+ReadS [ServiceType]
+(Int -&gt; ReadS ServiceType)
+-&gt; ReadS [ServiceType]
+-&gt; ReadPrec ServiceType
+-&gt; ReadPrec [ServiceType]
+-&gt; Read ServiceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ServiceType]
+$creadListPrec :: ReadPrec [ServiceType]
+readPrec :: ReadPrec ServiceType
+$creadPrec :: ReadPrec ServiceType
+readList :: ReadS [ServiceType]
+$creadList :: ReadS [ServiceType]
+readsPrec :: Int -&gt; ReadS ServiceType
+$creadsPrec :: Int -&gt; ReadS ServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681149586"><span id="local-6989586621681149588"><span class="annot"><span class="annottext">ServiceType -&gt; ServiceType -&gt; Bool
+(ServiceType -&gt; ServiceType -&gt; Bool)
+-&gt; (ServiceType -&gt; ServiceType -&gt; Bool) -&gt; Eq ServiceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ServiceType -&gt; ServiceType -&gt; Bool
+$c/= :: ServiceType -&gt; ServiceType -&gt; Bool
+== :: ServiceType -&gt; ServiceType -&gt; Bool
+$c== :: ServiceType -&gt; ServiceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681149570"><span id="local-6989586621681149572"><span id="local-6989586621681149574"><span id="local-6989586621681149576"><span id="local-6989586621681149578"><span id="local-6989586621681149580"><span id="local-6989586621681149582"><span class="annot"><span class="annottext">Eq ServiceType
+Eq ServiceType
+-&gt; (ServiceType -&gt; ServiceType -&gt; Ordering)
+-&gt; (ServiceType -&gt; ServiceType -&gt; Bool)
+-&gt; (ServiceType -&gt; ServiceType -&gt; Bool)
+-&gt; (ServiceType -&gt; ServiceType -&gt; Bool)
+-&gt; (ServiceType -&gt; ServiceType -&gt; Bool)
+-&gt; (ServiceType -&gt; ServiceType -&gt; ServiceType)
+-&gt; (ServiceType -&gt; ServiceType -&gt; ServiceType)
+-&gt; Ord ServiceType
+ServiceType -&gt; ServiceType -&gt; Bool
+ServiceType -&gt; ServiceType -&gt; Ordering
+ServiceType -&gt; ServiceType -&gt; ServiceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ServiceType -&gt; ServiceType -&gt; ServiceType
+$cmin :: ServiceType -&gt; ServiceType -&gt; ServiceType
+max :: ServiceType -&gt; ServiceType -&gt; ServiceType
+$cmax :: ServiceType -&gt; ServiceType -&gt; ServiceType
+&gt;= :: ServiceType -&gt; ServiceType -&gt; Bool
+$c&gt;= :: ServiceType -&gt; ServiceType -&gt; Bool
+&gt; :: ServiceType -&gt; ServiceType -&gt; Bool
+$c&gt; :: ServiceType -&gt; ServiceType -&gt; Bool
+&lt;= :: ServiceType -&gt; ServiceType -&gt; Bool
+$c&lt;= :: ServiceType -&gt; ServiceType -&gt; Bool
+&lt; :: ServiceType -&gt; ServiceType -&gt; Bool
+$c&lt; :: ServiceType -&gt; ServiceType -&gt; Bool
+compare :: ServiceType -&gt; ServiceType -&gt; Ordering
+$ccompare :: ServiceType -&gt; ServiceType -&gt; Ordering
+$cp1Ord :: Eq ServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ServiceType -&gt; Rep ServiceType x)
+-&gt; (forall x. Rep ServiceType x -&gt; ServiceType)
+-&gt; Generic ServiceType
+forall x. Rep ServiceType x -&gt; ServiceType
+forall x. ServiceType -&gt; Rep ServiceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ServiceType x -&gt; ServiceType
+$cfrom :: forall x. ServiceType -&gt; Rep ServiceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681149562"><span id="local-6989586621681149564"><span class="annot"><span class="annottext">Int -&gt; ServiceType -&gt; Int
+ServiceType -&gt; Int
+(Int -&gt; ServiceType -&gt; Int)
+-&gt; (ServiceType -&gt; Int) -&gt; Hashable ServiceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ServiceType -&gt; Int
+$chash :: ServiceType -&gt; Int
+hashWithSalt :: Int -&gt; ServiceType -&gt; Int
+$chashWithSalt :: Int -&gt; ServiceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681149559"><span class="annot"><span class="annottext">ServiceType -&gt; ()
+(ServiceType -&gt; ()) -&gt; NFData ServiceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ServiceType -&gt; ()
+$crnf :: ServiceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681149556"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceType
+(Text -&gt; Either String ServiceType) -&gt; FromText ServiceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ServiceType
+$cfromText :: Text -&gt; Either String ServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681149553"><span class="annot"><span class="annottext">ServiceType -&gt; Text
+(ServiceType -&gt; Text) -&gt; ToText ServiceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ServiceType -&gt; Text
+$ctoText :: ServiceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681149550"><span class="annot"><span class="annottext">ServiceType -&gt; ByteString
+(ServiceType -&gt; ByteString) -&gt; ToByteString ServiceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ServiceType -&gt; ByteString
+$ctoBS :: ServiceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681149547"><span class="annot"><span class="annottext">ServiceType -&gt; ByteStringBuilder
+(ServiceType -&gt; ByteStringBuilder) -&gt; ToLog ServiceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ServiceType -&gt; ByteStringBuilder
+$cbuild :: ServiceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681149544"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceType -&gt; [Header]
+(HeaderName -&gt; ServiceType -&gt; [Header]) -&gt; ToHeader ServiceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ServiceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ServiceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681149541"><span class="annot"><span class="annottext">ServiceType -&gt; QueryString
+(ServiceType -&gt; QueryString) -&gt; ToQuery ServiceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ServiceType -&gt; QueryString
+$ctoQuery :: ServiceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681149536"><span id="local-6989586621681149538"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceType]
+Value -&gt; Parser ServiceType
+(Value -&gt; Parser ServiceType)
+-&gt; (Value -&gt; Parser [ServiceType]) -&gt; FromJSON ServiceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ServiceType]
+$cparseJSONList :: Value -&gt; Parser [ServiceType]
+parseJSON :: Value -&gt; Parser ServiceType
+$cparseJSON :: Value -&gt; Parser ServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681149531"><span id="local-6989586621681149533"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceType]
+FromJSONKeyFunction ServiceType
+FromJSONKeyFunction ServiceType
+-&gt; FromJSONKeyFunction [ServiceType] -&gt; FromJSONKey ServiceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ServiceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ServiceType]
+fromJSONKey :: FromJSONKeyFunction ServiceType
+$cfromJSONKey :: FromJSONKeyFunction ServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681149522"><span id="local-6989586621681149524"><span id="local-6989586621681149526"><span id="local-6989586621681149528"><span class="annot"><span class="annottext">[ServiceType] -&gt; Encoding
+[ServiceType] -&gt; Value
+ServiceType -&gt; Encoding
+ServiceType -&gt; Value
+(ServiceType -&gt; Value)
+-&gt; (ServiceType -&gt; Encoding)
+-&gt; ([ServiceType] -&gt; Value)
+-&gt; ([ServiceType] -&gt; Encoding)
+-&gt; ToJSON ServiceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ServiceType] -&gt; Encoding
+$ctoEncodingList :: [ServiceType] -&gt; Encoding
+toJSONList :: [ServiceType] -&gt; Value
+$ctoJSONList :: [ServiceType] -&gt; Value
+toEncoding :: ServiceType -&gt; Encoding
+$ctoEncoding :: ServiceType -&gt; Encoding
+toJSON :: ServiceType -&gt; Value
+$ctoJSON :: ServiceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681149517"><span id="local-6989586621681149519"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceType]
+ToJSONKeyFunction ServiceType
+ToJSONKeyFunction ServiceType
+-&gt; ToJSONKeyFunction [ServiceType] -&gt; ToJSONKey ServiceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ServiceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ServiceType]
+toJSONKey :: ToJSONKeyFunction ServiceType
+$ctoJSONKey :: ToJSONKeyFunction ServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681149514"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceType
+([Node] -&gt; Either String ServiceType) -&gt; FromXML ServiceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ServiceType
+$cparseXML :: [Node] -&gt; Either String ServiceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681149511"><span class="annot"><span class="annottext">ServiceType -&gt; XML
+(ServiceType -&gt; XML) -&gt; ToXML ServiceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ServiceType -&gt; XML
+$ctoXML :: ServiceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType_Gateway"><span class="hs-identifier hs-type">ServiceType_Gateway</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType"><span class="hs-identifier hs-type">ServiceType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceType_Gateway"><span id="%24mServiceType_Gateway"><span id="ServiceType_Gateway"><span class="annot"><span class="annottext">$bServiceType_Gateway :: ServiceType
+$mServiceType_Gateway :: forall r. ServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ServiceType.html#%24bServiceType_Gateway"><span class="hs-identifier hs-var hs-var hs-var">ServiceType_Gateway</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType%27"><span class="hs-identifier hs-type">ServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Gateway&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType_GatewayLoadBalancer"><span class="hs-identifier hs-type">ServiceType_GatewayLoadBalancer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType"><span class="hs-identifier hs-type">ServiceType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceType_GatewayLoadBalancer"><span id="%24mServiceType_GatewayLoadBalancer"><span id="ServiceType_GatewayLoadBalancer"><span class="annot"><span class="annottext">$bServiceType_GatewayLoadBalancer :: ServiceType
+$mServiceType_GatewayLoadBalancer :: forall r. ServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ServiceType.html#%24bServiceType_GatewayLoadBalancer"><span class="hs-identifier hs-var hs-var hs-var">ServiceType_GatewayLoadBalancer</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType%27"><span class="hs-identifier hs-type">ServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GatewayLoadBalancer&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType_Interface"><span class="hs-identifier hs-type">ServiceType_Interface</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType"><span class="hs-identifier hs-type">ServiceType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceType_Interface"><span id="%24mServiceType_Interface"><span id="ServiceType_Interface"><span class="annot"><span class="annottext">$bServiceType_Interface :: ServiceType
+$mServiceType_Interface :: forall r. ServiceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ServiceType.html#%24bServiceType_Interface"><span class="hs-identifier hs-var hs-var hs-var">ServiceType_Interface</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType%27"><span class="hs-identifier hs-type">ServiceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Interface&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType_Gateway"><span class="hs-pragma hs-type">ServiceType_Gateway</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType_GatewayLoadBalancer"><span class="hs-pragma hs-type">ServiceType_GatewayLoadBalancer</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType_Interface"><span class="hs-pragma hs-type">ServiceType_Interface</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceType.html#ServiceType%27"><span class="hs-pragma hs-type">ServiceType'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

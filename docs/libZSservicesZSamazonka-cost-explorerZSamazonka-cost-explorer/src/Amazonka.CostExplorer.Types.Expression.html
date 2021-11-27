@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CostExplorer.Types.Expression</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CostExplorer.Types.Expression</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.CostCategoryValues.html"><span class="hs-identifier">Amazonka.CostExplorer.Types.CostCategoryValues</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.DimensionValues.html"><span class="hs-identifier">Amazonka.CostExplorer.Types.DimensionValues</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.TagValues.html"><span class="hs-identifier">Amazonka.CostExplorer.Types.TagValues</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Use @Expression@ to filter by cost or by usage. There are two patterns:</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   Simple dimension values - You can set the dimension name and values</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     for the filters that you plan to use. For example, you can filter</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     for @REGION==us-east-1 OR REGION==us-west-1@. For</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     @GetRightsizingRecommendation@, the Region is a full name (for</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     example, @REGION==US East (N. Virginia)@. The @Expression@ example</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     is as follows:</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     @{ \&quot;Dimensions\&quot;: { \&quot;Key\&quot;: \&quot;REGION\&quot;, \&quot;Values\&quot;: [ \&quot;us-east-1\&quot;, &#8220;us-west-1&#8221; ] } }@</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     The list of dimension values are OR\'d together to retrieve cost or</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     usage data. You can create @Expression@ and @DimensionValues@</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     objects using either @with*@ methods or @set*@ methods in multiple</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     lines.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- -   Compound dimension values with logical operations - You can use</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     multiple @Expression@ types and the logical operators @AND\/OR\/NOT@</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     to create a list of one or more @Expression@ objects. By doing this,</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     you can filter on more advanced options. For example, you can filter</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     on</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     @((REGION == us-east-1 OR REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)@.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--     The @Expression@ for that is as follows:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--     @{ \&quot;And\&quot;: [ {\&quot;Or\&quot;: [ {\&quot;Dimensions\&quot;: { \&quot;Key\&quot;: \&quot;REGION\&quot;, \&quot;Values\&quot;: [ \&quot;us-east-1\&quot;, \&quot;us-west-1\&quot; ] }}, {\&quot;Tags\&quot;: { \&quot;Key\&quot;: \&quot;TagName\&quot;, \&quot;Values\&quot;: [\&quot;Value1\&quot;] } } ]}, {\&quot;Not\&quot;: {\&quot;Dimensions\&quot;: { \&quot;Key\&quot;: \&quot;USAGE_TYPE\&quot;, \&quot;Values\&quot;: [\&quot;DataTransfer\&quot;] }}} ] } @</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--     Because each @Expression@ can have only one operator, the service</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--     returns an error if more than one is specified. The following</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--     example shows an @Expression@ object that creates an error.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--     @ { \&quot;And\&quot;: [ ... ], \&quot;DimensionValues\&quot;: { \&quot;Dimension\&quot;: \&quot;USAGE_TYPE\&quot;, \&quot;Values\&quot;: [ \&quot;DataTransfer\&quot; ] } } @</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- For the @GetRightsizingRecommendation@ action, a combination of OR and</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- NOT isn\'t supported. OR isn\'t supported between different dimensions,</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- or dimensions and tags. NOT operators aren\'t supported. Dimensions are</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- also limited to @LINKED_ACCOUNT@, @REGION@, or @RIGHTSIZING_TYPE@.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- For the @GetReservationPurchaseRecommendation@ action, only NOT is</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- supported. AND and OR aren\'t supported. Dimensions are limited to</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- @LINKED_ACCOUNT@.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- /See:/ 'newExpression' smart constructor.</span><span>
+</span><span id="line-71"></span><span id="local-6989586621679338456"><span id="local-6989586621679338457"></span></span><span class="hs-keyword">data</span><span> </span><span id="Expression"><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-var">Expression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Expression%27"><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-var">Expression'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Return results that don\'t match a @Dimension@ object.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Anot%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe Expression
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Anot%3AExpression%27"><span class="hs-identifier hs-var hs-var">not</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Return results that match both @Dimension@ objects.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aand%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe [Expression]
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Aand%3AExpression%27"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Return results that match either @Dimension@ object.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Aor%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe [Expression]
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Aor%3AExpression%27"><span class="hs-identifier hs-var hs-var">or</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The filter that\'s based on @CostCategory@ values.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AcostCategories%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe CostCategoryValues
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3AcostCategories%3AExpression%27"><span class="hs-identifier hs-var hs-var">costCategories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The specific @Dimension@ to use for @Expression@.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Adimensions%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe DimensionValues
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Adimensions%3AExpression%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.DimensionValues.html#DimensionValues"><span class="hs-identifier hs-type">DimensionValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The specific @Tag@ to use for @Expression@.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Atags%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe TagValues
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Atags%3AExpression%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338445"><span id="local-6989586621679338447"><span class="annot"><span class="annottext">Expression -&gt; Expression -&gt; Bool
+(Expression -&gt; Expression -&gt; Bool)
+-&gt; (Expression -&gt; Expression -&gt; Bool) -&gt; Eq Expression
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Expression -&gt; Expression -&gt; Bool
+$c/= :: Expression -&gt; Expression -&gt; Bool
+== :: Expression -&gt; Expression -&gt; Bool
+$c== :: Expression -&gt; Expression -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338436"><span id="local-6989586621679338438"><span id="local-6989586621679338440"><span id="local-6989586621679338442"><span class="annot"><span class="annottext">ReadPrec [Expression]
+ReadPrec Expression
+Int -&gt; ReadS Expression
+ReadS [Expression]
+(Int -&gt; ReadS Expression)
+-&gt; ReadS [Expression]
+-&gt; ReadPrec Expression
+-&gt; ReadPrec [Expression]
+-&gt; Read Expression
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Expression]
+$creadListPrec :: ReadPrec [Expression]
+readPrec :: ReadPrec Expression
+$creadPrec :: ReadPrec Expression
+readList :: ReadS [Expression]
+$creadList :: ReadS [Expression]
+readsPrec :: Int -&gt; ReadS Expression
+$creadsPrec :: Int -&gt; ReadS Expression
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338429"><span id="local-6989586621679338431"><span id="local-6989586621679338433"><span class="annot"><span class="annottext">Int -&gt; Expression -&gt; ShowS
+[Expression] -&gt; ShowS
+Expression -&gt; String
+(Int -&gt; Expression -&gt; ShowS)
+-&gt; (Expression -&gt; String)
+-&gt; ([Expression] -&gt; ShowS)
+-&gt; Show Expression
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Expression] -&gt; ShowS
+$cshowList :: [Expression] -&gt; ShowS
+show :: Expression -&gt; String
+$cshow :: Expression -&gt; String
+showsPrec :: Int -&gt; Expression -&gt; ShowS
+$cshowsPrec :: Int -&gt; Expression -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Expression -&gt; Rep Expression x)
+-&gt; (forall x. Rep Expression x -&gt; Expression) -&gt; Generic Expression
+forall x. Rep Expression x -&gt; Expression
+forall x. Expression -&gt; Rep Expression x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Expression x -&gt; Expression
+$cfrom :: forall x. Expression -&gt; Rep Expression x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Create a value of 'Expression' with all optional fields omitted.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'not', 'expression_not' - Return results that don\'t match a @Dimension@ object.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'and', 'expression_and' - Return results that match both @Dimension@ objects.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'or', 'expression_or' - Return results that match either @Dimension@ object.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'costCategories', 'expression_costCategories' - The filter that\'s based on @CostCategory@ values.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'dimensions', 'expression_dimensions' - The specific @Dimension@ to use for @Expression@.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'tags', 'expression_tags' - The specific @Tag@ to use for @Expression@.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#newExpression"><span class="hs-identifier hs-type">newExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span>
+</span><span id="line-108"></span><span id="newExpression"><span class="annot"><span class="annottext">newExpression :: Expression
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#newExpression"><span class="hs-identifier hs-var hs-var">newExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">Expression' :: Maybe Expression
+-&gt; Maybe [Expression]
+-&gt; Maybe [Expression]
+-&gt; Maybe CostCategoryValues
+-&gt; Maybe DimensionValues
+-&gt; Maybe TagValues
+-&gt; Expression
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:not:Expression' :: Maybe Expression
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Anot%3AExpression%27"><span class="hs-identifier hs-var">not</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:and:Expression' :: Maybe [Expression]
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Aand%3AExpression%27"><span class="hs-identifier hs-var">and</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:or:Expression' :: Maybe [Expression]
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Aor%3AExpression%27"><span class="hs-identifier hs-var">or</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:costCategories:Expression' :: Maybe CostCategoryValues
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3AcostCategories%3AExpression%27"><span class="hs-identifier hs-var">costCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:dimensions:Expression' :: Maybe DimensionValues
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Adimensions%3AExpression%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValues
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Expression' :: Maybe TagValues
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Atags%3AExpression%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TagValues
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Return results that don\'t match a @Dimension@ object.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#expression_not"><span class="hs-identifier hs-type">expression_not</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="expression_not"><span class="annot"><span class="annottext">expression_not :: (Maybe Expression -&gt; f (Maybe Expression))
+-&gt; Expression -&gt; f Expression
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#expression_not"><span class="hs-identifier hs-var hs-var">expression_not</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe Expression)
+-&gt; (Expression -&gt; Maybe Expression -&gt; Expression)
+-&gt; Lens Expression Expression (Maybe Expression) (Maybe Expression)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338420"><span class="annot"><span class="annottext">Maybe Expression
+not :: Maybe Expression
+$sel:not:Expression' :: Expression -&gt; Maybe Expression
+</span><a href="#local-6989586621679338420"><span class="hs-identifier hs-var hs-var">not</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679338420"><span class="hs-identifier hs-var">not</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338419"><span class="annot"><span class="annottext">s :: Expression
+</span><a href="#local-6989586621679338419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338418"><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679338418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679338419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:not:Expression' :: Maybe Expression
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Anot%3AExpression%27"><span class="hs-identifier hs-var">not</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679338418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Return results that match both @Dimension@ objects.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#expression_and"><span class="hs-identifier hs-type">expression_and</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="expression_and"><span class="annot"><span class="annottext">expression_and :: (Maybe [Expression] -&gt; f (Maybe [Expression]))
+-&gt; Expression -&gt; f Expression
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#expression_and"><span class="hs-identifier hs-var hs-var">expression_and</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe [Expression])
+-&gt; (Expression -&gt; Maybe [Expression] -&gt; Expression)
+-&gt; Lens
+     Expression Expression (Maybe [Expression]) (Maybe [Expression])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338416"><span class="annot"><span class="annottext">Maybe [Expression]
+and :: Maybe [Expression]
+$sel:and:Expression' :: Expression -&gt; Maybe [Expression]
+</span><a href="#local-6989586621679338416"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338416"><span class="hs-identifier hs-var">and</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338415"><span class="annot"><span class="annottext">s :: Expression
+</span><a href="#local-6989586621679338415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338414"><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679338415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:and:Expression' :: Maybe [Expression]
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Aand%3AExpression%27"><span class="hs-identifier hs-var">and</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Expression] -&gt; f (Maybe [Expression]))
+ -&gt; Expression -&gt; f Expression)
+-&gt; ((Maybe [Expression] -&gt; f (Maybe [Expression]))
+    -&gt; Maybe [Expression] -&gt; f (Maybe [Expression]))
+-&gt; (Maybe [Expression] -&gt; f (Maybe [Expression]))
+-&gt; Expression
+-&gt; f Expression
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Expression] [Expression] [Expression] [Expression]
+-&gt; Iso
+     (Maybe [Expression])
+     (Maybe [Expression])
+     (Maybe [Expression])
+     (Maybe [Expression])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Expression] [Expression] [Expression] [Expression]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Return results that match either @Dimension@ object.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#expression_or"><span class="hs-identifier hs-type">expression_or</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="expression_or"><span class="annot"><span class="annottext">expression_or :: (Maybe [Expression] -&gt; f (Maybe [Expression]))
+-&gt; Expression -&gt; f Expression
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#expression_or"><span class="hs-identifier hs-var hs-var">expression_or</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe [Expression])
+-&gt; (Expression -&gt; Maybe [Expression] -&gt; Expression)
+-&gt; Lens
+     Expression Expression (Maybe [Expression]) (Maybe [Expression])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338409"><span class="annot"><span class="annottext">Maybe [Expression]
+or :: Maybe [Expression]
+$sel:or:Expression' :: Expression -&gt; Maybe [Expression]
+</span><a href="#local-6989586621679338409"><span class="hs-identifier hs-var hs-var">or</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338409"><span class="hs-identifier hs-var">or</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338408"><span class="annot"><span class="annottext">s :: Expression
+</span><a href="#local-6989586621679338408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338407"><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679338408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:or:Expression' :: Maybe [Expression]
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Aor%3AExpression%27"><span class="hs-identifier hs-var">or</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Expression] -&gt; f (Maybe [Expression]))
+ -&gt; Expression -&gt; f Expression)
+-&gt; ((Maybe [Expression] -&gt; f (Maybe [Expression]))
+    -&gt; Maybe [Expression] -&gt; f (Maybe [Expression]))
+-&gt; (Maybe [Expression] -&gt; f (Maybe [Expression]))
+-&gt; Expression
+-&gt; f Expression
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Expression] [Expression] [Expression] [Expression]
+-&gt; Iso
+     (Maybe [Expression])
+     (Maybe [Expression])
+     (Maybe [Expression])
+     (Maybe [Expression])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Expression] [Expression] [Expression] [Expression]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The filter that\'s based on @CostCategory@ values.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#expression_costCategories"><span class="hs-identifier hs-type">expression_costCategories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="expression_costCategories"><span class="annot"><span class="annottext">expression_costCategories :: (Maybe CostCategoryValues -&gt; f (Maybe CostCategoryValues))
+-&gt; Expression -&gt; f Expression
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#expression_costCategories"><span class="hs-identifier hs-var hs-var">expression_costCategories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe CostCategoryValues)
+-&gt; (Expression -&gt; Maybe CostCategoryValues -&gt; Expression)
+-&gt; Lens
+     Expression
+     Expression
+     (Maybe CostCategoryValues)
+     (Maybe CostCategoryValues)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338405"><span class="annot"><span class="annottext">Maybe CostCategoryValues
+costCategories :: Maybe CostCategoryValues
+$sel:costCategories:Expression' :: Expression -&gt; Maybe CostCategoryValues
+</span><a href="#local-6989586621679338405"><span class="hs-identifier hs-var hs-var">costCategories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
+</span><a href="#local-6989586621679338405"><span class="hs-identifier hs-var">costCategories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338404"><span class="annot"><span class="annottext">s :: Expression
+</span><a href="#local-6989586621679338404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338403"><span class="annot"><span class="annottext">Maybe CostCategoryValues
+</span><a href="#local-6989586621679338403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679338404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:costCategories:Expression' :: Maybe CostCategoryValues
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3AcostCategories%3AExpression%27"><span class="hs-identifier hs-var">costCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
+</span><a href="#local-6989586621679338403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The specific @Dimension@ to use for @Expression@.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#expression_dimensions"><span class="hs-identifier hs-type">expression_dimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.DimensionValues.html#DimensionValues"><span class="hs-identifier hs-type">DimensionValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="expression_dimensions"><span class="annot"><span class="annottext">expression_dimensions :: (Maybe DimensionValues -&gt; f (Maybe DimensionValues))
+-&gt; Expression -&gt; f Expression
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#expression_dimensions"><span class="hs-identifier hs-var hs-var">expression_dimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe DimensionValues)
+-&gt; (Expression -&gt; Maybe DimensionValues -&gt; Expression)
+-&gt; Lens
+     Expression
+     Expression
+     (Maybe DimensionValues)
+     (Maybe DimensionValues)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338401"><span class="annot"><span class="annottext">Maybe DimensionValues
+dimensions :: Maybe DimensionValues
+$sel:dimensions:Expression' :: Expression -&gt; Maybe DimensionValues
+</span><a href="#local-6989586621679338401"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValues
+</span><a href="#local-6989586621679338401"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338400"><span class="annot"><span class="annottext">s :: Expression
+</span><a href="#local-6989586621679338400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338399"><span class="annot"><span class="annottext">Maybe DimensionValues
+</span><a href="#local-6989586621679338399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679338400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:Expression' :: Maybe DimensionValues
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Adimensions%3AExpression%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValues
+</span><a href="#local-6989586621679338399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The specific @Tag@ to use for @Expression@.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#expression_tags"><span class="hs-identifier hs-type">expression_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="expression_tags"><span class="annot"><span class="annottext">expression_tags :: (Maybe TagValues -&gt; f (Maybe TagValues))
+-&gt; Expression -&gt; f Expression
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#expression_tags"><span class="hs-identifier hs-var hs-var">expression_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe TagValues)
+-&gt; (Expression -&gt; Maybe TagValues -&gt; Expression)
+-&gt; Lens Expression Expression (Maybe TagValues) (Maybe TagValues)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338397"><span class="annot"><span class="annottext">Maybe TagValues
+tags :: Maybe TagValues
+$sel:tags:Expression' :: Expression -&gt; Maybe TagValues
+</span><a href="#local-6989586621679338397"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TagValues
+</span><a href="#local-6989586621679338397"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338396"><span class="annot"><span class="annottext">s :: Expression
+</span><a href="#local-6989586621679338396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338395"><span class="annot"><span class="annottext">Maybe TagValues
+</span><a href="#local-6989586621679338395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679338396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Expression' :: Maybe TagValues
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#%24sel%3Atags%3AExpression%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TagValues
+</span><a href="#local-6989586621679338395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338392"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679338390"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Expression
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Expression) -&gt; Value -&gt; Parser Expression
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Expression&quot;</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338387"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338387"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Expression
+-&gt; Maybe [Expression]
+-&gt; Maybe [Expression]
+-&gt; Maybe CostCategoryValues
+-&gt; Maybe DimensionValues
+-&gt; Maybe TagValues
+-&gt; Expression
+</span><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-var">Expression'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Expression
+ -&gt; Maybe [Expression]
+ -&gt; Maybe [Expression]
+ -&gt; Maybe CostCategoryValues
+ -&gt; Maybe DimensionValues
+ -&gt; Maybe TagValues
+ -&gt; Expression)
+-&gt; Parser (Maybe Expression)
+-&gt; Parser
+     (Maybe [Expression]
+      -&gt; Maybe [Expression]
+      -&gt; Maybe CostCategoryValues
+      -&gt; Maybe DimensionValues
+      -&gt; Maybe TagValues
+      -&gt; Expression)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Expression)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Not&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Expression]
+   -&gt; Maybe [Expression]
+   -&gt; Maybe CostCategoryValues
+   -&gt; Maybe DimensionValues
+   -&gt; Maybe TagValues
+   -&gt; Expression)
+-&gt; Parser (Maybe [Expression])
+-&gt; Parser
+     (Maybe [Expression]
+      -&gt; Maybe CostCategoryValues
+      -&gt; Maybe DimensionValues
+      -&gt; Maybe TagValues
+      -&gt; Expression)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Expression]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;And&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Expression]))
+-&gt; Maybe [Expression] -&gt; Parser (Maybe [Expression])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Expression]
+   -&gt; Maybe CostCategoryValues
+   -&gt; Maybe DimensionValues
+   -&gt; Maybe TagValues
+   -&gt; Expression)
+-&gt; Parser (Maybe [Expression])
+-&gt; Parser
+     (Maybe CostCategoryValues
+      -&gt; Maybe DimensionValues -&gt; Maybe TagValues -&gt; Expression)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Expression]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Or&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Expression]))
+-&gt; Maybe [Expression] -&gt; Parser (Maybe [Expression])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CostCategoryValues
+   -&gt; Maybe DimensionValues -&gt; Maybe TagValues -&gt; Expression)
+-&gt; Parser (Maybe CostCategoryValues)
+-&gt; Parser (Maybe DimensionValues -&gt; Maybe TagValues -&gt; Expression)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CostCategoryValues)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CostCategories&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DimensionValues -&gt; Maybe TagValues -&gt; Expression)
+-&gt; Parser (Maybe DimensionValues)
+-&gt; Parser (Maybe TagValues -&gt; Expression)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DimensionValues)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dimensions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TagValues -&gt; Expression)
+-&gt; Parser (Maybe TagValues) -&gt; Parser Expression
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TagValues)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338380"><span id="local-6989586621679338382"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338369"><span id="local-6989586621679338371"><span id="local-6989586621679338373"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679338367"><span class="annot"><span class="annottext">toJSON :: Expression -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338360"><span id="local-6989586621679338361"><span id="local-6989586621679338362"><span id="local-6989586621679338363"><span id="local-6989586621679338364"><span id="local-6989586621679338365"><span class="annot"><span class="annottext">Maybe [Expression]
+Maybe DimensionValues
+Maybe CostCategoryValues
+Maybe TagValues
+Maybe Expression
+tags :: Maybe TagValues
+dimensions :: Maybe DimensionValues
+costCategories :: Maybe CostCategoryValues
+or :: Maybe [Expression]
+and :: Maybe [Expression]
+not :: Maybe Expression
+$sel:tags:Expression' :: Expression -&gt; Maybe TagValues
+$sel:dimensions:Expression' :: Expression -&gt; Maybe DimensionValues
+$sel:costCategories:Expression' :: Expression -&gt; Maybe CostCategoryValues
+$sel:or:Expression' :: Expression -&gt; Maybe [Expression]
+$sel:and:Expression' :: Expression -&gt; Maybe [Expression]
+$sel:not:Expression' :: Expression -&gt; Maybe Expression
+</span><a href="#local-6989586621679338360"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Not&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Expression -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Pair) -&gt; Maybe Expression -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679338365"><span class="hs-identifier hs-var">not</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;And&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Expression] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Expression] -&gt; Pair) -&gt; Maybe [Expression] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338364"><span class="hs-identifier hs-var">and</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Or&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Expression] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Expression] -&gt; Pair) -&gt; Maybe [Expression] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338363"><span class="hs-identifier hs-var">or</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CostCategories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CostCategoryValues -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">(CostCategoryValues -&gt; Pair)
+-&gt; Maybe CostCategoryValues -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
+</span><a href="#local-6989586621679338362"><span class="hs-identifier hs-var">costCategories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DimensionValues -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DimensionValues -&gt; Pair) -&gt; Maybe DimensionValues -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValues
+</span><a href="#local-6989586621679338361"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TagValues -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TagValues -&gt; Pair) -&gt; Maybe TagValues -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TagValues
+</span><a href="#local-6989586621679338360"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span></pre></body></html>

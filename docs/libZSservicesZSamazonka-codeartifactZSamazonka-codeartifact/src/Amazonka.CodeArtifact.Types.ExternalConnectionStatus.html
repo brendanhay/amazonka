@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeArtifact.Types.ExternalConnectionStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeArtifact.Types.ExternalConnectionStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.ExternalConnectionStatus.html#ExternalConnectionStatus"><span class="hs-identifier">ExternalConnectionStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.ExternalConnectionStatus.html#ExternalConnectionStatus_Available"><span class="hs-identifier">ExternalConnectionStatus_Available</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679229710"><span id="local-6989586621679229711"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExternalConnectionStatus"><span class="annot"><a href="Amazonka.CodeArtifact.Types.ExternalConnectionStatus.html#ExternalConnectionStatus"><span class="hs-identifier hs-var">ExternalConnectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExternalConnectionStatus%27"><span class="annot"><a href="Amazonka.CodeArtifact.Types.ExternalConnectionStatus.html#ExternalConnectionStatus%27"><span class="hs-identifier hs-var">ExternalConnectionStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExternalConnectionStatus"><span class="annot"><span class="annottext">ExternalConnectionStatus -&gt; Text
+</span><a href="Amazonka.CodeArtifact.Types.ExternalConnectionStatus.html#fromExternalConnectionStatus"><span class="hs-identifier hs-var hs-var">fromExternalConnectionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679229702"><span id="local-6989586621679229704"><span id="local-6989586621679229706"><span class="annot"><span class="annottext">Int -&gt; ExternalConnectionStatus -&gt; ShowS
+[ExternalConnectionStatus] -&gt; ShowS
+ExternalConnectionStatus -&gt; String
+(Int -&gt; ExternalConnectionStatus -&gt; ShowS)
+-&gt; (ExternalConnectionStatus -&gt; String)
+-&gt; ([ExternalConnectionStatus] -&gt; ShowS)
+-&gt; Show ExternalConnectionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExternalConnectionStatus] -&gt; ShowS
+$cshowList :: [ExternalConnectionStatus] -&gt; ShowS
+show :: ExternalConnectionStatus -&gt; String
+$cshow :: ExternalConnectionStatus -&gt; String
+showsPrec :: Int -&gt; ExternalConnectionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExternalConnectionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679229693"><span id="local-6989586621679229695"><span id="local-6989586621679229697"><span id="local-6989586621679229699"><span class="annot"><span class="annottext">ReadPrec [ExternalConnectionStatus]
+ReadPrec ExternalConnectionStatus
+Int -&gt; ReadS ExternalConnectionStatus
+ReadS [ExternalConnectionStatus]
+(Int -&gt; ReadS ExternalConnectionStatus)
+-&gt; ReadS [ExternalConnectionStatus]
+-&gt; ReadPrec ExternalConnectionStatus
+-&gt; ReadPrec [ExternalConnectionStatus]
+-&gt; Read ExternalConnectionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExternalConnectionStatus]
+$creadListPrec :: ReadPrec [ExternalConnectionStatus]
+readPrec :: ReadPrec ExternalConnectionStatus
+$creadPrec :: ReadPrec ExternalConnectionStatus
+readList :: ReadS [ExternalConnectionStatus]
+$creadList :: ReadS [ExternalConnectionStatus]
+readsPrec :: Int -&gt; ReadS ExternalConnectionStatus
+$creadsPrec :: Int -&gt; ReadS ExternalConnectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679229688"><span id="local-6989586621679229690"><span class="annot"><span class="annottext">ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+(ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool)
+-&gt; (ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool)
+-&gt; Eq ExternalConnectionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+$c/= :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+== :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+$c== :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679229672"><span id="local-6989586621679229674"><span id="local-6989586621679229676"><span id="local-6989586621679229678"><span id="local-6989586621679229680"><span id="local-6989586621679229682"><span id="local-6989586621679229684"><span class="annot"><span class="annottext">Eq ExternalConnectionStatus
+Eq ExternalConnectionStatus
+-&gt; (ExternalConnectionStatus
+    -&gt; ExternalConnectionStatus -&gt; Ordering)
+-&gt; (ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool)
+-&gt; (ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool)
+-&gt; (ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool)
+-&gt; (ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool)
+-&gt; (ExternalConnectionStatus
+    -&gt; ExternalConnectionStatus -&gt; ExternalConnectionStatus)
+-&gt; (ExternalConnectionStatus
+    -&gt; ExternalConnectionStatus -&gt; ExternalConnectionStatus)
+-&gt; Ord ExternalConnectionStatus
+ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Ordering
+ExternalConnectionStatus
+-&gt; ExternalConnectionStatus -&gt; ExternalConnectionStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExternalConnectionStatus
+-&gt; ExternalConnectionStatus -&gt; ExternalConnectionStatus
+$cmin :: ExternalConnectionStatus
+-&gt; ExternalConnectionStatus -&gt; ExternalConnectionStatus
+max :: ExternalConnectionStatus
+-&gt; ExternalConnectionStatus -&gt; ExternalConnectionStatus
+$cmax :: ExternalConnectionStatus
+-&gt; ExternalConnectionStatus -&gt; ExternalConnectionStatus
+&gt;= :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+$c&gt;= :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+&gt; :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+$c&gt; :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+&lt;= :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+$c&lt;= :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+&lt; :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+$c&lt; :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Bool
+compare :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Ordering
+$ccompare :: ExternalConnectionStatus -&gt; ExternalConnectionStatus -&gt; Ordering
+$cp1Ord :: Eq ExternalConnectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ExternalConnectionStatus -&gt; Rep ExternalConnectionStatus x)
+-&gt; (forall x.
+    Rep ExternalConnectionStatus x -&gt; ExternalConnectionStatus)
+-&gt; Generic ExternalConnectionStatus
+forall x.
+Rep ExternalConnectionStatus x -&gt; ExternalConnectionStatus
+forall x.
+ExternalConnectionStatus -&gt; Rep ExternalConnectionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExternalConnectionStatus x -&gt; ExternalConnectionStatus
+$cfrom :: forall x.
+ExternalConnectionStatus -&gt; Rep ExternalConnectionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679229664"><span id="local-6989586621679229666"><span class="annot"><span class="annottext">Int -&gt; ExternalConnectionStatus -&gt; Int
+ExternalConnectionStatus -&gt; Int
+(Int -&gt; ExternalConnectionStatus -&gt; Int)
+-&gt; (ExternalConnectionStatus -&gt; Int)
+-&gt; Hashable ExternalConnectionStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExternalConnectionStatus -&gt; Int
+$chash :: ExternalConnectionStatus -&gt; Int
+hashWithSalt :: Int -&gt; ExternalConnectionStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ExternalConnectionStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679229661"><span class="annot"><span class="annottext">ExternalConnectionStatus -&gt; ()
+(ExternalConnectionStatus -&gt; ()) -&gt; NFData ExternalConnectionStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExternalConnectionStatus -&gt; ()
+$crnf :: ExternalConnectionStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679229658"><span class="annot"><span class="annottext">Text -&gt; Either String ExternalConnectionStatus
+(Text -&gt; Either String ExternalConnectionStatus)
+-&gt; FromText ExternalConnectionStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExternalConnectionStatus
+$cfromText :: Text -&gt; Either String ExternalConnectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679229655"><span class="annot"><span class="annottext">ExternalConnectionStatus -&gt; Text
+(ExternalConnectionStatus -&gt; Text)
+-&gt; ToText ExternalConnectionStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExternalConnectionStatus -&gt; Text
+$ctoText :: ExternalConnectionStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679229652"><span class="annot"><span class="annottext">ExternalConnectionStatus -&gt; ByteString
+(ExternalConnectionStatus -&gt; ByteString)
+-&gt; ToByteString ExternalConnectionStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExternalConnectionStatus -&gt; ByteString
+$ctoBS :: ExternalConnectionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679229649"><span class="annot"><span class="annottext">ExternalConnectionStatus -&gt; ByteStringBuilder
+(ExternalConnectionStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ExternalConnectionStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExternalConnectionStatus -&gt; ByteStringBuilder
+$cbuild :: ExternalConnectionStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679229646"><span class="annot"><span class="annottext">HeaderName -&gt; ExternalConnectionStatus -&gt; [Header]
+(HeaderName -&gt; ExternalConnectionStatus -&gt; [Header])
+-&gt; ToHeader ExternalConnectionStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExternalConnectionStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExternalConnectionStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679229643"><span class="annot"><span class="annottext">ExternalConnectionStatus -&gt; QueryString
+(ExternalConnectionStatus -&gt; QueryString)
+-&gt; ToQuery ExternalConnectionStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExternalConnectionStatus -&gt; QueryString
+$ctoQuery :: ExternalConnectionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679229638"><span id="local-6989586621679229640"><span class="annot"><span class="annottext">Value -&gt; Parser [ExternalConnectionStatus]
+Value -&gt; Parser ExternalConnectionStatus
+(Value -&gt; Parser ExternalConnectionStatus)
+-&gt; (Value -&gt; Parser [ExternalConnectionStatus])
+-&gt; FromJSON ExternalConnectionStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExternalConnectionStatus]
+$cparseJSONList :: Value -&gt; Parser [ExternalConnectionStatus]
+parseJSON :: Value -&gt; Parser ExternalConnectionStatus
+$cparseJSON :: Value -&gt; Parser ExternalConnectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679229633"><span id="local-6989586621679229635"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExternalConnectionStatus]
+FromJSONKeyFunction ExternalConnectionStatus
+FromJSONKeyFunction ExternalConnectionStatus
+-&gt; FromJSONKeyFunction [ExternalConnectionStatus]
+-&gt; FromJSONKey ExternalConnectionStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExternalConnectionStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExternalConnectionStatus]
+fromJSONKey :: FromJSONKeyFunction ExternalConnectionStatus
+$cfromJSONKey :: FromJSONKeyFunction ExternalConnectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679229624"><span id="local-6989586621679229626"><span id="local-6989586621679229628"><span id="local-6989586621679229630"><span class="annot"><span class="annottext">[ExternalConnectionStatus] -&gt; Encoding
+[ExternalConnectionStatus] -&gt; Value
+ExternalConnectionStatus -&gt; Encoding
+ExternalConnectionStatus -&gt; Value
+(ExternalConnectionStatus -&gt; Value)
+-&gt; (ExternalConnectionStatus -&gt; Encoding)
+-&gt; ([ExternalConnectionStatus] -&gt; Value)
+-&gt; ([ExternalConnectionStatus] -&gt; Encoding)
+-&gt; ToJSON ExternalConnectionStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExternalConnectionStatus] -&gt; Encoding
+$ctoEncodingList :: [ExternalConnectionStatus] -&gt; Encoding
+toJSONList :: [ExternalConnectionStatus] -&gt; Value
+$ctoJSONList :: [ExternalConnectionStatus] -&gt; Value
+toEncoding :: ExternalConnectionStatus -&gt; Encoding
+$ctoEncoding :: ExternalConnectionStatus -&gt; Encoding
+toJSON :: ExternalConnectionStatus -&gt; Value
+$ctoJSON :: ExternalConnectionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679229619"><span id="local-6989586621679229621"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExternalConnectionStatus]
+ToJSONKeyFunction ExternalConnectionStatus
+ToJSONKeyFunction ExternalConnectionStatus
+-&gt; ToJSONKeyFunction [ExternalConnectionStatus]
+-&gt; ToJSONKey ExternalConnectionStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExternalConnectionStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExternalConnectionStatus]
+toJSONKey :: ToJSONKeyFunction ExternalConnectionStatus
+$ctoJSONKey :: ToJSONKeyFunction ExternalConnectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679229616"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExternalConnectionStatus
+([Node] -&gt; Either String ExternalConnectionStatus)
+-&gt; FromXML ExternalConnectionStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExternalConnectionStatus
+$cparseXML :: [Node] -&gt; Either String ExternalConnectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679229613"><span class="annot"><span class="annottext">ExternalConnectionStatus -&gt; XML
+(ExternalConnectionStatus -&gt; XML) -&gt; ToXML ExternalConnectionStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExternalConnectionStatus -&gt; XML
+$ctoXML :: ExternalConnectionStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.ExternalConnectionStatus.html#ExternalConnectionStatus_Available"><span class="hs-identifier hs-type">ExternalConnectionStatus_Available</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.ExternalConnectionStatus.html#ExternalConnectionStatus"><span class="hs-identifier hs-type">ExternalConnectionStatus</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExternalConnectionStatus_Available"><span id="%24mExternalConnectionStatus_Available"><span id="ExternalConnectionStatus_Available"><span class="annot"><span class="annottext">$bExternalConnectionStatus_Available :: ExternalConnectionStatus
+$mExternalConnectionStatus_Available :: forall r.
+ExternalConnectionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeArtifact.Types.ExternalConnectionStatus.html#%24bExternalConnectionStatus_Available"><span class="hs-identifier hs-var hs-var hs-var">ExternalConnectionStatus_Available</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.ExternalConnectionStatus.html#ExternalConnectionStatus%27"><span class="hs-identifier hs-type">ExternalConnectionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Available&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.ExternalConnectionStatus.html#ExternalConnectionStatus_Available"><span class="hs-pragma hs-type">ExternalConnectionStatus_Available</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.ExternalConnectionStatus.html#ExternalConnectionStatus%27"><span class="hs-pragma hs-type">ExternalConnectionStatus'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

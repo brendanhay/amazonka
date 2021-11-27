@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.HlsSegmentationMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.HlsSegmentationMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode"><span class="hs-identifier">HlsSegmentationMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode_USE_INPUT_SEGMENTATION"><span class="hs-identifier">HlsSegmentationMode_USE_INPUT_SEGMENTATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode_USE_SEGMENT_DURATION"><span class="hs-identifier">HlsSegmentationMode_USE_SEGMENT_DURATION</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Hls Segmentation Mode</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679888752"><span id="local-6989586621679888753"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsSegmentationMode"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode"><span class="hs-identifier hs-var">HlsSegmentationMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsSegmentationMode%27"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode%27"><span class="hs-identifier hs-var">HlsSegmentationMode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsSegmentationMode"><span class="annot"><span class="annottext">HlsSegmentationMode -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#fromHlsSegmentationMode"><span class="hs-identifier hs-var hs-var">fromHlsSegmentationMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679888744"><span id="local-6989586621679888746"><span id="local-6989586621679888748"><span class="annot"><span class="annottext">Int -&gt; HlsSegmentationMode -&gt; ShowS
+[HlsSegmentationMode] -&gt; ShowS
+HlsSegmentationMode -&gt; String
+(Int -&gt; HlsSegmentationMode -&gt; ShowS)
+-&gt; (HlsSegmentationMode -&gt; String)
+-&gt; ([HlsSegmentationMode] -&gt; ShowS)
+-&gt; Show HlsSegmentationMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsSegmentationMode] -&gt; ShowS
+$cshowList :: [HlsSegmentationMode] -&gt; ShowS
+show :: HlsSegmentationMode -&gt; String
+$cshow :: HlsSegmentationMode -&gt; String
+showsPrec :: Int -&gt; HlsSegmentationMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsSegmentationMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679888735"><span id="local-6989586621679888737"><span id="local-6989586621679888739"><span id="local-6989586621679888741"><span class="annot"><span class="annottext">ReadPrec [HlsSegmentationMode]
+ReadPrec HlsSegmentationMode
+Int -&gt; ReadS HlsSegmentationMode
+ReadS [HlsSegmentationMode]
+(Int -&gt; ReadS HlsSegmentationMode)
+-&gt; ReadS [HlsSegmentationMode]
+-&gt; ReadPrec HlsSegmentationMode
+-&gt; ReadPrec [HlsSegmentationMode]
+-&gt; Read HlsSegmentationMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsSegmentationMode]
+$creadListPrec :: ReadPrec [HlsSegmentationMode]
+readPrec :: ReadPrec HlsSegmentationMode
+$creadPrec :: ReadPrec HlsSegmentationMode
+readList :: ReadS [HlsSegmentationMode]
+$creadList :: ReadS [HlsSegmentationMode]
+readsPrec :: Int -&gt; ReadS HlsSegmentationMode
+$creadsPrec :: Int -&gt; ReadS HlsSegmentationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679888730"><span id="local-6989586621679888732"><span class="annot"><span class="annottext">HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+(HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool)
+-&gt; (HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool)
+-&gt; Eq HlsSegmentationMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+$c/= :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+== :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+$c== :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679888714"><span id="local-6989586621679888716"><span id="local-6989586621679888718"><span id="local-6989586621679888720"><span id="local-6989586621679888722"><span id="local-6989586621679888724"><span id="local-6989586621679888726"><span class="annot"><span class="annottext">Eq HlsSegmentationMode
+Eq HlsSegmentationMode
+-&gt; (HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Ordering)
+-&gt; (HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool)
+-&gt; (HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool)
+-&gt; (HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool)
+-&gt; (HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool)
+-&gt; (HlsSegmentationMode
+    -&gt; HlsSegmentationMode -&gt; HlsSegmentationMode)
+-&gt; (HlsSegmentationMode
+    -&gt; HlsSegmentationMode -&gt; HlsSegmentationMode)
+-&gt; Ord HlsSegmentationMode
+HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Ordering
+HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; HlsSegmentationMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; HlsSegmentationMode
+$cmin :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; HlsSegmentationMode
+max :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; HlsSegmentationMode
+$cmax :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; HlsSegmentationMode
+&gt;= :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+$c&gt;= :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+&gt; :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+$c&gt; :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+&lt;= :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+$c&lt;= :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+&lt; :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+$c&lt; :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Bool
+compare :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Ordering
+$ccompare :: HlsSegmentationMode -&gt; HlsSegmentationMode -&gt; Ordering
+$cp1Ord :: Eq HlsSegmentationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HlsSegmentationMode -&gt; Rep HlsSegmentationMode x)
+-&gt; (forall x. Rep HlsSegmentationMode x -&gt; HlsSegmentationMode)
+-&gt; Generic HlsSegmentationMode
+forall x. Rep HlsSegmentationMode x -&gt; HlsSegmentationMode
+forall x. HlsSegmentationMode -&gt; Rep HlsSegmentationMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HlsSegmentationMode x -&gt; HlsSegmentationMode
+$cfrom :: forall x. HlsSegmentationMode -&gt; Rep HlsSegmentationMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679888706"><span id="local-6989586621679888708"><span class="annot"><span class="annottext">Int -&gt; HlsSegmentationMode -&gt; Int
+HlsSegmentationMode -&gt; Int
+(Int -&gt; HlsSegmentationMode -&gt; Int)
+-&gt; (HlsSegmentationMode -&gt; Int) -&gt; Hashable HlsSegmentationMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HlsSegmentationMode -&gt; Int
+$chash :: HlsSegmentationMode -&gt; Int
+hashWithSalt :: Int -&gt; HlsSegmentationMode -&gt; Int
+$chashWithSalt :: Int -&gt; HlsSegmentationMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679888703"><span class="annot"><span class="annottext">HlsSegmentationMode -&gt; ()
+(HlsSegmentationMode -&gt; ()) -&gt; NFData HlsSegmentationMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HlsSegmentationMode -&gt; ()
+$crnf :: HlsSegmentationMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679888700"><span class="annot"><span class="annottext">Text -&gt; Either String HlsSegmentationMode
+(Text -&gt; Either String HlsSegmentationMode)
+-&gt; FromText HlsSegmentationMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HlsSegmentationMode
+$cfromText :: Text -&gt; Either String HlsSegmentationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679888697"><span class="annot"><span class="annottext">HlsSegmentationMode -&gt; Text
+(HlsSegmentationMode -&gt; Text) -&gt; ToText HlsSegmentationMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HlsSegmentationMode -&gt; Text
+$ctoText :: HlsSegmentationMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679888694"><span class="annot"><span class="annottext">HlsSegmentationMode -&gt; ByteString
+(HlsSegmentationMode -&gt; ByteString)
+-&gt; ToByteString HlsSegmentationMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HlsSegmentationMode -&gt; ByteString
+$ctoBS :: HlsSegmentationMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679888691"><span class="annot"><span class="annottext">HlsSegmentationMode -&gt; ByteStringBuilder
+(HlsSegmentationMode -&gt; ByteStringBuilder)
+-&gt; ToLog HlsSegmentationMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HlsSegmentationMode -&gt; ByteStringBuilder
+$cbuild :: HlsSegmentationMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679888688"><span class="annot"><span class="annottext">HeaderName -&gt; HlsSegmentationMode -&gt; [Header]
+(HeaderName -&gt; HlsSegmentationMode -&gt; [Header])
+-&gt; ToHeader HlsSegmentationMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HlsSegmentationMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HlsSegmentationMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679888685"><span class="annot"><span class="annottext">HlsSegmentationMode -&gt; QueryString
+(HlsSegmentationMode -&gt; QueryString) -&gt; ToQuery HlsSegmentationMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HlsSegmentationMode -&gt; QueryString
+$ctoQuery :: HlsSegmentationMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679888680"><span id="local-6989586621679888682"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsSegmentationMode]
+Value -&gt; Parser HlsSegmentationMode
+(Value -&gt; Parser HlsSegmentationMode)
+-&gt; (Value -&gt; Parser [HlsSegmentationMode])
+-&gt; FromJSON HlsSegmentationMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HlsSegmentationMode]
+$cparseJSONList :: Value -&gt; Parser [HlsSegmentationMode]
+parseJSON :: Value -&gt; Parser HlsSegmentationMode
+$cparseJSON :: Value -&gt; Parser HlsSegmentationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679888675"><span id="local-6989586621679888677"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsSegmentationMode]
+FromJSONKeyFunction HlsSegmentationMode
+FromJSONKeyFunction HlsSegmentationMode
+-&gt; FromJSONKeyFunction [HlsSegmentationMode]
+-&gt; FromJSONKey HlsSegmentationMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HlsSegmentationMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [HlsSegmentationMode]
+fromJSONKey :: FromJSONKeyFunction HlsSegmentationMode
+$cfromJSONKey :: FromJSONKeyFunction HlsSegmentationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679888666"><span id="local-6989586621679888668"><span id="local-6989586621679888670"><span id="local-6989586621679888672"><span class="annot"><span class="annottext">[HlsSegmentationMode] -&gt; Encoding
+[HlsSegmentationMode] -&gt; Value
+HlsSegmentationMode -&gt; Encoding
+HlsSegmentationMode -&gt; Value
+(HlsSegmentationMode -&gt; Value)
+-&gt; (HlsSegmentationMode -&gt; Encoding)
+-&gt; ([HlsSegmentationMode] -&gt; Value)
+-&gt; ([HlsSegmentationMode] -&gt; Encoding)
+-&gt; ToJSON HlsSegmentationMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HlsSegmentationMode] -&gt; Encoding
+$ctoEncodingList :: [HlsSegmentationMode] -&gt; Encoding
+toJSONList :: [HlsSegmentationMode] -&gt; Value
+$ctoJSONList :: [HlsSegmentationMode] -&gt; Value
+toEncoding :: HlsSegmentationMode -&gt; Encoding
+$ctoEncoding :: HlsSegmentationMode -&gt; Encoding
+toJSON :: HlsSegmentationMode -&gt; Value
+$ctoJSON :: HlsSegmentationMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679888661"><span id="local-6989586621679888663"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsSegmentationMode]
+ToJSONKeyFunction HlsSegmentationMode
+ToJSONKeyFunction HlsSegmentationMode
+-&gt; ToJSONKeyFunction [HlsSegmentationMode]
+-&gt; ToJSONKey HlsSegmentationMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HlsSegmentationMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [HlsSegmentationMode]
+toJSONKey :: ToJSONKeyFunction HlsSegmentationMode
+$ctoJSONKey :: ToJSONKeyFunction HlsSegmentationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679888658"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsSegmentationMode
+([Node] -&gt; Either String HlsSegmentationMode)
+-&gt; FromXML HlsSegmentationMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HlsSegmentationMode
+$cparseXML :: [Node] -&gt; Either String HlsSegmentationMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679888655"><span class="annot"><span class="annottext">HlsSegmentationMode -&gt; XML
+(HlsSegmentationMode -&gt; XML) -&gt; ToXML HlsSegmentationMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HlsSegmentationMode -&gt; XML
+$ctoXML :: HlsSegmentationMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode_USE_INPUT_SEGMENTATION"><span class="hs-identifier hs-type">HlsSegmentationMode_USE_INPUT_SEGMENTATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode"><span class="hs-identifier hs-type">HlsSegmentationMode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsSegmentationMode_USE_INPUT_SEGMENTATION"><span id="%24mHlsSegmentationMode_USE_INPUT_SEGMENTATION"><span id="HlsSegmentationMode_USE_INPUT_SEGMENTATION"><span class="annot"><span class="annottext">$bHlsSegmentationMode_USE_INPUT_SEGMENTATION :: HlsSegmentationMode
+$mHlsSegmentationMode_USE_INPUT_SEGMENTATION :: forall r. HlsSegmentationMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#%24bHlsSegmentationMode_USE_INPUT_SEGMENTATION"><span class="hs-identifier hs-var hs-var hs-var">HlsSegmentationMode_USE_INPUT_SEGMENTATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode%27"><span class="hs-identifier hs-type">HlsSegmentationMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USE_INPUT_SEGMENTATION&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode_USE_SEGMENT_DURATION"><span class="hs-identifier hs-type">HlsSegmentationMode_USE_SEGMENT_DURATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode"><span class="hs-identifier hs-type">HlsSegmentationMode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsSegmentationMode_USE_SEGMENT_DURATION"><span id="%24mHlsSegmentationMode_USE_SEGMENT_DURATION"><span id="HlsSegmentationMode_USE_SEGMENT_DURATION"><span class="annot"><span class="annottext">$bHlsSegmentationMode_USE_SEGMENT_DURATION :: HlsSegmentationMode
+$mHlsSegmentationMode_USE_SEGMENT_DURATION :: forall r. HlsSegmentationMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#%24bHlsSegmentationMode_USE_SEGMENT_DURATION"><span class="hs-identifier hs-var hs-var hs-var">HlsSegmentationMode_USE_SEGMENT_DURATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode%27"><span class="hs-identifier hs-type">HlsSegmentationMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USE_SEGMENT_DURATION&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode_USE_INPUT_SEGMENTATION"><span class="hs-pragma hs-type">HlsSegmentationMode_USE_INPUT_SEGMENTATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode_USE_SEGMENT_DURATION"><span class="hs-pragma hs-type">HlsSegmentationMode_USE_SEGMENT_DURATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsSegmentationMode.html#HlsSegmentationMode%27"><span class="hs-pragma hs-type">HlsSegmentationMode'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

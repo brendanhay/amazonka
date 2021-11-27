@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ChimeSDKMessaging.DeleteChannelFlow</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a channel flow, an irreversible process. This is a developer</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This API works only when the channel flow is not associated with any</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- channel. To get a list of all channels that a channel flow is associated</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- with, use the @ListChannelsAssociatedWithChannelFlow@ API. Use the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @DisassociateChannelFlow@ API to disassociate a channel flow from all</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- channels.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ChimeSDKMessaging.DeleteChannelFlow</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow"><span class="hs-identifier">DeleteChannelFlow</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#newDeleteChannelFlow"><span class="hs-identifier">newDeleteChannelFlow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#deleteChannelFlow_channelFlowArn"><span class="hs-identifier">deleteChannelFlow_channelFlowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlowResponse"><span class="hs-identifier">DeleteChannelFlowResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#newDeleteChannelFlowResponse"><span class="hs-identifier">newDeleteChannelFlowResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.html"><span class="hs-identifier">Amazonka.ChimeSDKMessaging.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteChannelFlow' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679239363"><span id="local-6989586621679239364"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteChannelFlow"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow"><span class="hs-identifier hs-var">DeleteChannelFlow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteChannelFlow%27"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow%27"><span class="hs-identifier hs-var">DeleteChannelFlow'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the channel flow.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AchannelFlowArn%3ADeleteChannelFlow%27"><span class="annot"><span class="annottext">DeleteChannelFlow -&gt; Text
+</span><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#%24sel%3AchannelFlowArn%3ADeleteChannelFlow%27"><span class="hs-identifier hs-var hs-var">channelFlowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239357"><span id="local-6989586621679239359"><span class="annot"><span class="annottext">DeleteChannelFlow -&gt; DeleteChannelFlow -&gt; Bool
+(DeleteChannelFlow -&gt; DeleteChannelFlow -&gt; Bool)
+-&gt; (DeleteChannelFlow -&gt; DeleteChannelFlow -&gt; Bool)
+-&gt; Eq DeleteChannelFlow
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteChannelFlow -&gt; DeleteChannelFlow -&gt; Bool
+$c/= :: DeleteChannelFlow -&gt; DeleteChannelFlow -&gt; Bool
+== :: DeleteChannelFlow -&gt; DeleteChannelFlow -&gt; Bool
+$c== :: DeleteChannelFlow -&gt; DeleteChannelFlow -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239348"><span id="local-6989586621679239350"><span id="local-6989586621679239352"><span id="local-6989586621679239354"><span class="annot"><span class="annottext">ReadPrec [DeleteChannelFlow]
+ReadPrec DeleteChannelFlow
+Int -&gt; ReadS DeleteChannelFlow
+ReadS [DeleteChannelFlow]
+(Int -&gt; ReadS DeleteChannelFlow)
+-&gt; ReadS [DeleteChannelFlow]
+-&gt; ReadPrec DeleteChannelFlow
+-&gt; ReadPrec [DeleteChannelFlow]
+-&gt; Read DeleteChannelFlow
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteChannelFlow]
+$creadListPrec :: ReadPrec [DeleteChannelFlow]
+readPrec :: ReadPrec DeleteChannelFlow
+$creadPrec :: ReadPrec DeleteChannelFlow
+readList :: ReadS [DeleteChannelFlow]
+$creadList :: ReadS [DeleteChannelFlow]
+readsPrec :: Int -&gt; ReadS DeleteChannelFlow
+$creadsPrec :: Int -&gt; ReadS DeleteChannelFlow
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239341"><span id="local-6989586621679239343"><span id="local-6989586621679239345"><span class="annot"><span class="annottext">Int -&gt; DeleteChannelFlow -&gt; ShowS
+[DeleteChannelFlow] -&gt; ShowS
+DeleteChannelFlow -&gt; String
+(Int -&gt; DeleteChannelFlow -&gt; ShowS)
+-&gt; (DeleteChannelFlow -&gt; String)
+-&gt; ([DeleteChannelFlow] -&gt; ShowS)
+-&gt; Show DeleteChannelFlow
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteChannelFlow] -&gt; ShowS
+$cshowList :: [DeleteChannelFlow] -&gt; ShowS
+show :: DeleteChannelFlow -&gt; String
+$cshow :: DeleteChannelFlow -&gt; String
+showsPrec :: Int -&gt; DeleteChannelFlow -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteChannelFlow -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteChannelFlow -&gt; Rep DeleteChannelFlow x)
+-&gt; (forall x. Rep DeleteChannelFlow x -&gt; DeleteChannelFlow)
+-&gt; Generic DeleteChannelFlow
+forall x. Rep DeleteChannelFlow x -&gt; DeleteChannelFlow
+forall x. DeleteChannelFlow -&gt; Rep DeleteChannelFlow x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteChannelFlow x -&gt; DeleteChannelFlow
+$cfrom :: forall x. DeleteChannelFlow -&gt; Rep DeleteChannelFlow x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DeleteChannelFlow' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'channelFlowArn', 'deleteChannelFlow_channelFlowArn' - The ARN of the channel flow.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#newDeleteChannelFlow"><span class="hs-identifier hs-type">newDeleteChannelFlow</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'channelFlowArn'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow"><span class="hs-identifier hs-type">DeleteChannelFlow</span></a></span><span>
+</span><span id="line-72"></span><span id="newDeleteChannelFlow"><span class="annot"><span class="annottext">newDeleteChannelFlow :: Text -&gt; DeleteChannelFlow
+</span><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#newDeleteChannelFlow"><span class="hs-identifier hs-var hs-var">newDeleteChannelFlow</span></a></span></span><span> </span><span id="local-6989586621679239336"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239336"><span class="hs-identifier hs-var">pChannelFlowArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteChannelFlow' :: Text -&gt; DeleteChannelFlow
+</span><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow%27"><span class="hs-identifier hs-type">DeleteChannelFlow'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channelFlowArn:DeleteChannelFlow' :: Text
+</span><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#%24sel%3AchannelFlowArn%3ADeleteChannelFlow%27"><span class="hs-identifier hs-var">channelFlowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239336"><span class="hs-identifier hs-var">pChannelFlowArn_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The ARN of the channel flow.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#deleteChannelFlow_channelFlowArn"><span class="hs-identifier hs-type">deleteChannelFlow_channelFlowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow"><span class="hs-identifier hs-type">DeleteChannelFlow</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="deleteChannelFlow_channelFlowArn"><span class="annot"><span class="annottext">deleteChannelFlow_channelFlowArn :: (Text -&gt; f Text) -&gt; DeleteChannelFlow -&gt; f DeleteChannelFlow
+</span><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#deleteChannelFlow_channelFlowArn"><span class="hs-identifier hs-var hs-var">deleteChannelFlow_channelFlowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteChannelFlow -&gt; Text)
+-&gt; (DeleteChannelFlow -&gt; Text -&gt; DeleteChannelFlow)
+-&gt; Lens DeleteChannelFlow DeleteChannelFlow Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow%27"><span class="hs-identifier hs-type">DeleteChannelFlow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239333"><span class="annot"><span class="annottext">Text
+channelFlowArn :: Text
+$sel:channelFlowArn:DeleteChannelFlow' :: DeleteChannelFlow -&gt; Text
+</span><a href="#local-6989586621679239333"><span class="hs-identifier hs-var hs-var">channelFlowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239333"><span class="hs-identifier hs-var">channelFlowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239332"><span class="annot"><span class="annottext">s :: DeleteChannelFlow
+</span><a href="#local-6989586621679239332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow%27"><span class="hs-identifier hs-type">DeleteChannelFlow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239331"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteChannelFlow
+</span><a href="#local-6989586621679239332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelFlowArn:DeleteChannelFlow' :: Text
+</span><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#%24sel%3AchannelFlowArn%3ADeleteChannelFlow%27"><span class="hs-identifier hs-var">channelFlowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow"><span class="hs-identifier hs-type">DeleteChannelFlow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow"><span class="hs-identifier hs-type">DeleteChannelFlow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow"><span class="hs-identifier hs-type">DeleteChannelFlow</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlowResponse"><span class="hs-identifier hs-type">DeleteChannelFlowResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679239327"><span class="annot"><span class="annottext">request :: DeleteChannelFlow -&gt; Request DeleteChannelFlow
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteChannelFlow -&gt; Request DeleteChannelFlow
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679239323"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteChannelFlow
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteChannelFlow)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteChannelFlow
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteChannelFlow
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteChannelFlow)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteChannelFlow
+DeleteChannelFlowResponse
+</span><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlowResponse%27"><span class="hs-identifier hs-var">DeleteChannelFlowResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239316"><span id="local-6989586621679239318"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow"><span class="hs-identifier hs-type">DeleteChannelFlow</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239313"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow"><span class="hs-identifier hs-type">DeleteChannelFlow</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow"><span class="hs-identifier hs-type">DeleteChannelFlow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679239309"><span class="annot"><span class="annottext">toHeaders :: DeleteChannelFlow -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteChannelFlow -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow"><span class="hs-identifier hs-type">DeleteChannelFlow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679239304"><span class="annot"><span class="annottext">toPath :: DeleteChannelFlow -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow%27"><span class="hs-identifier hs-type">DeleteChannelFlow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239302"><span class="annot"><span class="annottext">Text
+channelFlowArn :: Text
+$sel:channelFlowArn:DeleteChannelFlow' :: DeleteChannelFlow -&gt; Text
+</span><a href="#local-6989586621679239302"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channel-flows/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239302"><span class="hs-identifier hs-var">channelFlowArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlow"><span class="hs-identifier hs-type">DeleteChannelFlow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679239298"><span class="annot"><span class="annottext">toQuery :: DeleteChannelFlow -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteChannelFlow -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | /See:/ 'newDeleteChannelFlowResponse' smart constructor.</span><span>
+</span><span id="line-106"></span><span id="local-6989586621679239295"><span id="local-6989586621679239296"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteChannelFlowResponse"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlowResponse"><span class="hs-identifier hs-var">DeleteChannelFlowResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteChannelFlowResponse%27"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlowResponse%27"><span class="hs-identifier hs-var">DeleteChannelFlowResponse'</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239291"><span id="local-6989586621679239293"><span class="annot"><span class="annottext">DeleteChannelFlowResponse -&gt; DeleteChannelFlowResponse -&gt; Bool
+(DeleteChannelFlowResponse -&gt; DeleteChannelFlowResponse -&gt; Bool)
+-&gt; (DeleteChannelFlowResponse -&gt; DeleteChannelFlowResponse -&gt; Bool)
+-&gt; Eq DeleteChannelFlowResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteChannelFlowResponse -&gt; DeleteChannelFlowResponse -&gt; Bool
+$c/= :: DeleteChannelFlowResponse -&gt; DeleteChannelFlowResponse -&gt; Bool
+== :: DeleteChannelFlowResponse -&gt; DeleteChannelFlowResponse -&gt; Bool
+$c== :: DeleteChannelFlowResponse -&gt; DeleteChannelFlowResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239283"><span id="local-6989586621679239285"><span id="local-6989586621679239287"><span id="local-6989586621679239289"><span class="annot"><span class="annottext">ReadPrec [DeleteChannelFlowResponse]
+ReadPrec DeleteChannelFlowResponse
+Int -&gt; ReadS DeleteChannelFlowResponse
+ReadS [DeleteChannelFlowResponse]
+(Int -&gt; ReadS DeleteChannelFlowResponse)
+-&gt; ReadS [DeleteChannelFlowResponse]
+-&gt; ReadPrec DeleteChannelFlowResponse
+-&gt; ReadPrec [DeleteChannelFlowResponse]
+-&gt; Read DeleteChannelFlowResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteChannelFlowResponse]
+$creadListPrec :: ReadPrec [DeleteChannelFlowResponse]
+readPrec :: ReadPrec DeleteChannelFlowResponse
+$creadPrec :: ReadPrec DeleteChannelFlowResponse
+readList :: ReadS [DeleteChannelFlowResponse]
+$creadList :: ReadS [DeleteChannelFlowResponse]
+readsPrec :: Int -&gt; ReadS DeleteChannelFlowResponse
+$creadsPrec :: Int -&gt; ReadS DeleteChannelFlowResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239277"><span id="local-6989586621679239279"><span id="local-6989586621679239281"><span class="annot"><span class="annottext">Int -&gt; DeleteChannelFlowResponse -&gt; ShowS
+[DeleteChannelFlowResponse] -&gt; ShowS
+DeleteChannelFlowResponse -&gt; String
+(Int -&gt; DeleteChannelFlowResponse -&gt; ShowS)
+-&gt; (DeleteChannelFlowResponse -&gt; String)
+-&gt; ([DeleteChannelFlowResponse] -&gt; ShowS)
+-&gt; Show DeleteChannelFlowResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteChannelFlowResponse] -&gt; ShowS
+$cshowList :: [DeleteChannelFlowResponse] -&gt; ShowS
+show :: DeleteChannelFlowResponse -&gt; String
+$cshow :: DeleteChannelFlowResponse -&gt; String
+showsPrec :: Int -&gt; DeleteChannelFlowResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteChannelFlowResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteChannelFlowResponse -&gt; Rep DeleteChannelFlowResponse x)
+-&gt; (forall x.
+    Rep DeleteChannelFlowResponse x -&gt; DeleteChannelFlowResponse)
+-&gt; Generic DeleteChannelFlowResponse
+forall x.
+Rep DeleteChannelFlowResponse x -&gt; DeleteChannelFlowResponse
+forall x.
+DeleteChannelFlowResponse -&gt; Rep DeleteChannelFlowResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteChannelFlowResponse x -&gt; DeleteChannelFlowResponse
+$cfrom :: forall x.
+DeleteChannelFlowResponse -&gt; Rep DeleteChannelFlowResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Create a value of 'DeleteChannelFlowResponse' with all optional fields omitted.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#newDeleteChannelFlowResponse"><span class="hs-identifier hs-type">newDeleteChannelFlowResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlowResponse"><span class="hs-identifier hs-type">DeleteChannelFlowResponse</span></a></span><span>
+</span><span id="line-117"></span><span id="newDeleteChannelFlowResponse"><span class="annot"><span class="annottext">newDeleteChannelFlowResponse :: DeleteChannelFlowResponse
+</span><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#newDeleteChannelFlowResponse"><span class="hs-identifier hs-var hs-var">newDeleteChannelFlowResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">DeleteChannelFlowResponse
+</span><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlowResponse%27"><span class="hs-identifier hs-var">DeleteChannelFlowResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239273"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.DeleteChannelFlow.html#DeleteChannelFlowResponse"><span class="hs-identifier hs-type">DeleteChannelFlowResponse</span></a></span></span><span>
+</span><span id="line-121"></span></pre></body></html>

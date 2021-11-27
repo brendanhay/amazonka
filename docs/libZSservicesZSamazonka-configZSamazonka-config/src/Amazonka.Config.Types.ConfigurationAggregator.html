@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Config.Types.ConfigurationAggregator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Config.Types.ConfigurationAggregator</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AccountAggregationSource.html"><span class="hs-identifier">Amazonka.Config.Types.AccountAggregationSource</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationAggregationSource.html"><span class="hs-identifier">Amazonka.Config.Types.OrganizationAggregationSource</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The details about the configuration aggregator, including information</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- about source accounts, regions, and metadata of the aggregator.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newConfigurationAggregator' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679401873"><span id="local-6989586621679401874"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigurationAggregator"><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-var">ConfigurationAggregator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationAggregator%27"><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-var">ConfigurationAggregator'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the aggregator.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AconfigurationAggregatorArn%3AConfigurationAggregator%27"><span class="annot"><span class="annottext">ConfigurationAggregator -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AconfigurationAggregatorArn%3AConfigurationAggregator%27"><span class="hs-identifier hs-var hs-var">configurationAggregatorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time stamp when the configuration aggregator was created.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreationTime%3AConfigurationAggregator%27"><span class="annot"><span class="annottext">ConfigurationAggregator -&gt; Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AcreationTime%3AConfigurationAggregator%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Provides an organization and list of regions to be aggregated.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AorganizationAggregationSource%3AConfigurationAggregator%27"><span class="annot"><span class="annottext">ConfigurationAggregator -&gt; Maybe OrganizationAggregationSource
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AorganizationAggregationSource%3AConfigurationAggregator%27"><span class="hs-identifier hs-var hs-var">organizationAggregationSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The time of the last update.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3AConfigurationAggregator%27"><span class="annot"><span class="annottext">ConfigurationAggregator -&gt; Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AlastUpdatedTime%3AConfigurationAggregator%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Provides a list of source accounts and regions to be aggregated.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AaccountAggregationSources%3AConfigurationAggregator%27"><span class="annot"><span class="annottext">ConfigurationAggregator -&gt; Maybe [AccountAggregationSource]
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AaccountAggregationSources%3AConfigurationAggregator%27"><span class="hs-identifier hs-var hs-var">accountAggregationSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Amazon Web Services service that created the configuration aggregator.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcreatedBy%3AConfigurationAggregator%27"><span class="annot"><span class="annottext">ConfigurationAggregator -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AcreatedBy%3AConfigurationAggregator%27"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the aggregator.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AconfigurationAggregatorName%3AConfigurationAggregator%27"><span class="annot"><span class="annottext">ConfigurationAggregator -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AconfigurationAggregatorName%3AConfigurationAggregator%27"><span class="hs-identifier hs-var hs-var">configurationAggregatorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401861"><span id="local-6989586621679401863"><span class="annot"><span class="annottext">ConfigurationAggregator -&gt; ConfigurationAggregator -&gt; Bool
+(ConfigurationAggregator -&gt; ConfigurationAggregator -&gt; Bool)
+-&gt; (ConfigurationAggregator -&gt; ConfigurationAggregator -&gt; Bool)
+-&gt; Eq ConfigurationAggregator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigurationAggregator -&gt; ConfigurationAggregator -&gt; Bool
+$c/= :: ConfigurationAggregator -&gt; ConfigurationAggregator -&gt; Bool
+== :: ConfigurationAggregator -&gt; ConfigurationAggregator -&gt; Bool
+$c== :: ConfigurationAggregator -&gt; ConfigurationAggregator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401852"><span id="local-6989586621679401854"><span id="local-6989586621679401856"><span id="local-6989586621679401858"><span class="annot"><span class="annottext">ReadPrec [ConfigurationAggregator]
+ReadPrec ConfigurationAggregator
+Int -&gt; ReadS ConfigurationAggregator
+ReadS [ConfigurationAggregator]
+(Int -&gt; ReadS ConfigurationAggregator)
+-&gt; ReadS [ConfigurationAggregator]
+-&gt; ReadPrec ConfigurationAggregator
+-&gt; ReadPrec [ConfigurationAggregator]
+-&gt; Read ConfigurationAggregator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigurationAggregator]
+$creadListPrec :: ReadPrec [ConfigurationAggregator]
+readPrec :: ReadPrec ConfigurationAggregator
+$creadPrec :: ReadPrec ConfigurationAggregator
+readList :: ReadS [ConfigurationAggregator]
+$creadList :: ReadS [ConfigurationAggregator]
+readsPrec :: Int -&gt; ReadS ConfigurationAggregator
+$creadsPrec :: Int -&gt; ReadS ConfigurationAggregator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401845"><span id="local-6989586621679401847"><span id="local-6989586621679401849"><span class="annot"><span class="annottext">Int -&gt; ConfigurationAggregator -&gt; ShowS
+[ConfigurationAggregator] -&gt; ShowS
+ConfigurationAggregator -&gt; String
+(Int -&gt; ConfigurationAggregator -&gt; ShowS)
+-&gt; (ConfigurationAggregator -&gt; String)
+-&gt; ([ConfigurationAggregator] -&gt; ShowS)
+-&gt; Show ConfigurationAggregator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigurationAggregator] -&gt; ShowS
+$cshowList :: [ConfigurationAggregator] -&gt; ShowS
+show :: ConfigurationAggregator -&gt; String
+$cshow :: ConfigurationAggregator -&gt; String
+showsPrec :: Int -&gt; ConfigurationAggregator -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigurationAggregator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ConfigurationAggregator -&gt; Rep ConfigurationAggregator x)
+-&gt; (forall x.
+    Rep ConfigurationAggregator x -&gt; ConfigurationAggregator)
+-&gt; Generic ConfigurationAggregator
+forall x. Rep ConfigurationAggregator x -&gt; ConfigurationAggregator
+forall x. ConfigurationAggregator -&gt; Rep ConfigurationAggregator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConfigurationAggregator x -&gt; ConfigurationAggregator
+$cfrom :: forall x. ConfigurationAggregator -&gt; Rep ConfigurationAggregator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'ConfigurationAggregator' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'configurationAggregatorArn', 'configurationAggregator_configurationAggregatorArn' - The Amazon Resource Name (ARN) of the aggregator.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'creationTime', 'configurationAggregator_creationTime' - The time stamp when the configuration aggregator was created.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'organizationAggregationSource', 'configurationAggregator_organizationAggregationSource' - Provides an organization and list of regions to be aggregated.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'lastUpdatedTime', 'configurationAggregator_lastUpdatedTime' - The time of the last update.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'accountAggregationSources', 'configurationAggregator_accountAggregationSources' - Provides a list of source accounts and regions to be aggregated.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'createdBy', 'configurationAggregator_createdBy' - Amazon Web Services service that created the configuration aggregator.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'configurationAggregatorName', 'configurationAggregator_configurationAggregatorName' - The name of the aggregator.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#newConfigurationAggregator"><span class="hs-identifier hs-type">newConfigurationAggregator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span>
+</span><span id="line-73"></span><span id="newConfigurationAggregator"><span class="annot"><span class="annottext">newConfigurationAggregator :: ConfigurationAggregator
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#newConfigurationAggregator"><span class="hs-identifier hs-var hs-var">newConfigurationAggregator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">ConfigurationAggregator' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe OrganizationAggregationSource
+-&gt; Maybe POSIX
+-&gt; Maybe [AccountAggregationSource]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ConfigurationAggregator
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configurationAggregatorArn:ConfigurationAggregator' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AconfigurationAggregatorArn%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">configurationAggregatorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTime:ConfigurationAggregator' :: Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AcreationTime%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationAggregationSource:ConfigurationAggregator' :: Maybe OrganizationAggregationSource
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AorganizationAggregationSource%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">organizationAggregationSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationAggregationSource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:ConfigurationAggregator' :: Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AlastUpdatedTime%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountAggregationSources:ConfigurationAggregator' :: Maybe [AccountAggregationSource]
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AaccountAggregationSources%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">accountAggregationSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountAggregationSource]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBy:ConfigurationAggregator' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AcreatedBy%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurationAggregatorName:ConfigurationAggregator' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AconfigurationAggregatorName%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the aggregator.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_configurationAggregatorArn"><span class="hs-identifier hs-type">configurationAggregator_configurationAggregatorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="configurationAggregator_configurationAggregatorArn"><span class="annot"><span class="annottext">configurationAggregator_configurationAggregatorArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationAggregator -&gt; f ConfigurationAggregator
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_configurationAggregatorArn"><span class="hs-identifier hs-var hs-var">configurationAggregator_configurationAggregatorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationAggregator -&gt; Maybe Text)
+-&gt; (ConfigurationAggregator
+    -&gt; Maybe Text -&gt; ConfigurationAggregator)
+-&gt; Lens
+     ConfigurationAggregator
+     ConfigurationAggregator
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401836"><span class="annot"><span class="annottext">Maybe Text
+configurationAggregatorArn :: Maybe Text
+$sel:configurationAggregatorArn:ConfigurationAggregator' :: ConfigurationAggregator -&gt; Maybe Text
+</span><a href="#local-6989586621679401836"><span class="hs-identifier hs-var hs-var">configurationAggregatorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401836"><span class="hs-identifier hs-var">configurationAggregatorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401835"><span class="annot"><span class="annottext">s :: ConfigurationAggregator
+</span><a href="#local-6989586621679401835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401834"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationAggregator
+</span><a href="#local-6989586621679401835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationAggregatorArn:ConfigurationAggregator' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AconfigurationAggregatorArn%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">configurationAggregatorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The time stamp when the configuration aggregator was created.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_creationTime"><span class="hs-identifier hs-type">configurationAggregator_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="configurationAggregator_creationTime"><span class="annot"><span class="annottext">configurationAggregator_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationAggregator -&gt; f ConfigurationAggregator
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_creationTime"><span class="hs-identifier hs-var hs-var">configurationAggregator_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationAggregator -&gt; Maybe POSIX)
+-&gt; (ConfigurationAggregator
+    -&gt; Maybe POSIX -&gt; ConfigurationAggregator)
+-&gt; Lens
+     ConfigurationAggregator
+     ConfigurationAggregator
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401832"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:ConfigurationAggregator' :: ConfigurationAggregator -&gt; Maybe POSIX
+</span><a href="#local-6989586621679401832"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679401832"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401831"><span class="annot"><span class="annottext">s :: ConfigurationAggregator
+</span><a href="#local-6989586621679401831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401830"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679401830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationAggregator
+</span><a href="#local-6989586621679401831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ConfigurationAggregator' :: Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AcreationTime%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679401830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ConfigurationAggregator -&gt; f ConfigurationAggregator)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationAggregator
+-&gt; f ConfigurationAggregator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Provides an organization and list of regions to be aggregated.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_organizationAggregationSource"><span class="hs-identifier hs-type">configurationAggregator_organizationAggregationSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="configurationAggregator_organizationAggregationSource"><span class="annot"><span class="annottext">configurationAggregator_organizationAggregationSource :: (Maybe OrganizationAggregationSource
+ -&gt; f (Maybe OrganizationAggregationSource))
+-&gt; ConfigurationAggregator -&gt; f ConfigurationAggregator
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_organizationAggregationSource"><span class="hs-identifier hs-var hs-var">configurationAggregator_organizationAggregationSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationAggregator -&gt; Maybe OrganizationAggregationSource)
+-&gt; (ConfigurationAggregator
+    -&gt; Maybe OrganizationAggregationSource -&gt; ConfigurationAggregator)
+-&gt; Lens
+     ConfigurationAggregator
+     ConfigurationAggregator
+     (Maybe OrganizationAggregationSource)
+     (Maybe OrganizationAggregationSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401825"><span class="annot"><span class="annottext">Maybe OrganizationAggregationSource
+organizationAggregationSource :: Maybe OrganizationAggregationSource
+$sel:organizationAggregationSource:ConfigurationAggregator' :: ConfigurationAggregator -&gt; Maybe OrganizationAggregationSource
+</span><a href="#local-6989586621679401825"><span class="hs-identifier hs-var hs-var">organizationAggregationSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationAggregationSource
+</span><a href="#local-6989586621679401825"><span class="hs-identifier hs-var">organizationAggregationSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401824"><span class="annot"><span class="annottext">s :: ConfigurationAggregator
+</span><a href="#local-6989586621679401824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401823"><span class="annot"><span class="annottext">Maybe OrganizationAggregationSource
+</span><a href="#local-6989586621679401823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationAggregator
+</span><a href="#local-6989586621679401824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationAggregationSource:ConfigurationAggregator' :: Maybe OrganizationAggregationSource
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AorganizationAggregationSource%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">organizationAggregationSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationAggregationSource
+</span><a href="#local-6989586621679401823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The time of the last update.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_lastUpdatedTime"><span class="hs-identifier hs-type">configurationAggregator_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="configurationAggregator_lastUpdatedTime"><span class="annot"><span class="annottext">configurationAggregator_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationAggregator -&gt; f ConfigurationAggregator
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">configurationAggregator_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationAggregator -&gt; Maybe POSIX)
+-&gt; (ConfigurationAggregator
+    -&gt; Maybe POSIX -&gt; ConfigurationAggregator)
+-&gt; Lens
+     ConfigurationAggregator
+     ConfigurationAggregator
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401821"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTime :: Maybe POSIX
+$sel:lastUpdatedTime:ConfigurationAggregator' :: ConfigurationAggregator -&gt; Maybe POSIX
+</span><a href="#local-6989586621679401821"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679401821"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401820"><span class="annot"><span class="annottext">s :: ConfigurationAggregator
+</span><a href="#local-6989586621679401820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401819"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679401819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationAggregator
+</span><a href="#local-6989586621679401820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:ConfigurationAggregator' :: Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AlastUpdatedTime%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679401819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ConfigurationAggregator -&gt; f ConfigurationAggregator)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationAggregator
+-&gt; f ConfigurationAggregator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Provides a list of source accounts and regions to be aggregated.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_accountAggregationSources"><span class="hs-identifier hs-type">configurationAggregator_accountAggregationSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="configurationAggregator_accountAggregationSources"><span class="annot"><span class="annottext">configurationAggregator_accountAggregationSources :: (Maybe [AccountAggregationSource]
+ -&gt; f (Maybe [AccountAggregationSource]))
+-&gt; ConfigurationAggregator -&gt; f ConfigurationAggregator
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_accountAggregationSources"><span class="hs-identifier hs-var hs-var">configurationAggregator_accountAggregationSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationAggregator -&gt; Maybe [AccountAggregationSource])
+-&gt; (ConfigurationAggregator
+    -&gt; Maybe [AccountAggregationSource] -&gt; ConfigurationAggregator)
+-&gt; Lens
+     ConfigurationAggregator
+     ConfigurationAggregator
+     (Maybe [AccountAggregationSource])
+     (Maybe [AccountAggregationSource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401817"><span class="annot"><span class="annottext">Maybe [AccountAggregationSource]
+accountAggregationSources :: Maybe [AccountAggregationSource]
+$sel:accountAggregationSources:ConfigurationAggregator' :: ConfigurationAggregator -&gt; Maybe [AccountAggregationSource]
+</span><a href="#local-6989586621679401817"><span class="hs-identifier hs-var hs-var">accountAggregationSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountAggregationSource]
+</span><a href="#local-6989586621679401817"><span class="hs-identifier hs-var">accountAggregationSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401816"><span class="annot"><span class="annottext">s :: ConfigurationAggregator
+</span><a href="#local-6989586621679401816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401815"><span class="annot"><span class="annottext">Maybe [AccountAggregationSource]
+</span><a href="#local-6989586621679401815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationAggregator
+</span><a href="#local-6989586621679401816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountAggregationSources:ConfigurationAggregator' :: Maybe [AccountAggregationSource]
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AaccountAggregationSources%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">accountAggregationSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountAggregationSource]
+</span><a href="#local-6989586621679401815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccountAggregationSource]
+  -&gt; f (Maybe [AccountAggregationSource]))
+ -&gt; ConfigurationAggregator -&gt; f ConfigurationAggregator)
+-&gt; ((Maybe [AccountAggregationSource]
+     -&gt; f (Maybe [AccountAggregationSource]))
+    -&gt; Maybe [AccountAggregationSource]
+    -&gt; f (Maybe [AccountAggregationSource]))
+-&gt; (Maybe [AccountAggregationSource]
+    -&gt; f (Maybe [AccountAggregationSource]))
+-&gt; ConfigurationAggregator
+-&gt; f ConfigurationAggregator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AccountAggregationSource]
+  [AccountAggregationSource]
+  [AccountAggregationSource]
+  [AccountAggregationSource]
+-&gt; Iso
+     (Maybe [AccountAggregationSource])
+     (Maybe [AccountAggregationSource])
+     (Maybe [AccountAggregationSource])
+     (Maybe [AccountAggregationSource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AccountAggregationSource]
+  [AccountAggregationSource]
+  [AccountAggregationSource]
+  [AccountAggregationSource]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Amazon Web Services service that created the configuration aggregator.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_createdBy"><span class="hs-identifier hs-type">configurationAggregator_createdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="configurationAggregator_createdBy"><span class="annot"><span class="annottext">configurationAggregator_createdBy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationAggregator -&gt; f ConfigurationAggregator
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_createdBy"><span class="hs-identifier hs-var hs-var">configurationAggregator_createdBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationAggregator -&gt; Maybe Text)
+-&gt; (ConfigurationAggregator
+    -&gt; Maybe Text -&gt; ConfigurationAggregator)
+-&gt; Lens
+     ConfigurationAggregator
+     ConfigurationAggregator
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401812"><span class="annot"><span class="annottext">Maybe Text
+createdBy :: Maybe Text
+$sel:createdBy:ConfigurationAggregator' :: ConfigurationAggregator -&gt; Maybe Text
+</span><a href="#local-6989586621679401812"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401812"><span class="hs-identifier hs-var">createdBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401811"><span class="annot"><span class="annottext">s :: ConfigurationAggregator
+</span><a href="#local-6989586621679401811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401810"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationAggregator
+</span><a href="#local-6989586621679401811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBy:ConfigurationAggregator' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AcreatedBy%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name of the aggregator.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_configurationAggregatorName"><span class="hs-identifier hs-type">configurationAggregator_configurationAggregatorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="configurationAggregator_configurationAggregatorName"><span class="annot"><span class="annottext">configurationAggregator_configurationAggregatorName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationAggregator -&gt; f ConfigurationAggregator
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#configurationAggregator_configurationAggregatorName"><span class="hs-identifier hs-var hs-var">configurationAggregator_configurationAggregatorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationAggregator -&gt; Maybe Text)
+-&gt; (ConfigurationAggregator
+    -&gt; Maybe Text -&gt; ConfigurationAggregator)
+-&gt; Lens
+     ConfigurationAggregator
+     ConfigurationAggregator
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401808"><span class="annot"><span class="annottext">Maybe Text
+configurationAggregatorName :: Maybe Text
+$sel:configurationAggregatorName:ConfigurationAggregator' :: ConfigurationAggregator -&gt; Maybe Text
+</span><a href="#local-6989586621679401808"><span class="hs-identifier hs-var hs-var">configurationAggregatorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401808"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401807"><span class="annot"><span class="annottext">s :: ConfigurationAggregator
+</span><a href="#local-6989586621679401807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-type">ConfigurationAggregator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401806"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationAggregator
+</span><a href="#local-6989586621679401807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationAggregatorName:ConfigurationAggregator' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#%24sel%3AconfigurationAggregatorName%3AConfigurationAggregator%27"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401803"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679401801"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConfigurationAggregator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ConfigurationAggregator)
+-&gt; Value
+-&gt; Parser ConfigurationAggregator
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ConfigurationAggregator&quot;</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679401798"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401798"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe OrganizationAggregationSource
+-&gt; Maybe POSIX
+-&gt; Maybe [AccountAggregationSource]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ConfigurationAggregator
+</span><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator%27"><span class="hs-identifier hs-var">ConfigurationAggregator'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe OrganizationAggregationSource
+ -&gt; Maybe POSIX
+ -&gt; Maybe [AccountAggregationSource]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ConfigurationAggregator)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe OrganizationAggregationSource
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AccountAggregationSource]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ConfigurationAggregator)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConfigurationAggregatorArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe OrganizationAggregationSource
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AccountAggregationSource]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ConfigurationAggregator)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe OrganizationAggregationSource
+      -&gt; Maybe POSIX
+      -&gt; Maybe [AccountAggregationSource]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ConfigurationAggregator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OrganizationAggregationSource
+   -&gt; Maybe POSIX
+   -&gt; Maybe [AccountAggregationSource]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ConfigurationAggregator)
+-&gt; Parser (Maybe OrganizationAggregationSource)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe [AccountAggregationSource]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ConfigurationAggregator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OrganizationAggregationSource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationAggregationSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe [AccountAggregationSource]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ConfigurationAggregator)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe [AccountAggregationSource]
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ConfigurationAggregator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AccountAggregationSource]
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ConfigurationAggregator)
+-&gt; Parser (Maybe [AccountAggregationSource])
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ConfigurationAggregator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AccountAggregationSource]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountAggregationSources&quot;</span></span><span>
+</span><span id="line-124"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AccountAggregationSource]))
+-&gt; Maybe [AccountAggregationSource]
+-&gt; Parser (Maybe [AccountAggregationSource])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AccountAggregationSource]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ConfigurationAggregator)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; ConfigurationAggregator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ConfigurationAggregator)
+-&gt; Parser (Maybe Text) -&gt; Parser ConfigurationAggregator
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConfigurationAggregatorName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401791"><span id="local-6989586621679401793"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401788"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span></span><span>
+</span><span id="line-133"></span></pre></body></html>

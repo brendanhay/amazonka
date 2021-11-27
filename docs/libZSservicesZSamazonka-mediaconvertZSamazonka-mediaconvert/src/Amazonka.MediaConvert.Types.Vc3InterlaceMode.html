@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.Vc3InterlaceMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.Vc3InterlaceMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode"><span class="hs-identifier">Vc3InterlaceMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode_INTERLACED"><span class="hs-identifier">Vc3InterlaceMode_INTERLACED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode_PROGRESSIVE"><span class="hs-identifier">Vc3InterlaceMode_PROGRESSIVE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Optional. Choose the scan line type for this output. If you don\'t</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- specify a value, MediaConvert will create a progressive output.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621680011751"><span id="local-6989586621680011752"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vc3InterlaceMode"><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode"><span class="hs-identifier hs-var">Vc3InterlaceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vc3InterlaceMode%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode%27"><span class="hs-identifier hs-var">Vc3InterlaceMode'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVc3InterlaceMode"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#fromVc3InterlaceMode"><span class="hs-identifier hs-var hs-var">fromVc3InterlaceMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680011743"><span id="local-6989586621680011745"><span id="local-6989586621680011747"><span class="annot"><span class="annottext">Int -&gt; Vc3InterlaceMode -&gt; ShowS
+[Vc3InterlaceMode] -&gt; ShowS
+Vc3InterlaceMode -&gt; String
+(Int -&gt; Vc3InterlaceMode -&gt; ShowS)
+-&gt; (Vc3InterlaceMode -&gt; String)
+-&gt; ([Vc3InterlaceMode] -&gt; ShowS)
+-&gt; Show Vc3InterlaceMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Vc3InterlaceMode] -&gt; ShowS
+$cshowList :: [Vc3InterlaceMode] -&gt; ShowS
+show :: Vc3InterlaceMode -&gt; String
+$cshow :: Vc3InterlaceMode -&gt; String
+showsPrec :: Int -&gt; Vc3InterlaceMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; Vc3InterlaceMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680011734"><span id="local-6989586621680011736"><span id="local-6989586621680011738"><span id="local-6989586621680011740"><span class="annot"><span class="annottext">ReadPrec [Vc3InterlaceMode]
+ReadPrec Vc3InterlaceMode
+Int -&gt; ReadS Vc3InterlaceMode
+ReadS [Vc3InterlaceMode]
+(Int -&gt; ReadS Vc3InterlaceMode)
+-&gt; ReadS [Vc3InterlaceMode]
+-&gt; ReadPrec Vc3InterlaceMode
+-&gt; ReadPrec [Vc3InterlaceMode]
+-&gt; Read Vc3InterlaceMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Vc3InterlaceMode]
+$creadListPrec :: ReadPrec [Vc3InterlaceMode]
+readPrec :: ReadPrec Vc3InterlaceMode
+$creadPrec :: ReadPrec Vc3InterlaceMode
+readList :: ReadS [Vc3InterlaceMode]
+$creadList :: ReadS [Vc3InterlaceMode]
+readsPrec :: Int -&gt; ReadS Vc3InterlaceMode
+$creadsPrec :: Int -&gt; ReadS Vc3InterlaceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680011729"><span id="local-6989586621680011731"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+(Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool)
+-&gt; (Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool)
+-&gt; Eq Vc3InterlaceMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+$c/= :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+== :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+$c== :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680011713"><span id="local-6989586621680011715"><span id="local-6989586621680011717"><span id="local-6989586621680011719"><span id="local-6989586621680011721"><span id="local-6989586621680011723"><span id="local-6989586621680011725"><span class="annot"><span class="annottext">Eq Vc3InterlaceMode
+Eq Vc3InterlaceMode
+-&gt; (Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Ordering)
+-&gt; (Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool)
+-&gt; (Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool)
+-&gt; (Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool)
+-&gt; (Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool)
+-&gt; (Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Vc3InterlaceMode)
+-&gt; (Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Vc3InterlaceMode)
+-&gt; Ord Vc3InterlaceMode
+Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Ordering
+Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Vc3InterlaceMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Vc3InterlaceMode
+$cmin :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Vc3InterlaceMode
+max :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Vc3InterlaceMode
+$cmax :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Vc3InterlaceMode
+&gt;= :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+$c&gt;= :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+&gt; :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+$c&gt; :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+&lt;= :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+$c&lt;= :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+&lt; :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+$c&lt; :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Bool
+compare :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Ordering
+$ccompare :: Vc3InterlaceMode -&gt; Vc3InterlaceMode -&gt; Ordering
+$cp1Ord :: Eq Vc3InterlaceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Vc3InterlaceMode -&gt; Rep Vc3InterlaceMode x)
+-&gt; (forall x. Rep Vc3InterlaceMode x -&gt; Vc3InterlaceMode)
+-&gt; Generic Vc3InterlaceMode
+forall x. Rep Vc3InterlaceMode x -&gt; Vc3InterlaceMode
+forall x. Vc3InterlaceMode -&gt; Rep Vc3InterlaceMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Vc3InterlaceMode x -&gt; Vc3InterlaceMode
+$cfrom :: forall x. Vc3InterlaceMode -&gt; Rep Vc3InterlaceMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680011705"><span id="local-6989586621680011707"><span class="annot"><span class="annottext">Int -&gt; Vc3InterlaceMode -&gt; Int
+Vc3InterlaceMode -&gt; Int
+(Int -&gt; Vc3InterlaceMode -&gt; Int)
+-&gt; (Vc3InterlaceMode -&gt; Int) -&gt; Hashable Vc3InterlaceMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Vc3InterlaceMode -&gt; Int
+$chash :: Vc3InterlaceMode -&gt; Int
+hashWithSalt :: Int -&gt; Vc3InterlaceMode -&gt; Int
+$chashWithSalt :: Int -&gt; Vc3InterlaceMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680011702"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; ()
+(Vc3InterlaceMode -&gt; ()) -&gt; NFData Vc3InterlaceMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Vc3InterlaceMode -&gt; ()
+$crnf :: Vc3InterlaceMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680011699"><span class="annot"><span class="annottext">Text -&gt; Either String Vc3InterlaceMode
+(Text -&gt; Either String Vc3InterlaceMode)
+-&gt; FromText Vc3InterlaceMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Vc3InterlaceMode
+$cfromText :: Text -&gt; Either String Vc3InterlaceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680011696"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; Text
+(Vc3InterlaceMode -&gt; Text) -&gt; ToText Vc3InterlaceMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Vc3InterlaceMode -&gt; Text
+$ctoText :: Vc3InterlaceMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680011693"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; ByteString
+(Vc3InterlaceMode -&gt; ByteString) -&gt; ToByteString Vc3InterlaceMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Vc3InterlaceMode -&gt; ByteString
+$ctoBS :: Vc3InterlaceMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680011690"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; ByteStringBuilder
+(Vc3InterlaceMode -&gt; ByteStringBuilder) -&gt; ToLog Vc3InterlaceMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Vc3InterlaceMode -&gt; ByteStringBuilder
+$cbuild :: Vc3InterlaceMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680011687"><span class="annot"><span class="annottext">HeaderName -&gt; Vc3InterlaceMode -&gt; [Header]
+(HeaderName -&gt; Vc3InterlaceMode -&gt; [Header])
+-&gt; ToHeader Vc3InterlaceMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Vc3InterlaceMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Vc3InterlaceMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680011684"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; QueryString
+(Vc3InterlaceMode -&gt; QueryString) -&gt; ToQuery Vc3InterlaceMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Vc3InterlaceMode -&gt; QueryString
+$ctoQuery :: Vc3InterlaceMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680011679"><span id="local-6989586621680011681"><span class="annot"><span class="annottext">Value -&gt; Parser [Vc3InterlaceMode]
+Value -&gt; Parser Vc3InterlaceMode
+(Value -&gt; Parser Vc3InterlaceMode)
+-&gt; (Value -&gt; Parser [Vc3InterlaceMode])
+-&gt; FromJSON Vc3InterlaceMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Vc3InterlaceMode]
+$cparseJSONList :: Value -&gt; Parser [Vc3InterlaceMode]
+parseJSON :: Value -&gt; Parser Vc3InterlaceMode
+$cparseJSON :: Value -&gt; Parser Vc3InterlaceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680011674"><span id="local-6989586621680011676"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vc3InterlaceMode]
+FromJSONKeyFunction Vc3InterlaceMode
+FromJSONKeyFunction Vc3InterlaceMode
+-&gt; FromJSONKeyFunction [Vc3InterlaceMode]
+-&gt; FromJSONKey Vc3InterlaceMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Vc3InterlaceMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [Vc3InterlaceMode]
+fromJSONKey :: FromJSONKeyFunction Vc3InterlaceMode
+$cfromJSONKey :: FromJSONKeyFunction Vc3InterlaceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680011665"><span id="local-6989586621680011667"><span id="local-6989586621680011669"><span id="local-6989586621680011671"><span class="annot"><span class="annottext">[Vc3InterlaceMode] -&gt; Encoding
+[Vc3InterlaceMode] -&gt; Value
+Vc3InterlaceMode -&gt; Encoding
+Vc3InterlaceMode -&gt; Value
+(Vc3InterlaceMode -&gt; Value)
+-&gt; (Vc3InterlaceMode -&gt; Encoding)
+-&gt; ([Vc3InterlaceMode] -&gt; Value)
+-&gt; ([Vc3InterlaceMode] -&gt; Encoding)
+-&gt; ToJSON Vc3InterlaceMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Vc3InterlaceMode] -&gt; Encoding
+$ctoEncodingList :: [Vc3InterlaceMode] -&gt; Encoding
+toJSONList :: [Vc3InterlaceMode] -&gt; Value
+$ctoJSONList :: [Vc3InterlaceMode] -&gt; Value
+toEncoding :: Vc3InterlaceMode -&gt; Encoding
+$ctoEncoding :: Vc3InterlaceMode -&gt; Encoding
+toJSON :: Vc3InterlaceMode -&gt; Value
+$ctoJSON :: Vc3InterlaceMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680011660"><span id="local-6989586621680011662"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vc3InterlaceMode]
+ToJSONKeyFunction Vc3InterlaceMode
+ToJSONKeyFunction Vc3InterlaceMode
+-&gt; ToJSONKeyFunction [Vc3InterlaceMode]
+-&gt; ToJSONKey Vc3InterlaceMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Vc3InterlaceMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [Vc3InterlaceMode]
+toJSONKey :: ToJSONKeyFunction Vc3InterlaceMode
+$ctoJSONKey :: ToJSONKeyFunction Vc3InterlaceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680011657"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vc3InterlaceMode
+([Node] -&gt; Either String Vc3InterlaceMode)
+-&gt; FromXML Vc3InterlaceMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Vc3InterlaceMode
+$cparseXML :: [Node] -&gt; Either String Vc3InterlaceMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680011654"><span class="annot"><span class="annottext">Vc3InterlaceMode -&gt; XML
+(Vc3InterlaceMode -&gt; XML) -&gt; ToXML Vc3InterlaceMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Vc3InterlaceMode -&gt; XML
+$ctoXML :: Vc3InterlaceMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode_INTERLACED"><span class="hs-identifier hs-type">Vc3InterlaceMode_INTERLACED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode"><span class="hs-identifier hs-type">Vc3InterlaceMode</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVc3InterlaceMode_INTERLACED"><span id="%24mVc3InterlaceMode_INTERLACED"><span id="Vc3InterlaceMode_INTERLACED"><span class="annot"><span class="annottext">$bVc3InterlaceMode_INTERLACED :: Vc3InterlaceMode
+$mVc3InterlaceMode_INTERLACED :: forall r. Vc3InterlaceMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#%24bVc3InterlaceMode_INTERLACED"><span class="hs-identifier hs-var hs-var hs-var">Vc3InterlaceMode_INTERLACED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode%27"><span class="hs-identifier hs-type">Vc3InterlaceMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERLACED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode_PROGRESSIVE"><span class="hs-identifier hs-type">Vc3InterlaceMode_PROGRESSIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode"><span class="hs-identifier hs-type">Vc3InterlaceMode</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVc3InterlaceMode_PROGRESSIVE"><span id="%24mVc3InterlaceMode_PROGRESSIVE"><span id="Vc3InterlaceMode_PROGRESSIVE"><span class="annot"><span class="annottext">$bVc3InterlaceMode_PROGRESSIVE :: Vc3InterlaceMode
+$mVc3InterlaceMode_PROGRESSIVE :: forall r. Vc3InterlaceMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#%24bVc3InterlaceMode_PROGRESSIVE"><span class="hs-identifier hs-var hs-var hs-var">Vc3InterlaceMode_PROGRESSIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode%27"><span class="hs-identifier hs-type">Vc3InterlaceMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROGRESSIVE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode_INTERLACED"><span class="hs-pragma hs-type">Vc3InterlaceMode_INTERLACED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode_PROGRESSIVE"><span class="hs-pragma hs-type">Vc3InterlaceMode_PROGRESSIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Vc3InterlaceMode.html#Vc3InterlaceMode%27"><span class="hs-pragma hs-type">Vc3InterlaceMode'</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-73"></span></pre></body></html>

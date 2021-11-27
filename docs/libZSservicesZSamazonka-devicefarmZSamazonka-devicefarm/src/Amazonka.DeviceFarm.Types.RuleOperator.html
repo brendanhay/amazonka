@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.Types.RuleOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.Types.RuleOperator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier">RuleOperator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_CONTAINS"><span class="hs-identifier">RuleOperator_CONTAINS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_EQUALS"><span class="hs-identifier">RuleOperator_EQUALS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_GREATER_THAN"><span class="hs-identifier">RuleOperator_GREATER_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_GREATER_THAN_OR_EQUALS"><span class="hs-identifier">RuleOperator_GREATER_THAN_OR_EQUALS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_IN"><span class="hs-identifier">RuleOperator_IN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_LESS_THAN"><span class="hs-identifier">RuleOperator_LESS_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_LESS_THAN_OR_EQUALS"><span class="hs-identifier">RuleOperator_LESS_THAN_OR_EQUALS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_NOT_IN"><span class="hs-identifier">RuleOperator_NOT_IN</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679366853"><span id="local-6989586621679366854"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RuleOperator"><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-var">RuleOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleOperator%27"><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator%27"><span class="hs-identifier hs-var">RuleOperator'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRuleOperator"><span class="annot"><span class="annottext">RuleOperator -&gt; Text
+</span><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#fromRuleOperator"><span class="hs-identifier hs-var hs-var">fromRuleOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366845"><span id="local-6989586621679366847"><span id="local-6989586621679366849"><span class="annot"><span class="annottext">Int -&gt; RuleOperator -&gt; ShowS
+[RuleOperator] -&gt; ShowS
+RuleOperator -&gt; String
+(Int -&gt; RuleOperator -&gt; ShowS)
+-&gt; (RuleOperator -&gt; String)
+-&gt; ([RuleOperator] -&gt; ShowS)
+-&gt; Show RuleOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RuleOperator] -&gt; ShowS
+$cshowList :: [RuleOperator] -&gt; ShowS
+show :: RuleOperator -&gt; String
+$cshow :: RuleOperator -&gt; String
+showsPrec :: Int -&gt; RuleOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; RuleOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679366836"><span id="local-6989586621679366838"><span id="local-6989586621679366840"><span id="local-6989586621679366842"><span class="annot"><span class="annottext">ReadPrec [RuleOperator]
+ReadPrec RuleOperator
+Int -&gt; ReadS RuleOperator
+ReadS [RuleOperator]
+(Int -&gt; ReadS RuleOperator)
+-&gt; ReadS [RuleOperator]
+-&gt; ReadPrec RuleOperator
+-&gt; ReadPrec [RuleOperator]
+-&gt; Read RuleOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RuleOperator]
+$creadListPrec :: ReadPrec [RuleOperator]
+readPrec :: ReadPrec RuleOperator
+$creadPrec :: ReadPrec RuleOperator
+readList :: ReadS [RuleOperator]
+$creadList :: ReadS [RuleOperator]
+readsPrec :: Int -&gt; ReadS RuleOperator
+$creadsPrec :: Int -&gt; ReadS RuleOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679366831"><span id="local-6989586621679366833"><span class="annot"><span class="annottext">RuleOperator -&gt; RuleOperator -&gt; Bool
+(RuleOperator -&gt; RuleOperator -&gt; Bool)
+-&gt; (RuleOperator -&gt; RuleOperator -&gt; Bool) -&gt; Eq RuleOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RuleOperator -&gt; RuleOperator -&gt; Bool
+$c/= :: RuleOperator -&gt; RuleOperator -&gt; Bool
+== :: RuleOperator -&gt; RuleOperator -&gt; Bool
+$c== :: RuleOperator -&gt; RuleOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679366815"><span id="local-6989586621679366817"><span id="local-6989586621679366819"><span id="local-6989586621679366821"><span id="local-6989586621679366823"><span id="local-6989586621679366825"><span id="local-6989586621679366827"><span class="annot"><span class="annottext">Eq RuleOperator
+Eq RuleOperator
+-&gt; (RuleOperator -&gt; RuleOperator -&gt; Ordering)
+-&gt; (RuleOperator -&gt; RuleOperator -&gt; Bool)
+-&gt; (RuleOperator -&gt; RuleOperator -&gt; Bool)
+-&gt; (RuleOperator -&gt; RuleOperator -&gt; Bool)
+-&gt; (RuleOperator -&gt; RuleOperator -&gt; Bool)
+-&gt; (RuleOperator -&gt; RuleOperator -&gt; RuleOperator)
+-&gt; (RuleOperator -&gt; RuleOperator -&gt; RuleOperator)
+-&gt; Ord RuleOperator
+RuleOperator -&gt; RuleOperator -&gt; Bool
+RuleOperator -&gt; RuleOperator -&gt; Ordering
+RuleOperator -&gt; RuleOperator -&gt; RuleOperator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RuleOperator -&gt; RuleOperator -&gt; RuleOperator
+$cmin :: RuleOperator -&gt; RuleOperator -&gt; RuleOperator
+max :: RuleOperator -&gt; RuleOperator -&gt; RuleOperator
+$cmax :: RuleOperator -&gt; RuleOperator -&gt; RuleOperator
+&gt;= :: RuleOperator -&gt; RuleOperator -&gt; Bool
+$c&gt;= :: RuleOperator -&gt; RuleOperator -&gt; Bool
+&gt; :: RuleOperator -&gt; RuleOperator -&gt; Bool
+$c&gt; :: RuleOperator -&gt; RuleOperator -&gt; Bool
+&lt;= :: RuleOperator -&gt; RuleOperator -&gt; Bool
+$c&lt;= :: RuleOperator -&gt; RuleOperator -&gt; Bool
+&lt; :: RuleOperator -&gt; RuleOperator -&gt; Bool
+$c&lt; :: RuleOperator -&gt; RuleOperator -&gt; Bool
+compare :: RuleOperator -&gt; RuleOperator -&gt; Ordering
+$ccompare :: RuleOperator -&gt; RuleOperator -&gt; Ordering
+$cp1Ord :: Eq RuleOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RuleOperator -&gt; Rep RuleOperator x)
+-&gt; (forall x. Rep RuleOperator x -&gt; RuleOperator)
+-&gt; Generic RuleOperator
+forall x. Rep RuleOperator x -&gt; RuleOperator
+forall x. RuleOperator -&gt; Rep RuleOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RuleOperator x -&gt; RuleOperator
+$cfrom :: forall x. RuleOperator -&gt; Rep RuleOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366807"><span id="local-6989586621679366809"><span class="annot"><span class="annottext">Int -&gt; RuleOperator -&gt; Int
+RuleOperator -&gt; Int
+(Int -&gt; RuleOperator -&gt; Int)
+-&gt; (RuleOperator -&gt; Int) -&gt; Hashable RuleOperator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RuleOperator -&gt; Int
+$chash :: RuleOperator -&gt; Int
+hashWithSalt :: Int -&gt; RuleOperator -&gt; Int
+$chashWithSalt :: Int -&gt; RuleOperator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366804"><span class="annot"><span class="annottext">RuleOperator -&gt; ()
+(RuleOperator -&gt; ()) -&gt; NFData RuleOperator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RuleOperator -&gt; ()
+$crnf :: RuleOperator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366801"><span class="annot"><span class="annottext">Text -&gt; Either String RuleOperator
+(Text -&gt; Either String RuleOperator) -&gt; FromText RuleOperator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RuleOperator
+$cfromText :: Text -&gt; Either String RuleOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366798"><span class="annot"><span class="annottext">RuleOperator -&gt; Text
+(RuleOperator -&gt; Text) -&gt; ToText RuleOperator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RuleOperator -&gt; Text
+$ctoText :: RuleOperator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366795"><span class="annot"><span class="annottext">RuleOperator -&gt; ByteString
+(RuleOperator -&gt; ByteString) -&gt; ToByteString RuleOperator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RuleOperator -&gt; ByteString
+$ctoBS :: RuleOperator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366792"><span class="annot"><span class="annottext">RuleOperator -&gt; ByteStringBuilder
+(RuleOperator -&gt; ByteStringBuilder) -&gt; ToLog RuleOperator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RuleOperator -&gt; ByteStringBuilder
+$cbuild :: RuleOperator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366789"><span class="annot"><span class="annottext">HeaderName -&gt; RuleOperator -&gt; [Header]
+(HeaderName -&gt; RuleOperator -&gt; [Header]) -&gt; ToHeader RuleOperator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RuleOperator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RuleOperator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366786"><span class="annot"><span class="annottext">RuleOperator -&gt; QueryString
+(RuleOperator -&gt; QueryString) -&gt; ToQuery RuleOperator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RuleOperator -&gt; QueryString
+$ctoQuery :: RuleOperator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679366781"><span id="local-6989586621679366783"><span class="annot"><span class="annottext">Value -&gt; Parser [RuleOperator]
+Value -&gt; Parser RuleOperator
+(Value -&gt; Parser RuleOperator)
+-&gt; (Value -&gt; Parser [RuleOperator]) -&gt; FromJSON RuleOperator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RuleOperator]
+$cparseJSONList :: Value -&gt; Parser [RuleOperator]
+parseJSON :: Value -&gt; Parser RuleOperator
+$cparseJSON :: Value -&gt; Parser RuleOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679366776"><span id="local-6989586621679366778"><span class="annot"><span class="annottext">FromJSONKeyFunction [RuleOperator]
+FromJSONKeyFunction RuleOperator
+FromJSONKeyFunction RuleOperator
+-&gt; FromJSONKeyFunction [RuleOperator] -&gt; FromJSONKey RuleOperator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RuleOperator]
+$cfromJSONKeyList :: FromJSONKeyFunction [RuleOperator]
+fromJSONKey :: FromJSONKeyFunction RuleOperator
+$cfromJSONKey :: FromJSONKeyFunction RuleOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679366767"><span id="local-6989586621679366769"><span id="local-6989586621679366771"><span id="local-6989586621679366773"><span class="annot"><span class="annottext">[RuleOperator] -&gt; Encoding
+[RuleOperator] -&gt; Value
+RuleOperator -&gt; Encoding
+RuleOperator -&gt; Value
+(RuleOperator -&gt; Value)
+-&gt; (RuleOperator -&gt; Encoding)
+-&gt; ([RuleOperator] -&gt; Value)
+-&gt; ([RuleOperator] -&gt; Encoding)
+-&gt; ToJSON RuleOperator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RuleOperator] -&gt; Encoding
+$ctoEncodingList :: [RuleOperator] -&gt; Encoding
+toJSONList :: [RuleOperator] -&gt; Value
+$ctoJSONList :: [RuleOperator] -&gt; Value
+toEncoding :: RuleOperator -&gt; Encoding
+$ctoEncoding :: RuleOperator -&gt; Encoding
+toJSON :: RuleOperator -&gt; Value
+$ctoJSON :: RuleOperator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679366762"><span id="local-6989586621679366764"><span class="annot"><span class="annottext">ToJSONKeyFunction [RuleOperator]
+ToJSONKeyFunction RuleOperator
+ToJSONKeyFunction RuleOperator
+-&gt; ToJSONKeyFunction [RuleOperator] -&gt; ToJSONKey RuleOperator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RuleOperator]
+$ctoJSONKeyList :: ToJSONKeyFunction [RuleOperator]
+toJSONKey :: ToJSONKeyFunction RuleOperator
+$ctoJSONKey :: ToJSONKeyFunction RuleOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679366759"><span class="annot"><span class="annottext">[Node] -&gt; Either String RuleOperator
+([Node] -&gt; Either String RuleOperator) -&gt; FromXML RuleOperator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RuleOperator
+$cparseXML :: [Node] -&gt; Either String RuleOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679366756"><span class="annot"><span class="annottext">RuleOperator -&gt; XML
+(RuleOperator -&gt; XML) -&gt; ToXML RuleOperator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RuleOperator -&gt; XML
+$ctoXML :: RuleOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_CONTAINS"><span class="hs-identifier hs-type">RuleOperator_CONTAINS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-type">RuleOperator</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuleOperator_CONTAINS"><span id="%24mRuleOperator_CONTAINS"><span id="RuleOperator_CONTAINS"><span class="annot"><span class="annottext">$bRuleOperator_CONTAINS :: RuleOperator
+$mRuleOperator_CONTAINS :: forall r. RuleOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#%24bRuleOperator_CONTAINS"><span class="hs-identifier hs-var hs-var hs-var">RuleOperator_CONTAINS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator%27"><span class="hs-identifier hs-type">RuleOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTAINS&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_EQUALS"><span class="hs-identifier hs-type">RuleOperator_EQUALS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-type">RuleOperator</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuleOperator_EQUALS"><span id="%24mRuleOperator_EQUALS"><span id="RuleOperator_EQUALS"><span class="annot"><span class="annottext">$bRuleOperator_EQUALS :: RuleOperator
+$mRuleOperator_EQUALS :: forall r. RuleOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#%24bRuleOperator_EQUALS"><span class="hs-identifier hs-var hs-var hs-var">RuleOperator_EQUALS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator%27"><span class="hs-identifier hs-type">RuleOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EQUALS&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_GREATER_THAN"><span class="hs-identifier hs-type">RuleOperator_GREATER_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-type">RuleOperator</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuleOperator_GREATER_THAN"><span id="%24mRuleOperator_GREATER_THAN"><span id="RuleOperator_GREATER_THAN"><span class="annot"><span class="annottext">$bRuleOperator_GREATER_THAN :: RuleOperator
+$mRuleOperator_GREATER_THAN :: forall r. RuleOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#%24bRuleOperator_GREATER_THAN"><span class="hs-identifier hs-var hs-var hs-var">RuleOperator_GREATER_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator%27"><span class="hs-identifier hs-type">RuleOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GREATER_THAN&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_GREATER_THAN_OR_EQUALS"><span class="hs-identifier hs-type">RuleOperator_GREATER_THAN_OR_EQUALS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-type">RuleOperator</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuleOperator_GREATER_THAN_OR_EQUALS"><span id="%24mRuleOperator_GREATER_THAN_OR_EQUALS"><span id="RuleOperator_GREATER_THAN_OR_EQUALS"><span class="annot"><span class="annottext">$bRuleOperator_GREATER_THAN_OR_EQUALS :: RuleOperator
+$mRuleOperator_GREATER_THAN_OR_EQUALS :: forall r. RuleOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#%24bRuleOperator_GREATER_THAN_OR_EQUALS"><span class="hs-identifier hs-var hs-var hs-var">RuleOperator_GREATER_THAN_OR_EQUALS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator%27"><span class="hs-identifier hs-type">RuleOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GREATER_THAN_OR_EQUALS&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_IN"><span class="hs-identifier hs-type">RuleOperator_IN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-type">RuleOperator</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuleOperator_IN"><span id="%24mRuleOperator_IN"><span id="RuleOperator_IN"><span class="annot"><span class="annottext">$bRuleOperator_IN :: RuleOperator
+$mRuleOperator_IN :: forall r. RuleOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#%24bRuleOperator_IN"><span class="hs-identifier hs-var hs-var hs-var">RuleOperator_IN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator%27"><span class="hs-identifier hs-type">RuleOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_LESS_THAN"><span class="hs-identifier hs-type">RuleOperator_LESS_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-type">RuleOperator</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuleOperator_LESS_THAN"><span id="%24mRuleOperator_LESS_THAN"><span id="RuleOperator_LESS_THAN"><span class="annot"><span class="annottext">$bRuleOperator_LESS_THAN :: RuleOperator
+$mRuleOperator_LESS_THAN :: forall r. RuleOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#%24bRuleOperator_LESS_THAN"><span class="hs-identifier hs-var hs-var hs-var">RuleOperator_LESS_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator%27"><span class="hs-identifier hs-type">RuleOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LESS_THAN&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_LESS_THAN_OR_EQUALS"><span class="hs-identifier hs-type">RuleOperator_LESS_THAN_OR_EQUALS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-type">RuleOperator</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuleOperator_LESS_THAN_OR_EQUALS"><span id="%24mRuleOperator_LESS_THAN_OR_EQUALS"><span id="RuleOperator_LESS_THAN_OR_EQUALS"><span class="annot"><span class="annottext">$bRuleOperator_LESS_THAN_OR_EQUALS :: RuleOperator
+$mRuleOperator_LESS_THAN_OR_EQUALS :: forall r. RuleOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#%24bRuleOperator_LESS_THAN_OR_EQUALS"><span class="hs-identifier hs-var hs-var hs-var">RuleOperator_LESS_THAN_OR_EQUALS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator%27"><span class="hs-identifier hs-type">RuleOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LESS_THAN_OR_EQUALS&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_NOT_IN"><span class="hs-identifier hs-type">RuleOperator_NOT_IN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-type">RuleOperator</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuleOperator_NOT_IN"><span id="%24mRuleOperator_NOT_IN"><span id="RuleOperator_NOT_IN"><span class="annot"><span class="annottext">$bRuleOperator_NOT_IN :: RuleOperator
+$mRuleOperator_NOT_IN :: forall r. RuleOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#%24bRuleOperator_NOT_IN"><span class="hs-identifier hs-var hs-var hs-var">RuleOperator_NOT_IN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator%27"><span class="hs-identifier hs-type">RuleOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_IN&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_CONTAINS"><span class="hs-pragma hs-type">RuleOperator_CONTAINS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_EQUALS"><span class="hs-pragma hs-type">RuleOperator_EQUALS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_GREATER_THAN"><span class="hs-pragma hs-type">RuleOperator_GREATER_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_GREATER_THAN_OR_EQUALS"><span class="hs-pragma hs-type">RuleOperator_GREATER_THAN_OR_EQUALS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_IN"><span class="hs-pragma hs-type">RuleOperator_IN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_LESS_THAN"><span class="hs-pragma hs-type">RuleOperator_LESS_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_LESS_THAN_OR_EQUALS"><span class="hs-pragma hs-type">RuleOperator_LESS_THAN_OR_EQUALS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator_NOT_IN"><span class="hs-pragma hs-type">RuleOperator_NOT_IN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RuleOperator.html#RuleOperator%27"><span class="hs-pragma hs-type">RuleOperator'</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-101"></span></pre></body></html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudSearch.DeleteAnalysisScheme</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an analysis scheme. For more information, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- in the /Amazon CloudSearch Developer Guide/.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudSearch.DeleteAnalysisScheme</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier">DeleteAnalysisScheme</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#newDeleteAnalysisScheme"><span class="hs-identifier">newDeleteAnalysisScheme</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#deleteAnalysisScheme_domainName"><span class="hs-identifier">deleteAnalysisScheme_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#deleteAnalysisScheme_analysisSchemeName"><span class="hs-identifier">deleteAnalysisScheme_analysisSchemeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse"><span class="hs-identifier">DeleteAnalysisSchemeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#newDeleteAnalysisSchemeResponse"><span class="hs-identifier">newDeleteAnalysisSchemeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#deleteAnalysisSchemeResponse_httpStatus"><span class="hs-identifier">deleteAnalysisSchemeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#deleteAnalysisSchemeResponse_analysisScheme"><span class="hs-identifier">deleteAnalysisSchemeResponse_analysisScheme</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.html"><span class="hs-identifier">Amazonka.CloudSearch.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | Container for the parameters to the @DeleteAnalysisScheme@ operation.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Specifies the name of the domain you want to update and the analysis</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- scheme you want to delete.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDeleteAnalysisScheme' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679214547"><span id="local-6989586621679214548"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAnalysisScheme"><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-var">DeleteAnalysisScheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAnalysisScheme%27"><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme%27"><span class="hs-identifier hs-var">DeleteAnalysisScheme'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdomainName%3ADeleteAnalysisScheme%27"><span class="annot"><span class="annottext">DeleteAnalysisScheme -&gt; Text
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#%24sel%3AdomainName%3ADeleteAnalysisScheme%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the analysis scheme you want to delete.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AanalysisSchemeName%3ADeleteAnalysisScheme%27"><span class="annot"><span class="annottext">DeleteAnalysisScheme -&gt; Text
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#%24sel%3AanalysisSchemeName%3ADeleteAnalysisScheme%27"><span class="hs-identifier hs-var hs-var">analysisSchemeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214540"><span id="local-6989586621679214542"><span class="annot"><span class="annottext">DeleteAnalysisScheme -&gt; DeleteAnalysisScheme -&gt; Bool
+(DeleteAnalysisScheme -&gt; DeleteAnalysisScheme -&gt; Bool)
+-&gt; (DeleteAnalysisScheme -&gt; DeleteAnalysisScheme -&gt; Bool)
+-&gt; Eq DeleteAnalysisScheme
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAnalysisScheme -&gt; DeleteAnalysisScheme -&gt; Bool
+$c/= :: DeleteAnalysisScheme -&gt; DeleteAnalysisScheme -&gt; Bool
+== :: DeleteAnalysisScheme -&gt; DeleteAnalysisScheme -&gt; Bool
+$c== :: DeleteAnalysisScheme -&gt; DeleteAnalysisScheme -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214531"><span id="local-6989586621679214533"><span id="local-6989586621679214535"><span id="local-6989586621679214537"><span class="annot"><span class="annottext">ReadPrec [DeleteAnalysisScheme]
+ReadPrec DeleteAnalysisScheme
+Int -&gt; ReadS DeleteAnalysisScheme
+ReadS [DeleteAnalysisScheme]
+(Int -&gt; ReadS DeleteAnalysisScheme)
+-&gt; ReadS [DeleteAnalysisScheme]
+-&gt; ReadPrec DeleteAnalysisScheme
+-&gt; ReadPrec [DeleteAnalysisScheme]
+-&gt; Read DeleteAnalysisScheme
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAnalysisScheme]
+$creadListPrec :: ReadPrec [DeleteAnalysisScheme]
+readPrec :: ReadPrec DeleteAnalysisScheme
+$creadPrec :: ReadPrec DeleteAnalysisScheme
+readList :: ReadS [DeleteAnalysisScheme]
+$creadList :: ReadS [DeleteAnalysisScheme]
+readsPrec :: Int -&gt; ReadS DeleteAnalysisScheme
+$creadsPrec :: Int -&gt; ReadS DeleteAnalysisScheme
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214524"><span id="local-6989586621679214526"><span id="local-6989586621679214528"><span class="annot"><span class="annottext">Int -&gt; DeleteAnalysisScheme -&gt; ShowS
+[DeleteAnalysisScheme] -&gt; ShowS
+DeleteAnalysisScheme -&gt; String
+(Int -&gt; DeleteAnalysisScheme -&gt; ShowS)
+-&gt; (DeleteAnalysisScheme -&gt; String)
+-&gt; ([DeleteAnalysisScheme] -&gt; ShowS)
+-&gt; Show DeleteAnalysisScheme
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAnalysisScheme] -&gt; ShowS
+$cshowList :: [DeleteAnalysisScheme] -&gt; ShowS
+show :: DeleteAnalysisScheme -&gt; String
+$cshow :: DeleteAnalysisScheme -&gt; String
+showsPrec :: Int -&gt; DeleteAnalysisScheme -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAnalysisScheme -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAnalysisScheme -&gt; Rep DeleteAnalysisScheme x)
+-&gt; (forall x. Rep DeleteAnalysisScheme x -&gt; DeleteAnalysisScheme)
+-&gt; Generic DeleteAnalysisScheme
+forall x. Rep DeleteAnalysisScheme x -&gt; DeleteAnalysisScheme
+forall x. DeleteAnalysisScheme -&gt; Rep DeleteAnalysisScheme x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAnalysisScheme x -&gt; DeleteAnalysisScheme
+$cfrom :: forall x. DeleteAnalysisScheme -&gt; Rep DeleteAnalysisScheme x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DeleteAnalysisScheme' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'domainName', 'deleteAnalysisScheme_domainName' - Undocumented member.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'analysisSchemeName', 'deleteAnalysisScheme_analysisSchemeName' - The name of the analysis scheme you want to delete.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#newDeleteAnalysisScheme"><span class="hs-identifier hs-type">newDeleteAnalysisScheme</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'analysisSchemeName'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-type">DeleteAnalysisScheme</span></a></span><span>
+</span><span id="line-81"></span><span id="newDeleteAnalysisScheme"><span class="annot"><span class="annottext">newDeleteAnalysisScheme :: Text -&gt; Text -&gt; DeleteAnalysisScheme
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#newDeleteAnalysisScheme"><span class="hs-identifier hs-var hs-var">newDeleteAnalysisScheme</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679214519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214519"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679214518"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214518"><span class="hs-identifier hs-var">pAnalysisSchemeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">DeleteAnalysisScheme' :: Text -&gt; Text -&gt; DeleteAnalysisScheme
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme%27"><span class="hs-identifier hs-type">DeleteAnalysisScheme'</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:DeleteAnalysisScheme' :: Text
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#%24sel%3AdomainName%3ADeleteAnalysisScheme%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214519"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:analysisSchemeName:DeleteAnalysisScheme' :: Text
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#%24sel%3AanalysisSchemeName%3ADeleteAnalysisScheme%27"><span class="hs-identifier hs-var">analysisSchemeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214518"><span class="hs-identifier hs-var">pAnalysisSchemeName_</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#deleteAnalysisScheme_domainName"><span class="hs-identifier hs-type">deleteAnalysisScheme_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-type">DeleteAnalysisScheme</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="deleteAnalysisScheme_domainName"><span class="annot"><span class="annottext">deleteAnalysisScheme_domainName :: (Text -&gt; f Text) -&gt; DeleteAnalysisScheme -&gt; f DeleteAnalysisScheme
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#deleteAnalysisScheme_domainName"><span class="hs-identifier hs-var hs-var">deleteAnalysisScheme_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAnalysisScheme -&gt; Text)
+-&gt; (DeleteAnalysisScheme -&gt; Text -&gt; DeleteAnalysisScheme)
+-&gt; Lens DeleteAnalysisScheme DeleteAnalysisScheme Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme%27"><span class="hs-identifier hs-type">DeleteAnalysisScheme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214515"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:DeleteAnalysisScheme' :: DeleteAnalysisScheme -&gt; Text
+</span><a href="#local-6989586621679214515"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214515"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214514"><span class="annot"><span class="annottext">s :: DeleteAnalysisScheme
+</span><a href="#local-6989586621679214514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme%27"><span class="hs-identifier hs-type">DeleteAnalysisScheme'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214513"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAnalysisScheme
+</span><a href="#local-6989586621679214514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DeleteAnalysisScheme' :: Text
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#%24sel%3AdomainName%3ADeleteAnalysisScheme%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-type">DeleteAnalysisScheme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The name of the analysis scheme you want to delete.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#deleteAnalysisScheme_analysisSchemeName"><span class="hs-identifier hs-type">deleteAnalysisScheme_analysisSchemeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-type">DeleteAnalysisScheme</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="deleteAnalysisScheme_analysisSchemeName"><span class="annot"><span class="annottext">deleteAnalysisScheme_analysisSchemeName :: (Text -&gt; f Text) -&gt; DeleteAnalysisScheme -&gt; f DeleteAnalysisScheme
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#deleteAnalysisScheme_analysisSchemeName"><span class="hs-identifier hs-var hs-var">deleteAnalysisScheme_analysisSchemeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAnalysisScheme -&gt; Text)
+-&gt; (DeleteAnalysisScheme -&gt; Text -&gt; DeleteAnalysisScheme)
+-&gt; Lens DeleteAnalysisScheme DeleteAnalysisScheme Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme%27"><span class="hs-identifier hs-type">DeleteAnalysisScheme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214512"><span class="annot"><span class="annottext">Text
+analysisSchemeName :: Text
+$sel:analysisSchemeName:DeleteAnalysisScheme' :: DeleteAnalysisScheme -&gt; Text
+</span><a href="#local-6989586621679214512"><span class="hs-identifier hs-var hs-var">analysisSchemeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214512"><span class="hs-identifier hs-var">analysisSchemeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214511"><span class="annot"><span class="annottext">s :: DeleteAnalysisScheme
+</span><a href="#local-6989586621679214511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme%27"><span class="hs-identifier hs-type">DeleteAnalysisScheme'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214510"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAnalysisScheme
+</span><a href="#local-6989586621679214511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisSchemeName:DeleteAnalysisScheme' :: Text
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#%24sel%3AanalysisSchemeName%3ADeleteAnalysisScheme%27"><span class="hs-identifier hs-var">analysisSchemeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-type">DeleteAnalysisScheme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-type">DeleteAnalysisScheme</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-type">DeleteAnalysisScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse"><span class="hs-identifier hs-type">DeleteAnalysisSchemeResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679214506"><span class="annot"><span class="annottext">request :: DeleteAnalysisScheme -&gt; Request DeleteAnalysisScheme
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAnalysisScheme -&gt; Request DeleteAnalysisScheme
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudSearch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679214502"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteAnalysisScheme
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAnalysisScheme)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DeleteAnalysisScheme))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteAnalysisScheme
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAnalysisScheme)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeleteAnalysisSchemeResult&quot;</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679214499"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214499"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679214498"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679214498"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679214497"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679214497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AnalysisSchemeStatus -&gt; DeleteAnalysisSchemeResponse
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-var">DeleteAnalysisSchemeResponse'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AnalysisSchemeStatus -&gt; DeleteAnalysisSchemeResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (AnalysisSchemeStatus -&gt; DeleteAnalysisSchemeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214499"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (AnalysisSchemeStatus -&gt; DeleteAnalysisSchemeResponse)
+-&gt; Either String AnalysisSchemeStatus
+-&gt; Either String DeleteAnalysisSchemeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679214497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String AnalysisSchemeStatus
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalysisScheme&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214489"><span id="local-6989586621679214491"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-type">DeleteAnalysisScheme</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-type">DeleteAnalysisScheme</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-type">DeleteAnalysisScheme</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679214482"><span class="annot"><span class="annottext">toHeaders :: DeleteAnalysisScheme -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteAnalysisScheme -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-type">DeleteAnalysisScheme</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679214477"><span class="annot"><span class="annottext">toPath :: DeleteAnalysisScheme -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAnalysisScheme -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme"><span class="hs-identifier hs-type">DeleteAnalysisScheme</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679214473"><span class="annot"><span class="annottext">toQuery :: DeleteAnalysisScheme -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisScheme%27"><span class="hs-identifier hs-type">DeleteAnalysisScheme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214470"><span id="local-6989586621679214471"><span class="annot"><span class="annottext">Text
+analysisSchemeName :: Text
+domainName :: Text
+$sel:analysisSchemeName:DeleteAnalysisScheme' :: DeleteAnalysisScheme -&gt; Text
+$sel:domainName:DeleteAnalysisScheme' :: DeleteAnalysisScheme -&gt; Text
+</span><a href="#local-6989586621679214470"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteAnalysisScheme&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2013-01-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214471"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AnalysisSchemeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214470"><span class="hs-identifier hs-var">analysisSchemeName</span></a></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The result of a @DeleteAnalysisScheme@ request. Contains the status of</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- the deleted analysis scheme.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- /See:/ 'newDeleteAnalysisSchemeResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679214467"><span id="local-6989586621679214468"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAnalysisSchemeResponse"><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse"><span class="hs-identifier hs-var">DeleteAnalysisSchemeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAnalysisSchemeResponse%27"><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-var">DeleteAnalysisSchemeResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteAnalysisSchemeResponse%27"><span class="annot"><span class="annottext">DeleteAnalysisSchemeResponse -&gt; Int
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#%24sel%3AhttpStatus%3ADeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The status of the analysis scheme being deleted.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AanalysisScheme%3ADeleteAnalysisSchemeResponse%27"><span class="annot"><span class="annottext">DeleteAnalysisSchemeResponse -&gt; AnalysisSchemeStatus
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#%24sel%3AanalysisScheme%3ADeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-var hs-var">analysisScheme</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeStatus.html#AnalysisSchemeStatus"><span class="hs-identifier hs-type">AnalysisSchemeStatus</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214461"><span id="local-6989586621679214463"><span class="annot"><span class="annottext">DeleteAnalysisSchemeResponse
+-&gt; DeleteAnalysisSchemeResponse -&gt; Bool
+(DeleteAnalysisSchemeResponse
+ -&gt; DeleteAnalysisSchemeResponse -&gt; Bool)
+-&gt; (DeleteAnalysisSchemeResponse
+    -&gt; DeleteAnalysisSchemeResponse -&gt; Bool)
+-&gt; Eq DeleteAnalysisSchemeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAnalysisSchemeResponse
+-&gt; DeleteAnalysisSchemeResponse -&gt; Bool
+$c/= :: DeleteAnalysisSchemeResponse
+-&gt; DeleteAnalysisSchemeResponse -&gt; Bool
+== :: DeleteAnalysisSchemeResponse
+-&gt; DeleteAnalysisSchemeResponse -&gt; Bool
+$c== :: DeleteAnalysisSchemeResponse
+-&gt; DeleteAnalysisSchemeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214453"><span id="local-6989586621679214455"><span id="local-6989586621679214457"><span id="local-6989586621679214459"><span class="annot"><span class="annottext">ReadPrec [DeleteAnalysisSchemeResponse]
+ReadPrec DeleteAnalysisSchemeResponse
+Int -&gt; ReadS DeleteAnalysisSchemeResponse
+ReadS [DeleteAnalysisSchemeResponse]
+(Int -&gt; ReadS DeleteAnalysisSchemeResponse)
+-&gt; ReadS [DeleteAnalysisSchemeResponse]
+-&gt; ReadPrec DeleteAnalysisSchemeResponse
+-&gt; ReadPrec [DeleteAnalysisSchemeResponse]
+-&gt; Read DeleteAnalysisSchemeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAnalysisSchemeResponse]
+$creadListPrec :: ReadPrec [DeleteAnalysisSchemeResponse]
+readPrec :: ReadPrec DeleteAnalysisSchemeResponse
+$creadPrec :: ReadPrec DeleteAnalysisSchemeResponse
+readList :: ReadS [DeleteAnalysisSchemeResponse]
+$creadList :: ReadS [DeleteAnalysisSchemeResponse]
+readsPrec :: Int -&gt; ReadS DeleteAnalysisSchemeResponse
+$creadsPrec :: Int -&gt; ReadS DeleteAnalysisSchemeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214447"><span id="local-6989586621679214449"><span id="local-6989586621679214451"><span class="annot"><span class="annottext">Int -&gt; DeleteAnalysisSchemeResponse -&gt; ShowS
+[DeleteAnalysisSchemeResponse] -&gt; ShowS
+DeleteAnalysisSchemeResponse -&gt; String
+(Int -&gt; DeleteAnalysisSchemeResponse -&gt; ShowS)
+-&gt; (DeleteAnalysisSchemeResponse -&gt; String)
+-&gt; ([DeleteAnalysisSchemeResponse] -&gt; ShowS)
+-&gt; Show DeleteAnalysisSchemeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAnalysisSchemeResponse] -&gt; ShowS
+$cshowList :: [DeleteAnalysisSchemeResponse] -&gt; ShowS
+show :: DeleteAnalysisSchemeResponse -&gt; String
+$cshow :: DeleteAnalysisSchemeResponse -&gt; String
+showsPrec :: Int -&gt; DeleteAnalysisSchemeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAnalysisSchemeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteAnalysisSchemeResponse -&gt; Rep DeleteAnalysisSchemeResponse x)
+-&gt; (forall x.
+    Rep DeleteAnalysisSchemeResponse x -&gt; DeleteAnalysisSchemeResponse)
+-&gt; Generic DeleteAnalysisSchemeResponse
+forall x.
+Rep DeleteAnalysisSchemeResponse x -&gt; DeleteAnalysisSchemeResponse
+forall x.
+DeleteAnalysisSchemeResponse -&gt; Rep DeleteAnalysisSchemeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteAnalysisSchemeResponse x -&gt; DeleteAnalysisSchemeResponse
+$cfrom :: forall x.
+DeleteAnalysisSchemeResponse -&gt; Rep DeleteAnalysisSchemeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Create a value of 'DeleteAnalysisSchemeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'deleteAnalysisSchemeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'analysisScheme', 'deleteAnalysisSchemeResponse_analysisScheme' - The status of the analysis scheme being deleted.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#newDeleteAnalysisSchemeResponse"><span class="hs-identifier hs-type">newDeleteAnalysisSchemeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'analysisScheme'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeStatus.html#AnalysisSchemeStatus"><span class="hs-identifier hs-type">AnalysisSchemeStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse"><span class="hs-identifier hs-type">DeleteAnalysisSchemeResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newDeleteAnalysisSchemeResponse"><span class="annot"><span class="annottext">newDeleteAnalysisSchemeResponse :: Int -&gt; AnalysisSchemeStatus -&gt; DeleteAnalysisSchemeResponse
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#newDeleteAnalysisSchemeResponse"><span class="hs-identifier hs-var hs-var">newDeleteAnalysisSchemeResponse</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679214444"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214444"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679214443"><span class="annot"><span class="annottext">AnalysisSchemeStatus
+</span><a href="#local-6989586621679214443"><span class="hs-identifier hs-var">pAnalysisScheme_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">DeleteAnalysisSchemeResponse' :: Int -&gt; AnalysisSchemeStatus -&gt; DeleteAnalysisSchemeResponse
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-type">DeleteAnalysisSchemeResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAnalysisSchemeResponse' :: Int
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#%24sel%3AhttpStatus%3ADeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214444"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:analysisScheme:DeleteAnalysisSchemeResponse' :: AnalysisSchemeStatus
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#%24sel%3AanalysisScheme%3ADeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnalysisSchemeStatus
+</span><a href="#local-6989586621679214443"><span class="hs-identifier hs-var">pAnalysisScheme_</span></a></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#deleteAnalysisSchemeResponse_httpStatus"><span class="hs-identifier hs-type">deleteAnalysisSchemeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse"><span class="hs-identifier hs-type">DeleteAnalysisSchemeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-172"></span><span id="deleteAnalysisSchemeResponse_httpStatus"><span class="annot"><span class="annottext">deleteAnalysisSchemeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteAnalysisSchemeResponse -&gt; f DeleteAnalysisSchemeResponse
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#deleteAnalysisSchemeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteAnalysisSchemeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAnalysisSchemeResponse -&gt; Int)
+-&gt; (DeleteAnalysisSchemeResponse
+    -&gt; Int -&gt; DeleteAnalysisSchemeResponse)
+-&gt; Lens
+     DeleteAnalysisSchemeResponse DeleteAnalysisSchemeResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-type">DeleteAnalysisSchemeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214442"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteAnalysisSchemeResponse' :: DeleteAnalysisSchemeResponse -&gt; Int
+</span><a href="#local-6989586621679214442"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214442"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214441"><span class="annot"><span class="annottext">s :: DeleteAnalysisSchemeResponse
+</span><a href="#local-6989586621679214441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-type">DeleteAnalysisSchemeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214440"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAnalysisSchemeResponse
+</span><a href="#local-6989586621679214441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAnalysisSchemeResponse' :: Int
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#%24sel%3AhttpStatus%3ADeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse"><span class="hs-identifier hs-type">DeleteAnalysisSchemeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The status of the analysis scheme being deleted.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#deleteAnalysisSchemeResponse_analysisScheme"><span class="hs-identifier hs-type">deleteAnalysisSchemeResponse_analysisScheme</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse"><span class="hs-identifier hs-type">DeleteAnalysisSchemeResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.AnalysisSchemeStatus.html#AnalysisSchemeStatus"><span class="hs-identifier hs-type">AnalysisSchemeStatus</span></a></span><span>
+</span><span id="line-176"></span><span id="deleteAnalysisSchemeResponse_analysisScheme"><span class="annot"><span class="annottext">deleteAnalysisSchemeResponse_analysisScheme :: (AnalysisSchemeStatus -&gt; f AnalysisSchemeStatus)
+-&gt; DeleteAnalysisSchemeResponse -&gt; f DeleteAnalysisSchemeResponse
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#deleteAnalysisSchemeResponse_analysisScheme"><span class="hs-identifier hs-var hs-var">deleteAnalysisSchemeResponse_analysisScheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAnalysisSchemeResponse -&gt; AnalysisSchemeStatus)
+-&gt; (DeleteAnalysisSchemeResponse
+    -&gt; AnalysisSchemeStatus -&gt; DeleteAnalysisSchemeResponse)
+-&gt; Lens
+     DeleteAnalysisSchemeResponse
+     DeleteAnalysisSchemeResponse
+     AnalysisSchemeStatus
+     AnalysisSchemeStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-type">DeleteAnalysisSchemeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214439"><span class="annot"><span class="annottext">AnalysisSchemeStatus
+analysisScheme :: AnalysisSchemeStatus
+$sel:analysisScheme:DeleteAnalysisSchemeResponse' :: DeleteAnalysisSchemeResponse -&gt; AnalysisSchemeStatus
+</span><a href="#local-6989586621679214439"><span class="hs-identifier hs-var hs-var">analysisScheme</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSchemeStatus
+</span><a href="#local-6989586621679214439"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214438"><span class="annot"><span class="annottext">s :: DeleteAnalysisSchemeResponse
+</span><a href="#local-6989586621679214438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-type">DeleteAnalysisSchemeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214437"><span class="annot"><span class="annottext">AnalysisSchemeStatus
+</span><a href="#local-6989586621679214437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAnalysisSchemeResponse
+</span><a href="#local-6989586621679214438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisScheme:DeleteAnalysisSchemeResponse' :: AnalysisSchemeStatus
+</span><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#%24sel%3AanalysisScheme%3ADeleteAnalysisSchemeResponse%27"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnalysisSchemeStatus
+</span><a href="#local-6989586621679214437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse"><span class="hs-identifier hs-type">DeleteAnalysisSchemeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.DeleteAnalysisScheme.html#DeleteAnalysisSchemeResponse"><span class="hs-identifier hs-type">DeleteAnalysisSchemeResponse</span></a></span></span><span>
+</span><span id="line-179"></span></pre></body></html>

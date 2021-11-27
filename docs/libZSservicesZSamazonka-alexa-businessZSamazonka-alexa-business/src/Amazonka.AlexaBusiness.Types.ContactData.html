@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AlexaBusiness.Types.ContactData</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AlexaBusiness.Types.ContactData</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.PhoneNumber.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types.PhoneNumber</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SipAddress.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types.SipAddress</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Information related to a contact.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newContactData' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679371462"><span id="local-6989586621679371463"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContactData"><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-var">ContactData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactData%27"><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-var">ContactData'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The last name of the contact, used to call the contact on the device.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlastName%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AlastName%3AContactData%27"><span class="hs-identifier hs-var hs-var">lastName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ARN of the contact.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcontactArn%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AcontactArn%3AContactData%27"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The list of phone numbers for the contact.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AphoneNumbers%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe [PhoneNumber]
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AphoneNumbers%3AContactData%27"><span class="hs-identifier hs-var hs-var">phoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The phone number of the contact. The phone number type defaults to WORK.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- You can specify PhoneNumber or PhoneNumbers. We recommend that you use</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- PhoneNumbers, which lets you specify the phone number type and multiple</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- numbers.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AphoneNumber%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AphoneNumber%3AContactData%27"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The list of SIP addresses for the contact.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AsipAddresses%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe [SipAddress]
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AsipAddresses%3AContactData%27"><span class="hs-identifier hs-var hs-var">sipAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SipAddress.html#SipAddress"><span class="hs-identifier hs-type">SipAddress</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The first name of the contact, used to call the contact on the device.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AfirstName%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AfirstName%3AContactData%27"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the contact to display on the console.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdisplayName%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AdisplayName%3AContactData%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371450"><span id="local-6989586621679371452"><span class="annot"><span class="annottext">ContactData -&gt; ContactData -&gt; Bool
+(ContactData -&gt; ContactData -&gt; Bool)
+-&gt; (ContactData -&gt; ContactData -&gt; Bool) -&gt; Eq ContactData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContactData -&gt; ContactData -&gt; Bool
+$c/= :: ContactData -&gt; ContactData -&gt; Bool
+== :: ContactData -&gt; ContactData -&gt; Bool
+$c== :: ContactData -&gt; ContactData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371443"><span id="local-6989586621679371445"><span id="local-6989586621679371447"><span class="annot"><span class="annottext">Int -&gt; ContactData -&gt; ShowS
+[ContactData] -&gt; ShowS
+ContactData -&gt; String
+(Int -&gt; ContactData -&gt; ShowS)
+-&gt; (ContactData -&gt; String)
+-&gt; ([ContactData] -&gt; ShowS)
+-&gt; Show ContactData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContactData] -&gt; ShowS
+$cshowList :: [ContactData] -&gt; ShowS
+show :: ContactData -&gt; String
+$cshow :: ContactData -&gt; String
+showsPrec :: Int -&gt; ContactData -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContactData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ContactData -&gt; Rep ContactData x)
+-&gt; (forall x. Rep ContactData x -&gt; ContactData)
+-&gt; Generic ContactData
+forall x. Rep ContactData x -&gt; ContactData
+forall x. ContactData -&gt; Rep ContactData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContactData x -&gt; ContactData
+$cfrom :: forall x. ContactData -&gt; Rep ContactData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'ContactData' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'lastName', 'contactData_lastName' - The last name of the contact, used to call the contact on the device.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'contactArn', 'contactData_contactArn' - The ARN of the contact.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'phoneNumbers', 'contactData_phoneNumbers' - The list of phone numbers for the contact.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'phoneNumber', 'contactData_phoneNumber' - The phone number of the contact. The phone number type defaults to WORK.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- You can specify PhoneNumber or PhoneNumbers. We recommend that you use</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- PhoneNumbers, which lets you specify the phone number type and multiple</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- numbers.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'sipAddresses', 'contactData_sipAddresses' - The list of SIP addresses for the contact.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'firstName', 'contactData_firstName' - The first name of the contact, used to call the contact on the device.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'displayName', 'contactData_displayName' - The name of the contact to display on the console.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#newContactData"><span class="hs-identifier hs-type">newContactData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span>
+</span><span id="line-78"></span><span id="newContactData"><span class="annot"><span class="annottext">newContactData :: ContactData
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#newContactData"><span class="hs-identifier hs-var hs-var">newContactData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">ContactData' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [PhoneNumber]
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe [SipAddress]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ContactData
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastName:ContactData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AlastName%3AContactData%27"><span class="hs-identifier hs-var">lastName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactArn:ContactData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AcontactArn%3AContactData%27"><span class="hs-identifier hs-var">contactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumbers:ContactData' :: Maybe [PhoneNumber]
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AphoneNumbers%3AContactData%27"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumber:ContactData' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AphoneNumber%3AContactData%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:sipAddresses:ContactData' :: Maybe [SipAddress]
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AsipAddresses%3AContactData%27"><span class="hs-identifier hs-var">sipAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SipAddress]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:firstName:ContactData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AfirstName%3AContactData%27"><span class="hs-identifier hs-var">firstName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:ContactData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AdisplayName%3AContactData%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The last name of the contact, used to call the contact on the device.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_lastName"><span class="hs-identifier hs-type">contactData_lastName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="contactData_lastName"><span class="annot"><span class="annottext">contactData_lastName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactData -&gt; f ContactData
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_lastName"><span class="hs-identifier hs-var hs-var">contactData_lastName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe Text)
+-&gt; (ContactData -&gt; Maybe Text -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371434"><span class="annot"><span class="annottext">Maybe Text
+lastName :: Maybe Text
+$sel:lastName:ContactData' :: ContactData -&gt; Maybe Text
+</span><a href="#local-6989586621679371434"><span class="hs-identifier hs-var hs-var">lastName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371434"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371433"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679371433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371432"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679371433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastName:ContactData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AlastName%3AContactData%27"><span class="hs-identifier hs-var">lastName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The ARN of the contact.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_contactArn"><span class="hs-identifier hs-type">contactData_contactArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="contactData_contactArn"><span class="annot"><span class="annottext">contactData_contactArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactData -&gt; f ContactData
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_contactArn"><span class="hs-identifier hs-var hs-var">contactData_contactArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe Text)
+-&gt; (ContactData -&gt; Maybe Text -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371430"><span class="annot"><span class="annottext">Maybe Text
+contactArn :: Maybe Text
+$sel:contactArn:ContactData' :: ContactData -&gt; Maybe Text
+</span><a href="#local-6989586621679371430"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371430"><span class="hs-identifier hs-var">contactArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371429"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679371429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371428"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679371429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactArn:ContactData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AcontactArn%3AContactData%27"><span class="hs-identifier hs-var">contactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The list of phone numbers for the contact.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_phoneNumbers"><span class="hs-identifier hs-type">contactData_phoneNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="contactData_phoneNumbers"><span class="annot"><span class="annottext">contactData_phoneNumbers :: (Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+-&gt; ContactData -&gt; f ContactData
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_phoneNumbers"><span class="hs-identifier hs-var hs-var">contactData_phoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe [PhoneNumber])
+-&gt; (ContactData -&gt; Maybe [PhoneNumber] -&gt; ContactData)
+-&gt; Lens
+     ContactData ContactData (Maybe [PhoneNumber]) (Maybe [PhoneNumber])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371426"><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+phoneNumbers :: Maybe [PhoneNumber]
+$sel:phoneNumbers:ContactData' :: ContactData -&gt; Maybe [PhoneNumber]
+</span><a href="#local-6989586621679371426"><span class="hs-identifier hs-var hs-var">phoneNumbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+</span><a href="#local-6989586621679371426"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371425"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679371425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371424"><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+</span><a href="#local-6989586621679371424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679371425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumbers:ContactData' :: Maybe [PhoneNumber]
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AphoneNumbers%3AContactData%27"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+</span><a href="#local-6989586621679371424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+ -&gt; ContactData -&gt; f ContactData)
+-&gt; ((Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+    -&gt; Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+-&gt; (Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+-&gt; ContactData
+-&gt; f ContactData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PhoneNumber] [PhoneNumber] [PhoneNumber] [PhoneNumber]
+-&gt; Iso
+     (Maybe [PhoneNumber])
+     (Maybe [PhoneNumber])
+     (Maybe [PhoneNumber])
+     (Maybe [PhoneNumber])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PhoneNumber] [PhoneNumber] [PhoneNumber] [PhoneNumber]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The phone number of the contact. The phone number type defaults to WORK.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- You can specify PhoneNumber or PhoneNumbers. We recommend that you use</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- PhoneNumbers, which lets you specify the phone number type and multiple</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- numbers.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_phoneNumber"><span class="hs-identifier hs-type">contactData_phoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="contactData_phoneNumber"><span class="annot"><span class="annottext">contactData_phoneNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactData -&gt; f ContactData
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_phoneNumber"><span class="hs-identifier hs-var hs-var">contactData_phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe (Sensitive Text))
+-&gt; (ContactData -&gt; Maybe (Sensitive Text) -&gt; ContactData)
+-&gt; Lens
+     ContactData
+     ContactData
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371419"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+phoneNumber :: Maybe (Sensitive Text)
+$sel:phoneNumber:ContactData' :: ContactData -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679371419"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679371419"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371418"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679371418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371417"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679371417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679371418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:ContactData' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AphoneNumber%3AContactData%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679371417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; ContactData -&gt; f ContactData)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContactData
+-&gt; f ContactData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The list of SIP addresses for the contact.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_sipAddresses"><span class="hs-identifier hs-type">contactData_sipAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.SipAddress.html#SipAddress"><span class="hs-identifier hs-type">SipAddress</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="contactData_sipAddresses"><span class="annot"><span class="annottext">contactData_sipAddresses :: (Maybe [SipAddress] -&gt; f (Maybe [SipAddress]))
+-&gt; ContactData -&gt; f ContactData
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_sipAddresses"><span class="hs-identifier hs-var hs-var">contactData_sipAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe [SipAddress])
+-&gt; (ContactData -&gt; Maybe [SipAddress] -&gt; ContactData)
+-&gt; Lens
+     ContactData ContactData (Maybe [SipAddress]) (Maybe [SipAddress])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371414"><span class="annot"><span class="annottext">Maybe [SipAddress]
+sipAddresses :: Maybe [SipAddress]
+$sel:sipAddresses:ContactData' :: ContactData -&gt; Maybe [SipAddress]
+</span><a href="#local-6989586621679371414"><span class="hs-identifier hs-var hs-var">sipAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SipAddress]
+</span><a href="#local-6989586621679371414"><span class="hs-identifier hs-var">sipAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371413"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679371413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371412"><span class="annot"><span class="annottext">Maybe [SipAddress]
+</span><a href="#local-6989586621679371412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679371413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sipAddresses:ContactData' :: Maybe [SipAddress]
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AsipAddresses%3AContactData%27"><span class="hs-identifier hs-var">sipAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SipAddress]
+</span><a href="#local-6989586621679371412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SipAddress] -&gt; f (Maybe [SipAddress]))
+ -&gt; ContactData -&gt; f ContactData)
+-&gt; ((Maybe [SipAddress] -&gt; f (Maybe [SipAddress]))
+    -&gt; Maybe [SipAddress] -&gt; f (Maybe [SipAddress]))
+-&gt; (Maybe [SipAddress] -&gt; f (Maybe [SipAddress]))
+-&gt; ContactData
+-&gt; f ContactData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SipAddress] [SipAddress] [SipAddress] [SipAddress]
+-&gt; Iso
+     (Maybe [SipAddress])
+     (Maybe [SipAddress])
+     (Maybe [SipAddress])
+     (Maybe [SipAddress])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SipAddress] [SipAddress] [SipAddress] [SipAddress]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The first name of the contact, used to call the contact on the device.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_firstName"><span class="hs-identifier hs-type">contactData_firstName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="contactData_firstName"><span class="annot"><span class="annottext">contactData_firstName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactData -&gt; f ContactData
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_firstName"><span class="hs-identifier hs-var hs-var">contactData_firstName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe Text)
+-&gt; (ContactData -&gt; Maybe Text -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371410"><span class="annot"><span class="annottext">Maybe Text
+firstName :: Maybe Text
+$sel:firstName:ContactData' :: ContactData -&gt; Maybe Text
+</span><a href="#local-6989586621679371410"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371410"><span class="hs-identifier hs-var">firstName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371409"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679371409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371408"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679371409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstName:ContactData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AfirstName%3AContactData%27"><span class="hs-identifier hs-var">firstName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The name of the contact to display on the console.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_displayName"><span class="hs-identifier hs-type">contactData_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="contactData_displayName"><span class="annot"><span class="annottext">contactData_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactData -&gt; f ContactData
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#contactData_displayName"><span class="hs-identifier hs-var hs-var">contactData_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe Text)
+-&gt; (ContactData -&gt; Maybe Text -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371406"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:ContactData' :: ContactData -&gt; Maybe Text
+</span><a href="#local-6989586621679371406"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371406"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371405"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679371405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371404"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679371405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:ContactData' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#%24sel%3AdisplayName%3AContactData%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371401"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679371399"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContactData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ContactData) -&gt; Value -&gt; Parser ContactData
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ContactData&quot;</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371396"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371396"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [PhoneNumber]
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe [SipAddress]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ContactData
+</span><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-var">ContactData'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [PhoneNumber]
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe [SipAddress]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ContactData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [PhoneNumber]
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe [SipAddress]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [PhoneNumber]
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe [SipAddress]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ContactData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [PhoneNumber]
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe [SipAddress]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [PhoneNumber]
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe [SipAddress]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ContactData)
+-&gt; Parser (Maybe [PhoneNumber])
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe [SipAddress] -&gt; Maybe Text -&gt; Maybe Text -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PhoneNumber]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PhoneNumbers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PhoneNumber]))
+-&gt; Maybe [PhoneNumber] -&gt; Parser (Maybe [PhoneNumber])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe [SipAddress] -&gt; Maybe Text -&gt; Maybe Text -&gt; ContactData)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe [SipAddress] -&gt; Maybe Text -&gt; Maybe Text -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [SipAddress] -&gt; Maybe Text -&gt; Maybe Text -&gt; ContactData)
+-&gt; Parser (Maybe [SipAddress])
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SipAddress]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SipAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SipAddress]))
+-&gt; Maybe [SipAddress] -&gt; Parser (Maybe [SipAddress])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SipAddress]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ContactData)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirstName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ContactData)
+-&gt; Parser (Maybe Text) -&gt; Parser ContactData
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371389"><span id="local-6989586621679371391"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span></span><span>
+</span><span id="line-138"></span></pre></body></html>

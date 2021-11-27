@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.DeleteStreamingDistribution</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Delete a streaming distribution. To delete an RTMP distribution using</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the CloudFront API, perform the following steps.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- __To delete an RTMP distribution using the CloudFront API__:</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- 1.  Disable the RTMP distribution.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- 2.  Submit a @GET Streaming Distribution Config@ request to get the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     current configuration and the @Etag@ header for the distribution.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- 3.  Update the XML document that was returned in the response to your</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     @GET Streaming Distribution Config@ request to change the value of</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     @Enabled@ to @false@.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- 4.  Submit a @PUT Streaming Distribution Config@ request to update the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     configuration for your distribution. In the request body, include</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     the XML document that you updated in Step 3. Then set the value of</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     the HTTP @If-Match@ header to the value of the @ETag@ header that</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     CloudFront returned when you submitted the</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     @GET Streaming Distribution Config@ request in Step 2.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 5.  Review the response to the @PUT Streaming Distribution Config@</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     request to confirm that the distribution was successfully disabled.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 6.  Submit a @GET Streaming Distribution Config@ request to confirm that</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     your changes have propagated. When propagation is complete, the</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     value of @Status@ is @Deployed@.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 7.  Submit a @DELETE Streaming Distribution@ request. Set the value of</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     the HTTP @If-Match@ header to the value of the @ETag@ header that</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--     CloudFront returned when you submitted the</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--     @GET Streaming Distribution Config@ request in Step 2.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 8.  Review the response to your @DELETE Streaming Distribution@ request</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--     to confirm that the distribution was successfully deleted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- For information about deleting a distribution using the CloudFront</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- console, see</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html Deleting a Distribution&gt;</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-63"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.DeleteStreamingDistribution</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier">DeleteStreamingDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#newDeleteStreamingDistribution"><span class="hs-identifier">newDeleteStreamingDistribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#deleteStreamingDistribution_ifMatch"><span class="hs-identifier">deleteStreamingDistribution_ifMatch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#deleteStreamingDistribution_id"><span class="hs-identifier">deleteStreamingDistribution_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse"><span class="hs-identifier">DeleteStreamingDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#newDeleteStreamingDistributionResponse"><span class="hs-identifier">newDeleteStreamingDistributionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.html"><span class="hs-identifier">Amazonka.CloudFront.Types</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The request to delete a streaming distribution.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- /See:/ 'newDeleteStreamingDistribution' smart constructor.</span><span>
+</span><span id="line-88"></span><span id="local-6989586621679417512"><span id="local-6989586621679417513"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStreamingDistribution"><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-var">DeleteStreamingDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStreamingDistribution%27"><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-var">DeleteStreamingDistribution'</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the @ETag@ header that you received when you disabled the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- streaming distribution. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AifMatch%3ADeleteStreamingDistribution%27"><span class="annot"><span class="annottext">DeleteStreamingDistribution -&gt; Maybe Text
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#%24sel%3AifMatch%3ADeleteStreamingDistribution%27"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The distribution ID.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3Aid%3ADeleteStreamingDistribution%27"><span class="annot"><span class="annottext">DeleteStreamingDistribution -&gt; Text
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#%24sel%3Aid%3ADeleteStreamingDistribution%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417505"><span id="local-6989586621679417507"><span class="annot"><span class="annottext">DeleteStreamingDistribution -&gt; DeleteStreamingDistribution -&gt; Bool
+(DeleteStreamingDistribution
+ -&gt; DeleteStreamingDistribution -&gt; Bool)
+-&gt; (DeleteStreamingDistribution
+    -&gt; DeleteStreamingDistribution -&gt; Bool)
+-&gt; Eq DeleteStreamingDistribution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteStreamingDistribution -&gt; DeleteStreamingDistribution -&gt; Bool
+$c/= :: DeleteStreamingDistribution -&gt; DeleteStreamingDistribution -&gt; Bool
+== :: DeleteStreamingDistribution -&gt; DeleteStreamingDistribution -&gt; Bool
+$c== :: DeleteStreamingDistribution -&gt; DeleteStreamingDistribution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417496"><span id="local-6989586621679417498"><span id="local-6989586621679417500"><span id="local-6989586621679417502"><span class="annot"><span class="annottext">ReadPrec [DeleteStreamingDistribution]
+ReadPrec DeleteStreamingDistribution
+Int -&gt; ReadS DeleteStreamingDistribution
+ReadS [DeleteStreamingDistribution]
+(Int -&gt; ReadS DeleteStreamingDistribution)
+-&gt; ReadS [DeleteStreamingDistribution]
+-&gt; ReadPrec DeleteStreamingDistribution
+-&gt; ReadPrec [DeleteStreamingDistribution]
+-&gt; Read DeleteStreamingDistribution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteStreamingDistribution]
+$creadListPrec :: ReadPrec [DeleteStreamingDistribution]
+readPrec :: ReadPrec DeleteStreamingDistribution
+$creadPrec :: ReadPrec DeleteStreamingDistribution
+readList :: ReadS [DeleteStreamingDistribution]
+$creadList :: ReadS [DeleteStreamingDistribution]
+readsPrec :: Int -&gt; ReadS DeleteStreamingDistribution
+$creadsPrec :: Int -&gt; ReadS DeleteStreamingDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417489"><span id="local-6989586621679417491"><span id="local-6989586621679417493"><span class="annot"><span class="annottext">Int -&gt; DeleteStreamingDistribution -&gt; ShowS
+[DeleteStreamingDistribution] -&gt; ShowS
+DeleteStreamingDistribution -&gt; String
+(Int -&gt; DeleteStreamingDistribution -&gt; ShowS)
+-&gt; (DeleteStreamingDistribution -&gt; String)
+-&gt; ([DeleteStreamingDistribution] -&gt; ShowS)
+-&gt; Show DeleteStreamingDistribution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteStreamingDistribution] -&gt; ShowS
+$cshowList :: [DeleteStreamingDistribution] -&gt; ShowS
+show :: DeleteStreamingDistribution -&gt; String
+$cshow :: DeleteStreamingDistribution -&gt; String
+showsPrec :: Int -&gt; DeleteStreamingDistribution -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteStreamingDistribution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteStreamingDistribution -&gt; Rep DeleteStreamingDistribution x)
+-&gt; (forall x.
+    Rep DeleteStreamingDistribution x -&gt; DeleteStreamingDistribution)
+-&gt; Generic DeleteStreamingDistribution
+forall x.
+Rep DeleteStreamingDistribution x -&gt; DeleteStreamingDistribution
+forall x.
+DeleteStreamingDistribution -&gt; Rep DeleteStreamingDistribution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteStreamingDistribution x -&gt; DeleteStreamingDistribution
+$cfrom :: forall x.
+DeleteStreamingDistribution -&gt; Rep DeleteStreamingDistribution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Create a value of 'DeleteStreamingDistribution' with all optional fields omitted.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'ifMatch', 'deleteStreamingDistribution_ifMatch' - The value of the @ETag@ header that you received when you disabled the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- streaming distribution. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'id', 'deleteStreamingDistribution_id' - The distribution ID.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#newDeleteStreamingDistribution"><span class="hs-identifier hs-type">newDeleteStreamingDistribution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span>
+</span><span id="line-113"></span><span id="newDeleteStreamingDistribution"><span class="annot"><span class="annottext">newDeleteStreamingDistribution :: Text -&gt; DeleteStreamingDistribution
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#newDeleteStreamingDistribution"><span class="hs-identifier hs-var hs-var">newDeleteStreamingDistribution</span></a></span></span><span> </span><span id="local-6989586621679417484"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417484"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">DeleteStreamingDistribution' :: Maybe Text -&gt; Text -&gt; DeleteStreamingDistribution
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ifMatch:DeleteStreamingDistribution' :: Maybe Text
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#%24sel%3AifMatch%3ADeleteStreamingDistribution%27"><span class="hs-identifier hs-var">ifMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DeleteStreamingDistribution' :: Text
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#%24sel%3Aid%3ADeleteStreamingDistribution%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417484"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The value of the @ETag@ header that you received when you disabled the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- streaming distribution. For example: @E2QWRUHAPOMQZL@.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#deleteStreamingDistribution_ifMatch"><span class="hs-identifier hs-type">deleteStreamingDistribution_ifMatch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="deleteStreamingDistribution_ifMatch"><span class="annot"><span class="annottext">deleteStreamingDistribution_ifMatch :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteStreamingDistribution -&gt; f DeleteStreamingDistribution
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#deleteStreamingDistribution_ifMatch"><span class="hs-identifier hs-var hs-var">deleteStreamingDistribution_ifMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteStreamingDistribution -&gt; Maybe Text)
+-&gt; (DeleteStreamingDistribution
+    -&gt; Maybe Text -&gt; DeleteStreamingDistribution)
+-&gt; Lens
+     DeleteStreamingDistribution
+     DeleteStreamingDistribution
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417481"><span class="annot"><span class="annottext">Maybe Text
+ifMatch :: Maybe Text
+$sel:ifMatch:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679417481"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417481"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417480"><span class="annot"><span class="annottext">s :: DeleteStreamingDistribution
+</span><a href="#local-6989586621679417480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417479"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStreamingDistribution
+</span><a href="#local-6989586621679417480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ifMatch:DeleteStreamingDistribution' :: Maybe Text
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#%24sel%3AifMatch%3ADeleteStreamingDistribution%27"><span class="hs-identifier hs-var">ifMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The distribution ID.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#deleteStreamingDistribution_id"><span class="hs-identifier hs-type">deleteStreamingDistribution_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="deleteStreamingDistribution_id"><span class="annot"><span class="annottext">deleteStreamingDistribution_id :: (Text -&gt; f Text)
+-&gt; DeleteStreamingDistribution -&gt; f DeleteStreamingDistribution
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#deleteStreamingDistribution_id"><span class="hs-identifier hs-var hs-var">deleteStreamingDistribution_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteStreamingDistribution -&gt; Text)
+-&gt; (DeleteStreamingDistribution
+    -&gt; Text -&gt; DeleteStreamingDistribution)
+-&gt; Lens
+     DeleteStreamingDistribution DeleteStreamingDistribution Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417478"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; Text
+</span><a href="#local-6989586621679417478"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417478"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417477"><span class="annot"><span class="annottext">s :: DeleteStreamingDistribution
+</span><a href="#local-6989586621679417477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417476"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStreamingDistribution
+</span><a href="#local-6989586621679417477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteStreamingDistribution' :: Text
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#%24sel%3Aid%3ADeleteStreamingDistribution%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse"><span class="hs-identifier hs-type">DeleteStreamingDistributionResponse</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679417472"><span class="annot"><span class="annottext">request :: DeleteStreamingDistribution -&gt; Request DeleteStreamingDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteStreamingDistribution
+-&gt; Request DeleteStreamingDistribution
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679417468"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteStreamingDistribution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteStreamingDistribution)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteStreamingDistribution
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteStreamingDistribution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteStreamingDistribution)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteStreamingDistribution
+DeleteStreamingDistributionResponse
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse%27"><span class="hs-identifier hs-var">DeleteStreamingDistributionResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417461"><span id="local-6989586621679417463"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679417454"><span class="annot"><span class="annottext">toHeaders :: DeleteStreamingDistribution -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417451"><span id="local-6989586621679417452"><span class="annot"><span class="annottext">Maybe Text
+Text
+id :: Text
+ifMatch :: Maybe Text
+$sel:id:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; Text
+$sel:ifMatch:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679417451"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;If-Match&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417452"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679417447"><span class="annot"><span class="annottext">toPath :: DeleteStreamingDistribution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution%27"><span class="hs-identifier hs-type">DeleteStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417444"><span id="local-6989586621679417445"><span class="annot"><span class="annottext">Maybe Text
+Text
+id :: Text
+ifMatch :: Maybe Text
+$sel:id:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; Text
+$sel:ifMatch:DeleteStreamingDistribution' :: DeleteStreamingDistribution -&gt; Maybe Text
+</span><a href="#local-6989586621679417444"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/streaming-distribution/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417444"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistribution"><span class="hs-identifier hs-type">DeleteStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679417440"><span class="annot"><span class="annottext">toQuery :: DeleteStreamingDistribution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteStreamingDistribution -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newDeleteStreamingDistributionResponse' smart constructor.</span><span>
+</span><span id="line-155"></span><span id="local-6989586621679417436"><span id="local-6989586621679417437"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStreamingDistributionResponse"><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse"><span class="hs-identifier hs-var">DeleteStreamingDistributionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStreamingDistributionResponse%27"><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse%27"><span class="hs-identifier hs-var">DeleteStreamingDistributionResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417432"><span id="local-6989586621679417434"><span class="annot"><span class="annottext">DeleteStreamingDistributionResponse
+-&gt; DeleteStreamingDistributionResponse -&gt; Bool
+(DeleteStreamingDistributionResponse
+ -&gt; DeleteStreamingDistributionResponse -&gt; Bool)
+-&gt; (DeleteStreamingDistributionResponse
+    -&gt; DeleteStreamingDistributionResponse -&gt; Bool)
+-&gt; Eq DeleteStreamingDistributionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteStreamingDistributionResponse
+-&gt; DeleteStreamingDistributionResponse -&gt; Bool
+$c/= :: DeleteStreamingDistributionResponse
+-&gt; DeleteStreamingDistributionResponse -&gt; Bool
+== :: DeleteStreamingDistributionResponse
+-&gt; DeleteStreamingDistributionResponse -&gt; Bool
+$c== :: DeleteStreamingDistributionResponse
+-&gt; DeleteStreamingDistributionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417424"><span id="local-6989586621679417426"><span id="local-6989586621679417428"><span id="local-6989586621679417430"><span class="annot"><span class="annottext">ReadPrec [DeleteStreamingDistributionResponse]
+ReadPrec DeleteStreamingDistributionResponse
+Int -&gt; ReadS DeleteStreamingDistributionResponse
+ReadS [DeleteStreamingDistributionResponse]
+(Int -&gt; ReadS DeleteStreamingDistributionResponse)
+-&gt; ReadS [DeleteStreamingDistributionResponse]
+-&gt; ReadPrec DeleteStreamingDistributionResponse
+-&gt; ReadPrec [DeleteStreamingDistributionResponse]
+-&gt; Read DeleteStreamingDistributionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteStreamingDistributionResponse]
+$creadListPrec :: ReadPrec [DeleteStreamingDistributionResponse]
+readPrec :: ReadPrec DeleteStreamingDistributionResponse
+$creadPrec :: ReadPrec DeleteStreamingDistributionResponse
+readList :: ReadS [DeleteStreamingDistributionResponse]
+$creadList :: ReadS [DeleteStreamingDistributionResponse]
+readsPrec :: Int -&gt; ReadS DeleteStreamingDistributionResponse
+$creadsPrec :: Int -&gt; ReadS DeleteStreamingDistributionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417418"><span id="local-6989586621679417420"><span id="local-6989586621679417422"><span class="annot"><span class="annottext">Int -&gt; DeleteStreamingDistributionResponse -&gt; ShowS
+[DeleteStreamingDistributionResponse] -&gt; ShowS
+DeleteStreamingDistributionResponse -&gt; String
+(Int -&gt; DeleteStreamingDistributionResponse -&gt; ShowS)
+-&gt; (DeleteStreamingDistributionResponse -&gt; String)
+-&gt; ([DeleteStreamingDistributionResponse] -&gt; ShowS)
+-&gt; Show DeleteStreamingDistributionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteStreamingDistributionResponse] -&gt; ShowS
+$cshowList :: [DeleteStreamingDistributionResponse] -&gt; ShowS
+show :: DeleteStreamingDistributionResponse -&gt; String
+$cshow :: DeleteStreamingDistributionResponse -&gt; String
+showsPrec :: Int -&gt; DeleteStreamingDistributionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteStreamingDistributionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteStreamingDistributionResponse
+ -&gt; Rep DeleteStreamingDistributionResponse x)
+-&gt; (forall x.
+    Rep DeleteStreamingDistributionResponse x
+    -&gt; DeleteStreamingDistributionResponse)
+-&gt; Generic DeleteStreamingDistributionResponse
+forall x.
+Rep DeleteStreamingDistributionResponse x
+-&gt; DeleteStreamingDistributionResponse
+forall x.
+DeleteStreamingDistributionResponse
+-&gt; Rep DeleteStreamingDistributionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteStreamingDistributionResponse x
+-&gt; DeleteStreamingDistributionResponse
+$cfrom :: forall x.
+DeleteStreamingDistributionResponse
+-&gt; Rep DeleteStreamingDistributionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Create a value of 'DeleteStreamingDistributionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#newDeleteStreamingDistributionResponse"><span class="hs-identifier hs-type">newDeleteStreamingDistributionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse"><span class="hs-identifier hs-type">DeleteStreamingDistributionResponse</span></a></span><span>
+</span><span id="line-166"></span><span id="newDeleteStreamingDistributionResponse"><span class="annot"><span class="annottext">newDeleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#newDeleteStreamingDistributionResponse"><span class="hs-identifier hs-var hs-var">newDeleteStreamingDistributionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">DeleteStreamingDistributionResponse
+</span><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse%27"><span class="hs-identifier hs-var">DeleteStreamingDistributionResponse'</span></a></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679417414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.DeleteStreamingDistribution.html#DeleteStreamingDistributionResponse"><span class="hs-identifier hs-type">DeleteStreamingDistributionResponse</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

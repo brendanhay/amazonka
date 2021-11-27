@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.InventoryResultItem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.InventoryResultItem</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The inventory result item.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newInventoryResultItem' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679797695"><span id="local-6989586621679797696"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventoryResultItem"><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-var">InventoryResultItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryResultItem%27"><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-var">InventoryResultItem'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | MD5 hash of the inventory item type contents. The content hash is used</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- to determine whether to update inventory information. The PutInventory</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- API doesn\'t update the inventory item type contents if the MD5 hash</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- hasn\'t changed since last update.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcontentHash%3AInventoryResultItem%27"><span class="annot"><span class="annottext">InventoryResultItem -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3AcontentHash%3AInventoryResultItem%27"><span class="hs-identifier hs-var hs-var">contentHash</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time inventory item data was captured.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcaptureTime%3AInventoryResultItem%27"><span class="annot"><span class="annottext">InventoryResultItem -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3AcaptureTime%3AInventoryResultItem%27"><span class="hs-identifier hs-var hs-var">captureTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the inventory result item type.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtypeName%3AInventoryResultItem%27"><span class="annot"><span class="annottext">InventoryResultItem -&gt; Text
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3AtypeName%3AInventoryResultItem%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The schema version for the inventory result item\/</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AschemaVersion%3AInventoryResultItem%27"><span class="annot"><span class="annottext">InventoryResultItem -&gt; Text
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3AschemaVersion%3AInventoryResultItem%27"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Contains all the inventory data of the item type. Results include</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- attribute names and values.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Acontent%3AInventoryResultItem%27"><span class="annot"><span class="annottext">InventoryResultItem -&gt; [HashMap Text Text]
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3Acontent%3AInventoryResultItem%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797685"><span id="local-6989586621679797687"><span class="annot"><span class="annottext">InventoryResultItem -&gt; InventoryResultItem -&gt; Bool
+(InventoryResultItem -&gt; InventoryResultItem -&gt; Bool)
+-&gt; (InventoryResultItem -&gt; InventoryResultItem -&gt; Bool)
+-&gt; Eq InventoryResultItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InventoryResultItem -&gt; InventoryResultItem -&gt; Bool
+$c/= :: InventoryResultItem -&gt; InventoryResultItem -&gt; Bool
+== :: InventoryResultItem -&gt; InventoryResultItem -&gt; Bool
+$c== :: InventoryResultItem -&gt; InventoryResultItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797676"><span id="local-6989586621679797678"><span id="local-6989586621679797680"><span id="local-6989586621679797682"><span class="annot"><span class="annottext">ReadPrec [InventoryResultItem]
+ReadPrec InventoryResultItem
+Int -&gt; ReadS InventoryResultItem
+ReadS [InventoryResultItem]
+(Int -&gt; ReadS InventoryResultItem)
+-&gt; ReadS [InventoryResultItem]
+-&gt; ReadPrec InventoryResultItem
+-&gt; ReadPrec [InventoryResultItem]
+-&gt; Read InventoryResultItem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InventoryResultItem]
+$creadListPrec :: ReadPrec [InventoryResultItem]
+readPrec :: ReadPrec InventoryResultItem
+$creadPrec :: ReadPrec InventoryResultItem
+readList :: ReadS [InventoryResultItem]
+$creadList :: ReadS [InventoryResultItem]
+readsPrec :: Int -&gt; ReadS InventoryResultItem
+$creadsPrec :: Int -&gt; ReadS InventoryResultItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797669"><span id="local-6989586621679797671"><span id="local-6989586621679797673"><span class="annot"><span class="annottext">Int -&gt; InventoryResultItem -&gt; ShowS
+[InventoryResultItem] -&gt; ShowS
+InventoryResultItem -&gt; String
+(Int -&gt; InventoryResultItem -&gt; ShowS)
+-&gt; (InventoryResultItem -&gt; String)
+-&gt; ([InventoryResultItem] -&gt; ShowS)
+-&gt; Show InventoryResultItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InventoryResultItem] -&gt; ShowS
+$cshowList :: [InventoryResultItem] -&gt; ShowS
+show :: InventoryResultItem -&gt; String
+$cshow :: InventoryResultItem -&gt; String
+showsPrec :: Int -&gt; InventoryResultItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; InventoryResultItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InventoryResultItem -&gt; Rep InventoryResultItem x)
+-&gt; (forall x. Rep InventoryResultItem x -&gt; InventoryResultItem)
+-&gt; Generic InventoryResultItem
+forall x. Rep InventoryResultItem x -&gt; InventoryResultItem
+forall x. InventoryResultItem -&gt; Rep InventoryResultItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InventoryResultItem x -&gt; InventoryResultItem
+$cfrom :: forall x. InventoryResultItem -&gt; Rep InventoryResultItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'InventoryResultItem' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'contentHash', 'inventoryResultItem_contentHash' - MD5 hash of the inventory item type contents. The content hash is used</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- to determine whether to update inventory information. The PutInventory</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- API doesn\'t update the inventory item type contents if the MD5 hash</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- hasn\'t changed since last update.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'captureTime', 'inventoryResultItem_captureTime' - The time inventory item data was captured.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'typeName', 'inventoryResultItem_typeName' - The name of the inventory result item type.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'schemaVersion', 'inventoryResultItem_schemaVersion' - The schema version for the inventory result item\/</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'content', 'inventoryResultItem_content' - Contains all the inventory data of the item type. Results include</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- attribute names and values.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#newInventoryResultItem"><span class="hs-identifier hs-type">newInventoryResultItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'typeName'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'schemaVersion'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span><span>
+</span><span id="line-74"></span><span id="newInventoryResultItem"><span class="annot"><span class="annottext">newInventoryResultItem :: Text -&gt; Text -&gt; InventoryResultItem
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#newInventoryResultItem"><span class="hs-identifier hs-var hs-var">newInventoryResultItem</span></a></span></span><span> </span><span id="local-6989586621679797663"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797663"><span class="hs-identifier hs-var">pTypeName_</span></a></span></span><span> </span><span id="local-6989586621679797662"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797662"><span class="hs-identifier hs-var">pSchemaVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">InventoryResultItem' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; [HashMap Text Text]
+-&gt; InventoryResultItem
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-type">InventoryResultItem'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contentHash:InventoryResultItem' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3AcontentHash%3AInventoryResultItem%27"><span class="hs-identifier hs-var">contentHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:captureTime:InventoryResultItem' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3AcaptureTime%3AInventoryResultItem%27"><span class="hs-identifier hs-var">captureTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeName:InventoryResultItem' :: Text
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3AtypeName%3AInventoryResultItem%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797663"><span class="hs-identifier hs-var">pTypeName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaVersion:InventoryResultItem' :: Text
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3AschemaVersion%3AInventoryResultItem%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797662"><span class="hs-identifier hs-var">pSchemaVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:InventoryResultItem' :: [HashMap Text Text]
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3Acontent%3AInventoryResultItem%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[HashMap Text Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | MD5 hash of the inventory item type contents. The content hash is used</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- to determine whether to update inventory information. The PutInventory</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- API doesn\'t update the inventory item type contents if the MD5 hash</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- hasn\'t changed since last update.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#inventoryResultItem_contentHash"><span class="hs-identifier hs-type">inventoryResultItem_contentHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="inventoryResultItem_contentHash"><span class="annot"><span class="annottext">inventoryResultItem_contentHash :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InventoryResultItem -&gt; f InventoryResultItem
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#inventoryResultItem_contentHash"><span class="hs-identifier hs-var hs-var">inventoryResultItem_contentHash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryResultItem -&gt; Maybe Text)
+-&gt; (InventoryResultItem -&gt; Maybe Text -&gt; InventoryResultItem)
+-&gt; Lens
+     InventoryResultItem InventoryResultItem (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-type">InventoryResultItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797658"><span class="annot"><span class="annottext">Maybe Text
+contentHash :: Maybe Text
+$sel:contentHash:InventoryResultItem' :: InventoryResultItem -&gt; Maybe Text
+</span><a href="#local-6989586621679797658"><span class="hs-identifier hs-var hs-var">contentHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797658"><span class="hs-identifier hs-var">contentHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797657"><span class="annot"><span class="annottext">s :: InventoryResultItem
+</span><a href="#local-6989586621679797657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-type">InventoryResultItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797656"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryResultItem
+</span><a href="#local-6989586621679797657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentHash:InventoryResultItem' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3AcontentHash%3AInventoryResultItem%27"><span class="hs-identifier hs-var">contentHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The time inventory item data was captured.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#inventoryResultItem_captureTime"><span class="hs-identifier hs-type">inventoryResultItem_captureTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="inventoryResultItem_captureTime"><span class="annot"><span class="annottext">inventoryResultItem_captureTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InventoryResultItem -&gt; f InventoryResultItem
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#inventoryResultItem_captureTime"><span class="hs-identifier hs-var hs-var">inventoryResultItem_captureTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryResultItem -&gt; Maybe Text)
+-&gt; (InventoryResultItem -&gt; Maybe Text -&gt; InventoryResultItem)
+-&gt; Lens
+     InventoryResultItem InventoryResultItem (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-type">InventoryResultItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797654"><span class="annot"><span class="annottext">Maybe Text
+captureTime :: Maybe Text
+$sel:captureTime:InventoryResultItem' :: InventoryResultItem -&gt; Maybe Text
+</span><a href="#local-6989586621679797654"><span class="hs-identifier hs-var hs-var">captureTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797654"><span class="hs-identifier hs-var">captureTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797653"><span class="annot"><span class="annottext">s :: InventoryResultItem
+</span><a href="#local-6989586621679797653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-type">InventoryResultItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797652"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryResultItem
+</span><a href="#local-6989586621679797653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captureTime:InventoryResultItem' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3AcaptureTime%3AInventoryResultItem%27"><span class="hs-identifier hs-var">captureTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the inventory result item type.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#inventoryResultItem_typeName"><span class="hs-identifier hs-type">inventoryResultItem_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="inventoryResultItem_typeName"><span class="annot"><span class="annottext">inventoryResultItem_typeName :: (Text -&gt; f Text) -&gt; InventoryResultItem -&gt; f InventoryResultItem
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#inventoryResultItem_typeName"><span class="hs-identifier hs-var hs-var">inventoryResultItem_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryResultItem -&gt; Text)
+-&gt; (InventoryResultItem -&gt; Text -&gt; InventoryResultItem)
+-&gt; Lens InventoryResultItem InventoryResultItem Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-type">InventoryResultItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797650"><span class="annot"><span class="annottext">Text
+typeName :: Text
+$sel:typeName:InventoryResultItem' :: InventoryResultItem -&gt; Text
+</span><a href="#local-6989586621679797650"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797650"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797649"><span class="annot"><span class="annottext">s :: InventoryResultItem
+</span><a href="#local-6989586621679797649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-type">InventoryResultItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797648"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryResultItem
+</span><a href="#local-6989586621679797649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:InventoryResultItem' :: Text
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3AtypeName%3AInventoryResultItem%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The schema version for the inventory result item\/</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#inventoryResultItem_schemaVersion"><span class="hs-identifier hs-type">inventoryResultItem_schemaVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="inventoryResultItem_schemaVersion"><span class="annot"><span class="annottext">inventoryResultItem_schemaVersion :: (Text -&gt; f Text) -&gt; InventoryResultItem -&gt; f InventoryResultItem
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#inventoryResultItem_schemaVersion"><span class="hs-identifier hs-var hs-var">inventoryResultItem_schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryResultItem -&gt; Text)
+-&gt; (InventoryResultItem -&gt; Text -&gt; InventoryResultItem)
+-&gt; Lens InventoryResultItem InventoryResultItem Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-type">InventoryResultItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797646"><span class="annot"><span class="annottext">Text
+schemaVersion :: Text
+$sel:schemaVersion:InventoryResultItem' :: InventoryResultItem -&gt; Text
+</span><a href="#local-6989586621679797646"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797646"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797645"><span class="annot"><span class="annottext">s :: InventoryResultItem
+</span><a href="#local-6989586621679797645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-type">InventoryResultItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797644"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryResultItem
+</span><a href="#local-6989586621679797645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersion:InventoryResultItem' :: Text
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3AschemaVersion%3AInventoryResultItem%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Contains all the inventory data of the item type. Results include</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- attribute names and values.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#inventoryResultItem_content"><span class="hs-identifier hs-type">inventoryResultItem_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span id="inventoryResultItem_content"><span class="annot"><span class="annottext">inventoryResultItem_content :: ([HashMap Text Text] -&gt; f [HashMap Text Text])
+-&gt; InventoryResultItem -&gt; f InventoryResultItem
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#inventoryResultItem_content"><span class="hs-identifier hs-var hs-var">inventoryResultItem_content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryResultItem -&gt; [HashMap Text Text])
+-&gt; (InventoryResultItem
+    -&gt; [HashMap Text Text] -&gt; InventoryResultItem)
+-&gt; Lens
+     InventoryResultItem
+     InventoryResultItem
+     [HashMap Text Text]
+     [HashMap Text Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-type">InventoryResultItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797642"><span class="annot"><span class="annottext">[HashMap Text Text]
+content :: [HashMap Text Text]
+$sel:content:InventoryResultItem' :: InventoryResultItem -&gt; [HashMap Text Text]
+</span><a href="#local-6989586621679797642"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[HashMap Text Text]
+</span><a href="#local-6989586621679797642"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797641"><span class="annot"><span class="annottext">s :: InventoryResultItem
+</span><a href="#local-6989586621679797641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-type">InventoryResultItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797640"><span class="annot"><span class="annottext">[HashMap Text Text]
+</span><a href="#local-6989586621679797640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryResultItem
+</span><a href="#local-6989586621679797641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:InventoryResultItem' :: [HashMap Text Text]
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#%24sel%3Acontent%3AInventoryResultItem%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[HashMap Text Text]
+</span><a href="#local-6989586621679797640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([HashMap Text Text] -&gt; f [HashMap Text Text])
+ -&gt; InventoryResultItem -&gt; f InventoryResultItem)
+-&gt; (([HashMap Text Text] -&gt; f [HashMap Text Text])
+    -&gt; [HashMap Text Text] -&gt; f [HashMap Text Text])
+-&gt; ([HashMap Text Text] -&gt; f [HashMap Text Text])
+-&gt; InventoryResultItem
+-&gt; f InventoryResultItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([HashMap Text Text] -&gt; f [HashMap Text Text])
+-&gt; [HashMap Text Text] -&gt; f [HashMap Text Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797635"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679797633"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InventoryResultItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InventoryResultItem)
+-&gt; Value
+-&gt; Parser InventoryResultItem
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InventoryResultItem&quot;</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679797630"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679797630"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; [HashMap Text Text]
+-&gt; InventoryResultItem
+</span><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem%27"><span class="hs-identifier hs-var">InventoryResultItem'</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; [HashMap Text Text]
+ -&gt; InventoryResultItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Text -&gt; Text -&gt; [HashMap Text Text] -&gt; InventoryResultItem)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679797630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContentHash&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Text -&gt; Text -&gt; [HashMap Text Text] -&gt; InventoryResultItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text -&gt; Text -&gt; [HashMap Text Text] -&gt; InventoryResultItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679797630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CaptureTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; [HashMap Text Text] -&gt; InventoryResultItem)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; [HashMap Text Text] -&gt; InventoryResultItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679797630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [HashMap Text Text] -&gt; InventoryResultItem)
+-&gt; Parser Text
+-&gt; Parser ([HashMap Text Text] -&gt; InventoryResultItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679797630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser ([HashMap Text Text] -&gt; InventoryResultItem)
+-&gt; Parser [HashMap Text Text] -&gt; Parser InventoryResultItem
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679797630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [HashMap Text Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [HashMap Text Text])
+-&gt; [HashMap Text Text] -&gt; Parser [HashMap Text Text]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[HashMap Text Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797622"><span id="local-6989586621679797624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.InventoryResultItem.html#InventoryResultItem"><span class="hs-identifier hs-type">InventoryResultItem</span></a></span></span><span>
+</span><span id="line-123"></span></pre></body></html>

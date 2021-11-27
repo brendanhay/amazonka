@@ -5,61 +5,61 @@
 @version 2.0
 
 
-module Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType
+module Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType
 newtype AmbiguousRoleResolutionType
 AmbiguousRoleResolutionType' :: Text -> AmbiguousRoleResolutionType
 [fromAmbiguousRoleResolutionType] :: AmbiguousRoleResolutionType -> Text
 pattern AmbiguousRoleResolutionType_AuthenticatedRole :: AmbiguousRoleResolutionType
 pattern AmbiguousRoleResolutionType_Deny :: AmbiguousRoleResolutionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Network.AWS.Data.Text.ToText Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Network.AWS.Data.Text.FromText Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance GHC.Classes.Ord Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Amazonka.Data.XML.ToXML Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Amazonka.Data.XML.FromXML Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Amazonka.Data.Log.ToLog Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Amazonka.Data.Text.ToText Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Amazonka.Data.Text.FromText Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance GHC.Classes.Ord Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType.AmbiguousRoleResolutionType
 
 
-module Network.AWS.CognitoIdentity.Types.CognitoErrorCode
+module Amazonka.CognitoIdentity.Types.CognitoErrorCode
 newtype CognitoErrorCode
 CognitoErrorCode' :: Text -> CognitoErrorCode
 [fromCognitoErrorCode] :: CognitoErrorCode -> Text
 pattern CognitoErrorCode_AccessDenied :: CognitoErrorCode
 pattern CognitoErrorCode_InternalServerError :: CognitoErrorCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Network.AWS.Data.Text.ToText Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Network.AWS.Data.Text.FromText Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance GHC.Classes.Ord Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Amazonka.Data.XML.ToXML Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Amazonka.Data.XML.FromXML Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Amazonka.Data.Log.ToLog Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Amazonka.Data.Text.ToText Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Amazonka.Data.Text.FromText Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance GHC.Classes.Ord Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.CognitoErrorCode.CognitoErrorCode
 
 
-module Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider
+module Amazonka.CognitoIdentity.Types.CognitoIdentityProvider
 
 -- | A provider representing an Amazon Cognito user pool and its client ID.
 --   
@@ -139,17 +139,17 @@ cognitoIdentityProvider_serverSideTokenCheck :: Lens' CognitoIdentityProvider (M
 -- | The provider name for an Amazon Cognito user pool. For example,
 --   <tt>cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789</tt>.
 cognitoIdentityProvider_providerName :: Lens' CognitoIdentityProvider (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.Types.CognitoIdentityProvider.CognitoIdentityProvider
 
 
-module Network.AWS.CognitoIdentity.Types.Credentials
+module Amazonka.CognitoIdentity.Types.Credentials
 
 -- | Credentials for the provided identity ID.
 --   
@@ -201,16 +201,16 @@ credentials_secretKey :: Lens' Credentials (Maybe Text)
 
 -- | The Access Key portion of the credentials.
 credentials_accessKeyId :: Lens' Credentials (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.Credentials.Credentials
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.Credentials.Credentials
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.Credentials.Credentials
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.Credentials.Credentials
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.Credentials.Credentials
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.Credentials.Credentials
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.Credentials.Credentials
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.Credentials.Credentials
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.Credentials.Credentials
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.Credentials.Credentials
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.Credentials.Credentials
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.Credentials.Credentials
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.Credentials.Credentials
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.Credentials.Credentials
 
 
-module Network.AWS.CognitoIdentity.Types.IdentityDescription
+module Amazonka.CognitoIdentity.Types.IdentityDescription
 
 -- | A description of the identity.
 --   
@@ -266,16 +266,16 @@ identityDescription_logins :: Lens' IdentityDescription (Maybe [Text])
 
 -- | A unique identifier in the format REGION:GUID.
 identityDescription_identityId :: Lens' IdentityDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.IdentityDescription.IdentityDescription
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.IdentityDescription.IdentityDescription
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.IdentityDescription.IdentityDescription
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.IdentityDescription.IdentityDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.IdentityDescription.IdentityDescription
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.IdentityDescription.IdentityDescription
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.IdentityDescription.IdentityDescription
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.IdentityDescription.IdentityDescription
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.IdentityDescription.IdentityDescription
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.IdentityDescription.IdentityDescription
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.IdentityDescription.IdentityDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.IdentityDescription.IdentityDescription
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.IdentityDescription.IdentityDescription
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.IdentityDescription.IdentityDescription
 
 
-module Network.AWS.CognitoIdentity.Types.IdentityPool
+module Amazonka.CognitoIdentity.Types.IdentityPool
 
 -- | An object representing an Amazon Cognito identity pool.
 --   
@@ -407,17 +407,17 @@ identityPool_identityPoolName :: Lens' IdentityPool Text
 
 -- | TRUE if the identity pool supports unauthenticated logins.
 identityPool_allowUnauthenticatedIdentities :: Lens' IdentityPool Bool
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.IdentityPool.IdentityPool
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.IdentityPool.IdentityPool
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.IdentityPool.IdentityPool
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.IdentityPool.IdentityPool
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.IdentityPool.IdentityPool
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.IdentityPool.IdentityPool
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.IdentityPool.IdentityPool
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.Types.IdentityPool.IdentityPool
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.IdentityPool.IdentityPool
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.IdentityPool.IdentityPool
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.IdentityPool.IdentityPool
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.IdentityPool.IdentityPool
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.IdentityPool.IdentityPool
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.IdentityPool.IdentityPool
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.IdentityPool.IdentityPool
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.Types.IdentityPool.IdentityPool
 
 
-module Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription
+module Amazonka.CognitoIdentity.Types.IdentityPoolShortDescription
 
 -- | A description of the identity pool.
 --   
@@ -454,16 +454,16 @@ identityPoolShortDescription_identityPoolId :: Lens' IdentityPoolShortDescriptio
 
 -- | A string that you provide.
 identityPoolShortDescription_identityPoolName :: Lens' IdentityPoolShortDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.IdentityPoolShortDescription.IdentityPoolShortDescription
 
 
-module Network.AWS.CognitoIdentity.Types.MappingRuleMatchType
+module Amazonka.CognitoIdentity.Types.MappingRuleMatchType
 newtype MappingRuleMatchType
 MappingRuleMatchType' :: Text -> MappingRuleMatchType
 [fromMappingRuleMatchType] :: MappingRuleMatchType -> Text
@@ -471,28 +471,28 @@ pattern MappingRuleMatchType_Contains :: MappingRuleMatchType
 pattern MappingRuleMatchType_Equals :: MappingRuleMatchType
 pattern MappingRuleMatchType_NotEqual :: MappingRuleMatchType
 pattern MappingRuleMatchType_StartsWith :: MappingRuleMatchType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Network.AWS.Data.Text.ToText Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Network.AWS.Data.Text.FromText Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance GHC.Classes.Ord Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Amazonka.Data.XML.ToXML Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Amazonka.Data.XML.FromXML Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Amazonka.Data.Log.ToLog Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Amazonka.Data.Text.ToText Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Amazonka.Data.Text.FromText Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance GHC.Classes.Ord Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.MappingRuleMatchType.MappingRuleMatchType
 
 
-module Network.AWS.CognitoIdentity.Types.MappingRule
+module Amazonka.CognitoIdentity.Types.MappingRule
 
 -- | A rule that maps a claim name, a claim value, and a match type to a
 --   role ARN.
@@ -553,44 +553,44 @@ mappingRule_value :: Lens' MappingRule Text
 
 -- | The role ARN.
 mappingRule_roleARN :: Lens' MappingRule Text
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.MappingRule.MappingRule
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.MappingRule.MappingRule
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.MappingRule.MappingRule
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.MappingRule.MappingRule
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.MappingRule.MappingRule
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.MappingRule.MappingRule
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.MappingRule.MappingRule
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.Types.MappingRule.MappingRule
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.MappingRule.MappingRule
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.MappingRule.MappingRule
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.MappingRule.MappingRule
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.MappingRule.MappingRule
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.MappingRule.MappingRule
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.MappingRule.MappingRule
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.MappingRule.MappingRule
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.Types.MappingRule.MappingRule
 
 
-module Network.AWS.CognitoIdentity.Types.RoleMappingType
+module Amazonka.CognitoIdentity.Types.RoleMappingType
 newtype RoleMappingType
 RoleMappingType' :: Text -> RoleMappingType
 [fromRoleMappingType] :: RoleMappingType -> Text
 pattern RoleMappingType_Rules :: RoleMappingType
 pattern RoleMappingType_Token :: RoleMappingType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Network.AWS.Data.Text.ToText Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Network.AWS.Data.Text.FromText Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance GHC.Classes.Ord Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Amazonka.Data.XML.ToXML Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Amazonka.Data.XML.FromXML Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Amazonka.Data.Log.ToLog Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Amazonka.Data.Text.ToText Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Amazonka.Data.Text.FromText Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance GHC.Classes.Ord Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.RoleMappingType.RoleMappingType
 
 
-module Network.AWS.CognitoIdentity.Types.RulesConfigurationType
+module Amazonka.CognitoIdentity.Types.RulesConfigurationType
 
 -- | A container for rules.
 --   
@@ -628,17 +628,17 @@ newRulesConfigurationType :: NonEmpty MappingRule -> RulesConfigurationType
 --   Rules are evaluated in order. The first one to match specifies the
 --   role.
 rulesConfigurationType_rules :: Lens' RulesConfigurationType (NonEmpty MappingRule)
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.Types.RulesConfigurationType.RulesConfigurationType
 
 
-module Network.AWS.CognitoIdentity.Types.RoleMapping
+module Amazonka.CognitoIdentity.Types.RoleMapping
 
 -- | A role mapping.
 --   
@@ -719,17 +719,17 @@ roleMapping_ambiguousRoleResolution :: Lens' RoleMapping (Maybe AmbiguousRoleRes
 --   provider token to map groups to roles. Rules will attempt to match
 --   claims from the token to map to a role.
 roleMapping_type :: Lens' RoleMapping RoleMappingType
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.RoleMapping.RoleMapping
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.RoleMapping.RoleMapping
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.RoleMapping.RoleMapping
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.RoleMapping.RoleMapping
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.RoleMapping.RoleMapping
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.RoleMapping.RoleMapping
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.RoleMapping.RoleMapping
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.Types.RoleMapping.RoleMapping
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.RoleMapping.RoleMapping
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.RoleMapping.RoleMapping
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.RoleMapping.RoleMapping
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.RoleMapping.RoleMapping
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.RoleMapping.RoleMapping
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.RoleMapping.RoleMapping
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.RoleMapping.RoleMapping
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.Types.RoleMapping.RoleMapping
 
 
-module Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId
+module Amazonka.CognitoIdentity.Types.UnprocessedIdentityId
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an
 --   ErrorCode and IdentityId.
@@ -767,16 +767,16 @@ unprocessedIdentityId_errorCode :: Lens' UnprocessedIdentityId (Maybe CognitoErr
 
 -- | A unique identifier in the format REGION:GUID.
 unprocessedIdentityId_identityId :: Lens' UnprocessedIdentityId (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
-instance GHC.Show.Show Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
-instance GHC.Read.Read Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
+instance GHC.Show.Show Amazonka.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
+instance GHC.Read.Read Amazonka.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.Types.UnprocessedIdentityId.UnprocessedIdentityId
 
 
-module Network.AWS.CognitoIdentity.Types
+module Amazonka.CognitoIdentity.Types
 
 -- | API version <tt>2014-06-30</tt> of the Amazon Cognito Identity SDK
 --   configuration.
@@ -1431,7 +1431,7 @@ unprocessedIdentityId_identityId :: Lens' UnprocessedIdentityId (Maybe Text)
 --   
 --   You can use this action up to 5 times per second, per account. An
 --   identity pool can have as many as 50 tags.
-module Network.AWS.CognitoIdentity.TagResource
+module Amazonka.CognitoIdentity.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1487,27 +1487,27 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.CognitoIdentity.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.CognitoIdentity.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.TagResource.TagResource
+instance GHC.Show.Show Amazonka.CognitoIdentity.TagResource.TagResource
+instance GHC.Read.Read Amazonka.CognitoIdentity.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.TagResource.TagResource
 
 
 -- | You can use this operation to use default (username and clientID)
 --   attribute or custom attribute mappings.
-module Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap
+module Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap
 
 -- | <i>See:</i> <a>newSetPrincipalTagAttributeMap</a> smart constructor.
 data SetPrincipalTagAttributeMap
@@ -1638,29 +1638,29 @@ setPrincipalTagAttributeMapResponse_useDefaults :: Lens' SetPrincipalTagAttribut
 
 -- | The response's http status code.
 setPrincipalTagAttributeMapResponse_httpStatus :: Lens' SetPrincipalTagAttributeMapResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
-instance GHC.Show.Show Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
-instance GHC.Read.Read Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMapResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMapResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMapResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMapResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMapResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
+instance GHC.Show.Show Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
+instance GHC.Read.Read Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMapResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMapResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMapResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMapResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMapResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap.SetPrincipalTagAttributeMap
 
 
 -- | Sets the roles for an identity pool. These roles are used when making
 --   calls to GetCredentialsForIdentity action.
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
+module Amazonka.CognitoIdentity.SetIdentityPoolRoles
 
 -- | Input to the <tt>SetIdentityPoolRoles</tt> action.
 --   
@@ -1738,22 +1738,22 @@ SetIdentityPoolRolesResponse' :: SetIdentityPoolRolesResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSetIdentityPoolRolesResponse :: SetIdentityPoolRolesResponse
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
-instance GHC.Show.Show Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
-instance GHC.Read.Read Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRolesResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRolesResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRolesResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRolesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRolesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
+instance GHC.Show.Show Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
+instance GHC.Read.Read Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRolesResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRolesResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRolesResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRolesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRolesResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.SetIdentityPoolRoles.SetIdentityPoolRoles
 
 
 -- | Merges two users having different <tt>IdentityId</tt>s, existing in
@@ -1772,7 +1772,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.SetIdentityP
 --   not be larger than 20. Otherwise, an exception will be thrown.
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
+module Amazonka.CognitoIdentity.MergeDeveloperIdentities
 
 -- | Input to the <tt>MergeDeveloperIdentities</tt> action.
 --   
@@ -1888,22 +1888,22 @@ mergeDeveloperIdentitiesResponse_identityId :: Lens' MergeDeveloperIdentitiesRes
 
 -- | The response's http status code.
 mergeDeveloperIdentitiesResponse_httpStatus :: Lens' MergeDeveloperIdentitiesResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
-instance GHC.Show.Show Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
-instance GHC.Read.Read Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentitiesResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentitiesResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentitiesResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentitiesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentitiesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
+instance GHC.Show.Show Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
+instance GHC.Read.Read Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentitiesResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentitiesResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentitiesResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentitiesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentitiesResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.MergeDeveloperIdentities.MergeDeveloperIdentities
 
 
 -- | Retrieves the <tt>IdentityID</tt> associated with a
@@ -1926,7 +1926,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.MergeDevelop
 --   better option for higher-volume operations for user authentication.
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
+module Amazonka.CognitoIdentity.LookupDeveloperIdentity
 
 -- | Input to the <tt>LookupDeveloperIdentityInput</tt> action.
 --   
@@ -2099,22 +2099,22 @@ lookupDeveloperIdentityResponse_developerUserIdentifierList :: Lens' LookupDevel
 
 -- | The response's http status code.
 lookupDeveloperIdentityResponse_httpStatus :: Lens' LookupDeveloperIdentityResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
-instance GHC.Show.Show Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
-instance GHC.Read.Read Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentityResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentityResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentityResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
+instance GHC.Show.Show Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
+instance GHC.Read.Read Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentityResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentityResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentityResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentityResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentityResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.LookupDeveloperIdentity.LookupDeveloperIdentity
 
 
 -- | Lists the tags that are assigned to an Amazon Cognito identity pool.
@@ -2124,7 +2124,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.LookupDevelo
 --   environment, or other criteria.
 --   
 --   You can use this action up to 10 times per second, per account.
-module Network.AWS.CognitoIdentity.ListTagsForResource
+module Amazonka.CognitoIdentity.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2185,22 +2185,22 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists all of the Cognito identity pools registered for your account.
@@ -2208,7 +2208,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.ListTagsForR
 --   You must use AWS Developer credentials to call this API.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CognitoIdentity.ListIdentityPools
+module Amazonka.CognitoIdentity.ListIdentityPools
 
 -- | Input to the ListIdentityPools action.
 --   
@@ -2289,29 +2289,29 @@ listIdentityPoolsResponse_nextToken :: Lens' ListIdentityPoolsResponse (Maybe Te
 
 -- | The response's http status code.
 listIdentityPoolsResponse_httpStatus :: Lens' ListIdentityPoolsResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPools
-instance GHC.Show.Show Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPools
-instance GHC.Read.Read Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPools
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPools
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPoolsResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPoolsResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPoolsResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPoolsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPools
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPoolsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPools
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPools
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPools
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPools
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPools
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPools
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.ListIdentityPools.ListIdentityPools
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPools
+instance GHC.Show.Show Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPools
+instance GHC.Read.Read Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPools
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPools
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPoolsResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPoolsResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPoolsResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPoolsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPools
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPoolsResponse
+instance Amazonka.Pager.AWSPager Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPools
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPools
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPools
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPools
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPools
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPools
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.ListIdentityPools.ListIdentityPools
 
 
 -- | Lists the identities in an identity pool.
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.ListIdentities
+module Amazonka.CognitoIdentity.ListIdentities
 
 -- | Input to the ListIdentities action.
 --   
@@ -2427,27 +2427,27 @@ listIdentitiesResponse_identities :: Lens' ListIdentitiesResponse (Maybe [Identi
 
 -- | The response's http status code.
 listIdentitiesResponse_httpStatus :: Lens' ListIdentitiesResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.ListIdentities.ListIdentities
-instance GHC.Show.Show Network.AWS.CognitoIdentity.ListIdentities.ListIdentities
-instance GHC.Read.Read Network.AWS.CognitoIdentity.ListIdentities.ListIdentities
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.ListIdentities.ListIdentities
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.ListIdentities.ListIdentitiesResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.ListIdentities.ListIdentitiesResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.ListIdentities.ListIdentitiesResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.ListIdentities.ListIdentitiesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.ListIdentities.ListIdentities
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.ListIdentities.ListIdentitiesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.ListIdentities.ListIdentities
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.ListIdentities.ListIdentities
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.ListIdentities.ListIdentities
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.ListIdentities.ListIdentities
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.ListIdentities.ListIdentities
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.ListIdentities.ListIdentities
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.ListIdentities.ListIdentities
+instance GHC.Show.Show Amazonka.CognitoIdentity.ListIdentities.ListIdentities
+instance GHC.Read.Read Amazonka.CognitoIdentity.ListIdentities.ListIdentities
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.ListIdentities.ListIdentities
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.ListIdentities.ListIdentitiesResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.ListIdentities.ListIdentitiesResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.ListIdentities.ListIdentitiesResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.ListIdentities.ListIdentitiesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.ListIdentities.ListIdentities
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.ListIdentities.ListIdentitiesResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.ListIdentities.ListIdentities
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.ListIdentities.ListIdentities
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.ListIdentities.ListIdentities
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.ListIdentities.ListIdentities
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.ListIdentities.ListIdentities
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.ListIdentities.ListIdentities
 
 
 -- | Use <tt>GetPrincipalTagAttributeMap</tt> to list all mappings between
 --   <tt>PrincipalTags</tt> and user attributes.
-module Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap
+module Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap
 
 -- | <i>See:</i> <a>newGetPrincipalTagAttributeMap</a> smart constructor.
 data GetPrincipalTagAttributeMap
@@ -2559,22 +2559,22 @@ getPrincipalTagAttributeMapResponse_useDefaults :: Lens' GetPrincipalTagAttribut
 
 -- | The response's http status code.
 getPrincipalTagAttributeMapResponse_httpStatus :: Lens' GetPrincipalTagAttributeMapResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
-instance GHC.Show.Show Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
-instance GHC.Read.Read Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMapResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMapResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMapResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMapResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMapResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
+instance GHC.Show.Show Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
+instance GHC.Read.Read Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMapResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMapResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMapResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMapResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMapResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap.GetPrincipalTagAttributeMap
 
 
 -- | Registers (or retrieves) a Cognito <tt>IdentityId</tt> and an OpenID
@@ -2595,7 +2595,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.GetPrincipal
 --   specified <tt>IdentityPoolId</tt>.
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
+module Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
 
 -- | Input to the <tt>GetOpenIdTokenForDeveloperIdentity</tt> action.
 --   
@@ -2773,22 +2773,22 @@ getOpenIdTokenForDeveloperIdentityResponse_identityId :: Lens' GetOpenIdTokenFor
 
 -- | The response's http status code.
 getOpenIdTokenForDeveloperIdentityResponse_httpStatus :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
-instance GHC.Show.Show Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
-instance GHC.Read.Read Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentityResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentityResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentityResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
+instance GHC.Show.Show Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
+instance GHC.Read.Read Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentityResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentityResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentityResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentityResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentityResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.GetOpenIdTokenForDeveloperIdentity
 
 
 -- | Gets an OpenID token, using a known Cognito ID. This known Cognito ID
@@ -2799,7 +2799,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.GetOpenIdTok
 --   
 --   This is a public API. You do not need any credentials to call this
 --   API.
-module Network.AWS.CognitoIdentity.GetOpenIdToken
+module Amazonka.CognitoIdentity.GetOpenIdToken
 
 -- | Input to the GetOpenIdToken action.
 --   
@@ -2896,28 +2896,28 @@ getOpenIdTokenResponse_identityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
 
 -- | The response's http status code.
 getOpenIdTokenResponse_httpStatus :: Lens' GetOpenIdTokenResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
-instance GHC.Show.Show Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
-instance GHC.Read.Read Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdTokenResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdTokenResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdTokenResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdTokenResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdTokenResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
+instance GHC.Show.Show Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
+instance GHC.Read.Read Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdTokenResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdTokenResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdTokenResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdTokenResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdTokenResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.GetOpenIdToken.GetOpenIdToken
 
 
 -- | Gets the roles for an identity pool.
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
+module Amazonka.CognitoIdentity.GetIdentityPoolRoles
 
 -- | Input to the <tt>GetIdentityPoolRoles</tt> action.
 --   
@@ -3013,22 +3013,22 @@ getIdentityPoolRolesResponse_roleMappings :: Lens' GetIdentityPoolRolesResponse 
 
 -- | The response's http status code.
 getIdentityPoolRolesResponse_httpStatus :: Lens' GetIdentityPoolRolesResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
-instance GHC.Show.Show Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
-instance GHC.Read.Read Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRolesResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRolesResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRolesResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRolesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRolesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
+instance GHC.Show.Show Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
+instance GHC.Read.Read Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRolesResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRolesResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRolesResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRolesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRolesResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.GetIdentityPoolRoles.GetIdentityPoolRoles
 
 
 -- | Generates (or retrieves) a Cognito ID. Supplying multiple logins will
@@ -3036,7 +3036,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.GetIdentityP
 --   
 --   This is a public API. You do not need any credentials to call this
 --   API.
-module Network.AWS.CognitoIdentity.GetId
+module Amazonka.CognitoIdentity.GetId
 
 -- | Input to the GetId action.
 --   
@@ -3154,22 +3154,22 @@ getIdResponse_identityId :: Lens' GetIdResponse (Maybe Text)
 
 -- | The response's http status code.
 getIdResponse_httpStatus :: Lens' GetIdResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.GetId.GetId
-instance GHC.Show.Show Network.AWS.CognitoIdentity.GetId.GetId
-instance GHC.Read.Read Network.AWS.CognitoIdentity.GetId.GetId
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.GetId.GetId
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.GetId.GetIdResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.GetId.GetIdResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.GetId.GetIdResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.GetId.GetIdResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.GetId.GetId
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.GetId.GetIdResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.GetId.GetId
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.GetId.GetId
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.GetId.GetId
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.GetId.GetId
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.GetId.GetId
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.GetId.GetId
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.GetId.GetId
+instance GHC.Show.Show Amazonka.CognitoIdentity.GetId.GetId
+instance GHC.Read.Read Amazonka.CognitoIdentity.GetId.GetId
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.GetId.GetId
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.GetId.GetIdResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.GetId.GetIdResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.GetId.GetIdResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.GetId.GetIdResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.GetId.GetId
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.GetId.GetIdResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.GetId.GetId
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.GetId.GetId
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.GetId.GetId
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.GetId.GetId
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.GetId.GetId
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.GetId.GetId
 
 
 -- | Returns credentials for the provided identity ID. Any provided logins
@@ -3179,7 +3179,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.GetId.GetId
 --   
 --   This is a public API. You do not need any credentials to call this
 --   API.
-module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
+module Amazonka.CognitoIdentity.GetCredentialsForIdentity
 
 -- | Input to the <tt>GetCredentialsForIdentity</tt> action.
 --   
@@ -3312,29 +3312,29 @@ getCredentialsForIdentityResponse_identityId :: Lens' GetCredentialsForIdentityR
 
 -- | The response's http status code.
 getCredentialsForIdentityResponse_httpStatus :: Lens' GetCredentialsForIdentityResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
-instance GHC.Show.Show Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
-instance GHC.Read.Read Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentityResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentityResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentityResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
+instance GHC.Show.Show Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
+instance GHC.Read.Read Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentityResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentityResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentityResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentityResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentityResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.GetCredentialsForIdentity.GetCredentialsForIdentity
 
 
 -- | Gets details about a particular identity pool, including the pool
 --   name, ID description, creation date, and current number of users.
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.DescribeIdentityPool
+module Amazonka.CognitoIdentity.DescribeIdentityPool
 
 -- | Input to the DescribeIdentityPool action.
 --   
@@ -3492,24 +3492,24 @@ identityPool_identityPoolName :: Lens' IdentityPool Text
 
 -- | TRUE if the identity pool supports unauthenticated logins.
 identityPool_allowUnauthenticatedIdentities :: Lens' IdentityPool Bool
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
-instance GHC.Show.Show Network.AWS.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
-instance GHC.Read.Read Network.AWS.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
+instance GHC.Show.Show Amazonka.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
+instance GHC.Read.Read Amazonka.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.DescribeIdentityPool.DescribeIdentityPool
 
 
 -- | Returns metadata related to the given identity, including when the
 --   identity was created and any associated linked logins.
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.DescribeIdentity
+module Amazonka.CognitoIdentity.DescribeIdentity
 
 -- | Input to the <tt>DescribeIdentity</tt> action.
 --   
@@ -3591,24 +3591,24 @@ identityDescription_logins :: Lens' IdentityDescription (Maybe [Text])
 
 -- | A unique identifier in the format REGION:GUID.
 identityDescription_identityId :: Lens' IdentityDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.DescribeIdentity.DescribeIdentity
-instance GHC.Show.Show Network.AWS.CognitoIdentity.DescribeIdentity.DescribeIdentity
-instance GHC.Read.Read Network.AWS.CognitoIdentity.DescribeIdentity.DescribeIdentity
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.DescribeIdentity.DescribeIdentity
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.DescribeIdentity.DescribeIdentity
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.DescribeIdentity.DescribeIdentity
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.DescribeIdentity.DescribeIdentity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.DescribeIdentity.DescribeIdentity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.DescribeIdentity.DescribeIdentity
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.DescribeIdentity.DescribeIdentity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.DescribeIdentity.DescribeIdentity
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.DescribeIdentity.DescribeIdentity
+instance GHC.Show.Show Amazonka.CognitoIdentity.DescribeIdentity.DescribeIdentity
+instance GHC.Read.Read Amazonka.CognitoIdentity.DescribeIdentity.DescribeIdentity
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.DescribeIdentity.DescribeIdentity
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.DescribeIdentity.DescribeIdentity
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.DescribeIdentity.DescribeIdentity
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.DescribeIdentity.DescribeIdentity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.DescribeIdentity.DescribeIdentity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.DescribeIdentity.DescribeIdentity
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.DescribeIdentity.DescribeIdentity
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.DescribeIdentity.DescribeIdentity
 
 
 -- | Deletes an identity pool. Once a pool is deleted, users will not be
 --   able to authenticate with the pool.
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.DeleteIdentityPool
+module Amazonka.CognitoIdentity.DeleteIdentityPool
 
 -- | Input to the DeleteIdentityPool action.
 --   
@@ -3646,29 +3646,29 @@ DeleteIdentityPoolResponse' :: DeleteIdentityPoolResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteIdentityPoolResponse :: DeleteIdentityPoolResponse
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
-instance GHC.Show.Show Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
-instance GHC.Read.Read Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPoolResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPoolResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPoolResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPoolResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPoolResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
+instance GHC.Show.Show Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
+instance GHC.Read.Read Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPoolResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPoolResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPoolResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPoolResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPoolResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.DeleteIdentityPool.DeleteIdentityPool
 
 
 -- | Deletes identities from an identity pool. You can specify a list of
 --   1-60 identities that you want to delete.
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.DeleteIdentities
+module Amazonka.CognitoIdentity.DeleteIdentities
 
 -- | Input to the <tt>DeleteIdentities</tt> action.
 --   
@@ -3735,22 +3735,22 @@ deleteIdentitiesResponse_unprocessedIdentityIds :: Lens' DeleteIdentitiesRespons
 
 -- | The response's http status code.
 deleteIdentitiesResponse_httpStatus :: Lens' DeleteIdentitiesResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentities
-instance GHC.Show.Show Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentities
-instance GHC.Read.Read Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentities
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentities
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentitiesResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentitiesResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentitiesResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentitiesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentities
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentitiesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentities
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentities
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentities
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentities
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentities
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.DeleteIdentities.DeleteIdentities
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentities
+instance GHC.Show.Show Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentities
+instance GHC.Read.Read Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentities
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentities
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentitiesResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentitiesResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentitiesResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentitiesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentities
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentitiesResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentities
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentities
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentities
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentities
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentities
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.DeleteIdentities.DeleteIdentities
 
 
 -- | Creates a new identity pool. The identity pool is a store of user
@@ -3766,7 +3766,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.DeleteIdenti
 --   </ul>
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.CreateIdentityPool
+module Amazonka.CognitoIdentity.CreateIdentityPool
 
 -- | Input to the CreateIdentityPool action.
 --   
@@ -4039,17 +4039,17 @@ identityPool_identityPoolName :: Lens' IdentityPool Text
 
 -- | TRUE if the identity pool supports unauthenticated logins.
 identityPool_allowUnauthenticatedIdentities :: Lens' IdentityPool Bool
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
-instance GHC.Show.Show Network.AWS.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
-instance GHC.Read.Read Network.AWS.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
+instance GHC.Show.Show Amazonka.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
+instance GHC.Read.Read Amazonka.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.CreateIdentityPool.CreateIdentityPool
 
 
 -- | Unlinks a <tt>DeveloperUserIdentifier</tt> from an existing identity.
@@ -4059,7 +4059,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.CreateIdenti
 --   Cognito identity becomes inaccessible.
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
+module Amazonka.CognitoIdentity.UnlinkDeveloperIdentity
 
 -- | Input to the <tt>UnlinkDeveloperIdentity</tt> action.
 --   
@@ -4130,22 +4130,22 @@ UnlinkDeveloperIdentityResponse' :: UnlinkDeveloperIdentityResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUnlinkDeveloperIdentityResponse :: UnlinkDeveloperIdentityResponse
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
-instance GHC.Show.Show Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
-instance GHC.Read.Read Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentityResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentityResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentityResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
+instance GHC.Show.Show Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
+instance GHC.Read.Read Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentityResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentityResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentityResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentityResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentityResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.UnlinkDeveloperIdentity.UnlinkDeveloperIdentity
 
 
 -- | Unlinks a federated identity from an existing account. Unlinked logins
@@ -4154,7 +4154,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.UnlinkDevelo
 --   
 --   This is a public API. You do not need any credentials to call this
 --   API.
-module Network.AWS.CognitoIdentity.UnlinkIdentity
+module Amazonka.CognitoIdentity.UnlinkIdentity
 
 -- | Input to the UnlinkIdentity action.
 --   
@@ -4214,27 +4214,27 @@ UnlinkIdentityResponse' :: UnlinkIdentityResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUnlinkIdentityResponse :: UnlinkIdentityResponse
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
-instance GHC.Show.Show Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
-instance GHC.Read.Read Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentityResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentityResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentityResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
+instance GHC.Show.Show Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
+instance GHC.Read.Read Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentityResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentityResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentityResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentityResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentityResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.UnlinkIdentity.UnlinkIdentity
 
 
 -- | Removes the specified tags from the specified Amazon Cognito identity
 --   pool. You can use this action up to 5 times per second, per account
-module Network.AWS.CognitoIdentity.UntagResource
+module Amazonka.CognitoIdentity.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -4292,28 +4292,28 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.CognitoIdentity.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.CognitoIdentity.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.CognitoIdentity.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.CognitoIdentity.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.CognitoIdentity.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.CognitoIdentity.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.CognitoIdentity.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.CognitoIdentity.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.UntagResource.UntagResource
 
 
 -- | Updates an identity pool.
 --   
 --   You must use AWS Developer credentials to call this API.
-module Network.AWS.CognitoIdentity.UpdateIdentityPool
+module Amazonka.CognitoIdentity.UpdateIdentityPool
 
 -- | An object representing an Amazon Cognito identity pool.
 --   
@@ -4577,20 +4577,20 @@ identityPool_identityPoolName :: Lens' IdentityPool Text
 
 -- | TRUE if the identity pool supports unauthenticated logins.
 identityPool_allowUnauthenticatedIdentities :: Lens' IdentityPool Bool
-instance GHC.Generics.Generic Network.AWS.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
-instance GHC.Show.Show Network.AWS.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
-instance GHC.Read.Read Network.AWS.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
-instance GHC.Classes.Eq Network.AWS.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
-instance Network.AWS.Types.AWSRequest Network.AWS.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
-instance Data.Hashable.Class.Hashable Network.AWS.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
-instance Control.DeepSeq.NFData Network.AWS.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
-instance Network.AWS.Data.Path.ToPath Network.AWS.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
+instance GHC.Generics.Generic Amazonka.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
+instance GHC.Show.Show Amazonka.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
+instance GHC.Read.Read Amazonka.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
+instance GHC.Classes.Eq Amazonka.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
+instance Amazonka.Types.AWSRequest Amazonka.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
+instance Data.Hashable.Class.Hashable Amazonka.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
+instance Control.DeepSeq.NFData Amazonka.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
+instance Amazonka.Data.Path.ToPath Amazonka.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
+instance Amazonka.Data.Query.ToQuery Amazonka.CognitoIdentity.UpdateIdentityPool.UpdateIdentityPool
 
 
-module Network.AWS.CognitoIdentity.Lens
+module Amazonka.CognitoIdentity.Lens
 
 -- | A set of optional name-value pairs that map provider names to provider
 --   tokens. When using graph.facebook.com and www.amazon.com, supply the
@@ -5318,7 +5318,7 @@ unprocessedIdentityId_errorCode :: Lens' UnprocessedIdentityId (Maybe CognitoErr
 unprocessedIdentityId_identityId :: Lens' UnprocessedIdentityId (Maybe Text)
 
 
-module Network.AWS.CognitoIdentity.Waiters
+module Amazonka.CognitoIdentity.Waiters
 
 
 -- | Derived from API version <tt>2014-06-30</tt> of the AWS service
@@ -5343,7 +5343,7 @@ module Network.AWS.CognitoIdentity.Waiters
 --   Developer Guide see <a>Authentication Flow</a>.
 --   
 --   For more information see <a>Amazon Cognito Federated Identities</a>.
-module Network.AWS.CognitoIdentity
+module Amazonka.CognitoIdentity
 
 -- | API version <tt>2014-06-30</tt> of the Amazon Cognito Identity SDK
 --   configuration.

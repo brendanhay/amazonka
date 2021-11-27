@@ -1,0 +1,945 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.GameLift.DescribeGameSessions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves a set of one or more game sessions in a specific fleet</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- location. You can optionally filter the results by current game session</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- status. Alternatively, use SearchGameSessions to request a set of active</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- game sessions that are filtered by certain criteria. To retrieve the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- protection policy for game sessions, use DescribeGameSessionDetails.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation can be used in the following ways:</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   To retrieve all game sessions that are currently running on all</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     locations in a fleet, provide a fleet or alias ID, with an optional</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     status filter. This approach returns all game sessions in the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     fleet\'s home Region and all remote locations.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   To retrieve all game sessions that are currently running on a</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     specific fleet location, provide a fleet or alias ID and a location</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     name, with optional status filter. The location can be the fleet\'s</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     home Region or any remote location.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   To retrieve a specific game session, provide the game session ID.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     This approach looks for the game session ID in all fleets that</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     reside in the AWS Region defined in the request.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use the pagination parameters to retrieve results as a set of sequential</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- pages.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- If successful, a @GameSession@ object is returned for each game session</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- that matches the request.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- /Available in GameLift Local./</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- __Learn more__</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find Find a game session&gt;</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- __Related actions__</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- CreateGameSession | DescribeGameSessions | DescribeGameSessionDetails |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- SearchGameSessions | UpdateGameSession | GetGameSessionLogUrl |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- StartGameSessionPlacement | DescribeGameSessionPlacement |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- StopGameSessionPlacement |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task&gt;</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-66"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GameLift.DescribeGameSessions</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier">DescribeGameSessions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#newDescribeGameSessions"><span class="hs-identifier">newDescribeGameSessions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_location"><span class="hs-identifier">describeGameSessions_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_gameSessionId"><span class="hs-identifier">describeGameSessions_gameSessionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_aliasId"><span class="hs-identifier">describeGameSessions_aliasId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_nextToken"><span class="hs-identifier">describeGameSessions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_statusFilter"><span class="hs-identifier">describeGameSessions_statusFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_limit"><span class="hs-identifier">describeGameSessions_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_fleetId"><span class="hs-identifier">describeGameSessions_fleetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse"><span class="hs-identifier">DescribeGameSessionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#newDescribeGameSessionsResponse"><span class="hs-identifier">newDescribeGameSessionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessionsResponse_gameSessions"><span class="hs-identifier">describeGameSessionsResponse_gameSessions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessionsResponse_nextToken"><span class="hs-identifier">describeGameSessionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessionsResponse_httpStatus"><span class="hs-identifier">describeGameSessionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.html"><span class="hs-identifier">Amazonka.GameLift.Types</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- /See:/ 'newDescribeGameSessions' smart constructor.</span><span>
+</span><span id="line-101"></span><span id="local-6989586621679452107"><span id="local-6989586621679452108"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGameSessions"><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-var">DescribeGameSessions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGameSessions%27"><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-var">DescribeGameSessions'</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A fleet location to get game session details for. You can specify a</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- fleet\'s home Region or a remote location. Use the AWS Region code</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- format, such as @us-west-2@.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3Alocation%3ADescribeGameSessions%27"><span class="annot"><span class="annottext">DescribeGameSessions -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3Alocation%3ADescribeGameSessions%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the game session to retrieve.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AgameSessionId%3ADescribeGameSessions%27"><span class="annot"><span class="annottext">DescribeGameSessions -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AgameSessionId%3ADescribeGameSessions%27"><span class="hs-identifier hs-var hs-var">gameSessionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the alias associated with the fleet to retrieve</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- game sessions for. You can use either the alias ID or ARN value.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AaliasId%3ADescribeGameSessions%27"><span class="annot"><span class="annottext">DescribeGameSessions -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AaliasId%3ADescribeGameSessions%27"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | A token that indicates the start of the next sequential page of results.</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- Use the token that is returned with a previous call to this operation.</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- To start at the beginning of the result set, do not specify a value.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeGameSessions%27"><span class="annot"><span class="annottext">DescribeGameSessions -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AnextToken%3ADescribeGameSessions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | Game session status to filter results on. You can filter on the</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- following states: @ACTIVE@, @TERMINATED@, @ACTIVATING@, and</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- @TERMINATING@. The last two are transitory and used for only very brief</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- periods of time.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AstatusFilter%3ADescribeGameSessions%27"><span class="annot"><span class="annottext">DescribeGameSessions -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AstatusFilter%3ADescribeGameSessions%27"><span class="hs-identifier hs-var hs-var">statusFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return. Use this parameter with</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- @NextToken@ to get results as a set of sequential pages.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeGameSessions%27"><span class="annot"><span class="annottext">DescribeGameSessions -&gt; Maybe Natural
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3Alimit%3ADescribeGameSessions%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the fleet to retrieve game sessions for. You can</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- use either the fleet ID or ARN value.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AfleetId%3ADescribeGameSessions%27"><span class="annot"><span class="annottext">DescribeGameSessions -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AfleetId%3ADescribeGameSessions%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452095"><span id="local-6989586621679452097"><span class="annot"><span class="annottext">DescribeGameSessions -&gt; DescribeGameSessions -&gt; Bool
+(DescribeGameSessions -&gt; DescribeGameSessions -&gt; Bool)
+-&gt; (DescribeGameSessions -&gt; DescribeGameSessions -&gt; Bool)
+-&gt; Eq DescribeGameSessions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeGameSessions -&gt; DescribeGameSessions -&gt; Bool
+$c/= :: DescribeGameSessions -&gt; DescribeGameSessions -&gt; Bool
+== :: DescribeGameSessions -&gt; DescribeGameSessions -&gt; Bool
+$c== :: DescribeGameSessions -&gt; DescribeGameSessions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452086"><span id="local-6989586621679452088"><span id="local-6989586621679452090"><span id="local-6989586621679452092"><span class="annot"><span class="annottext">ReadPrec [DescribeGameSessions]
+ReadPrec DescribeGameSessions
+Int -&gt; ReadS DescribeGameSessions
+ReadS [DescribeGameSessions]
+(Int -&gt; ReadS DescribeGameSessions)
+-&gt; ReadS [DescribeGameSessions]
+-&gt; ReadPrec DescribeGameSessions
+-&gt; ReadPrec [DescribeGameSessions]
+-&gt; Read DescribeGameSessions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeGameSessions]
+$creadListPrec :: ReadPrec [DescribeGameSessions]
+readPrec :: ReadPrec DescribeGameSessions
+$creadPrec :: ReadPrec DescribeGameSessions
+readList :: ReadS [DescribeGameSessions]
+$creadList :: ReadS [DescribeGameSessions]
+readsPrec :: Int -&gt; ReadS DescribeGameSessions
+$creadsPrec :: Int -&gt; ReadS DescribeGameSessions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452079"><span id="local-6989586621679452081"><span id="local-6989586621679452083"><span class="annot"><span class="annottext">Int -&gt; DescribeGameSessions -&gt; ShowS
+[DescribeGameSessions] -&gt; ShowS
+DescribeGameSessions -&gt; String
+(Int -&gt; DescribeGameSessions -&gt; ShowS)
+-&gt; (DescribeGameSessions -&gt; String)
+-&gt; ([DescribeGameSessions] -&gt; ShowS)
+-&gt; Show DescribeGameSessions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeGameSessions] -&gt; ShowS
+$cshowList :: [DescribeGameSessions] -&gt; ShowS
+show :: DescribeGameSessions -&gt; String
+$cshow :: DescribeGameSessions -&gt; String
+showsPrec :: Int -&gt; DescribeGameSessions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeGameSessions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeGameSessions -&gt; Rep DescribeGameSessions x)
+-&gt; (forall x. Rep DescribeGameSessions x -&gt; DescribeGameSessions)
+-&gt; Generic DescribeGameSessions
+forall x. Rep DescribeGameSessions x -&gt; DescribeGameSessions
+forall x. DescribeGameSessions -&gt; Rep DescribeGameSessions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeGameSessions x -&gt; DescribeGameSessions
+$cfrom :: forall x. DescribeGameSessions -&gt; Rep DescribeGameSessions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Create a value of 'DescribeGameSessions' with all optional fields omitted.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'location', 'describeGameSessions_location' - A fleet location to get game session details for. You can specify a</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- fleet\'s home Region or a remote location. Use the AWS Region code</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- format, such as @us-west-2@.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'gameSessionId', 'describeGameSessions_gameSessionId' - A unique identifier for the game session to retrieve.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'aliasId', 'describeGameSessions_aliasId' - A unique identifier for the alias associated with the fleet to retrieve</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- game sessions for. You can use either the alias ID or ARN value.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'nextToken', 'describeGameSessions_nextToken' - A token that indicates the start of the next sequential page of results.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Use the token that is returned with a previous call to this operation.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- To start at the beginning of the result set, do not specify a value.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'statusFilter', 'describeGameSessions_statusFilter' - Game session status to filter results on. You can filter on the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- following states: @ACTIVE@, @TERMINATED@, @ACTIVATING@, and</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- @TERMINATING@. The last two are transitory and used for only very brief</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- periods of time.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'limit', 'describeGameSessions_limit' - The maximum number of results to return. Use this parameter with</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- @NextToken@ to get results as a set of sequential pages.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'fleetId', 'describeGameSessions_fleetId' - A unique identifier for the fleet to retrieve game sessions for. You can</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- use either the fleet ID or ARN value.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#newDescribeGameSessions"><span class="hs-identifier hs-type">newDescribeGameSessions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span>
+</span><span id="line-162"></span><span id="newDescribeGameSessions"><span class="annot"><span class="annottext">newDescribeGameSessions :: DescribeGameSessions
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#newDescribeGameSessions"><span class="hs-identifier hs-var hs-var">newDescribeGameSessions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">DescribeGameSessions' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; DescribeGameSessions
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:DescribeGameSessions' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3Alocation%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:gameSessionId:DescribeGameSessions' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AgameSessionId%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:aliasId:DescribeGameSessions' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AaliasId%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">aliasId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeGameSessions' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AnextToken%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusFilter:DescribeGameSessions' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AstatusFilter%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">statusFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeGameSessions' :: Maybe Natural
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3Alimit%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:DescribeGameSessions' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AfleetId%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | A fleet location to get game session details for. You can specify a</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- fleet\'s home Region or a remote location. Use the AWS Region code</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- format, such as @us-west-2@.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_location"><span class="hs-identifier hs-type">describeGameSessions_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="describeGameSessions_location"><span class="annot"><span class="annottext">describeGameSessions_location :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeGameSessions -&gt; f DescribeGameSessions
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_location"><span class="hs-identifier hs-var hs-var">describeGameSessions_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGameSessions -&gt; Maybe Text)
+-&gt; (DescribeGameSessions -&gt; Maybe Text -&gt; DescribeGameSessions)
+-&gt; Lens
+     DescribeGameSessions DescribeGameSessions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452073"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Text
+</span><a href="#local-6989586621679452073"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452073"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452072"><span class="annot"><span class="annottext">s :: DescribeGameSessions
+</span><a href="#local-6989586621679452072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452071"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameSessions
+</span><a href="#local-6989586621679452072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:DescribeGameSessions' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3Alocation%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | A unique identifier for the game session to retrieve.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_gameSessionId"><span class="hs-identifier hs-type">describeGameSessions_gameSessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="describeGameSessions_gameSessionId"><span class="annot"><span class="annottext">describeGameSessions_gameSessionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeGameSessions -&gt; f DescribeGameSessions
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_gameSessionId"><span class="hs-identifier hs-var hs-var">describeGameSessions_gameSessionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGameSessions -&gt; Maybe Text)
+-&gt; (DescribeGameSessions -&gt; Maybe Text -&gt; DescribeGameSessions)
+-&gt; Lens
+     DescribeGameSessions DescribeGameSessions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452070"><span class="annot"><span class="annottext">Maybe Text
+gameSessionId :: Maybe Text
+$sel:gameSessionId:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Text
+</span><a href="#local-6989586621679452070"><span class="hs-identifier hs-var hs-var">gameSessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452070"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452069"><span class="annot"><span class="annottext">s :: DescribeGameSessions
+</span><a href="#local-6989586621679452069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452068"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameSessions
+</span><a href="#local-6989586621679452069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionId:DescribeGameSessions' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AgameSessionId%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | A unique identifier for the alias associated with the fleet to retrieve</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- game sessions for. You can use either the alias ID or ARN value.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_aliasId"><span class="hs-identifier hs-type">describeGameSessions_aliasId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="describeGameSessions_aliasId"><span class="annot"><span class="annottext">describeGameSessions_aliasId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeGameSessions -&gt; f DescribeGameSessions
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_aliasId"><span class="hs-identifier hs-var hs-var">describeGameSessions_aliasId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGameSessions -&gt; Maybe Text)
+-&gt; (DescribeGameSessions -&gt; Maybe Text -&gt; DescribeGameSessions)
+-&gt; Lens
+     DescribeGameSessions DescribeGameSessions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452067"><span class="annot"><span class="annottext">Maybe Text
+aliasId :: Maybe Text
+$sel:aliasId:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Text
+</span><a href="#local-6989586621679452067"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452067"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452066"><span class="annot"><span class="annottext">s :: DescribeGameSessions
+</span><a href="#local-6989586621679452066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452065"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameSessions
+</span><a href="#local-6989586621679452066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasId:DescribeGameSessions' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AaliasId%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">aliasId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | A token that indicates the start of the next sequential page of results.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Use the token that is returned with a previous call to this operation.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- To start at the beginning of the result set, do not specify a value.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_nextToken"><span class="hs-identifier hs-type">describeGameSessions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="describeGameSessions_nextToken"><span class="annot"><span class="annottext">describeGameSessions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeGameSessions -&gt; f DescribeGameSessions
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_nextToken"><span class="hs-identifier hs-var hs-var">describeGameSessions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGameSessions -&gt; Maybe Text)
+-&gt; (DescribeGameSessions -&gt; Maybe Text -&gt; DescribeGameSessions)
+-&gt; Lens
+     DescribeGameSessions DescribeGameSessions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452064"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Text
+</span><a href="#local-6989586621679452064"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452064"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452063"><span class="annot"><span class="annottext">s :: DescribeGameSessions
+</span><a href="#local-6989586621679452063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452062"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameSessions
+</span><a href="#local-6989586621679452063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeGameSessions' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AnextToken%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | Game session status to filter results on. You can filter on the</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- following states: @ACTIVE@, @TERMINATED@, @ACTIVATING@, and</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- @TERMINATING@. The last two are transitory and used for only very brief</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- periods of time.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_statusFilter"><span class="hs-identifier hs-type">describeGameSessions_statusFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="describeGameSessions_statusFilter"><span class="annot"><span class="annottext">describeGameSessions_statusFilter :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeGameSessions -&gt; f DescribeGameSessions
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_statusFilter"><span class="hs-identifier hs-var hs-var">describeGameSessions_statusFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGameSessions -&gt; Maybe Text)
+-&gt; (DescribeGameSessions -&gt; Maybe Text -&gt; DescribeGameSessions)
+-&gt; Lens
+     DescribeGameSessions DescribeGameSessions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452061"><span class="annot"><span class="annottext">Maybe Text
+statusFilter :: Maybe Text
+$sel:statusFilter:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Text
+</span><a href="#local-6989586621679452061"><span class="hs-identifier hs-var hs-var">statusFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452061"><span class="hs-identifier hs-var">statusFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452060"><span class="annot"><span class="annottext">s :: DescribeGameSessions
+</span><a href="#local-6989586621679452060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452059"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameSessions
+</span><a href="#local-6989586621679452060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusFilter:DescribeGameSessions' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AstatusFilter%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">statusFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The maximum number of results to return. Use this parameter with</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- @NextToken@ to get results as a set of sequential pages.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_limit"><span class="hs-identifier hs-type">describeGameSessions_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="describeGameSessions_limit"><span class="annot"><span class="annottext">describeGameSessions_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeGameSessions -&gt; f DescribeGameSessions
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_limit"><span class="hs-identifier hs-var hs-var">describeGameSessions_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGameSessions -&gt; Maybe Natural)
+-&gt; (DescribeGameSessions -&gt; Maybe Natural -&gt; DescribeGameSessions)
+-&gt; Lens
+     DescribeGameSessions
+     DescribeGameSessions
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452058"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Natural
+</span><a href="#local-6989586621679452058"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679452058"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452057"><span class="annot"><span class="annottext">s :: DescribeGameSessions
+</span><a href="#local-6989586621679452057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452056"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679452056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameSessions
+</span><a href="#local-6989586621679452057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeGameSessions' :: Maybe Natural
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3Alimit%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679452056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | A unique identifier for the fleet to retrieve game sessions for. You can</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- use either the fleet ID or ARN value.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_fleetId"><span class="hs-identifier hs-type">describeGameSessions_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="describeGameSessions_fleetId"><span class="annot"><span class="annottext">describeGameSessions_fleetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeGameSessions -&gt; f DescribeGameSessions
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_fleetId"><span class="hs-identifier hs-var hs-var">describeGameSessions_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGameSessions -&gt; Maybe Text)
+-&gt; (DescribeGameSessions -&gt; Maybe Text -&gt; DescribeGameSessions)
+-&gt; Lens
+     DescribeGameSessions DescribeGameSessions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452055"><span class="annot"><span class="annottext">Maybe Text
+fleetId :: Maybe Text
+$sel:fleetId:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Text
+</span><a href="#local-6989586621679452055"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452055"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452054"><span class="annot"><span class="annottext">s :: DescribeGameSessions
+</span><a href="#local-6989586621679452054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452053"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameSessions
+</span><a href="#local-6989586621679452054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:DescribeGameSessions' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AfleetId%3ADescribeGameSessions%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679452049"><span class="annot"><span class="annottext">page :: DescribeGameSessions
+-&gt; AWSResponse DescribeGameSessions -&gt; Maybe DescribeGameSessions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679452047"><span class="annot"><span class="annottext">DescribeGameSessions
+</span><a href="#local-6989586621679452047"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679452046"><span class="annot"><span class="annottext">AWSResponse DescribeGameSessions
+</span><a href="#local-6989586621679452046"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-214"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeGameSessions
+DescribeGameSessionsResponse
+</span><a href="#local-6989586621679452046"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">DescribeGameSessionsResponse
+-&gt; Getting (First Text) DescribeGameSessionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeGameSessionsResponse
+-&gt; Const (First Text) DescribeGameSessionsResponse
+Lens' DescribeGameSessionsResponse (Maybe Text)
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessionsResponse_nextToken"><span class="hs-identifier hs-var">describeGameSessionsResponse_nextToken</span></a></span><span>
+</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeGameSessionsResponse
+ -&gt; Const (First Text) DescribeGameSessionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeGameSessionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-217"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeGameSessions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [GameSession] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-220"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeGameSessions
+DescribeGameSessionsResponse
+</span><a href="#local-6989586621679452046"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">DescribeGameSessionsResponse
+-&gt; Getting
+     (First [GameSession]) DescribeGameSessionsResponse [GameSession]
+-&gt; Maybe [GameSession]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [GameSession]
+ -&gt; Const (First [GameSession]) (Maybe [GameSession]))
+-&gt; DescribeGameSessionsResponse
+-&gt; Const (First [GameSession]) DescribeGameSessionsResponse
+Lens' DescribeGameSessionsResponse (Maybe [GameSession])
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessionsResponse_gameSessions"><span class="hs-identifier hs-var">describeGameSessionsResponse_gameSessions</span></a></span><span>
+</span><span id="line-222"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [GameSession]
+  -&gt; Const (First [GameSession]) (Maybe [GameSession]))
+ -&gt; DescribeGameSessionsResponse
+ -&gt; Const (First [GameSession]) DescribeGameSessionsResponse)
+-&gt; (([GameSession] -&gt; Const (First [GameSession]) [GameSession])
+    -&gt; Maybe [GameSession]
+    -&gt; Const (First [GameSession]) (Maybe [GameSession]))
+-&gt; Getting
+     (First [GameSession]) DescribeGameSessionsResponse [GameSession]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([GameSession] -&gt; Const (First [GameSession]) [GameSession])
+-&gt; Maybe [GameSession]
+-&gt; Const (First [GameSession]) (Maybe [GameSession])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-223"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeGameSessions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">DescribeGameSessions -&gt; Maybe DescribeGameSessions
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeGameSessions -&gt; Maybe DescribeGameSessions)
+-&gt; DescribeGameSessions -&gt; Maybe DescribeGameSessions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">DescribeGameSessions
+</span><a href="#local-6989586621679452047"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-228"></span><span>          </span><span class="annot"><span class="annottext">DescribeGameSessions
+-&gt; (DescribeGameSessions -&gt; DescribeGameSessions)
+-&gt; DescribeGameSessions
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeGameSessions -&gt; Identity DescribeGameSessions
+Lens
+  DescribeGameSessions DescribeGameSessions (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessions_nextToken"><span class="hs-identifier hs-var">describeGameSessions_nextToken</span></a></span><span>
+</span><span id="line-229"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeGameSessions -&gt; Identity DescribeGameSessions)
+-&gt; Maybe Text -&gt; DescribeGameSessions -&gt; DescribeGameSessions
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeGameSessions
+DescribeGameSessionsResponse
+</span><a href="#local-6989586621679452046"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-230"></span><span>          </span><span class="annot"><span class="annottext">DescribeGameSessionsResponse
+-&gt; Getting (First Text) DescribeGameSessionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeGameSessionsResponse
+-&gt; Const (First Text) DescribeGameSessionsResponse
+Lens' DescribeGameSessionsResponse (Maybe Text)
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessionsResponse_nextToken"><span class="hs-identifier hs-var">describeGameSessionsResponse_nextToken</span></a></span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeGameSessionsResponse
+ -&gt; Const (First Text) DescribeGameSessionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeGameSessionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-235"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse"><span class="hs-identifier hs-type">DescribeGameSessionsResponse</span></a></span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679452036"><span class="annot"><span class="annottext">request :: DescribeGameSessions -&gt; Request DescribeGameSessions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeGameSessions -&gt; Request DescribeGameSessions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679452032"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeGameSessions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeGameSessions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeGameSessions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeGameSessions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeGameSessions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452029"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452029"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679452028"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679452028"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679452027"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679452027"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">Maybe [GameSession]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeGameSessionsResponse
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse%27"><span class="hs-identifier hs-var">DescribeGameSessionsResponse'</span></a></span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [GameSession]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeGameSessionsResponse)
+-&gt; Either String (Maybe [GameSession])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeGameSessionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679452027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [GameSession]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GameSessions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [GameSession]))
+-&gt; Maybe [GameSession] -&gt; Either String (Maybe [GameSession])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GameSession]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeGameSessionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeGameSessionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679452027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeGameSessionsResponse)
+-&gt; Either String Int -&gt; Either String DescribeGameSessionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452029"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452018"><span id="local-6989586621679452020"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span></span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679452011"><span class="annot"><span class="annottext">toHeaders :: DescribeGameSessions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeGameSessions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-255"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-256"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GameLift.DescribeGameSessions&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-257"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-258"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-261"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-262"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452001"><span id="local-6989586621679452003"><span id="local-6989586621679452005"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679451999"><span class="annot"><span class="annottext">toJSON :: DescribeGameSessions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions%27"><span class="hs-identifier hs-type">DescribeGameSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451991"><span id="local-6989586621679451992"><span id="local-6989586621679451993"><span id="local-6989586621679451994"><span id="local-6989586621679451995"><span id="local-6989586621679451996"><span id="local-6989586621679451997"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+fleetId :: Maybe Text
+limit :: Maybe Natural
+statusFilter :: Maybe Text
+nextToken :: Maybe Text
+aliasId :: Maybe Text
+gameSessionId :: Maybe Text
+location :: Maybe Text
+$sel:fleetId:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Text
+$sel:limit:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Natural
+$sel:statusFilter:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Text
+$sel:nextToken:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Text
+$sel:aliasId:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Text
+$sel:gameSessionId:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Text
+$sel:location:DescribeGameSessions' :: DescribeGameSessions -&gt; Maybe Text
+</span><a href="#local-6989586621679451991"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-270"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451997"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GameSessionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451996"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AliasId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451995"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451994"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451993"><span class="hs-identifier hs-var">statusFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679451992"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451991"><span class="hs-identifier hs-var">fleetId</span></a></span><span>
+</span><span id="line-277"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-278"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679451985"><span class="annot"><span class="annottext">toPath :: DescribeGameSessions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeGameSessions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessions"><span class="hs-identifier hs-type">DescribeGameSessions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679451981"><span class="annot"><span class="annottext">toQuery :: DescribeGameSessions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeGameSessions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- /See:/ 'newDescribeGameSessionsResponse' smart constructor.</span><span>
+</span><span id="line-289"></span><span id="local-6989586621679451978"><span id="local-6989586621679451979"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGameSessionsResponse"><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse"><span class="hs-identifier hs-var">DescribeGameSessionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGameSessionsResponse%27"><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse%27"><span class="hs-identifier hs-var">DescribeGameSessionsResponse'</span></a></span></span><span>
+</span><span id="line-290"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A collection of properties for each game session that matches the</span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-292"></span><span>    </span><span id="%24sel%3AgameSessions%3ADescribeGameSessionsResponse%27"><span class="annot"><span class="annottext">DescribeGameSessionsResponse -&gt; Maybe [GameSession]
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AgameSessions%3ADescribeGameSessionsResponse%27"><span class="hs-identifier hs-var hs-var">gameSessions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GameLift.Types.GameSession.html#GameSession"><span class="hs-identifier hs-type">GameSession</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="hs-comment">-- | A token that indicates where to resume retrieving results on the next</span><span>
+</span><span id="line-294"></span><span>    </span><span class="hs-comment">-- call to this operation. If no token is returned, these results represent</span><span>
+</span><span id="line-295"></span><span>    </span><span class="hs-comment">-- the end of the list.</span><span>
+</span><span id="line-296"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeGameSessionsResponse%27"><span class="annot"><span class="annottext">DescribeGameSessionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AnextToken%3ADescribeGameSessionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-298"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeGameSessionsResponse%27"><span class="annot"><span class="annottext">DescribeGameSessionsResponse -&gt; Int
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AhttpStatus%3ADescribeGameSessionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-299"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-300"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451971"><span id="local-6989586621679451973"><span class="annot"><span class="annottext">DescribeGameSessionsResponse
+-&gt; DescribeGameSessionsResponse -&gt; Bool
+(DescribeGameSessionsResponse
+ -&gt; DescribeGameSessionsResponse -&gt; Bool)
+-&gt; (DescribeGameSessionsResponse
+    -&gt; DescribeGameSessionsResponse -&gt; Bool)
+-&gt; Eq DescribeGameSessionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeGameSessionsResponse
+-&gt; DescribeGameSessionsResponse -&gt; Bool
+$c/= :: DescribeGameSessionsResponse
+-&gt; DescribeGameSessionsResponse -&gt; Bool
+== :: DescribeGameSessionsResponse
+-&gt; DescribeGameSessionsResponse -&gt; Bool
+$c== :: DescribeGameSessionsResponse
+-&gt; DescribeGameSessionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451963"><span id="local-6989586621679451965"><span id="local-6989586621679451967"><span id="local-6989586621679451969"><span class="annot"><span class="annottext">ReadPrec [DescribeGameSessionsResponse]
+ReadPrec DescribeGameSessionsResponse
+Int -&gt; ReadS DescribeGameSessionsResponse
+ReadS [DescribeGameSessionsResponse]
+(Int -&gt; ReadS DescribeGameSessionsResponse)
+-&gt; ReadS [DescribeGameSessionsResponse]
+-&gt; ReadPrec DescribeGameSessionsResponse
+-&gt; ReadPrec [DescribeGameSessionsResponse]
+-&gt; Read DescribeGameSessionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeGameSessionsResponse]
+$creadListPrec :: ReadPrec [DescribeGameSessionsResponse]
+readPrec :: ReadPrec DescribeGameSessionsResponse
+$creadPrec :: ReadPrec DescribeGameSessionsResponse
+readList :: ReadS [DescribeGameSessionsResponse]
+$creadList :: ReadS [DescribeGameSessionsResponse]
+readsPrec :: Int -&gt; ReadS DescribeGameSessionsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeGameSessionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451957"><span id="local-6989586621679451959"><span id="local-6989586621679451961"><span class="annot"><span class="annottext">Int -&gt; DescribeGameSessionsResponse -&gt; ShowS
+[DescribeGameSessionsResponse] -&gt; ShowS
+DescribeGameSessionsResponse -&gt; String
+(Int -&gt; DescribeGameSessionsResponse -&gt; ShowS)
+-&gt; (DescribeGameSessionsResponse -&gt; String)
+-&gt; ([DescribeGameSessionsResponse] -&gt; ShowS)
+-&gt; Show DescribeGameSessionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeGameSessionsResponse] -&gt; ShowS
+$cshowList :: [DescribeGameSessionsResponse] -&gt; ShowS
+show :: DescribeGameSessionsResponse -&gt; String
+$cshow :: DescribeGameSessionsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeGameSessionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeGameSessionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeGameSessionsResponse -&gt; Rep DescribeGameSessionsResponse x)
+-&gt; (forall x.
+    Rep DescribeGameSessionsResponse x -&gt; DescribeGameSessionsResponse)
+-&gt; Generic DescribeGameSessionsResponse
+forall x.
+Rep DescribeGameSessionsResponse x -&gt; DescribeGameSessionsResponse
+forall x.
+DescribeGameSessionsResponse -&gt; Rep DescribeGameSessionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeGameSessionsResponse x -&gt; DescribeGameSessionsResponse
+$cfrom :: forall x.
+DescribeGameSessionsResponse -&gt; Rep DescribeGameSessionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- Create a value of 'DescribeGameSessionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- 'gameSessions', 'describeGameSessionsResponse_gameSessions' - A collection of properties for each game session that matches the</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- 'nextToken', 'describeGameSessionsResponse_nextToken' - A token that indicates where to resume retrieving results on the next</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- call to this operation. If no token is returned, these results represent</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- the end of the list.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- 'httpStatus', 'describeGameSessionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-318"></span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#newDescribeGameSessionsResponse"><span class="hs-identifier hs-type">newDescribeGameSessionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-319"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-320"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-321"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse"><span class="hs-identifier hs-type">DescribeGameSessionsResponse</span></a></span><span>
+</span><span id="line-322"></span><span id="newDescribeGameSessionsResponse"><span class="annot"><span class="annottext">newDescribeGameSessionsResponse :: Int -&gt; DescribeGameSessionsResponse
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#newDescribeGameSessionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeGameSessionsResponse</span></a></span></span><span> </span><span id="local-6989586621679451954"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451954"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-323"></span><span>  </span><span class="annot"><span class="annottext">DescribeGameSessionsResponse' :: Maybe [GameSession]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeGameSessionsResponse
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse%27"><span class="hs-identifier hs-type">DescribeGameSessionsResponse'</span></a></span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameSessions:DescribeGameSessionsResponse' :: Maybe [GameSession]
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AgameSessions%3ADescribeGameSessionsResponse%27"><span class="hs-identifier hs-var">gameSessions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-325"></span><span>        </span><span class="annot"><span class="annottext">Maybe [GameSession]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeGameSessionsResponse' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AnextToken%3ADescribeGameSessionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGameSessionsResponse' :: Int
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AhttpStatus%3ADescribeGameSessionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451954"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-328"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- | A collection of properties for each game session that matches the</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-332"></span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessionsResponse_gameSessions"><span class="hs-identifier hs-type">describeGameSessionsResponse_gameSessions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse"><span class="hs-identifier hs-type">DescribeGameSessionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GameLift.Types.GameSession.html#GameSession"><span class="hs-identifier hs-type">GameSession</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span id="describeGameSessionsResponse_gameSessions"><span class="annot"><span class="annottext">describeGameSessionsResponse_gameSessions :: (Maybe [GameSession] -&gt; f (Maybe [GameSession]))
+-&gt; DescribeGameSessionsResponse -&gt; f DescribeGameSessionsResponse
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessionsResponse_gameSessions"><span class="hs-identifier hs-var hs-var">describeGameSessionsResponse_gameSessions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGameSessionsResponse -&gt; Maybe [GameSession])
+-&gt; (DescribeGameSessionsResponse
+    -&gt; Maybe [GameSession] -&gt; DescribeGameSessionsResponse)
+-&gt; Lens' DescribeGameSessionsResponse (Maybe [GameSession])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse%27"><span class="hs-identifier hs-type">DescribeGameSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451953"><span class="annot"><span class="annottext">Maybe [GameSession]
+gameSessions :: Maybe [GameSession]
+$sel:gameSessions:DescribeGameSessionsResponse' :: DescribeGameSessionsResponse -&gt; Maybe [GameSession]
+</span><a href="#local-6989586621679451953"><span class="hs-identifier hs-var hs-var">gameSessions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GameSession]
+</span><a href="#local-6989586621679451953"><span class="hs-identifier hs-var">gameSessions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451952"><span class="annot"><span class="annottext">s :: DescribeGameSessionsResponse
+</span><a href="#local-6989586621679451952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse%27"><span class="hs-identifier hs-type">DescribeGameSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451951"><span class="annot"><span class="annottext">Maybe [GameSession]
+</span><a href="#local-6989586621679451951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameSessionsResponse
+</span><a href="#local-6989586621679451952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessions:DescribeGameSessionsResponse' :: Maybe [GameSession]
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AgameSessions%3ADescribeGameSessionsResponse%27"><span class="hs-identifier hs-var">gameSessions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GameSession]
+</span><a href="#local-6989586621679451951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse"><span class="hs-identifier hs-type">DescribeGameSessionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GameSession] -&gt; f (Maybe [GameSession]))
+ -&gt; DescribeGameSessionsResponse -&gt; f DescribeGameSessionsResponse)
+-&gt; ((Maybe [GameSession] -&gt; f (Maybe [GameSession]))
+    -&gt; Maybe [GameSession] -&gt; f (Maybe [GameSession]))
+-&gt; (Maybe [GameSession] -&gt; f (Maybe [GameSession]))
+-&gt; DescribeGameSessionsResponse
+-&gt; f DescribeGameSessionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [GameSession] [GameSession] [GameSession] [GameSession]
+-&gt; Iso
+     (Maybe [GameSession])
+     (Maybe [GameSession])
+     (Maybe [GameSession])
+     (Maybe [GameSession])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [GameSession] [GameSession] [GameSession] [GameSession]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- | A token that indicates where to resume retrieving results on the next</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- call to this operation. If no token is returned, these results represent</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- the end of the list.</span><span>
+</span><span id="line-338"></span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessionsResponse_nextToken"><span class="hs-identifier hs-type">describeGameSessionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse"><span class="hs-identifier hs-type">DescribeGameSessionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span id="describeGameSessionsResponse_nextToken"><span class="annot"><span class="annottext">describeGameSessionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeGameSessionsResponse -&gt; f DescribeGameSessionsResponse
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeGameSessionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGameSessionsResponse -&gt; Maybe Text)
+-&gt; (DescribeGameSessionsResponse
+    -&gt; Maybe Text -&gt; DescribeGameSessionsResponse)
+-&gt; Lens' DescribeGameSessionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse%27"><span class="hs-identifier hs-type">DescribeGameSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451948"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeGameSessionsResponse' :: DescribeGameSessionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679451948"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451948"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451947"><span class="annot"><span class="annottext">s :: DescribeGameSessionsResponse
+</span><a href="#local-6989586621679451947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse%27"><span class="hs-identifier hs-type">DescribeGameSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451946"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameSessionsResponse
+</span><a href="#local-6989586621679451947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeGameSessionsResponse' :: Maybe Text
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AnextToken%3ADescribeGameSessionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse"><span class="hs-identifier hs-type">DescribeGameSessionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-342"></span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessionsResponse_httpStatus"><span class="hs-identifier hs-type">describeGameSessionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse"><span class="hs-identifier hs-type">DescribeGameSessionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-343"></span><span id="describeGameSessionsResponse_httpStatus"><span class="annot"><span class="annottext">describeGameSessionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeGameSessionsResponse -&gt; f DescribeGameSessionsResponse
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#describeGameSessionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeGameSessionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGameSessionsResponse -&gt; Int)
+-&gt; (DescribeGameSessionsResponse
+    -&gt; Int -&gt; DescribeGameSessionsResponse)
+-&gt; Lens
+     DescribeGameSessionsResponse DescribeGameSessionsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse%27"><span class="hs-identifier hs-type">DescribeGameSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451945"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeGameSessionsResponse' :: DescribeGameSessionsResponse -&gt; Int
+</span><a href="#local-6989586621679451945"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451945"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451944"><span class="annot"><span class="annottext">s :: DescribeGameSessionsResponse
+</span><a href="#local-6989586621679451944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse%27"><span class="hs-identifier hs-type">DescribeGameSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451943"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameSessionsResponse
+</span><a href="#local-6989586621679451944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGameSessionsResponse' :: Int
+</span><a href="Amazonka.GameLift.DescribeGameSessions.html#%24sel%3AhttpStatus%3ADescribeGameSessionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse"><span class="hs-identifier hs-type">DescribeGameSessionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451941"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.DescribeGameSessions.html#DescribeGameSessionsResponse"><span class="hs-identifier hs-type">DescribeGameSessionsResponse</span></a></span></span><span>
+</span><span id="line-346"></span></pre></body></html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudHSMV2.Types.Certificates</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudHSMV2.Types.Certificates</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains one or more certificates or a certificate signing request</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- (CSR).</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCertificates' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679173374"><span id="local-6989586621679173375"></span></span><span class="hs-keyword">data</span><span> </span><span id="Certificates"><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-var">Certificates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Certificates%27"><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-var">Certificates'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The HSM hardware certificate issued (signed) by the hardware</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- manufacturer.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AmanufacturerHardwareCertificate%3ACertificates%27"><span class="annot"><span class="annottext">Certificates -&gt; Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AmanufacturerHardwareCertificate%3ACertificates%27"><span class="hs-identifier hs-var hs-var">manufacturerHardwareCertificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The cluster\'s certificate signing request (CSR). The CSR exists only</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- when the cluster\'s state is @UNINITIALIZED@.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AclusterCsr%3ACertificates%27"><span class="annot"><span class="annottext">Certificates -&gt; Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AclusterCsr%3ACertificates%27"><span class="hs-identifier hs-var hs-var">clusterCsr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The HSM certificate issued (signed) by the HSM hardware.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AhsmCertificate%3ACertificates%27"><span class="annot"><span class="annottext">Certificates -&gt; Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AhsmCertificate%3ACertificates%27"><span class="hs-identifier hs-var hs-var">hsmCertificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The cluster certificate issued (signed) by the issuing certificate</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- authority (CA) of the cluster\'s owner.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AclusterCertificate%3ACertificates%27"><span class="annot"><span class="annottext">Certificates -&gt; Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AclusterCertificate%3ACertificates%27"><span class="hs-identifier hs-var hs-var">clusterCertificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The HSM hardware certificate issued (signed) by AWS CloudHSM.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AawsHardwareCertificate%3ACertificates%27"><span class="annot"><span class="annottext">Certificates -&gt; Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AawsHardwareCertificate%3ACertificates%27"><span class="hs-identifier hs-var hs-var">awsHardwareCertificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173364"><span id="local-6989586621679173366"><span class="annot"><span class="annottext">Certificates -&gt; Certificates -&gt; Bool
+(Certificates -&gt; Certificates -&gt; Bool)
+-&gt; (Certificates -&gt; Certificates -&gt; Bool) -&gt; Eq Certificates
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Certificates -&gt; Certificates -&gt; Bool
+$c/= :: Certificates -&gt; Certificates -&gt; Bool
+== :: Certificates -&gt; Certificates -&gt; Bool
+$c== :: Certificates -&gt; Certificates -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173355"><span id="local-6989586621679173357"><span id="local-6989586621679173359"><span id="local-6989586621679173361"><span class="annot"><span class="annottext">ReadPrec [Certificates]
+ReadPrec Certificates
+Int -&gt; ReadS Certificates
+ReadS [Certificates]
+(Int -&gt; ReadS Certificates)
+-&gt; ReadS [Certificates]
+-&gt; ReadPrec Certificates
+-&gt; ReadPrec [Certificates]
+-&gt; Read Certificates
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Certificates]
+$creadListPrec :: ReadPrec [Certificates]
+readPrec :: ReadPrec Certificates
+$creadPrec :: ReadPrec Certificates
+readList :: ReadS [Certificates]
+$creadList :: ReadS [Certificates]
+readsPrec :: Int -&gt; ReadS Certificates
+$creadsPrec :: Int -&gt; ReadS Certificates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173348"><span id="local-6989586621679173350"><span id="local-6989586621679173352"><span class="annot"><span class="annottext">Int -&gt; Certificates -&gt; ShowS
+[Certificates] -&gt; ShowS
+Certificates -&gt; String
+(Int -&gt; Certificates -&gt; ShowS)
+-&gt; (Certificates -&gt; String)
+-&gt; ([Certificates] -&gt; ShowS)
+-&gt; Show Certificates
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Certificates] -&gt; ShowS
+$cshowList :: [Certificates] -&gt; ShowS
+show :: Certificates -&gt; String
+$cshow :: Certificates -&gt; String
+showsPrec :: Int -&gt; Certificates -&gt; ShowS
+$cshowsPrec :: Int -&gt; Certificates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Certificates -&gt; Rep Certificates x)
+-&gt; (forall x. Rep Certificates x -&gt; Certificates)
+-&gt; Generic Certificates
+forall x. Rep Certificates x -&gt; Certificates
+forall x. Certificates -&gt; Rep Certificates x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Certificates x -&gt; Certificates
+$cfrom :: forall x. Certificates -&gt; Rep Certificates x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'Certificates' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'manufacturerHardwareCertificate', 'certificates_manufacturerHardwareCertificate' - The HSM hardware certificate issued (signed) by the hardware</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- manufacturer.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'clusterCsr', 'certificates_clusterCsr' - The cluster\'s certificate signing request (CSR). The CSR exists only</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- when the cluster\'s state is @UNINITIALIZED@.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'hsmCertificate', 'certificates_hsmCertificate' - The HSM certificate issued (signed) by the HSM hardware.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'clusterCertificate', 'certificates_clusterCertificate' - The cluster certificate issued (signed) by the issuing certificate</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- authority (CA) of the cluster\'s owner.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'awsHardwareCertificate', 'certificates_awsHardwareCertificate' - The HSM hardware certificate issued (signed) by AWS CloudHSM.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#newCertificates"><span class="hs-identifier hs-type">newCertificates</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span><span>
+</span><span id="line-69"></span><span id="newCertificates"><span class="annot"><span class="annottext">newCertificates :: Certificates
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#newCertificates"><span class="hs-identifier hs-var hs-var">newCertificates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">Certificates' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Certificates
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-type">Certificates'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:manufacturerHardwareCertificate:Certificates' :: Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AmanufacturerHardwareCertificate%3ACertificates%27"><span class="hs-identifier hs-var">manufacturerHardwareCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterCsr:Certificates' :: Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AclusterCsr%3ACertificates%27"><span class="hs-identifier hs-var">clusterCsr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:hsmCertificate:Certificates' :: Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AhsmCertificate%3ACertificates%27"><span class="hs-identifier hs-var">hsmCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterCertificate:Certificates' :: Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AclusterCertificate%3ACertificates%27"><span class="hs-identifier hs-var">clusterCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsHardwareCertificate:Certificates' :: Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AawsHardwareCertificate%3ACertificates%27"><span class="hs-identifier hs-var">awsHardwareCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The HSM hardware certificate issued (signed) by the hardware</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- manufacturer.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#certificates_manufacturerHardwareCertificate"><span class="hs-identifier hs-type">certificates_manufacturerHardwareCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="certificates_manufacturerHardwareCertificate"><span class="annot"><span class="annottext">certificates_manufacturerHardwareCertificate :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Certificates -&gt; f Certificates
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#certificates_manufacturerHardwareCertificate"><span class="hs-identifier hs-var hs-var">certificates_manufacturerHardwareCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Certificates -&gt; Maybe Text)
+-&gt; (Certificates -&gt; Maybe Text -&gt; Certificates)
+-&gt; Lens Certificates Certificates (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-type">Certificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173339"><span class="annot"><span class="annottext">Maybe Text
+manufacturerHardwareCertificate :: Maybe Text
+$sel:manufacturerHardwareCertificate:Certificates' :: Certificates -&gt; Maybe Text
+</span><a href="#local-6989586621679173339"><span class="hs-identifier hs-var hs-var">manufacturerHardwareCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173339"><span class="hs-identifier hs-var">manufacturerHardwareCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173338"><span class="annot"><span class="annottext">s :: Certificates
+</span><a href="#local-6989586621679173338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-type">Certificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173337"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Certificates
+</span><a href="#local-6989586621679173338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manufacturerHardwareCertificate:Certificates' :: Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AmanufacturerHardwareCertificate%3ACertificates%27"><span class="hs-identifier hs-var">manufacturerHardwareCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The cluster\'s certificate signing request (CSR). The CSR exists only</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- when the cluster\'s state is @UNINITIALIZED@.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#certificates_clusterCsr"><span class="hs-identifier hs-type">certificates_clusterCsr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="certificates_clusterCsr"><span class="annot"><span class="annottext">certificates_clusterCsr :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Certificates -&gt; f Certificates
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#certificates_clusterCsr"><span class="hs-identifier hs-var hs-var">certificates_clusterCsr</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Certificates -&gt; Maybe Text)
+-&gt; (Certificates -&gt; Maybe Text -&gt; Certificates)
+-&gt; Lens Certificates Certificates (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-type">Certificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173335"><span class="annot"><span class="annottext">Maybe Text
+clusterCsr :: Maybe Text
+$sel:clusterCsr:Certificates' :: Certificates -&gt; Maybe Text
+</span><a href="#local-6989586621679173335"><span class="hs-identifier hs-var hs-var">clusterCsr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173335"><span class="hs-identifier hs-var">clusterCsr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173334"><span class="annot"><span class="annottext">s :: Certificates
+</span><a href="#local-6989586621679173334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-type">Certificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Certificates
+</span><a href="#local-6989586621679173334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterCsr:Certificates' :: Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AclusterCsr%3ACertificates%27"><span class="hs-identifier hs-var">clusterCsr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The HSM certificate issued (signed) by the HSM hardware.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#certificates_hsmCertificate"><span class="hs-identifier hs-type">certificates_hsmCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="certificates_hsmCertificate"><span class="annot"><span class="annottext">certificates_hsmCertificate :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Certificates -&gt; f Certificates
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#certificates_hsmCertificate"><span class="hs-identifier hs-var hs-var">certificates_hsmCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Certificates -&gt; Maybe Text)
+-&gt; (Certificates -&gt; Maybe Text -&gt; Certificates)
+-&gt; Lens Certificates Certificates (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-type">Certificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173331"><span class="annot"><span class="annottext">Maybe Text
+hsmCertificate :: Maybe Text
+$sel:hsmCertificate:Certificates' :: Certificates -&gt; Maybe Text
+</span><a href="#local-6989586621679173331"><span class="hs-identifier hs-var hs-var">hsmCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173331"><span class="hs-identifier hs-var">hsmCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173330"><span class="annot"><span class="annottext">s :: Certificates
+</span><a href="#local-6989586621679173330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-type">Certificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173329"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Certificates
+</span><a href="#local-6989586621679173330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmCertificate:Certificates' :: Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AhsmCertificate%3ACertificates%27"><span class="hs-identifier hs-var">hsmCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The cluster certificate issued (signed) by the issuing certificate</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- authority (CA) of the cluster\'s owner.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#certificates_clusterCertificate"><span class="hs-identifier hs-type">certificates_clusterCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="certificates_clusterCertificate"><span class="annot"><span class="annottext">certificates_clusterCertificate :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Certificates -&gt; f Certificates
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#certificates_clusterCertificate"><span class="hs-identifier hs-var hs-var">certificates_clusterCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Certificates -&gt; Maybe Text)
+-&gt; (Certificates -&gt; Maybe Text -&gt; Certificates)
+-&gt; Lens Certificates Certificates (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-type">Certificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173327"><span class="annot"><span class="annottext">Maybe Text
+clusterCertificate :: Maybe Text
+$sel:clusterCertificate:Certificates' :: Certificates -&gt; Maybe Text
+</span><a href="#local-6989586621679173327"><span class="hs-identifier hs-var hs-var">clusterCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173327"><span class="hs-identifier hs-var">clusterCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173326"><span class="annot"><span class="annottext">s :: Certificates
+</span><a href="#local-6989586621679173326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-type">Certificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173325"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Certificates
+</span><a href="#local-6989586621679173326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterCertificate:Certificates' :: Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AclusterCertificate%3ACertificates%27"><span class="hs-identifier hs-var">clusterCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The HSM hardware certificate issued (signed) by AWS CloudHSM.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#certificates_awsHardwareCertificate"><span class="hs-identifier hs-type">certificates_awsHardwareCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="certificates_awsHardwareCertificate"><span class="annot"><span class="annottext">certificates_awsHardwareCertificate :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Certificates -&gt; f Certificates
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#certificates_awsHardwareCertificate"><span class="hs-identifier hs-var hs-var">certificates_awsHardwareCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Certificates -&gt; Maybe Text)
+-&gt; (Certificates -&gt; Maybe Text -&gt; Certificates)
+-&gt; Lens Certificates Certificates (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-type">Certificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173323"><span class="annot"><span class="annottext">Maybe Text
+awsHardwareCertificate :: Maybe Text
+$sel:awsHardwareCertificate:Certificates' :: Certificates -&gt; Maybe Text
+</span><a href="#local-6989586621679173323"><span class="hs-identifier hs-var hs-var">awsHardwareCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173323"><span class="hs-identifier hs-var">awsHardwareCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173322"><span class="annot"><span class="annottext">s :: Certificates
+</span><a href="#local-6989586621679173322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-type">Certificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173321"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Certificates
+</span><a href="#local-6989586621679173322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsHardwareCertificate:Certificates' :: Maybe Text
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#%24sel%3AawsHardwareCertificate%3ACertificates%27"><span class="hs-identifier hs-var">awsHardwareCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173318"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679173316"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Certificates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Certificates) -&gt; Value -&gt; Parser Certificates
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Certificates&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173313"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173313"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Certificates
+</span><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates%27"><span class="hs-identifier hs-var">Certificates'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Certificates)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Certificates)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ManufacturerHardwareCertificate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Certificates)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Certificates)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterCsr&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Certificates)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Certificates)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HsmCertificate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Certificates)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Certificates)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterCertificate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Certificates)
+-&gt; Parser (Maybe Text) -&gt; Parser Certificates
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsHardwareCertificate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173307"><span id="local-6989586621679173309"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173304"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudHSMV2.Types.Certificates.html#Certificates"><span class="hs-identifier hs-type">Certificates</span></a></span></span><span>
+</span><span id="line-118"></span></pre></body></html>

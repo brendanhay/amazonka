@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Config.Types.ConfigurationRecorderStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Config.Types.ConfigurationRecorderStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.RecorderStatus.html"><span class="hs-identifier">Amazonka.Config.Types.RecorderStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The current status of the configuration recorder.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newConfigurationRecorderStatus' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679404521"><span id="local-6989586621679404522"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigurationRecorderStatus"><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-var">ConfigurationRecorderStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationRecorderStatus%27"><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">ConfigurationRecorderStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code indicating that the recording failed.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastErrorCode%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorCode%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The time the recorder was last stopped.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastStopTime%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStopTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastStopTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time when the status was last changed.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastStatusChangeTime%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatusChangeTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastStatusChangeTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies whether or not the recorder is currently recording.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Arecording%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe Bool
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Arecording%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">recording</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The last (previous) status of the recorder.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlastStatus%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe RecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatus%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.RecorderStatus.html#RecorderStatus"><span class="hs-identifier hs-type">RecorderStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The message indicating that the recording failed due to an error.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastErrorMessage%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorMessage%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the configuration recorder.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Aname%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The time the recorder was last started.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AlastStartTime%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStartTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679404508"><span id="local-6989586621679404510"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; ConfigurationRecorderStatus -&gt; Bool
+(ConfigurationRecorderStatus
+ -&gt; ConfigurationRecorderStatus -&gt; Bool)
+-&gt; (ConfigurationRecorderStatus
+    -&gt; ConfigurationRecorderStatus -&gt; Bool)
+-&gt; Eq ConfigurationRecorderStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigurationRecorderStatus -&gt; ConfigurationRecorderStatus -&gt; Bool
+$c/= :: ConfigurationRecorderStatus -&gt; ConfigurationRecorderStatus -&gt; Bool
+== :: ConfigurationRecorderStatus -&gt; ConfigurationRecorderStatus -&gt; Bool
+$c== :: ConfigurationRecorderStatus -&gt; ConfigurationRecorderStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404499"><span id="local-6989586621679404501"><span id="local-6989586621679404503"><span id="local-6989586621679404505"><span class="annot"><span class="annottext">ReadPrec [ConfigurationRecorderStatus]
+ReadPrec ConfigurationRecorderStatus
+Int -&gt; ReadS ConfigurationRecorderStatus
+ReadS [ConfigurationRecorderStatus]
+(Int -&gt; ReadS ConfigurationRecorderStatus)
+-&gt; ReadS [ConfigurationRecorderStatus]
+-&gt; ReadPrec ConfigurationRecorderStatus
+-&gt; ReadPrec [ConfigurationRecorderStatus]
+-&gt; Read ConfigurationRecorderStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigurationRecorderStatus]
+$creadListPrec :: ReadPrec [ConfigurationRecorderStatus]
+readPrec :: ReadPrec ConfigurationRecorderStatus
+$creadPrec :: ReadPrec ConfigurationRecorderStatus
+readList :: ReadS [ConfigurationRecorderStatus]
+$creadList :: ReadS [ConfigurationRecorderStatus]
+readsPrec :: Int -&gt; ReadS ConfigurationRecorderStatus
+$creadsPrec :: Int -&gt; ReadS ConfigurationRecorderStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404492"><span id="local-6989586621679404494"><span id="local-6989586621679404496"><span class="annot"><span class="annottext">Int -&gt; ConfigurationRecorderStatus -&gt; ShowS
+[ConfigurationRecorderStatus] -&gt; ShowS
+ConfigurationRecorderStatus -&gt; String
+(Int -&gt; ConfigurationRecorderStatus -&gt; ShowS)
+-&gt; (ConfigurationRecorderStatus -&gt; String)
+-&gt; ([ConfigurationRecorderStatus] -&gt; ShowS)
+-&gt; Show ConfigurationRecorderStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigurationRecorderStatus] -&gt; ShowS
+$cshowList :: [ConfigurationRecorderStatus] -&gt; ShowS
+show :: ConfigurationRecorderStatus -&gt; String
+$cshow :: ConfigurationRecorderStatus -&gt; String
+showsPrec :: Int -&gt; ConfigurationRecorderStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigurationRecorderStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ConfigurationRecorderStatus -&gt; Rep ConfigurationRecorderStatus x)
+-&gt; (forall x.
+    Rep ConfigurationRecorderStatus x -&gt; ConfigurationRecorderStatus)
+-&gt; Generic ConfigurationRecorderStatus
+forall x.
+Rep ConfigurationRecorderStatus x -&gt; ConfigurationRecorderStatus
+forall x.
+ConfigurationRecorderStatus -&gt; Rep ConfigurationRecorderStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ConfigurationRecorderStatus x -&gt; ConfigurationRecorderStatus
+$cfrom :: forall x.
+ConfigurationRecorderStatus -&gt; Rep ConfigurationRecorderStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'ConfigurationRecorderStatus' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'lastErrorCode', 'configurationRecorderStatus_lastErrorCode' - The error code indicating that the recording failed.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'lastStopTime', 'configurationRecorderStatus_lastStopTime' - The time the recorder was last stopped.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'lastStatusChangeTime', 'configurationRecorderStatus_lastStatusChangeTime' - The time when the status was last changed.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'recording', 'configurationRecorderStatus_recording' - Specifies whether or not the recorder is currently recording.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'lastStatus', 'configurationRecorderStatus_lastStatus' - The last (previous) status of the recorder.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'lastErrorMessage', 'configurationRecorderStatus_lastErrorMessage' - The message indicating that the recording failed due to an error.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'name', 'configurationRecorderStatus_name' - The name of the configuration recorder.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'lastStartTime', 'configurationRecorderStatus_lastStartTime' - The time the recorder was last started.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#newConfigurationRecorderStatus"><span class="hs-identifier hs-type">newConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span>
+</span><span id="line-75"></span><span id="newConfigurationRecorderStatus"><span class="annot"><span class="annottext">newConfigurationRecorderStatus :: ConfigurationRecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#newConfigurationRecorderStatus"><span class="hs-identifier hs-var hs-var">newConfigurationRecorderStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
+-&gt; Maybe RecorderStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; ConfigurationRecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastErrorCode:ConfigurationRecorderStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorCode%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStopTime:ConfigurationRecorderStatus' :: Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStopTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStopTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStatusChangeTime:ConfigurationRecorderStatus' :: Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatusChangeTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStatusChangeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:recording:ConfigurationRecorderStatus' :: Maybe Bool
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Arecording%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">recording</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStatus:ConfigurationRecorderStatus' :: Maybe RecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatus%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecorderStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastErrorMessage:ConfigurationRecorderStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorMessage%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ConfigurationRecorderStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Aname%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStartTime:ConfigurationRecorderStatus' :: Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStartTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The error code indicating that the recording failed.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastErrorCode"><span class="hs-identifier hs-type">configurationRecorderStatus_lastErrorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="configurationRecorderStatus_lastErrorCode"><span class="annot"><span class="annottext">configurationRecorderStatus_lastErrorCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastErrorCode"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe Text)
+-&gt; (ConfigurationRecorderStatus
+    -&gt; Maybe Text -&gt; ConfigurationRecorderStatus)
+-&gt; Lens
+     ConfigurationRecorderStatus
+     ConfigurationRecorderStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404483"><span class="annot"><span class="annottext">Maybe Text
+lastErrorCode :: Maybe Text
+$sel:lastErrorCode:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679404483"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404483"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404482"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404481"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorCode:ConfigurationRecorderStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorCode%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The time the recorder was last stopped.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStopTime"><span class="hs-identifier hs-type">configurationRecorderStatus_lastStopTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="configurationRecorderStatus_lastStopTime"><span class="annot"><span class="annottext">configurationRecorderStatus_lastStopTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStopTime"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastStopTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe POSIX)
+-&gt; (ConfigurationRecorderStatus
+    -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
+-&gt; Lens
+     ConfigurationRecorderStatus
+     ConfigurationRecorderStatus
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404479"><span class="annot"><span class="annottext">Maybe POSIX
+lastStopTime :: Maybe POSIX
+$sel:lastStopTime:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe POSIX
+</span><a href="#local-6989586621679404479"><span class="hs-identifier hs-var hs-var">lastStopTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404479"><span class="hs-identifier hs-var">lastStopTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404478"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404477"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStopTime:ConfigurationRecorderStatus' :: Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStopTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStopTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationRecorderStatus
+-&gt; f ConfigurationRecorderStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The time when the status was last changed.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStatusChangeTime"><span class="hs-identifier hs-type">configurationRecorderStatus_lastStatusChangeTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="configurationRecorderStatus_lastStatusChangeTime"><span class="annot"><span class="annottext">configurationRecorderStatus_lastStatusChangeTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStatusChangeTime"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastStatusChangeTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe POSIX)
+-&gt; (ConfigurationRecorderStatus
+    -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
+-&gt; Lens
+     ConfigurationRecorderStatus
+     ConfigurationRecorderStatus
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404472"><span class="annot"><span class="annottext">Maybe POSIX
+lastStatusChangeTime :: Maybe POSIX
+$sel:lastStatusChangeTime:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe POSIX
+</span><a href="#local-6989586621679404472"><span class="hs-identifier hs-var hs-var">lastStatusChangeTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404472"><span class="hs-identifier hs-var">lastStatusChangeTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404471"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404470"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStatusChangeTime:ConfigurationRecorderStatus' :: Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatusChangeTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStatusChangeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationRecorderStatus
+-&gt; f ConfigurationRecorderStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Specifies whether or not the recorder is currently recording.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_recording"><span class="hs-identifier hs-type">configurationRecorderStatus_recording</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="configurationRecorderStatus_recording"><span class="annot"><span class="annottext">configurationRecorderStatus_recording :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_recording"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_recording</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe Bool)
+-&gt; (ConfigurationRecorderStatus
+    -&gt; Maybe Bool -&gt; ConfigurationRecorderStatus)
+-&gt; Lens
+     ConfigurationRecorderStatus
+     ConfigurationRecorderStatus
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404468"><span class="annot"><span class="annottext">Maybe Bool
+recording :: Maybe Bool
+$sel:recording:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe Bool
+</span><a href="#local-6989586621679404468"><span class="hs-identifier hs-var hs-var">recording</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679404468"><span class="hs-identifier hs-var">recording</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404467"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404466"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679404466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recording:ConfigurationRecorderStatus' :: Maybe Bool
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Arecording%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">recording</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679404466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The last (previous) status of the recorder.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStatus"><span class="hs-identifier hs-type">configurationRecorderStatus_lastStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.RecorderStatus.html#RecorderStatus"><span class="hs-identifier hs-type">RecorderStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="configurationRecorderStatus_lastStatus"><span class="annot"><span class="annottext">configurationRecorderStatus_lastStatus :: (Maybe RecorderStatus -&gt; f (Maybe RecorderStatus))
+-&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStatus"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe RecorderStatus)
+-&gt; (ConfigurationRecorderStatus
+    -&gt; Maybe RecorderStatus -&gt; ConfigurationRecorderStatus)
+-&gt; Lens
+     ConfigurationRecorderStatus
+     ConfigurationRecorderStatus
+     (Maybe RecorderStatus)
+     (Maybe RecorderStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404464"><span class="annot"><span class="annottext">Maybe RecorderStatus
+lastStatus :: Maybe RecorderStatus
+$sel:lastStatus:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe RecorderStatus
+</span><a href="#local-6989586621679404464"><span class="hs-identifier hs-var hs-var">lastStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecorderStatus
+</span><a href="#local-6989586621679404464"><span class="hs-identifier hs-var">lastStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404463"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404462"><span class="annot"><span class="annottext">Maybe RecorderStatus
+</span><a href="#local-6989586621679404462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStatus:ConfigurationRecorderStatus' :: Maybe RecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatus%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecorderStatus
+</span><a href="#local-6989586621679404462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The message indicating that the recording failed due to an error.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastErrorMessage"><span class="hs-identifier hs-type">configurationRecorderStatus_lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="configurationRecorderStatus_lastErrorMessage"><span class="annot"><span class="annottext">configurationRecorderStatus_lastErrorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastErrorMessage"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe Text)
+-&gt; (ConfigurationRecorderStatus
+    -&gt; Maybe Text -&gt; ConfigurationRecorderStatus)
+-&gt; Lens
+     ConfigurationRecorderStatus
+     ConfigurationRecorderStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404460"><span class="annot"><span class="annottext">Maybe Text
+lastErrorMessage :: Maybe Text
+$sel:lastErrorMessage:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679404460"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404460"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404459"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404458"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorMessage:ConfigurationRecorderStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorMessage%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The name of the configuration recorder.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_name"><span class="hs-identifier hs-type">configurationRecorderStatus_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="configurationRecorderStatus_name"><span class="annot"><span class="annottext">configurationRecorderStatus_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_name"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe Text)
+-&gt; (ConfigurationRecorderStatus
+    -&gt; Maybe Text -&gt; ConfigurationRecorderStatus)
+-&gt; Lens
+     ConfigurationRecorderStatus
+     ConfigurationRecorderStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404456"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679404456"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404456"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404455"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404454"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ConfigurationRecorderStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Aname%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The time the recorder was last started.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStartTime"><span class="hs-identifier hs-type">configurationRecorderStatus_lastStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="configurationRecorderStatus_lastStartTime"><span class="annot"><span class="annottext">configurationRecorderStatus_lastStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStartTime"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe POSIX)
+-&gt; (ConfigurationRecorderStatus
+    -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
+-&gt; Lens
+     ConfigurationRecorderStatus
+     ConfigurationRecorderStatus
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404452"><span class="annot"><span class="annottext">Maybe POSIX
+lastStartTime :: Maybe POSIX
+$sel:lastStartTime:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe POSIX
+</span><a href="#local-6989586621679404452"><span class="hs-identifier hs-var hs-var">lastStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404452"><span class="hs-identifier hs-var">lastStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404451"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404450"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStartTime:ConfigurationRecorderStatus' :: Maybe POSIX
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStartTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationRecorderStatus
+-&gt; f ConfigurationRecorderStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404447"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679404445"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConfigurationRecorderStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ConfigurationRecorderStatus)
+-&gt; Value
+-&gt; Parser ConfigurationRecorderStatus
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ConfigurationRecorderStatus&quot;</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679404442"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
+-&gt; Maybe RecorderStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; ConfigurationRecorderStatus
+</span><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">ConfigurationRecorderStatus'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Bool
+ -&gt; Maybe RecorderStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; ConfigurationRecorderStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe RecorderStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; ConfigurationRecorderStatus)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe RecorderStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; ConfigurationRecorderStatus)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe RecorderStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; ConfigurationRecorderStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastStopTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe RecorderStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; ConfigurationRecorderStatus)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe RecorderStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; ConfigurationRecorderStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastStatusChangeTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe RecorderStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; ConfigurationRecorderStatus)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe RecorderStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; ConfigurationRecorderStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;recording&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RecorderStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; ConfigurationRecorderStatus)
+-&gt; Parser (Maybe RecorderStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RecorderStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; ConfigurationRecorderStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ConfigurationRecorderStatus)
+-&gt; Parser (Maybe POSIX) -&gt; Parser ConfigurationRecorderStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404436"><span id="local-6989586621679404438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span></span><span>
+</span><span id="line-139"></span></pre></body></html>

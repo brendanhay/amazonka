@@ -1,0 +1,599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EMR.AddInstanceGroups</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds one or more instance groups to a running cluster.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EMR.AddInstanceGroups</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier">AddInstanceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#newAddInstanceGroups"><span class="hs-identifier">newAddInstanceGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroups_instanceGroups"><span class="hs-identifier">addInstanceGroups_instanceGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroups_jobFlowId"><span class="hs-identifier">addInstanceGroups_jobFlowId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier">AddInstanceGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#newAddInstanceGroupsResponse"><span class="hs-identifier">newAddInstanceGroupsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroupsResponse_clusterArn"><span class="hs-identifier">addInstanceGroupsResponse_clusterArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroupsResponse_jobFlowId"><span class="hs-identifier">addInstanceGroupsResponse_jobFlowId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroupsResponse_instanceGroupIds"><span class="hs-identifier">addInstanceGroupsResponse_instanceGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroupsResponse_httpStatus"><span class="hs-identifier">addInstanceGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.html"><span class="hs-identifier">Amazonka.EMR.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | Input to an AddInstanceGroups call.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newAddInstanceGroups' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679394097"><span id="local-6989586621679394098"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddInstanceGroups"><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-var">AddInstanceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddInstanceGroups%27"><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups%27"><span class="hs-identifier hs-var">AddInstanceGroups'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Instance groups to add.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AinstanceGroups%3AAddInstanceGroups%27"><span class="annot"><span class="annottext">AddInstanceGroups -&gt; [InstanceGroupConfig]
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AinstanceGroups%3AAddInstanceGroups%27"><span class="hs-identifier hs-var hs-var">instanceGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EMR.Types.InstanceGroupConfig.html#InstanceGroupConfig"><span class="hs-identifier hs-type">InstanceGroupConfig</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Job flow in which to add the instance groups.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AjobFlowId%3AAddInstanceGroups%27"><span class="annot"><span class="annottext">AddInstanceGroups -&gt; Text
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AjobFlowId%3AAddInstanceGroups%27"><span class="hs-identifier hs-var hs-var">jobFlowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394090"><span id="local-6989586621679394092"><span class="annot"><span class="annottext">AddInstanceGroups -&gt; AddInstanceGroups -&gt; Bool
+(AddInstanceGroups -&gt; AddInstanceGroups -&gt; Bool)
+-&gt; (AddInstanceGroups -&gt; AddInstanceGroups -&gt; Bool)
+-&gt; Eq AddInstanceGroups
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddInstanceGroups -&gt; AddInstanceGroups -&gt; Bool
+$c/= :: AddInstanceGroups -&gt; AddInstanceGroups -&gt; Bool
+== :: AddInstanceGroups -&gt; AddInstanceGroups -&gt; Bool
+$c== :: AddInstanceGroups -&gt; AddInstanceGroups -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394081"><span id="local-6989586621679394083"><span id="local-6989586621679394085"><span id="local-6989586621679394087"><span class="annot"><span class="annottext">ReadPrec [AddInstanceGroups]
+ReadPrec AddInstanceGroups
+Int -&gt; ReadS AddInstanceGroups
+ReadS [AddInstanceGroups]
+(Int -&gt; ReadS AddInstanceGroups)
+-&gt; ReadS [AddInstanceGroups]
+-&gt; ReadPrec AddInstanceGroups
+-&gt; ReadPrec [AddInstanceGroups]
+-&gt; Read AddInstanceGroups
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddInstanceGroups]
+$creadListPrec :: ReadPrec [AddInstanceGroups]
+readPrec :: ReadPrec AddInstanceGroups
+$creadPrec :: ReadPrec AddInstanceGroups
+readList :: ReadS [AddInstanceGroups]
+$creadList :: ReadS [AddInstanceGroups]
+readsPrec :: Int -&gt; ReadS AddInstanceGroups
+$creadsPrec :: Int -&gt; ReadS AddInstanceGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394074"><span id="local-6989586621679394076"><span id="local-6989586621679394078"><span class="annot"><span class="annottext">Int -&gt; AddInstanceGroups -&gt; ShowS
+[AddInstanceGroups] -&gt; ShowS
+AddInstanceGroups -&gt; String
+(Int -&gt; AddInstanceGroups -&gt; ShowS)
+-&gt; (AddInstanceGroups -&gt; String)
+-&gt; ([AddInstanceGroups] -&gt; ShowS)
+-&gt; Show AddInstanceGroups
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddInstanceGroups] -&gt; ShowS
+$cshowList :: [AddInstanceGroups] -&gt; ShowS
+show :: AddInstanceGroups -&gt; String
+$cshow :: AddInstanceGroups -&gt; String
+showsPrec :: Int -&gt; AddInstanceGroups -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddInstanceGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddInstanceGroups -&gt; Rep AddInstanceGroups x)
+-&gt; (forall x. Rep AddInstanceGroups x -&gt; AddInstanceGroups)
+-&gt; Generic AddInstanceGroups
+forall x. Rep AddInstanceGroups x -&gt; AddInstanceGroups
+forall x. AddInstanceGroups -&gt; Rep AddInstanceGroups x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddInstanceGroups x -&gt; AddInstanceGroups
+$cfrom :: forall x. AddInstanceGroups -&gt; Rep AddInstanceGroups x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'AddInstanceGroups' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'instanceGroups', 'addInstanceGroups_instanceGroups' - Instance groups to add.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'jobFlowId', 'addInstanceGroups_jobFlowId' - Job flow in which to add the instance groups.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#newAddInstanceGroups"><span class="hs-identifier hs-type">newAddInstanceGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'jobFlowId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span><span>
+</span><span id="line-78"></span><span id="newAddInstanceGroups"><span class="annot"><span class="annottext">newAddInstanceGroups :: Text -&gt; AddInstanceGroups
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#newAddInstanceGroups"><span class="hs-identifier hs-var hs-var">newAddInstanceGroups</span></a></span></span><span> </span><span id="local-6989586621679394069"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394069"><span class="hs-identifier hs-var">pJobFlowId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">AddInstanceGroups' :: [InstanceGroupConfig] -&gt; Text -&gt; AddInstanceGroups
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups%27"><span class="hs-identifier hs-type">AddInstanceGroups'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceGroups:AddInstanceGroups' :: [InstanceGroupConfig]
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AinstanceGroups%3AAddInstanceGroups%27"><span class="hs-identifier hs-var">instanceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[InstanceGroupConfig]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobFlowId:AddInstanceGroups' :: Text
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AjobFlowId%3AAddInstanceGroups%27"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394069"><span class="hs-identifier hs-var">pJobFlowId_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Instance groups to add.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroups_instanceGroups"><span class="hs-identifier hs-type">addInstanceGroups_instanceGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EMR.Types.InstanceGroupConfig.html#InstanceGroupConfig"><span class="hs-identifier hs-type">InstanceGroupConfig</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-86"></span><span id="addInstanceGroups_instanceGroups"><span class="annot"><span class="annottext">addInstanceGroups_instanceGroups :: ([InstanceGroupConfig] -&gt; f [InstanceGroupConfig])
+-&gt; AddInstanceGroups -&gt; f AddInstanceGroups
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroups_instanceGroups"><span class="hs-identifier hs-var hs-var">addInstanceGroups_instanceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddInstanceGroups -&gt; [InstanceGroupConfig])
+-&gt; (AddInstanceGroups
+    -&gt; [InstanceGroupConfig] -&gt; AddInstanceGroups)
+-&gt; Lens
+     AddInstanceGroups
+     AddInstanceGroups
+     [InstanceGroupConfig]
+     [InstanceGroupConfig]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups%27"><span class="hs-identifier hs-type">AddInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394066"><span class="annot"><span class="annottext">[InstanceGroupConfig]
+instanceGroups :: [InstanceGroupConfig]
+$sel:instanceGroups:AddInstanceGroups' :: AddInstanceGroups -&gt; [InstanceGroupConfig]
+</span><a href="#local-6989586621679394066"><span class="hs-identifier hs-var hs-var">instanceGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InstanceGroupConfig]
+</span><a href="#local-6989586621679394066"><span class="hs-identifier hs-var">instanceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394065"><span class="annot"><span class="annottext">s :: AddInstanceGroups
+</span><a href="#local-6989586621679394065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups%27"><span class="hs-identifier hs-type">AddInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394064"><span class="annot"><span class="annottext">[InstanceGroupConfig]
+</span><a href="#local-6989586621679394064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddInstanceGroups
+</span><a href="#local-6989586621679394065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceGroups:AddInstanceGroups' :: [InstanceGroupConfig]
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AinstanceGroups%3AAddInstanceGroups%27"><span class="hs-identifier hs-var">instanceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[InstanceGroupConfig]
+</span><a href="#local-6989586621679394064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InstanceGroupConfig] -&gt; f [InstanceGroupConfig])
+ -&gt; AddInstanceGroups -&gt; f AddInstanceGroups)
+-&gt; (([InstanceGroupConfig] -&gt; f [InstanceGroupConfig])
+    -&gt; [InstanceGroupConfig] -&gt; f [InstanceGroupConfig])
+-&gt; ([InstanceGroupConfig] -&gt; f [InstanceGroupConfig])
+-&gt; AddInstanceGroups
+-&gt; f AddInstanceGroups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([InstanceGroupConfig] -&gt; f [InstanceGroupConfig])
+-&gt; [InstanceGroupConfig] -&gt; f [InstanceGroupConfig]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Job flow in which to add the instance groups.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroups_jobFlowId"><span class="hs-identifier hs-type">addInstanceGroups_jobFlowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="addInstanceGroups_jobFlowId"><span class="annot"><span class="annottext">addInstanceGroups_jobFlowId :: (Text -&gt; f Text) -&gt; AddInstanceGroups -&gt; f AddInstanceGroups
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroups_jobFlowId"><span class="hs-identifier hs-var hs-var">addInstanceGroups_jobFlowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddInstanceGroups -&gt; Text)
+-&gt; (AddInstanceGroups -&gt; Text -&gt; AddInstanceGroups)
+-&gt; Lens AddInstanceGroups AddInstanceGroups Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups%27"><span class="hs-identifier hs-type">AddInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394061"><span class="annot"><span class="annottext">Text
+jobFlowId :: Text
+$sel:jobFlowId:AddInstanceGroups' :: AddInstanceGroups -&gt; Text
+</span><a href="#local-6989586621679394061"><span class="hs-identifier hs-var hs-var">jobFlowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394061"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394060"><span class="annot"><span class="annottext">s :: AddInstanceGroups
+</span><a href="#local-6989586621679394060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups%27"><span class="hs-identifier hs-type">AddInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394059"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddInstanceGroups
+</span><a href="#local-6989586621679394060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobFlowId:AddInstanceGroups' :: Text
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AjobFlowId%3AAddInstanceGroups%27"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier hs-type">AddInstanceGroupsResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679394055"><span class="annot"><span class="annottext">request :: AddInstanceGroups -&gt; Request AddInstanceGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddInstanceGroups -&gt; Request AddInstanceGroups
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679394051"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AddInstanceGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AddInstanceGroups)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse AddInstanceGroups))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AddInstanceGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AddInstanceGroups)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394048"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394048"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394047"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679394047"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394046"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394046"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; AddInstanceGroupsResponse
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse%27"><span class="hs-identifier hs-var">AddInstanceGroupsResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; AddInstanceGroupsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; AddInstanceGroupsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; AddInstanceGroupsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Text] -&gt; Int -&gt; AddInstanceGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobFlowId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; Int -&gt; AddInstanceGroupsResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; AddInstanceGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceGroupIds&quot;</span></span><span>
+</span><span id="line-104"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-105"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AddInstanceGroupsResponse)
+-&gt; Either String Int -&gt; Either String AddInstanceGroupsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394048"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394037"><span id="local-6989586621679394039"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679394030"><span class="annot"><span class="annottext">toHeaders :: AddInstanceGroups -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddInstanceGroups -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ElasticMapReduce.AddInstanceGroups&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-120"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394020"><span id="local-6989586621679394022"><span id="local-6989586621679394024"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679394018"><span class="annot"><span class="annottext">toJSON :: AddInstanceGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups%27"><span class="hs-identifier hs-type">AddInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394015"><span id="local-6989586621679394016"><span class="annot"><span class="annottext">[InstanceGroupConfig]
+Text
+jobFlowId :: Text
+instanceGroups :: [InstanceGroupConfig]
+$sel:jobFlowId:AddInstanceGroups' :: AddInstanceGroups -&gt; Text
+$sel:instanceGroups:AddInstanceGroups' :: AddInstanceGroups -&gt; [InstanceGroupConfig]
+</span><a href="#local-6989586621679394015"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-133"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InstanceGroupConfig] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[InstanceGroupConfig]
+</span><a href="#local-6989586621679394016"><span class="hs-identifier hs-var">instanceGroups</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobFlowId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394015"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679394009"><span class="annot"><span class="annottext">toPath :: AddInstanceGroups -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddInstanceGroups -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroups"><span class="hs-identifier hs-type">AddInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679394005"><span class="annot"><span class="annottext">toQuery :: AddInstanceGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddInstanceGroups -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Output from an AddInstanceGroups call.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- /See:/ 'newAddInstanceGroupsResponse' smart constructor.</span><span>
+</span><span id="line-147"></span><span id="local-6989586621679394002"><span id="local-6989586621679394003"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddInstanceGroupsResponse"><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier hs-var">AddInstanceGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddInstanceGroupsResponse%27"><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse%27"><span class="hs-identifier hs-var">AddInstanceGroupsResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name of the cluster.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AclusterArn%3AAddInstanceGroupsResponse%27"><span class="annot"><span class="annottext">AddInstanceGroupsResponse -&gt; Maybe Text
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AclusterArn%3AAddInstanceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The job flow ID in which the instance groups are added.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AjobFlowId%3AAddInstanceGroupsResponse%27"><span class="annot"><span class="annottext">AddInstanceGroupsResponse -&gt; Maybe Text
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AjobFlowId%3AAddInstanceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">jobFlowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | Instance group IDs of the newly created instance groups.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AinstanceGroupIds%3AAddInstanceGroupsResponse%27"><span class="annot"><span class="annottext">AddInstanceGroupsResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AinstanceGroupIds%3AAddInstanceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">instanceGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddInstanceGroupsResponse%27"><span class="annot"><span class="annottext">AddInstanceGroupsResponse -&gt; Int
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AhttpStatus%3AAddInstanceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393994"><span id="local-6989586621679393996"><span class="annot"><span class="annottext">AddInstanceGroupsResponse -&gt; AddInstanceGroupsResponse -&gt; Bool
+(AddInstanceGroupsResponse -&gt; AddInstanceGroupsResponse -&gt; Bool)
+-&gt; (AddInstanceGroupsResponse -&gt; AddInstanceGroupsResponse -&gt; Bool)
+-&gt; Eq AddInstanceGroupsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddInstanceGroupsResponse -&gt; AddInstanceGroupsResponse -&gt; Bool
+$c/= :: AddInstanceGroupsResponse -&gt; AddInstanceGroupsResponse -&gt; Bool
+== :: AddInstanceGroupsResponse -&gt; AddInstanceGroupsResponse -&gt; Bool
+$c== :: AddInstanceGroupsResponse -&gt; AddInstanceGroupsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393986"><span id="local-6989586621679393988"><span id="local-6989586621679393990"><span id="local-6989586621679393992"><span class="annot"><span class="annottext">ReadPrec [AddInstanceGroupsResponse]
+ReadPrec AddInstanceGroupsResponse
+Int -&gt; ReadS AddInstanceGroupsResponse
+ReadS [AddInstanceGroupsResponse]
+(Int -&gt; ReadS AddInstanceGroupsResponse)
+-&gt; ReadS [AddInstanceGroupsResponse]
+-&gt; ReadPrec AddInstanceGroupsResponse
+-&gt; ReadPrec [AddInstanceGroupsResponse]
+-&gt; Read AddInstanceGroupsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddInstanceGroupsResponse]
+$creadListPrec :: ReadPrec [AddInstanceGroupsResponse]
+readPrec :: ReadPrec AddInstanceGroupsResponse
+$creadPrec :: ReadPrec AddInstanceGroupsResponse
+readList :: ReadS [AddInstanceGroupsResponse]
+$creadList :: ReadS [AddInstanceGroupsResponse]
+readsPrec :: Int -&gt; ReadS AddInstanceGroupsResponse
+$creadsPrec :: Int -&gt; ReadS AddInstanceGroupsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393980"><span id="local-6989586621679393982"><span id="local-6989586621679393984"><span class="annot"><span class="annottext">Int -&gt; AddInstanceGroupsResponse -&gt; ShowS
+[AddInstanceGroupsResponse] -&gt; ShowS
+AddInstanceGroupsResponse -&gt; String
+(Int -&gt; AddInstanceGroupsResponse -&gt; ShowS)
+-&gt; (AddInstanceGroupsResponse -&gt; String)
+-&gt; ([AddInstanceGroupsResponse] -&gt; ShowS)
+-&gt; Show AddInstanceGroupsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddInstanceGroupsResponse] -&gt; ShowS
+$cshowList :: [AddInstanceGroupsResponse] -&gt; ShowS
+show :: AddInstanceGroupsResponse -&gt; String
+$cshow :: AddInstanceGroupsResponse -&gt; String
+showsPrec :: Int -&gt; AddInstanceGroupsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddInstanceGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AddInstanceGroupsResponse -&gt; Rep AddInstanceGroupsResponse x)
+-&gt; (forall x.
+    Rep AddInstanceGroupsResponse x -&gt; AddInstanceGroupsResponse)
+-&gt; Generic AddInstanceGroupsResponse
+forall x.
+Rep AddInstanceGroupsResponse x -&gt; AddInstanceGroupsResponse
+forall x.
+AddInstanceGroupsResponse -&gt; Rep AddInstanceGroupsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AddInstanceGroupsResponse x -&gt; AddInstanceGroupsResponse
+$cfrom :: forall x.
+AddInstanceGroupsResponse -&gt; Rep AddInstanceGroupsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'AddInstanceGroupsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'clusterArn', 'addInstanceGroupsResponse_clusterArn' - The Amazon Resource Name of the cluster.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'jobFlowId', 'addInstanceGroupsResponse_jobFlowId' - The job flow ID in which the instance groups are added.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'instanceGroupIds', 'addInstanceGroupsResponse_instanceGroupIds' - Instance group IDs of the newly created instance groups.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'httpStatus', 'addInstanceGroupsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#newAddInstanceGroupsResponse"><span class="hs-identifier hs-type">newAddInstanceGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier hs-type">AddInstanceGroupsResponse</span></a></span><span>
+</span><span id="line-178"></span><span id="newAddInstanceGroupsResponse"><span class="annot"><span class="annottext">newAddInstanceGroupsResponse :: Int -&gt; AddInstanceGroupsResponse
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#newAddInstanceGroupsResponse"><span class="hs-identifier hs-var hs-var">newAddInstanceGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679393977"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393977"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">AddInstanceGroupsResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; AddInstanceGroupsResponse
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse%27"><span class="hs-identifier hs-type">AddInstanceGroupsResponse'</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterArn:AddInstanceGroupsResponse' :: Maybe Text
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AclusterArn%3AAddInstanceGroupsResponse%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobFlowId:AddInstanceGroupsResponse' :: Maybe Text
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AjobFlowId%3AAddInstanceGroupsResponse%27"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceGroupIds:AddInstanceGroupsResponse' :: Maybe [Text]
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AinstanceGroupIds%3AAddInstanceGroupsResponse%27"><span class="hs-identifier hs-var">instanceGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AddInstanceGroupsResponse' :: Int
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AhttpStatus%3AAddInstanceGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393977"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The Amazon Resource Name of the cluster.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroupsResponse_clusterArn"><span class="hs-identifier hs-type">addInstanceGroupsResponse_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier hs-type">AddInstanceGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="addInstanceGroupsResponse_clusterArn"><span class="annot"><span class="annottext">addInstanceGroupsResponse_clusterArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddInstanceGroupsResponse -&gt; f AddInstanceGroupsResponse
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroupsResponse_clusterArn"><span class="hs-identifier hs-var hs-var">addInstanceGroupsResponse_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddInstanceGroupsResponse -&gt; Maybe Text)
+-&gt; (AddInstanceGroupsResponse
+    -&gt; Maybe Text -&gt; AddInstanceGroupsResponse)
+-&gt; Lens
+     AddInstanceGroupsResponse
+     AddInstanceGroupsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse%27"><span class="hs-identifier hs-type">AddInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393976"><span class="annot"><span class="annottext">Maybe Text
+clusterArn :: Maybe Text
+$sel:clusterArn:AddInstanceGroupsResponse' :: AddInstanceGroupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679393976"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393976"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393975"><span class="annot"><span class="annottext">s :: AddInstanceGroupsResponse
+</span><a href="#local-6989586621679393975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse%27"><span class="hs-identifier hs-type">AddInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393974"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddInstanceGroupsResponse
+</span><a href="#local-6989586621679393975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:AddInstanceGroupsResponse' :: Maybe Text
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AclusterArn%3AAddInstanceGroupsResponse%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier hs-type">AddInstanceGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The job flow ID in which the instance groups are added.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroupsResponse_jobFlowId"><span class="hs-identifier hs-type">addInstanceGroupsResponse_jobFlowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier hs-type">AddInstanceGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="addInstanceGroupsResponse_jobFlowId"><span class="annot"><span class="annottext">addInstanceGroupsResponse_jobFlowId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddInstanceGroupsResponse -&gt; f AddInstanceGroupsResponse
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroupsResponse_jobFlowId"><span class="hs-identifier hs-var hs-var">addInstanceGroupsResponse_jobFlowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddInstanceGroupsResponse -&gt; Maybe Text)
+-&gt; (AddInstanceGroupsResponse
+    -&gt; Maybe Text -&gt; AddInstanceGroupsResponse)
+-&gt; Lens
+     AddInstanceGroupsResponse
+     AddInstanceGroupsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse%27"><span class="hs-identifier hs-type">AddInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393973"><span class="annot"><span class="annottext">Maybe Text
+jobFlowId :: Maybe Text
+$sel:jobFlowId:AddInstanceGroupsResponse' :: AddInstanceGroupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679393973"><span class="hs-identifier hs-var hs-var">jobFlowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393973"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393972"><span class="annot"><span class="annottext">s :: AddInstanceGroupsResponse
+</span><a href="#local-6989586621679393972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse%27"><span class="hs-identifier hs-type">AddInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddInstanceGroupsResponse
+</span><a href="#local-6989586621679393972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobFlowId:AddInstanceGroupsResponse' :: Maybe Text
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AjobFlowId%3AAddInstanceGroupsResponse%27"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier hs-type">AddInstanceGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | Instance group IDs of the newly created instance groups.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroupsResponse_instanceGroupIds"><span class="hs-identifier hs-type">addInstanceGroupsResponse_instanceGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier hs-type">AddInstanceGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="addInstanceGroupsResponse_instanceGroupIds"><span class="annot"><span class="annottext">addInstanceGroupsResponse_instanceGroupIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AddInstanceGroupsResponse -&gt; f AddInstanceGroupsResponse
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroupsResponse_instanceGroupIds"><span class="hs-identifier hs-var hs-var">addInstanceGroupsResponse_instanceGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddInstanceGroupsResponse -&gt; Maybe [Text])
+-&gt; (AddInstanceGroupsResponse
+    -&gt; Maybe [Text] -&gt; AddInstanceGroupsResponse)
+-&gt; Lens
+     AddInstanceGroupsResponse
+     AddInstanceGroupsResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse%27"><span class="hs-identifier hs-type">AddInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393970"><span class="annot"><span class="annottext">Maybe [Text]
+instanceGroupIds :: Maybe [Text]
+$sel:instanceGroupIds:AddInstanceGroupsResponse' :: AddInstanceGroupsResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679393970"><span class="hs-identifier hs-var hs-var">instanceGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679393970"><span class="hs-identifier hs-var">instanceGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393969"><span class="annot"><span class="annottext">s :: AddInstanceGroupsResponse
+</span><a href="#local-6989586621679393969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse%27"><span class="hs-identifier hs-type">AddInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393968"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679393968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddInstanceGroupsResponse
+</span><a href="#local-6989586621679393969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceGroupIds:AddInstanceGroupsResponse' :: Maybe [Text]
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AinstanceGroupIds%3AAddInstanceGroupsResponse%27"><span class="hs-identifier hs-var">instanceGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679393968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier hs-type">AddInstanceGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AddInstanceGroupsResponse -&gt; f AddInstanceGroupsResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AddInstanceGroupsResponse
+-&gt; f AddInstanceGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroupsResponse_httpStatus"><span class="hs-identifier hs-type">addInstanceGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier hs-type">AddInstanceGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-201"></span><span id="addInstanceGroupsResponse_httpStatus"><span class="annot"><span class="annottext">addInstanceGroupsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AddInstanceGroupsResponse -&gt; f AddInstanceGroupsResponse
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#addInstanceGroupsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">addInstanceGroupsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddInstanceGroupsResponse -&gt; Int)
+-&gt; (AddInstanceGroupsResponse -&gt; Int -&gt; AddInstanceGroupsResponse)
+-&gt; Lens AddInstanceGroupsResponse AddInstanceGroupsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse%27"><span class="hs-identifier hs-type">AddInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393966"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AddInstanceGroupsResponse' :: AddInstanceGroupsResponse -&gt; Int
+</span><a href="#local-6989586621679393966"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393966"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393965"><span class="annot"><span class="annottext">s :: AddInstanceGroupsResponse
+</span><a href="#local-6989586621679393965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse%27"><span class="hs-identifier hs-type">AddInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393964"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddInstanceGroupsResponse
+</span><a href="#local-6989586621679393965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddInstanceGroupsResponse' :: Int
+</span><a href="Amazonka.EMR.AddInstanceGroups.html#%24sel%3AhttpStatus%3AAddInstanceGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier hs-type">AddInstanceGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393962"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.AddInstanceGroups.html#AddInstanceGroupsResponse"><span class="hs-identifier hs-type">AddInstanceGroupsResponse</span></a></span></span><span>
+</span><span id="line-204"></span></pre></body></html>

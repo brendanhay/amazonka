@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Textract.Types.ExpenseDocument</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Textract.Types.ExpenseDocument</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseField.html"><span class="hs-identifier">Amazonka.Textract.Types.ExpenseField</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.LineItemGroup.html"><span class="hs-identifier">Amazonka.Textract.Types.LineItemGroup</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The structure holding all the information returned by AnalyzeExpense</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newExpenseDocument' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679176626"><span id="local-6989586621679176627"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExpenseDocument"><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument"><span class="hs-identifier hs-var">ExpenseDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpenseDocument%27"><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument%27"><span class="hs-identifier hs-var">ExpenseDocument'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information detected on each table of a document, seperated into</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @LineItems@.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlineItemGroups%3AExpenseDocument%27"><span class="annot"><span class="annottext">ExpenseDocument -&gt; Maybe [LineItemGroup]
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#%24sel%3AlineItemGroups%3AExpenseDocument%27"><span class="hs-identifier hs-var hs-var">lineItemGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-type">LineItemGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Any information found outside of a table by Amazon Textract.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsummaryFields%3AExpenseDocument%27"><span class="annot"><span class="annottext">ExpenseDocument -&gt; Maybe [ExpenseField]
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#%24sel%3AsummaryFields%3AExpenseDocument%27"><span class="hs-identifier hs-var hs-var">summaryFields</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseField.html#ExpenseField"><span class="hs-identifier hs-type">ExpenseField</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Denotes which invoice or receipt in the document the information is</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- coming from. First document will be 1, the second 2, and so on.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AexpenseIndex%3AExpenseDocument%27"><span class="annot"><span class="annottext">ExpenseDocument -&gt; Maybe Natural
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#%24sel%3AexpenseIndex%3AExpenseDocument%27"><span class="hs-identifier hs-var hs-var">expenseIndex</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176618"><span id="local-6989586621679176620"><span class="annot"><span class="annottext">ExpenseDocument -&gt; ExpenseDocument -&gt; Bool
+(ExpenseDocument -&gt; ExpenseDocument -&gt; Bool)
+-&gt; (ExpenseDocument -&gt; ExpenseDocument -&gt; Bool)
+-&gt; Eq ExpenseDocument
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExpenseDocument -&gt; ExpenseDocument -&gt; Bool
+$c/= :: ExpenseDocument -&gt; ExpenseDocument -&gt; Bool
+== :: ExpenseDocument -&gt; ExpenseDocument -&gt; Bool
+$c== :: ExpenseDocument -&gt; ExpenseDocument -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176609"><span id="local-6989586621679176611"><span id="local-6989586621679176613"><span id="local-6989586621679176615"><span class="annot"><span class="annottext">ReadPrec [ExpenseDocument]
+ReadPrec ExpenseDocument
+Int -&gt; ReadS ExpenseDocument
+ReadS [ExpenseDocument]
+(Int -&gt; ReadS ExpenseDocument)
+-&gt; ReadS [ExpenseDocument]
+-&gt; ReadPrec ExpenseDocument
+-&gt; ReadPrec [ExpenseDocument]
+-&gt; Read ExpenseDocument
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExpenseDocument]
+$creadListPrec :: ReadPrec [ExpenseDocument]
+readPrec :: ReadPrec ExpenseDocument
+$creadPrec :: ReadPrec ExpenseDocument
+readList :: ReadS [ExpenseDocument]
+$creadList :: ReadS [ExpenseDocument]
+readsPrec :: Int -&gt; ReadS ExpenseDocument
+$creadsPrec :: Int -&gt; ReadS ExpenseDocument
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176602"><span id="local-6989586621679176604"><span id="local-6989586621679176606"><span class="annot"><span class="annottext">Int -&gt; ExpenseDocument -&gt; ShowS
+[ExpenseDocument] -&gt; ShowS
+ExpenseDocument -&gt; String
+(Int -&gt; ExpenseDocument -&gt; ShowS)
+-&gt; (ExpenseDocument -&gt; String)
+-&gt; ([ExpenseDocument] -&gt; ShowS)
+-&gt; Show ExpenseDocument
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExpenseDocument] -&gt; ShowS
+$cshowList :: [ExpenseDocument] -&gt; ShowS
+show :: ExpenseDocument -&gt; String
+$cshow :: ExpenseDocument -&gt; String
+showsPrec :: Int -&gt; ExpenseDocument -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExpenseDocument -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExpenseDocument -&gt; Rep ExpenseDocument x)
+-&gt; (forall x. Rep ExpenseDocument x -&gt; ExpenseDocument)
+-&gt; Generic ExpenseDocument
+forall x. Rep ExpenseDocument x -&gt; ExpenseDocument
+forall x. ExpenseDocument -&gt; Rep ExpenseDocument x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExpenseDocument x -&gt; ExpenseDocument
+$cfrom :: forall x. ExpenseDocument -&gt; Rep ExpenseDocument x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'ExpenseDocument' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'lineItemGroups', 'expenseDocument_lineItemGroups' - Information detected on each table of a document, seperated into</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- @LineItems@.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'summaryFields', 'expenseDocument_summaryFields' - Any information found outside of a table by Amazon Textract.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'expenseIndex', 'expenseDocument_expenseIndex' - Denotes which invoice or receipt in the document the information is</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- coming from. First document will be 1, the second 2, and so on.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#newExpenseDocument"><span class="hs-identifier hs-type">newExpenseDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument"><span class="hs-identifier hs-type">ExpenseDocument</span></a></span><span>
+</span><span id="line-60"></span><span id="newExpenseDocument"><span class="annot"><span class="annottext">newExpenseDocument :: ExpenseDocument
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#newExpenseDocument"><span class="hs-identifier hs-var hs-var">newExpenseDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ExpenseDocument' :: Maybe [LineItemGroup]
+-&gt; Maybe [ExpenseField] -&gt; Maybe Natural -&gt; ExpenseDocument
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument%27"><span class="hs-identifier hs-type">ExpenseDocument'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lineItemGroups:ExpenseDocument' :: Maybe [LineItemGroup]
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#%24sel%3AlineItemGroups%3AExpenseDocument%27"><span class="hs-identifier hs-var">lineItemGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LineItemGroup]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:summaryFields:ExpenseDocument' :: Maybe [ExpenseField]
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#%24sel%3AsummaryFields%3AExpenseDocument%27"><span class="hs-identifier hs-var">summaryFields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExpenseField]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:expenseIndex:ExpenseDocument' :: Maybe Natural
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#%24sel%3AexpenseIndex%3AExpenseDocument%27"><span class="hs-identifier hs-var">expenseIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Information detected on each table of a document, seperated into</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- @LineItems@.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#expenseDocument_lineItemGroups"><span class="hs-identifier hs-type">expenseDocument_lineItemGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument"><span class="hs-identifier hs-type">ExpenseDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Textract.Types.LineItemGroup.html#LineItemGroup"><span class="hs-identifier hs-type">LineItemGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="expenseDocument_lineItemGroups"><span class="annot"><span class="annottext">expenseDocument_lineItemGroups :: (Maybe [LineItemGroup] -&gt; f (Maybe [LineItemGroup]))
+-&gt; ExpenseDocument -&gt; f ExpenseDocument
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#expenseDocument_lineItemGroups"><span class="hs-identifier hs-var hs-var">expenseDocument_lineItemGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExpenseDocument -&gt; Maybe [LineItemGroup])
+-&gt; (ExpenseDocument -&gt; Maybe [LineItemGroup] -&gt; ExpenseDocument)
+-&gt; Lens
+     ExpenseDocument
+     ExpenseDocument
+     (Maybe [LineItemGroup])
+     (Maybe [LineItemGroup])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument%27"><span class="hs-identifier hs-type">ExpenseDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176593"><span class="annot"><span class="annottext">Maybe [LineItemGroup]
+lineItemGroups :: Maybe [LineItemGroup]
+$sel:lineItemGroups:ExpenseDocument' :: ExpenseDocument -&gt; Maybe [LineItemGroup]
+</span><a href="#local-6989586621679176593"><span class="hs-identifier hs-var hs-var">lineItemGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LineItemGroup]
+</span><a href="#local-6989586621679176593"><span class="hs-identifier hs-var">lineItemGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176592"><span class="annot"><span class="annottext">s :: ExpenseDocument
+</span><a href="#local-6989586621679176592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument%27"><span class="hs-identifier hs-type">ExpenseDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176591"><span class="annot"><span class="annottext">Maybe [LineItemGroup]
+</span><a href="#local-6989586621679176591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpenseDocument
+</span><a href="#local-6989586621679176592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lineItemGroups:ExpenseDocument' :: Maybe [LineItemGroup]
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#%24sel%3AlineItemGroups%3AExpenseDocument%27"><span class="hs-identifier hs-var">lineItemGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LineItemGroup]
+</span><a href="#local-6989586621679176591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument"><span class="hs-identifier hs-type">ExpenseDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LineItemGroup] -&gt; f (Maybe [LineItemGroup]))
+ -&gt; ExpenseDocument -&gt; f ExpenseDocument)
+-&gt; ((Maybe [LineItemGroup] -&gt; f (Maybe [LineItemGroup]))
+    -&gt; Maybe [LineItemGroup] -&gt; f (Maybe [LineItemGroup]))
+-&gt; (Maybe [LineItemGroup] -&gt; f (Maybe [LineItemGroup]))
+-&gt; ExpenseDocument
+-&gt; f ExpenseDocument
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LineItemGroup] [LineItemGroup] [LineItemGroup] [LineItemGroup]
+-&gt; Iso
+     (Maybe [LineItemGroup])
+     (Maybe [LineItemGroup])
+     (Maybe [LineItemGroup])
+     (Maybe [LineItemGroup])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LineItemGroup] [LineItemGroup] [LineItemGroup] [LineItemGroup]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Any information found outside of a table by Amazon Textract.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#expenseDocument_summaryFields"><span class="hs-identifier hs-type">expenseDocument_summaryFields</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument"><span class="hs-identifier hs-type">ExpenseDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseField.html#ExpenseField"><span class="hs-identifier hs-type">ExpenseField</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="expenseDocument_summaryFields"><span class="annot"><span class="annottext">expenseDocument_summaryFields :: (Maybe [ExpenseField] -&gt; f (Maybe [ExpenseField]))
+-&gt; ExpenseDocument -&gt; f ExpenseDocument
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#expenseDocument_summaryFields"><span class="hs-identifier hs-var hs-var">expenseDocument_summaryFields</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExpenseDocument -&gt; Maybe [ExpenseField])
+-&gt; (ExpenseDocument -&gt; Maybe [ExpenseField] -&gt; ExpenseDocument)
+-&gt; Lens
+     ExpenseDocument
+     ExpenseDocument
+     (Maybe [ExpenseField])
+     (Maybe [ExpenseField])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument%27"><span class="hs-identifier hs-type">ExpenseDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176586"><span class="annot"><span class="annottext">Maybe [ExpenseField]
+summaryFields :: Maybe [ExpenseField]
+$sel:summaryFields:ExpenseDocument' :: ExpenseDocument -&gt; Maybe [ExpenseField]
+</span><a href="#local-6989586621679176586"><span class="hs-identifier hs-var hs-var">summaryFields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ExpenseField]
+</span><a href="#local-6989586621679176586"><span class="hs-identifier hs-var">summaryFields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176585"><span class="annot"><span class="annottext">s :: ExpenseDocument
+</span><a href="#local-6989586621679176585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument%27"><span class="hs-identifier hs-type">ExpenseDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176584"><span class="annot"><span class="annottext">Maybe [ExpenseField]
+</span><a href="#local-6989586621679176584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpenseDocument
+</span><a href="#local-6989586621679176585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summaryFields:ExpenseDocument' :: Maybe [ExpenseField]
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#%24sel%3AsummaryFields%3AExpenseDocument%27"><span class="hs-identifier hs-var">summaryFields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExpenseField]
+</span><a href="#local-6989586621679176584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument"><span class="hs-identifier hs-type">ExpenseDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ExpenseField] -&gt; f (Maybe [ExpenseField]))
+ -&gt; ExpenseDocument -&gt; f ExpenseDocument)
+-&gt; ((Maybe [ExpenseField] -&gt; f (Maybe [ExpenseField]))
+    -&gt; Maybe [ExpenseField] -&gt; f (Maybe [ExpenseField]))
+-&gt; (Maybe [ExpenseField] -&gt; f (Maybe [ExpenseField]))
+-&gt; ExpenseDocument
+-&gt; f ExpenseDocument
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ExpenseField] [ExpenseField] [ExpenseField] [ExpenseField]
+-&gt; Iso
+     (Maybe [ExpenseField])
+     (Maybe [ExpenseField])
+     (Maybe [ExpenseField])
+     (Maybe [ExpenseField])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ExpenseField] [ExpenseField] [ExpenseField] [ExpenseField]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Denotes which invoice or receipt in the document the information is</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- coming from. First document will be 1, the second 2, and so on.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#expenseDocument_expenseIndex"><span class="hs-identifier hs-type">expenseDocument_expenseIndex</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument"><span class="hs-identifier hs-type">ExpenseDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="expenseDocument_expenseIndex"><span class="annot"><span class="annottext">expenseDocument_expenseIndex :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ExpenseDocument -&gt; f ExpenseDocument
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#expenseDocument_expenseIndex"><span class="hs-identifier hs-var hs-var">expenseDocument_expenseIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExpenseDocument -&gt; Maybe Natural)
+-&gt; (ExpenseDocument -&gt; Maybe Natural -&gt; ExpenseDocument)
+-&gt; Lens
+     ExpenseDocument ExpenseDocument (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument%27"><span class="hs-identifier hs-type">ExpenseDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176582"><span class="annot"><span class="annottext">Maybe Natural
+expenseIndex :: Maybe Natural
+$sel:expenseIndex:ExpenseDocument' :: ExpenseDocument -&gt; Maybe Natural
+</span><a href="#local-6989586621679176582"><span class="hs-identifier hs-var hs-var">expenseIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176582"><span class="hs-identifier hs-var">expenseIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176581"><span class="annot"><span class="annottext">s :: ExpenseDocument
+</span><a href="#local-6989586621679176581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument%27"><span class="hs-identifier hs-type">ExpenseDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176580"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpenseDocument
+</span><a href="#local-6989586621679176581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expenseIndex:ExpenseDocument' :: Maybe Natural
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#%24sel%3AexpenseIndex%3AExpenseDocument%27"><span class="hs-identifier hs-var">expenseIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument"><span class="hs-identifier hs-type">ExpenseDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176577"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument"><span class="hs-identifier hs-type">ExpenseDocument</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679176575"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExpenseDocument
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ExpenseDocument)
+-&gt; Value
+-&gt; Parser ExpenseDocument
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ExpenseDocument&quot;</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176572"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176572"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LineItemGroup]
+-&gt; Maybe [ExpenseField] -&gt; Maybe Natural -&gt; ExpenseDocument
+</span><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument%27"><span class="hs-identifier hs-var">ExpenseDocument'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [LineItemGroup]
+ -&gt; Maybe [ExpenseField] -&gt; Maybe Natural -&gt; ExpenseDocument)
+-&gt; Parser (Maybe [LineItemGroup])
+-&gt; Parser
+     (Maybe [ExpenseField] -&gt; Maybe Natural -&gt; ExpenseDocument)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LineItemGroup]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LineItemGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [LineItemGroup]))
+-&gt; Maybe [LineItemGroup] -&gt; Parser (Maybe [LineItemGroup])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LineItemGroup]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [ExpenseField] -&gt; Maybe Natural -&gt; ExpenseDocument)
+-&gt; Parser (Maybe [ExpenseField])
+-&gt; Parser (Maybe Natural -&gt; ExpenseDocument)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ExpenseField]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SummaryFields&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ExpenseField]))
+-&gt; Maybe [ExpenseField] -&gt; Parser (Maybe [ExpenseField])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ExpenseField]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; ExpenseDocument)
+-&gt; Parser (Maybe Natural) -&gt; Parser ExpenseDocument
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpenseIndex&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176565"><span id="local-6989586621679176567"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument"><span class="hs-identifier hs-type">ExpenseDocument</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Textract.Types.ExpenseDocument.html#ExpenseDocument"><span class="hs-identifier hs-type">ExpenseDocument</span></a></span></span><span>
+</span><span id="line-95"></span></pre></body></html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.DescribeBundleTasks</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the specified bundle tasks or all of your bundle tasks.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Completed bundle tasks are listed for only a limited time. If your</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- bundle task is no longer in the list, you can still register an AMI from</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- it. Just use @RegisterImage@ with the Amazon S3 bucket name and image</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- manifest name you provided to the bundle task.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.DescribeBundleTasks</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier">DescribeBundleTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#newDescribeBundleTasks"><span class="hs-identifier">newDescribeBundleTasks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasks_bundleIds"><span class="hs-identifier">describeBundleTasks_bundleIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasks_filters"><span class="hs-identifier">describeBundleTasks_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasks_dryRun"><span class="hs-identifier">describeBundleTasks_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse"><span class="hs-identifier">DescribeBundleTasksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#newDescribeBundleTasksResponse"><span class="hs-identifier">newDescribeBundleTasksResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasksResponse_bundleTasks"><span class="hs-identifier">describeBundleTasksResponse_bundleTasks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasksResponse_httpStatus"><span class="hs-identifier">describeBundleTasksResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeBundleTasks' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621681271493"><span id="local-6989586621681271494"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeBundleTasks"><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-var">DescribeBundleTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeBundleTasks%27"><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks%27"><span class="hs-identifier hs-var">DescribeBundleTasks'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The bundle task IDs.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Default: Describes all your bundle tasks.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AbundleIds%3ADescribeBundleTasks%27"><span class="annot"><span class="annottext">DescribeBundleTasks -&gt; Maybe [Text]
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3AbundleIds%3ADescribeBundleTasks%27"><span class="hs-identifier hs-var hs-var">bundleIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The filters.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @bundle-id@ - The ID of the bundle task.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @error-code@ - If the task failed, the error code returned.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @error-message@ - If the task failed, the error message returned.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   @instance-id@ - The ID of the instance.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   @progress@ - The level of task completion, as a percentage (for</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     example, 20%).</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   @s3-bucket@ - The Amazon S3 bucket to store the AMI.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @s3-prefix@ - The beginning of the AMI name.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   @start-time@ - The time the task started (for example,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     2013-09-15T17:15:20.000Z).</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   @state@ - The state of the task (@pending@ | @waiting-for-shutdown@</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     | @bundling@ | @storing@ | @cancelling@ | @complete@ | @failed@).</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   @update-time@ - The time of the most recent update for the task.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeBundleTasks%27"><span class="annot"><span class="annottext">DescribeBundleTasks -&gt; Maybe [Filter]
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3Afilters%3ADescribeBundleTasks%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeBundleTasks%27"><span class="annot"><span class="annottext">DescribeBundleTasks -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3AdryRun%3ADescribeBundleTasks%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681271485"><span id="local-6989586621681271487"><span class="annot"><span class="annottext">DescribeBundleTasks -&gt; DescribeBundleTasks -&gt; Bool
+(DescribeBundleTasks -&gt; DescribeBundleTasks -&gt; Bool)
+-&gt; (DescribeBundleTasks -&gt; DescribeBundleTasks -&gt; Bool)
+-&gt; Eq DescribeBundleTasks
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeBundleTasks -&gt; DescribeBundleTasks -&gt; Bool
+$c/= :: DescribeBundleTasks -&gt; DescribeBundleTasks -&gt; Bool
+== :: DescribeBundleTasks -&gt; DescribeBundleTasks -&gt; Bool
+$c== :: DescribeBundleTasks -&gt; DescribeBundleTasks -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681271476"><span id="local-6989586621681271478"><span id="local-6989586621681271480"><span id="local-6989586621681271482"><span class="annot"><span class="annottext">ReadPrec [DescribeBundleTasks]
+ReadPrec DescribeBundleTasks
+Int -&gt; ReadS DescribeBundleTasks
+ReadS [DescribeBundleTasks]
+(Int -&gt; ReadS DescribeBundleTasks)
+-&gt; ReadS [DescribeBundleTasks]
+-&gt; ReadPrec DescribeBundleTasks
+-&gt; ReadPrec [DescribeBundleTasks]
+-&gt; Read DescribeBundleTasks
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeBundleTasks]
+$creadListPrec :: ReadPrec [DescribeBundleTasks]
+readPrec :: ReadPrec DescribeBundleTasks
+$creadPrec :: ReadPrec DescribeBundleTasks
+readList :: ReadS [DescribeBundleTasks]
+$creadList :: ReadS [DescribeBundleTasks]
+readsPrec :: Int -&gt; ReadS DescribeBundleTasks
+$creadsPrec :: Int -&gt; ReadS DescribeBundleTasks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681271469"><span id="local-6989586621681271471"><span id="local-6989586621681271473"><span class="annot"><span class="annottext">Int -&gt; DescribeBundleTasks -&gt; ShowS
+[DescribeBundleTasks] -&gt; ShowS
+DescribeBundleTasks -&gt; String
+(Int -&gt; DescribeBundleTasks -&gt; ShowS)
+-&gt; (DescribeBundleTasks -&gt; String)
+-&gt; ([DescribeBundleTasks] -&gt; ShowS)
+-&gt; Show DescribeBundleTasks
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeBundleTasks] -&gt; ShowS
+$cshowList :: [DescribeBundleTasks] -&gt; ShowS
+show :: DescribeBundleTasks -&gt; String
+$cshow :: DescribeBundleTasks -&gt; String
+showsPrec :: Int -&gt; DescribeBundleTasks -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeBundleTasks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeBundleTasks -&gt; Rep DescribeBundleTasks x)
+-&gt; (forall x. Rep DescribeBundleTasks x -&gt; DescribeBundleTasks)
+-&gt; Generic DescribeBundleTasks
+forall x. Rep DescribeBundleTasks x -&gt; DescribeBundleTasks
+forall x. DescribeBundleTasks -&gt; Rep DescribeBundleTasks x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeBundleTasks x -&gt; DescribeBundleTasks
+$cfrom :: forall x. DescribeBundleTasks -&gt; Rep DescribeBundleTasks x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Create a value of 'DescribeBundleTasks' with all optional fields omitted.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'bundleIds', 'describeBundleTasks_bundleIds' - The bundle task IDs.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Default: Describes all your bundle tasks.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'filters', 'describeBundleTasks_filters' - The filters.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   @bundle-id@ - The ID of the bundle task.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   @error-code@ - If the task failed, the error code returned.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   @error-message@ - If the task failed, the error message returned.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   @instance-id@ - The ID of the instance.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   @progress@ - The level of task completion, as a percentage (for</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     example, 20%).</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   @s3-bucket@ - The Amazon S3 bucket to store the AMI.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   @s3-prefix@ - The beginning of the AMI name.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   @start-time@ - The time the task started (for example,</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     2013-09-15T17:15:20.000Z).</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -   @state@ - The state of the task (@pending@ | @waiting-for-shutdown@</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--     | @bundling@ | @storing@ | @cancelling@ | @complete@ | @failed@).</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   @update-time@ - The time of the most recent update for the task.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'dryRun', 'describeBundleTasks_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#newDescribeBundleTasks"><span class="hs-identifier hs-type">newDescribeBundleTasks</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span><span>
+</span><span id="line-138"></span><span id="newDescribeBundleTasks"><span class="annot"><span class="annottext">newDescribeBundleTasks :: DescribeBundleTasks
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#newDescribeBundleTasks"><span class="hs-identifier hs-var hs-var">newDescribeBundleTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="annottext">DescribeBundleTasks' :: Maybe [Text] -&gt; Maybe [Filter] -&gt; Maybe Bool -&gt; DescribeBundleTasks
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks%27"><span class="hs-identifier hs-type">DescribeBundleTasks'</span></a></span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bundleIds:DescribeBundleTasks' :: Maybe [Text]
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3AbundleIds%3ADescribeBundleTasks%27"><span class="hs-identifier hs-var">bundleIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeBundleTasks' :: Maybe [Filter]
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3Afilters%3ADescribeBundleTasks%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeBundleTasks' :: Maybe Bool
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3AdryRun%3ADescribeBundleTasks%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The bundle task IDs.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Default: Describes all your bundle tasks.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasks_bundleIds"><span class="hs-identifier hs-type">describeBundleTasks_bundleIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="describeBundleTasks_bundleIds"><span class="annot"><span class="annottext">describeBundleTasks_bundleIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeBundleTasks -&gt; f DescribeBundleTasks
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasks_bundleIds"><span class="hs-identifier hs-var hs-var">describeBundleTasks_bundleIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBundleTasks -&gt; Maybe [Text])
+-&gt; (DescribeBundleTasks -&gt; Maybe [Text] -&gt; DescribeBundleTasks)
+-&gt; Lens
+     DescribeBundleTasks
+     DescribeBundleTasks
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks%27"><span class="hs-identifier hs-type">DescribeBundleTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271462"><span class="annot"><span class="annottext">Maybe [Text]
+bundleIds :: Maybe [Text]
+$sel:bundleIds:DescribeBundleTasks' :: DescribeBundleTasks -&gt; Maybe [Text]
+</span><a href="#local-6989586621681271462"><span class="hs-identifier hs-var hs-var">bundleIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681271462"><span class="hs-identifier hs-var">bundleIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681271461"><span class="annot"><span class="annottext">s :: DescribeBundleTasks
+</span><a href="#local-6989586621681271461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks%27"><span class="hs-identifier hs-type">DescribeBundleTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681271460"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681271460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBundleTasks
+</span><a href="#local-6989586621681271461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleIds:DescribeBundleTasks' :: Maybe [Text]
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3AbundleIds%3ADescribeBundleTasks%27"><span class="hs-identifier hs-var">bundleIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681271460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeBundleTasks -&gt; f DescribeBundleTasks)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeBundleTasks
+-&gt; f DescribeBundleTasks
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The filters.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   @bundle-id@ - The ID of the bundle task.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   @error-code@ - If the task failed, the error code returned.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   @error-message@ - If the task failed, the error message returned.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -   @instance-id@ - The ID of the instance.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- -   @progress@ - The level of task completion, as a percentage (for</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--     example, 20%).</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   @s3-bucket@ - The Amazon S3 bucket to store the AMI.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   @s3-prefix@ - The beginning of the AMI name.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   @start-time@ - The time the task started (for example,</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     2013-09-15T17:15:20.000Z).</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   @state@ - The state of the task (@pending@ | @waiting-for-shutdown@</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--     | @bundling@ | @storing@ | @cancelling@ | @complete@ | @failed@).</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- -   @update-time@ - The time of the most recent update for the task.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasks_filters"><span class="hs-identifier hs-type">describeBundleTasks_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="describeBundleTasks_filters"><span class="annot"><span class="annottext">describeBundleTasks_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeBundleTasks -&gt; f DescribeBundleTasks
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasks_filters"><span class="hs-identifier hs-var hs-var">describeBundleTasks_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBundleTasks -&gt; Maybe [Filter])
+-&gt; (DescribeBundleTasks -&gt; Maybe [Filter] -&gt; DescribeBundleTasks)
+-&gt; Lens
+     DescribeBundleTasks
+     DescribeBundleTasks
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks%27"><span class="hs-identifier hs-type">DescribeBundleTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271456"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:DescribeBundleTasks' :: DescribeBundleTasks -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681271456"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681271456"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681271455"><span class="annot"><span class="annottext">s :: DescribeBundleTasks
+</span><a href="#local-6989586621681271455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks%27"><span class="hs-identifier hs-type">DescribeBundleTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681271454"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681271454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBundleTasks
+</span><a href="#local-6989586621681271455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeBundleTasks' :: Maybe [Filter]
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3Afilters%3ADescribeBundleTasks%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681271454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; DescribeBundleTasks -&gt; f DescribeBundleTasks)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeBundleTasks
+-&gt; f DescribeBundleTasks
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasks_dryRun"><span class="hs-identifier hs-type">describeBundleTasks_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="describeBundleTasks_dryRun"><span class="annot"><span class="annottext">describeBundleTasks_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeBundleTasks -&gt; f DescribeBundleTasks
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasks_dryRun"><span class="hs-identifier hs-var hs-var">describeBundleTasks_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBundleTasks -&gt; Maybe Bool)
+-&gt; (DescribeBundleTasks -&gt; Maybe Bool -&gt; DescribeBundleTasks)
+-&gt; Lens
+     DescribeBundleTasks DescribeBundleTasks (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks%27"><span class="hs-identifier hs-type">DescribeBundleTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271453"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeBundleTasks' :: DescribeBundleTasks -&gt; Maybe Bool
+</span><a href="#local-6989586621681271453"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681271453"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681271452"><span class="annot"><span class="annottext">s :: DescribeBundleTasks
+</span><a href="#local-6989586621681271452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks%27"><span class="hs-identifier hs-type">DescribeBundleTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681271451"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681271451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBundleTasks
+</span><a href="#local-6989586621681271452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeBundleTasks' :: Maybe Bool
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3AdryRun%3ADescribeBundleTasks%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681271451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-187"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse"><span class="hs-identifier hs-type">DescribeBundleTasksResponse</span></a></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621681271447"><span class="annot"><span class="annottext">request :: DescribeBundleTasks -&gt; Request DescribeBundleTasks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeBundleTasks -&gt; Request DescribeBundleTasks
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621681271443"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeBundleTasks
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeBundleTasks)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DescribeBundleTasks))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeBundleTasks
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeBundleTasks)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681271440"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271440"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681271439"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681271439"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681271438"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681271438"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BundleTask] -&gt; Int -&gt; DescribeBundleTasksResponse
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse%27"><span class="hs-identifier hs-var">DescribeBundleTasksResponse'</span></a></span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BundleTask] -&gt; Int -&gt; DescribeBundleTasksResponse)
+-&gt; Either String (Maybe [BundleTask])
+-&gt; Either String (Int -&gt; DescribeBundleTasksResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681271438"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bundleInstanceTasksSet&quot;</span></span><span>
+</span><span id="line-195"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-196"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [BundleTask]))
+-&gt; Either String (Maybe [BundleTask])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [BundleTask])
+-&gt; [Node] -&gt; Either String (Maybe [BundleTask])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [BundleTask]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeBundleTasksResponse)
+-&gt; Either String Int -&gt; Either String DescribeBundleTasksResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271440"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681271427"><span id="local-6989586621681271429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span></span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681271424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621681271420"><span class="annot"><span class="annottext">toHeaders :: DescribeBundleTasks -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeBundleTasks -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621681271415"><span class="annot"><span class="annottext">toPath :: DescribeBundleTasks -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeBundleTasks -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks"><span class="hs-identifier hs-type">DescribeBundleTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621681271411"><span class="annot"><span class="annottext">toQuery :: DescribeBundleTasks -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasks%27"><span class="hs-identifier hs-type">DescribeBundleTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271407"><span id="local-6989586621681271408"><span id="local-6989586621681271409"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe [Filter]
+dryRun :: Maybe Bool
+filters :: Maybe [Filter]
+bundleIds :: Maybe [Text]
+$sel:dryRun:DescribeBundleTasks' :: DescribeBundleTasks -&gt; Maybe Bool
+$sel:filters:DescribeBundleTasks' :: DescribeBundleTasks -&gt; Maybe [Filter]
+$sel:bundleIds:DescribeBundleTasks' :: DescribeBundleTasks -&gt; Maybe [Text]
+</span><a href="#local-6989586621681271407"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeBundleTasks&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-219"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BundleId&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681271409"><span class="hs-identifier hs-var">bundleIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-221"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681271408"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681271407"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | /See:/ 'newDescribeBundleTasksResponse' smart constructor.</span><span>
+</span><span id="line-226"></span><span id="local-6989586621681271403"><span id="local-6989586621681271404"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeBundleTasksResponse"><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse"><span class="hs-identifier hs-var">DescribeBundleTasksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeBundleTasksResponse%27"><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse%27"><span class="hs-identifier hs-var">DescribeBundleTasksResponse'</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the bundle tasks.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3AbundleTasks%3ADescribeBundleTasksResponse%27"><span class="annot"><span class="annottext">DescribeBundleTasksResponse -&gt; Maybe [BundleTask]
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3AbundleTasks%3ADescribeBundleTasksResponse%27"><span class="hs-identifier hs-var hs-var">bundleTasks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-230"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeBundleTasksResponse%27"><span class="annot"><span class="annottext">DescribeBundleTasksResponse -&gt; Int
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3AhttpStatus%3ADescribeBundleTasksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681271397"><span id="local-6989586621681271399"><span class="annot"><span class="annottext">DescribeBundleTasksResponse -&gt; DescribeBundleTasksResponse -&gt; Bool
+(DescribeBundleTasksResponse
+ -&gt; DescribeBundleTasksResponse -&gt; Bool)
+-&gt; (DescribeBundleTasksResponse
+    -&gt; DescribeBundleTasksResponse -&gt; Bool)
+-&gt; Eq DescribeBundleTasksResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeBundleTasksResponse -&gt; DescribeBundleTasksResponse -&gt; Bool
+$c/= :: DescribeBundleTasksResponse -&gt; DescribeBundleTasksResponse -&gt; Bool
+== :: DescribeBundleTasksResponse -&gt; DescribeBundleTasksResponse -&gt; Bool
+$c== :: DescribeBundleTasksResponse -&gt; DescribeBundleTasksResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681271389"><span id="local-6989586621681271391"><span id="local-6989586621681271393"><span id="local-6989586621681271395"><span class="annot"><span class="annottext">ReadPrec [DescribeBundleTasksResponse]
+ReadPrec DescribeBundleTasksResponse
+Int -&gt; ReadS DescribeBundleTasksResponse
+ReadS [DescribeBundleTasksResponse]
+(Int -&gt; ReadS DescribeBundleTasksResponse)
+-&gt; ReadS [DescribeBundleTasksResponse]
+-&gt; ReadPrec DescribeBundleTasksResponse
+-&gt; ReadPrec [DescribeBundleTasksResponse]
+-&gt; Read DescribeBundleTasksResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeBundleTasksResponse]
+$creadListPrec :: ReadPrec [DescribeBundleTasksResponse]
+readPrec :: ReadPrec DescribeBundleTasksResponse
+$creadPrec :: ReadPrec DescribeBundleTasksResponse
+readList :: ReadS [DescribeBundleTasksResponse]
+$creadList :: ReadS [DescribeBundleTasksResponse]
+readsPrec :: Int -&gt; ReadS DescribeBundleTasksResponse
+$creadsPrec :: Int -&gt; ReadS DescribeBundleTasksResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681271383"><span id="local-6989586621681271385"><span id="local-6989586621681271387"><span class="annot"><span class="annottext">Int -&gt; DescribeBundleTasksResponse -&gt; ShowS
+[DescribeBundleTasksResponse] -&gt; ShowS
+DescribeBundleTasksResponse -&gt; String
+(Int -&gt; DescribeBundleTasksResponse -&gt; ShowS)
+-&gt; (DescribeBundleTasksResponse -&gt; String)
+-&gt; ([DescribeBundleTasksResponse] -&gt; ShowS)
+-&gt; Show DescribeBundleTasksResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeBundleTasksResponse] -&gt; ShowS
+$cshowList :: [DescribeBundleTasksResponse] -&gt; ShowS
+show :: DescribeBundleTasksResponse -&gt; String
+$cshow :: DescribeBundleTasksResponse -&gt; String
+showsPrec :: Int -&gt; DescribeBundleTasksResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeBundleTasksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeBundleTasksResponse -&gt; Rep DescribeBundleTasksResponse x)
+-&gt; (forall x.
+    Rep DescribeBundleTasksResponse x -&gt; DescribeBundleTasksResponse)
+-&gt; Generic DescribeBundleTasksResponse
+forall x.
+Rep DescribeBundleTasksResponse x -&gt; DescribeBundleTasksResponse
+forall x.
+DescribeBundleTasksResponse -&gt; Rep DescribeBundleTasksResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeBundleTasksResponse x -&gt; DescribeBundleTasksResponse
+$cfrom :: forall x.
+DescribeBundleTasksResponse -&gt; Rep DescribeBundleTasksResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- Create a value of 'DescribeBundleTasksResponse' with all optional fields omitted.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'bundleTasks', 'describeBundleTasksResponse_bundleTasks' - Information about the bundle tasks.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'httpStatus', 'describeBundleTasksResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#newDescribeBundleTasksResponse"><span class="hs-identifier hs-type">newDescribeBundleTasksResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse"><span class="hs-identifier hs-type">DescribeBundleTasksResponse</span></a></span><span>
+</span><span id="line-249"></span><span id="newDescribeBundleTasksResponse"><span class="annot"><span class="annottext">newDescribeBundleTasksResponse :: Int -&gt; DescribeBundleTasksResponse
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#newDescribeBundleTasksResponse"><span class="hs-identifier hs-var hs-var">newDescribeBundleTasksResponse</span></a></span></span><span> </span><span id="local-6989586621681271380"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271380"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">DescribeBundleTasksResponse' :: Maybe [BundleTask] -&gt; Int -&gt; DescribeBundleTasksResponse
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse%27"><span class="hs-identifier hs-type">DescribeBundleTasksResponse'</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bundleTasks:DescribeBundleTasksResponse' :: Maybe [BundleTask]
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3AbundleTasks%3ADescribeBundleTasksResponse%27"><span class="hs-identifier hs-var">bundleTasks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">Maybe [BundleTask]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeBundleTasksResponse' :: Int
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3AhttpStatus%3ADescribeBundleTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271380"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | Information about the bundle tasks.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasksResponse_bundleTasks"><span class="hs-identifier hs-type">describeBundleTasksResponse_bundleTasks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse"><span class="hs-identifier hs-type">DescribeBundleTasksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="describeBundleTasksResponse_bundleTasks"><span class="annot"><span class="annottext">describeBundleTasksResponse_bundleTasks :: (Maybe [BundleTask] -&gt; f (Maybe [BundleTask]))
+-&gt; DescribeBundleTasksResponse -&gt; f DescribeBundleTasksResponse
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasksResponse_bundleTasks"><span class="hs-identifier hs-var hs-var">describeBundleTasksResponse_bundleTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBundleTasksResponse -&gt; Maybe [BundleTask])
+-&gt; (DescribeBundleTasksResponse
+    -&gt; Maybe [BundleTask] -&gt; DescribeBundleTasksResponse)
+-&gt; Lens
+     DescribeBundleTasksResponse
+     DescribeBundleTasksResponse
+     (Maybe [BundleTask])
+     (Maybe [BundleTask])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse%27"><span class="hs-identifier hs-type">DescribeBundleTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271379"><span class="annot"><span class="annottext">Maybe [BundleTask]
+bundleTasks :: Maybe [BundleTask]
+$sel:bundleTasks:DescribeBundleTasksResponse' :: DescribeBundleTasksResponse -&gt; Maybe [BundleTask]
+</span><a href="#local-6989586621681271379"><span class="hs-identifier hs-var hs-var">bundleTasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BundleTask]
+</span><a href="#local-6989586621681271379"><span class="hs-identifier hs-var">bundleTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681271378"><span class="annot"><span class="annottext">s :: DescribeBundleTasksResponse
+</span><a href="#local-6989586621681271378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse%27"><span class="hs-identifier hs-type">DescribeBundleTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681271377"><span class="annot"><span class="annottext">Maybe [BundleTask]
+</span><a href="#local-6989586621681271377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBundleTasksResponse
+</span><a href="#local-6989586621681271378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleTasks:DescribeBundleTasksResponse' :: Maybe [BundleTask]
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3AbundleTasks%3ADescribeBundleTasksResponse%27"><span class="hs-identifier hs-var">bundleTasks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BundleTask]
+</span><a href="#local-6989586621681271377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse"><span class="hs-identifier hs-type">DescribeBundleTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BundleTask] -&gt; f (Maybe [BundleTask]))
+ -&gt; DescribeBundleTasksResponse -&gt; f DescribeBundleTasksResponse)
+-&gt; ((Maybe [BundleTask] -&gt; f (Maybe [BundleTask]))
+    -&gt; Maybe [BundleTask] -&gt; f (Maybe [BundleTask]))
+-&gt; (Maybe [BundleTask] -&gt; f (Maybe [BundleTask]))
+-&gt; DescribeBundleTasksResponse
+-&gt; f DescribeBundleTasksResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [BundleTask] [BundleTask] [BundleTask] [BundleTask]
+-&gt; Iso
+     (Maybe [BundleTask])
+     (Maybe [BundleTask])
+     (Maybe [BundleTask])
+     (Maybe [BundleTask])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [BundleTask] [BundleTask] [BundleTask] [BundleTask]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasksResponse_httpStatus"><span class="hs-identifier hs-type">describeBundleTasksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse"><span class="hs-identifier hs-type">DescribeBundleTasksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span id="describeBundleTasksResponse_httpStatus"><span class="annot"><span class="annottext">describeBundleTasksResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeBundleTasksResponse -&gt; f DescribeBundleTasksResponse
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#describeBundleTasksResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeBundleTasksResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeBundleTasksResponse -&gt; Int)
+-&gt; (DescribeBundleTasksResponse
+    -&gt; Int -&gt; DescribeBundleTasksResponse)
+-&gt; Lens
+     DescribeBundleTasksResponse DescribeBundleTasksResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse%27"><span class="hs-identifier hs-type">DescribeBundleTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681271376"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeBundleTasksResponse' :: DescribeBundleTasksResponse -&gt; Int
+</span><a href="#local-6989586621681271376"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271376"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681271375"><span class="annot"><span class="annottext">s :: DescribeBundleTasksResponse
+</span><a href="#local-6989586621681271375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse%27"><span class="hs-identifier hs-type">DescribeBundleTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681271374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBundleTasksResponse
+</span><a href="#local-6989586621681271375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeBundleTasksResponse' :: Int
+</span><a href="Amazonka.EC2.DescribeBundleTasks.html#%24sel%3AhttpStatus%3ADescribeBundleTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681271374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse"><span class="hs-identifier hs-type">DescribeBundleTasksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681271372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeBundleTasks.html#DescribeBundleTasksResponse"><span class="hs-identifier hs-type">DescribeBundleTasksResponse</span></a></span></span><span>
+</span><span id="line-265"></span></pre></body></html>

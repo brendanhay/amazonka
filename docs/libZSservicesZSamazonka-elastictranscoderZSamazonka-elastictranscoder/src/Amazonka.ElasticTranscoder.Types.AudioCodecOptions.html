@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticTranscoder.Types.AudioCodecOptions</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticTranscoder.Types.AudioCodecOptions</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Options associated with your audio codec.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAudioCodecOptions' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679209468"><span id="local-6989586621679209469"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioCodecOptions"><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-var">AudioCodecOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioCodecOptions%27"><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-var">AudioCodecOptions'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can only choose whether an audio sample is signed when you specify</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- @pcm@ for the value of Audio:Codec.</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Whether audio samples are represented with negative and positive numbers</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- (signed) or only positive numbers (unsigned).</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- The supported value is @Signed@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Asigned%3AAudioCodecOptions%27"><span class="annot"><span class="annottext">AudioCodecOptions -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3Asigned%3AAudioCodecOptions%27"><span class="hs-identifier hs-var hs-var">signed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | You can only choose an audio bit depth when you specify @flac@ or @pcm@</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- for the value of Audio:Codec.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- The bit depth of a sample is how many bits of information are included</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- in the audio samples. The higher the bit depth, the better the audio,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- but the larger the file.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Valid values are @16@ and @24@.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- The most common bit depth is @24@.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AbitDepth%3AAudioCodecOptions%27"><span class="annot"><span class="annottext">AudioCodecOptions -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3AbitDepth%3AAudioCodecOptions%27"><span class="hs-identifier hs-var hs-var">bitDepth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | You can only choose an audio profile when you specify AAC for the value</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- of Audio:Codec.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Specify the AAC profile for the output file. Elastic Transcoder supports</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- the following profiles:</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   @auto@: If you specify @auto@, Elastic Transcoder selects the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     profile based on the bit rate selected for the output file.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   @AAC-LC@: The most common AAC profile. Use for bit rates larger than</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     64 kbps.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- -   @HE-AAC@: Not supported on some older players and devices. Use for</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     bit rates between 40 and 80 kbps.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @HE-AACv2@: Not supported on some players and devices. Use for bit</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     rates less than 48 kbps.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- All outputs in a @Smooth@ playlist must have the same value for</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @Profile@.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- If you created any presets before AAC profiles were added, Elastic</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Transcoder automatically updated your presets to use AAC-LC. You can</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- change the value as required.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Aprofile%3AAudioCodecOptions%27"><span class="annot"><span class="annottext">AudioCodecOptions -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3Aprofile%3AAudioCodecOptions%27"><span class="hs-identifier hs-var hs-var">profile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | You can only choose an audio bit order when you specify @pcm@ for the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- value of Audio:Codec.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- The order the bits of a PCM sample are stored in.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- The supported value is @LittleEndian@.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AbitOrder%3AAudioCodecOptions%27"><span class="annot"><span class="annottext">AudioCodecOptions -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3AbitOrder%3AAudioCodecOptions%27"><span class="hs-identifier hs-var hs-var">bitOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209459"><span id="local-6989586621679209461"><span class="annot"><span class="annottext">AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool
+(AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool)
+-&gt; (AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool)
+-&gt; Eq AudioCodecOptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool
+$c/= :: AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool
+== :: AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool
+$c== :: AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209450"><span id="local-6989586621679209452"><span id="local-6989586621679209454"><span id="local-6989586621679209456"><span class="annot"><span class="annottext">ReadPrec [AudioCodecOptions]
+ReadPrec AudioCodecOptions
+Int -&gt; ReadS AudioCodecOptions
+ReadS [AudioCodecOptions]
+(Int -&gt; ReadS AudioCodecOptions)
+-&gt; ReadS [AudioCodecOptions]
+-&gt; ReadPrec AudioCodecOptions
+-&gt; ReadPrec [AudioCodecOptions]
+-&gt; Read AudioCodecOptions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AudioCodecOptions]
+$creadListPrec :: ReadPrec [AudioCodecOptions]
+readPrec :: ReadPrec AudioCodecOptions
+$creadPrec :: ReadPrec AudioCodecOptions
+readList :: ReadS [AudioCodecOptions]
+$creadList :: ReadS [AudioCodecOptions]
+readsPrec :: Int -&gt; ReadS AudioCodecOptions
+$creadsPrec :: Int -&gt; ReadS AudioCodecOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209443"><span id="local-6989586621679209445"><span id="local-6989586621679209447"><span class="annot"><span class="annottext">Int -&gt; AudioCodecOptions -&gt; ShowS
+[AudioCodecOptions] -&gt; ShowS
+AudioCodecOptions -&gt; String
+(Int -&gt; AudioCodecOptions -&gt; ShowS)
+-&gt; (AudioCodecOptions -&gt; String)
+-&gt; ([AudioCodecOptions] -&gt; ShowS)
+-&gt; Show AudioCodecOptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AudioCodecOptions] -&gt; ShowS
+$cshowList :: [AudioCodecOptions] -&gt; ShowS
+show :: AudioCodecOptions -&gt; String
+$cshow :: AudioCodecOptions -&gt; String
+showsPrec :: Int -&gt; AudioCodecOptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; AudioCodecOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AudioCodecOptions -&gt; Rep AudioCodecOptions x)
+-&gt; (forall x. Rep AudioCodecOptions x -&gt; AudioCodecOptions)
+-&gt; Generic AudioCodecOptions
+forall x. Rep AudioCodecOptions x -&gt; AudioCodecOptions
+forall x. AudioCodecOptions -&gt; Rep AudioCodecOptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AudioCodecOptions x -&gt; AudioCodecOptions
+$cfrom :: forall x. AudioCodecOptions -&gt; Rep AudioCodecOptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'AudioCodecOptions' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'signed', 'audioCodecOptions_signed' - You can only choose whether an audio sample is signed when you specify</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- @pcm@ for the value of Audio:Codec.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Whether audio samples are represented with negative and positive numbers</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- (signed) or only positive numbers (unsigned).</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The supported value is @Signed@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'bitDepth', 'audioCodecOptions_bitDepth' - You can only choose an audio bit depth when you specify @flac@ or @pcm@</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- for the value of Audio:Codec.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The bit depth of a sample is how many bits of information are included</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- in the audio samples. The higher the bit depth, the better the audio,</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- but the larger the file.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Valid values are @16@ and @24@.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- The most common bit depth is @24@.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'profile', 'audioCodecOptions_profile' - You can only choose an audio profile when you specify AAC for the value</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- of Audio:Codec.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Specify the AAC profile for the output file. Elastic Transcoder supports</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- the following profiles:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   @auto@: If you specify @auto@, Elastic Transcoder selects the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     profile based on the bit rate selected for the output file.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   @AAC-LC@: The most common AAC profile. Use for bit rates larger than</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     64 kbps.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   @HE-AAC@: Not supported on some older players and devices. Use for</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--     bit rates between 40 and 80 kbps.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   @HE-AACv2@: Not supported on some players and devices. Use for bit</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     rates less than 48 kbps.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- All outputs in a @Smooth@ playlist must have the same value for</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- @Profile@.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- If you created any presets before AAC profiles were added, Elastic</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Transcoder automatically updated your presets to use AAC-LC. You can</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- change the value as required.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'bitOrder', 'audioCodecOptions_bitOrder' - You can only choose an audio bit order when you specify @pcm@ for the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- value of Audio:Codec.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The order the bits of a PCM sample are stored in.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- The supported value is @LittleEndian@.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#newAudioCodecOptions"><span class="hs-identifier hs-type">newAudioCodecOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span>
+</span><span id="line-144"></span><span id="newAudioCodecOptions"><span class="annot"><span class="annottext">newAudioCodecOptions :: AudioCodecOptions
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#newAudioCodecOptions"><span class="hs-identifier hs-var hs-var">newAudioCodecOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">AudioCodecOptions' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AudioCodecOptions
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:signed:AudioCodecOptions' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3Asigned%3AAudioCodecOptions%27"><span class="hs-identifier hs-var">signed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:bitDepth:AudioCodecOptions' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3AbitDepth%3AAudioCodecOptions%27"><span class="hs-identifier hs-var">bitDepth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:profile:AudioCodecOptions' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3Aprofile%3AAudioCodecOptions%27"><span class="hs-identifier hs-var">profile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:bitOrder:AudioCodecOptions' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3AbitOrder%3AAudioCodecOptions%27"><span class="hs-identifier hs-var">bitOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | You can only choose whether an audio sample is signed when you specify</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- @pcm@ for the value of Audio:Codec.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Whether audio samples are represented with negative and positive numbers</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- (signed) or only positive numbers (unsigned).</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The supported value is @Signed@.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#audioCodecOptions_signed"><span class="hs-identifier hs-type">audioCodecOptions_signed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="audioCodecOptions_signed"><span class="annot"><span class="annottext">audioCodecOptions_signed :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AudioCodecOptions -&gt; f AudioCodecOptions
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#audioCodecOptions_signed"><span class="hs-identifier hs-var hs-var">audioCodecOptions_signed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioCodecOptions -&gt; Maybe Text)
+-&gt; (AudioCodecOptions -&gt; Maybe Text -&gt; AudioCodecOptions)
+-&gt; Lens
+     AudioCodecOptions AudioCodecOptions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209434"><span class="annot"><span class="annottext">Maybe Text
+signed :: Maybe Text
+$sel:signed:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679209434"><span class="hs-identifier hs-var hs-var">signed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209434"><span class="hs-identifier hs-var">signed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209433"><span class="annot"><span class="annottext">s :: AudioCodecOptions
+</span><a href="#local-6989586621679209433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209432"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecOptions
+</span><a href="#local-6989586621679209433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signed:AudioCodecOptions' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3Asigned%3AAudioCodecOptions%27"><span class="hs-identifier hs-var">signed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | You can only choose an audio bit depth when you specify @flac@ or @pcm@</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for the value of Audio:Codec.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The bit depth of a sample is how many bits of information are included</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- in the audio samples. The higher the bit depth, the better the audio,</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- but the larger the file.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Valid values are @16@ and @24@.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The most common bit depth is @24@.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#audioCodecOptions_bitDepth"><span class="hs-identifier hs-type">audioCodecOptions_bitDepth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="audioCodecOptions_bitDepth"><span class="annot"><span class="annottext">audioCodecOptions_bitDepth :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AudioCodecOptions -&gt; f AudioCodecOptions
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#audioCodecOptions_bitDepth"><span class="hs-identifier hs-var hs-var">audioCodecOptions_bitDepth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioCodecOptions -&gt; Maybe Text)
+-&gt; (AudioCodecOptions -&gt; Maybe Text -&gt; AudioCodecOptions)
+-&gt; Lens
+     AudioCodecOptions AudioCodecOptions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209430"><span class="annot"><span class="annottext">Maybe Text
+bitDepth :: Maybe Text
+$sel:bitDepth:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679209430"><span class="hs-identifier hs-var hs-var">bitDepth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209430"><span class="hs-identifier hs-var">bitDepth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209429"><span class="annot"><span class="annottext">s :: AudioCodecOptions
+</span><a href="#local-6989586621679209429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209428"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecOptions
+</span><a href="#local-6989586621679209429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitDepth:AudioCodecOptions' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3AbitDepth%3AAudioCodecOptions%27"><span class="hs-identifier hs-var">bitDepth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | You can only choose an audio profile when you specify AAC for the value</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- of Audio:Codec.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Specify the AAC profile for the output file. Elastic Transcoder supports</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- the following profiles:</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- -   @auto@: If you specify @auto@, Elastic Transcoder selects the</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     profile based on the bit rate selected for the output file.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   @AAC-LC@: The most common AAC profile. Use for bit rates larger than</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     64 kbps.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- -   @HE-AAC@: Not supported on some older players and devices. Use for</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--     bit rates between 40 and 80 kbps.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   @HE-AACv2@: Not supported on some players and devices. Use for bit</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     rates less than 48 kbps.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- All outputs in a @Smooth@ playlist must have the same value for</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- @Profile@.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- If you created any presets before AAC profiles were added, Elastic</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Transcoder automatically updated your presets to use AAC-LC. You can</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- change the value as required.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#audioCodecOptions_profile"><span class="hs-identifier hs-type">audioCodecOptions_profile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="audioCodecOptions_profile"><span class="annot"><span class="annottext">audioCodecOptions_profile :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AudioCodecOptions -&gt; f AudioCodecOptions
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#audioCodecOptions_profile"><span class="hs-identifier hs-var hs-var">audioCodecOptions_profile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioCodecOptions -&gt; Maybe Text)
+-&gt; (AudioCodecOptions -&gt; Maybe Text -&gt; AudioCodecOptions)
+-&gt; Lens
+     AudioCodecOptions AudioCodecOptions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209426"><span class="annot"><span class="annottext">Maybe Text
+profile :: Maybe Text
+$sel:profile:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679209426"><span class="hs-identifier hs-var hs-var">profile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209426"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209425"><span class="annot"><span class="annottext">s :: AudioCodecOptions
+</span><a href="#local-6989586621679209425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209424"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecOptions
+</span><a href="#local-6989586621679209425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profile:AudioCodecOptions' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3Aprofile%3AAudioCodecOptions%27"><span class="hs-identifier hs-var">profile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | You can only choose an audio bit order when you specify @pcm@ for the</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- value of Audio:Codec.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- The order the bits of a PCM sample are stored in.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- The supported value is @LittleEndian@.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#audioCodecOptions_bitOrder"><span class="hs-identifier hs-type">audioCodecOptions_bitOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="audioCodecOptions_bitOrder"><span class="annot"><span class="annottext">audioCodecOptions_bitOrder :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AudioCodecOptions -&gt; f AudioCodecOptions
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#audioCodecOptions_bitOrder"><span class="hs-identifier hs-var hs-var">audioCodecOptions_bitOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AudioCodecOptions -&gt; Maybe Text)
+-&gt; (AudioCodecOptions -&gt; Maybe Text -&gt; AudioCodecOptions)
+-&gt; Lens
+     AudioCodecOptions AudioCodecOptions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209422"><span class="annot"><span class="annottext">Maybe Text
+bitOrder :: Maybe Text
+$sel:bitOrder:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679209422"><span class="hs-identifier hs-var hs-var">bitOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209422"><span class="hs-identifier hs-var">bitOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209421"><span class="annot"><span class="annottext">s :: AudioCodecOptions
+</span><a href="#local-6989586621679209421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209420"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecOptions
+</span><a href="#local-6989586621679209421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitOrder:AudioCodecOptions' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3AbitOrder%3AAudioCodecOptions%27"><span class="hs-identifier hs-var">bitOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209417"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679209415"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioCodecOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AudioCodecOptions)
+-&gt; Value
+-&gt; Parser AudioCodecOptions
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AudioCodecOptions&quot;</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209412"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209412"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AudioCodecOptions
+</span><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-var">AudioCodecOptions'</span></a></span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AudioCodecOptions)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AudioCodecOptions)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Signed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AudioCodecOptions)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AudioCodecOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BitDepth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AudioCodecOptions)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; AudioCodecOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Profile&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AudioCodecOptions)
+-&gt; Parser (Maybe Text) -&gt; Parser AudioCodecOptions
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BitOrder&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209406"><span id="local-6989586621679209408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span></span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209395"><span id="local-6989586621679209397"><span id="local-6989586621679209399"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679209393"><span class="annot"><span class="annottext">toJSON :: AudioCodecOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209388"><span id="local-6989586621679209389"><span id="local-6989586621679209390"><span id="local-6989586621679209391"><span class="annot"><span class="annottext">Maybe Text
+bitOrder :: Maybe Text
+profile :: Maybe Text
+bitDepth :: Maybe Text
+signed :: Maybe Text
+$sel:bitOrder:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
+$sel:profile:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
+$sel:bitDepth:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
+$sel:signed:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679209388"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-231"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Signed&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209391"><span class="hs-identifier hs-var">signed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BitDepth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209390"><span class="hs-identifier hs-var">bitDepth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Profile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209389"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BitOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209388"><span class="hs-identifier hs-var">bitOrder</span></a></span><span>
+</span><span id="line-235"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span></pre></body></html>

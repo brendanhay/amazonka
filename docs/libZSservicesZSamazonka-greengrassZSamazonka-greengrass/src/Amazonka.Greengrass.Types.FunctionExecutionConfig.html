@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Greengrass.Types.FunctionExecutionConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Greengrass.Types.FunctionExecutionConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionIsolationMode.html"><span class="hs-identifier">Amazonka.Greengrass.Types.FunctionIsolationMode</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionRunAsConfig.html"><span class="hs-identifier">Amazonka.Greengrass.Types.FunctionRunAsConfig</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Configuration information that specifies how a Lambda function runs.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFunctionExecutionConfig' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679343094"><span id="local-6989586621679343095"></span></span><span class="hs-keyword">data</span><span> </span><span id="FunctionExecutionConfig"><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig"><span class="hs-identifier hs-var">FunctionExecutionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionExecutionConfig%27"><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig%27"><span class="hs-identifier hs-var">FunctionExecutionConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ArunAs%3AFunctionExecutionConfig%27"><span class="annot"><span class="annottext">FunctionExecutionConfig -&gt; Maybe FunctionRunAsConfig
+</span><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#%24sel%3ArunAs%3AFunctionExecutionConfig%27"><span class="hs-identifier hs-var hs-var">runAs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionRunAsConfig.html#FunctionRunAsConfig"><span class="hs-identifier hs-type">FunctionRunAsConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AisolationMode%3AFunctionExecutionConfig%27"><span class="annot"><span class="annottext">FunctionExecutionConfig -&gt; Maybe FunctionIsolationMode
+</span><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#%24sel%3AisolationMode%3AFunctionExecutionConfig%27"><span class="hs-identifier hs-var hs-var">isolationMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionIsolationMode.html#FunctionIsolationMode"><span class="hs-identifier hs-type">FunctionIsolationMode</span></a></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343087"><span id="local-6989586621679343089"><span class="annot"><span class="annottext">FunctionExecutionConfig -&gt; FunctionExecutionConfig -&gt; Bool
+(FunctionExecutionConfig -&gt; FunctionExecutionConfig -&gt; Bool)
+-&gt; (FunctionExecutionConfig -&gt; FunctionExecutionConfig -&gt; Bool)
+-&gt; Eq FunctionExecutionConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FunctionExecutionConfig -&gt; FunctionExecutionConfig -&gt; Bool
+$c/= :: FunctionExecutionConfig -&gt; FunctionExecutionConfig -&gt; Bool
+== :: FunctionExecutionConfig -&gt; FunctionExecutionConfig -&gt; Bool
+$c== :: FunctionExecutionConfig -&gt; FunctionExecutionConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343078"><span id="local-6989586621679343080"><span id="local-6989586621679343082"><span id="local-6989586621679343084"><span class="annot"><span class="annottext">ReadPrec [FunctionExecutionConfig]
+ReadPrec FunctionExecutionConfig
+Int -&gt; ReadS FunctionExecutionConfig
+ReadS [FunctionExecutionConfig]
+(Int -&gt; ReadS FunctionExecutionConfig)
+-&gt; ReadS [FunctionExecutionConfig]
+-&gt; ReadPrec FunctionExecutionConfig
+-&gt; ReadPrec [FunctionExecutionConfig]
+-&gt; Read FunctionExecutionConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FunctionExecutionConfig]
+$creadListPrec :: ReadPrec [FunctionExecutionConfig]
+readPrec :: ReadPrec FunctionExecutionConfig
+$creadPrec :: ReadPrec FunctionExecutionConfig
+readList :: ReadS [FunctionExecutionConfig]
+$creadList :: ReadS [FunctionExecutionConfig]
+readsPrec :: Int -&gt; ReadS FunctionExecutionConfig
+$creadsPrec :: Int -&gt; ReadS FunctionExecutionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343071"><span id="local-6989586621679343073"><span id="local-6989586621679343075"><span class="annot"><span class="annottext">Int -&gt; FunctionExecutionConfig -&gt; ShowS
+[FunctionExecutionConfig] -&gt; ShowS
+FunctionExecutionConfig -&gt; String
+(Int -&gt; FunctionExecutionConfig -&gt; ShowS)
+-&gt; (FunctionExecutionConfig -&gt; String)
+-&gt; ([FunctionExecutionConfig] -&gt; ShowS)
+-&gt; Show FunctionExecutionConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FunctionExecutionConfig] -&gt; ShowS
+$cshowList :: [FunctionExecutionConfig] -&gt; ShowS
+show :: FunctionExecutionConfig -&gt; String
+$cshow :: FunctionExecutionConfig -&gt; String
+showsPrec :: Int -&gt; FunctionExecutionConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; FunctionExecutionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ FunctionExecutionConfig -&gt; Rep FunctionExecutionConfig x)
+-&gt; (forall x.
+    Rep FunctionExecutionConfig x -&gt; FunctionExecutionConfig)
+-&gt; Generic FunctionExecutionConfig
+forall x. Rep FunctionExecutionConfig x -&gt; FunctionExecutionConfig
+forall x. FunctionExecutionConfig -&gt; Rep FunctionExecutionConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FunctionExecutionConfig x -&gt; FunctionExecutionConfig
+$cfrom :: forall x. FunctionExecutionConfig -&gt; Rep FunctionExecutionConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'FunctionExecutionConfig' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'runAs', 'functionExecutionConfig_runAs' - Undocumented member.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'isolationMode', 'functionExecutionConfig_isolationMode' - Undocumented member.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#newFunctionExecutionConfig"><span class="hs-identifier hs-type">newFunctionExecutionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig"><span class="hs-identifier hs-type">FunctionExecutionConfig</span></a></span><span>
+</span><span id="line-50"></span><span id="newFunctionExecutionConfig"><span class="annot"><span class="annottext">newFunctionExecutionConfig :: FunctionExecutionConfig
+</span><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#newFunctionExecutionConfig"><span class="hs-identifier hs-var hs-var">newFunctionExecutionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">FunctionExecutionConfig' :: Maybe FunctionRunAsConfig
+-&gt; Maybe FunctionIsolationMode -&gt; FunctionExecutionConfig
+</span><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig%27"><span class="hs-identifier hs-type">FunctionExecutionConfig'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:runAs:FunctionExecutionConfig' :: Maybe FunctionRunAsConfig
+</span><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#%24sel%3ArunAs%3AFunctionExecutionConfig%27"><span class="hs-identifier hs-var">runAs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionRunAsConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:isolationMode:FunctionExecutionConfig' :: Maybe FunctionIsolationMode
+</span><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#%24sel%3AisolationMode%3AFunctionExecutionConfig%27"><span class="hs-identifier hs-var">isolationMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionIsolationMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#functionExecutionConfig_runAs"><span class="hs-identifier hs-type">functionExecutionConfig_runAs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig"><span class="hs-identifier hs-type">FunctionExecutionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionRunAsConfig.html#FunctionRunAsConfig"><span class="hs-identifier hs-type">FunctionRunAsConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="functionExecutionConfig_runAs"><span class="annot"><span class="annottext">functionExecutionConfig_runAs :: (Maybe FunctionRunAsConfig -&gt; f (Maybe FunctionRunAsConfig))
+-&gt; FunctionExecutionConfig -&gt; f FunctionExecutionConfig
+</span><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#functionExecutionConfig_runAs"><span class="hs-identifier hs-var hs-var">functionExecutionConfig_runAs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionExecutionConfig -&gt; Maybe FunctionRunAsConfig)
+-&gt; (FunctionExecutionConfig
+    -&gt; Maybe FunctionRunAsConfig -&gt; FunctionExecutionConfig)
+-&gt; Lens
+     FunctionExecutionConfig
+     FunctionExecutionConfig
+     (Maybe FunctionRunAsConfig)
+     (Maybe FunctionRunAsConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig%27"><span class="hs-identifier hs-type">FunctionExecutionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343062"><span class="annot"><span class="annottext">Maybe FunctionRunAsConfig
+runAs :: Maybe FunctionRunAsConfig
+$sel:runAs:FunctionExecutionConfig' :: FunctionExecutionConfig -&gt; Maybe FunctionRunAsConfig
+</span><a href="#local-6989586621679343062"><span class="hs-identifier hs-var hs-var">runAs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionRunAsConfig
+</span><a href="#local-6989586621679343062"><span class="hs-identifier hs-var">runAs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343061"><span class="annot"><span class="annottext">s :: FunctionExecutionConfig
+</span><a href="#local-6989586621679343061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig%27"><span class="hs-identifier hs-type">FunctionExecutionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343060"><span class="annot"><span class="annottext">Maybe FunctionRunAsConfig
+</span><a href="#local-6989586621679343060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionExecutionConfig
+</span><a href="#local-6989586621679343061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runAs:FunctionExecutionConfig' :: Maybe FunctionRunAsConfig
+</span><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#%24sel%3ArunAs%3AFunctionExecutionConfig%27"><span class="hs-identifier hs-var">runAs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionRunAsConfig
+</span><a href="#local-6989586621679343060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig"><span class="hs-identifier hs-type">FunctionExecutionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#functionExecutionConfig_isolationMode"><span class="hs-identifier hs-type">functionExecutionConfig_isolationMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig"><span class="hs-identifier hs-type">FunctionExecutionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionIsolationMode.html#FunctionIsolationMode"><span class="hs-identifier hs-type">FunctionIsolationMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="functionExecutionConfig_isolationMode"><span class="annot"><span class="annottext">functionExecutionConfig_isolationMode :: (Maybe FunctionIsolationMode -&gt; f (Maybe FunctionIsolationMode))
+-&gt; FunctionExecutionConfig -&gt; f FunctionExecutionConfig
+</span><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#functionExecutionConfig_isolationMode"><span class="hs-identifier hs-var hs-var">functionExecutionConfig_isolationMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionExecutionConfig -&gt; Maybe FunctionIsolationMode)
+-&gt; (FunctionExecutionConfig
+    -&gt; Maybe FunctionIsolationMode -&gt; FunctionExecutionConfig)
+-&gt; Lens
+     FunctionExecutionConfig
+     FunctionExecutionConfig
+     (Maybe FunctionIsolationMode)
+     (Maybe FunctionIsolationMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig%27"><span class="hs-identifier hs-type">FunctionExecutionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343058"><span class="annot"><span class="annottext">Maybe FunctionIsolationMode
+isolationMode :: Maybe FunctionIsolationMode
+$sel:isolationMode:FunctionExecutionConfig' :: FunctionExecutionConfig -&gt; Maybe FunctionIsolationMode
+</span><a href="#local-6989586621679343058"><span class="hs-identifier hs-var hs-var">isolationMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionIsolationMode
+</span><a href="#local-6989586621679343058"><span class="hs-identifier hs-var">isolationMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343057"><span class="annot"><span class="annottext">s :: FunctionExecutionConfig
+</span><a href="#local-6989586621679343057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig%27"><span class="hs-identifier hs-type">FunctionExecutionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343056"><span class="annot"><span class="annottext">Maybe FunctionIsolationMode
+</span><a href="#local-6989586621679343056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionExecutionConfig
+</span><a href="#local-6989586621679343057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isolationMode:FunctionExecutionConfig' :: Maybe FunctionIsolationMode
+</span><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#%24sel%3AisolationMode%3AFunctionExecutionConfig%27"><span class="hs-identifier hs-var">isolationMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionIsolationMode
+</span><a href="#local-6989586621679343056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig"><span class="hs-identifier hs-type">FunctionExecutionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343053"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig"><span class="hs-identifier hs-type">FunctionExecutionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679343051"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FunctionExecutionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FunctionExecutionConfig)
+-&gt; Value
+-&gt; Parser FunctionExecutionConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FunctionExecutionConfig&quot;</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343048"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343048"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe FunctionRunAsConfig
+-&gt; Maybe FunctionIsolationMode -&gt; FunctionExecutionConfig
+</span><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig%27"><span class="hs-identifier hs-var">FunctionExecutionConfig'</span></a></span><span>
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FunctionRunAsConfig
+ -&gt; Maybe FunctionIsolationMode -&gt; FunctionExecutionConfig)
+-&gt; Parser (Maybe FunctionRunAsConfig)
+-&gt; Parser (Maybe FunctionIsolationMode -&gt; FunctionExecutionConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FunctionRunAsConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RunAs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe FunctionIsolationMode -&gt; FunctionExecutionConfig)
+-&gt; Parser (Maybe FunctionIsolationMode)
+-&gt; Parser FunctionExecutionConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FunctionIsolationMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsolationMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343042"><span id="local-6989586621679343044"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig"><span class="hs-identifier hs-type">FunctionExecutionConfig</span></a></span></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343039"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig"><span class="hs-identifier hs-type">FunctionExecutionConfig</span></a></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343031"><span id="local-6989586621679343033"><span id="local-6989586621679343035"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig"><span class="hs-identifier hs-type">FunctionExecutionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679343029"><span class="annot"><span class="annottext">toJSON :: FunctionExecutionConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.FunctionExecutionConfig.html#FunctionExecutionConfig%27"><span class="hs-identifier hs-type">FunctionExecutionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343026"><span id="local-6989586621679343027"><span class="annot"><span class="annottext">Maybe FunctionIsolationMode
+Maybe FunctionRunAsConfig
+isolationMode :: Maybe FunctionIsolationMode
+runAs :: Maybe FunctionRunAsConfig
+$sel:isolationMode:FunctionExecutionConfig' :: FunctionExecutionConfig -&gt; Maybe FunctionIsolationMode
+$sel:runAs:FunctionExecutionConfig' :: FunctionExecutionConfig -&gt; Maybe FunctionRunAsConfig
+</span><a href="#local-6989586621679343026"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-82"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RunAs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FunctionRunAsConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FunctionRunAsConfig -&gt; Pair)
+-&gt; Maybe FunctionRunAsConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FunctionRunAsConfig
+</span><a href="#local-6989586621679343027"><span class="hs-identifier hs-var">runAs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsolationMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FunctionIsolationMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FunctionIsolationMode -&gt; Pair)
+-&gt; Maybe FunctionIsolationMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FunctionIsolationMode
+</span><a href="#local-6989586621679343026"><span class="hs-identifier hs-var">isolationMode</span></a></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span></pre></body></html>

@@ -1,0 +1,1040 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CertificateManagerPCA.Types.ASN1Subject</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CertificateManagerPCA.Types.ASN1Subject</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains information about the certificate subject. The @Subject@ field</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the certificate identifies the entity that owns or controls the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- public key in the certificate. The entity can be a user, computer,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- device, or service. The @Subject @must contain an X.500 distinguished</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- name (DN). A DN is a sequence of relative distinguished names (RDNs).</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- The RDNs are separated by commas in the certificate.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newASN1Subject' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679207410"><span id="local-6989586621679207411"></span></span><span class="hs-keyword">data</span><span> </span><span id="ASN1Subject"><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-var">ASN1Subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ASN1Subject%27"><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-var">ASN1Subject'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | First name.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AgivenName%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AgivenName%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">givenName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | State in which the subject of the certificate is located.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astate%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Astate%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | For CA and end-entity certificates in a private PKI, the common name</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- (CN) can be any string within the length limit.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Note: In publicly trusted certificates, the common name must be a fully</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- qualified domain name (FQDN) associated with the certificate subject.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcommonName%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AcommonName%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">commonName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | A subdivision or unit of the organization (such as sales or finance)</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- with which the certificate subject is affiliated.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AorganizationalUnit%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AorganizationalUnit%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">organizationalUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Two-digit code that specifies the country in which the certificate</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- subject located.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Acountry%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Acountry%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Typically a qualifier appended to the name of an individual. Examples</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- include Jr. for junior, Sr. for senior, and III for third.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AgenerationQualifier%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AgenerationQualifier%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">generationQualifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The locality (such as a city or town) in which the certificate subject</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- is located.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Alocality%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Alocality%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">locality</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Typically a shortened version of a longer __GivenName__. For example,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Jonathan is often shortened to John. Elizabeth is often shortened to</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Beth, Liz, or Eliza.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Apseudonym%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Apseudonym%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">pseudonym</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Concatenation that typically contains the first letter of the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- __GivenName__, the first letter of the middle name if one exists, and</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the first letter of the __Surname__.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Ainitials%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Ainitials%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">initials</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A title such as Mr. or Ms., which is pre-pended to the name to refer</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- formally to the certificate subject.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Atitle%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Atitle%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Legal name of the organization with which the certificate subject is</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- affiliated.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Aorganization%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Aorganization%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">organization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The certificate serial number.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AserialNumber%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AserialNumber%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Family name. In the US and the UK, for example, the surname of an</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- individual is ordered last. In Asian cultures the surname is typically</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- ordered first.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Asurname%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Asurname%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">surname</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Disambiguating information for the certificate subject.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AdistinguishedNameQualifier%3AASN1Subject%27"><span class="annot"><span class="annottext">ASN1Subject -&gt; Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AdistinguishedNameQualifier%3AASN1Subject%27"><span class="hs-identifier hs-var hs-var">distinguishedNameQualifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207391"><span id="local-6989586621679207393"><span class="annot"><span class="annottext">ASN1Subject -&gt; ASN1Subject -&gt; Bool
+(ASN1Subject -&gt; ASN1Subject -&gt; Bool)
+-&gt; (ASN1Subject -&gt; ASN1Subject -&gt; Bool) -&gt; Eq ASN1Subject
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ASN1Subject -&gt; ASN1Subject -&gt; Bool
+$c/= :: ASN1Subject -&gt; ASN1Subject -&gt; Bool
+== :: ASN1Subject -&gt; ASN1Subject -&gt; Bool
+$c== :: ASN1Subject -&gt; ASN1Subject -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207382"><span id="local-6989586621679207384"><span id="local-6989586621679207386"><span id="local-6989586621679207388"><span class="annot"><span class="annottext">ReadPrec [ASN1Subject]
+ReadPrec ASN1Subject
+Int -&gt; ReadS ASN1Subject
+ReadS [ASN1Subject]
+(Int -&gt; ReadS ASN1Subject)
+-&gt; ReadS [ASN1Subject]
+-&gt; ReadPrec ASN1Subject
+-&gt; ReadPrec [ASN1Subject]
+-&gt; Read ASN1Subject
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ASN1Subject]
+$creadListPrec :: ReadPrec [ASN1Subject]
+readPrec :: ReadPrec ASN1Subject
+$creadPrec :: ReadPrec ASN1Subject
+readList :: ReadS [ASN1Subject]
+$creadList :: ReadS [ASN1Subject]
+readsPrec :: Int -&gt; ReadS ASN1Subject
+$creadsPrec :: Int -&gt; ReadS ASN1Subject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207375"><span id="local-6989586621679207377"><span id="local-6989586621679207379"><span class="annot"><span class="annottext">Int -&gt; ASN1Subject -&gt; ShowS
+[ASN1Subject] -&gt; ShowS
+ASN1Subject -&gt; String
+(Int -&gt; ASN1Subject -&gt; ShowS)
+-&gt; (ASN1Subject -&gt; String)
+-&gt; ([ASN1Subject] -&gt; ShowS)
+-&gt; Show ASN1Subject
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ASN1Subject] -&gt; ShowS
+$cshowList :: [ASN1Subject] -&gt; ShowS
+show :: ASN1Subject -&gt; String
+$cshow :: ASN1Subject -&gt; String
+showsPrec :: Int -&gt; ASN1Subject -&gt; ShowS
+$cshowsPrec :: Int -&gt; ASN1Subject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ASN1Subject -&gt; Rep ASN1Subject x)
+-&gt; (forall x. Rep ASN1Subject x -&gt; ASN1Subject)
+-&gt; Generic ASN1Subject
+forall x. Rep ASN1Subject x -&gt; ASN1Subject
+forall x. ASN1Subject -&gt; Rep ASN1Subject x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ASN1Subject x -&gt; ASN1Subject
+$cfrom :: forall x. ASN1Subject -&gt; Rep ASN1Subject x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'ASN1Subject' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'givenName', 'aSN1Subject_givenName' - First name.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'state', 'aSN1Subject_state' - State in which the subject of the certificate is located.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'commonName', 'aSN1Subject_commonName' - For CA and end-entity certificates in a private PKI, the common name</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- (CN) can be any string within the length limit.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Note: In publicly trusted certificates, the common name must be a fully</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- qualified domain name (FQDN) associated with the certificate subject.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'organizationalUnit', 'aSN1Subject_organizationalUnit' - A subdivision or unit of the organization (such as sales or finance)</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- with which the certificate subject is affiliated.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'country', 'aSN1Subject_country' - Two-digit code that specifies the country in which the certificate</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- subject located.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'generationQualifier', 'aSN1Subject_generationQualifier' - Typically a qualifier appended to the name of an individual. Examples</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- include Jr. for junior, Sr. for senior, and III for third.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'locality', 'aSN1Subject_locality' - The locality (such as a city or town) in which the certificate subject</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- is located.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'pseudonym', 'aSN1Subject_pseudonym' - Typically a shortened version of a longer __GivenName__. For example,</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Jonathan is often shortened to John. Elizabeth is often shortened to</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Beth, Liz, or Eliza.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'initials', 'aSN1Subject_initials' - Concatenation that typically contains the first letter of the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- __GivenName__, the first letter of the middle name if one exists, and</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- the first letter of the __Surname__.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'title', 'aSN1Subject_title' - A title such as Mr. or Ms., which is pre-pended to the name to refer</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- formally to the certificate subject.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'organization', 'aSN1Subject_organization' - Legal name of the organization with which the certificate subject is</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- affiliated.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'serialNumber', 'aSN1Subject_serialNumber' - The certificate serial number.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'surname', 'aSN1Subject_surname' - Family name. In the US and the UK, for example, the surname of an</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- individual is ordered last. In Asian cultures the surname is typically</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- ordered first.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'distinguishedNameQualifier', 'aSN1Subject_distinguishedNameQualifier' - Disambiguating information for the certificate subject.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#newASN1Subject"><span class="hs-identifier hs-type">newASN1Subject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span>
+</span><span id="line-135"></span><span id="newASN1Subject"><span class="annot"><span class="annottext">newASN1Subject :: ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#newASN1Subject"><span class="hs-identifier hs-var hs-var">newASN1Subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">ASN1Subject' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:givenName:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AgivenName%3AASN1Subject%27"><span class="hs-identifier hs-var">givenName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Astate%3AASN1Subject%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:commonName:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AcommonName%3AASN1Subject%27"><span class="hs-identifier hs-var">commonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationalUnit:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AorganizationalUnit%3AASN1Subject%27"><span class="hs-identifier hs-var">organizationalUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:country:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Acountry%3AASN1Subject%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:generationQualifier:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AgenerationQualifier%3AASN1Subject%27"><span class="hs-identifier hs-var">generationQualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:locality:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Alocality%3AASN1Subject%27"><span class="hs-identifier hs-var">locality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:pseudonym:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Apseudonym%3AASN1Subject%27"><span class="hs-identifier hs-var">pseudonym</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:initials:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Ainitials%3AASN1Subject%27"><span class="hs-identifier hs-var">initials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:title:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Atitle%3AASN1Subject%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:organization:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Aorganization%3AASN1Subject%27"><span class="hs-identifier hs-var">organization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:serialNumber:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AserialNumber%3AASN1Subject%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:surname:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Asurname%3AASN1Subject%27"><span class="hs-identifier hs-var">surname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:distinguishedNameQualifier:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AdistinguishedNameQualifier%3AASN1Subject%27"><span class="hs-identifier hs-var">distinguishedNameQualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | First name.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_givenName"><span class="hs-identifier hs-type">aSN1Subject_givenName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="aSN1Subject_givenName"><span class="annot"><span class="annottext">aSN1Subject_givenName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_givenName"><span class="hs-identifier hs-var hs-var">aSN1Subject_givenName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207366"><span class="annot"><span class="annottext">Maybe Text
+givenName :: Maybe Text
+$sel:givenName:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207366"><span class="hs-identifier hs-var hs-var">givenName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207366"><span class="hs-identifier hs-var">givenName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207365"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207364"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:givenName:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AgivenName%3AASN1Subject%27"><span class="hs-identifier hs-var">givenName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | State in which the subject of the certificate is located.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_state"><span class="hs-identifier hs-type">aSN1Subject_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="aSN1Subject_state"><span class="annot"><span class="annottext">aSN1Subject_state :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_state"><span class="hs-identifier hs-var hs-var">aSN1Subject_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207362"><span class="annot"><span class="annottext">Maybe Text
+state :: Maybe Text
+$sel:state:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207362"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207362"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207361"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207360"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Astate%3AASN1Subject%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | For CA and end-entity certificates in a private PKI, the common name</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- (CN) can be any string within the length limit.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Note: In publicly trusted certificates, the common name must be a fully</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- qualified domain name (FQDN) associated with the certificate subject.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_commonName"><span class="hs-identifier hs-type">aSN1Subject_commonName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="aSN1Subject_commonName"><span class="annot"><span class="annottext">aSN1Subject_commonName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_commonName"><span class="hs-identifier hs-var hs-var">aSN1Subject_commonName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207358"><span class="annot"><span class="annottext">Maybe Text
+commonName :: Maybe Text
+$sel:commonName:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207358"><span class="hs-identifier hs-var hs-var">commonName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207358"><span class="hs-identifier hs-var">commonName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207357"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207356"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commonName:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AcommonName%3AASN1Subject%27"><span class="hs-identifier hs-var">commonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | A subdivision or unit of the organization (such as sales or finance)</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- with which the certificate subject is affiliated.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_organizationalUnit"><span class="hs-identifier hs-type">aSN1Subject_organizationalUnit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="aSN1Subject_organizationalUnit"><span class="annot"><span class="annottext">aSN1Subject_organizationalUnit :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_organizationalUnit"><span class="hs-identifier hs-var hs-var">aSN1Subject_organizationalUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207354"><span class="annot"><span class="annottext">Maybe Text
+organizationalUnit :: Maybe Text
+$sel:organizationalUnit:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207354"><span class="hs-identifier hs-var hs-var">organizationalUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207354"><span class="hs-identifier hs-var">organizationalUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207353"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207352"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnit:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AorganizationalUnit%3AASN1Subject%27"><span class="hs-identifier hs-var">organizationalUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | Two-digit code that specifies the country in which the certificate</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- subject located.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_country"><span class="hs-identifier hs-type">aSN1Subject_country</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="aSN1Subject_country"><span class="annot"><span class="annottext">aSN1Subject_country :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_country"><span class="hs-identifier hs-var hs-var">aSN1Subject_country</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207350"><span class="annot"><span class="annottext">Maybe Text
+country :: Maybe Text
+$sel:country:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207350"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207350"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207349"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207348"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Acountry%3AASN1Subject%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Typically a qualifier appended to the name of an individual. Examples</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- include Jr. for junior, Sr. for senior, and III for third.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_generationQualifier"><span class="hs-identifier hs-type">aSN1Subject_generationQualifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="aSN1Subject_generationQualifier"><span class="annot"><span class="annottext">aSN1Subject_generationQualifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_generationQualifier"><span class="hs-identifier hs-var hs-var">aSN1Subject_generationQualifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207346"><span class="annot"><span class="annottext">Maybe Text
+generationQualifier :: Maybe Text
+$sel:generationQualifier:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207346"><span class="hs-identifier hs-var hs-var">generationQualifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207346"><span class="hs-identifier hs-var">generationQualifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207345"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207344"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:generationQualifier:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AgenerationQualifier%3AASN1Subject%27"><span class="hs-identifier hs-var">generationQualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The locality (such as a city or town) in which the certificate subject</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- is located.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_locality"><span class="hs-identifier hs-type">aSN1Subject_locality</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="aSN1Subject_locality"><span class="annot"><span class="annottext">aSN1Subject_locality :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_locality"><span class="hs-identifier hs-var hs-var">aSN1Subject_locality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207342"><span class="annot"><span class="annottext">Maybe Text
+locality :: Maybe Text
+$sel:locality:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207342"><span class="hs-identifier hs-var hs-var">locality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207342"><span class="hs-identifier hs-var">locality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207341"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207340"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locality:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Alocality%3AASN1Subject%27"><span class="hs-identifier hs-var">locality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Typically a shortened version of a longer __GivenName__. For example,</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Jonathan is often shortened to John. Elizabeth is often shortened to</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Beth, Liz, or Eliza.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_pseudonym"><span class="hs-identifier hs-type">aSN1Subject_pseudonym</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="aSN1Subject_pseudonym"><span class="annot"><span class="annottext">aSN1Subject_pseudonym :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_pseudonym"><span class="hs-identifier hs-var hs-var">aSN1Subject_pseudonym</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207338"><span class="annot"><span class="annottext">Maybe Text
+pseudonym :: Maybe Text
+$sel:pseudonym:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207338"><span class="hs-identifier hs-var hs-var">pseudonym</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207338"><span class="hs-identifier hs-var">pseudonym</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207337"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207336"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pseudonym:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Apseudonym%3AASN1Subject%27"><span class="hs-identifier hs-var">pseudonym</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | Concatenation that typically contains the first letter of the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- __GivenName__, the first letter of the middle name if one exists, and</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- the first letter of the __Surname__.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_initials"><span class="hs-identifier hs-type">aSN1Subject_initials</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="aSN1Subject_initials"><span class="annot"><span class="annottext">aSN1Subject_initials :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_initials"><span class="hs-identifier hs-var hs-var">aSN1Subject_initials</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207334"><span class="annot"><span class="annottext">Maybe Text
+initials :: Maybe Text
+$sel:initials:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207334"><span class="hs-identifier hs-var hs-var">initials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207334"><span class="hs-identifier hs-var">initials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207333"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207332"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initials:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Ainitials%3AASN1Subject%27"><span class="hs-identifier hs-var">initials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | A title such as Mr. or Ms., which is pre-pended to the name to refer</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- formally to the certificate subject.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_title"><span class="hs-identifier hs-type">aSN1Subject_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="aSN1Subject_title"><span class="annot"><span class="annottext">aSN1Subject_title :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_title"><span class="hs-identifier hs-var hs-var">aSN1Subject_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207330"><span class="annot"><span class="annottext">Maybe Text
+title :: Maybe Text
+$sel:title:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207330"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207330"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207329"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207328"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Atitle%3AASN1Subject%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | Legal name of the organization with which the certificate subject is</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- affiliated.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_organization"><span class="hs-identifier hs-type">aSN1Subject_organization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="aSN1Subject_organization"><span class="annot"><span class="annottext">aSN1Subject_organization :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_organization"><span class="hs-identifier hs-var hs-var">aSN1Subject_organization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207326"><span class="annot"><span class="annottext">Maybe Text
+organization :: Maybe Text
+$sel:organization:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207326"><span class="hs-identifier hs-var hs-var">organization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207326"><span class="hs-identifier hs-var">organization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207325"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207324"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organization:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Aorganization%3AASN1Subject%27"><span class="hs-identifier hs-var">organization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The certificate serial number.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_serialNumber"><span class="hs-identifier hs-type">aSN1Subject_serialNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="aSN1Subject_serialNumber"><span class="annot"><span class="annottext">aSN1Subject_serialNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_serialNumber"><span class="hs-identifier hs-var hs-var">aSN1Subject_serialNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207322"><span class="annot"><span class="annottext">Maybe Text
+serialNumber :: Maybe Text
+$sel:serialNumber:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207322"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207322"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207321"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207320"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AserialNumber%3AASN1Subject%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | Family name. In the US and the UK, for example, the surname of an</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- individual is ordered last. In Asian cultures the surname is typically</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- ordered first.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_surname"><span class="hs-identifier hs-type">aSN1Subject_surname</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="aSN1Subject_surname"><span class="annot"><span class="annottext">aSN1Subject_surname :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_surname"><span class="hs-identifier hs-var hs-var">aSN1Subject_surname</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207318"><span class="annot"><span class="annottext">Maybe Text
+surname :: Maybe Text
+$sel:surname:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207318"><span class="hs-identifier hs-var hs-var">surname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207318"><span class="hs-identifier hs-var">surname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207317"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207316"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:surname:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3Asurname%3AASN1Subject%27"><span class="hs-identifier hs-var">surname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | Disambiguating information for the certificate subject.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_distinguishedNameQualifier"><span class="hs-identifier hs-type">aSN1Subject_distinguishedNameQualifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="aSN1Subject_distinguishedNameQualifier"><span class="annot"><span class="annottext">aSN1Subject_distinguishedNameQualifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ASN1Subject -&gt; f ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#aSN1Subject_distinguishedNameQualifier"><span class="hs-identifier hs-var hs-var">aSN1Subject_distinguishedNameQualifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Maybe Text)
+-&gt; (ASN1Subject -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Lens ASN1Subject ASN1Subject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207314"><span class="annot"><span class="annottext">Maybe Text
+distinguishedNameQualifier :: Maybe Text
+$sel:distinguishedNameQualifier:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207314"><span class="hs-identifier hs-var hs-var">distinguishedNameQualifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207314"><span class="hs-identifier hs-var">distinguishedNameQualifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207313"><span class="annot"><span class="annottext">s :: ASN1Subject
+</span><a href="#local-6989586621679207313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207312"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679207313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distinguishedNameQualifier:ASN1Subject' :: Maybe Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#%24sel%3AdistinguishedNameQualifier%3AASN1Subject%27"><span class="hs-identifier hs-var">distinguishedNameQualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207309"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679207307"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ASN1Subject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ASN1Subject) -&gt; Value -&gt; Parser ASN1Subject
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ASN1Subject&quot;</span></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207304"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-230"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ASN1Subject
+</span><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-var">ASN1Subject'</span></a></span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GivenName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CommonName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationalUnit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Country&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GenerationQualifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Locality&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Pseudonym&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Initials&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Title&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Organization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SerialNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ASN1Subject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Surname&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ASN1Subject)
+-&gt; Parser (Maybe Text) -&gt; Parser ASN1Subject
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DistinguishedNameQualifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207298"><span id="local-6989586621679207300"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span></span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207287"><span id="local-6989586621679207289"><span id="local-6989586621679207291"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679207285"><span class="annot"><span class="annottext">toJSON :: ASN1Subject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject%27"><span class="hs-identifier hs-type">ASN1Subject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207270"><span id="local-6989586621679207271"><span id="local-6989586621679207272"><span id="local-6989586621679207273"><span id="local-6989586621679207274"><span id="local-6989586621679207275"><span id="local-6989586621679207276"><span id="local-6989586621679207277"><span id="local-6989586621679207278"><span id="local-6989586621679207279"><span id="local-6989586621679207280"><span id="local-6989586621679207281"><span id="local-6989586621679207282"><span id="local-6989586621679207283"><span class="annot"><span class="annottext">Maybe Text
+distinguishedNameQualifier :: Maybe Text
+surname :: Maybe Text
+serialNumber :: Maybe Text
+organization :: Maybe Text
+title :: Maybe Text
+initials :: Maybe Text
+pseudonym :: Maybe Text
+locality :: Maybe Text
+generationQualifier :: Maybe Text
+country :: Maybe Text
+organizationalUnit :: Maybe Text
+commonName :: Maybe Text
+state :: Maybe Text
+givenName :: Maybe Text
+$sel:distinguishedNameQualifier:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:surname:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:serialNumber:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:organization:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:title:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:initials:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:pseudonym:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:locality:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:generationQualifier:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:country:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:organizationalUnit:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:commonName:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:state:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+$sel:givenName:ASN1Subject' :: ASN1Subject -&gt; Maybe Text
+</span><a href="#local-6989586621679207270"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-255"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GivenName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207283"><span class="hs-identifier hs-var">givenName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207282"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CommonName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207281"><span class="hs-identifier hs-var">commonName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationalUnit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207280"><span class="hs-identifier hs-var">organizationalUnit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Country&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207279"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GenerationQualifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207278"><span class="hs-identifier hs-var">generationQualifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Locality&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207277"><span class="hs-identifier hs-var">locality</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Pseudonym&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207276"><span class="hs-identifier hs-var">pseudonym</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Initials&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207275"><span class="hs-identifier hs-var">initials</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Title&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207274"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Organization&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207273"><span class="hs-identifier hs-var">organization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SerialNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207272"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Surname&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207271"><span class="hs-identifier hs-var">surname</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DistinguishedNameQualifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207270"><span class="hs-identifier hs-var">distinguishedNameQualifier</span></a></span><span>
+</span><span id="line-272"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-273"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span></pre></body></html>

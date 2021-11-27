@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppFlow.Types.MarketoConnectorOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppFlow.Types.MarketoConnectorOperator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_ADDITION"><span class="hs-identifier">MarketoConnectorOperator_ADDITION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_BETWEEN"><span class="hs-identifier">MarketoConnectorOperator_BETWEEN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_DIVISION"><span class="hs-identifier">MarketoConnectorOperator_DIVISION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_GREATER_THAN"><span class="hs-identifier">MarketoConnectorOperator_GREATER_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_LESS_THAN"><span class="hs-identifier">MarketoConnectorOperator_LESS_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_MASK_ALL"><span class="hs-identifier">MarketoConnectorOperator_MASK_ALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_MASK_FIRST_N"><span class="hs-identifier">MarketoConnectorOperator_MASK_FIRST_N</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_MASK_LAST_N"><span class="hs-identifier">MarketoConnectorOperator_MASK_LAST_N</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_MULTIPLICATION"><span class="hs-identifier">MarketoConnectorOperator_MULTIPLICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_NO_OP"><span class="hs-identifier">MarketoConnectorOperator_NO_OP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_PROJECTION"><span class="hs-identifier">MarketoConnectorOperator_PROJECTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_SUBTRACTION"><span class="hs-identifier">MarketoConnectorOperator_SUBTRACTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier">MarketoConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier">MarketoConnectorOperator_VALIDATE_NON_NULL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier">MarketoConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier">MarketoConnectorOperator_VALIDATE_NUMERIC</span></a></span><span>
+</span><span id="line-39"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679317692"><span id="local-6989586621679317693"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MarketoConnectorOperator"><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-var">MarketoConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MarketoConnectorOperator%27"><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-var">MarketoConnectorOperator'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMarketoConnectorOperator"><span class="annot"><span class="annottext">MarketoConnectorOperator -&gt; Text
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#fromMarketoConnectorOperator"><span class="hs-identifier hs-var hs-var">fromMarketoConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679317684"><span id="local-6989586621679317686"><span id="local-6989586621679317688"><span class="annot"><span class="annottext">Int -&gt; MarketoConnectorOperator -&gt; ShowS
+[MarketoConnectorOperator] -&gt; ShowS
+MarketoConnectorOperator -&gt; String
+(Int -&gt; MarketoConnectorOperator -&gt; ShowS)
+-&gt; (MarketoConnectorOperator -&gt; String)
+-&gt; ([MarketoConnectorOperator] -&gt; ShowS)
+-&gt; Show MarketoConnectorOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MarketoConnectorOperator] -&gt; ShowS
+$cshowList :: [MarketoConnectorOperator] -&gt; ShowS
+show :: MarketoConnectorOperator -&gt; String
+$cshow :: MarketoConnectorOperator -&gt; String
+showsPrec :: Int -&gt; MarketoConnectorOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; MarketoConnectorOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679317675"><span id="local-6989586621679317677"><span id="local-6989586621679317679"><span id="local-6989586621679317681"><span class="annot"><span class="annottext">ReadPrec [MarketoConnectorOperator]
+ReadPrec MarketoConnectorOperator
+Int -&gt; ReadS MarketoConnectorOperator
+ReadS [MarketoConnectorOperator]
+(Int -&gt; ReadS MarketoConnectorOperator)
+-&gt; ReadS [MarketoConnectorOperator]
+-&gt; ReadPrec MarketoConnectorOperator
+-&gt; ReadPrec [MarketoConnectorOperator]
+-&gt; Read MarketoConnectorOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MarketoConnectorOperator]
+$creadListPrec :: ReadPrec [MarketoConnectorOperator]
+readPrec :: ReadPrec MarketoConnectorOperator
+$creadPrec :: ReadPrec MarketoConnectorOperator
+readList :: ReadS [MarketoConnectorOperator]
+$creadList :: ReadS [MarketoConnectorOperator]
+readsPrec :: Int -&gt; ReadS MarketoConnectorOperator
+$creadsPrec :: Int -&gt; ReadS MarketoConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679317670"><span id="local-6989586621679317672"><span class="annot"><span class="annottext">MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+(MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool)
+-&gt; (MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool)
+-&gt; Eq MarketoConnectorOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+$c/= :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+== :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+$c== :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679317654"><span id="local-6989586621679317656"><span id="local-6989586621679317658"><span id="local-6989586621679317660"><span id="local-6989586621679317662"><span id="local-6989586621679317664"><span id="local-6989586621679317666"><span class="annot"><span class="annottext">Eq MarketoConnectorOperator
+Eq MarketoConnectorOperator
+-&gt; (MarketoConnectorOperator
+    -&gt; MarketoConnectorOperator -&gt; Ordering)
+-&gt; (MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool)
+-&gt; (MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool)
+-&gt; (MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool)
+-&gt; (MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool)
+-&gt; (MarketoConnectorOperator
+    -&gt; MarketoConnectorOperator -&gt; MarketoConnectorOperator)
+-&gt; (MarketoConnectorOperator
+    -&gt; MarketoConnectorOperator -&gt; MarketoConnectorOperator)
+-&gt; Ord MarketoConnectorOperator
+MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Ordering
+MarketoConnectorOperator
+-&gt; MarketoConnectorOperator -&gt; MarketoConnectorOperator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MarketoConnectorOperator
+-&gt; MarketoConnectorOperator -&gt; MarketoConnectorOperator
+$cmin :: MarketoConnectorOperator
+-&gt; MarketoConnectorOperator -&gt; MarketoConnectorOperator
+max :: MarketoConnectorOperator
+-&gt; MarketoConnectorOperator -&gt; MarketoConnectorOperator
+$cmax :: MarketoConnectorOperator
+-&gt; MarketoConnectorOperator -&gt; MarketoConnectorOperator
+&gt;= :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+$c&gt;= :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+&gt; :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+$c&gt; :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+&lt;= :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+$c&lt;= :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+&lt; :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+$c&lt; :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Bool
+compare :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Ordering
+$ccompare :: MarketoConnectorOperator -&gt; MarketoConnectorOperator -&gt; Ordering
+$cp1Ord :: Eq MarketoConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ MarketoConnectorOperator -&gt; Rep MarketoConnectorOperator x)
+-&gt; (forall x.
+    Rep MarketoConnectorOperator x -&gt; MarketoConnectorOperator)
+-&gt; Generic MarketoConnectorOperator
+forall x.
+Rep MarketoConnectorOperator x -&gt; MarketoConnectorOperator
+forall x.
+MarketoConnectorOperator -&gt; Rep MarketoConnectorOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MarketoConnectorOperator x -&gt; MarketoConnectorOperator
+$cfrom :: forall x.
+MarketoConnectorOperator -&gt; Rep MarketoConnectorOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679317646"><span id="local-6989586621679317648"><span class="annot"><span class="annottext">Int -&gt; MarketoConnectorOperator -&gt; Int
+MarketoConnectorOperator -&gt; Int
+(Int -&gt; MarketoConnectorOperator -&gt; Int)
+-&gt; (MarketoConnectorOperator -&gt; Int)
+-&gt; Hashable MarketoConnectorOperator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MarketoConnectorOperator -&gt; Int
+$chash :: MarketoConnectorOperator -&gt; Int
+hashWithSalt :: Int -&gt; MarketoConnectorOperator -&gt; Int
+$chashWithSalt :: Int -&gt; MarketoConnectorOperator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679317643"><span class="annot"><span class="annottext">MarketoConnectorOperator -&gt; ()
+(MarketoConnectorOperator -&gt; ()) -&gt; NFData MarketoConnectorOperator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MarketoConnectorOperator -&gt; ()
+$crnf :: MarketoConnectorOperator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679317640"><span class="annot"><span class="annottext">Text -&gt; Either String MarketoConnectorOperator
+(Text -&gt; Either String MarketoConnectorOperator)
+-&gt; FromText MarketoConnectorOperator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MarketoConnectorOperator
+$cfromText :: Text -&gt; Either String MarketoConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679317637"><span class="annot"><span class="annottext">MarketoConnectorOperator -&gt; Text
+(MarketoConnectorOperator -&gt; Text)
+-&gt; ToText MarketoConnectorOperator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MarketoConnectorOperator -&gt; Text
+$ctoText :: MarketoConnectorOperator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679317634"><span class="annot"><span class="annottext">MarketoConnectorOperator -&gt; ByteString
+(MarketoConnectorOperator -&gt; ByteString)
+-&gt; ToByteString MarketoConnectorOperator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MarketoConnectorOperator -&gt; ByteString
+$ctoBS :: MarketoConnectorOperator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679317631"><span class="annot"><span class="annottext">MarketoConnectorOperator -&gt; ByteStringBuilder
+(MarketoConnectorOperator -&gt; ByteStringBuilder)
+-&gt; ToLog MarketoConnectorOperator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MarketoConnectorOperator -&gt; ByteStringBuilder
+$cbuild :: MarketoConnectorOperator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679317628"><span class="annot"><span class="annottext">HeaderName -&gt; MarketoConnectorOperator -&gt; [Header]
+(HeaderName -&gt; MarketoConnectorOperator -&gt; [Header])
+-&gt; ToHeader MarketoConnectorOperator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MarketoConnectorOperator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MarketoConnectorOperator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679317625"><span class="annot"><span class="annottext">MarketoConnectorOperator -&gt; QueryString
+(MarketoConnectorOperator -&gt; QueryString)
+-&gt; ToQuery MarketoConnectorOperator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MarketoConnectorOperator -&gt; QueryString
+$ctoQuery :: MarketoConnectorOperator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679317620"><span id="local-6989586621679317622"><span class="annot"><span class="annottext">Value -&gt; Parser [MarketoConnectorOperator]
+Value -&gt; Parser MarketoConnectorOperator
+(Value -&gt; Parser MarketoConnectorOperator)
+-&gt; (Value -&gt; Parser [MarketoConnectorOperator])
+-&gt; FromJSON MarketoConnectorOperator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MarketoConnectorOperator]
+$cparseJSONList :: Value -&gt; Parser [MarketoConnectorOperator]
+parseJSON :: Value -&gt; Parser MarketoConnectorOperator
+$cparseJSON :: Value -&gt; Parser MarketoConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679317615"><span id="local-6989586621679317617"><span class="annot"><span class="annottext">FromJSONKeyFunction [MarketoConnectorOperator]
+FromJSONKeyFunction MarketoConnectorOperator
+FromJSONKeyFunction MarketoConnectorOperator
+-&gt; FromJSONKeyFunction [MarketoConnectorOperator]
+-&gt; FromJSONKey MarketoConnectorOperator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MarketoConnectorOperator]
+$cfromJSONKeyList :: FromJSONKeyFunction [MarketoConnectorOperator]
+fromJSONKey :: FromJSONKeyFunction MarketoConnectorOperator
+$cfromJSONKey :: FromJSONKeyFunction MarketoConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679317606"><span id="local-6989586621679317608"><span id="local-6989586621679317610"><span id="local-6989586621679317612"><span class="annot"><span class="annottext">[MarketoConnectorOperator] -&gt; Encoding
+[MarketoConnectorOperator] -&gt; Value
+MarketoConnectorOperator -&gt; Encoding
+MarketoConnectorOperator -&gt; Value
+(MarketoConnectorOperator -&gt; Value)
+-&gt; (MarketoConnectorOperator -&gt; Encoding)
+-&gt; ([MarketoConnectorOperator] -&gt; Value)
+-&gt; ([MarketoConnectorOperator] -&gt; Encoding)
+-&gt; ToJSON MarketoConnectorOperator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MarketoConnectorOperator] -&gt; Encoding
+$ctoEncodingList :: [MarketoConnectorOperator] -&gt; Encoding
+toJSONList :: [MarketoConnectorOperator] -&gt; Value
+$ctoJSONList :: [MarketoConnectorOperator] -&gt; Value
+toEncoding :: MarketoConnectorOperator -&gt; Encoding
+$ctoEncoding :: MarketoConnectorOperator -&gt; Encoding
+toJSON :: MarketoConnectorOperator -&gt; Value
+$ctoJSON :: MarketoConnectorOperator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679317601"><span id="local-6989586621679317603"><span class="annot"><span class="annottext">ToJSONKeyFunction [MarketoConnectorOperator]
+ToJSONKeyFunction MarketoConnectorOperator
+ToJSONKeyFunction MarketoConnectorOperator
+-&gt; ToJSONKeyFunction [MarketoConnectorOperator]
+-&gt; ToJSONKey MarketoConnectorOperator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MarketoConnectorOperator]
+$ctoJSONKeyList :: ToJSONKeyFunction [MarketoConnectorOperator]
+toJSONKey :: ToJSONKeyFunction MarketoConnectorOperator
+$ctoJSONKey :: ToJSONKeyFunction MarketoConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679317598"><span class="annot"><span class="annottext">[Node] -&gt; Either String MarketoConnectorOperator
+([Node] -&gt; Either String MarketoConnectorOperator)
+-&gt; FromXML MarketoConnectorOperator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MarketoConnectorOperator
+$cparseXML :: [Node] -&gt; Either String MarketoConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679317595"><span class="annot"><span class="annottext">MarketoConnectorOperator -&gt; XML
+(MarketoConnectorOperator -&gt; XML) -&gt; ToXML MarketoConnectorOperator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MarketoConnectorOperator -&gt; XML
+$ctoXML :: MarketoConnectorOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_ADDITION"><span class="hs-identifier hs-type">MarketoConnectorOperator_ADDITION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_ADDITION"><span id="%24mMarketoConnectorOperator_ADDITION"><span id="MarketoConnectorOperator_ADDITION"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_ADDITION :: MarketoConnectorOperator
+$mMarketoConnectorOperator_ADDITION :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_ADDITION"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_ADDITION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADDITION&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_BETWEEN"><span class="hs-identifier hs-type">MarketoConnectorOperator_BETWEEN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_BETWEEN"><span id="%24mMarketoConnectorOperator_BETWEEN"><span id="MarketoConnectorOperator_BETWEEN"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_BETWEEN :: MarketoConnectorOperator
+$mMarketoConnectorOperator_BETWEEN :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_BETWEEN"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_BETWEEN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BETWEEN&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_DIVISION"><span class="hs-identifier hs-type">MarketoConnectorOperator_DIVISION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_DIVISION"><span id="%24mMarketoConnectorOperator_DIVISION"><span id="MarketoConnectorOperator_DIVISION"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_DIVISION :: MarketoConnectorOperator
+$mMarketoConnectorOperator_DIVISION :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_DIVISION"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_DIVISION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DIVISION&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_GREATER_THAN"><span class="hs-identifier hs-type">MarketoConnectorOperator_GREATER_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_GREATER_THAN"><span id="%24mMarketoConnectorOperator_GREATER_THAN"><span id="MarketoConnectorOperator_GREATER_THAN"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_GREATER_THAN :: MarketoConnectorOperator
+$mMarketoConnectorOperator_GREATER_THAN :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_GREATER_THAN"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_GREATER_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GREATER_THAN&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_LESS_THAN"><span class="hs-identifier hs-type">MarketoConnectorOperator_LESS_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_LESS_THAN"><span id="%24mMarketoConnectorOperator_LESS_THAN"><span id="MarketoConnectorOperator_LESS_THAN"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_LESS_THAN :: MarketoConnectorOperator
+$mMarketoConnectorOperator_LESS_THAN :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_LESS_THAN"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_LESS_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LESS_THAN&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_MASK_ALL"><span class="hs-identifier hs-type">MarketoConnectorOperator_MASK_ALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_MASK_ALL"><span id="%24mMarketoConnectorOperator_MASK_ALL"><span id="MarketoConnectorOperator_MASK_ALL"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_MASK_ALL :: MarketoConnectorOperator
+$mMarketoConnectorOperator_MASK_ALL :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_MASK_ALL"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_MASK_ALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_ALL&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_MASK_FIRST_N"><span class="hs-identifier hs-type">MarketoConnectorOperator_MASK_FIRST_N</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_MASK_FIRST_N"><span id="%24mMarketoConnectorOperator_MASK_FIRST_N"><span id="MarketoConnectorOperator_MASK_FIRST_N"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_MASK_FIRST_N :: MarketoConnectorOperator
+$mMarketoConnectorOperator_MASK_FIRST_N :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_MASK_FIRST_N"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_MASK_FIRST_N</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_FIRST_N&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_MASK_LAST_N"><span class="hs-identifier hs-type">MarketoConnectorOperator_MASK_LAST_N</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_MASK_LAST_N"><span id="%24mMarketoConnectorOperator_MASK_LAST_N"><span id="MarketoConnectorOperator_MASK_LAST_N"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_MASK_LAST_N :: MarketoConnectorOperator
+$mMarketoConnectorOperator_MASK_LAST_N :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_MASK_LAST_N"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_MASK_LAST_N</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_LAST_N&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_MULTIPLICATION"><span class="hs-identifier hs-type">MarketoConnectorOperator_MULTIPLICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_MULTIPLICATION"><span id="%24mMarketoConnectorOperator_MULTIPLICATION"><span id="MarketoConnectorOperator_MULTIPLICATION"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_MULTIPLICATION :: MarketoConnectorOperator
+$mMarketoConnectorOperator_MULTIPLICATION :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_MULTIPLICATION"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_MULTIPLICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MULTIPLICATION&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_NO_OP"><span class="hs-identifier hs-type">MarketoConnectorOperator_NO_OP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_NO_OP"><span id="%24mMarketoConnectorOperator_NO_OP"><span id="MarketoConnectorOperator_NO_OP"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_NO_OP :: MarketoConnectorOperator
+$mMarketoConnectorOperator_NO_OP :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_NO_OP"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_NO_OP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_OP&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_PROJECTION"><span class="hs-identifier hs-type">MarketoConnectorOperator_PROJECTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_PROJECTION"><span id="%24mMarketoConnectorOperator_PROJECTION"><span id="MarketoConnectorOperator_PROJECTION"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_PROJECTION :: MarketoConnectorOperator
+$mMarketoConnectorOperator_PROJECTION :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_PROJECTION"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_PROJECTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROJECTION&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_SUBTRACTION"><span class="hs-identifier hs-type">MarketoConnectorOperator_SUBTRACTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_SUBTRACTION"><span id="%24mMarketoConnectorOperator_SUBTRACTION"><span id="MarketoConnectorOperator_SUBTRACTION"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_SUBTRACTION :: MarketoConnectorOperator
+$mMarketoConnectorOperator_SUBTRACTION :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_SUBTRACTION"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_SUBTRACTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBTRACTION&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier hs-type">MarketoConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_VALIDATE_NON_NEGATIVE"><span id="%24mMarketoConnectorOperator_VALIDATE_NON_NEGATIVE"><span id="MarketoConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_VALIDATE_NON_NEGATIVE :: MarketoConnectorOperator
+$mMarketoConnectorOperator_VALIDATE_NON_NEGATIVE :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_NEGATIVE&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier hs-type">MarketoConnectorOperator_VALIDATE_NON_NULL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_VALIDATE_NON_NULL"><span id="%24mMarketoConnectorOperator_VALIDATE_NON_NULL"><span id="MarketoConnectorOperator_VALIDATE_NON_NULL"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_VALIDATE_NON_NULL :: MarketoConnectorOperator
+$mMarketoConnectorOperator_VALIDATE_NON_NULL :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_VALIDATE_NON_NULL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_NULL&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier hs-type">MarketoConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_VALIDATE_NON_ZERO"><span id="%24mMarketoConnectorOperator_VALIDATE_NON_ZERO"><span id="MarketoConnectorOperator_VALIDATE_NON_ZERO"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_VALIDATE_NON_ZERO :: MarketoConnectorOperator
+$mMarketoConnectorOperator_VALIDATE_NON_ZERO :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_VALIDATE_NON_ZERO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_ZERO&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier hs-type">MarketoConnectorOperator_VALIDATE_NUMERIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier hs-type">MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMarketoConnectorOperator_VALIDATE_NUMERIC"><span id="%24mMarketoConnectorOperator_VALIDATE_NUMERIC"><span id="MarketoConnectorOperator_VALIDATE_NUMERIC"><span class="annot"><span class="annottext">$bMarketoConnectorOperator_VALIDATE_NUMERIC :: MarketoConnectorOperator
+$mMarketoConnectorOperator_VALIDATE_NUMERIC :: forall r.
+MarketoConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#%24bMarketoConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier hs-var hs-var hs-var">MarketoConnectorOperator_VALIDATE_NUMERIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-identifier hs-type">MarketoConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NUMERIC&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_ADDITION"><span class="hs-pragma hs-type">MarketoConnectorOperator_ADDITION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_BETWEEN"><span class="hs-pragma hs-type">MarketoConnectorOperator_BETWEEN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_DIVISION"><span class="hs-pragma hs-type">MarketoConnectorOperator_DIVISION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_GREATER_THAN"><span class="hs-pragma hs-type">MarketoConnectorOperator_GREATER_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_LESS_THAN"><span class="hs-pragma hs-type">MarketoConnectorOperator_LESS_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_MASK_ALL"><span class="hs-pragma hs-type">MarketoConnectorOperator_MASK_ALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_MASK_FIRST_N"><span class="hs-pragma hs-type">MarketoConnectorOperator_MASK_FIRST_N</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_MASK_LAST_N"><span class="hs-pragma hs-type">MarketoConnectorOperator_MASK_LAST_N</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_MULTIPLICATION"><span class="hs-pragma hs-type">MarketoConnectorOperator_MULTIPLICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_NO_OP"><span class="hs-pragma hs-type">MarketoConnectorOperator_NO_OP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_PROJECTION"><span class="hs-pragma hs-type">MarketoConnectorOperator_PROJECTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_SUBTRACTION"><span class="hs-pragma hs-type">MarketoConnectorOperator_SUBTRACTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-pragma hs-type">MarketoConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_VALIDATE_NON_NULL"><span class="hs-pragma hs-type">MarketoConnectorOperator_VALIDATE_NON_NULL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-pragma hs-type">MarketoConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator_VALIDATE_NUMERIC"><span class="hs-pragma hs-type">MarketoConnectorOperator_VALIDATE_NUMERIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.MarketoConnectorOperator.html#MarketoConnectorOperator%27"><span class="hs-pragma hs-type">MarketoConnectorOperator'</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-141"></span></pre></body></html>

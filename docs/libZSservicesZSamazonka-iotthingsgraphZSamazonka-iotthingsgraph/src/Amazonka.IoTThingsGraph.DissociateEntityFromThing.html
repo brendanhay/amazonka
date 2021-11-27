@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTThingsGraph.DissociateEntityFromThing</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Dissociates a device entity from a concrete thing. The action takes only</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the type of the entity that you need to dissociate because only one</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- entity of a particular type can be associated with a thing.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTThingsGraph.DissociateEntityFromThing</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier">DissociateEntityFromThing</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#newDissociateEntityFromThing"><span class="hs-identifier">newDissociateEntityFromThing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#dissociateEntityFromThing_thingName"><span class="hs-identifier">dissociateEntityFromThing_thingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#dissociateEntityFromThing_entityType"><span class="hs-identifier">dissociateEntityFromThing_entityType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThingResponse"><span class="hs-identifier">DissociateEntityFromThingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#newDissociateEntityFromThingResponse"><span class="hs-identifier">newDissociateEntityFromThingResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#dissociateEntityFromThingResponse_httpStatus"><span class="hs-identifier">dissociateEntityFromThingResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.html"><span class="hs-identifier">Amazonka.IoTThingsGraph.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDissociateEntityFromThing' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679224895"><span id="local-6989586621679224896"></span></span><span class="hs-keyword">data</span><span> </span><span id="DissociateEntityFromThing"><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-var">DissociateEntityFromThing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DissociateEntityFromThing%27"><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing%27"><span class="hs-identifier hs-var">DissociateEntityFromThing'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the thing to disassociate.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AthingName%3ADissociateEntityFromThing%27"><span class="annot"><span class="annottext">DissociateEntityFromThing -&gt; Text
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#%24sel%3AthingName%3ADissociateEntityFromThing%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The entity type from which to disassociate the thing.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AentityType%3ADissociateEntityFromThing%27"><span class="annot"><span class="annottext">DissociateEntityFromThing -&gt; EntityType
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#%24sel%3AentityType%3ADissociateEntityFromThing%27"><span class="hs-identifier hs-var hs-var">entityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224888"><span id="local-6989586621679224890"><span class="annot"><span class="annottext">DissociateEntityFromThing -&gt; DissociateEntityFromThing -&gt; Bool
+(DissociateEntityFromThing -&gt; DissociateEntityFromThing -&gt; Bool)
+-&gt; (DissociateEntityFromThing -&gt; DissociateEntityFromThing -&gt; Bool)
+-&gt; Eq DissociateEntityFromThing
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DissociateEntityFromThing -&gt; DissociateEntityFromThing -&gt; Bool
+$c/= :: DissociateEntityFromThing -&gt; DissociateEntityFromThing -&gt; Bool
+== :: DissociateEntityFromThing -&gt; DissociateEntityFromThing -&gt; Bool
+$c== :: DissociateEntityFromThing -&gt; DissociateEntityFromThing -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224879"><span id="local-6989586621679224881"><span id="local-6989586621679224883"><span id="local-6989586621679224885"><span class="annot"><span class="annottext">ReadPrec [DissociateEntityFromThing]
+ReadPrec DissociateEntityFromThing
+Int -&gt; ReadS DissociateEntityFromThing
+ReadS [DissociateEntityFromThing]
+(Int -&gt; ReadS DissociateEntityFromThing)
+-&gt; ReadS [DissociateEntityFromThing]
+-&gt; ReadPrec DissociateEntityFromThing
+-&gt; ReadPrec [DissociateEntityFromThing]
+-&gt; Read DissociateEntityFromThing
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DissociateEntityFromThing]
+$creadListPrec :: ReadPrec [DissociateEntityFromThing]
+readPrec :: ReadPrec DissociateEntityFromThing
+$creadPrec :: ReadPrec DissociateEntityFromThing
+readList :: ReadS [DissociateEntityFromThing]
+$creadList :: ReadS [DissociateEntityFromThing]
+readsPrec :: Int -&gt; ReadS DissociateEntityFromThing
+$creadsPrec :: Int -&gt; ReadS DissociateEntityFromThing
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224872"><span id="local-6989586621679224874"><span id="local-6989586621679224876"><span class="annot"><span class="annottext">Int -&gt; DissociateEntityFromThing -&gt; ShowS
+[DissociateEntityFromThing] -&gt; ShowS
+DissociateEntityFromThing -&gt; String
+(Int -&gt; DissociateEntityFromThing -&gt; ShowS)
+-&gt; (DissociateEntityFromThing -&gt; String)
+-&gt; ([DissociateEntityFromThing] -&gt; ShowS)
+-&gt; Show DissociateEntityFromThing
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DissociateEntityFromThing] -&gt; ShowS
+$cshowList :: [DissociateEntityFromThing] -&gt; ShowS
+show :: DissociateEntityFromThing -&gt; String
+$cshow :: DissociateEntityFromThing -&gt; String
+showsPrec :: Int -&gt; DissociateEntityFromThing -&gt; ShowS
+$cshowsPrec :: Int -&gt; DissociateEntityFromThing -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DissociateEntityFromThing -&gt; Rep DissociateEntityFromThing x)
+-&gt; (forall x.
+    Rep DissociateEntityFromThing x -&gt; DissociateEntityFromThing)
+-&gt; Generic DissociateEntityFromThing
+forall x.
+Rep DissociateEntityFromThing x -&gt; DissociateEntityFromThing
+forall x.
+DissociateEntityFromThing -&gt; Rep DissociateEntityFromThing x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DissociateEntityFromThing x -&gt; DissociateEntityFromThing
+$cfrom :: forall x.
+DissociateEntityFromThing -&gt; Rep DissociateEntityFromThing x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DissociateEntityFromThing' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'thingName', 'dissociateEntityFromThing_thingName' - The name of the thing to disassociate.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'entityType', 'dissociateEntityFromThing_entityType' - The entity type from which to disassociate the thing.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#newDissociateEntityFromThing"><span class="hs-identifier hs-type">newDissociateEntityFromThing</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'thingName'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'entityType'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span><span>
+</span><span id="line-77"></span><span id="newDissociateEntityFromThing"><span class="annot"><span class="annottext">newDissociateEntityFromThing :: Text -&gt; EntityType -&gt; DissociateEntityFromThing
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#newDissociateEntityFromThing"><span class="hs-identifier hs-var hs-var">newDissociateEntityFromThing</span></a></span></span><span> </span><span id="local-6989586621679224867"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224867"><span class="hs-identifier hs-var">pThingName_</span></a></span></span><span> </span><span id="local-6989586621679224866"><span class="annot"><span class="annottext">EntityType
+</span><a href="#local-6989586621679224866"><span class="hs-identifier hs-var">pEntityType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DissociateEntityFromThing' :: Text -&gt; EntityType -&gt; DissociateEntityFromThing
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing%27"><span class="hs-identifier hs-type">DissociateEntityFromThing'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:thingName:DissociateEntityFromThing' :: Text
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#%24sel%3AthingName%3ADissociateEntityFromThing%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224867"><span class="hs-identifier hs-var">pThingName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityType:DissociateEntityFromThing' :: EntityType
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#%24sel%3AentityType%3ADissociateEntityFromThing%27"><span class="hs-identifier hs-var">entityType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EntityType
+</span><a href="#local-6989586621679224866"><span class="hs-identifier hs-var">pEntityType_</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The name of the thing to disassociate.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#dissociateEntityFromThing_thingName"><span class="hs-identifier hs-type">dissociateEntityFromThing_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="dissociateEntityFromThing_thingName"><span class="annot"><span class="annottext">dissociateEntityFromThing_thingName :: (Text -&gt; f Text)
+-&gt; DissociateEntityFromThing -&gt; f DissociateEntityFromThing
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#dissociateEntityFromThing_thingName"><span class="hs-identifier hs-var hs-var">dissociateEntityFromThing_thingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DissociateEntityFromThing -&gt; Text)
+-&gt; (DissociateEntityFromThing -&gt; Text -&gt; DissociateEntityFromThing)
+-&gt; Lens
+     DissociateEntityFromThing DissociateEntityFromThing Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing%27"><span class="hs-identifier hs-type">DissociateEntityFromThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224863"><span class="annot"><span class="annottext">Text
+thingName :: Text
+$sel:thingName:DissociateEntityFromThing' :: DissociateEntityFromThing -&gt; Text
+</span><a href="#local-6989586621679224863"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224863"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224862"><span class="annot"><span class="annottext">s :: DissociateEntityFromThing
+</span><a href="#local-6989586621679224862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing%27"><span class="hs-identifier hs-type">DissociateEntityFromThing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224861"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DissociateEntityFromThing
+</span><a href="#local-6989586621679224862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:DissociateEntityFromThing' :: Text
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#%24sel%3AthingName%3ADissociateEntityFromThing%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The entity type from which to disassociate the thing.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#dissociateEntityFromThing_entityType"><span class="hs-identifier hs-type">dissociateEntityFromThing_entityType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span>
+</span><span id="line-89"></span><span id="dissociateEntityFromThing_entityType"><span class="annot"><span class="annottext">dissociateEntityFromThing_entityType :: (EntityType -&gt; f EntityType)
+-&gt; DissociateEntityFromThing -&gt; f DissociateEntityFromThing
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#dissociateEntityFromThing_entityType"><span class="hs-identifier hs-var hs-var">dissociateEntityFromThing_entityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DissociateEntityFromThing -&gt; EntityType)
+-&gt; (DissociateEntityFromThing
+    -&gt; EntityType -&gt; DissociateEntityFromThing)
+-&gt; Lens
+     DissociateEntityFromThing
+     DissociateEntityFromThing
+     EntityType
+     EntityType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing%27"><span class="hs-identifier hs-type">DissociateEntityFromThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224860"><span class="annot"><span class="annottext">EntityType
+entityType :: EntityType
+$sel:entityType:DissociateEntityFromThing' :: DissociateEntityFromThing -&gt; EntityType
+</span><a href="#local-6989586621679224860"><span class="hs-identifier hs-var hs-var">entityType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityType
+</span><a href="#local-6989586621679224860"><span class="hs-identifier hs-var">entityType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224859"><span class="annot"><span class="annottext">s :: DissociateEntityFromThing
+</span><a href="#local-6989586621679224859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing%27"><span class="hs-identifier hs-type">DissociateEntityFromThing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224858"><span class="annot"><span class="annottext">EntityType
+</span><a href="#local-6989586621679224858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DissociateEntityFromThing
+</span><a href="#local-6989586621679224859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityType:DissociateEntityFromThing' :: EntityType
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#%24sel%3AentityType%3ADissociateEntityFromThing%27"><span class="hs-identifier hs-var">entityType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EntityType
+</span><a href="#local-6989586621679224858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThingResponse"><span class="hs-identifier hs-type">DissociateEntityFromThingResponse</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679224854"><span class="annot"><span class="annottext">request :: DissociateEntityFromThing -&gt; Request DissociateEntityFromThing
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DissociateEntityFromThing -&gt; Request DissociateEntityFromThing
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTThingsGraph.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679224850"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DissociateEntityFromThing
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DissociateEntityFromThing)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DissociateEntityFromThing))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DissociateEntityFromThing
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DissociateEntityFromThing)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224847"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224847"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679224846"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679224846"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679224845"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679224845"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DissociateEntityFromThingResponse
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThingResponse%27"><span class="hs-identifier hs-var">DissociateEntityFromThingResponse'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DissociateEntityFromThingResponse)
+-&gt; Either String Int
+-&gt; Either String DissociateEntityFromThingResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224847"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224838"><span id="local-6989586621679224840"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679224831"><span class="annot"><span class="annottext">toHeaders :: DissociateEntityFromThing -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DissociateEntityFromThing -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IotThingsGraphFrontEndService.DissociateEntityFromThing&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224821"><span id="local-6989586621679224823"><span id="local-6989586621679224825"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679224819"><span class="annot"><span class="annottext">toJSON :: DissociateEntityFromThing -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing%27"><span class="hs-identifier hs-type">DissociateEntityFromThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224816"><span id="local-6989586621679224817"><span class="annot"><span class="annottext">Text
+EntityType
+entityType :: EntityType
+thingName :: Text
+$sel:entityType:DissociateEntityFromThing' :: DissociateEntityFromThing -&gt; EntityType
+$sel:thingName:DissociateEntityFromThing' :: DissociateEntityFromThing -&gt; Text
+</span><a href="#local-6989586621679224816"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thingName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224817"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entityType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EntityType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EntityType
+</span><a href="#local-6989586621679224816"><span class="hs-identifier hs-var">entityType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679224810"><span class="annot"><span class="annottext">toPath :: DissociateEntityFromThing -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DissociateEntityFromThing -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThing"><span class="hs-identifier hs-type">DissociateEntityFromThing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679224806"><span class="annot"><span class="annottext">toQuery :: DissociateEntityFromThing -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DissociateEntityFromThing -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newDissociateEntityFromThingResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679224803"><span id="local-6989586621679224804"></span></span><span class="hs-keyword">data</span><span> </span><span id="DissociateEntityFromThingResponse"><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThingResponse"><span class="hs-identifier hs-var">DissociateEntityFromThingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DissociateEntityFromThingResponse%27"><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThingResponse%27"><span class="hs-identifier hs-var">DissociateEntityFromThingResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADissociateEntityFromThingResponse%27"><span class="annot"><span class="annottext">DissociateEntityFromThingResponse -&gt; Int
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#%24sel%3AhttpStatus%3ADissociateEntityFromThingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224798"><span id="local-6989586621679224800"><span class="annot"><span class="annottext">DissociateEntityFromThingResponse
+-&gt; DissociateEntityFromThingResponse -&gt; Bool
+(DissociateEntityFromThingResponse
+ -&gt; DissociateEntityFromThingResponse -&gt; Bool)
+-&gt; (DissociateEntityFromThingResponse
+    -&gt; DissociateEntityFromThingResponse -&gt; Bool)
+-&gt; Eq DissociateEntityFromThingResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DissociateEntityFromThingResponse
+-&gt; DissociateEntityFromThingResponse -&gt; Bool
+$c/= :: DissociateEntityFromThingResponse
+-&gt; DissociateEntityFromThingResponse -&gt; Bool
+== :: DissociateEntityFromThingResponse
+-&gt; DissociateEntityFromThingResponse -&gt; Bool
+$c== :: DissociateEntityFromThingResponse
+-&gt; DissociateEntityFromThingResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224790"><span id="local-6989586621679224792"><span id="local-6989586621679224794"><span id="local-6989586621679224796"><span class="annot"><span class="annottext">ReadPrec [DissociateEntityFromThingResponse]
+ReadPrec DissociateEntityFromThingResponse
+Int -&gt; ReadS DissociateEntityFromThingResponse
+ReadS [DissociateEntityFromThingResponse]
+(Int -&gt; ReadS DissociateEntityFromThingResponse)
+-&gt; ReadS [DissociateEntityFromThingResponse]
+-&gt; ReadPrec DissociateEntityFromThingResponse
+-&gt; ReadPrec [DissociateEntityFromThingResponse]
+-&gt; Read DissociateEntityFromThingResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DissociateEntityFromThingResponse]
+$creadListPrec :: ReadPrec [DissociateEntityFromThingResponse]
+readPrec :: ReadPrec DissociateEntityFromThingResponse
+$creadPrec :: ReadPrec DissociateEntityFromThingResponse
+readList :: ReadS [DissociateEntityFromThingResponse]
+$creadList :: ReadS [DissociateEntityFromThingResponse]
+readsPrec :: Int -&gt; ReadS DissociateEntityFromThingResponse
+$creadsPrec :: Int -&gt; ReadS DissociateEntityFromThingResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224784"><span id="local-6989586621679224786"><span id="local-6989586621679224788"><span class="annot"><span class="annottext">Int -&gt; DissociateEntityFromThingResponse -&gt; ShowS
+[DissociateEntityFromThingResponse] -&gt; ShowS
+DissociateEntityFromThingResponse -&gt; String
+(Int -&gt; DissociateEntityFromThingResponse -&gt; ShowS)
+-&gt; (DissociateEntityFromThingResponse -&gt; String)
+-&gt; ([DissociateEntityFromThingResponse] -&gt; ShowS)
+-&gt; Show DissociateEntityFromThingResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DissociateEntityFromThingResponse] -&gt; ShowS
+$cshowList :: [DissociateEntityFromThingResponse] -&gt; ShowS
+show :: DissociateEntityFromThingResponse -&gt; String
+$cshow :: DissociateEntityFromThingResponse -&gt; String
+showsPrec :: Int -&gt; DissociateEntityFromThingResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DissociateEntityFromThingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DissociateEntityFromThingResponse
+ -&gt; Rep DissociateEntityFromThingResponse x)
+-&gt; (forall x.
+    Rep DissociateEntityFromThingResponse x
+    -&gt; DissociateEntityFromThingResponse)
+-&gt; Generic DissociateEntityFromThingResponse
+forall x.
+Rep DissociateEntityFromThingResponse x
+-&gt; DissociateEntityFromThingResponse
+forall x.
+DissociateEntityFromThingResponse
+-&gt; Rep DissociateEntityFromThingResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DissociateEntityFromThingResponse x
+-&gt; DissociateEntityFromThingResponse
+$cfrom :: forall x.
+DissociateEntityFromThingResponse
+-&gt; Rep DissociateEntityFromThingResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Create a value of 'DissociateEntityFromThingResponse' with all optional fields omitted.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'dissociateEntityFromThingResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#newDissociateEntityFromThingResponse"><span class="hs-identifier hs-type">newDissociateEntityFromThingResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThingResponse"><span class="hs-identifier hs-type">DissociateEntityFromThingResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newDissociateEntityFromThingResponse"><span class="annot"><span class="annottext">newDissociateEntityFromThingResponse :: Int -&gt; DissociateEntityFromThingResponse
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#newDissociateEntityFromThingResponse"><span class="hs-identifier hs-var hs-var">newDissociateEntityFromThingResponse</span></a></span></span><span> </span><span id="local-6989586621679224781"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224781"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">DissociateEntityFromThingResponse' :: Int -&gt; DissociateEntityFromThingResponse
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThingResponse%27"><span class="hs-identifier hs-type">DissociateEntityFromThingResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DissociateEntityFromThingResponse' :: Int
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#%24sel%3AhttpStatus%3ADissociateEntityFromThingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224781"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#dissociateEntityFromThingResponse_httpStatus"><span class="hs-identifier hs-type">dissociateEntityFromThingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThingResponse"><span class="hs-identifier hs-type">DissociateEntityFromThingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span id="dissociateEntityFromThingResponse_httpStatus"><span class="annot"><span class="annottext">dissociateEntityFromThingResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DissociateEntityFromThingResponse
+-&gt; f DissociateEntityFromThingResponse
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#dissociateEntityFromThingResponse_httpStatus"><span class="hs-identifier hs-var hs-var">dissociateEntityFromThingResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DissociateEntityFromThingResponse -&gt; Int)
+-&gt; (DissociateEntityFromThingResponse
+    -&gt; Int -&gt; DissociateEntityFromThingResponse)
+-&gt; Lens
+     DissociateEntityFromThingResponse
+     DissociateEntityFromThingResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThingResponse%27"><span class="hs-identifier hs-type">DissociateEntityFromThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224780"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DissociateEntityFromThingResponse' :: DissociateEntityFromThingResponse -&gt; Int
+</span><a href="#local-6989586621679224780"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224780"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224779"><span class="annot"><span class="annottext">s :: DissociateEntityFromThingResponse
+</span><a href="#local-6989586621679224779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThingResponse%27"><span class="hs-identifier hs-type">DissociateEntityFromThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224778"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DissociateEntityFromThingResponse
+</span><a href="#local-6989586621679224779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DissociateEntityFromThingResponse' :: Int
+</span><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#%24sel%3AhttpStatus%3ADissociateEntityFromThingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThingResponse"><span class="hs-identifier hs-type">DissociateEntityFromThingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679224776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.IoTThingsGraph.DissociateEntityFromThing.html#DissociateEntityFromThingResponse"><span class="hs-identifier hs-type">DissociateEntityFromThingResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

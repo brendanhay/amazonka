@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.FIS.Types.ActionParameter
+module Amazonka.FIS.Types.ActionParameter
 
 -- | Describes a parameter for an action.
 --   
@@ -40,16 +40,16 @@ actionParameter_required :: Lens' ActionParameter (Maybe Bool)
 
 -- | The parameter description.
 actionParameter_description :: Lens' ActionParameter (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ActionParameter.ActionParameter
-instance GHC.Show.Show Network.AWS.FIS.Types.ActionParameter.ActionParameter
-instance GHC.Read.Read Network.AWS.FIS.Types.ActionParameter.ActionParameter
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ActionParameter.ActionParameter
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ActionParameter.ActionParameter
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ActionParameter.ActionParameter
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ActionParameter.ActionParameter
+instance GHC.Generics.Generic Amazonka.FIS.Types.ActionParameter.ActionParameter
+instance GHC.Show.Show Amazonka.FIS.Types.ActionParameter.ActionParameter
+instance GHC.Read.Read Amazonka.FIS.Types.ActionParameter.ActionParameter
+instance GHC.Classes.Eq Amazonka.FIS.Types.ActionParameter.ActionParameter
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ActionParameter.ActionParameter
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ActionParameter.ActionParameter
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ActionParameter.ActionParameter
 
 
-module Network.AWS.FIS.Types.ActionTarget
+module Amazonka.FIS.Types.ActionTarget
 
 -- | Describes a target for an action.
 --   
@@ -75,16 +75,16 @@ newActionTarget :: ActionTarget
 
 -- | The resource type of the target.
 actionTarget_resourceType :: Lens' ActionTarget (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ActionTarget.ActionTarget
-instance GHC.Show.Show Network.AWS.FIS.Types.ActionTarget.ActionTarget
-instance GHC.Read.Read Network.AWS.FIS.Types.ActionTarget.ActionTarget
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ActionTarget.ActionTarget
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ActionTarget.ActionTarget
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ActionTarget.ActionTarget
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ActionTarget.ActionTarget
+instance GHC.Generics.Generic Amazonka.FIS.Types.ActionTarget.ActionTarget
+instance GHC.Show.Show Amazonka.FIS.Types.ActionTarget.ActionTarget
+instance GHC.Read.Read Amazonka.FIS.Types.ActionTarget.ActionTarget
+instance GHC.Classes.Eq Amazonka.FIS.Types.ActionTarget.ActionTarget
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ActionTarget.ActionTarget
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ActionTarget.ActionTarget
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ActionTarget.ActionTarget
 
 
-module Network.AWS.FIS.Types.ActionSummary
+module Amazonka.FIS.Types.ActionSummary
 
 -- | Provides a summary of an action.
 --   
@@ -137,16 +137,16 @@ actionSummary_description :: Lens' ActionSummary (Maybe Text)
 
 -- | The tags for the action.
 actionSummary_tags :: Lens' ActionSummary (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ActionSummary.ActionSummary
-instance GHC.Show.Show Network.AWS.FIS.Types.ActionSummary.ActionSummary
-instance GHC.Read.Read Network.AWS.FIS.Types.ActionSummary.ActionSummary
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ActionSummary.ActionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ActionSummary.ActionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ActionSummary.ActionSummary
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ActionSummary.ActionSummary
+instance GHC.Generics.Generic Amazonka.FIS.Types.ActionSummary.ActionSummary
+instance GHC.Show.Show Amazonka.FIS.Types.ActionSummary.ActionSummary
+instance GHC.Read.Read Amazonka.FIS.Types.ActionSummary.ActionSummary
+instance GHC.Classes.Eq Amazonka.FIS.Types.ActionSummary.ActionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ActionSummary.ActionSummary
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ActionSummary.ActionSummary
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ActionSummary.ActionSummary
 
 
-module Network.AWS.FIS.Types.Action
+module Amazonka.FIS.Types.Action
 
 -- | Describes an action. For more information, see <a>AWS FIS actions</a>
 --   in the <i>AWS Fault Injection Simulator User Guide</i>.
@@ -207,16 +207,16 @@ action_description :: Lens' Action (Maybe Text)
 
 -- | The tags for the action.
 action_tags :: Lens' Action (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.FIS.Types.Action.Action
-instance GHC.Show.Show Network.AWS.FIS.Types.Action.Action
-instance GHC.Read.Read Network.AWS.FIS.Types.Action.Action
-instance GHC.Classes.Eq Network.AWS.FIS.Types.Action.Action
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.Action.Action
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.Action.Action
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.Action.Action
+instance GHC.Generics.Generic Amazonka.FIS.Types.Action.Action
+instance GHC.Show.Show Amazonka.FIS.Types.Action.Action
+instance GHC.Read.Read Amazonka.FIS.Types.Action.Action
+instance GHC.Classes.Eq Amazonka.FIS.Types.Action.Action
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.Action.Action
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.Action.Action
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.Action.Action
 
 
-module Network.AWS.FIS.Types.CreateExperimentTemplateActionInput
+module Amazonka.FIS.Types.CreateExperimentTemplateActionInput
 
 -- | Specifies an action for an experiment template.
 --   
@@ -289,16 +289,16 @@ createExperimentTemplateActionInput_description :: Lens' CreateExperimentTemplat
 
 -- | The ID of the action.
 createExperimentTemplateActionInput_actionId :: Lens' CreateExperimentTemplateActionInput Text
-instance GHC.Generics.Generic Network.AWS.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
-instance GHC.Show.Show Network.AWS.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
-instance GHC.Read.Read Network.AWS.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
-instance GHC.Classes.Eq Network.AWS.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
+instance GHC.Generics.Generic Amazonka.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
+instance GHC.Show.Show Amazonka.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
+instance GHC.Read.Read Amazonka.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
+instance GHC.Classes.Eq Amazonka.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.Types.CreateExperimentTemplateActionInput.CreateExperimentTemplateActionInput
 
 
-module Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput
+module Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput
 
 -- | Specifies a stop condition for an experiment template.
 --   
@@ -345,16 +345,16 @@ createExperimentTemplateStopConditionInput_value :: Lens' CreateExperimentTempla
 --   <tt>aws:cloudwatch:alarm</tt> if the stop condition is defined by a
 --   CloudWatch alarm. Specify <tt>none</tt> if there is no stop condition.
 createExperimentTemplateStopConditionInput_source :: Lens' CreateExperimentTemplateStopConditionInput Text
-instance GHC.Generics.Generic Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
-instance GHC.Show.Show Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
-instance GHC.Read.Read Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
-instance GHC.Classes.Eq Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
+instance GHC.Generics.Generic Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
+instance GHC.Show.Show Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
+instance GHC.Read.Read Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
+instance GHC.Classes.Eq Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput.CreateExperimentTemplateStopConditionInput
 
 
-module Network.AWS.FIS.Types.ExperimentActionStatus
+module Amazonka.FIS.Types.ExperimentActionStatus
 newtype ExperimentActionStatus
 ExperimentActionStatus' :: Text -> ExperimentActionStatus
 [fromExperimentActionStatus] :: ExperimentActionStatus -> Text
@@ -366,28 +366,28 @@ pattern ExperimentActionStatus_Pending :: ExperimentActionStatus
 pattern ExperimentActionStatus_Running :: ExperimentActionStatus
 pattern ExperimentActionStatus_Stopped :: ExperimentActionStatus
 pattern ExperimentActionStatus_Stopping :: ExperimentActionStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance GHC.Classes.Ord Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Amazonka.Data.XML.ToXML Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Amazonka.Data.Log.ToLog Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Amazonka.Data.Text.ToText Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Amazonka.Data.Text.FromText Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance GHC.Classes.Ord Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentActionStatus.ExperimentActionStatus
 
 
-module Network.AWS.FIS.Types.ExperimentActionState
+module Amazonka.FIS.Types.ExperimentActionState
 
 -- | Describes the state of an action.
 --   
@@ -422,16 +422,16 @@ experimentActionState_status :: Lens' ExperimentActionState (Maybe ExperimentAct
 
 -- | The reason for the state.
 experimentActionState_reason :: Lens' ExperimentActionState (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentActionState.ExperimentActionState
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentActionState.ExperimentActionState
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentActionState.ExperimentActionState
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentActionState.ExperimentActionState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentActionState.ExperimentActionState
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentActionState.ExperimentActionState
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentActionState.ExperimentActionState
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentActionState.ExperimentActionState
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentActionState.ExperimentActionState
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentActionState.ExperimentActionState
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentActionState.ExperimentActionState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentActionState.ExperimentActionState
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentActionState.ExperimentActionState
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentActionState.ExperimentActionState
 
 
-module Network.AWS.FIS.Types.ExperimentAction
+module Amazonka.FIS.Types.ExperimentAction
 
 -- | Describes the action for an experiment.
 --   
@@ -505,16 +505,16 @@ experimentAction_targets :: Lens' ExperimentAction (Maybe (HashMap Text Text))
 
 -- | The description for the action.
 experimentAction_description :: Lens' ExperimentAction (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentAction.ExperimentAction
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentAction.ExperimentAction
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentAction.ExperimentAction
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentAction.ExperimentAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentAction.ExperimentAction
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentAction.ExperimentAction
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentAction.ExperimentAction
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentAction.ExperimentAction
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentAction.ExperimentAction
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentAction.ExperimentAction
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentAction.ExperimentAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentAction.ExperimentAction
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentAction.ExperimentAction
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentAction.ExperimentAction
 
 
-module Network.AWS.FIS.Types.ExperimentStatus
+module Amazonka.FIS.Types.ExperimentStatus
 newtype ExperimentStatus
 ExperimentStatus' :: Text -> ExperimentStatus
 [fromExperimentStatus] :: ExperimentStatus -> Text
@@ -525,28 +525,28 @@ pattern ExperimentStatus_Pending :: ExperimentStatus
 pattern ExperimentStatus_Running :: ExperimentStatus
 pattern ExperimentStatus_Stopped :: ExperimentStatus
 pattern ExperimentStatus_Stopping :: ExperimentStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance GHC.Classes.Ord Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Amazonka.Data.XML.ToXML Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Amazonka.Data.XML.FromXML Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Amazonka.Data.Log.ToLog Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Amazonka.Data.Text.ToText Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Amazonka.Data.Text.FromText Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance GHC.Classes.Ord Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentStatus.ExperimentStatus
 
 
-module Network.AWS.FIS.Types.ExperimentState
+module Amazonka.FIS.Types.ExperimentState
 
 -- | Describes the state of an experiment.
 --   
@@ -581,16 +581,16 @@ experimentState_status :: Lens' ExperimentState (Maybe ExperimentStatus)
 
 -- | The reason for the state.
 experimentState_reason :: Lens' ExperimentState (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentState.ExperimentState
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentState.ExperimentState
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentState.ExperimentState
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentState.ExperimentState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentState.ExperimentState
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentState.ExperimentState
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentState.ExperimentState
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentState.ExperimentState
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentState.ExperimentState
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentState.ExperimentState
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentState.ExperimentState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentState.ExperimentState
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentState.ExperimentState
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentState.ExperimentState
 
 
-module Network.AWS.FIS.Types.ExperimentStopCondition
+module Amazonka.FIS.Types.ExperimentStopCondition
 
 -- | Describes the stop condition for an experiment.
 --   
@@ -627,16 +627,16 @@ experimentStopCondition_value :: Lens' ExperimentStopCondition (Maybe Text)
 
 -- | The source for the stop condition.
 experimentStopCondition_source :: Lens' ExperimentStopCondition (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentStopCondition.ExperimentStopCondition
 
 
-module Network.AWS.FIS.Types.ExperimentSummary
+module Amazonka.FIS.Types.ExperimentSummary
 
 -- | Provides a summary of an experiment.
 --   
@@ -700,16 +700,16 @@ experimentSummary_id :: Lens' ExperimentSummary (Maybe Text)
 
 -- | The tags for the experiment.
 experimentSummary_tags :: Lens' ExperimentSummary (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentSummary.ExperimentSummary
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentSummary.ExperimentSummary
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentSummary.ExperimentSummary
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentSummary.ExperimentSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentSummary.ExperimentSummary
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentSummary.ExperimentSummary
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentSummary.ExperimentSummary
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentSummary.ExperimentSummary
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentSummary.ExperimentSummary
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentSummary.ExperimentSummary
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentSummary.ExperimentSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentSummary.ExperimentSummary
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentSummary.ExperimentSummary
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentSummary.ExperimentSummary
 
 
-module Network.AWS.FIS.Types.ExperimentTargetFilter
+module Amazonka.FIS.Types.ExperimentTargetFilter
 
 -- | Describes a filter used for the target resources in an experiment.
 --   
@@ -746,16 +746,16 @@ experimentTargetFilter_path :: Lens' ExperimentTargetFilter (Maybe Text)
 
 -- | The attribute values for the filter.
 experimentTargetFilter_values :: Lens' ExperimentTargetFilter (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentTargetFilter.ExperimentTargetFilter
 
 
-module Network.AWS.FIS.Types.ExperimentTarget
+module Amazonka.FIS.Types.ExperimentTarget
 
 -- | Describes a target for an experiment.
 --   
@@ -823,16 +823,16 @@ experimentTarget_resourceArns :: Lens' ExperimentTarget (Maybe [Text])
 
 -- | Scopes the identified resources to a specific count or percentage.
 experimentTarget_selectionMode :: Lens' ExperimentTarget (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentTarget.ExperimentTarget
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentTarget.ExperimentTarget
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentTarget.ExperimentTarget
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentTarget.ExperimentTarget
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentTarget.ExperimentTarget
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentTarget.ExperimentTarget
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentTarget.ExperimentTarget
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentTarget.ExperimentTarget
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentTarget.ExperimentTarget
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentTarget.ExperimentTarget
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentTarget.ExperimentTarget
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentTarget.ExperimentTarget
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentTarget.ExperimentTarget
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentTarget.ExperimentTarget
 
 
-module Network.AWS.FIS.Types.Experiment
+module Amazonka.FIS.Types.Experiment
 
 -- | Describes an experiment.
 --   
@@ -952,16 +952,16 @@ experiment_tags :: Lens' Experiment (Maybe (HashMap Text Text))
 -- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
 --   service permission to perform service actions on your behalf.
 experiment_roleArn :: Lens' Experiment (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.Experiment.Experiment
-instance GHC.Show.Show Network.AWS.FIS.Types.Experiment.Experiment
-instance GHC.Read.Read Network.AWS.FIS.Types.Experiment.Experiment
-instance GHC.Classes.Eq Network.AWS.FIS.Types.Experiment.Experiment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.Experiment.Experiment
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.Experiment.Experiment
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.Experiment.Experiment
+instance GHC.Generics.Generic Amazonka.FIS.Types.Experiment.Experiment
+instance GHC.Show.Show Amazonka.FIS.Types.Experiment.Experiment
+instance GHC.Read.Read Amazonka.FIS.Types.Experiment.Experiment
+instance GHC.Classes.Eq Amazonka.FIS.Types.Experiment.Experiment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.Experiment.Experiment
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.Experiment.Experiment
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.Experiment.Experiment
 
 
-module Network.AWS.FIS.Types.ExperimentTemplateAction
+module Amazonka.FIS.Types.ExperimentTemplateAction
 
 -- | Describes an action for an experiment template.
 --   
@@ -1028,16 +1028,16 @@ experimentTemplateAction_targets :: Lens' ExperimentTemplateAction (Maybe (HashM
 
 -- | A description for the action.
 experimentTemplateAction_description :: Lens' ExperimentTemplateAction (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentTemplateAction.ExperimentTemplateAction
 
 
-module Network.AWS.FIS.Types.ExperimentTemplateStopCondition
+module Amazonka.FIS.Types.ExperimentTemplateStopCondition
 
 -- | Describes a stop condition for an experiment template.
 --   
@@ -1075,16 +1075,16 @@ experimentTemplateStopCondition_value :: Lens' ExperimentTemplateStopCondition (
 
 -- | The source for the stop condition.
 experimentTemplateStopCondition_source :: Lens' ExperimentTemplateStopCondition (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentTemplateStopCondition.ExperimentTemplateStopCondition
 
 
-module Network.AWS.FIS.Types.ExperimentTemplateSummary
+module Amazonka.FIS.Types.ExperimentTemplateSummary
 
 -- | Provides a summary of an experiment template.
 --   
@@ -1151,16 +1151,16 @@ experimentTemplateSummary_description :: Lens' ExperimentTemplateSummary (Maybe 
 
 -- | The tags for the experiment template.
 experimentTemplateSummary_tags :: Lens' ExperimentTemplateSummary (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentTemplateSummary.ExperimentTemplateSummary
 
 
-module Network.AWS.FIS.Types.ExperimentTemplateTargetFilter
+module Amazonka.FIS.Types.ExperimentTemplateTargetFilter
 
 -- | Describes a filter used for the target resources in an experiment
 --   template.
@@ -1199,16 +1199,16 @@ experimentTemplateTargetFilter_path :: Lens' ExperimentTemplateTargetFilter (May
 
 -- | The attribute values for the filter.
 experimentTemplateTargetFilter_values :: Lens' ExperimentTemplateTargetFilter (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentTemplateTargetFilter.ExperimentTemplateTargetFilter
 
 
-module Network.AWS.FIS.Types.ExperimentTemplateTarget
+module Amazonka.FIS.Types.ExperimentTemplateTarget
 
 -- | Describes a target for an experiment template.
 --   
@@ -1276,16 +1276,16 @@ experimentTemplateTarget_resourceArns :: Lens' ExperimentTemplateTarget (Maybe [
 
 -- | Scopes the identified resources to a specific count or percentage.
 experimentTemplateTarget_selectionMode :: Lens' ExperimentTemplateTarget (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentTemplateTarget.ExperimentTemplateTarget
 
 
-module Network.AWS.FIS.Types.ExperimentTemplate
+module Amazonka.FIS.Types.ExperimentTemplate
 
 -- | Describes an experiment template.
 --   
@@ -1388,16 +1388,16 @@ experimentTemplate_tags :: Lens' ExperimentTemplate (Maybe (HashMap Text Text))
 
 -- | The Amazon Resource Name (ARN) of an IAM role.
 experimentTemplate_roleArn :: Lens' ExperimentTemplate (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentTemplate.ExperimentTemplate
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentTemplate.ExperimentTemplate
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentTemplate.ExperimentTemplate
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentTemplate.ExperimentTemplate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.FIS.Types.ExperimentTemplate.ExperimentTemplate
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentTemplate.ExperimentTemplate
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentTemplate.ExperimentTemplate
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentTemplate.ExperimentTemplate
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentTemplate.ExperimentTemplate
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentTemplate.ExperimentTemplate
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentTemplate.ExperimentTemplate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.FIS.Types.ExperimentTemplate.ExperimentTemplate
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentTemplate.ExperimentTemplate
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentTemplate.ExperimentTemplate
 
 
-module Network.AWS.FIS.Types.ExperimentTemplateTargetInputFilter
+module Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter
 
 -- | Describes a filter used for the target resource input in an experiment
 --   template.
@@ -1436,16 +1436,16 @@ experimentTemplateTargetInputFilter_path :: Lens' ExperimentTemplateTargetInputF
 
 -- | The attribute values for the filter.
 experimentTemplateTargetInputFilter_values :: Lens' ExperimentTemplateTargetInputFilter [Text]
-instance GHC.Generics.Generic Network.AWS.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
-instance GHC.Show.Show Network.AWS.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
-instance GHC.Read.Read Network.AWS.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
-instance GHC.Classes.Eq Network.AWS.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
+instance GHC.Generics.Generic Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
+instance GHC.Show.Show Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
+instance GHC.Read.Read Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
+instance GHC.Classes.Eq Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter.ExperimentTemplateTargetInputFilter
 
 
-module Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput
+module Amazonka.FIS.Types.CreateExperimentTemplateTargetInput
 
 -- | Specifies a target for an experiment. You must specify at least one
 --   Amazon Resource Name (ARN) or at least one resource tag. You cannot
@@ -1559,16 +1559,16 @@ createExperimentTemplateTargetInput_resourceType :: Lens' CreateExperimentTempla
 --   PERCENT(25) selects 25% of the targets.</li>
 --   </ul>
 createExperimentTemplateTargetInput_selectionMode :: Lens' CreateExperimentTemplateTargetInput Text
-instance GHC.Generics.Generic Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
-instance GHC.Show.Show Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
-instance GHC.Read.Read Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
-instance GHC.Classes.Eq Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
+instance GHC.Generics.Generic Amazonka.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
+instance GHC.Show.Show Amazonka.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
+instance GHC.Read.Read Amazonka.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
+instance GHC.Classes.Eq Amazonka.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.Types.CreateExperimentTemplateTargetInput.CreateExperimentTemplateTargetInput
 
 
-module Network.AWS.FIS.Types.UpdateExperimentTemplateActionInputItem
+module Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem
 
 -- | Specifies an action for an experiment template.
 --   
@@ -1641,16 +1641,16 @@ updateExperimentTemplateActionInputItem_targets :: Lens' UpdateExperimentTemplat
 
 -- | A description for the action.
 updateExperimentTemplateActionInputItem_description :: Lens' UpdateExperimentTemplateActionInputItem (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
-instance GHC.Show.Show Network.AWS.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
-instance GHC.Read.Read Network.AWS.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
-instance GHC.Classes.Eq Network.AWS.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
+instance GHC.Generics.Generic Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
+instance GHC.Show.Show Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
+instance GHC.Read.Read Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
+instance GHC.Classes.Eq Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem.UpdateExperimentTemplateActionInputItem
 
 
-module Network.AWS.FIS.Types.UpdateExperimentTemplateStopConditionInput
+module Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput
 
 -- | Specifies a stop condition for an experiment. You can define a stop
 --   condition as a CloudWatch alarm.
@@ -1695,16 +1695,16 @@ updateExperimentTemplateStopConditionInput_value :: Lens' UpdateExperimentTempla
 --   <tt>aws:cloudwatch:alarm</tt> if the stop condition is defined by a
 --   CloudWatch alarm. Specify <tt>none</tt> if there is no stop condition.
 updateExperimentTemplateStopConditionInput_source :: Lens' UpdateExperimentTemplateStopConditionInput Text
-instance GHC.Generics.Generic Network.AWS.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
-instance GHC.Show.Show Network.AWS.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
-instance GHC.Read.Read Network.AWS.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
-instance GHC.Classes.Eq Network.AWS.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
+instance GHC.Generics.Generic Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
+instance GHC.Show.Show Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
+instance GHC.Read.Read Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
+instance GHC.Classes.Eq Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput.UpdateExperimentTemplateStopConditionInput
 
 
-module Network.AWS.FIS.Types.UpdateExperimentTemplateTargetInput
+module Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput
 
 -- | Specifies a target for an experiment. You must specify at least one
 --   Amazon Resource Name (ARN) or at least one resource tag. You cannot
@@ -1779,16 +1779,16 @@ updateExperimentTemplateTargetInput_resourceType :: Lens' UpdateExperimentTempla
 
 -- | Scopes the identified resources to a specific count or percentage.
 updateExperimentTemplateTargetInput_selectionMode :: Lens' UpdateExperimentTemplateTargetInput Text
-instance GHC.Generics.Generic Network.AWS.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
-instance GHC.Show.Show Network.AWS.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
-instance GHC.Read.Read Network.AWS.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
-instance GHC.Classes.Eq Network.AWS.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
-instance Control.DeepSeq.NFData Network.AWS.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
+instance GHC.Generics.Generic Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
+instance GHC.Show.Show Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
+instance GHC.Read.Read Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
+instance GHC.Classes.Eq Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
+instance Data.Hashable.Class.Hashable Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
+instance Control.DeepSeq.NFData Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput.UpdateExperimentTemplateTargetInput
 
 
-module Network.AWS.FIS.Types
+module Amazonka.FIS.Types
 
 -- | API version <tt>2020-12-01</tt> of the Amazon Fault Injection
 --   Simulator SDK configuration.
@@ -3298,7 +3298,7 @@ updateExperimentTemplateTargetInput_selectionMode :: Lens' UpdateExperimentTempl
 
 
 -- | Applies the specified tags to the specified resource.
-module Network.AWS.FIS.TagResource
+module Amazonka.FIS.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -3354,26 +3354,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.FIS.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.FIS.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.FIS.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.FIS.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.FIS.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.FIS.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.FIS.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.FIS.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.FIS.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.FIS.TagResource.TagResource
+instance GHC.Show.Show Amazonka.FIS.TagResource.TagResource
+instance GHC.Read.Read Amazonka.FIS.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.FIS.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.FIS.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.FIS.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.FIS.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.FIS.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.FIS.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.FIS.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.TagResource.TagResource
 
 
 -- | Stops the specified experiment.
-module Network.AWS.FIS.StopExperiment
+module Amazonka.FIS.StopExperiment
 
 -- | <i>See:</i> <a>newStopExperiment</a> smart constructor.
 data StopExperiment
@@ -3431,25 +3431,25 @@ stopExperimentResponse_experiment :: Lens' StopExperimentResponse (Maybe Experim
 
 -- | The response's http status code.
 stopExperimentResponse_httpStatus :: Lens' StopExperimentResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.StopExperiment.StopExperiment
-instance GHC.Show.Show Network.AWS.FIS.StopExperiment.StopExperiment
-instance GHC.Read.Read Network.AWS.FIS.StopExperiment.StopExperiment
-instance GHC.Classes.Eq Network.AWS.FIS.StopExperiment.StopExperiment
-instance GHC.Generics.Generic Network.AWS.FIS.StopExperiment.StopExperimentResponse
-instance GHC.Show.Show Network.AWS.FIS.StopExperiment.StopExperimentResponse
-instance GHC.Read.Read Network.AWS.FIS.StopExperiment.StopExperimentResponse
-instance GHC.Classes.Eq Network.AWS.FIS.StopExperiment.StopExperimentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.StopExperiment.StopExperiment
-instance Control.DeepSeq.NFData Network.AWS.FIS.StopExperiment.StopExperimentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.StopExperiment.StopExperiment
-instance Control.DeepSeq.NFData Network.AWS.FIS.StopExperiment.StopExperiment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.StopExperiment.StopExperiment
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.StopExperiment.StopExperiment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.StopExperiment.StopExperiment
+instance GHC.Generics.Generic Amazonka.FIS.StopExperiment.StopExperiment
+instance GHC.Show.Show Amazonka.FIS.StopExperiment.StopExperiment
+instance GHC.Read.Read Amazonka.FIS.StopExperiment.StopExperiment
+instance GHC.Classes.Eq Amazonka.FIS.StopExperiment.StopExperiment
+instance GHC.Generics.Generic Amazonka.FIS.StopExperiment.StopExperimentResponse
+instance GHC.Show.Show Amazonka.FIS.StopExperiment.StopExperimentResponse
+instance GHC.Read.Read Amazonka.FIS.StopExperiment.StopExperimentResponse
+instance GHC.Classes.Eq Amazonka.FIS.StopExperiment.StopExperimentResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.StopExperiment.StopExperiment
+instance Control.DeepSeq.NFData Amazonka.FIS.StopExperiment.StopExperimentResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.StopExperiment.StopExperiment
+instance Control.DeepSeq.NFData Amazonka.FIS.StopExperiment.StopExperiment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.StopExperiment.StopExperiment
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.StopExperiment.StopExperiment
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.StopExperiment.StopExperiment
 
 
 -- | Starts running an experiment from the specified experiment template.
-module Network.AWS.FIS.StartExperiment
+module Amazonka.FIS.StartExperiment
 
 -- | <i>See:</i> <a>newStartExperiment</a> smart constructor.
 data StartExperiment
@@ -3529,26 +3529,26 @@ startExperimentResponse_experiment :: Lens' StartExperimentResponse (Maybe Exper
 
 -- | The response's http status code.
 startExperimentResponse_httpStatus :: Lens' StartExperimentResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.StartExperiment.StartExperiment
-instance GHC.Show.Show Network.AWS.FIS.StartExperiment.StartExperiment
-instance GHC.Read.Read Network.AWS.FIS.StartExperiment.StartExperiment
-instance GHC.Classes.Eq Network.AWS.FIS.StartExperiment.StartExperiment
-instance GHC.Generics.Generic Network.AWS.FIS.StartExperiment.StartExperimentResponse
-instance GHC.Show.Show Network.AWS.FIS.StartExperiment.StartExperimentResponse
-instance GHC.Read.Read Network.AWS.FIS.StartExperiment.StartExperimentResponse
-instance GHC.Classes.Eq Network.AWS.FIS.StartExperiment.StartExperimentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.StartExperiment.StartExperiment
-instance Control.DeepSeq.NFData Network.AWS.FIS.StartExperiment.StartExperimentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.StartExperiment.StartExperiment
-instance Control.DeepSeq.NFData Network.AWS.FIS.StartExperiment.StartExperiment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.StartExperiment.StartExperiment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.StartExperiment.StartExperiment
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.StartExperiment.StartExperiment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.StartExperiment.StartExperiment
+instance GHC.Generics.Generic Amazonka.FIS.StartExperiment.StartExperiment
+instance GHC.Show.Show Amazonka.FIS.StartExperiment.StartExperiment
+instance GHC.Read.Read Amazonka.FIS.StartExperiment.StartExperiment
+instance GHC.Classes.Eq Amazonka.FIS.StartExperiment.StartExperiment
+instance GHC.Generics.Generic Amazonka.FIS.StartExperiment.StartExperimentResponse
+instance GHC.Show.Show Amazonka.FIS.StartExperiment.StartExperimentResponse
+instance GHC.Read.Read Amazonka.FIS.StartExperiment.StartExperimentResponse
+instance GHC.Classes.Eq Amazonka.FIS.StartExperiment.StartExperimentResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.StartExperiment.StartExperiment
+instance Control.DeepSeq.NFData Amazonka.FIS.StartExperiment.StartExperimentResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.StartExperiment.StartExperiment
+instance Control.DeepSeq.NFData Amazonka.FIS.StartExperiment.StartExperiment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.StartExperiment.StartExperiment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.StartExperiment.StartExperiment
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.StartExperiment.StartExperiment
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.StartExperiment.StartExperiment
 
 
 -- | Lists the tags for the specified resource.
-module Network.AWS.FIS.ListTagsForResource
+module Amazonka.FIS.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -3606,25 +3606,25 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.FIS.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.FIS.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.FIS.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.FIS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.FIS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.FIS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.FIS.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.FIS.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.FIS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.FIS.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.FIS.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.FIS.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.FIS.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.FIS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.FIS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.FIS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.FIS.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.FIS.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.FIS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists your experiments.
-module Network.AWS.FIS.ListExperiments
+module Amazonka.FIS.ListExperiments
 
 -- | <i>See:</i> <a>newListExperiments</a> smart constructor.
 data ListExperiments
@@ -3710,25 +3710,25 @@ listExperimentsResponse_nextToken :: Lens' ListExperimentsResponse (Maybe Text)
 
 -- | The response's http status code.
 listExperimentsResponse_httpStatus :: Lens' ListExperimentsResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.ListExperiments.ListExperiments
-instance GHC.Show.Show Network.AWS.FIS.ListExperiments.ListExperiments
-instance GHC.Read.Read Network.AWS.FIS.ListExperiments.ListExperiments
-instance GHC.Classes.Eq Network.AWS.FIS.ListExperiments.ListExperiments
-instance GHC.Generics.Generic Network.AWS.FIS.ListExperiments.ListExperimentsResponse
-instance GHC.Show.Show Network.AWS.FIS.ListExperiments.ListExperimentsResponse
-instance GHC.Read.Read Network.AWS.FIS.ListExperiments.ListExperimentsResponse
-instance GHC.Classes.Eq Network.AWS.FIS.ListExperiments.ListExperimentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.ListExperiments.ListExperiments
-instance Control.DeepSeq.NFData Network.AWS.FIS.ListExperiments.ListExperimentsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.ListExperiments.ListExperiments
-instance Control.DeepSeq.NFData Network.AWS.FIS.ListExperiments.ListExperiments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.ListExperiments.ListExperiments
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.ListExperiments.ListExperiments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.ListExperiments.ListExperiments
+instance GHC.Generics.Generic Amazonka.FIS.ListExperiments.ListExperiments
+instance GHC.Show.Show Amazonka.FIS.ListExperiments.ListExperiments
+instance GHC.Read.Read Amazonka.FIS.ListExperiments.ListExperiments
+instance GHC.Classes.Eq Amazonka.FIS.ListExperiments.ListExperiments
+instance GHC.Generics.Generic Amazonka.FIS.ListExperiments.ListExperimentsResponse
+instance GHC.Show.Show Amazonka.FIS.ListExperiments.ListExperimentsResponse
+instance GHC.Read.Read Amazonka.FIS.ListExperiments.ListExperimentsResponse
+instance GHC.Classes.Eq Amazonka.FIS.ListExperiments.ListExperimentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.ListExperiments.ListExperiments
+instance Control.DeepSeq.NFData Amazonka.FIS.ListExperiments.ListExperimentsResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.ListExperiments.ListExperiments
+instance Control.DeepSeq.NFData Amazonka.FIS.ListExperiments.ListExperiments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.ListExperiments.ListExperiments
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.ListExperiments.ListExperiments
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.ListExperiments.ListExperiments
 
 
 -- | Lists your experiment templates.
-module Network.AWS.FIS.ListExperimentTemplates
+module Amazonka.FIS.ListExperimentTemplates
 
 -- | <i>See:</i> <a>newListExperimentTemplates</a> smart constructor.
 data ListExperimentTemplates
@@ -3816,25 +3816,25 @@ listExperimentTemplatesResponse_experimentTemplates :: Lens' ListExperimentTempl
 
 -- | The response's http status code.
 listExperimentTemplatesResponse_httpStatus :: Lens' ListExperimentTemplatesResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplates
-instance GHC.Show.Show Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplates
-instance GHC.Read.Read Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplates
-instance GHC.Classes.Eq Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplates
-instance GHC.Generics.Generic Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplatesResponse
-instance GHC.Show.Show Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplatesResponse
-instance GHC.Read.Read Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplatesResponse
-instance GHC.Classes.Eq Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplatesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplates
-instance Control.DeepSeq.NFData Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplatesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplates
-instance Control.DeepSeq.NFData Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplates
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplates
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplates
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.ListExperimentTemplates.ListExperimentTemplates
+instance GHC.Generics.Generic Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplates
+instance GHC.Show.Show Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplates
+instance GHC.Read.Read Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplates
+instance GHC.Classes.Eq Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplates
+instance GHC.Generics.Generic Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplatesResponse
+instance GHC.Show.Show Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplatesResponse
+instance GHC.Read.Read Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplatesResponse
+instance GHC.Classes.Eq Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplatesResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplates
+instance Control.DeepSeq.NFData Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplatesResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplates
+instance Control.DeepSeq.NFData Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplates
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplates
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplates
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.ListExperimentTemplates.ListExperimentTemplates
 
 
 -- | Lists the available AWS FIS actions.
-module Network.AWS.FIS.ListActions
+module Amazonka.FIS.ListActions
 
 -- | <i>See:</i> <a>newListActions</a> smart constructor.
 data ListActions
@@ -3918,25 +3918,25 @@ listActionsResponse_nextToken :: Lens' ListActionsResponse (Maybe Text)
 
 -- | The response's http status code.
 listActionsResponse_httpStatus :: Lens' ListActionsResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.ListActions.ListActions
-instance GHC.Show.Show Network.AWS.FIS.ListActions.ListActions
-instance GHC.Read.Read Network.AWS.FIS.ListActions.ListActions
-instance GHC.Classes.Eq Network.AWS.FIS.ListActions.ListActions
-instance GHC.Generics.Generic Network.AWS.FIS.ListActions.ListActionsResponse
-instance GHC.Show.Show Network.AWS.FIS.ListActions.ListActionsResponse
-instance GHC.Read.Read Network.AWS.FIS.ListActions.ListActionsResponse
-instance GHC.Classes.Eq Network.AWS.FIS.ListActions.ListActionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.ListActions.ListActions
-instance Control.DeepSeq.NFData Network.AWS.FIS.ListActions.ListActionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.ListActions.ListActions
-instance Control.DeepSeq.NFData Network.AWS.FIS.ListActions.ListActions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.ListActions.ListActions
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.ListActions.ListActions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.ListActions.ListActions
+instance GHC.Generics.Generic Amazonka.FIS.ListActions.ListActions
+instance GHC.Show.Show Amazonka.FIS.ListActions.ListActions
+instance GHC.Read.Read Amazonka.FIS.ListActions.ListActions
+instance GHC.Classes.Eq Amazonka.FIS.ListActions.ListActions
+instance GHC.Generics.Generic Amazonka.FIS.ListActions.ListActionsResponse
+instance GHC.Show.Show Amazonka.FIS.ListActions.ListActionsResponse
+instance GHC.Read.Read Amazonka.FIS.ListActions.ListActionsResponse
+instance GHC.Classes.Eq Amazonka.FIS.ListActions.ListActionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.ListActions.ListActions
+instance Control.DeepSeq.NFData Amazonka.FIS.ListActions.ListActionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.ListActions.ListActions
+instance Control.DeepSeq.NFData Amazonka.FIS.ListActions.ListActions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.ListActions.ListActions
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.ListActions.ListActions
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.ListActions.ListActions
 
 
 -- | Gets information about the specified experiment template.
-module Network.AWS.FIS.GetExperimentTemplate
+module Amazonka.FIS.GetExperimentTemplate
 
 -- | <i>See:</i> <a>newGetExperimentTemplate</a> smart constructor.
 data GetExperimentTemplate
@@ -3994,25 +3994,25 @@ getExperimentTemplateResponse_experimentTemplate :: Lens' GetExperimentTemplateR
 
 -- | The response's http status code.
 getExperimentTemplateResponse_httpStatus :: Lens' GetExperimentTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplate
-instance GHC.Show.Show Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplate
-instance GHC.Read.Read Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplate
-instance GHC.Classes.Eq Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplate
-instance GHC.Generics.Generic Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplateResponse
-instance GHC.Show.Show Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplateResponse
-instance GHC.Read.Read Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplateResponse
-instance GHC.Classes.Eq Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplate
-instance Control.DeepSeq.NFData Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplate
-instance Control.DeepSeq.NFData Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.GetExperimentTemplate.GetExperimentTemplate
+instance GHC.Generics.Generic Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplate
+instance GHC.Show.Show Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplate
+instance GHC.Read.Read Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplate
+instance GHC.Classes.Eq Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplate
+instance GHC.Generics.Generic Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplateResponse
+instance GHC.Show.Show Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplateResponse
+instance GHC.Read.Read Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplateResponse
+instance GHC.Classes.Eq Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplate
+instance Control.DeepSeq.NFData Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplateResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplate
+instance Control.DeepSeq.NFData Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.GetExperimentTemplate.GetExperimentTemplate
 
 
 -- | Gets information about the specified experiment.
-module Network.AWS.FIS.GetExperiment
+module Amazonka.FIS.GetExperiment
 
 -- | <i>See:</i> <a>newGetExperiment</a> smart constructor.
 data GetExperiment
@@ -4070,25 +4070,25 @@ getExperimentResponse_experiment :: Lens' GetExperimentResponse (Maybe Experimen
 
 -- | The response's http status code.
 getExperimentResponse_httpStatus :: Lens' GetExperimentResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.GetExperiment.GetExperiment
-instance GHC.Show.Show Network.AWS.FIS.GetExperiment.GetExperiment
-instance GHC.Read.Read Network.AWS.FIS.GetExperiment.GetExperiment
-instance GHC.Classes.Eq Network.AWS.FIS.GetExperiment.GetExperiment
-instance GHC.Generics.Generic Network.AWS.FIS.GetExperiment.GetExperimentResponse
-instance GHC.Show.Show Network.AWS.FIS.GetExperiment.GetExperimentResponse
-instance GHC.Read.Read Network.AWS.FIS.GetExperiment.GetExperimentResponse
-instance GHC.Classes.Eq Network.AWS.FIS.GetExperiment.GetExperimentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.GetExperiment.GetExperiment
-instance Control.DeepSeq.NFData Network.AWS.FIS.GetExperiment.GetExperimentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.GetExperiment.GetExperiment
-instance Control.DeepSeq.NFData Network.AWS.FIS.GetExperiment.GetExperiment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.GetExperiment.GetExperiment
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.GetExperiment.GetExperiment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.GetExperiment.GetExperiment
+instance GHC.Generics.Generic Amazonka.FIS.GetExperiment.GetExperiment
+instance GHC.Show.Show Amazonka.FIS.GetExperiment.GetExperiment
+instance GHC.Read.Read Amazonka.FIS.GetExperiment.GetExperiment
+instance GHC.Classes.Eq Amazonka.FIS.GetExperiment.GetExperiment
+instance GHC.Generics.Generic Amazonka.FIS.GetExperiment.GetExperimentResponse
+instance GHC.Show.Show Amazonka.FIS.GetExperiment.GetExperimentResponse
+instance GHC.Read.Read Amazonka.FIS.GetExperiment.GetExperimentResponse
+instance GHC.Classes.Eq Amazonka.FIS.GetExperiment.GetExperimentResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.GetExperiment.GetExperiment
+instance Control.DeepSeq.NFData Amazonka.FIS.GetExperiment.GetExperimentResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.GetExperiment.GetExperiment
+instance Control.DeepSeq.NFData Amazonka.FIS.GetExperiment.GetExperiment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.GetExperiment.GetExperiment
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.GetExperiment.GetExperiment
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.GetExperiment.GetExperiment
 
 
 -- | Gets information about the specified AWS FIS action.
-module Network.AWS.FIS.GetAction
+module Amazonka.FIS.GetAction
 
 -- | <i>See:</i> <a>newGetAction</a> smart constructor.
 data GetAction
@@ -4142,25 +4142,25 @@ getActionResponse_action :: Lens' GetActionResponse (Maybe Action)
 
 -- | The response's http status code.
 getActionResponse_httpStatus :: Lens' GetActionResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.GetAction.GetAction
-instance GHC.Show.Show Network.AWS.FIS.GetAction.GetAction
-instance GHC.Read.Read Network.AWS.FIS.GetAction.GetAction
-instance GHC.Classes.Eq Network.AWS.FIS.GetAction.GetAction
-instance GHC.Generics.Generic Network.AWS.FIS.GetAction.GetActionResponse
-instance GHC.Show.Show Network.AWS.FIS.GetAction.GetActionResponse
-instance GHC.Read.Read Network.AWS.FIS.GetAction.GetActionResponse
-instance GHC.Classes.Eq Network.AWS.FIS.GetAction.GetActionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.GetAction.GetAction
-instance Control.DeepSeq.NFData Network.AWS.FIS.GetAction.GetActionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.GetAction.GetAction
-instance Control.DeepSeq.NFData Network.AWS.FIS.GetAction.GetAction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.GetAction.GetAction
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.GetAction.GetAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.GetAction.GetAction
+instance GHC.Generics.Generic Amazonka.FIS.GetAction.GetAction
+instance GHC.Show.Show Amazonka.FIS.GetAction.GetAction
+instance GHC.Read.Read Amazonka.FIS.GetAction.GetAction
+instance GHC.Classes.Eq Amazonka.FIS.GetAction.GetAction
+instance GHC.Generics.Generic Amazonka.FIS.GetAction.GetActionResponse
+instance GHC.Show.Show Amazonka.FIS.GetAction.GetActionResponse
+instance GHC.Read.Read Amazonka.FIS.GetAction.GetActionResponse
+instance GHC.Classes.Eq Amazonka.FIS.GetAction.GetActionResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.GetAction.GetAction
+instance Control.DeepSeq.NFData Amazonka.FIS.GetAction.GetActionResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.GetAction.GetAction
+instance Control.DeepSeq.NFData Amazonka.FIS.GetAction.GetAction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.GetAction.GetAction
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.GetAction.GetAction
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.GetAction.GetAction
 
 
 -- | Deletes the specified experiment template.
-module Network.AWS.FIS.DeleteExperimentTemplate
+module Amazonka.FIS.DeleteExperimentTemplate
 
 -- | <i>See:</i> <a>newDeleteExperimentTemplate</a> smart constructor.
 data DeleteExperimentTemplate
@@ -4220,21 +4220,21 @@ deleteExperimentTemplateResponse_experimentTemplate :: Lens' DeleteExperimentTem
 
 -- | The response's http status code.
 deleteExperimentTemplateResponse_httpStatus :: Lens' DeleteExperimentTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
-instance GHC.Show.Show Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
-instance GHC.Read.Read Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
-instance GHC.Classes.Eq Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
-instance GHC.Generics.Generic Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplateResponse
-instance GHC.Show.Show Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplateResponse
-instance GHC.Read.Read Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplateResponse
-instance GHC.Classes.Eq Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
-instance Control.DeepSeq.NFData Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
-instance Control.DeepSeq.NFData Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
+instance GHC.Generics.Generic Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
+instance GHC.Show.Show Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
+instance GHC.Read.Read Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
+instance GHC.Classes.Eq Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
+instance GHC.Generics.Generic Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplateResponse
+instance GHC.Show.Show Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplateResponse
+instance GHC.Read.Read Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplateResponse
+instance GHC.Classes.Eq Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
+instance Control.DeepSeq.NFData Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplateResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
+instance Control.DeepSeq.NFData Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.DeleteExperimentTemplate.DeleteExperimentTemplate
 
 
 -- | Creates an experiment template.
@@ -4255,7 +4255,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.DeleteExperimentTemplate
 --   
 --   For more information, see the <a>AWS Fault Injection Simulator User
 --   Guide</a>.
-module Network.AWS.FIS.CreateExperimentTemplate
+module Amazonka.FIS.CreateExperimentTemplate
 
 -- | <i>See:</i> <a>newCreateExperimentTemplate</a> smart constructor.
 data CreateExperimentTemplate
@@ -4381,26 +4381,26 @@ createExperimentTemplateResponse_experimentTemplate :: Lens' CreateExperimentTem
 
 -- | The response's http status code.
 createExperimentTemplateResponse_httpStatus :: Lens' CreateExperimentTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplate
-instance GHC.Show.Show Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplate
-instance GHC.Read.Read Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplate
-instance GHC.Classes.Eq Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplate
-instance GHC.Generics.Generic Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplateResponse
-instance GHC.Show.Show Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplateResponse
-instance GHC.Read.Read Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplateResponse
-instance GHC.Classes.Eq Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplate
-instance Control.DeepSeq.NFData Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplate
-instance Control.DeepSeq.NFData Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.CreateExperimentTemplate.CreateExperimentTemplate
+instance GHC.Generics.Generic Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplate
+instance GHC.Show.Show Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplate
+instance GHC.Read.Read Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplate
+instance GHC.Classes.Eq Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplate
+instance GHC.Generics.Generic Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplateResponse
+instance GHC.Show.Show Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplateResponse
+instance GHC.Read.Read Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplateResponse
+instance GHC.Classes.Eq Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplate
+instance Control.DeepSeq.NFData Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplateResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplate
+instance Control.DeepSeq.NFData Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.CreateExperimentTemplate.CreateExperimentTemplate
 
 
 -- | Removes the specified tags from the specified resource.
-module Network.AWS.FIS.UntagResource
+module Amazonka.FIS.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -4458,25 +4458,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.FIS.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.FIS.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.FIS.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.FIS.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.FIS.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.FIS.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.FIS.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.FIS.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.FIS.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.FIS.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.FIS.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.FIS.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.FIS.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.FIS.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.FIS.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.FIS.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.FIS.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.FIS.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.FIS.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.UntagResource.UntagResource
 
 
 -- | Updates the specified experiment template.
-module Network.AWS.FIS.UpdateExperimentTemplate
+module Amazonka.FIS.UpdateExperimentTemplate
 
 -- | <i>See:</i> <a>newUpdateExperimentTemplate</a> smart constructor.
 data UpdateExperimentTemplate
@@ -4589,25 +4589,25 @@ updateExperimentTemplateResponse_experimentTemplate :: Lens' UpdateExperimentTem
 
 -- | The response's http status code.
 updateExperimentTemplateResponse_httpStatus :: Lens' UpdateExperimentTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
-instance GHC.Show.Show Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
-instance GHC.Read.Read Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
-instance GHC.Classes.Eq Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
-instance GHC.Generics.Generic Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplateResponse
-instance GHC.Show.Show Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplateResponse
-instance GHC.Read.Read Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplateResponse
-instance GHC.Classes.Eq Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
-instance Control.DeepSeq.NFData Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
-instance Control.DeepSeq.NFData Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
+instance GHC.Generics.Generic Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
+instance GHC.Show.Show Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
+instance GHC.Read.Read Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
+instance GHC.Classes.Eq Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
+instance GHC.Generics.Generic Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplateResponse
+instance GHC.Show.Show Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplateResponse
+instance GHC.Read.Read Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplateResponse
+instance GHC.Classes.Eq Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
+instance Control.DeepSeq.NFData Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplateResponse
+instance Data.Hashable.Class.Hashable Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
+instance Control.DeepSeq.NFData Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.FIS.UpdateExperimentTemplate.UpdateExperimentTemplate
 
 
-module Network.AWS.FIS.Lens
+module Amazonka.FIS.Lens
 
 -- | The ID of the experiment template.
 getExperimentTemplate_id :: Lens' GetExperimentTemplate Text
@@ -5141,7 +5141,7 @@ updateExperimentTemplateTargetInput_resourceType :: Lens' UpdateExperimentTempla
 updateExperimentTemplateTargetInput_selectionMode :: Lens' UpdateExperimentTemplateTargetInput Text
 
 
-module Network.AWS.FIS.Waiters
+module Amazonka.FIS.Waiters
 
 
 -- | Derived from API version <tt>2020-12-01</tt> of the AWS service
@@ -5150,7 +5150,7 @@ module Network.AWS.FIS.Waiters
 --   AWS Fault Injection Simulator is a managed service that enables you to
 --   perform fault injection experiments on your AWS workloads. For more
 --   information, see the <a>AWS Fault Injection Simulator User Guide</a>.
-module Network.AWS.FIS
+module Amazonka.FIS
 
 -- | API version <tt>2020-12-01</tt> of the Amazon Fault Injection
 --   Simulator SDK configuration.

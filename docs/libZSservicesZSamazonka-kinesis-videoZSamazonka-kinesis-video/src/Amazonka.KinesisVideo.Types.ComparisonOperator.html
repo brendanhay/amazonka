@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisVideo.Types.ComparisonOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisVideo.Types.ComparisonOperator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier">ComparisonOperator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ComparisonOperator.html#ComparisonOperator_BEGINS_WITH"><span class="hs-identifier">ComparisonOperator_BEGINS_WITH</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679175469"><span id="local-6989586621679175470"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComparisonOperator"><span class="annot"><a href="Amazonka.KinesisVideo.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-var">ComparisonOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComparisonOperator%27"><span class="annot"><a href="Amazonka.KinesisVideo.Types.ComparisonOperator.html#ComparisonOperator%27"><span class="hs-identifier hs-var">ComparisonOperator'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromComparisonOperator"><span class="annot"><span class="annottext">ComparisonOperator -&gt; Text
+</span><a href="Amazonka.KinesisVideo.Types.ComparisonOperator.html#fromComparisonOperator"><span class="hs-identifier hs-var hs-var">fromComparisonOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175461"><span id="local-6989586621679175463"><span id="local-6989586621679175465"><span class="annot"><span class="annottext">Int -&gt; ComparisonOperator -&gt; ShowS
+[ComparisonOperator] -&gt; ShowS
+ComparisonOperator -&gt; String
+(Int -&gt; ComparisonOperator -&gt; ShowS)
+-&gt; (ComparisonOperator -&gt; String)
+-&gt; ([ComparisonOperator] -&gt; ShowS)
+-&gt; Show ComparisonOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ComparisonOperator] -&gt; ShowS
+$cshowList :: [ComparisonOperator] -&gt; ShowS
+show :: ComparisonOperator -&gt; String
+$cshow :: ComparisonOperator -&gt; String
+showsPrec :: Int -&gt; ComparisonOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; ComparisonOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679175452"><span id="local-6989586621679175454"><span id="local-6989586621679175456"><span id="local-6989586621679175458"><span class="annot"><span class="annottext">ReadPrec [ComparisonOperator]
+ReadPrec ComparisonOperator
+Int -&gt; ReadS ComparisonOperator
+ReadS [ComparisonOperator]
+(Int -&gt; ReadS ComparisonOperator)
+-&gt; ReadS [ComparisonOperator]
+-&gt; ReadPrec ComparisonOperator
+-&gt; ReadPrec [ComparisonOperator]
+-&gt; Read ComparisonOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ComparisonOperator]
+$creadListPrec :: ReadPrec [ComparisonOperator]
+readPrec :: ReadPrec ComparisonOperator
+$creadPrec :: ReadPrec ComparisonOperator
+readList :: ReadS [ComparisonOperator]
+$creadList :: ReadS [ComparisonOperator]
+readsPrec :: Int -&gt; ReadS ComparisonOperator
+$creadsPrec :: Int -&gt; ReadS ComparisonOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679175447"><span id="local-6989586621679175449"><span class="annot"><span class="annottext">ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+(ComparisonOperator -&gt; ComparisonOperator -&gt; Bool)
+-&gt; (ComparisonOperator -&gt; ComparisonOperator -&gt; Bool)
+-&gt; Eq ComparisonOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+$c/= :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+== :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+$c== :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679175431"><span id="local-6989586621679175433"><span id="local-6989586621679175435"><span id="local-6989586621679175437"><span id="local-6989586621679175439"><span id="local-6989586621679175441"><span id="local-6989586621679175443"><span class="annot"><span class="annottext">Eq ComparisonOperator
+Eq ComparisonOperator
+-&gt; (ComparisonOperator -&gt; ComparisonOperator -&gt; Ordering)
+-&gt; (ComparisonOperator -&gt; ComparisonOperator -&gt; Bool)
+-&gt; (ComparisonOperator -&gt; ComparisonOperator -&gt; Bool)
+-&gt; (ComparisonOperator -&gt; ComparisonOperator -&gt; Bool)
+-&gt; (ComparisonOperator -&gt; ComparisonOperator -&gt; Bool)
+-&gt; (ComparisonOperator -&gt; ComparisonOperator -&gt; ComparisonOperator)
+-&gt; (ComparisonOperator -&gt; ComparisonOperator -&gt; ComparisonOperator)
+-&gt; Ord ComparisonOperator
+ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+ComparisonOperator -&gt; ComparisonOperator -&gt; Ordering
+ComparisonOperator -&gt; ComparisonOperator -&gt; ComparisonOperator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ComparisonOperator -&gt; ComparisonOperator -&gt; ComparisonOperator
+$cmin :: ComparisonOperator -&gt; ComparisonOperator -&gt; ComparisonOperator
+max :: ComparisonOperator -&gt; ComparisonOperator -&gt; ComparisonOperator
+$cmax :: ComparisonOperator -&gt; ComparisonOperator -&gt; ComparisonOperator
+&gt;= :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+$c&gt;= :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+&gt; :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+$c&gt; :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+&lt;= :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+$c&lt;= :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+&lt; :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+$c&lt; :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+compare :: ComparisonOperator -&gt; ComparisonOperator -&gt; Ordering
+$ccompare :: ComparisonOperator -&gt; ComparisonOperator -&gt; Ordering
+$cp1Ord :: Eq ComparisonOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ComparisonOperator -&gt; Rep ComparisonOperator x)
+-&gt; (forall x. Rep ComparisonOperator x -&gt; ComparisonOperator)
+-&gt; Generic ComparisonOperator
+forall x. Rep ComparisonOperator x -&gt; ComparisonOperator
+forall x. ComparisonOperator -&gt; Rep ComparisonOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ComparisonOperator x -&gt; ComparisonOperator
+$cfrom :: forall x. ComparisonOperator -&gt; Rep ComparisonOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175423"><span id="local-6989586621679175425"><span class="annot"><span class="annottext">Int -&gt; ComparisonOperator -&gt; Int
+ComparisonOperator -&gt; Int
+(Int -&gt; ComparisonOperator -&gt; Int)
+-&gt; (ComparisonOperator -&gt; Int) -&gt; Hashable ComparisonOperator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ComparisonOperator -&gt; Int
+$chash :: ComparisonOperator -&gt; Int
+hashWithSalt :: Int -&gt; ComparisonOperator -&gt; Int
+$chashWithSalt :: Int -&gt; ComparisonOperator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679175420"><span class="annot"><span class="annottext">ComparisonOperator -&gt; ()
+(ComparisonOperator -&gt; ()) -&gt; NFData ComparisonOperator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ComparisonOperator -&gt; ()
+$crnf :: ComparisonOperator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679175417"><span class="annot"><span class="annottext">Text -&gt; Either String ComparisonOperator
+(Text -&gt; Either String ComparisonOperator)
+-&gt; FromText ComparisonOperator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ComparisonOperator
+$cfromText :: Text -&gt; Either String ComparisonOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679175414"><span class="annot"><span class="annottext">ComparisonOperator -&gt; Text
+(ComparisonOperator -&gt; Text) -&gt; ToText ComparisonOperator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ComparisonOperator -&gt; Text
+$ctoText :: ComparisonOperator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679175411"><span class="annot"><span class="annottext">ComparisonOperator -&gt; ByteString
+(ComparisonOperator -&gt; ByteString)
+-&gt; ToByteString ComparisonOperator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ComparisonOperator -&gt; ByteString
+$ctoBS :: ComparisonOperator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679175408"><span class="annot"><span class="annottext">ComparisonOperator -&gt; ByteStringBuilder
+(ComparisonOperator -&gt; ByteStringBuilder)
+-&gt; ToLog ComparisonOperator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ComparisonOperator -&gt; ByteStringBuilder
+$cbuild :: ComparisonOperator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679175405"><span class="annot"><span class="annottext">HeaderName -&gt; ComparisonOperator -&gt; [Header]
+(HeaderName -&gt; ComparisonOperator -&gt; [Header])
+-&gt; ToHeader ComparisonOperator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ComparisonOperator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ComparisonOperator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679175402"><span class="annot"><span class="annottext">ComparisonOperator -&gt; QueryString
+(ComparisonOperator -&gt; QueryString) -&gt; ToQuery ComparisonOperator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ComparisonOperator -&gt; QueryString
+$ctoQuery :: ComparisonOperator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679175397"><span id="local-6989586621679175399"><span class="annot"><span class="annottext">Value -&gt; Parser [ComparisonOperator]
+Value -&gt; Parser ComparisonOperator
+(Value -&gt; Parser ComparisonOperator)
+-&gt; (Value -&gt; Parser [ComparisonOperator])
+-&gt; FromJSON ComparisonOperator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ComparisonOperator]
+$cparseJSONList :: Value -&gt; Parser [ComparisonOperator]
+parseJSON :: Value -&gt; Parser ComparisonOperator
+$cparseJSON :: Value -&gt; Parser ComparisonOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679175392"><span id="local-6989586621679175394"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComparisonOperator]
+FromJSONKeyFunction ComparisonOperator
+FromJSONKeyFunction ComparisonOperator
+-&gt; FromJSONKeyFunction [ComparisonOperator]
+-&gt; FromJSONKey ComparisonOperator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ComparisonOperator]
+$cfromJSONKeyList :: FromJSONKeyFunction [ComparisonOperator]
+fromJSONKey :: FromJSONKeyFunction ComparisonOperator
+$cfromJSONKey :: FromJSONKeyFunction ComparisonOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679175383"><span id="local-6989586621679175385"><span id="local-6989586621679175387"><span id="local-6989586621679175389"><span class="annot"><span class="annottext">[ComparisonOperator] -&gt; Encoding
+[ComparisonOperator] -&gt; Value
+ComparisonOperator -&gt; Encoding
+ComparisonOperator -&gt; Value
+(ComparisonOperator -&gt; Value)
+-&gt; (ComparisonOperator -&gt; Encoding)
+-&gt; ([ComparisonOperator] -&gt; Value)
+-&gt; ([ComparisonOperator] -&gt; Encoding)
+-&gt; ToJSON ComparisonOperator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ComparisonOperator] -&gt; Encoding
+$ctoEncodingList :: [ComparisonOperator] -&gt; Encoding
+toJSONList :: [ComparisonOperator] -&gt; Value
+$ctoJSONList :: [ComparisonOperator] -&gt; Value
+toEncoding :: ComparisonOperator -&gt; Encoding
+$ctoEncoding :: ComparisonOperator -&gt; Encoding
+toJSON :: ComparisonOperator -&gt; Value
+$ctoJSON :: ComparisonOperator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679175378"><span id="local-6989586621679175380"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComparisonOperator]
+ToJSONKeyFunction ComparisonOperator
+ToJSONKeyFunction ComparisonOperator
+-&gt; ToJSONKeyFunction [ComparisonOperator]
+-&gt; ToJSONKey ComparisonOperator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ComparisonOperator]
+$ctoJSONKeyList :: ToJSONKeyFunction [ComparisonOperator]
+toJSONKey :: ToJSONKeyFunction ComparisonOperator
+$ctoJSONKey :: ToJSONKeyFunction ComparisonOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679175375"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComparisonOperator
+([Node] -&gt; Either String ComparisonOperator)
+-&gt; FromXML ComparisonOperator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ComparisonOperator
+$cparseXML :: [Node] -&gt; Either String ComparisonOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679175372"><span class="annot"><span class="annottext">ComparisonOperator -&gt; XML
+(ComparisonOperator -&gt; XML) -&gt; ToXML ComparisonOperator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ComparisonOperator -&gt; XML
+$ctoXML :: ComparisonOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ComparisonOperator.html#ComparisonOperator_BEGINS_WITH"><span class="hs-identifier hs-type">ComparisonOperator_BEGINS_WITH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-type">ComparisonOperator</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bComparisonOperator_BEGINS_WITH"><span id="%24mComparisonOperator_BEGINS_WITH"><span id="ComparisonOperator_BEGINS_WITH"><span class="annot"><span class="annottext">$bComparisonOperator_BEGINS_WITH :: ComparisonOperator
+$mComparisonOperator_BEGINS_WITH :: forall r. ComparisonOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisVideo.Types.ComparisonOperator.html#%24bComparisonOperator_BEGINS_WITH"><span class="hs-identifier hs-var hs-var hs-var">ComparisonOperator_BEGINS_WITH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ComparisonOperator.html#ComparisonOperator%27"><span class="hs-identifier hs-type">ComparisonOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BEGINS_WITH&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ComparisonOperator.html#ComparisonOperator_BEGINS_WITH"><span class="hs-pragma hs-type">ComparisonOperator_BEGINS_WITH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideo.Types.ComparisonOperator.html#ComparisonOperator%27"><span class="hs-pragma hs-type">ComparisonOperator'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

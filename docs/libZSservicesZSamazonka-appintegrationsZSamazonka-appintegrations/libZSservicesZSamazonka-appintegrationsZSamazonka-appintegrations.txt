@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.AppIntegrationS.Types.DataIntegrationAssociationSummary
+module Amazonka.AppIntegrationS.Types.DataIntegrationAssociationSummary
 
 -- | Summary information about the DataIntegration association.
 --   
@@ -56,16 +56,16 @@ dataIntegrationAssociationSummary_dataIntegrationAssociationArn :: Lens' DataInt
 
 -- | The Amazon Resource Name (ARN)of the DataIntegration.
 dataIntegrationAssociationSummary_dataIntegrationArn :: Lens' DataIntegrationAssociationSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
-instance GHC.Show.Show Network.AWS.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
-instance GHC.Read.Read Network.AWS.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
+instance GHC.Show.Show Amazonka.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
+instance GHC.Read.Read Amazonka.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.Types.DataIntegrationAssociationSummary.DataIntegrationAssociationSummary
 
 
-module Network.AWS.AppIntegrationS.Types.DataIntegrationSummary
+module Amazonka.AppIntegrationS.Types.DataIntegrationSummary
 
 -- | Summary information about the DataIntegration.
 --   
@@ -110,16 +110,16 @@ dataIntegrationSummary_name :: Lens' DataIntegrationSummary (Maybe Text)
 
 -- | The URI of the data source.
 dataIntegrationSummary_sourceURI :: Lens' DataIntegrationSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
-instance GHC.Show.Show Network.AWS.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
-instance GHC.Read.Read Network.AWS.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
+instance GHC.Show.Show Amazonka.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
+instance GHC.Read.Read Amazonka.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.Types.DataIntegrationSummary.DataIntegrationSummary
 
 
-module Network.AWS.AppIntegrationS.Types.EventFilter
+module Amazonka.AppIntegrationS.Types.EventFilter
 
 -- | The event filter.
 --   
@@ -144,17 +144,17 @@ newEventFilter :: Text -> EventFilter
 
 -- | The source of the events.
 eventFilter_source :: Lens' EventFilter Text
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.Types.EventFilter.EventFilter
-instance GHC.Show.Show Network.AWS.AppIntegrationS.Types.EventFilter.EventFilter
-instance GHC.Read.Read Network.AWS.AppIntegrationS.Types.EventFilter.EventFilter
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.Types.EventFilter.EventFilter
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppIntegrationS.Types.EventFilter.EventFilter
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.Types.EventFilter.EventFilter
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.Types.EventFilter.EventFilter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppIntegrationS.Types.EventFilter.EventFilter
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.Types.EventFilter.EventFilter
+instance GHC.Show.Show Amazonka.AppIntegrationS.Types.EventFilter.EventFilter
+instance GHC.Read.Read Amazonka.AppIntegrationS.Types.EventFilter.EventFilter
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.Types.EventFilter.EventFilter
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppIntegrationS.Types.EventFilter.EventFilter
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.Types.EventFilter.EventFilter
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.Types.EventFilter.EventFilter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppIntegrationS.Types.EventFilter.EventFilter
 
 
-module Network.AWS.AppIntegrationS.Types.EventIntegration
+module Amazonka.AppIntegrationS.Types.EventIntegration
 
 -- | The event integration.
 --   
@@ -228,16 +228,16 @@ eventIntegration_description :: Lens' EventIntegration (Maybe Text)
 
 -- | The tags.
 eventIntegration_tags :: Lens' EventIntegration (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.Types.EventIntegration.EventIntegration
-instance GHC.Show.Show Network.AWS.AppIntegrationS.Types.EventIntegration.EventIntegration
-instance GHC.Read.Read Network.AWS.AppIntegrationS.Types.EventIntegration.EventIntegration
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.Types.EventIntegration.EventIntegration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppIntegrationS.Types.EventIntegration.EventIntegration
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.Types.EventIntegration.EventIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.Types.EventIntegration.EventIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.Types.EventIntegration.EventIntegration
+instance GHC.Show.Show Amazonka.AppIntegrationS.Types.EventIntegration.EventIntegration
+instance GHC.Read.Read Amazonka.AppIntegrationS.Types.EventIntegration.EventIntegration
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.Types.EventIntegration.EventIntegration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppIntegrationS.Types.EventIntegration.EventIntegration
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.Types.EventIntegration.EventIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.Types.EventIntegration.EventIntegration
 
 
-module Network.AWS.AppIntegrationS.Types.EventIntegrationAssociation
+module Amazonka.AppIntegrationS.Types.EventIntegrationAssociation
 
 -- | The event integration association.
 --   
@@ -318,16 +318,16 @@ eventIntegrationAssociation_eventIntegrationAssociationArn :: Lens' EventIntegra
 
 -- | The name of the EventBridge rule.
 eventIntegrationAssociation_eventBridgeRuleName :: Lens' EventIntegrationAssociation (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
-instance GHC.Show.Show Network.AWS.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
-instance GHC.Read.Read Network.AWS.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
+instance GHC.Show.Show Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
+instance GHC.Read.Read Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.Types.EventIntegrationAssociation.EventIntegrationAssociation
 
 
-module Network.AWS.AppIntegrationS.Types.ScheduleConfiguration
+module Amazonka.AppIntegrationS.Types.ScheduleConfiguration
 
 -- | The name of the data and how often it should be pulled from the
 --   source.
@@ -375,17 +375,17 @@ scheduleConfiguration_object :: Lens' ScheduleConfiguration (Maybe Text)
 
 -- | The start date for objects to import in the first flow run.
 scheduleConfiguration_firstExecutionFrom :: Lens' ScheduleConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
-instance GHC.Show.Show Network.AWS.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
-instance GHC.Read.Read Network.AWS.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
+instance GHC.Show.Show Amazonka.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
+instance GHC.Read.Read Amazonka.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppIntegrationS.Types.ScheduleConfiguration.ScheduleConfiguration
 
 
-module Network.AWS.AppIntegrationS.Types
+module Amazonka.AppIntegrationS.Types
 
 -- | API version <tt>2020-07-29</tt> of the Amazon AppIntegrations Service
 --   SDK configuration.
@@ -732,7 +732,7 @@ scheduleConfiguration_firstExecutionFrom :: Lens' ScheduleConfiguration (Maybe T
 
 
 -- | Adds the specified tags to the specified resource.
-module Network.AWS.AppIntegrationS.TagResource
+module Amazonka.AppIntegrationS.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -788,26 +788,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.AppIntegrationS.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.AppIntegrationS.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppIntegrationS.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.TagResource.TagResource
+instance GHC.Show.Show Amazonka.AppIntegrationS.TagResource.TagResource
+instance GHC.Read.Read Amazonka.AppIntegrationS.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppIntegrationS.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.TagResource.TagResource
 
 
 -- | Lists the tags for the specified resource.
-module Network.AWS.AppIntegrationS.ListTagsForResource
+module Amazonka.AppIntegrationS.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -865,25 +865,25 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns a paginated list of event integrations in the account.
-module Network.AWS.AppIntegrationS.ListEventIntegrations
+module Amazonka.AppIntegrationS.ListEventIntegrations
 
 -- | <i>See:</i> <a>newListEventIntegrations</a> smart constructor.
 data ListEventIntegrations
@@ -969,26 +969,26 @@ listEventIntegrationsResponse_nextToken :: Lens' ListEventIntegrationsResponse (
 
 -- | The response's http status code.
 listEventIntegrationsResponse_httpStatus :: Lens' ListEventIntegrationsResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
-instance GHC.Show.Show Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
-instance GHC.Read.Read Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrationsResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrationsResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrationsResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
+instance GHC.Show.Show Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
+instance GHC.Read.Read Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrationsResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrationsResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrationsResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.ListEventIntegrations.ListEventIntegrations
 
 
 -- | Returns a paginated list of event integration associations in the
 --   account.
-module Network.AWS.AppIntegrationS.ListEventIntegrationAssociations
+module Amazonka.AppIntegrationS.ListEventIntegrationAssociations
 
 -- | <i>See:</i> <a>newListEventIntegrationAssociations</a> smart
 --   constructor.
@@ -1087,21 +1087,21 @@ listEventIntegrationAssociationsResponse_nextToken :: Lens' ListEventIntegration
 
 -- | The response's http status code.
 listEventIntegrationAssociationsResponse_httpStatus :: Lens' ListEventIntegrationAssociationsResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
-instance GHC.Show.Show Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
-instance GHC.Read.Read Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociationsResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociationsResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociationsResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
+instance GHC.Show.Show Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
+instance GHC.Read.Read Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociationsResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociationsResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociationsResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.ListEventIntegrationAssociations.ListEventIntegrationAssociations
 
 
 -- | Returns a paginated list of DataIntegrations in the account.
@@ -1110,7 +1110,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.ListEventInt
 --   that has been previously associated. Use a different DataIntegration,
 --   or recreate the DataIntegration using the <a>CreateDataIntegration</a>
 --   API.
-module Network.AWS.AppIntegrationS.ListDataIntegrations
+module Amazonka.AppIntegrationS.ListDataIntegrations
 
 -- | <i>See:</i> <a>newListDataIntegrations</a> smart constructor.
 data ListDataIntegrations
@@ -1196,21 +1196,21 @@ listDataIntegrationsResponse_nextToken :: Lens' ListDataIntegrationsResponse (Ma
 
 -- | The response's http status code.
 listDataIntegrationsResponse_httpStatus :: Lens' ListDataIntegrationsResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
-instance GHC.Show.Show Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
-instance GHC.Read.Read Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrationsResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrationsResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrationsResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
+instance GHC.Show.Show Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
+instance GHC.Read.Read Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrationsResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrationsResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrationsResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.ListDataIntegrations.ListDataIntegrations
 
 
 -- | Returns a paginated list of DataIntegration associations in the
@@ -1220,7 +1220,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.ListDataInte
 --   that has been previously associated. Use a different DataIntegration,
 --   or recreate the DataIntegration using the <a>CreateDataIntegration</a>
 --   API.
-module Network.AWS.AppIntegrationS.ListDataIntegrationAssociations
+module Amazonka.AppIntegrationS.ListDataIntegrationAssociations
 
 -- | <i>See:</i> <a>newListDataIntegrationAssociations</a> smart
 --   constructor.
@@ -1323,25 +1323,25 @@ listDataIntegrationAssociationsResponse_nextToken :: Lens' ListDataIntegrationAs
 
 -- | The response's http status code.
 listDataIntegrationAssociationsResponse_httpStatus :: Lens' ListDataIntegrationAssociationsResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
-instance GHC.Show.Show Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
-instance GHC.Read.Read Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociationsResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociationsResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociationsResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
+instance GHC.Show.Show Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
+instance GHC.Read.Read Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociationsResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociationsResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociationsResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.ListDataIntegrationAssociations.ListDataIntegrationAssociations
 
 
 -- | Returns information about the event integration.
-module Network.AWS.AppIntegrationS.GetEventIntegration
+module Amazonka.AppIntegrationS.GetEventIntegration
 
 -- | <i>See:</i> <a>newGetEventIntegration</a> smart constructor.
 data GetEventIntegration
@@ -1447,21 +1447,21 @@ getEventIntegrationResponse_tags :: Lens' GetEventIntegrationResponse (Maybe (Ha
 
 -- | The response's http status code.
 getEventIntegrationResponse_httpStatus :: Lens' GetEventIntegrationResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegration
-instance GHC.Show.Show Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegration
-instance GHC.Read.Read Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegration
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegration
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegrationResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegrationResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegrationResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegrationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegrationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.GetEventIntegration.GetEventIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegration
+instance GHC.Show.Show Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegration
+instance GHC.Read.Read Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegration
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegrationResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegrationResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegrationResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegrationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegrationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegration
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.GetEventIntegration.GetEventIntegration
 
 
 -- | Returns information about the DataIntegration.
@@ -1470,7 +1470,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.GetEventInte
 --   that has been previously associated. Use a different DataIntegration,
 --   or recreate the DataIntegration using the <a>CreateDataIntegration</a>
 --   API.
-module Network.AWS.AppIntegrationS.GetDataIntegration
+module Amazonka.AppIntegrationS.GetDataIntegration
 
 -- | <i>See:</i> <a>newGetDataIntegration</a> smart constructor.
 data GetDataIntegration
@@ -1598,26 +1598,26 @@ getDataIntegrationResponse_tags :: Lens' GetDataIntegrationResponse (Maybe (Hash
 
 -- | The response's http status code.
 getDataIntegrationResponse_httpStatus :: Lens' GetDataIntegrationResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegration
-instance GHC.Show.Show Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegration
-instance GHC.Read.Read Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegration
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegration
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegrationResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegrationResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegrationResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegrationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegrationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.GetDataIntegration.GetDataIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegration
+instance GHC.Show.Show Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegration
+instance GHC.Read.Read Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegration
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegrationResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegrationResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegrationResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegrationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegrationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegration
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.GetDataIntegration.GetDataIntegration
 
 
 -- | Deletes the specified existing event integration. If the event
 --   integration is associated with clients, the request is rejected.
-module Network.AWS.AppIntegrationS.DeleteEventIntegration
+module Amazonka.AppIntegrationS.DeleteEventIntegration
 
 -- | <i>See:</i> <a>newDeleteEventIntegration</a> smart constructor.
 data DeleteEventIntegration
@@ -1667,21 +1667,21 @@ newDeleteEventIntegrationResponse :: Int -> DeleteEventIntegrationResponse
 
 -- | The response's http status code.
 deleteEventIntegrationResponse_httpStatus :: Lens' DeleteEventIntegrationResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
-instance GHC.Show.Show Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
-instance GHC.Read.Read Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegrationResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegrationResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegrationResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegrationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegrationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
+instance GHC.Show.Show Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
+instance GHC.Read.Read Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegrationResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegrationResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegrationResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegrationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegrationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.DeleteEventIntegration.DeleteEventIntegration
 
 
 -- | Deletes the DataIntegration. Only DataIntegrations that don't have any
@@ -1693,7 +1693,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.DeleteEventI
 --   that has been previously associated. Use a different DataIntegration,
 --   or recreate the DataIntegration using the <a>CreateDataIntegration</a>
 --   API.
-module Network.AWS.AppIntegrationS.DeleteDataIntegration
+module Amazonka.AppIntegrationS.DeleteDataIntegration
 
 -- | <i>See:</i> <a>newDeleteDataIntegration</a> smart constructor.
 data DeleteDataIntegration
@@ -1742,21 +1742,21 @@ newDeleteDataIntegrationResponse :: Int -> DeleteDataIntegrationResponse
 
 -- | The response's http status code.
 deleteDataIntegrationResponse_httpStatus :: Lens' DeleteDataIntegrationResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
-instance GHC.Show.Show Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
-instance GHC.Read.Read Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegrationResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegrationResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegrationResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegrationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegrationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
+instance GHC.Show.Show Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
+instance GHC.Read.Read Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegrationResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegrationResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegrationResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegrationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegrationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.DeleteDataIntegration.DeleteDataIntegration
 
 
 -- | Creates an EventIntegration, given a specified name, description, and
@@ -1764,7 +1764,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.DeleteDataIn
 --   event source that pushes events to that bus. No objects are created in
 --   the your account, only metadata that is persisted on the
 --   EventIntegration control plane.
-module Network.AWS.AppIntegrationS.CreateEventIntegration
+module Amazonka.AppIntegrationS.CreateEventIntegration
 
 -- | <i>See:</i> <a>newCreateEventIntegration</a> smart constructor.
 data CreateEventIntegration
@@ -1873,22 +1873,22 @@ createEventIntegrationResponse_eventIntegrationArn :: Lens' CreateEventIntegrati
 
 -- | The response's http status code.
 createEventIntegrationResponse_httpStatus :: Lens' CreateEventIntegrationResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
-instance GHC.Show.Show Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
-instance GHC.Read.Read Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegrationResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegrationResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegrationResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegrationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegrationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
+instance GHC.Show.Show Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
+instance GHC.Read.Read Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegrationResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegrationResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegrationResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegrationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegrationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.CreateEventIntegration.CreateEventIntegration
 
 
 -- | Creates and persists a DataIntegration resource.
@@ -1897,7 +1897,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.CreateEventI
 --   that has been previously associated. Use a different DataIntegration,
 --   or recreate the DataIntegration using the
 --   <tt>CreateDataIntegration</tt> API.
-module Network.AWS.AppIntegrationS.CreateDataIntegration
+module Amazonka.AppIntegrationS.CreateDataIntegration
 
 -- | <i>See:</i> <a>newCreateDataIntegration</a> smart constructor.
 data CreateDataIntegration
@@ -2100,26 +2100,26 @@ createDataIntegrationResponse_tags :: Lens' CreateDataIntegrationResponse (Maybe
 
 -- | The response's http status code.
 createDataIntegrationResponse_httpStatus :: Lens' CreateDataIntegrationResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
-instance GHC.Show.Show Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
-instance GHC.Read.Read Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegrationResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegrationResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegrationResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegrationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegrationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
+instance GHC.Show.Show Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
+instance GHC.Read.Read Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegrationResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegrationResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegrationResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegrationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegrationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.CreateDataIntegration.CreateDataIntegration
 
 
 -- | Removes the specified tags from the specified resource.
-module Network.AWS.AppIntegrationS.UntagResource
+module Amazonka.AppIntegrationS.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -2177,21 +2177,21 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.AppIntegrationS.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.AppIntegrationS.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.AppIntegrationS.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.AppIntegrationS.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.UntagResource.UntagResource
 
 
 -- | Updates the description of a DataIntegration.
@@ -2200,7 +2200,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.UntagResourc
 --   that has been previously associated. Use a different DataIntegration,
 --   or recreate the DataIntegration using the <a>CreateDataIntegration</a>
 --   API.
-module Network.AWS.AppIntegrationS.UpdateDataIntegration
+module Amazonka.AppIntegrationS.UpdateDataIntegration
 
 -- | <i>See:</i> <a>newUpdateDataIntegration</a> smart constructor.
 data UpdateDataIntegration
@@ -2268,26 +2268,26 @@ newUpdateDataIntegrationResponse :: Int -> UpdateDataIntegrationResponse
 
 -- | The response's http status code.
 updateDataIntegrationResponse_httpStatus :: Lens' UpdateDataIntegrationResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
-instance GHC.Show.Show Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
-instance GHC.Read.Read Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegrationResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegrationResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegrationResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegrationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegrationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
+instance GHC.Show.Show Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
+instance GHC.Read.Read Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegrationResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegrationResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegrationResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegrationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegrationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.UpdateDataIntegration.UpdateDataIntegration
 
 
 -- | Updates the description of an event integration.
-module Network.AWS.AppIntegrationS.UpdateEventIntegration
+module Amazonka.AppIntegrationS.UpdateEventIntegration
 
 -- | <i>See:</i> <a>newUpdateEventIntegration</a> smart constructor.
 data UpdateEventIntegration
@@ -2347,25 +2347,25 @@ newUpdateEventIntegrationResponse :: Int -> UpdateEventIntegrationResponse
 
 -- | The response's http status code.
 updateEventIntegrationResponse_httpStatus :: Lens' UpdateEventIntegrationResponse Int
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
-instance GHC.Show.Show Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
-instance GHC.Read.Read Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
-instance GHC.Generics.Generic Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegrationResponse
-instance GHC.Show.Show Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegrationResponse
-instance GHC.Read.Read Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegrationResponse
-instance GHC.Classes.Eq Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegrationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegrationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
-instance Control.DeepSeq.NFData Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
-instance Network.AWS.Data.Path.ToPath Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
+instance GHC.Show.Show Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
+instance GHC.Read.Read Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
+instance GHC.Generics.Generic Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegrationResponse
+instance GHC.Show.Show Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegrationResponse
+instance GHC.Read.Read Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegrationResponse
+instance GHC.Classes.Eq Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegrationResponse
+instance Amazonka.Types.AWSRequest Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegrationResponse
+instance Data.Hashable.Class.Hashable Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
+instance Control.DeepSeq.NFData Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
+instance Amazonka.Data.Path.ToPath Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
+instance Amazonka.Data.Query.ToQuery Amazonka.AppIntegrationS.UpdateEventIntegration.UpdateEventIntegration
 
 
-module Network.AWS.AppIntegrationS.Lens
+module Amazonka.AppIntegrationS.Lens
 
 -- | The name of the event integration.
 getEventIntegration_name :: Lens' GetEventIntegration Text
@@ -2710,7 +2710,7 @@ scheduleConfiguration_object :: Lens' ScheduleConfiguration (Maybe Text)
 scheduleConfiguration_firstExecutionFrom :: Lens' ScheduleConfiguration (Maybe Text)
 
 
-module Network.AWS.AppIntegrationS.Waiters
+module Amazonka.AppIntegrationS.Waiters
 
 
 -- | Derived from API version <tt>2020-07-29</tt> of the AWS service
@@ -2723,7 +2723,7 @@ module Network.AWS.AppIntegrationS.Waiters
 --   Amazon Connect, see <a>Set up pre-built integrations</a> and
 --   <a>Deliver information to agents using Amazon Connect Wisdom</a> in
 --   the <i>Amazon Connect Administrator Guide</i>.
-module Network.AWS.AppIntegrationS
+module Amazonka.AppIntegrationS
 
 -- | API version <tt>2020-07-29</tt> of the Amazon AppIntegrations Service
 --   SDK configuration.

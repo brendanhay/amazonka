@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-3"></span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Module      : Amazonka.Polly</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-11"></span><span class="hs-comment">--</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Derived from API version @2016-06-10@ of the AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">--</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Amazon Polly is a web service that makes it easy to synthesize speech</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- from text.</span><span>
+</span><span id="line-16"></span><span class="hs-comment">--</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- The Amazon Polly service provides API operations for synthesizing</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- high-quality speech from plain text and Speech Synthesis Markup Language</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- (SSML), along with managing pronunciations lexicons that enable you to</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- get the best results for your application domain.</span><span>
+</span><span id="line-21"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Polly</span><span>
+</span><span id="line-22"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><span class="hs-comment">-- $errors</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidSnsTopicArnException</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_InvalidSnsTopicArnException"><span class="hs-identifier">_InvalidSnsTopicArnException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UnsupportedPlsLanguageException</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_UnsupportedPlsLanguageException"><span class="hs-identifier">_UnsupportedPlsLanguageException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidSsmlException</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_InvalidSsmlException"><span class="hs-identifier">_InvalidSsmlException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidSampleRateException</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_InvalidSampleRateException"><span class="hs-identifier">_InvalidSampleRateException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** EngineNotSupportedException</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_EngineNotSupportedException"><span class="hs-identifier">_EngineNotSupportedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** MaxLexiconsNumberExceededException</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_MaxLexiconsNumberExceededException"><span class="hs-identifier">_MaxLexiconsNumberExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** TextLengthExceededException</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_TextLengthExceededException"><span class="hs-identifier">_TextLengthExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** MaxLexemeLengthExceededException</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_MaxLexemeLengthExceededException"><span class="hs-identifier">_MaxLexemeLengthExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidTaskIdException</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_InvalidTaskIdException"><span class="hs-identifier">_InvalidTaskIdException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidLexiconException</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_InvalidLexiconException"><span class="hs-identifier">_InvalidLexiconException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ServiceFailureException</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_ServiceFailureException"><span class="hs-identifier">_ServiceFailureException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UnsupportedPlsAlphabetException</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_UnsupportedPlsAlphabetException"><span class="hs-identifier">_UnsupportedPlsAlphabetException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidNextTokenException</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_InvalidNextTokenException"><span class="hs-identifier">_InvalidNextTokenException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** MarksNotSupportedForFormatException</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_MarksNotSupportedForFormatException"><span class="hs-identifier">_MarksNotSupportedForFormatException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** SynthesisTaskNotFoundException</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_SynthesisTaskNotFoundException"><span class="hs-identifier">_SynthesisTaskNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** SsmlMarksNotSupportedForTextTypeException</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_SsmlMarksNotSupportedForTextTypeException"><span class="hs-identifier">_SsmlMarksNotSupportedForTextTypeException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidS3BucketException</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_InvalidS3BucketException"><span class="hs-identifier">_InvalidS3BucketException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LexiconSizeExceededException</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_LexiconSizeExceededException"><span class="hs-identifier">_LexiconSizeExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LanguageNotSupportedException</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_LanguageNotSupportedException"><span class="hs-identifier">_LanguageNotSupportedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LexiconNotFoundException</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_LexiconNotFoundException"><span class="hs-identifier">_LexiconNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidS3KeyException</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.html#_InvalidS3KeyException"><span class="hs-identifier">_InvalidS3KeyException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Waiters</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="hs-comment">-- $waiters</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- $operations</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetLexicon</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.GetLexicon.html#GetLexicon"><span class="hs-identifier">GetLexicon</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.GetLexicon.html#GetLexicon%27"><span class="hs-identifier">GetLexicon'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.GetLexicon.html#newGetLexicon"><span class="hs-identifier">newGetLexicon</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.GetLexicon.html#GetLexiconResponse"><span class="hs-identifier">GetLexiconResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.GetLexicon.html#GetLexiconResponse%27"><span class="hs-identifier">GetLexiconResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.GetLexicon.html#newGetLexiconResponse"><span class="hs-identifier">newGetLexiconResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetSpeechSynthesisTask</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.GetSpeechSynthesisTask.html#GetSpeechSynthesisTask"><span class="hs-identifier">GetSpeechSynthesisTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.GetSpeechSynthesisTask.html#GetSpeechSynthesisTask%27"><span class="hs-identifier">GetSpeechSynthesisTask'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.GetSpeechSynthesisTask.html#newGetSpeechSynthesisTask"><span class="hs-identifier">newGetSpeechSynthesisTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.GetSpeechSynthesisTask.html#GetSpeechSynthesisTaskResponse"><span class="hs-identifier">GetSpeechSynthesisTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.GetSpeechSynthesisTask.html#GetSpeechSynthesisTaskResponse%27"><span class="hs-identifier">GetSpeechSynthesisTaskResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.GetSpeechSynthesisTask.html#newGetSpeechSynthesisTaskResponse"><span class="hs-identifier">newGetSpeechSynthesisTaskResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DescribeVoices (Paginated)</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier">DescribeVoices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier">DescribeVoices'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.DescribeVoices.html#newDescribeVoices"><span class="hs-identifier">newDescribeVoices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier">DescribeVoicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier">DescribeVoicesResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.DescribeVoices.html#newDescribeVoicesResponse"><span class="hs-identifier">newDescribeVoicesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListLexicons (Paginated)</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier">ListLexicons</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.ListLexicons.html#ListLexicons%27"><span class="hs-identifier">ListLexicons'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.ListLexicons.html#newListLexicons"><span class="hs-identifier">newListLexicons</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier">ListLexiconsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier">ListLexiconsResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.ListLexicons.html#newListLexiconsResponse"><span class="hs-identifier">newListLexiconsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** SynthesizeSpeech</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.SynthesizeSpeech.html#SynthesizeSpeech"><span class="hs-identifier">SynthesizeSpeech</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.SynthesizeSpeech.html#SynthesizeSpeech%27"><span class="hs-identifier">SynthesizeSpeech'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.SynthesizeSpeech.html#newSynthesizeSpeech"><span class="hs-identifier">newSynthesizeSpeech</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.SynthesizeSpeech.html#SynthesizeSpeechResponse"><span class="hs-identifier">SynthesizeSpeechResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.SynthesizeSpeech.html#SynthesizeSpeechResponse%27"><span class="hs-identifier">SynthesizeSpeechResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.SynthesizeSpeech.html#newSynthesizeSpeechResponse"><span class="hs-identifier">newSynthesizeSpeechResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListSpeechSynthesisTasks (Paginated)</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.ListSpeechSynthesisTasks.html#ListSpeechSynthesisTasks"><span class="hs-identifier">ListSpeechSynthesisTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.ListSpeechSynthesisTasks.html#ListSpeechSynthesisTasks%27"><span class="hs-identifier">ListSpeechSynthesisTasks'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.ListSpeechSynthesisTasks.html#newListSpeechSynthesisTasks"><span class="hs-identifier">newListSpeechSynthesisTasks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.ListSpeechSynthesisTasks.html#ListSpeechSynthesisTasksResponse"><span class="hs-identifier">ListSpeechSynthesisTasksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.ListSpeechSynthesisTasks.html#ListSpeechSynthesisTasksResponse%27"><span class="hs-identifier">ListSpeechSynthesisTasksResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.ListSpeechSynthesisTasks.html#newListSpeechSynthesisTasksResponse"><span class="hs-identifier">newListSpeechSynthesisTasksResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutLexicon</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.PutLexicon.html#PutLexicon"><span class="hs-identifier">PutLexicon</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.PutLexicon.html#PutLexicon%27"><span class="hs-identifier">PutLexicon'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.PutLexicon.html#newPutLexicon"><span class="hs-identifier">newPutLexicon</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.PutLexicon.html#PutLexiconResponse"><span class="hs-identifier">PutLexiconResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.PutLexicon.html#PutLexiconResponse%27"><span class="hs-identifier">PutLexiconResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.PutLexicon.html#newPutLexiconResponse"><span class="hs-identifier">newPutLexiconResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteLexicon</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier">DeleteLexicon</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.DeleteLexicon.html#DeleteLexicon%27"><span class="hs-identifier">DeleteLexicon'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.DeleteLexicon.html#newDeleteLexicon"><span class="hs-identifier">newDeleteLexicon</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.DeleteLexicon.html#DeleteLexiconResponse"><span class="hs-identifier">DeleteLexiconResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.DeleteLexicon.html#DeleteLexiconResponse%27"><span class="hs-identifier">DeleteLexiconResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.DeleteLexicon.html#newDeleteLexiconResponse"><span class="hs-identifier">newDeleteLexiconResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** StartSpeechSynthesisTask</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.StartSpeechSynthesisTask.html#StartSpeechSynthesisTask"><span class="hs-identifier">StartSpeechSynthesisTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.StartSpeechSynthesisTask.html#StartSpeechSynthesisTask%27"><span class="hs-identifier">StartSpeechSynthesisTask'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.StartSpeechSynthesisTask.html#newStartSpeechSynthesisTask"><span class="hs-identifier">newStartSpeechSynthesisTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.StartSpeechSynthesisTask.html#StartSpeechSynthesisTaskResponse"><span class="hs-identifier">StartSpeechSynthesisTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.StartSpeechSynthesisTask.html#StartSpeechSynthesisTaskResponse%27"><span class="hs-identifier">StartSpeechSynthesisTaskResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.StartSpeechSynthesisTask.html#newStartSpeechSynthesisTaskResponse"><span class="hs-identifier">newStartSpeechSynthesisTaskResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Engine</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.Engine.html#Engine"><span class="hs-identifier">Engine</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Gender</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.Gender.html#Gender"><span class="hs-identifier">Gender</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LanguageCode</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier">LanguageCode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** OutputFormat</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.OutputFormat.html#OutputFormat"><span class="hs-identifier">OutputFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** SpeechMarkType</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.SpeechMarkType.html#SpeechMarkType"><span class="hs-identifier">SpeechMarkType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** TaskStatus</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus"><span class="hs-identifier">TaskStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** TextType</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.TextType.html#TextType"><span class="hs-identifier">TextType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** VoiceId</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier">VoiceId</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Lexicon</span></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier">Lexicon</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.Types.Lexicon.html#Lexicon%27"><span class="hs-identifier">Lexicon'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.Lexicon.html#newLexicon"><span class="hs-identifier">newLexicon</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LexiconAttributes</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.LexiconAttributes.html#LexiconAttributes"><span class="hs-identifier">LexiconAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.Types.LexiconAttributes.html#LexiconAttributes%27"><span class="hs-identifier">LexiconAttributes'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.LexiconAttributes.html#newLexiconAttributes"><span class="hs-identifier">newLexiconAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LexiconDescription</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier">LexiconDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier">LexiconDescription'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.LexiconDescription.html#newLexiconDescription"><span class="hs-identifier">newLexiconDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** SynthesisTask</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.SynthesisTask.html#SynthesisTask"><span class="hs-identifier">SynthesisTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.Types.SynthesisTask.html#SynthesisTask%27"><span class="hs-identifier">SynthesisTask'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.SynthesisTask.html#newSynthesisTask"><span class="hs-identifier">newSynthesisTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Voice</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.Voice.html#Voice"><span class="hs-identifier">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier">Voice'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.Polly.Types.Voice.html#newVoice"><span class="hs-identifier">newVoice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Polly.DeleteLexicon.html"><span class="hs-identifier">Amazonka.Polly.DeleteLexicon</span></a></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Polly.DescribeVoices.html"><span class="hs-identifier">Amazonka.Polly.DescribeVoices</span></a></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Polly.GetLexicon.html"><span class="hs-identifier">Amazonka.Polly.GetLexicon</span></a></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Polly.GetSpeechSynthesisTask.html"><span class="hs-identifier">Amazonka.Polly.GetSpeechSynthesisTask</span></a></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Polly.Lens.html"><span class="hs-identifier">Amazonka.Polly.Lens</span></a></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Polly.ListLexicons.html"><span class="hs-identifier">Amazonka.Polly.ListLexicons</span></a></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Polly.ListSpeechSynthesisTasks.html"><span class="hs-identifier">Amazonka.Polly.ListSpeechSynthesisTasks</span></a></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Polly.PutLexicon.html"><span class="hs-identifier">Amazonka.Polly.PutLexicon</span></a></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Polly.StartSpeechSynthesisTask.html"><span class="hs-identifier">Amazonka.Polly.StartSpeechSynthesisTask</span></a></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Polly.SynthesizeSpeech.html"><span class="hs-identifier">Amazonka.Polly.SynthesizeSpeech</span></a></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.html"><span class="hs-identifier">Amazonka.Polly.Types</span></a></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Polly.Waiters.html"><span class="hs-identifier">Amazonka.Polly.Waiters</span></a></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- $errors</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Error matchers are designed for use with the functions provided by</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens&gt;.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- This allows catching (and rethrowing) service specific errors returned</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- by 'Polly'.</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- $operations</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Some AWS operations return results that are incomplete and require subsequent</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- requests in order to obtain the entire result set. The process of sending</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- subsequent requests to continue where a previous request left off is called</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 1000 objects at a time, and you must send subsequent requests with the</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- appropriate Marker in order to retrieve the next page of results.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Operations that have an 'AWSPager' instance can transparently perform subsequent</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- requests, correctly setting Markers and other request facets to iterate through</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- the entire result set of a truncated API operation. Operations which support</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- this have an additional note in the documentation.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- Many operations have the ability to filter results on the server side. See the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- individual operation parameters for details.</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- $waiters</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- Waiters poll by repeatedly sending a request until some remote success condition</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- determines how many attempts should be made, in addition to delay and retry strategies.</span><span>
+</span><span id="line-238"></span></pre></body></html>

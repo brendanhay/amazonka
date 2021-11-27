@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WAFRegional.Types.IPSetDescriptorType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WAFRegional.Types.IPSetDescriptorType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType"><span class="hs-identifier">IPSetDescriptorType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType_IPV4"><span class="hs-identifier">IPSetDescriptorType_IPV4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType_IPV6"><span class="hs-identifier">IPSetDescriptorType_IPV6</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679304636"><span id="local-6989586621679304637"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IPSetDescriptorType"><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType"><span class="hs-identifier hs-var">IPSetDescriptorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IPSetDescriptorType%27"><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType%27"><span class="hs-identifier hs-var">IPSetDescriptorType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIPSetDescriptorType"><span class="annot"><span class="annottext">IPSetDescriptorType -&gt; Text
+</span><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#fromIPSetDescriptorType"><span class="hs-identifier hs-var hs-var">fromIPSetDescriptorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304628"><span id="local-6989586621679304630"><span id="local-6989586621679304632"><span class="annot"><span class="annottext">Int -&gt; IPSetDescriptorType -&gt; ShowS
+[IPSetDescriptorType] -&gt; ShowS
+IPSetDescriptorType -&gt; String
+(Int -&gt; IPSetDescriptorType -&gt; ShowS)
+-&gt; (IPSetDescriptorType -&gt; String)
+-&gt; ([IPSetDescriptorType] -&gt; ShowS)
+-&gt; Show IPSetDescriptorType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IPSetDescriptorType] -&gt; ShowS
+$cshowList :: [IPSetDescriptorType] -&gt; ShowS
+show :: IPSetDescriptorType -&gt; String
+$cshow :: IPSetDescriptorType -&gt; String
+showsPrec :: Int -&gt; IPSetDescriptorType -&gt; ShowS
+$cshowsPrec :: Int -&gt; IPSetDescriptorType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679304619"><span id="local-6989586621679304621"><span id="local-6989586621679304623"><span id="local-6989586621679304625"><span class="annot"><span class="annottext">ReadPrec [IPSetDescriptorType]
+ReadPrec IPSetDescriptorType
+Int -&gt; ReadS IPSetDescriptorType
+ReadS [IPSetDescriptorType]
+(Int -&gt; ReadS IPSetDescriptorType)
+-&gt; ReadS [IPSetDescriptorType]
+-&gt; ReadPrec IPSetDescriptorType
+-&gt; ReadPrec [IPSetDescriptorType]
+-&gt; Read IPSetDescriptorType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IPSetDescriptorType]
+$creadListPrec :: ReadPrec [IPSetDescriptorType]
+readPrec :: ReadPrec IPSetDescriptorType
+$creadPrec :: ReadPrec IPSetDescriptorType
+readList :: ReadS [IPSetDescriptorType]
+$creadList :: ReadS [IPSetDescriptorType]
+readsPrec :: Int -&gt; ReadS IPSetDescriptorType
+$creadsPrec :: Int -&gt; ReadS IPSetDescriptorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679304614"><span id="local-6989586621679304616"><span class="annot"><span class="annottext">IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+(IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool)
+-&gt; (IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool)
+-&gt; Eq IPSetDescriptorType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+$c/= :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+== :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+$c== :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679304598"><span id="local-6989586621679304600"><span id="local-6989586621679304602"><span id="local-6989586621679304604"><span id="local-6989586621679304606"><span id="local-6989586621679304608"><span id="local-6989586621679304610"><span class="annot"><span class="annottext">Eq IPSetDescriptorType
+Eq IPSetDescriptorType
+-&gt; (IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Ordering)
+-&gt; (IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool)
+-&gt; (IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool)
+-&gt; (IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool)
+-&gt; (IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool)
+-&gt; (IPSetDescriptorType
+    -&gt; IPSetDescriptorType -&gt; IPSetDescriptorType)
+-&gt; (IPSetDescriptorType
+    -&gt; IPSetDescriptorType -&gt; IPSetDescriptorType)
+-&gt; Ord IPSetDescriptorType
+IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Ordering
+IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; IPSetDescriptorType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; IPSetDescriptorType
+$cmin :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; IPSetDescriptorType
+max :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; IPSetDescriptorType
+$cmax :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; IPSetDescriptorType
+&gt;= :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+$c&gt;= :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+&gt; :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+$c&gt; :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+&lt;= :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+$c&lt;= :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+&lt; :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+$c&lt; :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Bool
+compare :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Ordering
+$ccompare :: IPSetDescriptorType -&gt; IPSetDescriptorType -&gt; Ordering
+$cp1Ord :: Eq IPSetDescriptorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. IPSetDescriptorType -&gt; Rep IPSetDescriptorType x)
+-&gt; (forall x. Rep IPSetDescriptorType x -&gt; IPSetDescriptorType)
+-&gt; Generic IPSetDescriptorType
+forall x. Rep IPSetDescriptorType x -&gt; IPSetDescriptorType
+forall x. IPSetDescriptorType -&gt; Rep IPSetDescriptorType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IPSetDescriptorType x -&gt; IPSetDescriptorType
+$cfrom :: forall x. IPSetDescriptorType -&gt; Rep IPSetDescriptorType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304590"><span id="local-6989586621679304592"><span class="annot"><span class="annottext">Int -&gt; IPSetDescriptorType -&gt; Int
+IPSetDescriptorType -&gt; Int
+(Int -&gt; IPSetDescriptorType -&gt; Int)
+-&gt; (IPSetDescriptorType -&gt; Int) -&gt; Hashable IPSetDescriptorType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: IPSetDescriptorType -&gt; Int
+$chash :: IPSetDescriptorType -&gt; Int
+hashWithSalt :: Int -&gt; IPSetDescriptorType -&gt; Int
+$chashWithSalt :: Int -&gt; IPSetDescriptorType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679304587"><span class="annot"><span class="annottext">IPSetDescriptorType -&gt; ()
+(IPSetDescriptorType -&gt; ()) -&gt; NFData IPSetDescriptorType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: IPSetDescriptorType -&gt; ()
+$crnf :: IPSetDescriptorType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679304584"><span class="annot"><span class="annottext">Text -&gt; Either String IPSetDescriptorType
+(Text -&gt; Either String IPSetDescriptorType)
+-&gt; FromText IPSetDescriptorType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String IPSetDescriptorType
+$cfromText :: Text -&gt; Either String IPSetDescriptorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679304581"><span class="annot"><span class="annottext">IPSetDescriptorType -&gt; Text
+(IPSetDescriptorType -&gt; Text) -&gt; ToText IPSetDescriptorType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: IPSetDescriptorType -&gt; Text
+$ctoText :: IPSetDescriptorType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679304578"><span class="annot"><span class="annottext">IPSetDescriptorType -&gt; ByteString
+(IPSetDescriptorType -&gt; ByteString)
+-&gt; ToByteString IPSetDescriptorType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: IPSetDescriptorType -&gt; ByteString
+$ctoBS :: IPSetDescriptorType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679304575"><span class="annot"><span class="annottext">IPSetDescriptorType -&gt; ByteStringBuilder
+(IPSetDescriptorType -&gt; ByteStringBuilder)
+-&gt; ToLog IPSetDescriptorType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: IPSetDescriptorType -&gt; ByteStringBuilder
+$cbuild :: IPSetDescriptorType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679304572"><span class="annot"><span class="annottext">HeaderName -&gt; IPSetDescriptorType -&gt; [Header]
+(HeaderName -&gt; IPSetDescriptorType -&gt; [Header])
+-&gt; ToHeader IPSetDescriptorType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; IPSetDescriptorType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; IPSetDescriptorType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679304569"><span class="annot"><span class="annottext">IPSetDescriptorType -&gt; QueryString
+(IPSetDescriptorType -&gt; QueryString) -&gt; ToQuery IPSetDescriptorType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: IPSetDescriptorType -&gt; QueryString
+$ctoQuery :: IPSetDescriptorType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679304564"><span id="local-6989586621679304566"><span class="annot"><span class="annottext">Value -&gt; Parser [IPSetDescriptorType]
+Value -&gt; Parser IPSetDescriptorType
+(Value -&gt; Parser IPSetDescriptorType)
+-&gt; (Value -&gt; Parser [IPSetDescriptorType])
+-&gt; FromJSON IPSetDescriptorType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [IPSetDescriptorType]
+$cparseJSONList :: Value -&gt; Parser [IPSetDescriptorType]
+parseJSON :: Value -&gt; Parser IPSetDescriptorType
+$cparseJSON :: Value -&gt; Parser IPSetDescriptorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679304559"><span id="local-6989586621679304561"><span class="annot"><span class="annottext">FromJSONKeyFunction [IPSetDescriptorType]
+FromJSONKeyFunction IPSetDescriptorType
+FromJSONKeyFunction IPSetDescriptorType
+-&gt; FromJSONKeyFunction [IPSetDescriptorType]
+-&gt; FromJSONKey IPSetDescriptorType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [IPSetDescriptorType]
+$cfromJSONKeyList :: FromJSONKeyFunction [IPSetDescriptorType]
+fromJSONKey :: FromJSONKeyFunction IPSetDescriptorType
+$cfromJSONKey :: FromJSONKeyFunction IPSetDescriptorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679304550"><span id="local-6989586621679304552"><span id="local-6989586621679304554"><span id="local-6989586621679304556"><span class="annot"><span class="annottext">[IPSetDescriptorType] -&gt; Encoding
+[IPSetDescriptorType] -&gt; Value
+IPSetDescriptorType -&gt; Encoding
+IPSetDescriptorType -&gt; Value
+(IPSetDescriptorType -&gt; Value)
+-&gt; (IPSetDescriptorType -&gt; Encoding)
+-&gt; ([IPSetDescriptorType] -&gt; Value)
+-&gt; ([IPSetDescriptorType] -&gt; Encoding)
+-&gt; ToJSON IPSetDescriptorType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [IPSetDescriptorType] -&gt; Encoding
+$ctoEncodingList :: [IPSetDescriptorType] -&gt; Encoding
+toJSONList :: [IPSetDescriptorType] -&gt; Value
+$ctoJSONList :: [IPSetDescriptorType] -&gt; Value
+toEncoding :: IPSetDescriptorType -&gt; Encoding
+$ctoEncoding :: IPSetDescriptorType -&gt; Encoding
+toJSON :: IPSetDescriptorType -&gt; Value
+$ctoJSON :: IPSetDescriptorType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679304545"><span id="local-6989586621679304547"><span class="annot"><span class="annottext">ToJSONKeyFunction [IPSetDescriptorType]
+ToJSONKeyFunction IPSetDescriptorType
+ToJSONKeyFunction IPSetDescriptorType
+-&gt; ToJSONKeyFunction [IPSetDescriptorType]
+-&gt; ToJSONKey IPSetDescriptorType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [IPSetDescriptorType]
+$ctoJSONKeyList :: ToJSONKeyFunction [IPSetDescriptorType]
+toJSONKey :: ToJSONKeyFunction IPSetDescriptorType
+$ctoJSONKey :: ToJSONKeyFunction IPSetDescriptorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679304542"><span class="annot"><span class="annottext">[Node] -&gt; Either String IPSetDescriptorType
+([Node] -&gt; Either String IPSetDescriptorType)
+-&gt; FromXML IPSetDescriptorType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String IPSetDescriptorType
+$cparseXML :: [Node] -&gt; Either String IPSetDescriptorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679304539"><span class="annot"><span class="annottext">IPSetDescriptorType -&gt; XML
+(IPSetDescriptorType -&gt; XML) -&gt; ToXML IPSetDescriptorType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: IPSetDescriptorType -&gt; XML
+$ctoXML :: IPSetDescriptorType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType_IPV4"><span class="hs-identifier hs-type">IPSetDescriptorType_IPV4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType"><span class="hs-identifier hs-type">IPSetDescriptorType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIPSetDescriptorType_IPV4"><span id="%24mIPSetDescriptorType_IPV4"><span id="IPSetDescriptorType_IPV4"><span class="annot"><span class="annottext">$bIPSetDescriptorType_IPV4 :: IPSetDescriptorType
+$mIPSetDescriptorType_IPV4 :: forall r. IPSetDescriptorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#%24bIPSetDescriptorType_IPV4"><span class="hs-identifier hs-var hs-var hs-var">IPSetDescriptorType_IPV4</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType%27"><span class="hs-identifier hs-type">IPSetDescriptorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IPV4&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType_IPV6"><span class="hs-identifier hs-type">IPSetDescriptorType_IPV6</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType"><span class="hs-identifier hs-type">IPSetDescriptorType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIPSetDescriptorType_IPV6"><span id="%24mIPSetDescriptorType_IPV6"><span id="IPSetDescriptorType_IPV6"><span class="annot"><span class="annottext">$bIPSetDescriptorType_IPV6 :: IPSetDescriptorType
+$mIPSetDescriptorType_IPV6 :: forall r. IPSetDescriptorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#%24bIPSetDescriptorType_IPV6"><span class="hs-identifier hs-var hs-var hs-var">IPSetDescriptorType_IPV6</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType%27"><span class="hs-identifier hs-type">IPSetDescriptorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IPV6&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType_IPV4"><span class="hs-pragma hs-type">IPSetDescriptorType_IPV4</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType_IPV6"><span class="hs-pragma hs-type">IPSetDescriptorType_IPV6</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.WAFRegional.Types.IPSetDescriptorType.html#IPSetDescriptorType%27"><span class="hs-pragma hs-type">IPSetDescriptorType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.Types.ContactMethodStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.Types.ContactMethodStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus"><span class="hs-identifier">ContactMethodStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus_Invalid"><span class="hs-identifier">ContactMethodStatus_Invalid</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus_PendingVerification"><span class="hs-identifier">ContactMethodStatus_PendingVerification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus_Valid"><span class="hs-identifier">ContactMethodStatus_Valid</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679606196"><span id="local-6989586621679606197"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContactMethodStatus"><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus"><span class="hs-identifier hs-var">ContactMethodStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactMethodStatus%27"><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus%27"><span class="hs-identifier hs-var">ContactMethodStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContactMethodStatus"><span class="annot"><span class="annottext">ContactMethodStatus -&gt; Text
+</span><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#fromContactMethodStatus"><span class="hs-identifier hs-var hs-var">fromContactMethodStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679606188"><span id="local-6989586621679606190"><span id="local-6989586621679606192"><span class="annot"><span class="annottext">Int -&gt; ContactMethodStatus -&gt; ShowS
+[ContactMethodStatus] -&gt; ShowS
+ContactMethodStatus -&gt; String
+(Int -&gt; ContactMethodStatus -&gt; ShowS)
+-&gt; (ContactMethodStatus -&gt; String)
+-&gt; ([ContactMethodStatus] -&gt; ShowS)
+-&gt; Show ContactMethodStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContactMethodStatus] -&gt; ShowS
+$cshowList :: [ContactMethodStatus] -&gt; ShowS
+show :: ContactMethodStatus -&gt; String
+$cshow :: ContactMethodStatus -&gt; String
+showsPrec :: Int -&gt; ContactMethodStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContactMethodStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679606179"><span id="local-6989586621679606181"><span id="local-6989586621679606183"><span id="local-6989586621679606185"><span class="annot"><span class="annottext">ReadPrec [ContactMethodStatus]
+ReadPrec ContactMethodStatus
+Int -&gt; ReadS ContactMethodStatus
+ReadS [ContactMethodStatus]
+(Int -&gt; ReadS ContactMethodStatus)
+-&gt; ReadS [ContactMethodStatus]
+-&gt; ReadPrec ContactMethodStatus
+-&gt; ReadPrec [ContactMethodStatus]
+-&gt; Read ContactMethodStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContactMethodStatus]
+$creadListPrec :: ReadPrec [ContactMethodStatus]
+readPrec :: ReadPrec ContactMethodStatus
+$creadPrec :: ReadPrec ContactMethodStatus
+readList :: ReadS [ContactMethodStatus]
+$creadList :: ReadS [ContactMethodStatus]
+readsPrec :: Int -&gt; ReadS ContactMethodStatus
+$creadsPrec :: Int -&gt; ReadS ContactMethodStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679606174"><span id="local-6989586621679606176"><span class="annot"><span class="annottext">ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+(ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool)
+-&gt; (ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool)
+-&gt; Eq ContactMethodStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+$c/= :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+== :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+$c== :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679606158"><span id="local-6989586621679606160"><span id="local-6989586621679606162"><span id="local-6989586621679606164"><span id="local-6989586621679606166"><span id="local-6989586621679606168"><span id="local-6989586621679606170"><span class="annot"><span class="annottext">Eq ContactMethodStatus
+Eq ContactMethodStatus
+-&gt; (ContactMethodStatus -&gt; ContactMethodStatus -&gt; Ordering)
+-&gt; (ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool)
+-&gt; (ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool)
+-&gt; (ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool)
+-&gt; (ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool)
+-&gt; (ContactMethodStatus
+    -&gt; ContactMethodStatus -&gt; ContactMethodStatus)
+-&gt; (ContactMethodStatus
+    -&gt; ContactMethodStatus -&gt; ContactMethodStatus)
+-&gt; Ord ContactMethodStatus
+ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+ContactMethodStatus -&gt; ContactMethodStatus -&gt; Ordering
+ContactMethodStatus -&gt; ContactMethodStatus -&gt; ContactMethodStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; ContactMethodStatus
+$cmin :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; ContactMethodStatus
+max :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; ContactMethodStatus
+$cmax :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; ContactMethodStatus
+&gt;= :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+$c&gt;= :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+&gt; :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+$c&gt; :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+&lt;= :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+$c&lt;= :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+&lt; :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+$c&lt; :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Bool
+compare :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Ordering
+$ccompare :: ContactMethodStatus -&gt; ContactMethodStatus -&gt; Ordering
+$cp1Ord :: Eq ContactMethodStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ContactMethodStatus -&gt; Rep ContactMethodStatus x)
+-&gt; (forall x. Rep ContactMethodStatus x -&gt; ContactMethodStatus)
+-&gt; Generic ContactMethodStatus
+forall x. Rep ContactMethodStatus x -&gt; ContactMethodStatus
+forall x. ContactMethodStatus -&gt; Rep ContactMethodStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContactMethodStatus x -&gt; ContactMethodStatus
+$cfrom :: forall x. ContactMethodStatus -&gt; Rep ContactMethodStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679606150"><span id="local-6989586621679606152"><span class="annot"><span class="annottext">Int -&gt; ContactMethodStatus -&gt; Int
+ContactMethodStatus -&gt; Int
+(Int -&gt; ContactMethodStatus -&gt; Int)
+-&gt; (ContactMethodStatus -&gt; Int) -&gt; Hashable ContactMethodStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ContactMethodStatus -&gt; Int
+$chash :: ContactMethodStatus -&gt; Int
+hashWithSalt :: Int -&gt; ContactMethodStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ContactMethodStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679606147"><span class="annot"><span class="annottext">ContactMethodStatus -&gt; ()
+(ContactMethodStatus -&gt; ()) -&gt; NFData ContactMethodStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ContactMethodStatus -&gt; ()
+$crnf :: ContactMethodStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679606144"><span class="annot"><span class="annottext">Text -&gt; Either String ContactMethodStatus
+(Text -&gt; Either String ContactMethodStatus)
+-&gt; FromText ContactMethodStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ContactMethodStatus
+$cfromText :: Text -&gt; Either String ContactMethodStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679606141"><span class="annot"><span class="annottext">ContactMethodStatus -&gt; Text
+(ContactMethodStatus -&gt; Text) -&gt; ToText ContactMethodStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ContactMethodStatus -&gt; Text
+$ctoText :: ContactMethodStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679606138"><span class="annot"><span class="annottext">ContactMethodStatus -&gt; ByteString
+(ContactMethodStatus -&gt; ByteString)
+-&gt; ToByteString ContactMethodStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ContactMethodStatus -&gt; ByteString
+$ctoBS :: ContactMethodStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679606135"><span class="annot"><span class="annottext">ContactMethodStatus -&gt; ByteStringBuilder
+(ContactMethodStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ContactMethodStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ContactMethodStatus -&gt; ByteStringBuilder
+$cbuild :: ContactMethodStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679606132"><span class="annot"><span class="annottext">HeaderName -&gt; ContactMethodStatus -&gt; [Header]
+(HeaderName -&gt; ContactMethodStatus -&gt; [Header])
+-&gt; ToHeader ContactMethodStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ContactMethodStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ContactMethodStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679606129"><span class="annot"><span class="annottext">ContactMethodStatus -&gt; QueryString
+(ContactMethodStatus -&gt; QueryString) -&gt; ToQuery ContactMethodStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ContactMethodStatus -&gt; QueryString
+$ctoQuery :: ContactMethodStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679606124"><span id="local-6989586621679606126"><span class="annot"><span class="annottext">Value -&gt; Parser [ContactMethodStatus]
+Value -&gt; Parser ContactMethodStatus
+(Value -&gt; Parser ContactMethodStatus)
+-&gt; (Value -&gt; Parser [ContactMethodStatus])
+-&gt; FromJSON ContactMethodStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ContactMethodStatus]
+$cparseJSONList :: Value -&gt; Parser [ContactMethodStatus]
+parseJSON :: Value -&gt; Parser ContactMethodStatus
+$cparseJSON :: Value -&gt; Parser ContactMethodStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679606119"><span id="local-6989586621679606121"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContactMethodStatus]
+FromJSONKeyFunction ContactMethodStatus
+FromJSONKeyFunction ContactMethodStatus
+-&gt; FromJSONKeyFunction [ContactMethodStatus]
+-&gt; FromJSONKey ContactMethodStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ContactMethodStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ContactMethodStatus]
+fromJSONKey :: FromJSONKeyFunction ContactMethodStatus
+$cfromJSONKey :: FromJSONKeyFunction ContactMethodStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679606110"><span id="local-6989586621679606112"><span id="local-6989586621679606114"><span id="local-6989586621679606116"><span class="annot"><span class="annottext">[ContactMethodStatus] -&gt; Encoding
+[ContactMethodStatus] -&gt; Value
+ContactMethodStatus -&gt; Encoding
+ContactMethodStatus -&gt; Value
+(ContactMethodStatus -&gt; Value)
+-&gt; (ContactMethodStatus -&gt; Encoding)
+-&gt; ([ContactMethodStatus] -&gt; Value)
+-&gt; ([ContactMethodStatus] -&gt; Encoding)
+-&gt; ToJSON ContactMethodStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ContactMethodStatus] -&gt; Encoding
+$ctoEncodingList :: [ContactMethodStatus] -&gt; Encoding
+toJSONList :: [ContactMethodStatus] -&gt; Value
+$ctoJSONList :: [ContactMethodStatus] -&gt; Value
+toEncoding :: ContactMethodStatus -&gt; Encoding
+$ctoEncoding :: ContactMethodStatus -&gt; Encoding
+toJSON :: ContactMethodStatus -&gt; Value
+$ctoJSON :: ContactMethodStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679606105"><span id="local-6989586621679606107"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContactMethodStatus]
+ToJSONKeyFunction ContactMethodStatus
+ToJSONKeyFunction ContactMethodStatus
+-&gt; ToJSONKeyFunction [ContactMethodStatus]
+-&gt; ToJSONKey ContactMethodStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ContactMethodStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ContactMethodStatus]
+toJSONKey :: ToJSONKeyFunction ContactMethodStatus
+$ctoJSONKey :: ToJSONKeyFunction ContactMethodStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679606102"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContactMethodStatus
+([Node] -&gt; Either String ContactMethodStatus)
+-&gt; FromXML ContactMethodStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ContactMethodStatus
+$cparseXML :: [Node] -&gt; Either String ContactMethodStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679606099"><span class="annot"><span class="annottext">ContactMethodStatus -&gt; XML
+(ContactMethodStatus -&gt; XML) -&gt; ToXML ContactMethodStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ContactMethodStatus -&gt; XML
+$ctoXML :: ContactMethodStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus_Invalid"><span class="hs-identifier hs-type">ContactMethodStatus_Invalid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus"><span class="hs-identifier hs-type">ContactMethodStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactMethodStatus_Invalid"><span id="%24mContactMethodStatus_Invalid"><span id="ContactMethodStatus_Invalid"><span class="annot"><span class="annottext">$bContactMethodStatus_Invalid :: ContactMethodStatus
+$mContactMethodStatus_Invalid :: forall r. ContactMethodStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#%24bContactMethodStatus_Invalid"><span class="hs-identifier hs-var hs-var hs-var">ContactMethodStatus_Invalid</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus%27"><span class="hs-identifier hs-type">ContactMethodStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Invalid&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus_PendingVerification"><span class="hs-identifier hs-type">ContactMethodStatus_PendingVerification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus"><span class="hs-identifier hs-type">ContactMethodStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactMethodStatus_PendingVerification"><span id="%24mContactMethodStatus_PendingVerification"><span id="ContactMethodStatus_PendingVerification"><span class="annot"><span class="annottext">$bContactMethodStatus_PendingVerification :: ContactMethodStatus
+$mContactMethodStatus_PendingVerification :: forall r. ContactMethodStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#%24bContactMethodStatus_PendingVerification"><span class="hs-identifier hs-var hs-var hs-var">ContactMethodStatus_PendingVerification</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus%27"><span class="hs-identifier hs-type">ContactMethodStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PendingVerification&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus_Valid"><span class="hs-identifier hs-type">ContactMethodStatus_Valid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus"><span class="hs-identifier hs-type">ContactMethodStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactMethodStatus_Valid"><span id="%24mContactMethodStatus_Valid"><span id="ContactMethodStatus_Valid"><span class="annot"><span class="annottext">$bContactMethodStatus_Valid :: ContactMethodStatus
+$mContactMethodStatus_Valid :: forall r. ContactMethodStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#%24bContactMethodStatus_Valid"><span class="hs-identifier hs-var hs-var hs-var">ContactMethodStatus_Valid</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus%27"><span class="hs-identifier hs-type">ContactMethodStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Valid&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus_Invalid"><span class="hs-pragma hs-type">ContactMethodStatus_Invalid</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus_PendingVerification"><span class="hs-pragma hs-type">ContactMethodStatus_PendingVerification</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus_Valid"><span class="hs-pragma hs-type">ContactMethodStatus_Valid</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus%27"><span class="hs-pragma hs-type">ContactMethodStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

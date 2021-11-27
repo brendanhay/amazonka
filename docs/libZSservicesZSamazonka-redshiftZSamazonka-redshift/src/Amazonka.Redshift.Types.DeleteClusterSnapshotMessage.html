@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Redshift.Types.DeleteClusterSnapshotMessage</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Redshift.Types.DeleteClusterSnapshotMessage</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Internal.html"><span class="hs-identifier">Amazonka.Redshift.Internal</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeleteClusterSnapshotMessage' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679491969"><span id="local-6989586621679491970"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClusterSnapshotMessage"><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage"><span class="hs-identifier hs-var">DeleteClusterSnapshotMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClusterSnapshotMessage%27"><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-var">DeleteClusterSnapshotMessage'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the cluster the snapshot was created from. This</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- parameter is required if your IAM user has a policy containing a</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- snapshot resource element that specifies anything other than * for the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- cluster name.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Constraints: Must be the name of valid cluster.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsnapshotClusterIdentifier%3ADeleteClusterSnapshotMessage%27"><span class="annot"><span class="annottext">DeleteClusterSnapshotMessage -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#%24sel%3AsnapshotClusterIdentifier%3ADeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-var hs-var">snapshotClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the manual snapshot to be deleted.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Constraints: Must be the name of an existing snapshot that is in the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @available@, @failed@, or @cancelled@ state.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsnapshotIdentifier%3ADeleteClusterSnapshotMessage%27"><span class="annot"><span class="annottext">DeleteClusterSnapshotMessage -&gt; Text
+</span><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#%24sel%3AsnapshotIdentifier%3ADeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-var hs-var">snapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679491962"><span id="local-6989586621679491964"><span class="annot"><span class="annottext">DeleteClusterSnapshotMessage
+-&gt; DeleteClusterSnapshotMessage -&gt; Bool
+(DeleteClusterSnapshotMessage
+ -&gt; DeleteClusterSnapshotMessage -&gt; Bool)
+-&gt; (DeleteClusterSnapshotMessage
+    -&gt; DeleteClusterSnapshotMessage -&gt; Bool)
+-&gt; Eq DeleteClusterSnapshotMessage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteClusterSnapshotMessage
+-&gt; DeleteClusterSnapshotMessage -&gt; Bool
+$c/= :: DeleteClusterSnapshotMessage
+-&gt; DeleteClusterSnapshotMessage -&gt; Bool
+== :: DeleteClusterSnapshotMessage
+-&gt; DeleteClusterSnapshotMessage -&gt; Bool
+$c== :: DeleteClusterSnapshotMessage
+-&gt; DeleteClusterSnapshotMessage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679491953"><span id="local-6989586621679491955"><span id="local-6989586621679491957"><span id="local-6989586621679491959"><span class="annot"><span class="annottext">ReadPrec [DeleteClusterSnapshotMessage]
+ReadPrec DeleteClusterSnapshotMessage
+Int -&gt; ReadS DeleteClusterSnapshotMessage
+ReadS [DeleteClusterSnapshotMessage]
+(Int -&gt; ReadS DeleteClusterSnapshotMessage)
+-&gt; ReadS [DeleteClusterSnapshotMessage]
+-&gt; ReadPrec DeleteClusterSnapshotMessage
+-&gt; ReadPrec [DeleteClusterSnapshotMessage]
+-&gt; Read DeleteClusterSnapshotMessage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteClusterSnapshotMessage]
+$creadListPrec :: ReadPrec [DeleteClusterSnapshotMessage]
+readPrec :: ReadPrec DeleteClusterSnapshotMessage
+$creadPrec :: ReadPrec DeleteClusterSnapshotMessage
+readList :: ReadS [DeleteClusterSnapshotMessage]
+$creadList :: ReadS [DeleteClusterSnapshotMessage]
+readsPrec :: Int -&gt; ReadS DeleteClusterSnapshotMessage
+$creadsPrec :: Int -&gt; ReadS DeleteClusterSnapshotMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679491946"><span id="local-6989586621679491948"><span id="local-6989586621679491950"><span class="annot"><span class="annottext">Int -&gt; DeleteClusterSnapshotMessage -&gt; ShowS
+[DeleteClusterSnapshotMessage] -&gt; ShowS
+DeleteClusterSnapshotMessage -&gt; String
+(Int -&gt; DeleteClusterSnapshotMessage -&gt; ShowS)
+-&gt; (DeleteClusterSnapshotMessage -&gt; String)
+-&gt; ([DeleteClusterSnapshotMessage] -&gt; ShowS)
+-&gt; Show DeleteClusterSnapshotMessage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteClusterSnapshotMessage] -&gt; ShowS
+$cshowList :: [DeleteClusterSnapshotMessage] -&gt; ShowS
+show :: DeleteClusterSnapshotMessage -&gt; String
+$cshow :: DeleteClusterSnapshotMessage -&gt; String
+showsPrec :: Int -&gt; DeleteClusterSnapshotMessage -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteClusterSnapshotMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteClusterSnapshotMessage -&gt; Rep DeleteClusterSnapshotMessage x)
+-&gt; (forall x.
+    Rep DeleteClusterSnapshotMessage x -&gt; DeleteClusterSnapshotMessage)
+-&gt; Generic DeleteClusterSnapshotMessage
+forall x.
+Rep DeleteClusterSnapshotMessage x -&gt; DeleteClusterSnapshotMessage
+forall x.
+DeleteClusterSnapshotMessage -&gt; Rep DeleteClusterSnapshotMessage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteClusterSnapshotMessage x -&gt; DeleteClusterSnapshotMessage
+$cfrom :: forall x.
+DeleteClusterSnapshotMessage -&gt; Rep DeleteClusterSnapshotMessage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'DeleteClusterSnapshotMessage' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'snapshotClusterIdentifier', 'deleteClusterSnapshotMessage_snapshotClusterIdentifier' - The unique identifier of the cluster the snapshot was created from. This</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- parameter is required if your IAM user has a policy containing a</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- snapshot resource element that specifies anything other than * for the</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- cluster name.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Constraints: Must be the name of valid cluster.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'snapshotIdentifier', 'deleteClusterSnapshotMessage_snapshotIdentifier' - The unique identifier of the manual snapshot to be deleted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Constraints: Must be the name of an existing snapshot that is in the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- @available@, @failed@, or @cancelled@ state.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#newDeleteClusterSnapshotMessage"><span class="hs-identifier hs-type">newDeleteClusterSnapshotMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'snapshotIdentifier'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage</span></a></span><span>
+</span><span id="line-69"></span><span id="newDeleteClusterSnapshotMessage"><span class="annot"><span class="annottext">newDeleteClusterSnapshotMessage :: Text -&gt; DeleteClusterSnapshotMessage
+</span><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#newDeleteClusterSnapshotMessage"><span class="hs-identifier hs-var hs-var">newDeleteClusterSnapshotMessage</span></a></span></span><span> </span><span id="local-6989586621679491940"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679491940"><span class="hs-identifier hs-var">pSnapshotIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteClusterSnapshotMessage' :: Maybe Text -&gt; Text -&gt; DeleteClusterSnapshotMessage
+</span><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:snapshotClusterIdentifier:DeleteClusterSnapshotMessage' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#%24sel%3AsnapshotClusterIdentifier%3ADeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-var">snapshotClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotIdentifier:DeleteClusterSnapshotMessage' :: Text
+</span><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#%24sel%3AsnapshotIdentifier%3ADeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679491940"><span class="hs-identifier hs-var">pSnapshotIdentifier_</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The unique identifier of the cluster the snapshot was created from. This</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- parameter is required if your IAM user has a policy containing a</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- snapshot resource element that specifies anything other than * for the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- cluster name.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Constraints: Must be the name of valid cluster.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#deleteClusterSnapshotMessage_snapshotClusterIdentifier"><span class="hs-identifier hs-type">deleteClusterSnapshotMessage_snapshotClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="deleteClusterSnapshotMessage_snapshotClusterIdentifier"><span class="annot"><span class="annottext">deleteClusterSnapshotMessage_snapshotClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteClusterSnapshotMessage -&gt; f DeleteClusterSnapshotMessage
+</span><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#deleteClusterSnapshotMessage_snapshotClusterIdentifier"><span class="hs-identifier hs-var hs-var">deleteClusterSnapshotMessage_snapshotClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteClusterSnapshotMessage -&gt; Maybe Text)
+-&gt; (DeleteClusterSnapshotMessage
+    -&gt; Maybe Text -&gt; DeleteClusterSnapshotMessage)
+-&gt; Lens
+     DeleteClusterSnapshotMessage
+     DeleteClusterSnapshotMessage
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491936"><span class="annot"><span class="annottext">Maybe Text
+snapshotClusterIdentifier :: Maybe Text
+$sel:snapshotClusterIdentifier:DeleteClusterSnapshotMessage' :: DeleteClusterSnapshotMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679491936"><span class="hs-identifier hs-var hs-var">snapshotClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679491936"><span class="hs-identifier hs-var">snapshotClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491935"><span class="annot"><span class="annottext">s :: DeleteClusterSnapshotMessage
+</span><a href="#local-6989586621679491935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491934"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679491934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterSnapshotMessage
+</span><a href="#local-6989586621679491935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotClusterIdentifier:DeleteClusterSnapshotMessage' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#%24sel%3AsnapshotClusterIdentifier%3ADeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-var">snapshotClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679491934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The unique identifier of the manual snapshot to be deleted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Constraints: Must be the name of an existing snapshot that is in the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @available@, @failed@, or @cancelled@ state.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#deleteClusterSnapshotMessage_snapshotIdentifier"><span class="hs-identifier hs-type">deleteClusterSnapshotMessage_snapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="deleteClusterSnapshotMessage_snapshotIdentifier"><span class="annot"><span class="annottext">deleteClusterSnapshotMessage_snapshotIdentifier :: (Text -&gt; f Text)
+-&gt; DeleteClusterSnapshotMessage -&gt; f DeleteClusterSnapshotMessage
+</span><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#deleteClusterSnapshotMessage_snapshotIdentifier"><span class="hs-identifier hs-var hs-var">deleteClusterSnapshotMessage_snapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteClusterSnapshotMessage -&gt; Text)
+-&gt; (DeleteClusterSnapshotMessage
+    -&gt; Text -&gt; DeleteClusterSnapshotMessage)
+-&gt; Lens
+     DeleteClusterSnapshotMessage DeleteClusterSnapshotMessage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491932"><span class="annot"><span class="annottext">Text
+snapshotIdentifier :: Text
+$sel:snapshotIdentifier:DeleteClusterSnapshotMessage' :: DeleteClusterSnapshotMessage -&gt; Text
+</span><a href="#local-6989586621679491932"><span class="hs-identifier hs-var hs-var">snapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679491932"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491931"><span class="annot"><span class="annottext">s :: DeleteClusterSnapshotMessage
+</span><a href="#local-6989586621679491931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491930"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679491930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterSnapshotMessage
+</span><a href="#local-6989586621679491931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotIdentifier:DeleteClusterSnapshotMessage' :: Text
+</span><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#%24sel%3AsnapshotIdentifier%3ADeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679491930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679491926"><span id="local-6989586621679491928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679491923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679491919"><span class="annot"><span class="annottext">toQuery :: DeleteClusterSnapshotMessage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.DeleteClusterSnapshotMessage.html#DeleteClusterSnapshotMessage%27"><span class="hs-identifier hs-type">DeleteClusterSnapshotMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491916"><span id="local-6989586621679491917"><span class="annot"><span class="annottext">Maybe Text
+Text
+snapshotIdentifier :: Text
+snapshotClusterIdentifier :: Maybe Text
+$sel:snapshotIdentifier:DeleteClusterSnapshotMessage' :: DeleteClusterSnapshotMessage -&gt; Text
+$sel:snapshotClusterIdentifier:DeleteClusterSnapshotMessage' :: DeleteClusterSnapshotMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679491916"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SnapshotClusterIdentifier&quot;</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679491917"><span class="hs-identifier hs-var">snapshotClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SnapshotIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679491916"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span></pre></body></html>

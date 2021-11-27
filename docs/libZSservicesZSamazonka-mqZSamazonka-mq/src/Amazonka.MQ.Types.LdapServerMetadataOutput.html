@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MQ.Types.LdapServerMetadataOutput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MQ.Types.LdapServerMetadataOutput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Optional. The metadata of the LDAP server used to authenticate and</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- authorize connections to the broker.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLdapServerMetadataOutput' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679223911"><span id="local-6989586621679223912"></span></span><span class="hs-keyword">data</span><span> </span><span id="LdapServerMetadataOutput"><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-var">LdapServerMetadataOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LdapServerMetadataOutput%27"><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-var">LdapServerMetadataOutput'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the name of the LDAP attribute for the user group membership.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AuserRoleName%3ALdapServerMetadataOutput%27"><span class="annot"><span class="annottext">LdapServerMetadataOutput -&gt; Maybe Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AuserRoleName%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var hs-var">userRoleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The directory search scope for the user. If set to true, scope is to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- search the entire subtree.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AuserSearchSubtree%3ALdapServerMetadataOutput%27"><span class="annot"><span class="annottext">LdapServerMetadataOutput -&gt; Maybe Bool
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AuserSearchSubtree%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var hs-var">userSearchSubtree</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The directory search scope for the role. If set to true, scope is to</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- search the entire subtree.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AroleSearchSubtree%3ALdapServerMetadataOutput%27"><span class="annot"><span class="annottext">LdapServerMetadataOutput -&gt; Maybe Bool
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AroleSearchSubtree%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var hs-var">roleSearchSubtree</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies the LDAP attribute that identifies the group name attribute in</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- the object returned from the group membership query.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AroleName%3ALdapServerMetadataOutput%27"><span class="annot"><span class="annottext">LdapServerMetadataOutput -&gt; Maybe Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AroleName%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Specifies the location of the LDAP server such as AWS Directory Service</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- for Microsoft Active Directory . Optional failover server.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Ahosts%3ALdapServerMetadataOutput%27"><span class="annot"><span class="annottext">LdapServerMetadataOutput -&gt; [Text]
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3Ahosts%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var hs-var">hosts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The LDAP search filter used to find users within the userBase. The</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- client\'s username is substituted into the {0} placeholder in the search</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- filter. For example, if this option is set to (uid={0}) and the received</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- username is janedoe, the search filter becomes (uid=janedoe) after</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- string substitution. It will result in matching an entry like</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AuserSearchMatching%3ALdapServerMetadataOutput%27"><span class="annot"><span class="annottext">LdapServerMetadataOutput -&gt; Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AuserSearchMatching%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var hs-var">userSearchMatching</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Select a particular subtree of the directory information tree (DIT) to</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- search for user entries. The subtree is specified by a DN, which</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- specifies the base node of the subtree. For example, by setting this</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- option to ou=Users,ou=corp, dc=corp, dc=example, dc=com, the search for</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- user entries is restricted to the subtree beneath ou=Users, ou=corp,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AuserBase%3ALdapServerMetadataOutput%27"><span class="annot"><span class="annottext">LdapServerMetadataOutput -&gt; Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AuserBase%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var hs-var">userBase</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The LDAP search filter used to find roles within the roleBase. The</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- distinguished name of the user matched by userSearchMatching is</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- substituted into the {0} placeholder in the search filter. The client\'s</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- username is substituted into the {1} placeholder. For example, if you</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- set this option to (member=uid={1})for the user janedoe, the search</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- filter becomes (member=uid=janedoe) after string substitution. It</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- matches all role entries that have a member attribute equal to</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- uid=janedoe under the subtree selected by the roleBase.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AroleSearchMatching%3ALdapServerMetadataOutput%27"><span class="annot"><span class="annottext">LdapServerMetadataOutput -&gt; Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AroleSearchMatching%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var hs-var">roleSearchMatching</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Service account username. A service account is an account in your LDAP</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- server that has access to initiate a connection. For example,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- cn=admin,dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AserviceAccountUsername%3ALdapServerMetadataOutput%27"><span class="annot"><span class="annottext">LdapServerMetadataOutput -&gt; Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AserviceAccountUsername%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var hs-var">serviceAccountUsername</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The distinguished name of the node in the directory information tree</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- (DIT) to search for roles or groups. For example, ou=group, ou=corp,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AroleBase%3ALdapServerMetadataOutput%27"><span class="annot"><span class="annottext">LdapServerMetadataOutput -&gt; Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AroleBase%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var hs-var">roleBase</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223896"><span id="local-6989586621679223898"><span class="annot"><span class="annottext">LdapServerMetadataOutput -&gt; LdapServerMetadataOutput -&gt; Bool
+(LdapServerMetadataOutput -&gt; LdapServerMetadataOutput -&gt; Bool)
+-&gt; (LdapServerMetadataOutput -&gt; LdapServerMetadataOutput -&gt; Bool)
+-&gt; Eq LdapServerMetadataOutput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LdapServerMetadataOutput -&gt; LdapServerMetadataOutput -&gt; Bool
+$c/= :: LdapServerMetadataOutput -&gt; LdapServerMetadataOutput -&gt; Bool
+== :: LdapServerMetadataOutput -&gt; LdapServerMetadataOutput -&gt; Bool
+$c== :: LdapServerMetadataOutput -&gt; LdapServerMetadataOutput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223887"><span id="local-6989586621679223889"><span id="local-6989586621679223891"><span id="local-6989586621679223893"><span class="annot"><span class="annottext">ReadPrec [LdapServerMetadataOutput]
+ReadPrec LdapServerMetadataOutput
+Int -&gt; ReadS LdapServerMetadataOutput
+ReadS [LdapServerMetadataOutput]
+(Int -&gt; ReadS LdapServerMetadataOutput)
+-&gt; ReadS [LdapServerMetadataOutput]
+-&gt; ReadPrec LdapServerMetadataOutput
+-&gt; ReadPrec [LdapServerMetadataOutput]
+-&gt; Read LdapServerMetadataOutput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LdapServerMetadataOutput]
+$creadListPrec :: ReadPrec [LdapServerMetadataOutput]
+readPrec :: ReadPrec LdapServerMetadataOutput
+$creadPrec :: ReadPrec LdapServerMetadataOutput
+readList :: ReadS [LdapServerMetadataOutput]
+$creadList :: ReadS [LdapServerMetadataOutput]
+readsPrec :: Int -&gt; ReadS LdapServerMetadataOutput
+$creadsPrec :: Int -&gt; ReadS LdapServerMetadataOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223880"><span id="local-6989586621679223882"><span id="local-6989586621679223884"><span class="annot"><span class="annottext">Int -&gt; LdapServerMetadataOutput -&gt; ShowS
+[LdapServerMetadataOutput] -&gt; ShowS
+LdapServerMetadataOutput -&gt; String
+(Int -&gt; LdapServerMetadataOutput -&gt; ShowS)
+-&gt; (LdapServerMetadataOutput -&gt; String)
+-&gt; ([LdapServerMetadataOutput] -&gt; ShowS)
+-&gt; Show LdapServerMetadataOutput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LdapServerMetadataOutput] -&gt; ShowS
+$cshowList :: [LdapServerMetadataOutput] -&gt; ShowS
+show :: LdapServerMetadataOutput -&gt; String
+$cshow :: LdapServerMetadataOutput -&gt; String
+showsPrec :: Int -&gt; LdapServerMetadataOutput -&gt; ShowS
+$cshowsPrec :: Int -&gt; LdapServerMetadataOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ LdapServerMetadataOutput -&gt; Rep LdapServerMetadataOutput x)
+-&gt; (forall x.
+    Rep LdapServerMetadataOutput x -&gt; LdapServerMetadataOutput)
+-&gt; Generic LdapServerMetadataOutput
+forall x.
+Rep LdapServerMetadataOutput x -&gt; LdapServerMetadataOutput
+forall x.
+LdapServerMetadataOutput -&gt; Rep LdapServerMetadataOutput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LdapServerMetadataOutput x -&gt; LdapServerMetadataOutput
+$cfrom :: forall x.
+LdapServerMetadataOutput -&gt; Rep LdapServerMetadataOutput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'LdapServerMetadataOutput' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'userRoleName', 'ldapServerMetadataOutput_userRoleName' - Specifies the name of the LDAP attribute for the user group membership.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'userSearchSubtree', 'ldapServerMetadataOutput_userSearchSubtree' - The directory search scope for the user. If set to true, scope is to</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- search the entire subtree.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'roleSearchSubtree', 'ldapServerMetadataOutput_roleSearchSubtree' - The directory search scope for the role. If set to true, scope is to</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- search the entire subtree.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'roleName', 'ldapServerMetadataOutput_roleName' - Specifies the LDAP attribute that identifies the group name attribute in</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- the object returned from the group membership query.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'hosts', 'ldapServerMetadataOutput_hosts' - Specifies the location of the LDAP server such as AWS Directory Service</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for Microsoft Active Directory . Optional failover server.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'userSearchMatching', 'ldapServerMetadataOutput_userSearchMatching' - The LDAP search filter used to find users within the userBase. The</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- client\'s username is substituted into the {0} placeholder in the search</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- filter. For example, if this option is set to (uid={0}) and the received</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- username is janedoe, the search filter becomes (uid=janedoe) after</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- string substitution. It will result in matching an entry like</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'userBase', 'ldapServerMetadataOutput_userBase' - Select a particular subtree of the directory information tree (DIT) to</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- search for user entries. The subtree is specified by a DN, which</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- specifies the base node of the subtree. For example, by setting this</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- option to ou=Users,ou=corp, dc=corp, dc=example, dc=com, the search for</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- user entries is restricted to the subtree beneath ou=Users, ou=corp,</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'roleSearchMatching', 'ldapServerMetadataOutput_roleSearchMatching' - The LDAP search filter used to find roles within the roleBase. The</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- distinguished name of the user matched by userSearchMatching is</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- substituted into the {0} placeholder in the search filter. The client\'s</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- username is substituted into the {1} placeholder. For example, if you</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- set this option to (member=uid={1})for the user janedoe, the search</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- filter becomes (member=uid=janedoe) after string substitution. It</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- matches all role entries that have a member attribute equal to</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- uid=janedoe under the subtree selected by the roleBase.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'serviceAccountUsername', 'ldapServerMetadataOutput_serviceAccountUsername' - Service account username. A service account is an account in your LDAP</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- server that has access to initiate a connection. For example,</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- cn=admin,dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'roleBase', 'ldapServerMetadataOutput_roleBase' - The distinguished name of the node in the directory information tree</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- (DIT) to search for roles or groups. For example, ou=group, ou=corp,</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#newLdapServerMetadataOutput"><span class="hs-identifier hs-type">newLdapServerMetadataOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'userSearchMatching'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'userBase'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'roleSearchMatching'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-comment">-- | 'serviceAccountUsername'</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-comment">-- | 'roleBase'</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span>
+</span><span id="line-143"></span><span id="newLdapServerMetadataOutput"><span class="annot"><span class="annottext">newLdapServerMetadataOutput :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#newLdapServerMetadataOutput"><span class="hs-identifier hs-var hs-var">newLdapServerMetadataOutput</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679223874"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223874"><span class="hs-identifier hs-var">pUserSearchMatching_</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679223873"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223873"><span class="hs-identifier hs-var">pUserBase_</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679223872"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223872"><span class="hs-identifier hs-var">pRoleSearchMatching_</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679223871"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223871"><span class="hs-identifier hs-var">pServiceAccountUsername_</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679223870"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223870"><span class="hs-identifier hs-var">pRoleBase_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">LdapServerMetadataOutput' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; [Text]
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userRoleName:LdapServerMetadataOutput' :: Maybe Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AuserRoleName%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">userRoleName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:userSearchSubtree:LdapServerMetadataOutput' :: Maybe Bool
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AuserSearchSubtree%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">userSearchSubtree</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleSearchSubtree:LdapServerMetadataOutput' :: Maybe Bool
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AroleSearchSubtree%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">roleSearchSubtree</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleName:LdapServerMetadataOutput' :: Maybe Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AroleName%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:hosts:LdapServerMetadataOutput' :: [Text]
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3Ahosts%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">hosts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:userSearchMatching:LdapServerMetadataOutput' :: Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AuserSearchMatching%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">userSearchMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223874"><span class="hs-identifier hs-var">pUserSearchMatching_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:userBase:LdapServerMetadataOutput' :: Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AuserBase%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">userBase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223873"><span class="hs-identifier hs-var">pUserBase_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleSearchMatching:LdapServerMetadataOutput' :: Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AroleSearchMatching%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">roleSearchMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223872"><span class="hs-identifier hs-var">pRoleSearchMatching_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceAccountUsername:LdapServerMetadataOutput' :: Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AserviceAccountUsername%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">serviceAccountUsername</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223871"><span class="hs-identifier hs-var">pServiceAccountUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleBase:LdapServerMetadataOutput' :: Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AroleBase%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">roleBase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223870"><span class="hs-identifier hs-var">pRoleBase_</span></a></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Specifies the name of the LDAP attribute for the user group membership.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_userRoleName"><span class="hs-identifier hs-type">ldapServerMetadataOutput_userRoleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="ldapServerMetadataOutput_userRoleName"><span class="annot"><span class="annottext">ldapServerMetadataOutput_userRoleName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LdapServerMetadataOutput -&gt; f LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_userRoleName"><span class="hs-identifier hs-var hs-var">ldapServerMetadataOutput_userRoleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataOutput -&gt; Maybe Text)
+-&gt; (LdapServerMetadataOutput
+    -&gt; Maybe Text -&gt; LdapServerMetadataOutput)
+-&gt; Lens
+     LdapServerMetadataOutput
+     LdapServerMetadataOutput
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223866"><span class="annot"><span class="annottext">Maybe Text
+userRoleName :: Maybe Text
+$sel:userRoleName:LdapServerMetadataOutput' :: LdapServerMetadataOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679223866"><span class="hs-identifier hs-var hs-var">userRoleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223866"><span class="hs-identifier hs-var">userRoleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223865"><span class="annot"><span class="annottext">s :: LdapServerMetadataOutput
+</span><a href="#local-6989586621679223865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223864"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataOutput
+</span><a href="#local-6989586621679223865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userRoleName:LdapServerMetadataOutput' :: Maybe Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AuserRoleName%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">userRoleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The directory search scope for the user. If set to true, scope is to</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- search the entire subtree.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_userSearchSubtree"><span class="hs-identifier hs-type">ldapServerMetadataOutput_userSearchSubtree</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="ldapServerMetadataOutput_userSearchSubtree"><span class="annot"><span class="annottext">ldapServerMetadataOutput_userSearchSubtree :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LdapServerMetadataOutput -&gt; f LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_userSearchSubtree"><span class="hs-identifier hs-var hs-var">ldapServerMetadataOutput_userSearchSubtree</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataOutput -&gt; Maybe Bool)
+-&gt; (LdapServerMetadataOutput
+    -&gt; Maybe Bool -&gt; LdapServerMetadataOutput)
+-&gt; Lens
+     LdapServerMetadataOutput
+     LdapServerMetadataOutput
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223862"><span class="annot"><span class="annottext">Maybe Bool
+userSearchSubtree :: Maybe Bool
+$sel:userSearchSubtree:LdapServerMetadataOutput' :: LdapServerMetadataOutput -&gt; Maybe Bool
+</span><a href="#local-6989586621679223862"><span class="hs-identifier hs-var hs-var">userSearchSubtree</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223862"><span class="hs-identifier hs-var">userSearchSubtree</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223861"><span class="annot"><span class="annottext">s :: LdapServerMetadataOutput
+</span><a href="#local-6989586621679223861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223860"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataOutput
+</span><a href="#local-6989586621679223861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userSearchSubtree:LdapServerMetadataOutput' :: Maybe Bool
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AuserSearchSubtree%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">userSearchSubtree</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The directory search scope for the role. If set to true, scope is to</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- search the entire subtree.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_roleSearchSubtree"><span class="hs-identifier hs-type">ldapServerMetadataOutput_roleSearchSubtree</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="ldapServerMetadataOutput_roleSearchSubtree"><span class="annot"><span class="annottext">ldapServerMetadataOutput_roleSearchSubtree :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LdapServerMetadataOutput -&gt; f LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_roleSearchSubtree"><span class="hs-identifier hs-var hs-var">ldapServerMetadataOutput_roleSearchSubtree</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataOutput -&gt; Maybe Bool)
+-&gt; (LdapServerMetadataOutput
+    -&gt; Maybe Bool -&gt; LdapServerMetadataOutput)
+-&gt; Lens
+     LdapServerMetadataOutput
+     LdapServerMetadataOutput
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223858"><span class="annot"><span class="annottext">Maybe Bool
+roleSearchSubtree :: Maybe Bool
+$sel:roleSearchSubtree:LdapServerMetadataOutput' :: LdapServerMetadataOutput -&gt; Maybe Bool
+</span><a href="#local-6989586621679223858"><span class="hs-identifier hs-var hs-var">roleSearchSubtree</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223858"><span class="hs-identifier hs-var">roleSearchSubtree</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223857"><span class="annot"><span class="annottext">s :: LdapServerMetadataOutput
+</span><a href="#local-6989586621679223857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223856"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataOutput
+</span><a href="#local-6989586621679223857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleSearchSubtree:LdapServerMetadataOutput' :: Maybe Bool
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AroleSearchSubtree%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">roleSearchSubtree</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679223856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Specifies the LDAP attribute that identifies the group name attribute in</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- the object returned from the group membership query.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_roleName"><span class="hs-identifier hs-type">ldapServerMetadataOutput_roleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="ldapServerMetadataOutput_roleName"><span class="annot"><span class="annottext">ldapServerMetadataOutput_roleName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LdapServerMetadataOutput -&gt; f LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_roleName"><span class="hs-identifier hs-var hs-var">ldapServerMetadataOutput_roleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataOutput -&gt; Maybe Text)
+-&gt; (LdapServerMetadataOutput
+    -&gt; Maybe Text -&gt; LdapServerMetadataOutput)
+-&gt; Lens
+     LdapServerMetadataOutput
+     LdapServerMetadataOutput
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223854"><span class="annot"><span class="annottext">Maybe Text
+roleName :: Maybe Text
+$sel:roleName:LdapServerMetadataOutput' :: LdapServerMetadataOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679223854"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223854"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223853"><span class="annot"><span class="annottext">s :: LdapServerMetadataOutput
+</span><a href="#local-6989586621679223853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223852"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataOutput
+</span><a href="#local-6989586621679223853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:LdapServerMetadataOutput' :: Maybe Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AroleName%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | Specifies the location of the LDAP server such as AWS Directory Service</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- for Microsoft Active Directory . Optional failover server.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_hosts"><span class="hs-identifier hs-type">ldapServerMetadataOutput_hosts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-185"></span><span id="ldapServerMetadataOutput_hosts"><span class="annot"><span class="annottext">ldapServerMetadataOutput_hosts :: ([Text] -&gt; f [Text])
+-&gt; LdapServerMetadataOutput -&gt; f LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_hosts"><span class="hs-identifier hs-var hs-var">ldapServerMetadataOutput_hosts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataOutput -&gt; [Text])
+-&gt; (LdapServerMetadataOutput -&gt; [Text] -&gt; LdapServerMetadataOutput)
+-&gt; Lens
+     LdapServerMetadataOutput LdapServerMetadataOutput [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223850"><span class="annot"><span class="annottext">[Text]
+hosts :: [Text]
+$sel:hosts:LdapServerMetadataOutput' :: LdapServerMetadataOutput -&gt; [Text]
+</span><a href="#local-6989586621679223850"><span class="hs-identifier hs-var hs-var">hosts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679223850"><span class="hs-identifier hs-var">hosts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223849"><span class="annot"><span class="annottext">s :: LdapServerMetadataOutput
+</span><a href="#local-6989586621679223849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223848"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679223848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataOutput
+</span><a href="#local-6989586621679223849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hosts:LdapServerMetadataOutput' :: [Text]
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3Ahosts%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">hosts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679223848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; LdapServerMetadataOutput -&gt; f LdapServerMetadataOutput)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; LdapServerMetadataOutput
+-&gt; f LdapServerMetadataOutput
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The LDAP search filter used to find users within the userBase. The</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- client\'s username is substituted into the {0} placeholder in the search</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- filter. For example, if this option is set to (uid={0}) and the received</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- username is janedoe, the search filter becomes (uid=janedoe) after</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- string substitution. It will result in matching an entry like</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_userSearchMatching"><span class="hs-identifier hs-type">ldapServerMetadataOutput_userSearchMatching</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-194"></span><span id="ldapServerMetadataOutput_userSearchMatching"><span class="annot"><span class="annottext">ldapServerMetadataOutput_userSearchMatching :: (Text -&gt; f Text)
+-&gt; LdapServerMetadataOutput -&gt; f LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_userSearchMatching"><span class="hs-identifier hs-var hs-var">ldapServerMetadataOutput_userSearchMatching</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataOutput -&gt; Text)
+-&gt; (LdapServerMetadataOutput -&gt; Text -&gt; LdapServerMetadataOutput)
+-&gt; Lens LdapServerMetadataOutput LdapServerMetadataOutput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223844"><span class="annot"><span class="annottext">Text
+userSearchMatching :: Text
+$sel:userSearchMatching:LdapServerMetadataOutput' :: LdapServerMetadataOutput -&gt; Text
+</span><a href="#local-6989586621679223844"><span class="hs-identifier hs-var hs-var">userSearchMatching</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223844"><span class="hs-identifier hs-var">userSearchMatching</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223843"><span class="annot"><span class="annottext">s :: LdapServerMetadataOutput
+</span><a href="#local-6989586621679223843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223842"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataOutput
+</span><a href="#local-6989586621679223843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userSearchMatching:LdapServerMetadataOutput' :: Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AuserSearchMatching%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">userSearchMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Select a particular subtree of the directory information tree (DIT) to</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- search for user entries. The subtree is specified by a DN, which</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- specifies the base node of the subtree. For example, by setting this</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- option to ou=Users,ou=corp, dc=corp, dc=example, dc=com, the search for</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- user entries is restricted to the subtree beneath ou=Users, ou=corp,</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_userBase"><span class="hs-identifier hs-type">ldapServerMetadataOutput_userBase</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-203"></span><span id="ldapServerMetadataOutput_userBase"><span class="annot"><span class="annottext">ldapServerMetadataOutput_userBase :: (Text -&gt; f Text)
+-&gt; LdapServerMetadataOutput -&gt; f LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_userBase"><span class="hs-identifier hs-var hs-var">ldapServerMetadataOutput_userBase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataOutput -&gt; Text)
+-&gt; (LdapServerMetadataOutput -&gt; Text -&gt; LdapServerMetadataOutput)
+-&gt; Lens LdapServerMetadataOutput LdapServerMetadataOutput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223840"><span class="annot"><span class="annottext">Text
+userBase :: Text
+$sel:userBase:LdapServerMetadataOutput' :: LdapServerMetadataOutput -&gt; Text
+</span><a href="#local-6989586621679223840"><span class="hs-identifier hs-var hs-var">userBase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223840"><span class="hs-identifier hs-var">userBase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223839"><span class="annot"><span class="annottext">s :: LdapServerMetadataOutput
+</span><a href="#local-6989586621679223839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223838"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataOutput
+</span><a href="#local-6989586621679223839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userBase:LdapServerMetadataOutput' :: Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AuserBase%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">userBase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The LDAP search filter used to find roles within the roleBase. The</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- distinguished name of the user matched by userSearchMatching is</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- substituted into the {0} placeholder in the search filter. The client\'s</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- username is substituted into the {1} placeholder. For example, if you</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- set this option to (member=uid={1})for the user janedoe, the search</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- filter becomes (member=uid=janedoe) after string substitution. It</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- matches all role entries that have a member attribute equal to</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- uid=janedoe under the subtree selected by the roleBase.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_roleSearchMatching"><span class="hs-identifier hs-type">ldapServerMetadataOutput_roleSearchMatching</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-214"></span><span id="ldapServerMetadataOutput_roleSearchMatching"><span class="annot"><span class="annottext">ldapServerMetadataOutput_roleSearchMatching :: (Text -&gt; f Text)
+-&gt; LdapServerMetadataOutput -&gt; f LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_roleSearchMatching"><span class="hs-identifier hs-var hs-var">ldapServerMetadataOutput_roleSearchMatching</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataOutput -&gt; Text)
+-&gt; (LdapServerMetadataOutput -&gt; Text -&gt; LdapServerMetadataOutput)
+-&gt; Lens LdapServerMetadataOutput LdapServerMetadataOutput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223836"><span class="annot"><span class="annottext">Text
+roleSearchMatching :: Text
+$sel:roleSearchMatching:LdapServerMetadataOutput' :: LdapServerMetadataOutput -&gt; Text
+</span><a href="#local-6989586621679223836"><span class="hs-identifier hs-var hs-var">roleSearchMatching</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223836"><span class="hs-identifier hs-var">roleSearchMatching</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223835"><span class="annot"><span class="annottext">s :: LdapServerMetadataOutput
+</span><a href="#local-6989586621679223835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223834"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataOutput
+</span><a href="#local-6989586621679223835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleSearchMatching:LdapServerMetadataOutput' :: Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AroleSearchMatching%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">roleSearchMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | Service account username. A service account is an account in your LDAP</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- server that has access to initiate a connection. For example,</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- cn=admin,dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_serviceAccountUsername"><span class="hs-identifier hs-type">ldapServerMetadataOutput_serviceAccountUsername</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-220"></span><span id="ldapServerMetadataOutput_serviceAccountUsername"><span class="annot"><span class="annottext">ldapServerMetadataOutput_serviceAccountUsername :: (Text -&gt; f Text)
+-&gt; LdapServerMetadataOutput -&gt; f LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_serviceAccountUsername"><span class="hs-identifier hs-var hs-var">ldapServerMetadataOutput_serviceAccountUsername</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataOutput -&gt; Text)
+-&gt; (LdapServerMetadataOutput -&gt; Text -&gt; LdapServerMetadataOutput)
+-&gt; Lens LdapServerMetadataOutput LdapServerMetadataOutput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223832"><span class="annot"><span class="annottext">Text
+serviceAccountUsername :: Text
+$sel:serviceAccountUsername:LdapServerMetadataOutput' :: LdapServerMetadataOutput -&gt; Text
+</span><a href="#local-6989586621679223832"><span class="hs-identifier hs-var hs-var">serviceAccountUsername</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223832"><span class="hs-identifier hs-var">serviceAccountUsername</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223831"><span class="annot"><span class="annottext">s :: LdapServerMetadataOutput
+</span><a href="#local-6989586621679223831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataOutput
+</span><a href="#local-6989586621679223831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccountUsername:LdapServerMetadataOutput' :: Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AserviceAccountUsername%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">serviceAccountUsername</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The distinguished name of the node in the directory information tree</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- (DIT) to search for roles or groups. For example, ou=group, ou=corp,</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- dc=corp, dc=example, dc=com.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_roleBase"><span class="hs-identifier hs-type">ldapServerMetadataOutput_roleBase</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-226"></span><span id="ldapServerMetadataOutput_roleBase"><span class="annot"><span class="annottext">ldapServerMetadataOutput_roleBase :: (Text -&gt; f Text)
+-&gt; LdapServerMetadataOutput -&gt; f LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#ldapServerMetadataOutput_roleBase"><span class="hs-identifier hs-var hs-var">ldapServerMetadataOutput_roleBase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LdapServerMetadataOutput -&gt; Text)
+-&gt; (LdapServerMetadataOutput -&gt; Text -&gt; LdapServerMetadataOutput)
+-&gt; Lens LdapServerMetadataOutput LdapServerMetadataOutput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223828"><span class="annot"><span class="annottext">Text
+roleBase :: Text
+$sel:roleBase:LdapServerMetadataOutput' :: LdapServerMetadataOutput -&gt; Text
+</span><a href="#local-6989586621679223828"><span class="hs-identifier hs-var hs-var">roleBase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223828"><span class="hs-identifier hs-var">roleBase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223827"><span class="annot"><span class="annottext">s :: LdapServerMetadataOutput
+</span><a href="#local-6989586621679223827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-type">LdapServerMetadataOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223826"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LdapServerMetadataOutput
+</span><a href="#local-6989586621679223827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleBase:LdapServerMetadataOutput' :: Text
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#%24sel%3AroleBase%3ALdapServerMetadataOutput%27"><span class="hs-identifier hs-var">roleBase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223823"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679223821"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LdapServerMetadataOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LdapServerMetadataOutput)
+-&gt; Value
+-&gt; Parser LdapServerMetadataOutput
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LdapServerMetadataOutput&quot;</span></span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223818"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; [Text]
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; LdapServerMetadataOutput
+</span><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput%27"><span class="hs-identifier hs-var">LdapServerMetadataOutput'</span></a></span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; [Text]
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; LdapServerMetadataOutput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; [Text]
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; LdapServerMetadataOutput)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userRoleName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; [Text]
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; LdapServerMetadataOutput)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; [Text]
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; LdapServerMetadataOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userSearchSubtree&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; [Text]
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; LdapServerMetadataOutput)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; [Text]
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; LdapServerMetadataOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleSearchSubtree&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; [Text]
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; LdapServerMetadataOutput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     ([Text]
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; LdapServerMetadataOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  ([Text]
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; LdapServerMetadataOutput)
+-&gt; Parser [Text]
+-&gt; Parser
+     (Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; LdapServerMetadataOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hosts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; LdapServerMetadataOutput)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; Text -&gt; Text -&gt; Text -&gt; LdapServerMetadataOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userSearchMatching&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; LdapServerMetadataOutput)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; LdapServerMetadataOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userBase&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; LdapServerMetadataOutput)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; LdapServerMetadataOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleSearchMatching&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; LdapServerMetadataOutput)
+-&gt; Parser Text -&gt; Parser (Text -&gt; LdapServerMetadataOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceAccountUsername&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; LdapServerMetadataOutput)
+-&gt; Parser Text -&gt; Parser LdapServerMetadataOutput
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleBase&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223810"><span id="local-6989586621679223812"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span></span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MQ.Types.LdapServerMetadataOutput.html#LdapServerMetadataOutput"><span class="hs-identifier hs-type">LdapServerMetadataOutput</span></a></span></span><span>
+</span><span id="line-249"></span></pre></body></html>

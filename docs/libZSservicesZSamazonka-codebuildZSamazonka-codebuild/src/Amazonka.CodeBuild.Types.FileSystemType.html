@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeBuild.Types.FileSystemType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeBuild.Types.FileSystemType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.FileSystemType.html#FileSystemType"><span class="hs-identifier">FileSystemType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CodeBuild.Types.FileSystemType.html#FileSystemType_EFS"><span class="hs-identifier">FileSystemType_EFS</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679371489"><span id="local-6989586621679371490"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FileSystemType"><span class="annot"><a href="Amazonka.CodeBuild.Types.FileSystemType.html#FileSystemType"><span class="hs-identifier hs-var">FileSystemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSystemType%27"><span class="annot"><a href="Amazonka.CodeBuild.Types.FileSystemType.html#FileSystemType%27"><span class="hs-identifier hs-var">FileSystemType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFileSystemType"><span class="annot"><span class="annottext">FileSystemType -&gt; Text
+</span><a href="Amazonka.CodeBuild.Types.FileSystemType.html#fromFileSystemType"><span class="hs-identifier hs-var hs-var">fromFileSystemType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371481"><span id="local-6989586621679371483"><span id="local-6989586621679371485"><span class="annot"><span class="annottext">Int -&gt; FileSystemType -&gt; ShowS
+[FileSystemType] -&gt; ShowS
+FileSystemType -&gt; String
+(Int -&gt; FileSystemType -&gt; ShowS)
+-&gt; (FileSystemType -&gt; String)
+-&gt; ([FileSystemType] -&gt; ShowS)
+-&gt; Show FileSystemType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FileSystemType] -&gt; ShowS
+$cshowList :: [FileSystemType] -&gt; ShowS
+show :: FileSystemType -&gt; String
+$cshow :: FileSystemType -&gt; String
+showsPrec :: Int -&gt; FileSystemType -&gt; ShowS
+$cshowsPrec :: Int -&gt; FileSystemType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679371472"><span id="local-6989586621679371474"><span id="local-6989586621679371476"><span id="local-6989586621679371478"><span class="annot"><span class="annottext">ReadPrec [FileSystemType]
+ReadPrec FileSystemType
+Int -&gt; ReadS FileSystemType
+ReadS [FileSystemType]
+(Int -&gt; ReadS FileSystemType)
+-&gt; ReadS [FileSystemType]
+-&gt; ReadPrec FileSystemType
+-&gt; ReadPrec [FileSystemType]
+-&gt; Read FileSystemType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FileSystemType]
+$creadListPrec :: ReadPrec [FileSystemType]
+readPrec :: ReadPrec FileSystemType
+$creadPrec :: ReadPrec FileSystemType
+readList :: ReadS [FileSystemType]
+$creadList :: ReadS [FileSystemType]
+readsPrec :: Int -&gt; ReadS FileSystemType
+$creadsPrec :: Int -&gt; ReadS FileSystemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679371467"><span id="local-6989586621679371469"><span class="annot"><span class="annottext">FileSystemType -&gt; FileSystemType -&gt; Bool
+(FileSystemType -&gt; FileSystemType -&gt; Bool)
+-&gt; (FileSystemType -&gt; FileSystemType -&gt; Bool) -&gt; Eq FileSystemType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FileSystemType -&gt; FileSystemType -&gt; Bool
+$c/= :: FileSystemType -&gt; FileSystemType -&gt; Bool
+== :: FileSystemType -&gt; FileSystemType -&gt; Bool
+$c== :: FileSystemType -&gt; FileSystemType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679371451"><span id="local-6989586621679371453"><span id="local-6989586621679371455"><span id="local-6989586621679371457"><span id="local-6989586621679371459"><span id="local-6989586621679371461"><span id="local-6989586621679371463"><span class="annot"><span class="annottext">Eq FileSystemType
+Eq FileSystemType
+-&gt; (FileSystemType -&gt; FileSystemType -&gt; Ordering)
+-&gt; (FileSystemType -&gt; FileSystemType -&gt; Bool)
+-&gt; (FileSystemType -&gt; FileSystemType -&gt; Bool)
+-&gt; (FileSystemType -&gt; FileSystemType -&gt; Bool)
+-&gt; (FileSystemType -&gt; FileSystemType -&gt; Bool)
+-&gt; (FileSystemType -&gt; FileSystemType -&gt; FileSystemType)
+-&gt; (FileSystemType -&gt; FileSystemType -&gt; FileSystemType)
+-&gt; Ord FileSystemType
+FileSystemType -&gt; FileSystemType -&gt; Bool
+FileSystemType -&gt; FileSystemType -&gt; Ordering
+FileSystemType -&gt; FileSystemType -&gt; FileSystemType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FileSystemType -&gt; FileSystemType -&gt; FileSystemType
+$cmin :: FileSystemType -&gt; FileSystemType -&gt; FileSystemType
+max :: FileSystemType -&gt; FileSystemType -&gt; FileSystemType
+$cmax :: FileSystemType -&gt; FileSystemType -&gt; FileSystemType
+&gt;= :: FileSystemType -&gt; FileSystemType -&gt; Bool
+$c&gt;= :: FileSystemType -&gt; FileSystemType -&gt; Bool
+&gt; :: FileSystemType -&gt; FileSystemType -&gt; Bool
+$c&gt; :: FileSystemType -&gt; FileSystemType -&gt; Bool
+&lt;= :: FileSystemType -&gt; FileSystemType -&gt; Bool
+$c&lt;= :: FileSystemType -&gt; FileSystemType -&gt; Bool
+&lt; :: FileSystemType -&gt; FileSystemType -&gt; Bool
+$c&lt; :: FileSystemType -&gt; FileSystemType -&gt; Bool
+compare :: FileSystemType -&gt; FileSystemType -&gt; Ordering
+$ccompare :: FileSystemType -&gt; FileSystemType -&gt; Ordering
+$cp1Ord :: Eq FileSystemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FileSystemType -&gt; Rep FileSystemType x)
+-&gt; (forall x. Rep FileSystemType x -&gt; FileSystemType)
+-&gt; Generic FileSystemType
+forall x. Rep FileSystemType x -&gt; FileSystemType
+forall x. FileSystemType -&gt; Rep FileSystemType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FileSystemType x -&gt; FileSystemType
+$cfrom :: forall x. FileSystemType -&gt; Rep FileSystemType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371443"><span id="local-6989586621679371445"><span class="annot"><span class="annottext">Int -&gt; FileSystemType -&gt; Int
+FileSystemType -&gt; Int
+(Int -&gt; FileSystemType -&gt; Int)
+-&gt; (FileSystemType -&gt; Int) -&gt; Hashable FileSystemType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FileSystemType -&gt; Int
+$chash :: FileSystemType -&gt; Int
+hashWithSalt :: Int -&gt; FileSystemType -&gt; Int
+$chashWithSalt :: Int -&gt; FileSystemType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679371440"><span class="annot"><span class="annottext">FileSystemType -&gt; ()
+(FileSystemType -&gt; ()) -&gt; NFData FileSystemType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FileSystemType -&gt; ()
+$crnf :: FileSystemType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679371437"><span class="annot"><span class="annottext">Text -&gt; Either String FileSystemType
+(Text -&gt; Either String FileSystemType) -&gt; FromText FileSystemType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FileSystemType
+$cfromText :: Text -&gt; Either String FileSystemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679371434"><span class="annot"><span class="annottext">FileSystemType -&gt; Text
+(FileSystemType -&gt; Text) -&gt; ToText FileSystemType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FileSystemType -&gt; Text
+$ctoText :: FileSystemType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679371431"><span class="annot"><span class="annottext">FileSystemType -&gt; ByteString
+(FileSystemType -&gt; ByteString) -&gt; ToByteString FileSystemType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FileSystemType -&gt; ByteString
+$ctoBS :: FileSystemType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371428"><span class="annot"><span class="annottext">FileSystemType -&gt; ByteStringBuilder
+(FileSystemType -&gt; ByteStringBuilder) -&gt; ToLog FileSystemType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FileSystemType -&gt; ByteStringBuilder
+$cbuild :: FileSystemType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371425"><span class="annot"><span class="annottext">HeaderName -&gt; FileSystemType -&gt; [Header]
+(HeaderName -&gt; FileSystemType -&gt; [Header])
+-&gt; ToHeader FileSystemType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FileSystemType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FileSystemType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371422"><span class="annot"><span class="annottext">FileSystemType -&gt; QueryString
+(FileSystemType -&gt; QueryString) -&gt; ToQuery FileSystemType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FileSystemType -&gt; QueryString
+$ctoQuery :: FileSystemType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371417"><span id="local-6989586621679371419"><span class="annot"><span class="annottext">Value -&gt; Parser [FileSystemType]
+Value -&gt; Parser FileSystemType
+(Value -&gt; Parser FileSystemType)
+-&gt; (Value -&gt; Parser [FileSystemType]) -&gt; FromJSON FileSystemType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FileSystemType]
+$cparseJSONList :: Value -&gt; Parser [FileSystemType]
+parseJSON :: Value -&gt; Parser FileSystemType
+$cparseJSON :: Value -&gt; Parser FileSystemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371412"><span id="local-6989586621679371414"><span class="annot"><span class="annottext">FromJSONKeyFunction [FileSystemType]
+FromJSONKeyFunction FileSystemType
+FromJSONKeyFunction FileSystemType
+-&gt; FromJSONKeyFunction [FileSystemType]
+-&gt; FromJSONKey FileSystemType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FileSystemType]
+$cfromJSONKeyList :: FromJSONKeyFunction [FileSystemType]
+fromJSONKey :: FromJSONKeyFunction FileSystemType
+$cfromJSONKey :: FromJSONKeyFunction FileSystemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371403"><span id="local-6989586621679371405"><span id="local-6989586621679371407"><span id="local-6989586621679371409"><span class="annot"><span class="annottext">[FileSystemType] -&gt; Encoding
+[FileSystemType] -&gt; Value
+FileSystemType -&gt; Encoding
+FileSystemType -&gt; Value
+(FileSystemType -&gt; Value)
+-&gt; (FileSystemType -&gt; Encoding)
+-&gt; ([FileSystemType] -&gt; Value)
+-&gt; ([FileSystemType] -&gt; Encoding)
+-&gt; ToJSON FileSystemType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FileSystemType] -&gt; Encoding
+$ctoEncodingList :: [FileSystemType] -&gt; Encoding
+toJSONList :: [FileSystemType] -&gt; Value
+$ctoJSONList :: [FileSystemType] -&gt; Value
+toEncoding :: FileSystemType -&gt; Encoding
+$ctoEncoding :: FileSystemType -&gt; Encoding
+toJSON :: FileSystemType -&gt; Value
+$ctoJSON :: FileSystemType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679371398"><span id="local-6989586621679371400"><span class="annot"><span class="annottext">ToJSONKeyFunction [FileSystemType]
+ToJSONKeyFunction FileSystemType
+ToJSONKeyFunction FileSystemType
+-&gt; ToJSONKeyFunction [FileSystemType] -&gt; ToJSONKey FileSystemType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FileSystemType]
+$ctoJSONKeyList :: ToJSONKeyFunction [FileSystemType]
+toJSONKey :: ToJSONKeyFunction FileSystemType
+$ctoJSONKey :: ToJSONKeyFunction FileSystemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679371395"><span class="annot"><span class="annottext">[Node] -&gt; Either String FileSystemType
+([Node] -&gt; Either String FileSystemType) -&gt; FromXML FileSystemType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FileSystemType
+$cparseXML :: [Node] -&gt; Either String FileSystemType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679371392"><span class="annot"><span class="annottext">FileSystemType -&gt; XML
+(FileSystemType -&gt; XML) -&gt; ToXML FileSystemType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FileSystemType -&gt; XML
+$ctoXML :: FileSystemType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.FileSystemType.html#FileSystemType_EFS"><span class="hs-identifier hs-type">FileSystemType_EFS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.FileSystemType.html#FileSystemType"><span class="hs-identifier hs-type">FileSystemType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileSystemType_EFS"><span id="%24mFileSystemType_EFS"><span id="FileSystemType_EFS"><span class="annot"><span class="annottext">$bFileSystemType_EFS :: FileSystemType
+$mFileSystemType_EFS :: forall r. FileSystemType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CodeBuild.Types.FileSystemType.html#%24bFileSystemType_EFS"><span class="hs-identifier hs-var hs-var hs-var">FileSystemType_EFS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.FileSystemType.html#FileSystemType%27"><span class="hs-identifier hs-type">FileSystemType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EFS&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.Types.FileSystemType.html#FileSystemType_EFS"><span class="hs-pragma hs-type">FileSystemType_EFS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.Types.FileSystemType.html#FileSystemType%27"><span class="hs-pragma hs-type">FileSystemType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

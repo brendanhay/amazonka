@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType"><span class="hs-identifier">ConfigurationOptionValueType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType_List"><span class="hs-identifier">ConfigurationOptionValueType_List</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType_Scalar"><span class="hs-identifier">ConfigurationOptionValueType_Scalar</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679299926"><span id="local-6989586621679299927"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfigurationOptionValueType"><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType"><span class="hs-identifier hs-var">ConfigurationOptionValueType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationOptionValueType%27"><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType%27"><span class="hs-identifier hs-var">ConfigurationOptionValueType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConfigurationOptionValueType"><span class="annot"><span class="annottext">ConfigurationOptionValueType -&gt; Text
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#fromConfigurationOptionValueType"><span class="hs-identifier hs-var hs-var">fromConfigurationOptionValueType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299918"><span id="local-6989586621679299920"><span id="local-6989586621679299922"><span class="annot"><span class="annottext">Int -&gt; ConfigurationOptionValueType -&gt; ShowS
+[ConfigurationOptionValueType] -&gt; ShowS
+ConfigurationOptionValueType -&gt; String
+(Int -&gt; ConfigurationOptionValueType -&gt; ShowS)
+-&gt; (ConfigurationOptionValueType -&gt; String)
+-&gt; ([ConfigurationOptionValueType] -&gt; ShowS)
+-&gt; Show ConfigurationOptionValueType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigurationOptionValueType] -&gt; ShowS
+$cshowList :: [ConfigurationOptionValueType] -&gt; ShowS
+show :: ConfigurationOptionValueType -&gt; String
+$cshow :: ConfigurationOptionValueType -&gt; String
+showsPrec :: Int -&gt; ConfigurationOptionValueType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigurationOptionValueType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679299909"><span id="local-6989586621679299911"><span id="local-6989586621679299913"><span id="local-6989586621679299915"><span class="annot"><span class="annottext">ReadPrec [ConfigurationOptionValueType]
+ReadPrec ConfigurationOptionValueType
+Int -&gt; ReadS ConfigurationOptionValueType
+ReadS [ConfigurationOptionValueType]
+(Int -&gt; ReadS ConfigurationOptionValueType)
+-&gt; ReadS [ConfigurationOptionValueType]
+-&gt; ReadPrec ConfigurationOptionValueType
+-&gt; ReadPrec [ConfigurationOptionValueType]
+-&gt; Read ConfigurationOptionValueType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigurationOptionValueType]
+$creadListPrec :: ReadPrec [ConfigurationOptionValueType]
+readPrec :: ReadPrec ConfigurationOptionValueType
+$creadPrec :: ReadPrec ConfigurationOptionValueType
+readList :: ReadS [ConfigurationOptionValueType]
+$creadList :: ReadS [ConfigurationOptionValueType]
+readsPrec :: Int -&gt; ReadS ConfigurationOptionValueType
+$creadsPrec :: Int -&gt; ReadS ConfigurationOptionValueType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679299904"><span id="local-6989586621679299906"><span class="annot"><span class="annottext">ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+(ConfigurationOptionValueType
+ -&gt; ConfigurationOptionValueType -&gt; Bool)
+-&gt; (ConfigurationOptionValueType
+    -&gt; ConfigurationOptionValueType -&gt; Bool)
+-&gt; Eq ConfigurationOptionValueType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+$c/= :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+== :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+$c== :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679299888"><span id="local-6989586621679299890"><span id="local-6989586621679299892"><span id="local-6989586621679299894"><span id="local-6989586621679299896"><span id="local-6989586621679299898"><span id="local-6989586621679299900"><span class="annot"><span class="annottext">Eq ConfigurationOptionValueType
+Eq ConfigurationOptionValueType
+-&gt; (ConfigurationOptionValueType
+    -&gt; ConfigurationOptionValueType -&gt; Ordering)
+-&gt; (ConfigurationOptionValueType
+    -&gt; ConfigurationOptionValueType -&gt; Bool)
+-&gt; (ConfigurationOptionValueType
+    -&gt; ConfigurationOptionValueType -&gt; Bool)
+-&gt; (ConfigurationOptionValueType
+    -&gt; ConfigurationOptionValueType -&gt; Bool)
+-&gt; (ConfigurationOptionValueType
+    -&gt; ConfigurationOptionValueType -&gt; Bool)
+-&gt; (ConfigurationOptionValueType
+    -&gt; ConfigurationOptionValueType -&gt; ConfigurationOptionValueType)
+-&gt; (ConfigurationOptionValueType
+    -&gt; ConfigurationOptionValueType -&gt; ConfigurationOptionValueType)
+-&gt; Ord ConfigurationOptionValueType
+ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Ordering
+ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; ConfigurationOptionValueType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; ConfigurationOptionValueType
+$cmin :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; ConfigurationOptionValueType
+max :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; ConfigurationOptionValueType
+$cmax :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; ConfigurationOptionValueType
+&gt;= :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+$c&gt;= :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+&gt; :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+$c&gt; :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+&lt;= :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+$c&lt;= :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+&lt; :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+$c&lt; :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Bool
+compare :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Ordering
+$ccompare :: ConfigurationOptionValueType
+-&gt; ConfigurationOptionValueType -&gt; Ordering
+$cp1Ord :: Eq ConfigurationOptionValueType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ConfigurationOptionValueType -&gt; Rep ConfigurationOptionValueType x)
+-&gt; (forall x.
+    Rep ConfigurationOptionValueType x -&gt; ConfigurationOptionValueType)
+-&gt; Generic ConfigurationOptionValueType
+forall x.
+Rep ConfigurationOptionValueType x -&gt; ConfigurationOptionValueType
+forall x.
+ConfigurationOptionValueType -&gt; Rep ConfigurationOptionValueType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ConfigurationOptionValueType x -&gt; ConfigurationOptionValueType
+$cfrom :: forall x.
+ConfigurationOptionValueType -&gt; Rep ConfigurationOptionValueType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299880"><span id="local-6989586621679299882"><span class="annot"><span class="annottext">Int -&gt; ConfigurationOptionValueType -&gt; Int
+ConfigurationOptionValueType -&gt; Int
+(Int -&gt; ConfigurationOptionValueType -&gt; Int)
+-&gt; (ConfigurationOptionValueType -&gt; Int)
+-&gt; Hashable ConfigurationOptionValueType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConfigurationOptionValueType -&gt; Int
+$chash :: ConfigurationOptionValueType -&gt; Int
+hashWithSalt :: Int -&gt; ConfigurationOptionValueType -&gt; Int
+$chashWithSalt :: Int -&gt; ConfigurationOptionValueType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679299877"><span class="annot"><span class="annottext">ConfigurationOptionValueType -&gt; ()
+(ConfigurationOptionValueType -&gt; ())
+-&gt; NFData ConfigurationOptionValueType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConfigurationOptionValueType -&gt; ()
+$crnf :: ConfigurationOptionValueType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679299874"><span class="annot"><span class="annottext">Text -&gt; Either String ConfigurationOptionValueType
+(Text -&gt; Either String ConfigurationOptionValueType)
+-&gt; FromText ConfigurationOptionValueType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConfigurationOptionValueType
+$cfromText :: Text -&gt; Either String ConfigurationOptionValueType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679299871"><span class="annot"><span class="annottext">ConfigurationOptionValueType -&gt; Text
+(ConfigurationOptionValueType -&gt; Text)
+-&gt; ToText ConfigurationOptionValueType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConfigurationOptionValueType -&gt; Text
+$ctoText :: ConfigurationOptionValueType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679299868"><span class="annot"><span class="annottext">ConfigurationOptionValueType -&gt; ByteString
+(ConfigurationOptionValueType -&gt; ByteString)
+-&gt; ToByteString ConfigurationOptionValueType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConfigurationOptionValueType -&gt; ByteString
+$ctoBS :: ConfigurationOptionValueType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679299865"><span class="annot"><span class="annottext">ConfigurationOptionValueType -&gt; ByteStringBuilder
+(ConfigurationOptionValueType -&gt; ByteStringBuilder)
+-&gt; ToLog ConfigurationOptionValueType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConfigurationOptionValueType -&gt; ByteStringBuilder
+$cbuild :: ConfigurationOptionValueType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679299862"><span class="annot"><span class="annottext">HeaderName -&gt; ConfigurationOptionValueType -&gt; [Header]
+(HeaderName -&gt; ConfigurationOptionValueType -&gt; [Header])
+-&gt; ToHeader ConfigurationOptionValueType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConfigurationOptionValueType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConfigurationOptionValueType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679299859"><span class="annot"><span class="annottext">ConfigurationOptionValueType -&gt; QueryString
+(ConfigurationOptionValueType -&gt; QueryString)
+-&gt; ToQuery ConfigurationOptionValueType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConfigurationOptionValueType -&gt; QueryString
+$ctoQuery :: ConfigurationOptionValueType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299854"><span id="local-6989586621679299856"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfigurationOptionValueType]
+Value -&gt; Parser ConfigurationOptionValueType
+(Value -&gt; Parser ConfigurationOptionValueType)
+-&gt; (Value -&gt; Parser [ConfigurationOptionValueType])
+-&gt; FromJSON ConfigurationOptionValueType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConfigurationOptionValueType]
+$cparseJSONList :: Value -&gt; Parser [ConfigurationOptionValueType]
+parseJSON :: Value -&gt; Parser ConfigurationOptionValueType
+$cparseJSON :: Value -&gt; Parser ConfigurationOptionValueType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299849"><span id="local-6989586621679299851"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfigurationOptionValueType]
+FromJSONKeyFunction ConfigurationOptionValueType
+FromJSONKeyFunction ConfigurationOptionValueType
+-&gt; FromJSONKeyFunction [ConfigurationOptionValueType]
+-&gt; FromJSONKey ConfigurationOptionValueType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConfigurationOptionValueType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConfigurationOptionValueType]
+fromJSONKey :: FromJSONKeyFunction ConfigurationOptionValueType
+$cfromJSONKey :: FromJSONKeyFunction ConfigurationOptionValueType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299840"><span id="local-6989586621679299842"><span id="local-6989586621679299844"><span id="local-6989586621679299846"><span class="annot"><span class="annottext">[ConfigurationOptionValueType] -&gt; Encoding
+[ConfigurationOptionValueType] -&gt; Value
+ConfigurationOptionValueType -&gt; Encoding
+ConfigurationOptionValueType -&gt; Value
+(ConfigurationOptionValueType -&gt; Value)
+-&gt; (ConfigurationOptionValueType -&gt; Encoding)
+-&gt; ([ConfigurationOptionValueType] -&gt; Value)
+-&gt; ([ConfigurationOptionValueType] -&gt; Encoding)
+-&gt; ToJSON ConfigurationOptionValueType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConfigurationOptionValueType] -&gt; Encoding
+$ctoEncodingList :: [ConfigurationOptionValueType] -&gt; Encoding
+toJSONList :: [ConfigurationOptionValueType] -&gt; Value
+$ctoJSONList :: [ConfigurationOptionValueType] -&gt; Value
+toEncoding :: ConfigurationOptionValueType -&gt; Encoding
+$ctoEncoding :: ConfigurationOptionValueType -&gt; Encoding
+toJSON :: ConfigurationOptionValueType -&gt; Value
+$ctoJSON :: ConfigurationOptionValueType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299835"><span id="local-6989586621679299837"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfigurationOptionValueType]
+ToJSONKeyFunction ConfigurationOptionValueType
+ToJSONKeyFunction ConfigurationOptionValueType
+-&gt; ToJSONKeyFunction [ConfigurationOptionValueType]
+-&gt; ToJSONKey ConfigurationOptionValueType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConfigurationOptionValueType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConfigurationOptionValueType]
+toJSONKey :: ToJSONKeyFunction ConfigurationOptionValueType
+$ctoJSONKey :: ToJSONKeyFunction ConfigurationOptionValueType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299832"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfigurationOptionValueType
+([Node] -&gt; Either String ConfigurationOptionValueType)
+-&gt; FromXML ConfigurationOptionValueType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConfigurationOptionValueType
+$cparseXML :: [Node] -&gt; Either String ConfigurationOptionValueType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299829"><span class="annot"><span class="annottext">ConfigurationOptionValueType -&gt; XML
+(ConfigurationOptionValueType -&gt; XML)
+-&gt; ToXML ConfigurationOptionValueType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConfigurationOptionValueType -&gt; XML
+$ctoXML :: ConfigurationOptionValueType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType_List"><span class="hs-identifier hs-type">ConfigurationOptionValueType_List</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType"><span class="hs-identifier hs-type">ConfigurationOptionValueType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationOptionValueType_List"><span id="%24mConfigurationOptionValueType_List"><span id="ConfigurationOptionValueType_List"><span class="annot"><span class="annottext">$bConfigurationOptionValueType_List :: ConfigurationOptionValueType
+$mConfigurationOptionValueType_List :: forall r.
+ConfigurationOptionValueType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#%24bConfigurationOptionValueType_List"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationOptionValueType_List</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType%27"><span class="hs-identifier hs-type">ConfigurationOptionValueType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;List&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType_Scalar"><span class="hs-identifier hs-type">ConfigurationOptionValueType_Scalar</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType"><span class="hs-identifier hs-type">ConfigurationOptionValueType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationOptionValueType_Scalar"><span id="%24mConfigurationOptionValueType_Scalar"><span id="ConfigurationOptionValueType_Scalar"><span class="annot"><span class="annottext">$bConfigurationOptionValueType_Scalar :: ConfigurationOptionValueType
+$mConfigurationOptionValueType_Scalar :: forall r.
+ConfigurationOptionValueType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#%24bConfigurationOptionValueType_Scalar"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationOptionValueType_Scalar</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType%27"><span class="hs-identifier hs-type">ConfigurationOptionValueType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Scalar&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType_List"><span class="hs-pragma hs-type">ConfigurationOptionValueType_List</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType_Scalar"><span class="hs-pragma hs-type">ConfigurationOptionValueType_Scalar</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType.html#ConfigurationOptionValueType%27"><span class="hs-pragma hs-type">ConfigurationOptionValueType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

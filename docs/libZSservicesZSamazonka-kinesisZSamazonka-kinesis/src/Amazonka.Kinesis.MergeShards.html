@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Kinesis.MergeShards</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Merges two adjacent shards in a Kinesis data stream and combines them</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- into a single shard to reduce the stream\'s capacity to ingest and</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- transport data. Two shards are considered adjacent if the union of the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- hash key ranges for the two shards form a contiguous set with no gaps.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- For example, if you have two shards, one with a hash key range of</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- 276...381 and the other with a hash key range of 382...454, then you</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- could merge these two shards into a single shard that would have a hash</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- key range of 276...454. After the merge, the single child shard receives</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- data for all hash key values covered by the two parent shards.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @MergeShards@ is called when there is a need to reduce the overall</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- capacity of a stream because of excess capacity that is not being used.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- You must specify the shard to be merged and the adjacent shard for a</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- stream. For more information about merging shards, see</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-merge.html Merge Two Shards&gt;</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- in the /Amazon Kinesis Data Streams Developer Guide/.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- If the stream is in the @ACTIVE@ state, you can call @MergeShards@. If a</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- stream is in the @CREATING@, @UPDATING@, or @DELETING@ state,</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- @MergeShards@ returns a @ResourceInUseException@. If the specified</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- stream does not exist, @MergeShards@ returns a</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- @ResourceNotFoundException@.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- You can use DescribeStream to check the state of the stream, which is</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- returned in @StreamStatus@.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- @MergeShards@ is an asynchronous operation. Upon receiving a</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- @MergeShards@ request, Amazon Kinesis Data Streams immediately returns a</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- response and sets the @StreamStatus@ to @UPDATING@. After the operation</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- is completed, Kinesis Data Streams sets the @StreamStatus@ to @ACTIVE@.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Read and write operations continue to work while the stream is in the</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- @UPDATING@ state.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- You use DescribeStream to determine the shard IDs that are specified in</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- the @MergeShards@ request.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- If you try to operate on too many streams in parallel using</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- CreateStream, DeleteStream, @MergeShards@, or SplitShard, you receive a</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- @LimitExceededException@.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- @MergeShards@ has a limit of five transactions per second per account.</span><span>
+</span><span id="line-64"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Kinesis.MergeShards</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier">MergeShards</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#newMergeShards"><span class="hs-identifier">newMergeShards</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#mergeShards_streamName"><span class="hs-identifier">mergeShards_streamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#mergeShards_shardToMerge"><span class="hs-identifier">mergeShards_shardToMerge</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#mergeShards_adjacentShardToMerge"><span class="hs-identifier">mergeShards_adjacentShardToMerge</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShardsResponse"><span class="hs-identifier">MergeShardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#newMergeShardsResponse"><span class="hs-identifier">newMergeShardsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.html"><span class="hs-identifier">Amazonka.Kinesis.Types</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Represents the input for @MergeShards@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- /See:/ 'newMergeShards' smart constructor.</span><span>
+</span><span id="line-90"></span><span id="local-6989586621679201493"><span id="local-6989586621679201494"></span></span><span class="hs-keyword">data</span><span> </span><span id="MergeShards"><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-var">MergeShards</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MergeShards%27"><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards%27"><span class="hs-identifier hs-var">MergeShards'</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the stream for the merge.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AstreamName%3AMergeShards%27"><span class="annot"><span class="annottext">MergeShards -&gt; Text
+</span><a href="Amazonka.Kinesis.MergeShards.html#%24sel%3AstreamName%3AMergeShards%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The shard ID of the shard to combine with the adjacent shard for the</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- merge.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AshardToMerge%3AMergeShards%27"><span class="annot"><span class="annottext">MergeShards -&gt; Text
+</span><a href="Amazonka.Kinesis.MergeShards.html#%24sel%3AshardToMerge%3AMergeShards%27"><span class="hs-identifier hs-var hs-var">shardToMerge</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The shard ID of the adjacent shard for the merge.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AadjacentShardToMerge%3AMergeShards%27"><span class="annot"><span class="annottext">MergeShards -&gt; Text
+</span><a href="Amazonka.Kinesis.MergeShards.html#%24sel%3AadjacentShardToMerge%3AMergeShards%27"><span class="hs-identifier hs-var hs-var">adjacentShardToMerge</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201485"><span id="local-6989586621679201487"><span class="annot"><span class="annottext">MergeShards -&gt; MergeShards -&gt; Bool
+(MergeShards -&gt; MergeShards -&gt; Bool)
+-&gt; (MergeShards -&gt; MergeShards -&gt; Bool) -&gt; Eq MergeShards
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MergeShards -&gt; MergeShards -&gt; Bool
+$c/= :: MergeShards -&gt; MergeShards -&gt; Bool
+== :: MergeShards -&gt; MergeShards -&gt; Bool
+$c== :: MergeShards -&gt; MergeShards -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201476"><span id="local-6989586621679201478"><span id="local-6989586621679201480"><span id="local-6989586621679201482"><span class="annot"><span class="annottext">ReadPrec [MergeShards]
+ReadPrec MergeShards
+Int -&gt; ReadS MergeShards
+ReadS [MergeShards]
+(Int -&gt; ReadS MergeShards)
+-&gt; ReadS [MergeShards]
+-&gt; ReadPrec MergeShards
+-&gt; ReadPrec [MergeShards]
+-&gt; Read MergeShards
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MergeShards]
+$creadListPrec :: ReadPrec [MergeShards]
+readPrec :: ReadPrec MergeShards
+$creadPrec :: ReadPrec MergeShards
+readList :: ReadS [MergeShards]
+$creadList :: ReadS [MergeShards]
+readsPrec :: Int -&gt; ReadS MergeShards
+$creadsPrec :: Int -&gt; ReadS MergeShards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201469"><span id="local-6989586621679201471"><span id="local-6989586621679201473"><span class="annot"><span class="annottext">Int -&gt; MergeShards -&gt; ShowS
+[MergeShards] -&gt; ShowS
+MergeShards -&gt; String
+(Int -&gt; MergeShards -&gt; ShowS)
+-&gt; (MergeShards -&gt; String)
+-&gt; ([MergeShards] -&gt; ShowS)
+-&gt; Show MergeShards
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MergeShards] -&gt; ShowS
+$cshowList :: [MergeShards] -&gt; ShowS
+show :: MergeShards -&gt; String
+$cshow :: MergeShards -&gt; String
+showsPrec :: Int -&gt; MergeShards -&gt; ShowS
+$cshowsPrec :: Int -&gt; MergeShards -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MergeShards -&gt; Rep MergeShards x)
+-&gt; (forall x. Rep MergeShards x -&gt; MergeShards)
+-&gt; Generic MergeShards
+forall x. Rep MergeShards x -&gt; MergeShards
+forall x. MergeShards -&gt; Rep MergeShards x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MergeShards x -&gt; MergeShards
+$cfrom :: forall x. MergeShards -&gt; Rep MergeShards x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Create a value of 'MergeShards' with all optional fields omitted.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'streamName', 'mergeShards_streamName' - The name of the stream for the merge.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'shardToMerge', 'mergeShards_shardToMerge' - The shard ID of the shard to combine with the adjacent shard for the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- merge.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'adjacentShardToMerge', 'mergeShards_adjacentShardToMerge' - The shard ID of the adjacent shard for the merge.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#newMergeShards"><span class="hs-identifier hs-type">newMergeShards</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'streamName'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'shardToMerge'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'adjacentShardToMerge'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span><span>
+</span><span id="line-123"></span><span id="newMergeShards"><span class="annot"><span class="annottext">newMergeShards :: Text -&gt; Text -&gt; Text -&gt; MergeShards
+</span><a href="Amazonka.Kinesis.MergeShards.html#newMergeShards"><span class="hs-identifier hs-var hs-var">newMergeShards</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679201464"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201464"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679201463"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201463"><span class="hs-identifier hs-var">pShardToMerge_</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679201462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201462"><span class="hs-identifier hs-var">pAdjacentShardToMerge_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">MergeShards' :: Text -&gt; Text -&gt; Text -&gt; MergeShards
+</span><a href="Amazonka.Kinesis.MergeShards.html#MergeShards%27"><span class="hs-identifier hs-type">MergeShards'</span></a></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamName:MergeShards' :: Text
+</span><a href="Amazonka.Kinesis.MergeShards.html#%24sel%3AstreamName%3AMergeShards%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201464"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:shardToMerge:MergeShards' :: Text
+</span><a href="Amazonka.Kinesis.MergeShards.html#%24sel%3AshardToMerge%3AMergeShards%27"><span class="hs-identifier hs-var">shardToMerge</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201463"><span class="hs-identifier hs-var">pShardToMerge_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:adjacentShardToMerge:MergeShards' :: Text
+</span><a href="Amazonka.Kinesis.MergeShards.html#%24sel%3AadjacentShardToMerge%3AMergeShards%27"><span class="hs-identifier hs-var">adjacentShardToMerge</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201462"><span class="hs-identifier hs-var">pAdjacentShardToMerge_</span></a></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The name of the stream for the merge.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#mergeShards_streamName"><span class="hs-identifier hs-type">mergeShards_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span id="mergeShards_streamName"><span class="annot"><span class="annottext">mergeShards_streamName :: (Text -&gt; f Text) -&gt; MergeShards -&gt; f MergeShards
+</span><a href="Amazonka.Kinesis.MergeShards.html#mergeShards_streamName"><span class="hs-identifier hs-var hs-var">mergeShards_streamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeShards -&gt; Text)
+-&gt; (MergeShards -&gt; Text -&gt; MergeShards)
+-&gt; Lens MergeShards MergeShards Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards%27"><span class="hs-identifier hs-type">MergeShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201459"><span class="annot"><span class="annottext">Text
+streamName :: Text
+$sel:streamName:MergeShards' :: MergeShards -&gt; Text
+</span><a href="#local-6989586621679201459"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201459"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201458"><span class="annot"><span class="annottext">s :: MergeShards
+</span><a href="#local-6989586621679201458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards%27"><span class="hs-identifier hs-type">MergeShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeShards
+</span><a href="#local-6989586621679201458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:MergeShards' :: Text
+</span><a href="Amazonka.Kinesis.MergeShards.html#%24sel%3AstreamName%3AMergeShards%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The shard ID of the shard to combine with the adjacent shard for the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- merge.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#mergeShards_shardToMerge"><span class="hs-identifier hs-type">mergeShards_shardToMerge</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="mergeShards_shardToMerge"><span class="annot"><span class="annottext">mergeShards_shardToMerge :: (Text -&gt; f Text) -&gt; MergeShards -&gt; f MergeShards
+</span><a href="Amazonka.Kinesis.MergeShards.html#mergeShards_shardToMerge"><span class="hs-identifier hs-var hs-var">mergeShards_shardToMerge</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeShards -&gt; Text)
+-&gt; (MergeShards -&gt; Text -&gt; MergeShards)
+-&gt; Lens MergeShards MergeShards Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards%27"><span class="hs-identifier hs-type">MergeShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201456"><span class="annot"><span class="annottext">Text
+shardToMerge :: Text
+$sel:shardToMerge:MergeShards' :: MergeShards -&gt; Text
+</span><a href="#local-6989586621679201456"><span class="hs-identifier hs-var hs-var">shardToMerge</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201456"><span class="hs-identifier hs-var">shardToMerge</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201455"><span class="annot"><span class="annottext">s :: MergeShards
+</span><a href="#local-6989586621679201455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards%27"><span class="hs-identifier hs-type">MergeShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201454"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeShards
+</span><a href="#local-6989586621679201455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardToMerge:MergeShards' :: Text
+</span><a href="Amazonka.Kinesis.MergeShards.html#%24sel%3AshardToMerge%3AMergeShards%27"><span class="hs-identifier hs-var">shardToMerge</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The shard ID of the adjacent shard for the merge.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#mergeShards_adjacentShardToMerge"><span class="hs-identifier hs-type">mergeShards_adjacentShardToMerge</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span id="mergeShards_adjacentShardToMerge"><span class="annot"><span class="annottext">mergeShards_adjacentShardToMerge :: (Text -&gt; f Text) -&gt; MergeShards -&gt; f MergeShards
+</span><a href="Amazonka.Kinesis.MergeShards.html#mergeShards_adjacentShardToMerge"><span class="hs-identifier hs-var hs-var">mergeShards_adjacentShardToMerge</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeShards -&gt; Text)
+-&gt; (MergeShards -&gt; Text -&gt; MergeShards)
+-&gt; Lens MergeShards MergeShards Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards%27"><span class="hs-identifier hs-type">MergeShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201453"><span class="annot"><span class="annottext">Text
+adjacentShardToMerge :: Text
+$sel:adjacentShardToMerge:MergeShards' :: MergeShards -&gt; Text
+</span><a href="#local-6989586621679201453"><span class="hs-identifier hs-var hs-var">adjacentShardToMerge</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201453"><span class="hs-identifier hs-var">adjacentShardToMerge</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201452"><span class="annot"><span class="annottext">s :: MergeShards
+</span><a href="#local-6989586621679201452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards%27"><span class="hs-identifier hs-type">MergeShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201451"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeShards
+</span><a href="#local-6989586621679201452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adjacentShardToMerge:MergeShards' :: Text
+</span><a href="Amazonka.Kinesis.MergeShards.html#%24sel%3AadjacentShardToMerge%3AMergeShards%27"><span class="hs-identifier hs-var">adjacentShardToMerge</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShardsResponse"><span class="hs-identifier hs-type">MergeShardsResponse</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679201447"><span class="annot"><span class="annottext">request :: MergeShards -&gt; Request MergeShards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; MergeShards -&gt; Request MergeShards
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679201443"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy MergeShards
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse MergeShards)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSResponse MergeShards
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy MergeShards
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse MergeShards)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse MergeShards
+MergeShardsResponse
+</span><a href="Amazonka.Kinesis.MergeShards.html#MergeShardsResponse%27"><span class="hs-identifier hs-var">MergeShardsResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201436"><span id="local-6989586621679201438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679201429"><span class="annot"><span class="annottext">toHeaders :: MergeShards -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; MergeShards -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Kinesis_20131202.MergeShards&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-162"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-166"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201419"><span id="local-6989586621679201421"><span id="local-6989586621679201423"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679201417"><span class="annot"><span class="annottext">toJSON :: MergeShards -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards%27"><span class="hs-identifier hs-type">MergeShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201413"><span id="local-6989586621679201414"><span id="local-6989586621679201415"><span class="annot"><span class="annottext">Text
+adjacentShardToMerge :: Text
+shardToMerge :: Text
+streamName :: Text
+$sel:adjacentShardToMerge:MergeShards' :: MergeShards -&gt; Text
+$sel:shardToMerge:MergeShards' :: MergeShards -&gt; Text
+$sel:streamName:MergeShards' :: MergeShards -&gt; Text
+</span><a href="#local-6989586621679201413"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201415"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShardToMerge&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201414"><span class="hs-identifier hs-var">shardToMerge</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-177"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AdjacentShardToMerge&quot;</span></span><span>
+</span><span id="line-178"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201413"><span class="hs-identifier hs-var">adjacentShardToMerge</span></a></span><span>
+</span><span id="line-179"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679201407"><span class="annot"><span class="annottext">toPath :: MergeShards -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; MergeShards -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShards"><span class="hs-identifier hs-type">MergeShards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679201403"><span class="annot"><span class="annottext">toQuery :: MergeShards -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; MergeShards -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | /See:/ 'newMergeShardsResponse' smart constructor.</span><span>
+</span><span id="line-190"></span><span id="local-6989586621679201400"><span id="local-6989586621679201401"></span></span><span class="hs-keyword">data</span><span> </span><span id="MergeShardsResponse"><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShardsResponse"><span class="hs-identifier hs-var">MergeShardsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MergeShardsResponse%27"><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShardsResponse%27"><span class="hs-identifier hs-var">MergeShardsResponse'</span></a></span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201396"><span id="local-6989586621679201398"><span class="annot"><span class="annottext">MergeShardsResponse -&gt; MergeShardsResponse -&gt; Bool
+(MergeShardsResponse -&gt; MergeShardsResponse -&gt; Bool)
+-&gt; (MergeShardsResponse -&gt; MergeShardsResponse -&gt; Bool)
+-&gt; Eq MergeShardsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MergeShardsResponse -&gt; MergeShardsResponse -&gt; Bool
+$c/= :: MergeShardsResponse -&gt; MergeShardsResponse -&gt; Bool
+== :: MergeShardsResponse -&gt; MergeShardsResponse -&gt; Bool
+$c== :: MergeShardsResponse -&gt; MergeShardsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201388"><span id="local-6989586621679201390"><span id="local-6989586621679201392"><span id="local-6989586621679201394"><span class="annot"><span class="annottext">ReadPrec [MergeShardsResponse]
+ReadPrec MergeShardsResponse
+Int -&gt; ReadS MergeShardsResponse
+ReadS [MergeShardsResponse]
+(Int -&gt; ReadS MergeShardsResponse)
+-&gt; ReadS [MergeShardsResponse]
+-&gt; ReadPrec MergeShardsResponse
+-&gt; ReadPrec [MergeShardsResponse]
+-&gt; Read MergeShardsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MergeShardsResponse]
+$creadListPrec :: ReadPrec [MergeShardsResponse]
+readPrec :: ReadPrec MergeShardsResponse
+$creadPrec :: ReadPrec MergeShardsResponse
+readList :: ReadS [MergeShardsResponse]
+$creadList :: ReadS [MergeShardsResponse]
+readsPrec :: Int -&gt; ReadS MergeShardsResponse
+$creadsPrec :: Int -&gt; ReadS MergeShardsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201382"><span id="local-6989586621679201384"><span id="local-6989586621679201386"><span class="annot"><span class="annottext">Int -&gt; MergeShardsResponse -&gt; ShowS
+[MergeShardsResponse] -&gt; ShowS
+MergeShardsResponse -&gt; String
+(Int -&gt; MergeShardsResponse -&gt; ShowS)
+-&gt; (MergeShardsResponse -&gt; String)
+-&gt; ([MergeShardsResponse] -&gt; ShowS)
+-&gt; Show MergeShardsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MergeShardsResponse] -&gt; ShowS
+$cshowList :: [MergeShardsResponse] -&gt; ShowS
+show :: MergeShardsResponse -&gt; String
+$cshow :: MergeShardsResponse -&gt; String
+showsPrec :: Int -&gt; MergeShardsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; MergeShardsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MergeShardsResponse -&gt; Rep MergeShardsResponse x)
+-&gt; (forall x. Rep MergeShardsResponse x -&gt; MergeShardsResponse)
+-&gt; Generic MergeShardsResponse
+forall x. Rep MergeShardsResponse x -&gt; MergeShardsResponse
+forall x. MergeShardsResponse -&gt; Rep MergeShardsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MergeShardsResponse x -&gt; MergeShardsResponse
+$cfrom :: forall x. MergeShardsResponse -&gt; Rep MergeShardsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Create a value of 'MergeShardsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#newMergeShardsResponse"><span class="hs-identifier hs-type">newMergeShardsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShardsResponse"><span class="hs-identifier hs-type">MergeShardsResponse</span></a></span><span>
+</span><span id="line-201"></span><span id="newMergeShardsResponse"><span class="annot"><span class="annottext">newMergeShardsResponse :: MergeShardsResponse
+</span><a href="Amazonka.Kinesis.MergeShards.html#newMergeShardsResponse"><span class="hs-identifier hs-var hs-var">newMergeShardsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MergeShardsResponse
+</span><a href="Amazonka.Kinesis.MergeShards.html#MergeShardsResponse%27"><span class="hs-identifier hs-var">MergeShardsResponse'</span></a></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.MergeShards.html#MergeShardsResponse"><span class="hs-identifier hs-type">MergeShardsResponse</span></a></span></span><span>
+</span><span id="line-204"></span></pre></body></html>

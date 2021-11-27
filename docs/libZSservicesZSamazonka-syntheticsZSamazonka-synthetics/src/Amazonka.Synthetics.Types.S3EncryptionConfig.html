@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Synthetics.Types.S3EncryptionConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Synthetics.Types.S3EncryptionConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.EncryptionMode.html"><span class="hs-identifier">Amazonka.Synthetics.Types.EncryptionMode</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A structure that contains the configuration of encryption-at-rest</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- settings for canary artifacts that the canary uploads to Amazon S3.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_artifact_encryption.html Encrypting canary artifacts&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newS3EncryptionConfig' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679181840"><span id="local-6989586621679181841"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3EncryptionConfig"><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig"><span class="hs-identifier hs-var">S3EncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3EncryptionConfig%27"><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig%27"><span class="hs-identifier hs-var">S3EncryptionConfig'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the customer-managed KMS key to use, if you specify @SSE-KMS@</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- for @EncryptionMode@</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AkmsKeyArn%3AS3EncryptionConfig%27"><span class="annot"><span class="annottext">S3EncryptionConfig -&gt; Maybe Text
+</span><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#%24sel%3AkmsKeyArn%3AS3EncryptionConfig%27"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The encryption method to use for artifacts created by this canary.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Specify @SSE_S3@ to use server-side encryption (SSE) with an Amazon</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- S3-managed key. Specify @SSE-KMS@ to use server-side encryption with a</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- customer-managed KMS key.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- If you omit this parameter, an Amazon Web Services-managed KMS key is</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AencryptionMode%3AS3EncryptionConfig%27"><span class="annot"><span class="annottext">S3EncryptionConfig -&gt; Maybe EncryptionMode
+</span><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#%24sel%3AencryptionMode%3AS3EncryptionConfig%27"><span class="hs-identifier hs-var hs-var">encryptionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.EncryptionMode.html#EncryptionMode"><span class="hs-identifier hs-type">EncryptionMode</span></a></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181833"><span id="local-6989586621679181835"><span class="annot"><span class="annottext">S3EncryptionConfig -&gt; S3EncryptionConfig -&gt; Bool
+(S3EncryptionConfig -&gt; S3EncryptionConfig -&gt; Bool)
+-&gt; (S3EncryptionConfig -&gt; S3EncryptionConfig -&gt; Bool)
+-&gt; Eq S3EncryptionConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: S3EncryptionConfig -&gt; S3EncryptionConfig -&gt; Bool
+$c/= :: S3EncryptionConfig -&gt; S3EncryptionConfig -&gt; Bool
+== :: S3EncryptionConfig -&gt; S3EncryptionConfig -&gt; Bool
+$c== :: S3EncryptionConfig -&gt; S3EncryptionConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181824"><span id="local-6989586621679181826"><span id="local-6989586621679181828"><span id="local-6989586621679181830"><span class="annot"><span class="annottext">ReadPrec [S3EncryptionConfig]
+ReadPrec S3EncryptionConfig
+Int -&gt; ReadS S3EncryptionConfig
+ReadS [S3EncryptionConfig]
+(Int -&gt; ReadS S3EncryptionConfig)
+-&gt; ReadS [S3EncryptionConfig]
+-&gt; ReadPrec S3EncryptionConfig
+-&gt; ReadPrec [S3EncryptionConfig]
+-&gt; Read S3EncryptionConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [S3EncryptionConfig]
+$creadListPrec :: ReadPrec [S3EncryptionConfig]
+readPrec :: ReadPrec S3EncryptionConfig
+$creadPrec :: ReadPrec S3EncryptionConfig
+readList :: ReadS [S3EncryptionConfig]
+$creadList :: ReadS [S3EncryptionConfig]
+readsPrec :: Int -&gt; ReadS S3EncryptionConfig
+$creadsPrec :: Int -&gt; ReadS S3EncryptionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181817"><span id="local-6989586621679181819"><span id="local-6989586621679181821"><span class="annot"><span class="annottext">Int -&gt; S3EncryptionConfig -&gt; ShowS
+[S3EncryptionConfig] -&gt; ShowS
+S3EncryptionConfig -&gt; String
+(Int -&gt; S3EncryptionConfig -&gt; ShowS)
+-&gt; (S3EncryptionConfig -&gt; String)
+-&gt; ([S3EncryptionConfig] -&gt; ShowS)
+-&gt; Show S3EncryptionConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [S3EncryptionConfig] -&gt; ShowS
+$cshowList :: [S3EncryptionConfig] -&gt; ShowS
+show :: S3EncryptionConfig -&gt; String
+$cshow :: S3EncryptionConfig -&gt; String
+showsPrec :: Int -&gt; S3EncryptionConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; S3EncryptionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. S3EncryptionConfig -&gt; Rep S3EncryptionConfig x)
+-&gt; (forall x. Rep S3EncryptionConfig x -&gt; S3EncryptionConfig)
+-&gt; Generic S3EncryptionConfig
+forall x. Rep S3EncryptionConfig x -&gt; S3EncryptionConfig
+forall x. S3EncryptionConfig -&gt; Rep S3EncryptionConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep S3EncryptionConfig x -&gt; S3EncryptionConfig
+$cfrom :: forall x. S3EncryptionConfig -&gt; Rep S3EncryptionConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'S3EncryptionConfig' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'kmsKeyArn', 's3EncryptionConfig_kmsKeyArn' - The ARN of the customer-managed KMS key to use, if you specify @SSE-KMS@</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for @EncryptionMode@</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'encryptionMode', 's3EncryptionConfig_encryptionMode' - The encryption method to use for artifacts created by this canary.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Specify @SSE_S3@ to use server-side encryption (SSE) with an Amazon</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- S3-managed key. Specify @SSE-KMS@ to use server-side encryption with a</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- customer-managed KMS key.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- If you omit this parameter, an Amazon Web Services-managed KMS key is</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#newS3EncryptionConfig"><span class="hs-identifier hs-type">newS3EncryptionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig"><span class="hs-identifier hs-type">S3EncryptionConfig</span></a></span><span>
+</span><span id="line-69"></span><span id="newS3EncryptionConfig"><span class="annot"><span class="annottext">newS3EncryptionConfig :: S3EncryptionConfig
+</span><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#newS3EncryptionConfig"><span class="hs-identifier hs-var hs-var">newS3EncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">S3EncryptionConfig' :: Maybe Text -&gt; Maybe EncryptionMode -&gt; S3EncryptionConfig
+</span><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig%27"><span class="hs-identifier hs-type">S3EncryptionConfig'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKeyArn:S3EncryptionConfig' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#%24sel%3AkmsKeyArn%3AS3EncryptionConfig%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionMode:S3EncryptionConfig' :: Maybe EncryptionMode
+</span><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#%24sel%3AencryptionMode%3AS3EncryptionConfig%27"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The ARN of the customer-managed KMS key to use, if you specify @SSE-KMS@</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for @EncryptionMode@</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#s3EncryptionConfig_kmsKeyArn"><span class="hs-identifier hs-type">s3EncryptionConfig_kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig"><span class="hs-identifier hs-type">S3EncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="s3EncryptionConfig_kmsKeyArn"><span class="annot"><span class="annottext">s3EncryptionConfig_kmsKeyArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; S3EncryptionConfig -&gt; f S3EncryptionConfig
+</span><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#s3EncryptionConfig_kmsKeyArn"><span class="hs-identifier hs-var hs-var">s3EncryptionConfig_kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3EncryptionConfig -&gt; Maybe Text)
+-&gt; (S3EncryptionConfig -&gt; Maybe Text -&gt; S3EncryptionConfig)
+-&gt; Lens
+     S3EncryptionConfig S3EncryptionConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig%27"><span class="hs-identifier hs-type">S3EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181808"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyArn :: Maybe Text
+$sel:kmsKeyArn:S3EncryptionConfig' :: S3EncryptionConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679181808"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181808"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181807"><span class="annot"><span class="annottext">s :: S3EncryptionConfig
+</span><a href="#local-6989586621679181807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig%27"><span class="hs-identifier hs-type">S3EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181806"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3EncryptionConfig
+</span><a href="#local-6989586621679181807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:S3EncryptionConfig' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#%24sel%3AkmsKeyArn%3AS3EncryptionConfig%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig"><span class="hs-identifier hs-type">S3EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The encryption method to use for artifacts created by this canary.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Specify @SSE_S3@ to use server-side encryption (SSE) with an Amazon</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- S3-managed key. Specify @SSE-KMS@ to use server-side encryption with a</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- customer-managed KMS key.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- If you omit this parameter, an Amazon Web Services-managed KMS key is</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#s3EncryptionConfig_encryptionMode"><span class="hs-identifier hs-type">s3EncryptionConfig_encryptionMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig"><span class="hs-identifier hs-type">S3EncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.EncryptionMode.html#EncryptionMode"><span class="hs-identifier hs-type">EncryptionMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="s3EncryptionConfig_encryptionMode"><span class="annot"><span class="annottext">s3EncryptionConfig_encryptionMode :: (Maybe EncryptionMode -&gt; f (Maybe EncryptionMode))
+-&gt; S3EncryptionConfig -&gt; f S3EncryptionConfig
+</span><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#s3EncryptionConfig_encryptionMode"><span class="hs-identifier hs-var hs-var">s3EncryptionConfig_encryptionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3EncryptionConfig -&gt; Maybe EncryptionMode)
+-&gt; (S3EncryptionConfig
+    -&gt; Maybe EncryptionMode -&gt; S3EncryptionConfig)
+-&gt; Lens
+     S3EncryptionConfig
+     S3EncryptionConfig
+     (Maybe EncryptionMode)
+     (Maybe EncryptionMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig%27"><span class="hs-identifier hs-type">S3EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181804"><span class="annot"><span class="annottext">Maybe EncryptionMode
+encryptionMode :: Maybe EncryptionMode
+$sel:encryptionMode:S3EncryptionConfig' :: S3EncryptionConfig -&gt; Maybe EncryptionMode
+</span><a href="#local-6989586621679181804"><span class="hs-identifier hs-var hs-var">encryptionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionMode
+</span><a href="#local-6989586621679181804"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181803"><span class="annot"><span class="annottext">s :: S3EncryptionConfig
+</span><a href="#local-6989586621679181803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig%27"><span class="hs-identifier hs-type">S3EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181802"><span class="annot"><span class="annottext">Maybe EncryptionMode
+</span><a href="#local-6989586621679181802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3EncryptionConfig
+</span><a href="#local-6989586621679181803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionMode:S3EncryptionConfig' :: Maybe EncryptionMode
+</span><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#%24sel%3AencryptionMode%3AS3EncryptionConfig%27"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionMode
+</span><a href="#local-6989586621679181802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig"><span class="hs-identifier hs-type">S3EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181799"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig"><span class="hs-identifier hs-type">S3EncryptionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679181797"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3EncryptionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser S3EncryptionConfig)
+-&gt; Value
+-&gt; Parser S3EncryptionConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;S3EncryptionConfig&quot;</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181794"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181794"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe EncryptionMode -&gt; S3EncryptionConfig
+</span><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig%27"><span class="hs-identifier hs-var">S3EncryptionConfig'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe EncryptionMode -&gt; S3EncryptionConfig)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe EncryptionMode -&gt; S3EncryptionConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EncryptionMode -&gt; S3EncryptionConfig)
+-&gt; Parser (Maybe EncryptionMode) -&gt; Parser S3EncryptionConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181788"><span id="local-6989586621679181790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig"><span class="hs-identifier hs-type">S3EncryptionConfig</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig"><span class="hs-identifier hs-type">S3EncryptionConfig</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181777"><span id="local-6989586621679181779"><span id="local-6989586621679181781"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig"><span class="hs-identifier hs-type">S3EncryptionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679181775"><span class="annot"><span class="annottext">toJSON :: S3EncryptionConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.S3EncryptionConfig.html#S3EncryptionConfig%27"><span class="hs-identifier hs-type">S3EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181772"><span id="local-6989586621679181773"><span class="annot"><span class="annottext">Maybe Text
+Maybe EncryptionMode
+encryptionMode :: Maybe EncryptionMode
+kmsKeyArn :: Maybe Text
+$sel:encryptionMode:S3EncryptionConfig' :: S3EncryptionConfig -&gt; Maybe EncryptionMode
+$sel:kmsKeyArn:S3EncryptionConfig' :: S3EncryptionConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679181772"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181773"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionMode -&gt; Pair) -&gt; Maybe EncryptionMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionMode
+</span><a href="#local-6989586621679181772"><span class="hs-identifier hs-var">encryptionMode</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span></pre></body></html>

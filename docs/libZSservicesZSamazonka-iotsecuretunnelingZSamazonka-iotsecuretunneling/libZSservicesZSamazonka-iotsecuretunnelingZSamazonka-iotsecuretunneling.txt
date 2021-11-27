@@ -5,34 +5,34 @@
 @version 2.0
 
 
-module Network.AWS.IoTSecureTunneling.Types.ConnectionStatus
+module Amazonka.IoTSecureTunneling.Types.ConnectionStatus
 newtype ConnectionStatus
 ConnectionStatus' :: Text -> ConnectionStatus
 [fromConnectionStatus] :: ConnectionStatus -> Text
 pattern ConnectionStatus_CONNECTED :: ConnectionStatus
 pattern ConnectionStatus_DISCONNECTED :: ConnectionStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Classes.Ord Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.XML.ToXML Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Log.ToLog Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Text.ToText Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Amazonka.Data.Text.FromText Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Classes.Ord Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.Types.ConnectionStatus.ConnectionStatus
 
 
-module Network.AWS.IoTSecureTunneling.Types.ConnectionState
+module Amazonka.IoTSecureTunneling.Types.ConnectionState
 
 -- | The state of a connection.
 --   
@@ -71,16 +71,16 @@ connectionState_status :: Lens' ConnectionState (Maybe ConnectionStatus)
 
 -- | The last time the connection status was updated.
 connectionState_lastUpdatedAt :: Lens' ConnectionState (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.Types.ConnectionState.ConnectionState
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.Types.ConnectionState.ConnectionState
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.Types.ConnectionState.ConnectionState
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.Types.ConnectionState.ConnectionState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTSecureTunneling.Types.ConnectionState.ConnectionState
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.Types.ConnectionState.ConnectionState
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.Types.ConnectionState.ConnectionState
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.Types.ConnectionState.ConnectionState
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.Types.ConnectionState.ConnectionState
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.Types.ConnectionState.ConnectionState
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.Types.ConnectionState.ConnectionState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTSecureTunneling.Types.ConnectionState.ConnectionState
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.Types.ConnectionState.ConnectionState
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.Types.ConnectionState.ConnectionState
 
 
-module Network.AWS.IoTSecureTunneling.Types.DestinationConfig
+module Amazonka.IoTSecureTunneling.Types.DestinationConfig
 
 -- | The destination configuration.
 --   
@@ -129,17 +129,17 @@ destinationConfig_thingName :: Lens' DestinationConfig (Maybe Text)
 --   instantiates the local proxy which uses this information to connect to
 --   the destination application.
 destinationConfig_services :: Lens' DestinationConfig (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTSecureTunneling.Types.DestinationConfig.DestinationConfig
 
 
-module Network.AWS.IoTSecureTunneling.Types.Tag
+module Amazonka.IoTSecureTunneling.Types.Tag
 
 -- | An arbitary key/value pair used to add searchable metadata to secure
 --   tunnel resources.
@@ -172,17 +172,17 @@ tag_key :: Lens' Tag Text
 
 -- | The value of the tag.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTSecureTunneling.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTSecureTunneling.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTSecureTunneling.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTSecureTunneling.Types.Tag.Tag
 
 
-module Network.AWS.IoTSecureTunneling.Types.TimeoutConfig
+module Amazonka.IoTSecureTunneling.Types.TimeoutConfig
 
 -- | Tunnel timeout configuration.
 --   
@@ -215,44 +215,44 @@ newTimeoutConfig :: TimeoutConfig
 --   not specified, maxLifetimeTimeoutMinutes defaults to 720 minutes.
 --   Valid values are from 1 minute to 12 hours (720 minutes)
 timeoutConfig_maxLifetimeTimeoutMinutes :: Lens' TimeoutConfig (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTSecureTunneling.Types.TimeoutConfig.TimeoutConfig
 
 
-module Network.AWS.IoTSecureTunneling.Types.TunnelStatus
+module Amazonka.IoTSecureTunneling.Types.TunnelStatus
 newtype TunnelStatus
 TunnelStatus' :: Text -> TunnelStatus
 [fromTunnelStatus] :: TunnelStatus -> Text
 pattern TunnelStatus_CLOSED :: TunnelStatus
 pattern TunnelStatus_OPEN :: TunnelStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance GHC.Classes.Ord Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Amazonka.Data.XML.ToXML Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Amazonka.Data.XML.FromXML Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Amazonka.Data.Log.ToLog Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Amazonka.Data.Text.ToText Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Amazonka.Data.Text.FromText Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance GHC.Classes.Ord Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.Types.TunnelStatus.TunnelStatus
 
 
-module Network.AWS.IoTSecureTunneling.Types.Tunnel
+module Amazonka.IoTSecureTunneling.Types.Tunnel
 
 -- | A connection between a source computer and a destination device.
 --   
@@ -378,16 +378,16 @@ tunnel_timeoutConfig :: Lens' Tunnel (Maybe TimeoutConfig)
 
 -- | A list of tag metadata associated with the secure tunnel.
 tunnel_tags :: Lens' Tunnel (Maybe (NonEmpty Tag))
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.Types.Tunnel.Tunnel
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.Types.Tunnel.Tunnel
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.Types.Tunnel.Tunnel
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.Types.Tunnel.Tunnel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTSecureTunneling.Types.Tunnel.Tunnel
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.Types.Tunnel.Tunnel
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.Types.Tunnel.Tunnel
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.Types.Tunnel.Tunnel
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.Types.Tunnel.Tunnel
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.Types.Tunnel.Tunnel
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.Types.Tunnel.Tunnel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTSecureTunneling.Types.Tunnel.Tunnel
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.Types.Tunnel.Tunnel
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.Types.Tunnel.Tunnel
 
 
-module Network.AWS.IoTSecureTunneling.Types.TunnelSummary
+module Amazonka.IoTSecureTunneling.Types.TunnelSummary
 
 -- | Information about the tunnel.
 --   
@@ -462,16 +462,16 @@ tunnelSummary_tunnelId :: Lens' TunnelSummary (Maybe Text)
 
 -- | A description of the tunnel.
 tunnelSummary_description :: Lens' TunnelSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.Types.TunnelSummary.TunnelSummary
 
 
-module Network.AWS.IoTSecureTunneling.Types
+module Amazonka.IoTSecureTunneling.Types
 
 -- | API version <tt>2018-10-05</tt> of the Amazon IoT Secure Tunneling SDK
 --   configuration.
@@ -845,7 +845,7 @@ tunnelSummary_description :: Lens' TunnelSummary (Maybe Text)
 
 
 -- | A resource tag.
-module Network.AWS.IoTSecureTunneling.TagResource
+module Amazonka.IoTSecureTunneling.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -901,27 +901,27 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTSecureTunneling.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTSecureTunneling.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTSecureTunneling.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTSecureTunneling.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTSecureTunneling.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.TagResource.TagResource
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.TagResource.TagResource
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTSecureTunneling.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTSecureTunneling.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTSecureTunneling.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoTSecureTunneling.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTSecureTunneling.TagResource.TagResource
 
 
 -- | Creates a new tunnel, and returns two client access tokens for clients
 --   to use to connect to the AWS IoT Secure Tunneling proxy server.
-module Network.AWS.IoTSecureTunneling.OpenTunnel
+module Amazonka.IoTSecureTunneling.OpenTunnel
 
 -- | <i>See:</i> <a>newOpenTunnel</a> smart constructor.
 data OpenTunnel
@@ -1043,27 +1043,27 @@ openTunnelResponse_tunnelId :: Lens' OpenTunnelResponse (Maybe Text)
 
 -- | The response's http status code.
 openTunnelResponse_httpStatus :: Lens' OpenTunnelResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnel
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnel
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnel
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnel
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnelResponse
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnelResponse
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnel
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnel
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnel
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTSecureTunneling.OpenTunnel.OpenTunnel
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnel
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnel
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnel
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnel
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnelResponse
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnelResponse
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnelResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnel
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnelResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnel
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnel
+instance Amazonka.Data.Path.ToPath Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnel
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTSecureTunneling.OpenTunnel.OpenTunnel
 
 
 -- | List all tunnels for an AWS account. Tunnels are listed by creation
 --   time in descending order, newer tunnels will be listed before older
 --   tunnels.
-module Network.AWS.IoTSecureTunneling.ListTunnels
+module Amazonka.IoTSecureTunneling.ListTunnels
 
 -- | <i>See:</i> <a>newListTunnels</a> smart constructor.
 data ListTunnels
@@ -1148,26 +1148,26 @@ listTunnelsResponse_tunnelSummaries :: Lens' ListTunnelsResponse (Maybe [TunnelS
 
 -- | The response's http status code.
 listTunnelsResponse_httpStatus :: Lens' ListTunnelsResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnels
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnels
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnels
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnels
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnelsResponse
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnelsResponse
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnelsResponse
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnelsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnels
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnelsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnels
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnels
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnels
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnels
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnels
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTSecureTunneling.ListTunnels.ListTunnels
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.ListTunnels.ListTunnels
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.ListTunnels.ListTunnels
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.ListTunnels.ListTunnels
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.ListTunnels.ListTunnels
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.ListTunnels.ListTunnelsResponse
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.ListTunnels.ListTunnelsResponse
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.ListTunnels.ListTunnelsResponse
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.ListTunnels.ListTunnelsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTSecureTunneling.ListTunnels.ListTunnels
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.ListTunnels.ListTunnelsResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.ListTunnels.ListTunnels
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.ListTunnels.ListTunnels
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTSecureTunneling.ListTunnels.ListTunnels
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTSecureTunneling.ListTunnels.ListTunnels
+instance Amazonka.Data.Path.ToPath Amazonka.IoTSecureTunneling.ListTunnels.ListTunnels
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTSecureTunneling.ListTunnels.ListTunnels
 
 
 -- | Lists the tags for the specified resource.
-module Network.AWS.IoTSecureTunneling.ListTagsForResource
+module Amazonka.IoTSecureTunneling.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1225,26 +1225,26 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (No
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTSecureTunneling.ListTagsForResource.ListTagsForResource
 
 
 -- | Gets information about a tunnel identified by the unique tunnel id.
-module Network.AWS.IoTSecureTunneling.DescribeTunnel
+module Amazonka.IoTSecureTunneling.DescribeTunnel
 
 -- | <i>See:</i> <a>newDescribeTunnel</a> smart constructor.
 data DescribeTunnel
@@ -1301,29 +1301,29 @@ describeTunnelResponse_tunnel :: Lens' DescribeTunnelResponse (Maybe Tunnel)
 
 -- | The response's http status code.
 describeTunnelResponse_httpStatus :: Lens' DescribeTunnelResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnelResponse
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnelResponse
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnelResponse
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnelResponse
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnelResponse
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnelResponse
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnelResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnelResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
+instance Amazonka.Data.Path.ToPath Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTSecureTunneling.DescribeTunnel.DescribeTunnel
 
 
 -- | Closes a tunnel identified by the unique tunnel id. When a
 --   <tt>CloseTunnel</tt> request is received, we close the WebSocket
 --   connections between the client and proxy server so no data can be
 --   transmitted.
-module Network.AWS.IoTSecureTunneling.CloseTunnel
+module Amazonka.IoTSecureTunneling.CloseTunnel
 
 -- | <i>See:</i> <a>newCloseTunnel</a> smart constructor.
 data CloseTunnel
@@ -1381,26 +1381,26 @@ newCloseTunnelResponse :: Int -> CloseTunnelResponse
 
 -- | The response's http status code.
 closeTunnelResponse_httpStatus :: Lens' CloseTunnelResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnel
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnel
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnel
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnel
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnelResponse
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnelResponse
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnelResponse
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnel
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnel
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnel
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTSecureTunneling.CloseTunnel.CloseTunnel
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnel
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnel
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnel
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnel
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnelResponse
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnelResponse
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnelResponse
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnelResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnel
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnelResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnel
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnel
+instance Amazonka.Data.Path.ToPath Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnel
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTSecureTunneling.CloseTunnel.CloseTunnel
 
 
 -- | Removes a tag from a resource.
-module Network.AWS.IoTSecureTunneling.UntagResource
+module Amazonka.IoTSecureTunneling.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -1457,25 +1457,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.IoTSecureTunneling.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.IoTSecureTunneling.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.IoTSecureTunneling.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoTSecureTunneling.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTSecureTunneling.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTSecureTunneling.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.IoTSecureTunneling.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTSecureTunneling.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTSecureTunneling.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTSecureTunneling.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTSecureTunneling.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.IoTSecureTunneling.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.IoTSecureTunneling.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.IoTSecureTunneling.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.IoTSecureTunneling.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTSecureTunneling.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTSecureTunneling.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.IoTSecureTunneling.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTSecureTunneling.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTSecureTunneling.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoTSecureTunneling.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTSecureTunneling.UntagResource.UntagResource
 
 
-module Network.AWS.IoTSecureTunneling.Lens
+module Amazonka.IoTSecureTunneling.Lens
 
 -- | The resource ARN.
 listTagsForResource_resourceArn :: Lens' ListTagsForResource Text
@@ -1655,7 +1655,7 @@ tunnelSummary_tunnelId :: Lens' TunnelSummary (Maybe Text)
 tunnelSummary_description :: Lens' TunnelSummary (Maybe Text)
 
 
-module Network.AWS.IoTSecureTunneling.Waiters
+module Amazonka.IoTSecureTunneling.Waiters
 
 
 -- | Derived from API version <tt>2018-10-05</tt> of the AWS service
@@ -1668,7 +1668,7 @@ module Network.AWS.IoTSecureTunneling.Waiters
 --   
 --   For more information about how AWS IoT Secure Tunneling works, see
 --   <a>AWS IoT Secure Tunneling</a>.
-module Network.AWS.IoTSecureTunneling
+module Amazonka.IoTSecureTunneling
 
 -- | API version <tt>2018-10-05</tt> of the Amazon IoT Secure Tunneling SDK
 --   configuration.

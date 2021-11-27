@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Batch.Types.ComputeResourceUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Batch.Types.ComputeResourceUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An object representing the attributes of a compute environment that can</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- be updated. For more information, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments&gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newComputeResourceUpdate' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679258884"><span id="local-6989586621679258885"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComputeResourceUpdate"><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-var">ComputeResourceUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeResourceUpdate%27"><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-var">ComputeResourceUpdate'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon EC2 security groups associated with instances launched in the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- compute environment. This parameter is required for Fargate compute</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- resources, where it can contain up to 5 security groups. This can\'t be</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- specified for EC2 compute resources. Providing an empty list is handled</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- as if this parameter wasn\'t specified and no change is made.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsecurityGroupIds%3AComputeResourceUpdate%27"><span class="annot"><span class="annottext">ComputeResourceUpdate -&gt; Maybe [Text]
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3AsecurityGroupIds%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The VPC subnets where the compute resources are launched. Fargate</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- compute resources can contain up to 16 subnets. Providing an empty list</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- will be handled as if this parameter wasn\'t specified and no change is</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- made. This can\'t be specified for EC2 compute resources. For more</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets&gt;</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- in the /Amazon VPC User Guide/.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Asubnets%3AComputeResourceUpdate%27"><span class="annot"><span class="annottext">ComputeResourceUpdate -&gt; Maybe [Text]
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3Asubnets%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The minimum number of Amazon EC2 vCPUs that an environment should</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- maintain.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- This parameter isn\'t applicable to jobs that are running on Fargate</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- resources, and shouldn\'t be specified.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AminvCpus%3AComputeResourceUpdate%27"><span class="annot"><span class="annottext">ComputeResourceUpdate -&gt; Maybe Int
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3AminvCpus%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var hs-var">minvCpus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The maximum number of Amazon EC2 vCPUs that an environment can reach.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- allocation strategies, Batch might need to exceed @maxvCpus@ to meet</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- your capacity requirements. In this event, Batch never exceeds</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @maxvCpus@ by more than a single instance. That is, no more than a</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- single instance from among those specified in your compute environment.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxvCpus%3AComputeResourceUpdate%27"><span class="annot"><span class="annottext">ComputeResourceUpdate -&gt; Maybe Int
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3AmaxvCpus%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var hs-var">maxvCpus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The desired number of Amazon EC2 vCPUS in the compute environment.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- This parameter isn\'t applicable to jobs that are running on Fargate</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- resources, and shouldn\'t be specified.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdesiredvCpus%3AComputeResourceUpdate%27"><span class="annot"><span class="annottext">ComputeResourceUpdate -&gt; Maybe Int
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3AdesiredvCpus%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var hs-var">desiredvCpus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258874"><span id="local-6989586621679258876"><span class="annot"><span class="annottext">ComputeResourceUpdate -&gt; ComputeResourceUpdate -&gt; Bool
+(ComputeResourceUpdate -&gt; ComputeResourceUpdate -&gt; Bool)
+-&gt; (ComputeResourceUpdate -&gt; ComputeResourceUpdate -&gt; Bool)
+-&gt; Eq ComputeResourceUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ComputeResourceUpdate -&gt; ComputeResourceUpdate -&gt; Bool
+$c/= :: ComputeResourceUpdate -&gt; ComputeResourceUpdate -&gt; Bool
+== :: ComputeResourceUpdate -&gt; ComputeResourceUpdate -&gt; Bool
+$c== :: ComputeResourceUpdate -&gt; ComputeResourceUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258865"><span id="local-6989586621679258867"><span id="local-6989586621679258869"><span id="local-6989586621679258871"><span class="annot"><span class="annottext">ReadPrec [ComputeResourceUpdate]
+ReadPrec ComputeResourceUpdate
+Int -&gt; ReadS ComputeResourceUpdate
+ReadS [ComputeResourceUpdate]
+(Int -&gt; ReadS ComputeResourceUpdate)
+-&gt; ReadS [ComputeResourceUpdate]
+-&gt; ReadPrec ComputeResourceUpdate
+-&gt; ReadPrec [ComputeResourceUpdate]
+-&gt; Read ComputeResourceUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ComputeResourceUpdate]
+$creadListPrec :: ReadPrec [ComputeResourceUpdate]
+readPrec :: ReadPrec ComputeResourceUpdate
+$creadPrec :: ReadPrec ComputeResourceUpdate
+readList :: ReadS [ComputeResourceUpdate]
+$creadList :: ReadS [ComputeResourceUpdate]
+readsPrec :: Int -&gt; ReadS ComputeResourceUpdate
+$creadsPrec :: Int -&gt; ReadS ComputeResourceUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258858"><span id="local-6989586621679258860"><span id="local-6989586621679258862"><span class="annot"><span class="annottext">Int -&gt; ComputeResourceUpdate -&gt; ShowS
+[ComputeResourceUpdate] -&gt; ShowS
+ComputeResourceUpdate -&gt; String
+(Int -&gt; ComputeResourceUpdate -&gt; ShowS)
+-&gt; (ComputeResourceUpdate -&gt; String)
+-&gt; ([ComputeResourceUpdate] -&gt; ShowS)
+-&gt; Show ComputeResourceUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ComputeResourceUpdate] -&gt; ShowS
+$cshowList :: [ComputeResourceUpdate] -&gt; ShowS
+show :: ComputeResourceUpdate -&gt; String
+$cshow :: ComputeResourceUpdate -&gt; String
+showsPrec :: Int -&gt; ComputeResourceUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; ComputeResourceUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ComputeResourceUpdate -&gt; Rep ComputeResourceUpdate x)
+-&gt; (forall x. Rep ComputeResourceUpdate x -&gt; ComputeResourceUpdate)
+-&gt; Generic ComputeResourceUpdate
+forall x. Rep ComputeResourceUpdate x -&gt; ComputeResourceUpdate
+forall x. ComputeResourceUpdate -&gt; Rep ComputeResourceUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ComputeResourceUpdate x -&gt; ComputeResourceUpdate
+$cfrom :: forall x. ComputeResourceUpdate -&gt; Rep ComputeResourceUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'ComputeResourceUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'securityGroupIds', 'computeResourceUpdate_securityGroupIds' - The Amazon EC2 security groups associated with instances launched in the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- compute environment. This parameter is required for Fargate compute</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- resources, where it can contain up to 5 security groups. This can\'t be</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- specified for EC2 compute resources. Providing an empty list is handled</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- as if this parameter wasn\'t specified and no change is made.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'subnets', 'computeResourceUpdate_subnets' - The VPC subnets where the compute resources are launched. Fargate</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- compute resources can contain up to 16 subnets. Providing an empty list</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- will be handled as if this parameter wasn\'t specified and no change is</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- made. This can\'t be specified for EC2 compute resources. For more</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets&gt;</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- in the /Amazon VPC User Guide/.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'minvCpus', 'computeResourceUpdate_minvCpus' - The minimum number of Amazon EC2 vCPUs that an environment should</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- maintain.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- This parameter isn\'t applicable to jobs that are running on Fargate</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- resources, and shouldn\'t be specified.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'maxvCpus', 'computeResourceUpdate_maxvCpus' - The maximum number of Amazon EC2 vCPUs that an environment can reach.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- allocation strategies, Batch might need to exceed @maxvCpus@ to meet</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- your capacity requirements. In this event, Batch never exceeds</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- @maxvCpus@ by more than a single instance. That is, no more than a</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- single instance from among those specified in your compute environment.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'desiredvCpus', 'computeResourceUpdate_desiredvCpus' - The desired number of Amazon EC2 vCPUS in the compute environment.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- This parameter isn\'t applicable to jobs that are running on Fargate</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- resources, and shouldn\'t be specified.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#newComputeResourceUpdate"><span class="hs-identifier hs-type">newComputeResourceUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span><span>
+</span><span id="line-111"></span><span id="newComputeResourceUpdate"><span class="annot"><span class="annottext">newComputeResourceUpdate :: ComputeResourceUpdate
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#newComputeResourceUpdate"><span class="hs-identifier hs-var hs-var">newComputeResourceUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">ComputeResourceUpdate' :: Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; ComputeResourceUpdate
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-type">ComputeResourceUpdate'</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:securityGroupIds:ComputeResourceUpdate' :: Maybe [Text]
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3AsecurityGroupIds%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnets:ComputeResourceUpdate' :: Maybe [Text]
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3Asubnets%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:minvCpus:ComputeResourceUpdate' :: Maybe Int
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3AminvCpus%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var">minvCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxvCpus:ComputeResourceUpdate' :: Maybe Int
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3AmaxvCpus%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var">maxvCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:desiredvCpus:ComputeResourceUpdate' :: Maybe Int
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3AdesiredvCpus%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var">desiredvCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The Amazon EC2 security groups associated with instances launched in the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- compute environment. This parameter is required for Fargate compute</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- resources, where it can contain up to 5 security groups. This can\'t be</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- specified for EC2 compute resources. Providing an empty list is handled</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- as if this parameter wasn\'t specified and no change is made.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_securityGroupIds"><span class="hs-identifier hs-type">computeResourceUpdate_securityGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="computeResourceUpdate_securityGroupIds"><span class="annot"><span class="annottext">computeResourceUpdate_securityGroupIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ComputeResourceUpdate -&gt; f ComputeResourceUpdate
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_securityGroupIds"><span class="hs-identifier hs-var hs-var">computeResourceUpdate_securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeResourceUpdate -&gt; Maybe [Text])
+-&gt; (ComputeResourceUpdate -&gt; Maybe [Text] -&gt; ComputeResourceUpdate)
+-&gt; Lens
+     ComputeResourceUpdate
+     ComputeResourceUpdate
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-type">ComputeResourceUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258849"><span class="annot"><span class="annottext">Maybe [Text]
+securityGroupIds :: Maybe [Text]
+$sel:securityGroupIds:ComputeResourceUpdate' :: ComputeResourceUpdate -&gt; Maybe [Text]
+</span><a href="#local-6989586621679258849"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679258849"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258848"><span class="annot"><span class="annottext">s :: ComputeResourceUpdate
+</span><a href="#local-6989586621679258848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-type">ComputeResourceUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258847"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679258847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResourceUpdate
+</span><a href="#local-6989586621679258848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:ComputeResourceUpdate' :: Maybe [Text]
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3AsecurityGroupIds%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679258847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ComputeResourceUpdate -&gt; f ComputeResourceUpdate)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ComputeResourceUpdate
+-&gt; f ComputeResourceUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The VPC subnets where the compute resources are launched. Fargate</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- compute resources can contain up to 16 subnets. Providing an empty list</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- will be handled as if this parameter wasn\'t specified and no change is</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- made. This can\'t be specified for EC2 compute resources. For more</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets&gt;</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- in the /Amazon VPC User Guide/.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_subnets"><span class="hs-identifier hs-type">computeResourceUpdate_subnets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="computeResourceUpdate_subnets"><span class="annot"><span class="annottext">computeResourceUpdate_subnets :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ComputeResourceUpdate -&gt; f ComputeResourceUpdate
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_subnets"><span class="hs-identifier hs-var hs-var">computeResourceUpdate_subnets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeResourceUpdate -&gt; Maybe [Text])
+-&gt; (ComputeResourceUpdate -&gt; Maybe [Text] -&gt; ComputeResourceUpdate)
+-&gt; Lens
+     ComputeResourceUpdate
+     ComputeResourceUpdate
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-type">ComputeResourceUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258842"><span class="annot"><span class="annottext">Maybe [Text]
+subnets :: Maybe [Text]
+$sel:subnets:ComputeResourceUpdate' :: ComputeResourceUpdate -&gt; Maybe [Text]
+</span><a href="#local-6989586621679258842"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679258842"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258841"><span class="annot"><span class="annottext">s :: ComputeResourceUpdate
+</span><a href="#local-6989586621679258841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-type">ComputeResourceUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258840"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679258840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResourceUpdate
+</span><a href="#local-6989586621679258841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:ComputeResourceUpdate' :: Maybe [Text]
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3Asubnets%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679258840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ComputeResourceUpdate -&gt; f ComputeResourceUpdate)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ComputeResourceUpdate
+-&gt; f ComputeResourceUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The minimum number of Amazon EC2 vCPUs that an environment should</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- maintain.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- This parameter isn\'t applicable to jobs that are running on Fargate</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- resources, and shouldn\'t be specified.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_minvCpus"><span class="hs-identifier hs-type">computeResourceUpdate_minvCpus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="computeResourceUpdate_minvCpus"><span class="annot"><span class="annottext">computeResourceUpdate_minvCpus :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ComputeResourceUpdate -&gt; f ComputeResourceUpdate
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_minvCpus"><span class="hs-identifier hs-var hs-var">computeResourceUpdate_minvCpus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeResourceUpdate -&gt; Maybe Int)
+-&gt; (ComputeResourceUpdate -&gt; Maybe Int -&gt; ComputeResourceUpdate)
+-&gt; Lens
+     ComputeResourceUpdate ComputeResourceUpdate (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-type">ComputeResourceUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258838"><span class="annot"><span class="annottext">Maybe Int
+minvCpus :: Maybe Int
+$sel:minvCpus:ComputeResourceUpdate' :: ComputeResourceUpdate -&gt; Maybe Int
+</span><a href="#local-6989586621679258838"><span class="hs-identifier hs-var hs-var">minvCpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679258838"><span class="hs-identifier hs-var">minvCpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258837"><span class="annot"><span class="annottext">s :: ComputeResourceUpdate
+</span><a href="#local-6989586621679258837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-type">ComputeResourceUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258836"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679258836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResourceUpdate
+</span><a href="#local-6989586621679258837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minvCpus:ComputeResourceUpdate' :: Maybe Int
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3AminvCpus%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var">minvCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679258836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The maximum number of Amazon EC2 vCPUs that an environment can reach.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- allocation strategies, Batch might need to exceed @maxvCpus@ to meet</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- your capacity requirements. In this event, Batch never exceeds</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- @maxvCpus@ by more than a single instance. That is, no more than a</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- single instance from among those specified in your compute environment.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_maxvCpus"><span class="hs-identifier hs-type">computeResourceUpdate_maxvCpus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="computeResourceUpdate_maxvCpus"><span class="annot"><span class="annottext">computeResourceUpdate_maxvCpus :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ComputeResourceUpdate -&gt; f ComputeResourceUpdate
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_maxvCpus"><span class="hs-identifier hs-var hs-var">computeResourceUpdate_maxvCpus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeResourceUpdate -&gt; Maybe Int)
+-&gt; (ComputeResourceUpdate -&gt; Maybe Int -&gt; ComputeResourceUpdate)
+-&gt; Lens
+     ComputeResourceUpdate ComputeResourceUpdate (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-type">ComputeResourceUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258834"><span class="annot"><span class="annottext">Maybe Int
+maxvCpus :: Maybe Int
+$sel:maxvCpus:ComputeResourceUpdate' :: ComputeResourceUpdate -&gt; Maybe Int
+</span><a href="#local-6989586621679258834"><span class="hs-identifier hs-var hs-var">maxvCpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679258834"><span class="hs-identifier hs-var">maxvCpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258833"><span class="annot"><span class="annottext">s :: ComputeResourceUpdate
+</span><a href="#local-6989586621679258833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-type">ComputeResourceUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258832"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679258832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResourceUpdate
+</span><a href="#local-6989586621679258833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxvCpus:ComputeResourceUpdate' :: Maybe Int
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3AmaxvCpus%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var">maxvCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679258832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The desired number of Amazon EC2 vCPUS in the compute environment.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- This parameter isn\'t applicable to jobs that are running on Fargate</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- resources, and shouldn\'t be specified.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_desiredvCpus"><span class="hs-identifier hs-type">computeResourceUpdate_desiredvCpus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="computeResourceUpdate_desiredvCpus"><span class="annot"><span class="annottext">computeResourceUpdate_desiredvCpus :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ComputeResourceUpdate -&gt; f ComputeResourceUpdate
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#computeResourceUpdate_desiredvCpus"><span class="hs-identifier hs-var hs-var">computeResourceUpdate_desiredvCpus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComputeResourceUpdate -&gt; Maybe Int)
+-&gt; (ComputeResourceUpdate -&gt; Maybe Int -&gt; ComputeResourceUpdate)
+-&gt; Lens
+     ComputeResourceUpdate ComputeResourceUpdate (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-type">ComputeResourceUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258830"><span class="annot"><span class="annottext">Maybe Int
+desiredvCpus :: Maybe Int
+$sel:desiredvCpus:ComputeResourceUpdate' :: ComputeResourceUpdate -&gt; Maybe Int
+</span><a href="#local-6989586621679258830"><span class="hs-identifier hs-var hs-var">desiredvCpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679258830"><span class="hs-identifier hs-var">desiredvCpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258829"><span class="annot"><span class="annottext">s :: ComputeResourceUpdate
+</span><a href="#local-6989586621679258829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-type">ComputeResourceUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258828"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679258828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResourceUpdate
+</span><a href="#local-6989586621679258829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredvCpus:ComputeResourceUpdate' :: Maybe Int
+</span><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#%24sel%3AdesiredvCpus%3AComputeResourceUpdate%27"><span class="hs-identifier hs-var">desiredvCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679258828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258824"><span id="local-6989586621679258826"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258813"><span id="local-6989586621679258815"><span id="local-6989586621679258817"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate"><span class="hs-identifier hs-type">ComputeResourceUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679258811"><span class="annot"><span class="annottext">toJSON :: ComputeResourceUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.ComputeResourceUpdate.html#ComputeResourceUpdate%27"><span class="hs-identifier hs-type">ComputeResourceUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258805"><span id="local-6989586621679258806"><span id="local-6989586621679258807"><span id="local-6989586621679258808"><span id="local-6989586621679258809"><span class="annot"><span class="annottext">Maybe Int
+Maybe [Text]
+desiredvCpus :: Maybe Int
+maxvCpus :: Maybe Int
+minvCpus :: Maybe Int
+subnets :: Maybe [Text]
+securityGroupIds :: Maybe [Text]
+$sel:desiredvCpus:ComputeResourceUpdate' :: ComputeResourceUpdate -&gt; Maybe Int
+$sel:maxvCpus:ComputeResourceUpdate' :: ComputeResourceUpdate -&gt; Maybe Int
+$sel:minvCpus:ComputeResourceUpdate' :: ComputeResourceUpdate -&gt; Maybe Int
+$sel:subnets:ComputeResourceUpdate' :: ComputeResourceUpdate -&gt; Maybe [Text]
+$sel:securityGroupIds:ComputeResourceUpdate' :: ComputeResourceUpdate -&gt; Maybe [Text]
+</span><a href="#local-6989586621679258805"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityGroupIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679258809"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subnets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679258808"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minvCpus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679258807"><span class="hs-identifier hs-var">minvCpus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxvCpus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679258806"><span class="hs-identifier hs-var">maxvCpus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;desiredvCpus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679258805"><span class="hs-identifier hs-var">desiredvCpus</span></a></span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span></pre></body></html>

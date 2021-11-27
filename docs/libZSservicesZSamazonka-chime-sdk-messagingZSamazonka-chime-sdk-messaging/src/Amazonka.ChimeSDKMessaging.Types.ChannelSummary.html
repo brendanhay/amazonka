@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ChimeSDKMessaging.Types.ChannelSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ChimeSDKMessaging.Types.ChannelSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelMode.html"><span class="hs-identifier">Amazonka.ChimeSDKMessaging.Types.ChannelMode</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy.html"><span class="hs-identifier">Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Summary of the details of a @Channel@.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newChannelSummary' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679230024"><span id="local-6989586621679230025"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelSummary"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-var">ChannelSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelSummary%27"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-var">ChannelSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The mode of the channel.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Amode%3AChannelSummary%27"><span class="annot"><span class="annottext">ChannelSummary -&gt; Maybe ChannelMode
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3Amode%3AChannelSummary%27"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelMode.html#ChannelMode"><span class="hs-identifier hs-type">ChannelMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AchannelArn%3AChannelSummary%27"><span class="annot"><span class="annottext">ChannelSummary -&gt; Maybe Text
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3AchannelArn%3AChannelSummary%27"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The privacy setting of the channel.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aprivacy%3AChannelSummary%27"><span class="annot"><span class="annottext">ChannelSummary -&gt; Maybe ChannelPrivacy
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3Aprivacy%3AChannelSummary%27"><span class="hs-identifier hs-var hs-var">privacy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy.html#ChannelPrivacy"><span class="hs-identifier hs-type">ChannelPrivacy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The time at which the last message in a channel was sent.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastMessageTimestamp%3AChannelSummary%27"><span class="annot"><span class="annottext">ChannelSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3AlastMessageTimestamp%3AChannelSummary%27"><span class="hs-identifier hs-var hs-var">lastMessageTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the channel.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3AChannelSummary%27"><span class="annot"><span class="annottext">ChannelSummary -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3Aname%3AChannelSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The metadata of the channel.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Ametadata%3AChannelSummary%27"><span class="annot"><span class="annottext">ChannelSummary -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3Ametadata%3AChannelSummary%27"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230013"><span id="local-6989586621679230015"><span class="annot"><span class="annottext">ChannelSummary -&gt; ChannelSummary -&gt; Bool
+(ChannelSummary -&gt; ChannelSummary -&gt; Bool)
+-&gt; (ChannelSummary -&gt; ChannelSummary -&gt; Bool) -&gt; Eq ChannelSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChannelSummary -&gt; ChannelSummary -&gt; Bool
+$c/= :: ChannelSummary -&gt; ChannelSummary -&gt; Bool
+== :: ChannelSummary -&gt; ChannelSummary -&gt; Bool
+$c== :: ChannelSummary -&gt; ChannelSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230006"><span id="local-6989586621679230008"><span id="local-6989586621679230010"><span class="annot"><span class="annottext">Int -&gt; ChannelSummary -&gt; ShowS
+[ChannelSummary] -&gt; ShowS
+ChannelSummary -&gt; String
+(Int -&gt; ChannelSummary -&gt; ShowS)
+-&gt; (ChannelSummary -&gt; String)
+-&gt; ([ChannelSummary] -&gt; ShowS)
+-&gt; Show ChannelSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChannelSummary] -&gt; ShowS
+$cshowList :: [ChannelSummary] -&gt; ShowS
+show :: ChannelSummary -&gt; String
+$cshow :: ChannelSummary -&gt; String
+showsPrec :: Int -&gt; ChannelSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChannelSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ChannelSummary -&gt; Rep ChannelSummary x)
+-&gt; (forall x. Rep ChannelSummary x -&gt; ChannelSummary)
+-&gt; Generic ChannelSummary
+forall x. Rep ChannelSummary x -&gt; ChannelSummary
+forall x. ChannelSummary -&gt; Rep ChannelSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChannelSummary x -&gt; ChannelSummary
+$cfrom :: forall x. ChannelSummary -&gt; Rep ChannelSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'ChannelSummary' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'mode', 'channelSummary_mode' - The mode of the channel.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'channelArn', 'channelSummary_channelArn' - The ARN of the channel.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'privacy', 'channelSummary_privacy' - The privacy setting of the channel.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'lastMessageTimestamp', 'channelSummary_lastMessageTimestamp' - The time at which the last message in a channel was sent.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'name', 'channelSummary_name' - The name of the channel.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'metadata', 'channelSummary_metadata' - The metadata of the channel.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#newChannelSummary"><span class="hs-identifier hs-type">newChannelSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span>
+</span><span id="line-68"></span><span id="newChannelSummary"><span class="annot"><span class="annottext">newChannelSummary :: ChannelSummary
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#newChannelSummary"><span class="hs-identifier hs-var hs-var">newChannelSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">ChannelSummary' :: Maybe ChannelMode
+-&gt; Maybe Text
+-&gt; Maybe ChannelPrivacy
+-&gt; Maybe POSIX
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe (Sensitive Text)
+-&gt; ChannelSummary
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mode:ChannelSummary' :: Maybe ChannelMode
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3Amode%3AChannelSummary%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelArn:ChannelSummary' :: Maybe Text
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3AchannelArn%3AChannelSummary%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:privacy:ChannelSummary' :: Maybe ChannelPrivacy
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3Aprivacy%3AChannelSummary%27"><span class="hs-identifier hs-var">privacy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelPrivacy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastMessageTimestamp:ChannelSummary' :: Maybe POSIX
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3AlastMessageTimestamp%3AChannelSummary%27"><span class="hs-identifier hs-var">lastMessageTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ChannelSummary' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3Aname%3AChannelSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:metadata:ChannelSummary' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3Ametadata%3AChannelSummary%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The mode of the channel.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_mode"><span class="hs-identifier hs-type">channelSummary_mode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelMode.html#ChannelMode"><span class="hs-identifier hs-type">ChannelMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="channelSummary_mode"><span class="annot"><span class="annottext">channelSummary_mode :: (Maybe ChannelMode -&gt; f (Maybe ChannelMode))
+-&gt; ChannelSummary -&gt; f ChannelSummary
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_mode"><span class="hs-identifier hs-var hs-var">channelSummary_mode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelSummary -&gt; Maybe ChannelMode)
+-&gt; (ChannelSummary -&gt; Maybe ChannelMode -&gt; ChannelSummary)
+-&gt; Lens
+     ChannelSummary
+     ChannelSummary
+     (Maybe ChannelMode)
+     (Maybe ChannelMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229997"><span class="annot"><span class="annottext">Maybe ChannelMode
+mode :: Maybe ChannelMode
+$sel:mode:ChannelSummary' :: ChannelSummary -&gt; Maybe ChannelMode
+</span><a href="#local-6989586621679229997"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMode
+</span><a href="#local-6989586621679229997"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229996"><span class="annot"><span class="annottext">s :: ChannelSummary
+</span><a href="#local-6989586621679229996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229995"><span class="annot"><span class="annottext">Maybe ChannelMode
+</span><a href="#local-6989586621679229995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSummary
+</span><a href="#local-6989586621679229996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:ChannelSummary' :: Maybe ChannelMode
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3Amode%3AChannelSummary%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMode
+</span><a href="#local-6989586621679229995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_channelArn"><span class="hs-identifier hs-type">channelSummary_channelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="channelSummary_channelArn"><span class="annot"><span class="annottext">channelSummary_channelArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChannelSummary -&gt; f ChannelSummary
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_channelArn"><span class="hs-identifier hs-var hs-var">channelSummary_channelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelSummary -&gt; Maybe Text)
+-&gt; (ChannelSummary -&gt; Maybe Text -&gt; ChannelSummary)
+-&gt; Lens ChannelSummary ChannelSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229993"><span class="annot"><span class="annottext">Maybe Text
+channelArn :: Maybe Text
+$sel:channelArn:ChannelSummary' :: ChannelSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679229993"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229993"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229992"><span class="annot"><span class="annottext">s :: ChannelSummary
+</span><a href="#local-6989586621679229992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229991"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSummary
+</span><a href="#local-6989586621679229992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelArn:ChannelSummary' :: Maybe Text
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3AchannelArn%3AChannelSummary%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The privacy setting of the channel.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_privacy"><span class="hs-identifier hs-type">channelSummary_privacy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy.html#ChannelPrivacy"><span class="hs-identifier hs-type">ChannelPrivacy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="channelSummary_privacy"><span class="annot"><span class="annottext">channelSummary_privacy :: (Maybe ChannelPrivacy -&gt; f (Maybe ChannelPrivacy))
+-&gt; ChannelSummary -&gt; f ChannelSummary
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_privacy"><span class="hs-identifier hs-var hs-var">channelSummary_privacy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelSummary -&gt; Maybe ChannelPrivacy)
+-&gt; (ChannelSummary -&gt; Maybe ChannelPrivacy -&gt; ChannelSummary)
+-&gt; Lens
+     ChannelSummary
+     ChannelSummary
+     (Maybe ChannelPrivacy)
+     (Maybe ChannelPrivacy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229989"><span class="annot"><span class="annottext">Maybe ChannelPrivacy
+privacy :: Maybe ChannelPrivacy
+$sel:privacy:ChannelSummary' :: ChannelSummary -&gt; Maybe ChannelPrivacy
+</span><a href="#local-6989586621679229989"><span class="hs-identifier hs-var hs-var">privacy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelPrivacy
+</span><a href="#local-6989586621679229989"><span class="hs-identifier hs-var">privacy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229988"><span class="annot"><span class="annottext">s :: ChannelSummary
+</span><a href="#local-6989586621679229988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229987"><span class="annot"><span class="annottext">Maybe ChannelPrivacy
+</span><a href="#local-6989586621679229987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSummary
+</span><a href="#local-6989586621679229988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privacy:ChannelSummary' :: Maybe ChannelPrivacy
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3Aprivacy%3AChannelSummary%27"><span class="hs-identifier hs-var">privacy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelPrivacy
+</span><a href="#local-6989586621679229987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The time at which the last message in a channel was sent.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_lastMessageTimestamp"><span class="hs-identifier hs-type">channelSummary_lastMessageTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="channelSummary_lastMessageTimestamp"><span class="annot"><span class="annottext">channelSummary_lastMessageTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ChannelSummary -&gt; f ChannelSummary
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_lastMessageTimestamp"><span class="hs-identifier hs-var hs-var">channelSummary_lastMessageTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelSummary -&gt; Maybe POSIX)
+-&gt; (ChannelSummary -&gt; Maybe POSIX -&gt; ChannelSummary)
+-&gt; Lens ChannelSummary ChannelSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229985"><span class="annot"><span class="annottext">Maybe POSIX
+lastMessageTimestamp :: Maybe POSIX
+$sel:lastMessageTimestamp:ChannelSummary' :: ChannelSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679229985"><span class="hs-identifier hs-var hs-var">lastMessageTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679229985"><span class="hs-identifier hs-var">lastMessageTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229984"><span class="annot"><span class="annottext">s :: ChannelSummary
+</span><a href="#local-6989586621679229984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229983"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679229983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSummary
+</span><a href="#local-6989586621679229984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastMessageTimestamp:ChannelSummary' :: Maybe POSIX
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3AlastMessageTimestamp%3AChannelSummary%27"><span class="hs-identifier hs-var">lastMessageTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679229983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ChannelSummary -&gt; f ChannelSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ChannelSummary
+-&gt; f ChannelSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the channel.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_name"><span class="hs-identifier hs-type">channelSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="channelSummary_name"><span class="annot"><span class="annottext">channelSummary_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChannelSummary -&gt; f ChannelSummary
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_name"><span class="hs-identifier hs-var hs-var">channelSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelSummary -&gt; Maybe (Sensitive Text))
+-&gt; (ChannelSummary -&gt; Maybe (Sensitive Text) -&gt; ChannelSummary)
+-&gt; Lens
+     ChannelSummary
+     ChannelSummary
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229978"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+name :: Maybe (Sensitive Text)
+$sel:name:ChannelSummary' :: ChannelSummary -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229978"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229978"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229977"><span class="annot"><span class="annottext">s :: ChannelSummary
+</span><a href="#local-6989586621679229977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229976"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSummary
+</span><a href="#local-6989586621679229977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ChannelSummary' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3Aname%3AChannelSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; ChannelSummary -&gt; f ChannelSummary)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChannelSummary
+-&gt; f ChannelSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The metadata of the channel.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_metadata"><span class="hs-identifier hs-type">channelSummary_metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="channelSummary_metadata"><span class="annot"><span class="annottext">channelSummary_metadata :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChannelSummary -&gt; f ChannelSummary
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#channelSummary_metadata"><span class="hs-identifier hs-var hs-var">channelSummary_metadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelSummary -&gt; Maybe (Sensitive Text))
+-&gt; (ChannelSummary -&gt; Maybe (Sensitive Text) -&gt; ChannelSummary)
+-&gt; Lens
+     ChannelSummary
+     ChannelSummary
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229973"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+metadata :: Maybe (Sensitive Text)
+$sel:metadata:ChannelSummary' :: ChannelSummary -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229973"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229973"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229972"><span class="annot"><span class="annottext">s :: ChannelSummary
+</span><a href="#local-6989586621679229972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-type">ChannelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229971"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSummary
+</span><a href="#local-6989586621679229972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:ChannelSummary' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#%24sel%3Ametadata%3AChannelSummary%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; ChannelSummary -&gt; f ChannelSummary)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChannelSummary
+-&gt; f ChannelSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229968"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679229966"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ChannelSummary)
+-&gt; Value
+-&gt; Parser ChannelSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ChannelSummary&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229963"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe ChannelMode
+-&gt; Maybe Text
+-&gt; Maybe ChannelPrivacy
+-&gt; Maybe POSIX
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe (Sensitive Text)
+-&gt; ChannelSummary
+</span><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary%27"><span class="hs-identifier hs-var">ChannelSummary'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ChannelMode
+ -&gt; Maybe Text
+ -&gt; Maybe ChannelPrivacy
+ -&gt; Maybe POSIX
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe (Sensitive Text)
+ -&gt; ChannelSummary)
+-&gt; Parser (Maybe ChannelMode)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ChannelPrivacy
+      -&gt; Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; ChannelSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Mode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ChannelPrivacy
+   -&gt; Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; ChannelSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ChannelPrivacy
+      -&gt; Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; ChannelSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ChannelPrivacy
+   -&gt; Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; ChannelSummary)
+-&gt; Parser (Maybe ChannelPrivacy)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; ChannelSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelPrivacy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Privacy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; ChannelSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text) -&gt; ChannelSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastMessageTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text) -&gt; ChannelSummary)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser (Maybe (Sensitive Text) -&gt; ChannelSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive Text) -&gt; ChannelSummary)
+-&gt; Parser (Maybe (Sensitive Text)) -&gt; Parser ChannelSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Metadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229957"><span id="local-6989586621679229959"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span></span><span>
+</span><span id="line-119"></span></pre></body></html>

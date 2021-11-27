@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkSpaces.AssociateIpGroups</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associates the specified IP access control group with the specified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- directory.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkSpaces.AssociateIpGroups</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier">AssociateIpGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#newAssociateIpGroups"><span class="hs-identifier">newAssociateIpGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#associateIpGroups_directoryId"><span class="hs-identifier">associateIpGroups_directoryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#associateIpGroups_groupIds"><span class="hs-identifier">associateIpGroups_groupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier">AssociateIpGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#newAssociateIpGroupsResponse"><span class="hs-identifier">newAssociateIpGroupsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#associateIpGroupsResponse_httpStatus"><span class="hs-identifier">associateIpGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.Types.html"><span class="hs-identifier">Amazonka.WorkSpaces.Types</span></a></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newAssociateIpGroups' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679289160"><span id="local-6989586621679289161"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateIpGroups"><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-var">AssociateIpGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateIpGroups%27"><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-var">AssociateIpGroups'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the directory.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdirectoryId%3AAssociateIpGroups%27"><span class="annot"><span class="annottext">AssociateIpGroups -&gt; Text
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#%24sel%3AdirectoryId%3AAssociateIpGroups%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The identifiers of one or more IP access control groups.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AgroupIds%3AAssociateIpGroups%27"><span class="annot"><span class="annottext">AssociateIpGroups -&gt; [Text]
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#%24sel%3AgroupIds%3AAssociateIpGroups%27"><span class="hs-identifier hs-var hs-var">groupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289153"><span id="local-6989586621679289155"><span class="annot"><span class="annottext">AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool
+(AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool)
+-&gt; (AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool)
+-&gt; Eq AssociateIpGroups
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool
+$c/= :: AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool
+== :: AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool
+$c== :: AssociateIpGroups -&gt; AssociateIpGroups -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289144"><span id="local-6989586621679289146"><span id="local-6989586621679289148"><span id="local-6989586621679289150"><span class="annot"><span class="annottext">ReadPrec [AssociateIpGroups]
+ReadPrec AssociateIpGroups
+Int -&gt; ReadS AssociateIpGroups
+ReadS [AssociateIpGroups]
+(Int -&gt; ReadS AssociateIpGroups)
+-&gt; ReadS [AssociateIpGroups]
+-&gt; ReadPrec AssociateIpGroups
+-&gt; ReadPrec [AssociateIpGroups]
+-&gt; Read AssociateIpGroups
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateIpGroups]
+$creadListPrec :: ReadPrec [AssociateIpGroups]
+readPrec :: ReadPrec AssociateIpGroups
+$creadPrec :: ReadPrec AssociateIpGroups
+readList :: ReadS [AssociateIpGroups]
+$creadList :: ReadS [AssociateIpGroups]
+readsPrec :: Int -&gt; ReadS AssociateIpGroups
+$creadsPrec :: Int -&gt; ReadS AssociateIpGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289137"><span id="local-6989586621679289139"><span id="local-6989586621679289141"><span class="annot"><span class="annottext">Int -&gt; AssociateIpGroups -&gt; ShowS
+[AssociateIpGroups] -&gt; ShowS
+AssociateIpGroups -&gt; String
+(Int -&gt; AssociateIpGroups -&gt; ShowS)
+-&gt; (AssociateIpGroups -&gt; String)
+-&gt; ([AssociateIpGroups] -&gt; ShowS)
+-&gt; Show AssociateIpGroups
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateIpGroups] -&gt; ShowS
+$cshowList :: [AssociateIpGroups] -&gt; ShowS
+show :: AssociateIpGroups -&gt; String
+$cshow :: AssociateIpGroups -&gt; String
+showsPrec :: Int -&gt; AssociateIpGroups -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateIpGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssociateIpGroups -&gt; Rep AssociateIpGroups x)
+-&gt; (forall x. Rep AssociateIpGroups x -&gt; AssociateIpGroups)
+-&gt; Generic AssociateIpGroups
+forall x. Rep AssociateIpGroups x -&gt; AssociateIpGroups
+forall x. AssociateIpGroups -&gt; Rep AssociateIpGroups x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociateIpGroups x -&gt; AssociateIpGroups
+$cfrom :: forall x. AssociateIpGroups -&gt; Rep AssociateIpGroups x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'AssociateIpGroups' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'directoryId', 'associateIpGroups_directoryId' - The identifier of the directory.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'groupIds', 'associateIpGroups_groupIds' - The identifiers of one or more IP access control groups.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#newAssociateIpGroups"><span class="hs-identifier hs-type">newAssociateIpGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'directoryId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span>
+</span><span id="line-74"></span><span id="newAssociateIpGroups"><span class="annot"><span class="annottext">newAssociateIpGroups :: Text -&gt; AssociateIpGroups
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#newAssociateIpGroups"><span class="hs-identifier hs-var hs-var">newAssociateIpGroups</span></a></span></span><span> </span><span id="local-6989586621679289132"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289132"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">AssociateIpGroups' :: Text -&gt; [Text] -&gt; AssociateIpGroups
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryId:AssociateIpGroups' :: Text
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#%24sel%3AdirectoryId%3AAssociateIpGroups%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289132"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupIds:AssociateIpGroups' :: [Text]
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#%24sel%3AgroupIds%3AAssociateIpGroups%27"><span class="hs-identifier hs-var">groupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The identifier of the directory.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#associateIpGroups_directoryId"><span class="hs-identifier hs-type">associateIpGroups_directoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="associateIpGroups_directoryId"><span class="annot"><span class="annottext">associateIpGroups_directoryId :: (Text -&gt; f Text) -&gt; AssociateIpGroups -&gt; f AssociateIpGroups
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#associateIpGroups_directoryId"><span class="hs-identifier hs-var hs-var">associateIpGroups_directoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateIpGroups -&gt; Text)
+-&gt; (AssociateIpGroups -&gt; Text -&gt; AssociateIpGroups)
+-&gt; Lens AssociateIpGroups AssociateIpGroups Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289129"><span class="annot"><span class="annottext">Text
+directoryId :: Text
+$sel:directoryId:AssociateIpGroups' :: AssociateIpGroups -&gt; Text
+</span><a href="#local-6989586621679289129"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289129"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289128"><span class="annot"><span class="annottext">s :: AssociateIpGroups
+</span><a href="#local-6989586621679289128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289127"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIpGroups
+</span><a href="#local-6989586621679289128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:AssociateIpGroups' :: Text
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#%24sel%3AdirectoryId%3AAssociateIpGroups%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The identifiers of one or more IP access control groups.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#associateIpGroups_groupIds"><span class="hs-identifier hs-type">associateIpGroups_groupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-86"></span><span id="associateIpGroups_groupIds"><span class="annot"><span class="annottext">associateIpGroups_groupIds :: ([Text] -&gt; f [Text]) -&gt; AssociateIpGroups -&gt; f AssociateIpGroups
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#associateIpGroups_groupIds"><span class="hs-identifier hs-var hs-var">associateIpGroups_groupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateIpGroups -&gt; [Text])
+-&gt; (AssociateIpGroups -&gt; [Text] -&gt; AssociateIpGroups)
+-&gt; Lens AssociateIpGroups AssociateIpGroups [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289126"><span class="annot"><span class="annottext">[Text]
+groupIds :: [Text]
+$sel:groupIds:AssociateIpGroups' :: AssociateIpGroups -&gt; [Text]
+</span><a href="#local-6989586621679289126"><span class="hs-identifier hs-var hs-var">groupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679289126"><span class="hs-identifier hs-var">groupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289125"><span class="annot"><span class="annottext">s :: AssociateIpGroups
+</span><a href="#local-6989586621679289125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289124"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679289124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIpGroups
+</span><a href="#local-6989586621679289125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupIds:AssociateIpGroups' :: [Text]
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#%24sel%3AgroupIds%3AAssociateIpGroups%27"><span class="hs-identifier hs-var">groupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679289124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; AssociateIpGroups -&gt; f AssociateIpGroups)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; AssociateIpGroups
+-&gt; f AssociateIpGroups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-type">AssociateIpGroupsResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679289118"><span class="annot"><span class="annottext">request :: AssociateIpGroups -&gt; Request AssociateIpGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateIpGroups -&gt; Request AssociateIpGroups
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679289114"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateIpGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AssociateIpGroups)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AssociateIpGroups))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateIpGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AssociateIpGroups)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289111"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289111"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679289110"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679289110"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679289109"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679289109"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AssociateIpGroupsResponse
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-var">AssociateIpGroupsResponse'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AssociateIpGroupsResponse)
+-&gt; Either String Int -&gt; Either String AssociateIpGroupsResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289111"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289102"><span id="local-6989586621679289104"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289099"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679289095"><span class="annot"><span class="annottext">toHeaders :: AssociateIpGroups -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateIpGroups -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkspacesService.AssociateIpGroups&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289085"><span id="local-6989586621679289087"><span id="local-6989586621679289089"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679289083"><span class="annot"><span class="annottext">toJSON :: AssociateIpGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups%27"><span class="hs-identifier hs-type">AssociateIpGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289080"><span id="local-6989586621679289081"><span class="annot"><span class="annottext">[Text]
+Text
+groupIds :: [Text]
+directoryId :: Text
+$sel:groupIds:AssociateIpGroups' :: AssociateIpGroups -&gt; [Text]
+$sel:directoryId:AssociateIpGroups' :: AssociateIpGroups -&gt; Text
+</span><a href="#local-6989586621679289080"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289081"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679289080"><span class="hs-identifier hs-var">groupIds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679289074"><span class="annot"><span class="annottext">toPath :: AssociateIpGroups -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateIpGroups -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroups"><span class="hs-identifier hs-type">AssociateIpGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679289070"><span class="annot"><span class="annottext">toQuery :: AssociateIpGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateIpGroups -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newAssociateIpGroupsResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679289067"><span id="local-6989586621679289068"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateIpGroupsResponse"><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-var">AssociateIpGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateIpGroupsResponse%27"><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-var">AssociateIpGroupsResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateIpGroupsResponse%27"><span class="annot"><span class="annottext">AssociateIpGroupsResponse -&gt; Int
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#%24sel%3AhttpStatus%3AAssociateIpGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289062"><span id="local-6989586621679289064"><span class="annot"><span class="annottext">AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool
+(AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool)
+-&gt; (AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool)
+-&gt; Eq AssociateIpGroupsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool
+$c/= :: AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool
+== :: AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool
+$c== :: AssociateIpGroupsResponse -&gt; AssociateIpGroupsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289054"><span id="local-6989586621679289056"><span id="local-6989586621679289058"><span id="local-6989586621679289060"><span class="annot"><span class="annottext">ReadPrec [AssociateIpGroupsResponse]
+ReadPrec AssociateIpGroupsResponse
+Int -&gt; ReadS AssociateIpGroupsResponse
+ReadS [AssociateIpGroupsResponse]
+(Int -&gt; ReadS AssociateIpGroupsResponse)
+-&gt; ReadS [AssociateIpGroupsResponse]
+-&gt; ReadPrec AssociateIpGroupsResponse
+-&gt; ReadPrec [AssociateIpGroupsResponse]
+-&gt; Read AssociateIpGroupsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateIpGroupsResponse]
+$creadListPrec :: ReadPrec [AssociateIpGroupsResponse]
+readPrec :: ReadPrec AssociateIpGroupsResponse
+$creadPrec :: ReadPrec AssociateIpGroupsResponse
+readList :: ReadS [AssociateIpGroupsResponse]
+$creadList :: ReadS [AssociateIpGroupsResponse]
+readsPrec :: Int -&gt; ReadS AssociateIpGroupsResponse
+$creadsPrec :: Int -&gt; ReadS AssociateIpGroupsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289048"><span id="local-6989586621679289050"><span id="local-6989586621679289052"><span class="annot"><span class="annottext">Int -&gt; AssociateIpGroupsResponse -&gt; ShowS
+[AssociateIpGroupsResponse] -&gt; ShowS
+AssociateIpGroupsResponse -&gt; String
+(Int -&gt; AssociateIpGroupsResponse -&gt; ShowS)
+-&gt; (AssociateIpGroupsResponse -&gt; String)
+-&gt; ([AssociateIpGroupsResponse] -&gt; ShowS)
+-&gt; Show AssociateIpGroupsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateIpGroupsResponse] -&gt; ShowS
+$cshowList :: [AssociateIpGroupsResponse] -&gt; ShowS
+show :: AssociateIpGroupsResponse -&gt; String
+$cshow :: AssociateIpGroupsResponse -&gt; String
+showsPrec :: Int -&gt; AssociateIpGroupsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateIpGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateIpGroupsResponse -&gt; Rep AssociateIpGroupsResponse x)
+-&gt; (forall x.
+    Rep AssociateIpGroupsResponse x -&gt; AssociateIpGroupsResponse)
+-&gt; Generic AssociateIpGroupsResponse
+forall x.
+Rep AssociateIpGroupsResponse x -&gt; AssociateIpGroupsResponse
+forall x.
+AssociateIpGroupsResponse -&gt; Rep AssociateIpGroupsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateIpGroupsResponse x -&gt; AssociateIpGroupsResponse
+$cfrom :: forall x.
+AssociateIpGroupsResponse -&gt; Rep AssociateIpGroupsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'AssociateIpGroupsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'associateIpGroupsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#newAssociateIpGroupsResponse"><span class="hs-identifier hs-type">newAssociateIpGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-type">AssociateIpGroupsResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newAssociateIpGroupsResponse"><span class="annot"><span class="annottext">newAssociateIpGroupsResponse :: Int -&gt; AssociateIpGroupsResponse
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#newAssociateIpGroupsResponse"><span class="hs-identifier hs-var hs-var">newAssociateIpGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679289045"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289045"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">AssociateIpGroupsResponse' :: Int -&gt; AssociateIpGroupsResponse
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-type">AssociateIpGroupsResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateIpGroupsResponse' :: Int
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#%24sel%3AhttpStatus%3AAssociateIpGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289045"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#associateIpGroupsResponse_httpStatus"><span class="hs-identifier hs-type">associateIpGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-type">AssociateIpGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-162"></span><span id="associateIpGroupsResponse_httpStatus"><span class="annot"><span class="annottext">associateIpGroupsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AssociateIpGroupsResponse -&gt; f AssociateIpGroupsResponse
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#associateIpGroupsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateIpGroupsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateIpGroupsResponse -&gt; Int)
+-&gt; (AssociateIpGroupsResponse -&gt; Int -&gt; AssociateIpGroupsResponse)
+-&gt; Lens AssociateIpGroupsResponse AssociateIpGroupsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-type">AssociateIpGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289044"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AssociateIpGroupsResponse' :: AssociateIpGroupsResponse -&gt; Int
+</span><a href="#local-6989586621679289044"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289044"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289043"><span class="annot"><span class="annottext">s :: AssociateIpGroupsResponse
+</span><a href="#local-6989586621679289043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse%27"><span class="hs-identifier hs-type">AssociateIpGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289042"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIpGroupsResponse
+</span><a href="#local-6989586621679289043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateIpGroupsResponse' :: Int
+</span><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#%24sel%3AhttpStatus%3AAssociateIpGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-type">AssociateIpGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkSpaces.AssociateIpGroups.html#AssociateIpGroupsResponse"><span class="hs-identifier hs-type">AssociateIpGroupsResponse</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

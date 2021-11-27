@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.FraudDetector.Types.UnlabeledEventsTreatment</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FraudDetector.Types.UnlabeledEventsTreatment</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment"><span class="hs-identifier">UnlabeledEventsTreatment</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment_FRAUD"><span class="hs-identifier">UnlabeledEventsTreatment_FRAUD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment_IGNORE"><span class="hs-identifier">UnlabeledEventsTreatment_IGNORE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment_LEGIT"><span class="hs-identifier">UnlabeledEventsTreatment_LEGIT</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679307917"><span id="local-6989586621679307918"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UnlabeledEventsTreatment"><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment"><span class="hs-identifier hs-var">UnlabeledEventsTreatment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnlabeledEventsTreatment%27"><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment%27"><span class="hs-identifier hs-var">UnlabeledEventsTreatment'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUnlabeledEventsTreatment"><span class="annot"><span class="annottext">UnlabeledEventsTreatment -&gt; Text
+</span><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#fromUnlabeledEventsTreatment"><span class="hs-identifier hs-var hs-var">fromUnlabeledEventsTreatment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307909"><span id="local-6989586621679307911"><span id="local-6989586621679307913"><span class="annot"><span class="annottext">Int -&gt; UnlabeledEventsTreatment -&gt; ShowS
+[UnlabeledEventsTreatment] -&gt; ShowS
+UnlabeledEventsTreatment -&gt; String
+(Int -&gt; UnlabeledEventsTreatment -&gt; ShowS)
+-&gt; (UnlabeledEventsTreatment -&gt; String)
+-&gt; ([UnlabeledEventsTreatment] -&gt; ShowS)
+-&gt; Show UnlabeledEventsTreatment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UnlabeledEventsTreatment] -&gt; ShowS
+$cshowList :: [UnlabeledEventsTreatment] -&gt; ShowS
+show :: UnlabeledEventsTreatment -&gt; String
+$cshow :: UnlabeledEventsTreatment -&gt; String
+showsPrec :: Int -&gt; UnlabeledEventsTreatment -&gt; ShowS
+$cshowsPrec :: Int -&gt; UnlabeledEventsTreatment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679307900"><span id="local-6989586621679307902"><span id="local-6989586621679307904"><span id="local-6989586621679307906"><span class="annot"><span class="annottext">ReadPrec [UnlabeledEventsTreatment]
+ReadPrec UnlabeledEventsTreatment
+Int -&gt; ReadS UnlabeledEventsTreatment
+ReadS [UnlabeledEventsTreatment]
+(Int -&gt; ReadS UnlabeledEventsTreatment)
+-&gt; ReadS [UnlabeledEventsTreatment]
+-&gt; ReadPrec UnlabeledEventsTreatment
+-&gt; ReadPrec [UnlabeledEventsTreatment]
+-&gt; Read UnlabeledEventsTreatment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UnlabeledEventsTreatment]
+$creadListPrec :: ReadPrec [UnlabeledEventsTreatment]
+readPrec :: ReadPrec UnlabeledEventsTreatment
+$creadPrec :: ReadPrec UnlabeledEventsTreatment
+readList :: ReadS [UnlabeledEventsTreatment]
+$creadList :: ReadS [UnlabeledEventsTreatment]
+readsPrec :: Int -&gt; ReadS UnlabeledEventsTreatment
+$creadsPrec :: Int -&gt; ReadS UnlabeledEventsTreatment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679307895"><span id="local-6989586621679307897"><span class="annot"><span class="annottext">UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+(UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool)
+-&gt; (UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool)
+-&gt; Eq UnlabeledEventsTreatment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+$c/= :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+== :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+$c== :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679307879"><span id="local-6989586621679307881"><span id="local-6989586621679307883"><span id="local-6989586621679307885"><span id="local-6989586621679307887"><span id="local-6989586621679307889"><span id="local-6989586621679307891"><span class="annot"><span class="annottext">Eq UnlabeledEventsTreatment
+Eq UnlabeledEventsTreatment
+-&gt; (UnlabeledEventsTreatment
+    -&gt; UnlabeledEventsTreatment -&gt; Ordering)
+-&gt; (UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool)
+-&gt; (UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool)
+-&gt; (UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool)
+-&gt; (UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool)
+-&gt; (UnlabeledEventsTreatment
+    -&gt; UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment)
+-&gt; (UnlabeledEventsTreatment
+    -&gt; UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment)
+-&gt; Ord UnlabeledEventsTreatment
+UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Ordering
+UnlabeledEventsTreatment
+-&gt; UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UnlabeledEventsTreatment
+-&gt; UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment
+$cmin :: UnlabeledEventsTreatment
+-&gt; UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment
+max :: UnlabeledEventsTreatment
+-&gt; UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment
+$cmax :: UnlabeledEventsTreatment
+-&gt; UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment
+&gt;= :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+$c&gt;= :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+&gt; :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+$c&gt; :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+&lt;= :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+$c&lt;= :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+&lt; :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+$c&lt; :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Bool
+compare :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Ordering
+$ccompare :: UnlabeledEventsTreatment -&gt; UnlabeledEventsTreatment -&gt; Ordering
+$cp1Ord :: Eq UnlabeledEventsTreatment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ UnlabeledEventsTreatment -&gt; Rep UnlabeledEventsTreatment x)
+-&gt; (forall x.
+    Rep UnlabeledEventsTreatment x -&gt; UnlabeledEventsTreatment)
+-&gt; Generic UnlabeledEventsTreatment
+forall x.
+Rep UnlabeledEventsTreatment x -&gt; UnlabeledEventsTreatment
+forall x.
+UnlabeledEventsTreatment -&gt; Rep UnlabeledEventsTreatment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UnlabeledEventsTreatment x -&gt; UnlabeledEventsTreatment
+$cfrom :: forall x.
+UnlabeledEventsTreatment -&gt; Rep UnlabeledEventsTreatment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307871"><span id="local-6989586621679307873"><span class="annot"><span class="annottext">Int -&gt; UnlabeledEventsTreatment -&gt; Int
+UnlabeledEventsTreatment -&gt; Int
+(Int -&gt; UnlabeledEventsTreatment -&gt; Int)
+-&gt; (UnlabeledEventsTreatment -&gt; Int)
+-&gt; Hashable UnlabeledEventsTreatment
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UnlabeledEventsTreatment -&gt; Int
+$chash :: UnlabeledEventsTreatment -&gt; Int
+hashWithSalt :: Int -&gt; UnlabeledEventsTreatment -&gt; Int
+$chashWithSalt :: Int -&gt; UnlabeledEventsTreatment -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679307868"><span class="annot"><span class="annottext">UnlabeledEventsTreatment -&gt; ()
+(UnlabeledEventsTreatment -&gt; ()) -&gt; NFData UnlabeledEventsTreatment
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UnlabeledEventsTreatment -&gt; ()
+$crnf :: UnlabeledEventsTreatment -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679307865"><span class="annot"><span class="annottext">Text -&gt; Either String UnlabeledEventsTreatment
+(Text -&gt; Either String UnlabeledEventsTreatment)
+-&gt; FromText UnlabeledEventsTreatment
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UnlabeledEventsTreatment
+$cfromText :: Text -&gt; Either String UnlabeledEventsTreatment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679307862"><span class="annot"><span class="annottext">UnlabeledEventsTreatment -&gt; Text
+(UnlabeledEventsTreatment -&gt; Text)
+-&gt; ToText UnlabeledEventsTreatment
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UnlabeledEventsTreatment -&gt; Text
+$ctoText :: UnlabeledEventsTreatment -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679307859"><span class="annot"><span class="annottext">UnlabeledEventsTreatment -&gt; ByteString
+(UnlabeledEventsTreatment -&gt; ByteString)
+-&gt; ToByteString UnlabeledEventsTreatment
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UnlabeledEventsTreatment -&gt; ByteString
+$ctoBS :: UnlabeledEventsTreatment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679307856"><span class="annot"><span class="annottext">UnlabeledEventsTreatment -&gt; ByteStringBuilder
+(UnlabeledEventsTreatment -&gt; ByteStringBuilder)
+-&gt; ToLog UnlabeledEventsTreatment
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UnlabeledEventsTreatment -&gt; ByteStringBuilder
+$cbuild :: UnlabeledEventsTreatment -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679307853"><span class="annot"><span class="annottext">HeaderName -&gt; UnlabeledEventsTreatment -&gt; [Header]
+(HeaderName -&gt; UnlabeledEventsTreatment -&gt; [Header])
+-&gt; ToHeader UnlabeledEventsTreatment
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UnlabeledEventsTreatment -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UnlabeledEventsTreatment -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679307850"><span class="annot"><span class="annottext">UnlabeledEventsTreatment -&gt; QueryString
+(UnlabeledEventsTreatment -&gt; QueryString)
+-&gt; ToQuery UnlabeledEventsTreatment
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UnlabeledEventsTreatment -&gt; QueryString
+$ctoQuery :: UnlabeledEventsTreatment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679307845"><span id="local-6989586621679307847"><span class="annot"><span class="annottext">Value -&gt; Parser [UnlabeledEventsTreatment]
+Value -&gt; Parser UnlabeledEventsTreatment
+(Value -&gt; Parser UnlabeledEventsTreatment)
+-&gt; (Value -&gt; Parser [UnlabeledEventsTreatment])
+-&gt; FromJSON UnlabeledEventsTreatment
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UnlabeledEventsTreatment]
+$cparseJSONList :: Value -&gt; Parser [UnlabeledEventsTreatment]
+parseJSON :: Value -&gt; Parser UnlabeledEventsTreatment
+$cparseJSON :: Value -&gt; Parser UnlabeledEventsTreatment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679307840"><span id="local-6989586621679307842"><span class="annot"><span class="annottext">FromJSONKeyFunction [UnlabeledEventsTreatment]
+FromJSONKeyFunction UnlabeledEventsTreatment
+FromJSONKeyFunction UnlabeledEventsTreatment
+-&gt; FromJSONKeyFunction [UnlabeledEventsTreatment]
+-&gt; FromJSONKey UnlabeledEventsTreatment
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UnlabeledEventsTreatment]
+$cfromJSONKeyList :: FromJSONKeyFunction [UnlabeledEventsTreatment]
+fromJSONKey :: FromJSONKeyFunction UnlabeledEventsTreatment
+$cfromJSONKey :: FromJSONKeyFunction UnlabeledEventsTreatment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679307831"><span id="local-6989586621679307833"><span id="local-6989586621679307835"><span id="local-6989586621679307837"><span class="annot"><span class="annottext">[UnlabeledEventsTreatment] -&gt; Encoding
+[UnlabeledEventsTreatment] -&gt; Value
+UnlabeledEventsTreatment -&gt; Encoding
+UnlabeledEventsTreatment -&gt; Value
+(UnlabeledEventsTreatment -&gt; Value)
+-&gt; (UnlabeledEventsTreatment -&gt; Encoding)
+-&gt; ([UnlabeledEventsTreatment] -&gt; Value)
+-&gt; ([UnlabeledEventsTreatment] -&gt; Encoding)
+-&gt; ToJSON UnlabeledEventsTreatment
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UnlabeledEventsTreatment] -&gt; Encoding
+$ctoEncodingList :: [UnlabeledEventsTreatment] -&gt; Encoding
+toJSONList :: [UnlabeledEventsTreatment] -&gt; Value
+$ctoJSONList :: [UnlabeledEventsTreatment] -&gt; Value
+toEncoding :: UnlabeledEventsTreatment -&gt; Encoding
+$ctoEncoding :: UnlabeledEventsTreatment -&gt; Encoding
+toJSON :: UnlabeledEventsTreatment -&gt; Value
+$ctoJSON :: UnlabeledEventsTreatment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679307826"><span id="local-6989586621679307828"><span class="annot"><span class="annottext">ToJSONKeyFunction [UnlabeledEventsTreatment]
+ToJSONKeyFunction UnlabeledEventsTreatment
+ToJSONKeyFunction UnlabeledEventsTreatment
+-&gt; ToJSONKeyFunction [UnlabeledEventsTreatment]
+-&gt; ToJSONKey UnlabeledEventsTreatment
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UnlabeledEventsTreatment]
+$ctoJSONKeyList :: ToJSONKeyFunction [UnlabeledEventsTreatment]
+toJSONKey :: ToJSONKeyFunction UnlabeledEventsTreatment
+$ctoJSONKey :: ToJSONKeyFunction UnlabeledEventsTreatment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679307823"><span class="annot"><span class="annottext">[Node] -&gt; Either String UnlabeledEventsTreatment
+([Node] -&gt; Either String UnlabeledEventsTreatment)
+-&gt; FromXML UnlabeledEventsTreatment
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UnlabeledEventsTreatment
+$cparseXML :: [Node] -&gt; Either String UnlabeledEventsTreatment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679307820"><span class="annot"><span class="annottext">UnlabeledEventsTreatment -&gt; XML
+(UnlabeledEventsTreatment -&gt; XML) -&gt; ToXML UnlabeledEventsTreatment
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UnlabeledEventsTreatment -&gt; XML
+$ctoXML :: UnlabeledEventsTreatment -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment_FRAUD"><span class="hs-identifier hs-type">UnlabeledEventsTreatment_FRAUD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment"><span class="hs-identifier hs-type">UnlabeledEventsTreatment</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnlabeledEventsTreatment_FRAUD"><span id="%24mUnlabeledEventsTreatment_FRAUD"><span id="UnlabeledEventsTreatment_FRAUD"><span class="annot"><span class="annottext">$bUnlabeledEventsTreatment_FRAUD :: UnlabeledEventsTreatment
+$mUnlabeledEventsTreatment_FRAUD :: forall r.
+UnlabeledEventsTreatment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#%24bUnlabeledEventsTreatment_FRAUD"><span class="hs-identifier hs-var hs-var hs-var">UnlabeledEventsTreatment_FRAUD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment%27"><span class="hs-identifier hs-type">UnlabeledEventsTreatment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FRAUD&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment_IGNORE"><span class="hs-identifier hs-type">UnlabeledEventsTreatment_IGNORE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment"><span class="hs-identifier hs-type">UnlabeledEventsTreatment</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnlabeledEventsTreatment_IGNORE"><span id="%24mUnlabeledEventsTreatment_IGNORE"><span id="UnlabeledEventsTreatment_IGNORE"><span class="annot"><span class="annottext">$bUnlabeledEventsTreatment_IGNORE :: UnlabeledEventsTreatment
+$mUnlabeledEventsTreatment_IGNORE :: forall r.
+UnlabeledEventsTreatment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#%24bUnlabeledEventsTreatment_IGNORE"><span class="hs-identifier hs-var hs-var hs-var">UnlabeledEventsTreatment_IGNORE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment%27"><span class="hs-identifier hs-type">UnlabeledEventsTreatment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IGNORE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment_LEGIT"><span class="hs-identifier hs-type">UnlabeledEventsTreatment_LEGIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment"><span class="hs-identifier hs-type">UnlabeledEventsTreatment</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUnlabeledEventsTreatment_LEGIT"><span id="%24mUnlabeledEventsTreatment_LEGIT"><span id="UnlabeledEventsTreatment_LEGIT"><span class="annot"><span class="annottext">$bUnlabeledEventsTreatment_LEGIT :: UnlabeledEventsTreatment
+$mUnlabeledEventsTreatment_LEGIT :: forall r.
+UnlabeledEventsTreatment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#%24bUnlabeledEventsTreatment_LEGIT"><span class="hs-identifier hs-var hs-var hs-var">UnlabeledEventsTreatment_LEGIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment%27"><span class="hs-identifier hs-type">UnlabeledEventsTreatment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEGIT&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment_FRAUD"><span class="hs-pragma hs-type">UnlabeledEventsTreatment_FRAUD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment_IGNORE"><span class="hs-pragma hs-type">UnlabeledEventsTreatment_IGNORE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment_LEGIT"><span class="hs-pragma hs-type">UnlabeledEventsTreatment_LEGIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment%27"><span class="hs-pragma hs-type">UnlabeledEventsTreatment'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

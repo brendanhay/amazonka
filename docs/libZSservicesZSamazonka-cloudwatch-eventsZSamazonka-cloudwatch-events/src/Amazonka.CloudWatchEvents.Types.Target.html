@@ -1,0 +1,1324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchEvents.Types.Target</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.Target</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.BatchParameters</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.DeadLetterConfig.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.DeadLetterConfig</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.EcsParameters.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.EcsParameters</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.HttpParameters.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.HttpParameters</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.InputTransformer.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.InputTransformer</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.KinesisParameters.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.KinesisParameters</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.RedshiftDataParameters</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RetryPolicy.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.RetryPolicy</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RunCommandParameters.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.RunCommandParameters</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.SqsParameters.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.SqsParameters</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- | Targets are the resources to be invoked when a rule is triggered. For a</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- complete list of services and resources that can be set as a target, see</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutTargets.html PutTargets&gt;.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- If you are setting the event bus of another account as the target, and</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- that account granted permission to your account through an organization</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- instead of directly by the account ID, then you must specify a @RoleArn@</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- with proper permissions in the @Target@ structure. For more information,</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html Sending and Receiving Events Between Amazon Web Services Accounts&gt;</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- in the /Amazon EventBridge User Guide/.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newTarget' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679306971"><span id="local-6989586621679306972"></span></span><span class="hs-keyword">data</span><span> </span><span id="Target"><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-var">Target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Target%27"><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-var">Target'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Parameters used when you are using the rule to invoke Amazon EC2 Run</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Command.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ArunCommandParameters%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe RunCommandParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3ArunCommandParameters%3ATarget%27"><span class="hs-identifier hs-var hs-var">runCommandParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Contains the HTTP parameters to use when the target is a API Gateway</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- REST endpoint or EventBridge ApiDestination.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- If you specify an API Gateway REST API or EventBridge ApiDestination as</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- a target, you can use this parameter to specify headers, path</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- parameters, and query string keys\/values as part of your target</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- invoking request. If you\'re using ApiDestinations, the corresponding</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Connection can also have these values configured. In case of any</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- conflicting keys, values from the Connection take precedence.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AhttpParameters%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe HttpParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AhttpParameters%3ATarget%27"><span class="hs-identifier hs-var hs-var">httpParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.HttpParameters.html#HttpParameters"><span class="hs-identifier hs-type">HttpParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The custom parameter you can use to control the shard assignment, when</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the target is a Kinesis data stream. If you do not include this</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- parameter, the default is to use the @eventId@ as the partition key.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AkinesisParameters%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe KinesisParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AkinesisParameters%3ATarget%27"><span class="hs-identifier hs-var hs-var">kinesisParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.KinesisParameters.html#KinesisParameters"><span class="hs-identifier hs-type">KinesisParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Settings to enable you to provide custom input to a target based on</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- certain event data. You can extract one or more key-value pairs from the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- event and then use that data to send customized input to the target.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AinputTransformer%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe InputTransformer
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AinputTransformer%3ATarget%27"><span class="hs-identifier hs-var hs-var">inputTransformer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The @DeadLetterConfig@ that defines the target queue to send dead-letter</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- queue events to.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdeadLetterConfig%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe DeadLetterConfig
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AdeadLetterConfig%3ATarget%27"><span class="hs-identifier hs-var hs-var">deadLetterConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-type">DeadLetterConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Contains the SageMaker Model Building Pipeline parameters to start</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- execution of a SageMaker Model Building Pipeline.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- If you specify a SageMaker Model Building Pipeline as a target, you can</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- use this to specify parameters to start a pipeline execution based on</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- EventBridge events.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AsageMakerPipelineParameters%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe SageMakerPipelineParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AsageMakerPipelineParameters%3ATarget%27"><span class="hs-identifier hs-var hs-var">sageMakerPipelineParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters.html#SageMakerPipelineParameters"><span class="hs-identifier hs-type">SageMakerPipelineParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Contains the message group ID to use when the target is a FIFO queue.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- If you specify an SQS FIFO queue as a target, the queue must have</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- content-based deduplication enabled.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AsqsParameters%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe SqsParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AsqsParameters%3ATarget%27"><span class="hs-identifier hs-var hs-var">sqsParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-type">SqsParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | Valid JSON text passed to the target. In this case, nothing from the</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- event itself is passed to the target. For more information, see</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- &lt;http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format&gt;.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Ainput%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3Ainput%3ATarget%27"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | If the event target is an Batch job, this contains the job definition,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- job name, and other parameters. For more information, see</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs&gt; in</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- the /Batch User Guide/.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AbatchParameters%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe BatchParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AbatchParameters%3ATarget%27"><span class="hs-identifier hs-var hs-var">batchParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | Contains the Amazon Redshift Data API parameters to use when the target</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- is a Amazon Redshift cluster.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- If you specify a Amazon Redshift Cluster as a Target, you can use this</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- to specify parameters to invoke the Amazon Redshift Data API</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- ExecuteStatement based on EventBridge events.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AredshiftDataParameters%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe RedshiftDataParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AredshiftDataParameters%3ATarget%27"><span class="hs-identifier hs-var hs-var">redshiftDataParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | Contains the Amazon ECS task definition and task count to be used, if</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- the event target is an Amazon ECS task. For more information about</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- Amazon ECS tasks, see</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Task Definitions&gt;</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- in the /Amazon EC2 Container Service Developer Guide/.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AecsParameters%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe EcsParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AecsParameters%3ATarget%27"><span class="hs-identifier hs-var hs-var">ecsParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The @RetryPolicy@ object that contains the retry policy configuration to</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- use for the dead-letter queue.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AretryPolicy%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe RetryPolicy
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AretryPolicy%3ATarget%27"><span class="hs-identifier hs-var hs-var">retryPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RetryPolicy.html#RetryPolicy"><span class="hs-identifier hs-type">RetryPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The value of the JSONPath that is used for extracting part of the</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- matched event when passing it to the target. You must use JSON dot</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- notation, not bracket notation. For more information about JSON paths,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- see &lt;http://goessner.net/articles/JsonPath/ JSONPath&gt;.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AinputPath%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AinputPath%3ATarget%27"><span class="hs-identifier hs-var hs-var">inputPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role to be used for this</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- target when the rule is triggered. If one rule triggers multiple</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- targets, you can use a different IAM role for each target.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AroleArn%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AroleArn%3ATarget%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The ID of the target. We recommend using a memorable and unique string.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3Aid%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3Aid%3ATarget%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the target.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3Aarn%3ATarget%27"><span class="annot"><span class="annottext">Target -&gt; Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3Aarn%3ATarget%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306950"><span id="local-6989586621679306952"><span class="annot"><span class="annottext">Target -&gt; Target -&gt; Bool
+(Target -&gt; Target -&gt; Bool)
+-&gt; (Target -&gt; Target -&gt; Bool) -&gt; Eq Target
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Target -&gt; Target -&gt; Bool
+$c/= :: Target -&gt; Target -&gt; Bool
+== :: Target -&gt; Target -&gt; Bool
+$c== :: Target -&gt; Target -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306941"><span id="local-6989586621679306943"><span id="local-6989586621679306945"><span id="local-6989586621679306947"><span class="annot"><span class="annottext">ReadPrec [Target]
+ReadPrec Target
+Int -&gt; ReadS Target
+ReadS [Target]
+(Int -&gt; ReadS Target)
+-&gt; ReadS [Target]
+-&gt; ReadPrec Target
+-&gt; ReadPrec [Target]
+-&gt; Read Target
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Target]
+$creadListPrec :: ReadPrec [Target]
+readPrec :: ReadPrec Target
+$creadPrec :: ReadPrec Target
+readList :: ReadS [Target]
+$creadList :: ReadS [Target]
+readsPrec :: Int -&gt; ReadS Target
+$creadsPrec :: Int -&gt; ReadS Target
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306934"><span id="local-6989586621679306936"><span id="local-6989586621679306938"><span class="annot"><span class="annottext">Int -&gt; Target -&gt; ShowS
+[Target] -&gt; ShowS
+Target -&gt; String
+(Int -&gt; Target -&gt; ShowS)
+-&gt; (Target -&gt; String) -&gt; ([Target] -&gt; ShowS) -&gt; Show Target
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Target] -&gt; ShowS
+$cshowList :: [Target] -&gt; ShowS
+show :: Target -&gt; String
+$cshow :: Target -&gt; String
+showsPrec :: Int -&gt; Target -&gt; ShowS
+$cshowsPrec :: Int -&gt; Target -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Target -&gt; Rep Target x)
+-&gt; (forall x. Rep Target x -&gt; Target) -&gt; Generic Target
+forall x. Rep Target x -&gt; Target
+forall x. Target -&gt; Rep Target x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Target x -&gt; Target
+$cfrom :: forall x. Target -&gt; Rep Target x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Create a value of 'Target' with all optional fields omitted.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'runCommandParameters', 'target_runCommandParameters' - Parameters used when you are using the rule to invoke Amazon EC2 Run</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Command.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'httpParameters', 'target_httpParameters' - Contains the HTTP parameters to use when the target is a API Gateway</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- REST endpoint or EventBridge ApiDestination.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- If you specify an API Gateway REST API or EventBridge ApiDestination as</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- a target, you can use this parameter to specify headers, path</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- parameters, and query string keys\/values as part of your target</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- invoking request. If you\'re using ApiDestinations, the corresponding</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Connection can also have these values configured. In case of any</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- conflicting keys, values from the Connection take precedence.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'kinesisParameters', 'target_kinesisParameters' - The custom parameter you can use to control the shard assignment, when</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- the target is a Kinesis data stream. If you do not include this</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- parameter, the default is to use the @eventId@ as the partition key.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'inputTransformer', 'target_inputTransformer' - Settings to enable you to provide custom input to a target based on</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- certain event data. You can extract one or more key-value pairs from the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- event and then use that data to send customized input to the target.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'deadLetterConfig', 'target_deadLetterConfig' - The @DeadLetterConfig@ that defines the target queue to send dead-letter</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- queue events to.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'sageMakerPipelineParameters', 'target_sageMakerPipelineParameters' - Contains the SageMaker Model Building Pipeline parameters to start</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- execution of a SageMaker Model Building Pipeline.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- If you specify a SageMaker Model Building Pipeline as a target, you can</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- use this to specify parameters to start a pipeline execution based on</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- EventBridge events.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'sqsParameters', 'target_sqsParameters' - Contains the message group ID to use when the target is a FIFO queue.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- If you specify an SQS FIFO queue as a target, the queue must have</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- content-based deduplication enabled.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'input', 'target_input' - Valid JSON text passed to the target. In this case, nothing from the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- event itself is passed to the target. For more information, see</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- &lt;http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format&gt;.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'batchParameters', 'target_batchParameters' - If the event target is an Batch job, this contains the job definition,</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- job name, and other parameters. For more information, see</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs&gt; in</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- the /Batch User Guide/.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'redshiftDataParameters', 'target_redshiftDataParameters' - Contains the Amazon Redshift Data API parameters to use when the target</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- is a Amazon Redshift cluster.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- If you specify a Amazon Redshift Cluster as a Target, you can use this</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- to specify parameters to invoke the Amazon Redshift Data API</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- ExecuteStatement based on EventBridge events.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'ecsParameters', 'target_ecsParameters' - Contains the Amazon ECS task definition and task count to be used, if</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- the event target is an Amazon ECS task. For more information about</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Amazon ECS tasks, see</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Task Definitions&gt;</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- in the /Amazon EC2 Container Service Developer Guide/.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'retryPolicy', 'target_retryPolicy' - The @RetryPolicy@ object that contains the retry policy configuration to</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- use for the dead-letter queue.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'inputPath', 'target_inputPath' - The value of the JSONPath that is used for extracting part of the</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- matched event when passing it to the target. You must use JSON dot</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- notation, not bracket notation. For more information about JSON paths,</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- see &lt;http://goessner.net/articles/JsonPath/ JSONPath&gt;.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'roleArn', 'target_roleArn' - The Amazon Resource Name (ARN) of the IAM role to be used for this</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- target when the rule is triggered. If one rule triggers multiple</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- targets, you can use a different IAM role for each target.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'id', 'target_id' - The ID of the target. We recommend using a memorable and unique string.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'arn', 'target_arn' - The Amazon Resource Name (ARN) of the target.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#newTarget"><span class="hs-identifier hs-type">newTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span>
+</span><span id="line-215"></span><span id="newTarget"><span class="annot"><span class="annottext">newTarget :: Text -&gt; Text -&gt; Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#newTarget"><span class="hs-identifier hs-var hs-var">newTarget</span></a></span></span><span> </span><span id="local-6989586621679306928"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306928"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679306927"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306927"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">Target' :: Maybe RunCommandParameters
+-&gt; Maybe HttpParameters
+-&gt; Maybe KinesisParameters
+-&gt; Maybe InputTransformer
+-&gt; Maybe DeadLetterConfig
+-&gt; Maybe SageMakerPipelineParameters
+-&gt; Maybe SqsParameters
+-&gt; Maybe Text
+-&gt; Maybe BatchParameters
+-&gt; Maybe RedshiftDataParameters
+-&gt; Maybe EcsParameters
+-&gt; Maybe RetryPolicy
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:runCommandParameters:Target' :: Maybe RunCommandParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3ArunCommandParameters%3ATarget%27"><span class="hs-identifier hs-var">runCommandParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RunCommandParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpParameters:Target' :: Maybe HttpParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AhttpParameters%3ATarget%27"><span class="hs-identifier hs-var">httpParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisParameters:Target' :: Maybe KinesisParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AkinesisParameters%3ATarget%27"><span class="hs-identifier hs-var">kinesisParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputTransformer:Target' :: Maybe InputTransformer
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AinputTransformer%3ATarget%27"><span class="hs-identifier hs-var">inputTransformer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputTransformer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:deadLetterConfig:Target' :: Maybe DeadLetterConfig
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AdeadLetterConfig%3ATarget%27"><span class="hs-identifier hs-var">deadLetterConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeadLetterConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:sageMakerPipelineParameters:Target' :: Maybe SageMakerPipelineParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AsageMakerPipelineParameters%3ATarget%27"><span class="hs-identifier hs-var">sageMakerPipelineParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:sqsParameters:Target' :: Maybe SqsParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AsqsParameters%3ATarget%27"><span class="hs-identifier hs-var">sqsParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqsParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:input:Target' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3Ainput%3ATarget%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:batchParameters:Target' :: Maybe BatchParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AbatchParameters%3ATarget%27"><span class="hs-identifier hs-var">batchParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:redshiftDataParameters:Target' :: Maybe RedshiftDataParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AredshiftDataParameters%3ATarget%27"><span class="hs-identifier hs-var">redshiftDataParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:ecsParameters:Target' :: Maybe EcsParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AecsParameters%3ATarget%27"><span class="hs-identifier hs-var">ecsParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EcsParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:retryPolicy:Target' :: Maybe RetryPolicy
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AretryPolicy%3ATarget%27"><span class="hs-identifier hs-var">retryPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetryPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputPath:Target' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AinputPath%3ATarget%27"><span class="hs-identifier hs-var">inputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:Target' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AroleArn%3ATarget%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Target' :: Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3Aid%3ATarget%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306928"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Target' :: Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3Aarn%3ATarget%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306927"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | Parameters used when you are using the rule to invoke Amazon EC2 Run</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Command.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_runCommandParameters"><span class="hs-identifier hs-type">target_runCommandParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="target_runCommandParameters"><span class="annot"><span class="annottext">target_runCommandParameters :: (Maybe RunCommandParameters -&gt; f (Maybe RunCommandParameters))
+-&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_runCommandParameters"><span class="hs-identifier hs-var hs-var">target_runCommandParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe RunCommandParameters)
+-&gt; (Target -&gt; Maybe RunCommandParameters -&gt; Target)
+-&gt; Lens
+     Target
+     Target
+     (Maybe RunCommandParameters)
+     (Maybe RunCommandParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306923"><span class="annot"><span class="annottext">Maybe RunCommandParameters
+runCommandParameters :: Maybe RunCommandParameters
+$sel:runCommandParameters:Target' :: Target -&gt; Maybe RunCommandParameters
+</span><a href="#local-6989586621679306923"><span class="hs-identifier hs-var hs-var">runCommandParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RunCommandParameters
+</span><a href="#local-6989586621679306923"><span class="hs-identifier hs-var">runCommandParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306922"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306921"><span class="annot"><span class="annottext">Maybe RunCommandParameters
+</span><a href="#local-6989586621679306921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runCommandParameters:Target' :: Maybe RunCommandParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3ArunCommandParameters%3ATarget%27"><span class="hs-identifier hs-var">runCommandParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RunCommandParameters
+</span><a href="#local-6989586621679306921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | Contains the HTTP parameters to use when the target is a API Gateway</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- REST endpoint or EventBridge ApiDestination.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- If you specify an API Gateway REST API or EventBridge ApiDestination as</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- a target, you can use this parameter to specify headers, path</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- parameters, and query string keys\/values as part of your target</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- invoking request. If you\'re using ApiDestinations, the corresponding</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Connection can also have these values configured. In case of any</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- conflicting keys, values from the Connection take precedence.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_httpParameters"><span class="hs-identifier hs-type">target_httpParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.HttpParameters.html#HttpParameters"><span class="hs-identifier hs-type">HttpParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="target_httpParameters"><span class="annot"><span class="annottext">target_httpParameters :: (Maybe HttpParameters -&gt; f (Maybe HttpParameters))
+-&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_httpParameters"><span class="hs-identifier hs-var hs-var">target_httpParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe HttpParameters)
+-&gt; (Target -&gt; Maybe HttpParameters -&gt; Target)
+-&gt; Lens Target Target (Maybe HttpParameters) (Maybe HttpParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306919"><span class="annot"><span class="annottext">Maybe HttpParameters
+httpParameters :: Maybe HttpParameters
+$sel:httpParameters:Target' :: Target -&gt; Maybe HttpParameters
+</span><a href="#local-6989586621679306919"><span class="hs-identifier hs-var hs-var">httpParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpParameters
+</span><a href="#local-6989586621679306919"><span class="hs-identifier hs-var">httpParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306918"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306917"><span class="annot"><span class="annottext">Maybe HttpParameters
+</span><a href="#local-6989586621679306917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpParameters:Target' :: Maybe HttpParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AhttpParameters%3ATarget%27"><span class="hs-identifier hs-var">httpParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpParameters
+</span><a href="#local-6989586621679306917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The custom parameter you can use to control the shard assignment, when</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- the target is a Kinesis data stream. If you do not include this</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- parameter, the default is to use the @eventId@ as the partition key.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_kinesisParameters"><span class="hs-identifier hs-type">target_kinesisParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.KinesisParameters.html#KinesisParameters"><span class="hs-identifier hs-type">KinesisParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="target_kinesisParameters"><span class="annot"><span class="annottext">target_kinesisParameters :: (Maybe KinesisParameters -&gt; f (Maybe KinesisParameters))
+-&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_kinesisParameters"><span class="hs-identifier hs-var hs-var">target_kinesisParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe KinesisParameters)
+-&gt; (Target -&gt; Maybe KinesisParameters -&gt; Target)
+-&gt; Lens
+     Target Target (Maybe KinesisParameters) (Maybe KinesisParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306915"><span class="annot"><span class="annottext">Maybe KinesisParameters
+kinesisParameters :: Maybe KinesisParameters
+$sel:kinesisParameters:Target' :: Target -&gt; Maybe KinesisParameters
+</span><a href="#local-6989586621679306915"><span class="hs-identifier hs-var hs-var">kinesisParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisParameters
+</span><a href="#local-6989586621679306915"><span class="hs-identifier hs-var">kinesisParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306914"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306913"><span class="annot"><span class="annottext">Maybe KinesisParameters
+</span><a href="#local-6989586621679306913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisParameters:Target' :: Maybe KinesisParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AkinesisParameters%3ATarget%27"><span class="hs-identifier hs-var">kinesisParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisParameters
+</span><a href="#local-6989586621679306913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | Settings to enable you to provide custom input to a target based on</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- certain event data. You can extract one or more key-value pairs from the</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- event and then use that data to send customized input to the target.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_inputTransformer"><span class="hs-identifier hs-type">target_inputTransformer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.InputTransformer.html#InputTransformer"><span class="hs-identifier hs-type">InputTransformer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="target_inputTransformer"><span class="annot"><span class="annottext">target_inputTransformer :: (Maybe InputTransformer -&gt; f (Maybe InputTransformer))
+-&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_inputTransformer"><span class="hs-identifier hs-var hs-var">target_inputTransformer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe InputTransformer)
+-&gt; (Target -&gt; Maybe InputTransformer -&gt; Target)
+-&gt; Lens
+     Target Target (Maybe InputTransformer) (Maybe InputTransformer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306911"><span class="annot"><span class="annottext">Maybe InputTransformer
+inputTransformer :: Maybe InputTransformer
+$sel:inputTransformer:Target' :: Target -&gt; Maybe InputTransformer
+</span><a href="#local-6989586621679306911"><span class="hs-identifier hs-var hs-var">inputTransformer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputTransformer
+</span><a href="#local-6989586621679306911"><span class="hs-identifier hs-var">inputTransformer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306910"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306909"><span class="annot"><span class="annottext">Maybe InputTransformer
+</span><a href="#local-6989586621679306909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputTransformer:Target' :: Maybe InputTransformer
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AinputTransformer%3ATarget%27"><span class="hs-identifier hs-var">inputTransformer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputTransformer
+</span><a href="#local-6989586621679306909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The @DeadLetterConfig@ that defines the target queue to send dead-letter</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- queue events to.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_deadLetterConfig"><span class="hs-identifier hs-type">target_deadLetterConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-type">DeadLetterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="target_deadLetterConfig"><span class="annot"><span class="annottext">target_deadLetterConfig :: (Maybe DeadLetterConfig -&gt; f (Maybe DeadLetterConfig))
+-&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_deadLetterConfig"><span class="hs-identifier hs-var hs-var">target_deadLetterConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe DeadLetterConfig)
+-&gt; (Target -&gt; Maybe DeadLetterConfig -&gt; Target)
+-&gt; Lens
+     Target Target (Maybe DeadLetterConfig) (Maybe DeadLetterConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306907"><span class="annot"><span class="annottext">Maybe DeadLetterConfig
+deadLetterConfig :: Maybe DeadLetterConfig
+$sel:deadLetterConfig:Target' :: Target -&gt; Maybe DeadLetterConfig
+</span><a href="#local-6989586621679306907"><span class="hs-identifier hs-var hs-var">deadLetterConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeadLetterConfig
+</span><a href="#local-6989586621679306907"><span class="hs-identifier hs-var">deadLetterConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306906"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306905"><span class="annot"><span class="annottext">Maybe DeadLetterConfig
+</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deadLetterConfig:Target' :: Maybe DeadLetterConfig
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AdeadLetterConfig%3ATarget%27"><span class="hs-identifier hs-var">deadLetterConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeadLetterConfig
+</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | Contains the SageMaker Model Building Pipeline parameters to start</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- execution of a SageMaker Model Building Pipeline.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- If you specify a SageMaker Model Building Pipeline as a target, you can</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- use this to specify parameters to start a pipeline execution based on</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- EventBridge events.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_sageMakerPipelineParameters"><span class="hs-identifier hs-type">target_sageMakerPipelineParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters.html#SageMakerPipelineParameters"><span class="hs-identifier hs-type">SageMakerPipelineParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span id="target_sageMakerPipelineParameters"><span class="annot"><span class="annottext">target_sageMakerPipelineParameters :: (Maybe SageMakerPipelineParameters
+ -&gt; f (Maybe SageMakerPipelineParameters))
+-&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_sageMakerPipelineParameters"><span class="hs-identifier hs-var hs-var">target_sageMakerPipelineParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe SageMakerPipelineParameters)
+-&gt; (Target -&gt; Maybe SageMakerPipelineParameters -&gt; Target)
+-&gt; Lens
+     Target
+     Target
+     (Maybe SageMakerPipelineParameters)
+     (Maybe SageMakerPipelineParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306903"><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
+sageMakerPipelineParameters :: Maybe SageMakerPipelineParameters
+$sel:sageMakerPipelineParameters:Target' :: Target -&gt; Maybe SageMakerPipelineParameters
+</span><a href="#local-6989586621679306903"><span class="hs-identifier hs-var hs-var">sageMakerPipelineParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
+</span><a href="#local-6989586621679306903"><span class="hs-identifier hs-var">sageMakerPipelineParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306902"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306901"><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
+</span><a href="#local-6989586621679306901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sageMakerPipelineParameters:Target' :: Maybe SageMakerPipelineParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AsageMakerPipelineParameters%3ATarget%27"><span class="hs-identifier hs-var">sageMakerPipelineParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
+</span><a href="#local-6989586621679306901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | Contains the message group ID to use when the target is a FIFO queue.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- If you specify an SQS FIFO queue as a target, the queue must have</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- content-based deduplication enabled.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_sqsParameters"><span class="hs-identifier hs-type">target_sqsParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.SqsParameters.html#SqsParameters"><span class="hs-identifier hs-type">SqsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="target_sqsParameters"><span class="annot"><span class="annottext">target_sqsParameters :: (Maybe SqsParameters -&gt; f (Maybe SqsParameters))
+-&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_sqsParameters"><span class="hs-identifier hs-var hs-var">target_sqsParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe SqsParameters)
+-&gt; (Target -&gt; Maybe SqsParameters -&gt; Target)
+-&gt; Lens Target Target (Maybe SqsParameters) (Maybe SqsParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306899"><span class="annot"><span class="annottext">Maybe SqsParameters
+sqsParameters :: Maybe SqsParameters
+$sel:sqsParameters:Target' :: Target -&gt; Maybe SqsParameters
+</span><a href="#local-6989586621679306899"><span class="hs-identifier hs-var hs-var">sqsParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqsParameters
+</span><a href="#local-6989586621679306899"><span class="hs-identifier hs-var">sqsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306898"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306897"><span class="annot"><span class="annottext">Maybe SqsParameters
+</span><a href="#local-6989586621679306897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqsParameters:Target' :: Maybe SqsParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AsqsParameters%3ATarget%27"><span class="hs-identifier hs-var">sqsParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqsParameters
+</span><a href="#local-6989586621679306897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | Valid JSON text passed to the target. In this case, nothing from the</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- event itself is passed to the target. For more information, see</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- &lt;http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format&gt;.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_input"><span class="hs-identifier hs-type">target_input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span id="target_input"><span class="annot"><span class="annottext">target_input :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_input"><span class="hs-identifier hs-var hs-var">target_input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe Text)
+-&gt; (Target -&gt; Maybe Text -&gt; Target)
+-&gt; Lens Target Target (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306895"><span class="annot"><span class="annottext">Maybe Text
+input :: Maybe Text
+$sel:input:Target' :: Target -&gt; Maybe Text
+</span><a href="#local-6989586621679306895"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306895"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306894"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306893"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:Target' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3Ainput%3ATarget%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | If the event target is an Batch job, this contains the job definition,</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- job name, and other parameters. For more information, see</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs&gt; in</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- the /Batch User Guide/.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_batchParameters"><span class="hs-identifier hs-type">target_batchParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.BatchParameters.html#BatchParameters"><span class="hs-identifier hs-type">BatchParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="target_batchParameters"><span class="annot"><span class="annottext">target_batchParameters :: (Maybe BatchParameters -&gt; f (Maybe BatchParameters))
+-&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_batchParameters"><span class="hs-identifier hs-var hs-var">target_batchParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe BatchParameters)
+-&gt; (Target -&gt; Maybe BatchParameters -&gt; Target)
+-&gt; Lens
+     Target Target (Maybe BatchParameters) (Maybe BatchParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306891"><span class="annot"><span class="annottext">Maybe BatchParameters
+batchParameters :: Maybe BatchParameters
+$sel:batchParameters:Target' :: Target -&gt; Maybe BatchParameters
+</span><a href="#local-6989586621679306891"><span class="hs-identifier hs-var hs-var">batchParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchParameters
+</span><a href="#local-6989586621679306891"><span class="hs-identifier hs-var">batchParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306890"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306889"><span class="annot"><span class="annottext">Maybe BatchParameters
+</span><a href="#local-6989586621679306889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchParameters:Target' :: Maybe BatchParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AbatchParameters%3ATarget%27"><span class="hs-identifier hs-var">batchParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchParameters
+</span><a href="#local-6989586621679306889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | Contains the Amazon Redshift Data API parameters to use when the target</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- is a Amazon Redshift cluster.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- If you specify a Amazon Redshift Cluster as a Target, you can use this</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- to specify parameters to invoke the Amazon Redshift Data API</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- ExecuteStatement based on EventBridge events.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_redshiftDataParameters"><span class="hs-identifier hs-type">target_redshiftDataParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RedshiftDataParameters.html#RedshiftDataParameters"><span class="hs-identifier hs-type">RedshiftDataParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span id="target_redshiftDataParameters"><span class="annot"><span class="annottext">target_redshiftDataParameters :: (Maybe RedshiftDataParameters -&gt; f (Maybe RedshiftDataParameters))
+-&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_redshiftDataParameters"><span class="hs-identifier hs-var hs-var">target_redshiftDataParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe RedshiftDataParameters)
+-&gt; (Target -&gt; Maybe RedshiftDataParameters -&gt; Target)
+-&gt; Lens
+     Target
+     Target
+     (Maybe RedshiftDataParameters)
+     (Maybe RedshiftDataParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306887"><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
+redshiftDataParameters :: Maybe RedshiftDataParameters
+$sel:redshiftDataParameters:Target' :: Target -&gt; Maybe RedshiftDataParameters
+</span><a href="#local-6989586621679306887"><span class="hs-identifier hs-var hs-var">redshiftDataParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
+</span><a href="#local-6989586621679306887"><span class="hs-identifier hs-var">redshiftDataParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306886"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306885"><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
+</span><a href="#local-6989586621679306885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redshiftDataParameters:Target' :: Maybe RedshiftDataParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AredshiftDataParameters%3ATarget%27"><span class="hs-identifier hs-var">redshiftDataParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
+</span><a href="#local-6989586621679306885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- | Contains the Amazon ECS task definition and task count to be used, if</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- the event target is an Amazon ECS task. For more information about</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- Amazon ECS tasks, see</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Task Definitions&gt;</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- in the /Amazon EC2 Container Service Developer Guide/.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_ecsParameters"><span class="hs-identifier hs-type">target_ecsParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span id="target_ecsParameters"><span class="annot"><span class="annottext">target_ecsParameters :: (Maybe EcsParameters -&gt; f (Maybe EcsParameters))
+-&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_ecsParameters"><span class="hs-identifier hs-var hs-var">target_ecsParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe EcsParameters)
+-&gt; (Target -&gt; Maybe EcsParameters -&gt; Target)
+-&gt; Lens Target Target (Maybe EcsParameters) (Maybe EcsParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306883"><span class="annot"><span class="annottext">Maybe EcsParameters
+ecsParameters :: Maybe EcsParameters
+$sel:ecsParameters:Target' :: Target -&gt; Maybe EcsParameters
+</span><a href="#local-6989586621679306883"><span class="hs-identifier hs-var hs-var">ecsParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EcsParameters
+</span><a href="#local-6989586621679306883"><span class="hs-identifier hs-var">ecsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306882"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306881"><span class="annot"><span class="annottext">Maybe EcsParameters
+</span><a href="#local-6989586621679306881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ecsParameters:Target' :: Maybe EcsParameters
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AecsParameters%3ATarget%27"><span class="hs-identifier hs-var">ecsParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EcsParameters
+</span><a href="#local-6989586621679306881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | The @RetryPolicy@ object that contains the retry policy configuration to</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- use for the dead-letter queue.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_retryPolicy"><span class="hs-identifier hs-type">target_retryPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RetryPolicy.html#RetryPolicy"><span class="hs-identifier hs-type">RetryPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="target_retryPolicy"><span class="annot"><span class="annottext">target_retryPolicy :: (Maybe RetryPolicy -&gt; f (Maybe RetryPolicy)) -&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_retryPolicy"><span class="hs-identifier hs-var hs-var">target_retryPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe RetryPolicy)
+-&gt; (Target -&gt; Maybe RetryPolicy -&gt; Target)
+-&gt; Lens Target Target (Maybe RetryPolicy) (Maybe RetryPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306879"><span class="annot"><span class="annottext">Maybe RetryPolicy
+retryPolicy :: Maybe RetryPolicy
+$sel:retryPolicy:Target' :: Target -&gt; Maybe RetryPolicy
+</span><a href="#local-6989586621679306879"><span class="hs-identifier hs-var hs-var">retryPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetryPolicy
+</span><a href="#local-6989586621679306879"><span class="hs-identifier hs-var">retryPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306878"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306877"><span class="annot"><span class="annottext">Maybe RetryPolicy
+</span><a href="#local-6989586621679306877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryPolicy:Target' :: Maybe RetryPolicy
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AretryPolicy%3ATarget%27"><span class="hs-identifier hs-var">retryPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetryPolicy
+</span><a href="#local-6989586621679306877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | The value of the JSONPath that is used for extracting part of the</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- matched event when passing it to the target. You must use JSON dot</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- notation, not bracket notation. For more information about JSON paths,</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- see &lt;http://goessner.net/articles/JsonPath/ JSONPath&gt;.</span><span>
+</span><span id="line-324"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_inputPath"><span class="hs-identifier hs-type">target_inputPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span id="target_inputPath"><span class="annot"><span class="annottext">target_inputPath :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_inputPath"><span class="hs-identifier hs-var hs-var">target_inputPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe Text)
+-&gt; (Target -&gt; Maybe Text -&gt; Target)
+-&gt; Lens Target Target (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306875"><span class="annot"><span class="annottext">Maybe Text
+inputPath :: Maybe Text
+$sel:inputPath:Target' :: Target -&gt; Maybe Text
+</span><a href="#local-6989586621679306875"><span class="hs-identifier hs-var hs-var">inputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306875"><span class="hs-identifier hs-var">inputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306874"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306873"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputPath:Target' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AinputPath%3ATarget%27"><span class="hs-identifier hs-var">inputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role to be used for this</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- target when the rule is triggered. If one rule triggers multiple</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- targets, you can use a different IAM role for each target.</span><span>
+</span><span id="line-330"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_roleArn"><span class="hs-identifier hs-type">target_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span id="target_roleArn"><span class="annot"><span class="annottext">target_roleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_roleArn"><span class="hs-identifier hs-var hs-var">target_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Maybe Text)
+-&gt; (Target -&gt; Maybe Text -&gt; Target)
+-&gt; Lens Target Target (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306871"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:Target' :: Target -&gt; Maybe Text
+</span><a href="#local-6989586621679306871"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306871"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306870"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306869"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:Target' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3AroleArn%3ATarget%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- | The ID of the target. We recommend using a memorable and unique string.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_id"><span class="hs-identifier hs-type">target_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-335"></span><span id="target_id"><span class="annot"><span class="annottext">target_id :: (Text -&gt; f Text) -&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_id"><span class="hs-identifier hs-var hs-var">target_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Text)
+-&gt; (Target -&gt; Text -&gt; Target) -&gt; Lens Target Target Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306867"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:Target' :: Target -&gt; Text
+</span><a href="#local-6989586621679306867"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306867"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306866"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306865"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Target' :: Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3Aid%3ATarget%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the target.</span><span>
+</span><span id="line-338"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_arn"><span class="hs-identifier hs-type">target_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-339"></span><span id="target_arn"><span class="annot"><span class="annottext">target_arn :: (Text -&gt; f Text) -&gt; Target -&gt; f Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#target_arn"><span class="hs-identifier hs-var hs-var">target_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Target -&gt; Text)
+-&gt; (Target -&gt; Text -&gt; Target) -&gt; Lens Target Target Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306863"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:Target' :: Target -&gt; Text
+</span><a href="#local-6989586621679306863"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306863"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306862"><span class="annot"><span class="annottext">s :: Target
+</span><a href="#local-6989586621679306862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306861"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Target
+</span><a href="#local-6989586621679306862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Target' :: Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#%24sel%3Aarn%3ATarget%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306858"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-342"></span><span>  </span><span id="local-6989586621679306856"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Target
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-343"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Target) -&gt; Value -&gt; Parser Target
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-344"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Target&quot;</span></span><span>
+</span><span id="line-345"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306853"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-346"></span><span>          </span><span class="annot"><span class="annottext">Maybe RunCommandParameters
+-&gt; Maybe HttpParameters
+-&gt; Maybe KinesisParameters
+-&gt; Maybe InputTransformer
+-&gt; Maybe DeadLetterConfig
+-&gt; Maybe SageMakerPipelineParameters
+-&gt; Maybe SqsParameters
+-&gt; Maybe Text
+-&gt; Maybe BatchParameters
+-&gt; Maybe RedshiftDataParameters
+-&gt; Maybe EcsParameters
+-&gt; Maybe RetryPolicy
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Target
+</span><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-var">Target'</span></a></span><span>
+</span><span id="line-347"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RunCommandParameters
+ -&gt; Maybe HttpParameters
+ -&gt; Maybe KinesisParameters
+ -&gt; Maybe InputTransformer
+ -&gt; Maybe DeadLetterConfig
+ -&gt; Maybe SageMakerPipelineParameters
+ -&gt; Maybe SqsParameters
+ -&gt; Maybe Text
+ -&gt; Maybe BatchParameters
+ -&gt; Maybe RedshiftDataParameters
+ -&gt; Maybe EcsParameters
+ -&gt; Maybe RetryPolicy
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Target)
+-&gt; Parser (Maybe RunCommandParameters)
+-&gt; Parser
+     (Maybe HttpParameters
+      -&gt; Maybe KinesisParameters
+      -&gt; Maybe InputTransformer
+      -&gt; Maybe DeadLetterConfig
+      -&gt; Maybe SageMakerPipelineParameters
+      -&gt; Maybe SqsParameters
+      -&gt; Maybe Text
+      -&gt; Maybe BatchParameters
+      -&gt; Maybe RedshiftDataParameters
+      -&gt; Maybe EcsParameters
+      -&gt; Maybe RetryPolicy
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Target)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RunCommandParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RunCommandParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HttpParameters
+   -&gt; Maybe KinesisParameters
+   -&gt; Maybe InputTransformer
+   -&gt; Maybe DeadLetterConfig
+   -&gt; Maybe SageMakerPipelineParameters
+   -&gt; Maybe SqsParameters
+   -&gt; Maybe Text
+   -&gt; Maybe BatchParameters
+   -&gt; Maybe RedshiftDataParameters
+   -&gt; Maybe EcsParameters
+   -&gt; Maybe RetryPolicy
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Target)
+-&gt; Parser (Maybe HttpParameters)
+-&gt; Parser
+     (Maybe KinesisParameters
+      -&gt; Maybe InputTransformer
+      -&gt; Maybe DeadLetterConfig
+      -&gt; Maybe SageMakerPipelineParameters
+      -&gt; Maybe SqsParameters
+      -&gt; Maybe Text
+      -&gt; Maybe BatchParameters
+      -&gt; Maybe RedshiftDataParameters
+      -&gt; Maybe EcsParameters
+      -&gt; Maybe RetryPolicy
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe KinesisParameters
+   -&gt; Maybe InputTransformer
+   -&gt; Maybe DeadLetterConfig
+   -&gt; Maybe SageMakerPipelineParameters
+   -&gt; Maybe SqsParameters
+   -&gt; Maybe Text
+   -&gt; Maybe BatchParameters
+   -&gt; Maybe RedshiftDataParameters
+   -&gt; Maybe EcsParameters
+   -&gt; Maybe RetryPolicy
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Target)
+-&gt; Parser (Maybe KinesisParameters)
+-&gt; Parser
+     (Maybe InputTransformer
+      -&gt; Maybe DeadLetterConfig
+      -&gt; Maybe SageMakerPipelineParameters
+      -&gt; Maybe SqsParameters
+      -&gt; Maybe Text
+      -&gt; Maybe BatchParameters
+      -&gt; Maybe RedshiftDataParameters
+      -&gt; Maybe EcsParameters
+      -&gt; Maybe RetryPolicy
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KinesisParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KinesisParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputTransformer
+   -&gt; Maybe DeadLetterConfig
+   -&gt; Maybe SageMakerPipelineParameters
+   -&gt; Maybe SqsParameters
+   -&gt; Maybe Text
+   -&gt; Maybe BatchParameters
+   -&gt; Maybe RedshiftDataParameters
+   -&gt; Maybe EcsParameters
+   -&gt; Maybe RetryPolicy
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Target)
+-&gt; Parser (Maybe InputTransformer)
+-&gt; Parser
+     (Maybe DeadLetterConfig
+      -&gt; Maybe SageMakerPipelineParameters
+      -&gt; Maybe SqsParameters
+      -&gt; Maybe Text
+      -&gt; Maybe BatchParameters
+      -&gt; Maybe RedshiftDataParameters
+      -&gt; Maybe EcsParameters
+      -&gt; Maybe RetryPolicy
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputTransformer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputTransformer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DeadLetterConfig
+   -&gt; Maybe SageMakerPipelineParameters
+   -&gt; Maybe SqsParameters
+   -&gt; Maybe Text
+   -&gt; Maybe BatchParameters
+   -&gt; Maybe RedshiftDataParameters
+   -&gt; Maybe EcsParameters
+   -&gt; Maybe RetryPolicy
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Target)
+-&gt; Parser (Maybe DeadLetterConfig)
+-&gt; Parser
+     (Maybe SageMakerPipelineParameters
+      -&gt; Maybe SqsParameters
+      -&gt; Maybe Text
+      -&gt; Maybe BatchParameters
+      -&gt; Maybe RedshiftDataParameters
+      -&gt; Maybe EcsParameters
+      -&gt; Maybe RetryPolicy
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeadLetterConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeadLetterConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SageMakerPipelineParameters
+   -&gt; Maybe SqsParameters
+   -&gt; Maybe Text
+   -&gt; Maybe BatchParameters
+   -&gt; Maybe RedshiftDataParameters
+   -&gt; Maybe EcsParameters
+   -&gt; Maybe RetryPolicy
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Target)
+-&gt; Parser (Maybe SageMakerPipelineParameters)
+-&gt; Parser
+     (Maybe SqsParameters
+      -&gt; Maybe Text
+      -&gt; Maybe BatchParameters
+      -&gt; Maybe RedshiftDataParameters
+      -&gt; Maybe EcsParameters
+      -&gt; Maybe RetryPolicy
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SageMakerPipelineParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SageMakerPipelineParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SqsParameters
+   -&gt; Maybe Text
+   -&gt; Maybe BatchParameters
+   -&gt; Maybe RedshiftDataParameters
+   -&gt; Maybe EcsParameters
+   -&gt; Maybe RetryPolicy
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Target)
+-&gt; Parser (Maybe SqsParameters)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe BatchParameters
+      -&gt; Maybe RedshiftDataParameters
+      -&gt; Maybe EcsParameters
+      -&gt; Maybe RetryPolicy
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SqsParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SqsParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe BatchParameters
+   -&gt; Maybe RedshiftDataParameters
+   -&gt; Maybe EcsParameters
+   -&gt; Maybe RetryPolicy
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Target)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe BatchParameters
+      -&gt; Maybe RedshiftDataParameters
+      -&gt; Maybe EcsParameters
+      -&gt; Maybe RetryPolicy
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Input&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BatchParameters
+   -&gt; Maybe RedshiftDataParameters
+   -&gt; Maybe EcsParameters
+   -&gt; Maybe RetryPolicy
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Target)
+-&gt; Parser (Maybe BatchParameters)
+-&gt; Parser
+     (Maybe RedshiftDataParameters
+      -&gt; Maybe EcsParameters
+      -&gt; Maybe RetryPolicy
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatchParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BatchParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RedshiftDataParameters
+   -&gt; Maybe EcsParameters
+   -&gt; Maybe RetryPolicy
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Target)
+-&gt; Parser (Maybe RedshiftDataParameters)
+-&gt; Parser
+     (Maybe EcsParameters
+      -&gt; Maybe RetryPolicy
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RedshiftDataParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RedshiftDataParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EcsParameters
+   -&gt; Maybe RetryPolicy
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Target)
+-&gt; Parser (Maybe EcsParameters)
+-&gt; Parser
+     (Maybe RetryPolicy
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EcsParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EcsParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RetryPolicy
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Target)
+-&gt; Parser (Maybe RetryPolicy)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RetryPolicy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetryPolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Target)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; Text -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputPath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-360"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Text -&gt; Target)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Text -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Target)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Target)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Target) -&gt; Parser Text -&gt; Parser Target
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-363"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-364"></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306846"><span id="local-6989586621679306848"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span></span></span><span>
+</span><span id="line-366"></span><span>
+</span><span id="line-367"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306843"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span></span><span>
+</span><span id="line-368"></span><span>
+</span><span id="line-369"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306835"><span id="local-6989586621679306837"><span id="local-6989586621679306839"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-370"></span><span>  </span><span id="local-6989586621679306833"><span class="annot"><span class="annottext">toJSON :: Target -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Target.html#Target%27"><span class="hs-identifier hs-type">Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306816"><span id="local-6989586621679306817"><span id="local-6989586621679306818"><span id="local-6989586621679306819"><span id="local-6989586621679306820"><span id="local-6989586621679306821"><span id="local-6989586621679306822"><span id="local-6989586621679306823"><span id="local-6989586621679306824"><span id="local-6989586621679306825"><span id="local-6989586621679306826"><span id="local-6989586621679306827"><span id="local-6989586621679306828"><span id="local-6989586621679306829"><span id="local-6989586621679306830"><span id="local-6989586621679306831"><span class="annot"><span class="annottext">Maybe Text
+Maybe BatchParameters
+Maybe DeadLetterConfig
+Maybe HttpParameters
+Maybe InputTransformer
+Maybe KinesisParameters
+Maybe RedshiftDataParameters
+Maybe RetryPolicy
+Maybe RunCommandParameters
+Maybe SageMakerPipelineParameters
+Maybe SqsParameters
+Maybe EcsParameters
+Text
+arn :: Text
+id :: Text
+roleArn :: Maybe Text
+inputPath :: Maybe Text
+retryPolicy :: Maybe RetryPolicy
+ecsParameters :: Maybe EcsParameters
+redshiftDataParameters :: Maybe RedshiftDataParameters
+batchParameters :: Maybe BatchParameters
+input :: Maybe Text
+sqsParameters :: Maybe SqsParameters
+sageMakerPipelineParameters :: Maybe SageMakerPipelineParameters
+deadLetterConfig :: Maybe DeadLetterConfig
+inputTransformer :: Maybe InputTransformer
+kinesisParameters :: Maybe KinesisParameters
+httpParameters :: Maybe HttpParameters
+runCommandParameters :: Maybe RunCommandParameters
+$sel:arn:Target' :: Target -&gt; Text
+$sel:id:Target' :: Target -&gt; Text
+$sel:roleArn:Target' :: Target -&gt; Maybe Text
+$sel:inputPath:Target' :: Target -&gt; Maybe Text
+$sel:retryPolicy:Target' :: Target -&gt; Maybe RetryPolicy
+$sel:ecsParameters:Target' :: Target -&gt; Maybe EcsParameters
+$sel:redshiftDataParameters:Target' :: Target -&gt; Maybe RedshiftDataParameters
+$sel:batchParameters:Target' :: Target -&gt; Maybe BatchParameters
+$sel:input:Target' :: Target -&gt; Maybe Text
+$sel:sqsParameters:Target' :: Target -&gt; Maybe SqsParameters
+$sel:sageMakerPipelineParameters:Target' :: Target -&gt; Maybe SageMakerPipelineParameters
+$sel:deadLetterConfig:Target' :: Target -&gt; Maybe DeadLetterConfig
+$sel:inputTransformer:Target' :: Target -&gt; Maybe InputTransformer
+$sel:kinesisParameters:Target' :: Target -&gt; Maybe KinesisParameters
+$sel:httpParameters:Target' :: Target -&gt; Maybe HttpParameters
+$sel:runCommandParameters:Target' :: Target -&gt; Maybe RunCommandParameters
+</span><a href="#local-6989586621679306816"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-371"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-372"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-373"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RunCommandParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RunCommandParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span>              </span><span class="annot"><span class="annottext">(RunCommandParameters -&gt; Pair)
+-&gt; Maybe RunCommandParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RunCommandParameters
+</span><a href="#local-6989586621679306831"><span class="hs-identifier hs-var">runCommandParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>              </span><span class="annot"><span class="annottext">(HttpParameters -&gt; Pair) -&gt; Maybe HttpParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpParameters
+</span><a href="#local-6989586621679306830"><span class="hs-identifier hs-var">httpParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KinesisParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KinesisParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span>              </span><span class="annot"><span class="annottext">(KinesisParameters -&gt; Pair)
+-&gt; Maybe KinesisParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KinesisParameters
+</span><a href="#local-6989586621679306829"><span class="hs-identifier hs-var">kinesisParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputTransformer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputTransformer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span><span>              </span><span class="annot"><span class="annottext">(InputTransformer -&gt; Pair) -&gt; Maybe InputTransformer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputTransformer
+</span><a href="#local-6989586621679306828"><span class="hs-identifier hs-var">inputTransformer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeadLetterConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeadLetterConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>              </span><span class="annot"><span class="annottext">(DeadLetterConfig -&gt; Pair) -&gt; Maybe DeadLetterConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeadLetterConfig
+</span><a href="#local-6989586621679306827"><span class="hs-identifier hs-var">deadLetterConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SageMakerPipelineParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SageMakerPipelineParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-384"></span><span>              </span><span class="annot"><span class="annottext">(SageMakerPipelineParameters -&gt; Pair)
+-&gt; Maybe SageMakerPipelineParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SageMakerPipelineParameters
+</span><a href="#local-6989586621679306826"><span class="hs-identifier hs-var">sageMakerPipelineParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SqsParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SqsParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SqsParameters -&gt; Pair) -&gt; Maybe SqsParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SqsParameters
+</span><a href="#local-6989586621679306825"><span class="hs-identifier hs-var">sqsParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Input&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306824"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-387"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BatchParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BatchParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-388"></span><span>              </span><span class="annot"><span class="annottext">(BatchParameters -&gt; Pair) -&gt; Maybe BatchParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BatchParameters
+</span><a href="#local-6989586621679306823"><span class="hs-identifier hs-var">batchParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-389"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RedshiftDataParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RedshiftDataParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span>              </span><span class="annot"><span class="annottext">(RedshiftDataParameters -&gt; Pair)
+-&gt; Maybe RedshiftDataParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDataParameters
+</span><a href="#local-6989586621679306822"><span class="hs-identifier hs-var">redshiftDataParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-391"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EcsParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EcsParameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EcsParameters -&gt; Pair) -&gt; Maybe EcsParameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EcsParameters
+</span><a href="#local-6989586621679306821"><span class="hs-identifier hs-var">ecsParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetryPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RetryPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RetryPolicy -&gt; Pair) -&gt; Maybe RetryPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RetryPolicy
+</span><a href="#local-6989586621679306820"><span class="hs-identifier hs-var">retryPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-393"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306819"><span class="hs-identifier hs-var">inputPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-394"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306818"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-395"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306817"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-396"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306816"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-398"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span></pre></body></html>

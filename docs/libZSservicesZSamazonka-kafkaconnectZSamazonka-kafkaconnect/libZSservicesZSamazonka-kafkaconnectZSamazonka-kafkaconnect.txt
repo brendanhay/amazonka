@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDelivery
+module Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery
 
 -- | The settings for delivering connector logs to Amazon CloudWatch Logs.
 --   
@@ -44,16 +44,16 @@ cloudWatchLogsLogDelivery_logGroup :: Lens' CloudWatchLogsLogDelivery (Maybe Tex
 
 -- | Whether log delivery to Amazon CloudWatch Logs is enabled.
 cloudWatchLogsLogDelivery_enabled :: Lens' CloudWatchLogsLogDelivery Bool
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery.CloudWatchLogsLogDelivery
 
 
-module Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription
+module Amazonka.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription
 
 -- | A description of the log delivery settings.
 --   
@@ -93,16 +93,16 @@ cloudWatchLogsLogDeliveryDescription_enabled :: Lens' CloudWatchLogsLogDeliveryD
 -- | The name of the CloudWatch log group that is the destination for log
 --   delivery.
 cloudWatchLogsLogDeliveryDescription_logGroup :: Lens' CloudWatchLogsLogDeliveryDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription.CloudWatchLogsLogDeliveryDescription
 
 
-module Network.AWS.KafkaConnect.Types.ConnectorState
+module Amazonka.KafkaConnect.Types.ConnectorState
 newtype ConnectorState
 ConnectorState' :: Text -> ConnectorState
 [fromConnectorState] :: ConnectorState -> Text
@@ -111,28 +111,28 @@ pattern ConnectorState_DELETING :: ConnectorState
 pattern ConnectorState_FAILED :: ConnectorState
 pattern ConnectorState_RUNNING :: ConnectorState
 pattern ConnectorState_UPDATING :: ConnectorState
-instance Network.AWS.Data.XML.ToXML Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Network.AWS.Data.XML.FromXML Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Network.AWS.Data.Log.ToLog Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Network.AWS.Data.Text.ToText Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Network.AWS.Data.Text.FromText Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance GHC.Classes.Ord Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Amazonka.Data.XML.ToXML Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Amazonka.Data.XML.FromXML Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Amazonka.Data.Headers.ToHeader Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Amazonka.Data.Log.ToLog Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Amazonka.Data.Text.ToText Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Amazonka.Data.Text.FromText Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance GHC.Classes.Ord Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ConnectorState.ConnectorState
 
 
-module Network.AWS.KafkaConnect.Types.CustomPlugin
+module Amazonka.KafkaConnect.Types.CustomPlugin
 
 -- | A plugin is an AWS resource that contains the code that defines a
 --   connector's logic.
@@ -169,43 +169,43 @@ customPlugin_customPluginArn :: Lens' CustomPlugin Text
 
 -- | The revision of the custom plugin.
 customPlugin_revision :: Lens' CustomPlugin Natural
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CustomPlugin.CustomPlugin
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CustomPlugin.CustomPlugin
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CustomPlugin.CustomPlugin
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CustomPlugin.CustomPlugin
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CustomPlugin.CustomPlugin
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CustomPlugin.CustomPlugin
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.CustomPlugin.CustomPlugin
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CustomPlugin.CustomPlugin
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CustomPlugin.CustomPlugin
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CustomPlugin.CustomPlugin
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CustomPlugin.CustomPlugin
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CustomPlugin.CustomPlugin
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CustomPlugin.CustomPlugin
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.CustomPlugin.CustomPlugin
 
 
-module Network.AWS.KafkaConnect.Types.CustomPluginContentType
+module Amazonka.KafkaConnect.Types.CustomPluginContentType
 newtype CustomPluginContentType
 CustomPluginContentType' :: Text -> CustomPluginContentType
 [fromCustomPluginContentType] :: CustomPluginContentType -> Text
 pattern CustomPluginContentType_JAR :: CustomPluginContentType
 pattern CustomPluginContentType_ZIP :: CustomPluginContentType
-instance Network.AWS.Data.XML.ToXML Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Network.AWS.Data.XML.FromXML Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Network.AWS.Data.Log.ToLog Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Network.AWS.Data.Text.ToText Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Network.AWS.Data.Text.FromText Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance GHC.Classes.Ord Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Amazonka.Data.XML.ToXML Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Amazonka.Data.XML.FromXML Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Amazonka.Data.Headers.ToHeader Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Amazonka.Data.Log.ToLog Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Amazonka.Data.Text.ToText Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Amazonka.Data.Text.FromText Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance GHC.Classes.Ord Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CustomPluginContentType.CustomPluginContentType
 
 
-module Network.AWS.KafkaConnect.Types.CustomPluginDescription
+module Amazonka.KafkaConnect.Types.CustomPluginDescription
 
 -- | Details about a custom plugin.
 --   
@@ -242,16 +242,16 @@ customPluginDescription_customPluginArn :: Lens' CustomPluginDescription (Maybe 
 
 -- | The revision of the custom plugin.
 customPluginDescription_revision :: Lens' CustomPluginDescription (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CustomPluginDescription.CustomPluginDescription
 
 
-module Network.AWS.KafkaConnect.Types.CustomPluginFileDescription
+module Amazonka.KafkaConnect.Types.CustomPluginFileDescription
 
 -- | Details about a custom plugin file.
 --   
@@ -293,16 +293,16 @@ customPluginFileDescription_fileMd5 :: Lens' CustomPluginFileDescription (Maybe 
 -- | The size in bytes of the custom plugin file. You can use it to
 --   validate the file.
 customPluginFileDescription_fileSize :: Lens' CustomPluginFileDescription (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CustomPluginFileDescription.CustomPluginFileDescription
 
 
-module Network.AWS.KafkaConnect.Types.CustomPluginState
+module Amazonka.KafkaConnect.Types.CustomPluginState
 newtype CustomPluginState
 CustomPluginState' :: Text -> CustomPluginState
 [fromCustomPluginState] :: CustomPluginState -> Text
@@ -312,28 +312,28 @@ pattern CustomPluginState_CREATING :: CustomPluginState
 pattern CustomPluginState_DELETING :: CustomPluginState
 pattern CustomPluginState_UPDATE_FAILED :: CustomPluginState
 pattern CustomPluginState_UPDATING :: CustomPluginState
-instance Network.AWS.Data.XML.ToXML Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Network.AWS.Data.XML.FromXML Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Network.AWS.Data.Log.ToLog Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Network.AWS.Data.Text.ToText Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Network.AWS.Data.Text.FromText Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance GHC.Classes.Ord Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Amazonka.Data.XML.ToXML Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Amazonka.Data.XML.FromXML Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Amazonka.Data.Headers.ToHeader Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Amazonka.Data.Log.ToLog Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Amazonka.Data.Text.ToText Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Amazonka.Data.Text.FromText Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance GHC.Classes.Ord Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CustomPluginState.CustomPluginState
 
 
-module Network.AWS.KafkaConnect.Types.FirehoseLogDelivery
+module Amazonka.KafkaConnect.Types.FirehoseLogDelivery
 
 -- | The settings for delivering logs to Amazon Kinesis Data Firehose.
 --   
@@ -375,16 +375,16 @@ firehoseLogDelivery_deliveryStream :: Lens' FirehoseLogDelivery (Maybe Text)
 -- | Specifies whether connector logs get delivered to Amazon Kinesis Data
 --   Firehose.
 firehoseLogDelivery_enabled :: Lens' FirehoseLogDelivery Bool
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.FirehoseLogDelivery.FirehoseLogDelivery
 
 
-module Network.AWS.KafkaConnect.Types.FirehoseLogDeliveryDescription
+module Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription
 
 -- | A description of the settings for delivering logs to Amazon Kinesis
 --   Data Firehose.
@@ -428,43 +428,43 @@ firehoseLogDeliveryDescription_enabled :: Lens' FirehoseLogDeliveryDescription (
 -- | The name of the Kinesis Data Firehose delivery stream that is the
 --   destination for log delivery.
 firehoseLogDeliveryDescription_deliveryStream :: Lens' FirehoseLogDeliveryDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription.FirehoseLogDeliveryDescription
 
 
-module Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType
+module Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType
 newtype KafkaClusterClientAuthenticationType
 KafkaClusterClientAuthenticationType' :: Text -> KafkaClusterClientAuthenticationType
 [fromKafkaClusterClientAuthenticationType] :: KafkaClusterClientAuthenticationType -> Text
 pattern KafkaClusterClientAuthenticationType_IAM :: KafkaClusterClientAuthenticationType
 pattern KafkaClusterClientAuthenticationType_NONE :: KafkaClusterClientAuthenticationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Network.AWS.Data.Text.ToText Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Network.AWS.Data.Text.FromText Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance GHC.Classes.Ord Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Amazonka.Data.XML.ToXML Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Amazonka.Data.XML.FromXML Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Amazonka.Data.Log.ToLog Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Amazonka.Data.Text.ToText Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Amazonka.Data.Text.FromText Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance GHC.Classes.Ord Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType.KafkaClusterClientAuthenticationType
 
 
-module Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription
+module Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription
 
 -- | The client authentication information used in order to authenticate
 --   with the Apache Kafka cluster.
@@ -497,16 +497,16 @@ newKafkaClusterClientAuthenticationDescription :: KafkaClusterClientAuthenticati
 -- | The type of client authentication used to connect to the Apache Kafka
 --   cluster. Value NONE means that no client authentication is used.
 kafkaClusterClientAuthenticationDescription_authenticationType :: Lens' KafkaClusterClientAuthenticationDescription (Maybe KafkaClusterClientAuthenticationType)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription.KafkaClusterClientAuthenticationDescription
 
 
-module Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication
+module Amazonka.KafkaConnect.Types.KafkaClusterClientAuthentication
 
 -- | The client authentication information used in order to authenticate
 --   with the Apache Kafka cluster.
@@ -538,43 +538,43 @@ newKafkaClusterClientAuthentication :: KafkaClusterClientAuthenticationType -> K
 -- | The type of client authentication used to connect to the Apache Kafka
 --   cluster. Value NONE means that no client authentication is used.
 kafkaClusterClientAuthentication_authenticationType :: Lens' KafkaClusterClientAuthentication KafkaClusterClientAuthenticationType
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.KafkaClusterClientAuthentication.KafkaClusterClientAuthentication
 
 
-module Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType
+module Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType
 newtype KafkaClusterEncryptionInTransitType
 KafkaClusterEncryptionInTransitType' :: Text -> KafkaClusterEncryptionInTransitType
 [fromKafkaClusterEncryptionInTransitType] :: KafkaClusterEncryptionInTransitType -> Text
 pattern KafkaClusterEncryptionInTransitType_PLAINTEXT :: KafkaClusterEncryptionInTransitType
 pattern KafkaClusterEncryptionInTransitType_TLS :: KafkaClusterEncryptionInTransitType
-instance Network.AWS.Data.XML.ToXML Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Network.AWS.Data.XML.FromXML Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Network.AWS.Data.Log.ToLog Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Network.AWS.Data.Text.ToText Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Network.AWS.Data.Text.FromText Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance GHC.Classes.Ord Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Amazonka.Data.XML.ToXML Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Amazonka.Data.XML.FromXML Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Amazonka.Data.Headers.ToHeader Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Amazonka.Data.Log.ToLog Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Amazonka.Data.Text.ToText Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Amazonka.Data.Text.FromText Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance GHC.Classes.Ord Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType.KafkaClusterEncryptionInTransitType
 
 
-module Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription
+module Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription
 
 -- | The description of the encryption in transit to the Apache Kafka
 --   cluster.
@@ -604,16 +604,16 @@ newKafkaClusterEncryptionInTransitDescription :: KafkaClusterEncryptionInTransit
 
 -- | The type of encryption in transit to the Apache Kafka cluster.
 kafkaClusterEncryptionInTransitDescription_encryptionType :: Lens' KafkaClusterEncryptionInTransitDescription (Maybe KafkaClusterEncryptionInTransitType)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription.KafkaClusterEncryptionInTransitDescription
 
 
-module Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit
+module Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransit
 
 -- | Details of encryption in transit to the Apache Kafka cluster.
 --   
@@ -641,16 +641,16 @@ newKafkaClusterEncryptionInTransit :: KafkaClusterEncryptionInTransitType -> Kaf
 
 -- | The type of encryption in transit to the Apache Kafka cluster.
 kafkaClusterEncryptionInTransit_encryptionType :: Lens' KafkaClusterEncryptionInTransit KafkaClusterEncryptionInTransitType
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransit.KafkaClusterEncryptionInTransit
 
 
-module Network.AWS.KafkaConnect.Types.Plugin
+module Amazonka.KafkaConnect.Types.Plugin
 
 -- | A plugin is an AWS resource that contains the code that defines your
 --   connector logic.
@@ -676,16 +676,16 @@ newPlugin :: CustomPlugin -> Plugin
 
 -- | Details about a custom plugin.
 plugin_customPlugin :: Lens' Plugin CustomPlugin
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.Plugin.Plugin
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.Plugin.Plugin
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.Plugin.Plugin
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.Plugin.Plugin
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.Plugin.Plugin
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.Plugin.Plugin
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.Plugin.Plugin
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.Plugin.Plugin
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.Plugin.Plugin
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.Plugin.Plugin
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.Plugin.Plugin
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.Plugin.Plugin
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.Plugin.Plugin
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.Plugin.Plugin
 
 
-module Network.AWS.KafkaConnect.Types.PluginDescription
+module Amazonka.KafkaConnect.Types.PluginDescription
 
 -- | The description of the plugin.
 --   
@@ -711,16 +711,16 @@ newPluginDescription :: PluginDescription
 
 -- | Details about a custom plugin.
 pluginDescription_customPlugin :: Lens' PluginDescription (Maybe CustomPluginDescription)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.PluginDescription.PluginDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.PluginDescription.PluginDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.PluginDescription.PluginDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.PluginDescription.PluginDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.PluginDescription.PluginDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.PluginDescription.PluginDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.PluginDescription.PluginDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.PluginDescription.PluginDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.PluginDescription.PluginDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.PluginDescription.PluginDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.PluginDescription.PluginDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.PluginDescription.PluginDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.PluginDescription.PluginDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.PluginDescription.PluginDescription
 
 
-module Network.AWS.KafkaConnect.Types.ProvisionedCapacity
+module Amazonka.KafkaConnect.Types.ProvisionedCapacity
 
 -- | Details about a connector's provisioned capacity.
 --   
@@ -760,16 +760,16 @@ provisionedCapacity_mcuCount :: Lens' ProvisionedCapacity Natural
 
 -- | The number of workers that are allocated to the connector.
 provisionedCapacity_workerCount :: Lens' ProvisionedCapacity Natural
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.ProvisionedCapacity.ProvisionedCapacity
 
 
-module Network.AWS.KafkaConnect.Types.ProvisionedCapacityDescription
+module Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription
 
 -- | The description of a connector's provisioned capacity.
 --   
@@ -810,16 +810,16 @@ provisionedCapacityDescription_workerCount :: Lens' ProvisionedCapacityDescripti
 -- | The number of microcontroller units (MCUs) allocated to each connector
 --   worker. The valid values are 1,2,4,8.
 provisionedCapacityDescription_mcuCount :: Lens' ProvisionedCapacityDescription (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
 
 
-module Network.AWS.KafkaConnect.Types.ProvisionedCapacityUpdate
+module Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate
 
 -- | An update to a connector's fixed capacity.
 --   
@@ -859,16 +859,16 @@ provisionedCapacityUpdate_mcuCount :: Lens' ProvisionedCapacityUpdate Natural
 
 -- | The number of workers that are allocated to the connector.
 provisionedCapacityUpdate_workerCount :: Lens' ProvisionedCapacityUpdate Natural
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate.ProvisionedCapacityUpdate
 
 
-module Network.AWS.KafkaConnect.Types.S3Location
+module Amazonka.KafkaConnect.Types.S3Location
 
 -- | The location of an object in Amazon S3.
 --   
@@ -911,16 +911,16 @@ s3Location_bucketArn :: Lens' S3Location Text
 
 -- | The file key for an object in an S3 bucket.
 s3Location_fileKey :: Lens' S3Location Text
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.S3Location.S3Location
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.S3Location.S3Location
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.S3Location.S3Location
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.S3Location.S3Location
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.S3Location.S3Location
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.S3Location.S3Location
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.S3Location.S3Location
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.S3Location.S3Location
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.S3Location.S3Location
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.S3Location.S3Location
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.S3Location.S3Location
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.S3Location.S3Location
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.S3Location.S3Location
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.S3Location.S3Location
 
 
-module Network.AWS.KafkaConnect.Types.CustomPluginLocation
+module Amazonka.KafkaConnect.Types.CustomPluginLocation
 
 -- | Information about the location of a custom plugin.
 --   
@@ -950,16 +950,16 @@ newCustomPluginLocation :: S3Location -> CustomPluginLocation
 -- | The S3 bucket Amazon Resource Name (ARN), file key, and object version
 --   of the plugin file stored in Amazon S3.
 customPluginLocation_s3Location :: Lens' CustomPluginLocation S3Location
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.CustomPluginLocation.CustomPluginLocation
 
 
-module Network.AWS.KafkaConnect.Types.S3LocationDescription
+module Amazonka.KafkaConnect.Types.S3LocationDescription
 
 -- | The description of the location of an object in Amazon S3.
 --   
@@ -1006,16 +1006,16 @@ s3LocationDescription_bucketArn :: Lens' S3LocationDescription (Maybe Text)
 
 -- | The file key for an object in an S3 bucket.
 s3LocationDescription_fileKey :: Lens' S3LocationDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.S3LocationDescription.S3LocationDescription
 
 
-module Network.AWS.KafkaConnect.Types.CustomPluginLocationDescription
+module Amazonka.KafkaConnect.Types.CustomPluginLocationDescription
 
 -- | Information about the location of a custom plugin.
 --   
@@ -1046,16 +1046,16 @@ newCustomPluginLocationDescription :: CustomPluginLocationDescription
 -- | The S3 bucket Amazon Resource Name (ARN), file key, and object version
 --   of the plugin file stored in Amazon S3.
 customPluginLocationDescription_s3Location :: Lens' CustomPluginLocationDescription (Maybe S3LocationDescription)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CustomPluginLocationDescription.CustomPluginLocationDescription
 
 
-module Network.AWS.KafkaConnect.Types.CustomPluginRevisionSummary
+module Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary
 
 -- | Details about the revision of a custom plugin.
 --   
@@ -1132,16 +1132,16 @@ customPluginRevisionSummary_description :: Lens' CustomPluginRevisionSummary (Ma
 
 -- | The format of the plugin file.
 customPluginRevisionSummary_contentType :: Lens' CustomPluginRevisionSummary (Maybe CustomPluginContentType)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary.CustomPluginRevisionSummary
 
 
-module Network.AWS.KafkaConnect.Types.CustomPluginSummary
+module Amazonka.KafkaConnect.Types.CustomPluginSummary
 
 -- | A summary of the custom plugin.
 --   
@@ -1217,16 +1217,16 @@ customPluginSummary_customPluginState :: Lens' CustomPluginSummary (Maybe Custom
 
 -- | A description of the custom plugin.
 customPluginSummary_description :: Lens' CustomPluginSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CustomPluginSummary.CustomPluginSummary
 
 
-module Network.AWS.KafkaConnect.Types.S3LogDelivery
+module Amazonka.KafkaConnect.Types.S3LogDelivery
 
 -- | Details about delivering logs to Amazon S3.
 --   
@@ -1273,16 +1273,16 @@ s3LogDelivery_bucket :: Lens' S3LogDelivery (Maybe Text)
 -- | Specifies whether connector logs get sent to the specified Amazon S3
 --   destination.
 s3LogDelivery_enabled :: Lens' S3LogDelivery Bool
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.S3LogDelivery.S3LogDelivery
 
 
-module Network.AWS.KafkaConnect.Types.S3LogDeliveryDescription
+module Amazonka.KafkaConnect.Types.S3LogDeliveryDescription
 
 -- | The description of the details about delivering logs to Amazon S3.
 --   
@@ -1331,16 +1331,16 @@ s3LogDeliveryDescription_prefix :: Lens' S3LogDeliveryDescription (Maybe Text)
 
 -- | The name of the S3 bucket that is the destination for log delivery.
 s3LogDeliveryDescription_bucket :: Lens' S3LogDeliveryDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.S3LogDeliveryDescription.S3LogDeliveryDescription
 
 
-module Network.AWS.KafkaConnect.Types.ScaleInPolicy
+module Amazonka.KafkaConnect.Types.ScaleInPolicy
 
 -- | The scale-in policy for the connector.
 --   
@@ -1370,16 +1370,16 @@ newScaleInPolicy :: Natural -> ScaleInPolicy
 -- | Specifies the CPU utilization percentage threshold at which you want
 --   connector scale in to be triggered.
 scaleInPolicy_cpuUtilizationPercentage :: Lens' ScaleInPolicy Natural
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.ScaleInPolicy.ScaleInPolicy
 
 
-module Network.AWS.KafkaConnect.Types.ScaleInPolicyDescription
+module Amazonka.KafkaConnect.Types.ScaleInPolicyDescription
 
 -- | The description of the scale-in policy for the connector.
 --   
@@ -1409,16 +1409,16 @@ newScaleInPolicyDescription :: ScaleInPolicyDescription
 -- | Specifies the CPU utilization percentage threshold at which you want
 --   connector scale in to be triggered.
 scaleInPolicyDescription_cpuUtilizationPercentage :: Lens' ScaleInPolicyDescription (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ScaleInPolicyDescription.ScaleInPolicyDescription
 
 
-module Network.AWS.KafkaConnect.Types.ScaleInPolicyUpdate
+module Amazonka.KafkaConnect.Types.ScaleInPolicyUpdate
 
 -- | An update to the connector's scale-in policy.
 --   
@@ -1448,16 +1448,16 @@ newScaleInPolicyUpdate :: Natural -> ScaleInPolicyUpdate
 -- | The target CPU utilization percentage threshold at which you want
 --   connector scale in to be triggered.
 scaleInPolicyUpdate_cpuUtilizationPercentage :: Lens' ScaleInPolicyUpdate Natural
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.ScaleInPolicyUpdate.ScaleInPolicyUpdate
 
 
-module Network.AWS.KafkaConnect.Types.ScaleOutPolicy
+module Amazonka.KafkaConnect.Types.ScaleOutPolicy
 
 -- | The scale-out policy for the connector.
 --   
@@ -1487,16 +1487,16 @@ newScaleOutPolicy :: Natural -> ScaleOutPolicy
 -- | The CPU utilization percentage threshold at which you want connector
 --   scale out to be triggered.
 scaleOutPolicy_cpuUtilizationPercentage :: Lens' ScaleOutPolicy Natural
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.ScaleOutPolicy.ScaleOutPolicy
 
 
-module Network.AWS.KafkaConnect.Types.AutoScaling
+module Amazonka.KafkaConnect.Types.AutoScaling
 
 -- | Specifies how the connector scales.
 --   
@@ -1564,16 +1564,16 @@ autoScaling_mcuCount :: Lens' AutoScaling Natural
 
 -- | The minimum number of workers allocated to the connector.
 autoScaling_minWorkerCount :: Lens' AutoScaling Natural
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.AutoScaling.AutoScaling
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.AutoScaling.AutoScaling
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.AutoScaling.AutoScaling
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.AutoScaling.AutoScaling
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.AutoScaling.AutoScaling
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.AutoScaling.AutoScaling
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.AutoScaling.AutoScaling
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.AutoScaling.AutoScaling
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.AutoScaling.AutoScaling
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.AutoScaling.AutoScaling
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.AutoScaling.AutoScaling
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.AutoScaling.AutoScaling
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.AutoScaling.AutoScaling
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.AutoScaling.AutoScaling
 
 
-module Network.AWS.KafkaConnect.Types.Capacity
+module Amazonka.KafkaConnect.Types.Capacity
 
 -- | Information about the capacity of the connector, whether it is auto
 --   scaled or provisioned.
@@ -1609,16 +1609,16 @@ capacity_autoScaling :: Lens' Capacity (Maybe AutoScaling)
 
 -- | Details about a fixed capacity allocated to a connector.
 capacity_provisionedCapacity :: Lens' Capacity (Maybe ProvisionedCapacity)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.Capacity.Capacity
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.Capacity.Capacity
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.Capacity.Capacity
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.Capacity.Capacity
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.Capacity.Capacity
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.Capacity.Capacity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.Capacity.Capacity
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.Capacity.Capacity
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.Capacity.Capacity
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.Capacity.Capacity
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.Capacity.Capacity
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.Capacity.Capacity
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.Capacity.Capacity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.Capacity.Capacity
 
 
-module Network.AWS.KafkaConnect.Types.ScaleOutPolicyDescription
+module Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription
 
 -- | The description of the scale-out policy for the connector.
 --   
@@ -1648,16 +1648,16 @@ newScaleOutPolicyDescription :: ScaleOutPolicyDescription
 -- | The CPU utilization percentage threshold at which you want connector
 --   scale out to be triggered.
 scaleOutPolicyDescription_cpuUtilizationPercentage :: Lens' ScaleOutPolicyDescription (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription.ScaleOutPolicyDescription
 
 
-module Network.AWS.KafkaConnect.Types.AutoScalingDescription
+module Amazonka.KafkaConnect.Types.AutoScalingDescription
 
 -- | Information about the auto scaling parameters for the connector.
 --   
@@ -1727,16 +1727,16 @@ autoScalingDescription_maxWorkerCount :: Lens' AutoScalingDescription (Maybe Int
 
 -- | The minimum number of workers allocated to the connector.
 autoScalingDescription_minWorkerCount :: Lens' AutoScalingDescription (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.AutoScalingDescription.AutoScalingDescription
 
 
-module Network.AWS.KafkaConnect.Types.CapacityDescription
+module Amazonka.KafkaConnect.Types.CapacityDescription
 
 -- | A description of the connector's capacity.
 --   
@@ -1773,16 +1773,16 @@ capacityDescription_autoScaling :: Lens' CapacityDescription (Maybe AutoScalingD
 
 -- | Describes a connector's provisioned capacity.
 capacityDescription_provisionedCapacity :: Lens' CapacityDescription (Maybe ProvisionedCapacityDescription)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CapacityDescription.CapacityDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CapacityDescription.CapacityDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CapacityDescription.CapacityDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CapacityDescription.CapacityDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.CapacityDescription.CapacityDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CapacityDescription.CapacityDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CapacityDescription.CapacityDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CapacityDescription.CapacityDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CapacityDescription.CapacityDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CapacityDescription.CapacityDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CapacityDescription.CapacityDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.CapacityDescription.CapacityDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CapacityDescription.CapacityDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CapacityDescription.CapacityDescription
 
 
-module Network.AWS.KafkaConnect.Types.ScaleOutPolicyUpdate
+module Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate
 
 -- | An update to the connector's scale-out policy.
 --   
@@ -1812,16 +1812,16 @@ newScaleOutPolicyUpdate :: Natural -> ScaleOutPolicyUpdate
 -- | The target CPU utilization percentage threshold at which you want
 --   connector scale out to be triggered.
 scaleOutPolicyUpdate_cpuUtilizationPercentage :: Lens' ScaleOutPolicyUpdate Natural
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate.ScaleOutPolicyUpdate
 
 
-module Network.AWS.KafkaConnect.Types.AutoScalingUpdate
+module Amazonka.KafkaConnect.Types.AutoScalingUpdate
 
 -- | The updates to the auto scaling parameters for the connector.
 --   
@@ -1891,16 +1891,16 @@ autoScalingUpdate_scaleInPolicy :: Lens' AutoScalingUpdate ScaleInPolicyUpdate
 
 -- | The target sacle-out policy for the connector.
 autoScalingUpdate_scaleOutPolicy :: Lens' AutoScalingUpdate ScaleOutPolicyUpdate
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.AutoScalingUpdate.AutoScalingUpdate
 
 
-module Network.AWS.KafkaConnect.Types.CapacityUpdate
+module Amazonka.KafkaConnect.Types.CapacityUpdate
 
 -- | The target capacity for the connector. The capacity can be auto scaled
 --   or provisioned.
@@ -1937,16 +1937,16 @@ capacityUpdate_autoScaling :: Lens' CapacityUpdate (Maybe AutoScalingUpdate)
 
 -- | The target settings for provisioned capacity.
 capacityUpdate_provisionedCapacity :: Lens' CapacityUpdate (Maybe ProvisionedCapacityUpdate)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.CapacityUpdate.CapacityUpdate
 
 
-module Network.AWS.KafkaConnect.Types.Vpc
+module Amazonka.KafkaConnect.Types.Vpc
 
 -- | Information about the VPC in which the connector resides.
 --   
@@ -1980,16 +1980,16 @@ vpc_securityGroups :: Lens' Vpc (Maybe [Text])
 
 -- | The subnets for the connector.
 vpc_subnets :: Lens' Vpc [Text]
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.Vpc.Vpc
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.Vpc.Vpc
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.Vpc.Vpc
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.Vpc.Vpc
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.Vpc.Vpc
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.Vpc.Vpc
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.Vpc.Vpc
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.Vpc.Vpc
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.Vpc.Vpc
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.Vpc.Vpc
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.Vpc.Vpc
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.Vpc.Vpc
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.Vpc.Vpc
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.Vpc.Vpc
 
 
-module Network.AWS.KafkaConnect.Types.ApacheKafkaCluster
+module Amazonka.KafkaConnect.Types.ApacheKafkaCluster
 
 -- | The details of the Apache Kafka cluster to which the connector is
 --   connected.
@@ -2029,16 +2029,16 @@ apacheKafkaCluster_bootstrapServers :: Lens' ApacheKafkaCluster Text
 -- | Details of an Amazon VPC which has network connectivity to the Apache
 --   Kafka cluster.
 apacheKafkaCluster_vpc :: Lens' ApacheKafkaCluster Vpc
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.ApacheKafkaCluster.ApacheKafkaCluster
 
 
-module Network.AWS.KafkaConnect.Types.KafkaCluster
+module Amazonka.KafkaConnect.Types.KafkaCluster
 
 -- | The details of the Apache Kafka cluster to which the connector is
 --   connected.
@@ -2066,16 +2066,16 @@ newKafkaCluster :: ApacheKafkaCluster -> KafkaCluster
 
 -- | The Apache Kafka cluster to which the connector is connected.
 kafkaCluster_apacheKafkaCluster :: Lens' KafkaCluster ApacheKafkaCluster
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.KafkaCluster.KafkaCluster
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.KafkaCluster.KafkaCluster
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.KafkaCluster.KafkaCluster
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.KafkaCluster.KafkaCluster
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.KafkaCluster.KafkaCluster
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.KafkaCluster.KafkaCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.KafkaCluster.KafkaCluster
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.KafkaCluster.KafkaCluster
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.KafkaCluster.KafkaCluster
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.KafkaCluster.KafkaCluster
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.KafkaCluster.KafkaCluster
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.KafkaCluster.KafkaCluster
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.KafkaCluster.KafkaCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.KafkaCluster.KafkaCluster
 
 
-module Network.AWS.KafkaConnect.Types.VpcDescription
+module Amazonka.KafkaConnect.Types.VpcDescription
 
 -- | The description of the VPC in which the connector resides.
 --   
@@ -2111,16 +2111,16 @@ vpcDescription_securityGroups :: Lens' VpcDescription (Maybe [Text])
 
 -- | The subnets for the connector.
 vpcDescription_subnets :: Lens' VpcDescription (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.VpcDescription.VpcDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.VpcDescription.VpcDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.VpcDescription.VpcDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.VpcDescription.VpcDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.VpcDescription.VpcDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.VpcDescription.VpcDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.VpcDescription.VpcDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.VpcDescription.VpcDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.VpcDescription.VpcDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.VpcDescription.VpcDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.VpcDescription.VpcDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.VpcDescription.VpcDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.VpcDescription.VpcDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.VpcDescription.VpcDescription
 
 
-module Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription
+module Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription
 
 -- | The description of the Apache Kafka cluster to which the connector is
 --   connected.
@@ -2160,16 +2160,16 @@ apacheKafkaClusterDescription_bootstrapServers :: Lens' ApacheKafkaClusterDescri
 -- | Details of an Amazon VPC which has network connectivity to the Apache
 --   Kafka cluster.
 apacheKafkaClusterDescription_vpc :: Lens' ApacheKafkaClusterDescription (Maybe VpcDescription)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription.ApacheKafkaClusterDescription
 
 
-module Network.AWS.KafkaConnect.Types.KafkaClusterDescription
+module Amazonka.KafkaConnect.Types.KafkaClusterDescription
 
 -- | Details of how to connect to the Apache Kafka cluster.
 --   
@@ -2196,16 +2196,16 @@ newKafkaClusterDescription :: KafkaClusterDescription
 
 -- | The Apache Kafka cluster to which the connector is connected.
 kafkaClusterDescription_apacheKafkaCluster :: Lens' KafkaClusterDescription (Maybe ApacheKafkaClusterDescription)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.KafkaClusterDescription.KafkaClusterDescription
 
 
-module Network.AWS.KafkaConnect.Types.WorkerConfiguration
+module Amazonka.KafkaConnect.Types.WorkerConfiguration
 
 -- | The configuration of the workers, which are the processes that run the
 --   connector logic.
@@ -2243,16 +2243,16 @@ workerConfiguration_revision :: Lens' WorkerConfiguration Natural
 
 -- | The Amazon Resource Name (ARN) of the worker configuration.
 workerConfiguration_workerConfigurationArn :: Lens' WorkerConfiguration Text
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.WorkerConfiguration.WorkerConfiguration
 
 
-module Network.AWS.KafkaConnect.Types.WorkerConfigurationDescription
+module Amazonka.KafkaConnect.Types.WorkerConfigurationDescription
 
 -- | The description of the worker configuration.
 --   
@@ -2290,16 +2290,16 @@ workerConfigurationDescription_workerConfigurationArn :: Lens' WorkerConfigurati
 
 -- | The revision of the worker configuration.
 workerConfigurationDescription_revision :: Lens' WorkerConfigurationDescription (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.WorkerConfigurationDescription.WorkerConfigurationDescription
 
 
-module Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionDescription
+module Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionDescription
 
 -- | The description of the worker configuration revision.
 --   
@@ -2358,16 +2358,16 @@ workerConfigurationRevisionDescription_propertiesFileContent :: Lens' WorkerConf
 
 -- | The description of the worker configuration revision.
 workerConfigurationRevisionDescription_description :: Lens' WorkerConfigurationRevisionDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionDescription.WorkerConfigurationRevisionDescription
 
 
-module Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionSummary
+module Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary
 
 -- | The summary of a worker configuration revision.
 --   
@@ -2415,16 +2415,16 @@ workerConfigurationRevisionSummary_revision :: Lens' WorkerConfigurationRevision
 
 -- | The description of a worker configuration revision.
 workerConfigurationRevisionSummary_description :: Lens' WorkerConfigurationRevisionSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary.WorkerConfigurationRevisionSummary
 
 
-module Network.AWS.KafkaConnect.Types.WorkerConfigurationSummary
+module Amazonka.KafkaConnect.Types.WorkerConfigurationSummary
 
 -- | The summary of a worker configuration.
 --   
@@ -2491,16 +2491,16 @@ workerConfigurationSummary_workerConfigurationArn :: Lens' WorkerConfigurationSu
 
 -- | The description of a worker configuration.
 workerConfigurationSummary_description :: Lens' WorkerConfigurationSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.WorkerConfigurationSummary.WorkerConfigurationSummary
 
 
-module Network.AWS.KafkaConnect.Types.WorkerLogDelivery
+module Amazonka.KafkaConnect.Types.WorkerLogDelivery
 
 -- | Workers can send worker logs to different destination types. This
 --   configuration specifies the details of these destinations.
@@ -2547,16 +2547,16 @@ workerLogDelivery_firehose :: Lens' WorkerLogDelivery (Maybe FirehoseLogDelivery
 
 -- | Details about delivering logs to Amazon S3.
 workerLogDelivery_s3 :: Lens' WorkerLogDelivery (Maybe S3LogDelivery)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.WorkerLogDelivery.WorkerLogDelivery
 
 
-module Network.AWS.KafkaConnect.Types.LogDelivery
+module Amazonka.KafkaConnect.Types.LogDelivery
 
 -- | Details about log delivery.
 --   
@@ -2585,16 +2585,16 @@ newLogDelivery :: WorkerLogDelivery -> LogDelivery
 -- | The workers can send worker logs to different destination types. This
 --   configuration specifies the details of these destinations.
 logDelivery_workerLogDelivery :: Lens' LogDelivery WorkerLogDelivery
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.LogDelivery.LogDelivery
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.LogDelivery.LogDelivery
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.LogDelivery.LogDelivery
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.LogDelivery.LogDelivery
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.LogDelivery.LogDelivery
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.LogDelivery.LogDelivery
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.Types.LogDelivery.LogDelivery
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.LogDelivery.LogDelivery
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.LogDelivery.LogDelivery
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.LogDelivery.LogDelivery
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.LogDelivery.LogDelivery
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.LogDelivery.LogDelivery
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.LogDelivery.LogDelivery
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.Types.LogDelivery.LogDelivery
 
 
-module Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription
+module Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription
 
 -- | Workers can send worker logs to different destination types. This
 --   configuration specifies the details of these destinations.
@@ -2642,16 +2642,16 @@ workerLogDeliveryDescription_firehose :: Lens' WorkerLogDeliveryDescription (May
 
 -- | Details about delivering logs to Amazon S3.
 workerLogDeliveryDescription_s3 :: Lens' WorkerLogDeliveryDescription (Maybe S3LogDeliveryDescription)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription.WorkerLogDeliveryDescription
 
 
-module Network.AWS.KafkaConnect.Types.LogDeliveryDescription
+module Amazonka.KafkaConnect.Types.LogDeliveryDescription
 
 -- | The description of the log delivery settings.
 --   
@@ -2681,16 +2681,16 @@ newLogDeliveryDescription :: LogDeliveryDescription
 -- | The workers can send worker logs to different destination types. This
 --   configuration specifies the details of these destinations.
 logDeliveryDescription_workerLogDelivery :: Lens' LogDeliveryDescription (Maybe WorkerLogDeliveryDescription)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.LogDeliveryDescription.LogDeliveryDescription
 
 
-module Network.AWS.KafkaConnect.Types.ConnectorSummary
+module Amazonka.KafkaConnect.Types.ConnectorSummary
 
 -- | Summary of a connector.
 --   
@@ -2865,16 +2865,16 @@ connectorSummary_kafkaClusterEncryptionInTransit :: Lens' ConnectorSummary (Mayb
 -- | The Amazon Resource Name (ARN) of the IAM role used by the connector
 --   to access Amazon Web Services resources.
 connectorSummary_serviceExecutionRoleArn :: Lens' ConnectorSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
-instance GHC.Show.Show Network.AWS.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
-instance GHC.Read.Read Network.AWS.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
+instance GHC.Generics.Generic Amazonka.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
+instance GHC.Show.Show Amazonka.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
+instance GHC.Read.Read Amazonka.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
+instance GHC.Classes.Eq Amazonka.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.Types.ConnectorSummary.ConnectorSummary
 
 
-module Network.AWS.KafkaConnect.Types
+module Amazonka.KafkaConnect.Types
 
 -- | API version <tt>2021-09-14</tt> of the Amazon Managed Streaming for
 --   Kafka Connect SDK configuration.
@@ -5155,7 +5155,7 @@ workerLogDeliveryDescription_s3 :: Lens' WorkerLogDeliveryDescription (Maybe S3L
 --   Region.
 --   
 --   This operation returns paginated results.
-module Network.AWS.KafkaConnect.ListWorkerConfigurations
+module Amazonka.KafkaConnect.ListWorkerConfigurations
 
 -- | <i>See:</i> <a>newListWorkerConfigurations</a> smart constructor.
 data ListWorkerConfigurations
@@ -5251,29 +5251,29 @@ listWorkerConfigurationsResponse_nextToken :: Lens' ListWorkerConfigurationsResp
 
 -- | The response's http status code.
 listWorkerConfigurationsResponse_httpStatus :: Lens' ListWorkerConfigurationsResponse Int
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
-instance GHC.Show.Show Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
-instance GHC.Read.Read Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurationsResponse
-instance GHC.Show.Show Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurationsResponse
-instance GHC.Read.Read Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurationsResponse
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
-instance Network.AWS.Data.Path.ToPath Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
+instance GHC.Generics.Generic Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
+instance GHC.Show.Show Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
+instance GHC.Read.Read Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
+instance GHC.Classes.Eq Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
+instance GHC.Generics.Generic Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurationsResponse
+instance GHC.Show.Show Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurationsResponse
+instance GHC.Read.Read Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurationsResponse
+instance GHC.Classes.Eq Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
+instance Amazonka.Data.Path.ToPath Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.ListWorkerConfigurations.ListWorkerConfigurations
 
 
 -- | Returns a list of all of the custom plugins in this account and
 --   Region.
 --   
 --   This operation returns paginated results.
-module Network.AWS.KafkaConnect.ListCustomPlugins
+module Amazonka.KafkaConnect.ListCustomPlugins
 
 -- | <i>See:</i> <a>newListCustomPlugins</a> smart constructor.
 data ListCustomPlugins
@@ -5364,22 +5364,22 @@ listCustomPluginsResponse_nextToken :: Lens' ListCustomPluginsResponse (Maybe Te
 
 -- | The response's http status code.
 listCustomPluginsResponse_httpStatus :: Lens' ListCustomPluginsResponse Int
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPlugins
-instance GHC.Show.Show Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPlugins
-instance GHC.Read.Read Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPlugins
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPlugins
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPluginsResponse
-instance GHC.Show.Show Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPluginsResponse
-instance GHC.Read.Read Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPluginsResponse
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPluginsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPlugins
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPluginsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPlugins
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPlugins
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPlugins
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPlugins
-instance Network.AWS.Data.Path.ToPath Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPlugins
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.ListCustomPlugins.ListCustomPlugins
+instance GHC.Generics.Generic Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPlugins
+instance GHC.Show.Show Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPlugins
+instance GHC.Read.Read Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPlugins
+instance GHC.Classes.Eq Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPlugins
+instance GHC.Generics.Generic Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPluginsResponse
+instance GHC.Show.Show Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPluginsResponse
+instance GHC.Read.Read Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPluginsResponse
+instance GHC.Classes.Eq Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPluginsResponse
+instance Amazonka.Types.AWSRequest Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPlugins
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPluginsResponse
+instance Amazonka.Pager.AWSPager Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPlugins
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPlugins
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPlugins
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPlugins
+instance Amazonka.Data.Path.ToPath Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPlugins
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.ListCustomPlugins.ListCustomPlugins
 
 
 -- | Returns a list of all the connectors in this account and Region. The
@@ -5388,7 +5388,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.ListCustomPlugi
 --   connectors.
 --   
 --   This operation returns paginated results.
-module Network.AWS.KafkaConnect.ListConnectors
+module Amazonka.KafkaConnect.ListConnectors
 
 -- | <i>See:</i> <a>newListConnectors</a> smart constructor.
 data ListConnectors
@@ -5490,26 +5490,26 @@ listConnectorsResponse_nextToken :: Lens' ListConnectorsResponse (Maybe Text)
 
 -- | The response's http status code.
 listConnectorsResponse_httpStatus :: Lens' ListConnectorsResponse Int
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.ListConnectors.ListConnectors
-instance GHC.Show.Show Network.AWS.KafkaConnect.ListConnectors.ListConnectors
-instance GHC.Read.Read Network.AWS.KafkaConnect.ListConnectors.ListConnectors
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.ListConnectors.ListConnectors
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.ListConnectors.ListConnectorsResponse
-instance GHC.Show.Show Network.AWS.KafkaConnect.ListConnectors.ListConnectorsResponse
-instance GHC.Read.Read Network.AWS.KafkaConnect.ListConnectors.ListConnectorsResponse
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.ListConnectors.ListConnectorsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KafkaConnect.ListConnectors.ListConnectors
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.ListConnectors.ListConnectorsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.KafkaConnect.ListConnectors.ListConnectors
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.ListConnectors.ListConnectors
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.ListConnectors.ListConnectors
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KafkaConnect.ListConnectors.ListConnectors
-instance Network.AWS.Data.Path.ToPath Network.AWS.KafkaConnect.ListConnectors.ListConnectors
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.ListConnectors.ListConnectors
+instance GHC.Generics.Generic Amazonka.KafkaConnect.ListConnectors.ListConnectors
+instance GHC.Show.Show Amazonka.KafkaConnect.ListConnectors.ListConnectors
+instance GHC.Read.Read Amazonka.KafkaConnect.ListConnectors.ListConnectors
+instance GHC.Classes.Eq Amazonka.KafkaConnect.ListConnectors.ListConnectors
+instance GHC.Generics.Generic Amazonka.KafkaConnect.ListConnectors.ListConnectorsResponse
+instance GHC.Show.Show Amazonka.KafkaConnect.ListConnectors.ListConnectorsResponse
+instance GHC.Read.Read Amazonka.KafkaConnect.ListConnectors.ListConnectorsResponse
+instance GHC.Classes.Eq Amazonka.KafkaConnect.ListConnectors.ListConnectorsResponse
+instance Amazonka.Types.AWSRequest Amazonka.KafkaConnect.ListConnectors.ListConnectors
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.ListConnectors.ListConnectorsResponse
+instance Amazonka.Pager.AWSPager Amazonka.KafkaConnect.ListConnectors.ListConnectors
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.ListConnectors.ListConnectors
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.ListConnectors.ListConnectors
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KafkaConnect.ListConnectors.ListConnectors
+instance Amazonka.Data.Path.ToPath Amazonka.KafkaConnect.ListConnectors.ListConnectors
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.ListConnectors.ListConnectors
 
 
 -- | Returns information about a worker configuration.
-module Network.AWS.KafkaConnect.DescribeWorkerConfiguration
+module Amazonka.KafkaConnect.DescribeWorkerConfiguration
 
 -- | <i>See:</i> <a>newDescribeWorkerConfiguration</a> smart constructor.
 data DescribeWorkerConfiguration
@@ -5612,25 +5612,25 @@ describeWorkerConfigurationResponse_description :: Lens' DescribeWorkerConfigura
 
 -- | The response's http status code.
 describeWorkerConfigurationResponse_httpStatus :: Lens' DescribeWorkerConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
-instance GHC.Show.Show Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
-instance GHC.Read.Read Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfigurationResponse
-instance GHC.Show.Show Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfigurationResponse
-instance GHC.Read.Read Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
+instance GHC.Generics.Generic Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
+instance GHC.Show.Show Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
+instance GHC.Read.Read Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
+instance GHC.Classes.Eq Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
+instance GHC.Generics.Generic Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfigurationResponse
+instance GHC.Show.Show Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfigurationResponse
+instance GHC.Read.Read Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfigurationResponse
+instance GHC.Classes.Eq Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.DescribeWorkerConfiguration.DescribeWorkerConfiguration
 
 
 -- | A summary description of the custom plugin.
-module Network.AWS.KafkaConnect.DescribeCustomPlugin
+module Amazonka.KafkaConnect.DescribeCustomPlugin
 
 -- | <i>See:</i> <a>newDescribeCustomPlugin</a> smart constructor.
 data DescribeCustomPlugin
@@ -5744,25 +5744,25 @@ describeCustomPluginResponse_description :: Lens' DescribeCustomPluginResponse (
 
 -- | The response's http status code.
 describeCustomPluginResponse_httpStatus :: Lens' DescribeCustomPluginResponse Int
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
-instance GHC.Show.Show Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
-instance GHC.Read.Read Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPluginResponse
-instance GHC.Show.Show Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPluginResponse
-instance GHC.Read.Read Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPluginResponse
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPluginResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPluginResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
-instance Network.AWS.Data.Path.ToPath Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
+instance GHC.Generics.Generic Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
+instance GHC.Show.Show Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
+instance GHC.Read.Read Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
+instance GHC.Classes.Eq Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
+instance GHC.Generics.Generic Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPluginResponse
+instance GHC.Show.Show Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPluginResponse
+instance GHC.Read.Read Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPluginResponse
+instance GHC.Classes.Eq Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPluginResponse
+instance Amazonka.Types.AWSRequest Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPluginResponse
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
+instance Amazonka.Data.Path.ToPath Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.DescribeCustomPlugin.DescribeCustomPlugin
 
 
 -- | Returns summary information about the connector.
-module Network.AWS.KafkaConnect.DescribeConnector
+module Amazonka.KafkaConnect.DescribeConnector
 
 -- | <i>See:</i> <a>newDescribeConnector</a> smart constructor.
 data DescribeConnector
@@ -5988,25 +5988,25 @@ describeConnectorResponse_serviceExecutionRoleArn :: Lens' DescribeConnectorResp
 
 -- | The response's http status code.
 describeConnectorResponse_httpStatus :: Lens' DescribeConnectorResponse Int
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.DescribeConnector.DescribeConnector
-instance GHC.Show.Show Network.AWS.KafkaConnect.DescribeConnector.DescribeConnector
-instance GHC.Read.Read Network.AWS.KafkaConnect.DescribeConnector.DescribeConnector
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.DescribeConnector.DescribeConnector
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.DescribeConnector.DescribeConnectorResponse
-instance GHC.Show.Show Network.AWS.KafkaConnect.DescribeConnector.DescribeConnectorResponse
-instance GHC.Read.Read Network.AWS.KafkaConnect.DescribeConnector.DescribeConnectorResponse
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.DescribeConnector.DescribeConnectorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KafkaConnect.DescribeConnector.DescribeConnector
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.DescribeConnector.DescribeConnectorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.DescribeConnector.DescribeConnector
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.DescribeConnector.DescribeConnector
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KafkaConnect.DescribeConnector.DescribeConnector
-instance Network.AWS.Data.Path.ToPath Network.AWS.KafkaConnect.DescribeConnector.DescribeConnector
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.DescribeConnector.DescribeConnector
+instance GHC.Generics.Generic Amazonka.KafkaConnect.DescribeConnector.DescribeConnector
+instance GHC.Show.Show Amazonka.KafkaConnect.DescribeConnector.DescribeConnector
+instance GHC.Read.Read Amazonka.KafkaConnect.DescribeConnector.DescribeConnector
+instance GHC.Classes.Eq Amazonka.KafkaConnect.DescribeConnector.DescribeConnector
+instance GHC.Generics.Generic Amazonka.KafkaConnect.DescribeConnector.DescribeConnectorResponse
+instance GHC.Show.Show Amazonka.KafkaConnect.DescribeConnector.DescribeConnectorResponse
+instance GHC.Read.Read Amazonka.KafkaConnect.DescribeConnector.DescribeConnectorResponse
+instance GHC.Classes.Eq Amazonka.KafkaConnect.DescribeConnector.DescribeConnectorResponse
+instance Amazonka.Types.AWSRequest Amazonka.KafkaConnect.DescribeConnector.DescribeConnector
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.DescribeConnector.DescribeConnectorResponse
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.DescribeConnector.DescribeConnector
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.DescribeConnector.DescribeConnector
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KafkaConnect.DescribeConnector.DescribeConnector
+instance Amazonka.Data.Path.ToPath Amazonka.KafkaConnect.DescribeConnector.DescribeConnector
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.DescribeConnector.DescribeConnector
 
 
 -- | Deletes the specified connector.
-module Network.AWS.KafkaConnect.DeleteConnector
+module Amazonka.KafkaConnect.DeleteConnector
 
 -- | <i>See:</i> <a>newDeleteConnector</a> smart constructor.
 data DeleteConnector
@@ -6089,25 +6089,25 @@ deleteConnectorResponse_connectorState :: Lens' DeleteConnectorResponse (Maybe C
 
 -- | The response's http status code.
 deleteConnectorResponse_httpStatus :: Lens' DeleteConnectorResponse Int
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.DeleteConnector.DeleteConnector
-instance GHC.Show.Show Network.AWS.KafkaConnect.DeleteConnector.DeleteConnector
-instance GHC.Read.Read Network.AWS.KafkaConnect.DeleteConnector.DeleteConnector
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.DeleteConnector.DeleteConnector
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.DeleteConnector.DeleteConnectorResponse
-instance GHC.Show.Show Network.AWS.KafkaConnect.DeleteConnector.DeleteConnectorResponse
-instance GHC.Read.Read Network.AWS.KafkaConnect.DeleteConnector.DeleteConnectorResponse
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.DeleteConnector.DeleteConnectorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KafkaConnect.DeleteConnector.DeleteConnector
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.DeleteConnector.DeleteConnectorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.DeleteConnector.DeleteConnector
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.DeleteConnector.DeleteConnector
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KafkaConnect.DeleteConnector.DeleteConnector
-instance Network.AWS.Data.Path.ToPath Network.AWS.KafkaConnect.DeleteConnector.DeleteConnector
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.DeleteConnector.DeleteConnector
+instance GHC.Generics.Generic Amazonka.KafkaConnect.DeleteConnector.DeleteConnector
+instance GHC.Show.Show Amazonka.KafkaConnect.DeleteConnector.DeleteConnector
+instance GHC.Read.Read Amazonka.KafkaConnect.DeleteConnector.DeleteConnector
+instance GHC.Classes.Eq Amazonka.KafkaConnect.DeleteConnector.DeleteConnector
+instance GHC.Generics.Generic Amazonka.KafkaConnect.DeleteConnector.DeleteConnectorResponse
+instance GHC.Show.Show Amazonka.KafkaConnect.DeleteConnector.DeleteConnectorResponse
+instance GHC.Read.Read Amazonka.KafkaConnect.DeleteConnector.DeleteConnectorResponse
+instance GHC.Classes.Eq Amazonka.KafkaConnect.DeleteConnector.DeleteConnectorResponse
+instance Amazonka.Types.AWSRequest Amazonka.KafkaConnect.DeleteConnector.DeleteConnector
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.DeleteConnector.DeleteConnectorResponse
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.DeleteConnector.DeleteConnector
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.DeleteConnector.DeleteConnector
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KafkaConnect.DeleteConnector.DeleteConnector
+instance Amazonka.Data.Path.ToPath Amazonka.KafkaConnect.DeleteConnector.DeleteConnector
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.DeleteConnector.DeleteConnector
 
 
 -- | Creates a worker configuration using the specified properties.
-module Network.AWS.KafkaConnect.CreateWorkerConfiguration
+module Amazonka.KafkaConnect.CreateWorkerConfiguration
 
 -- | <i>See:</i> <a>newCreateWorkerConfiguration</a> smart constructor.
 data CreateWorkerConfiguration
@@ -6220,26 +6220,26 @@ createWorkerConfigurationResponse_workerConfigurationArn :: Lens' CreateWorkerCo
 
 -- | The response's http status code.
 createWorkerConfigurationResponse_httpStatus :: Lens' CreateWorkerConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
-instance GHC.Show.Show Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
-instance GHC.Read.Read Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfigurationResponse
-instance GHC.Show.Show Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfigurationResponse
-instance GHC.Read.Read Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
+instance GHC.Generics.Generic Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
+instance GHC.Show.Show Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
+instance GHC.Read.Read Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
+instance GHC.Classes.Eq Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
+instance GHC.Generics.Generic Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfigurationResponse
+instance GHC.Show.Show Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfigurationResponse
+instance GHC.Read.Read Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfigurationResponse
+instance GHC.Classes.Eq Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.CreateWorkerConfiguration.CreateWorkerConfiguration
 
 
 -- | Creates a custom plugin using the specified properties.
-module Network.AWS.KafkaConnect.CreateCustomPlugin
+module Amazonka.KafkaConnect.CreateCustomPlugin
 
 -- | <i>See:</i> <a>newCreateCustomPlugin</a> smart constructor.
 data CreateCustomPlugin
@@ -6358,26 +6358,26 @@ createCustomPluginResponse_revision :: Lens' CreateCustomPluginResponse (Maybe I
 
 -- | The response's http status code.
 createCustomPluginResponse_httpStatus :: Lens' CreateCustomPluginResponse Int
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
-instance GHC.Show.Show Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
-instance GHC.Read.Read Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPluginResponse
-instance GHC.Show.Show Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPluginResponse
-instance GHC.Read.Read Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPluginResponse
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPluginResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPluginResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
-instance Network.AWS.Data.Path.ToPath Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
+instance GHC.Generics.Generic Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
+instance GHC.Show.Show Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
+instance GHC.Read.Read Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
+instance GHC.Classes.Eq Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
+instance GHC.Generics.Generic Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPluginResponse
+instance GHC.Show.Show Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPluginResponse
+instance GHC.Read.Read Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPluginResponse
+instance GHC.Classes.Eq Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPluginResponse
+instance Amazonka.Types.AWSRequest Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPluginResponse
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
+instance Amazonka.Data.Path.ToPath Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.CreateCustomPlugin.CreateCustomPlugin
 
 
 -- | Creates a connector using the specified properties.
-module Network.AWS.KafkaConnect.CreateConnector
+module Amazonka.KafkaConnect.CreateConnector
 
 -- | <i>See:</i> <a>newCreateConnector</a> smart constructor.
 data CreateConnector
@@ -6582,26 +6582,26 @@ createConnectorResponse_connectorState :: Lens' CreateConnectorResponse (Maybe C
 
 -- | The response's http status code.
 createConnectorResponse_httpStatus :: Lens' CreateConnectorResponse Int
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.CreateConnector.CreateConnector
-instance GHC.Show.Show Network.AWS.KafkaConnect.CreateConnector.CreateConnector
-instance GHC.Read.Read Network.AWS.KafkaConnect.CreateConnector.CreateConnector
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.CreateConnector.CreateConnector
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.CreateConnector.CreateConnectorResponse
-instance GHC.Show.Show Network.AWS.KafkaConnect.CreateConnector.CreateConnectorResponse
-instance GHC.Read.Read Network.AWS.KafkaConnect.CreateConnector.CreateConnectorResponse
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.CreateConnector.CreateConnectorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KafkaConnect.CreateConnector.CreateConnector
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.CreateConnector.CreateConnectorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.CreateConnector.CreateConnector
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.CreateConnector.CreateConnector
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KafkaConnect.CreateConnector.CreateConnector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.CreateConnector.CreateConnector
-instance Network.AWS.Data.Path.ToPath Network.AWS.KafkaConnect.CreateConnector.CreateConnector
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.CreateConnector.CreateConnector
+instance GHC.Generics.Generic Amazonka.KafkaConnect.CreateConnector.CreateConnector
+instance GHC.Show.Show Amazonka.KafkaConnect.CreateConnector.CreateConnector
+instance GHC.Read.Read Amazonka.KafkaConnect.CreateConnector.CreateConnector
+instance GHC.Classes.Eq Amazonka.KafkaConnect.CreateConnector.CreateConnector
+instance GHC.Generics.Generic Amazonka.KafkaConnect.CreateConnector.CreateConnectorResponse
+instance GHC.Show.Show Amazonka.KafkaConnect.CreateConnector.CreateConnectorResponse
+instance GHC.Read.Read Amazonka.KafkaConnect.CreateConnector.CreateConnectorResponse
+instance GHC.Classes.Eq Amazonka.KafkaConnect.CreateConnector.CreateConnectorResponse
+instance Amazonka.Types.AWSRequest Amazonka.KafkaConnect.CreateConnector.CreateConnector
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.CreateConnector.CreateConnectorResponse
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.CreateConnector.CreateConnector
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.CreateConnector.CreateConnector
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KafkaConnect.CreateConnector.CreateConnector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.CreateConnector.CreateConnector
+instance Amazonka.Data.Path.ToPath Amazonka.KafkaConnect.CreateConnector.CreateConnector
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.CreateConnector.CreateConnector
 
 
 -- | Updates the specified connector.
-module Network.AWS.KafkaConnect.UpdateConnector
+module Amazonka.KafkaConnect.UpdateConnector
 
 -- | <i>See:</i> <a>newUpdateConnector</a> smart constructor.
 data UpdateConnector
@@ -6691,25 +6691,25 @@ updateConnectorResponse_connectorState :: Lens' UpdateConnectorResponse (Maybe C
 
 -- | The response's http status code.
 updateConnectorResponse_httpStatus :: Lens' UpdateConnectorResponse Int
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.UpdateConnector.UpdateConnector
-instance GHC.Show.Show Network.AWS.KafkaConnect.UpdateConnector.UpdateConnector
-instance GHC.Read.Read Network.AWS.KafkaConnect.UpdateConnector.UpdateConnector
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.UpdateConnector.UpdateConnector
-instance GHC.Generics.Generic Network.AWS.KafkaConnect.UpdateConnector.UpdateConnectorResponse
-instance GHC.Show.Show Network.AWS.KafkaConnect.UpdateConnector.UpdateConnectorResponse
-instance GHC.Read.Read Network.AWS.KafkaConnect.UpdateConnector.UpdateConnectorResponse
-instance GHC.Classes.Eq Network.AWS.KafkaConnect.UpdateConnector.UpdateConnectorResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.KafkaConnect.UpdateConnector.UpdateConnector
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.UpdateConnector.UpdateConnectorResponse
-instance Data.Hashable.Class.Hashable Network.AWS.KafkaConnect.UpdateConnector.UpdateConnector
-instance Control.DeepSeq.NFData Network.AWS.KafkaConnect.UpdateConnector.UpdateConnector
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.KafkaConnect.UpdateConnector.UpdateConnector
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.KafkaConnect.UpdateConnector.UpdateConnector
-instance Network.AWS.Data.Path.ToPath Network.AWS.KafkaConnect.UpdateConnector.UpdateConnector
-instance Network.AWS.Data.Query.ToQuery Network.AWS.KafkaConnect.UpdateConnector.UpdateConnector
+instance GHC.Generics.Generic Amazonka.KafkaConnect.UpdateConnector.UpdateConnector
+instance GHC.Show.Show Amazonka.KafkaConnect.UpdateConnector.UpdateConnector
+instance GHC.Read.Read Amazonka.KafkaConnect.UpdateConnector.UpdateConnector
+instance GHC.Classes.Eq Amazonka.KafkaConnect.UpdateConnector.UpdateConnector
+instance GHC.Generics.Generic Amazonka.KafkaConnect.UpdateConnector.UpdateConnectorResponse
+instance GHC.Show.Show Amazonka.KafkaConnect.UpdateConnector.UpdateConnectorResponse
+instance GHC.Read.Read Amazonka.KafkaConnect.UpdateConnector.UpdateConnectorResponse
+instance GHC.Classes.Eq Amazonka.KafkaConnect.UpdateConnector.UpdateConnectorResponse
+instance Amazonka.Types.AWSRequest Amazonka.KafkaConnect.UpdateConnector.UpdateConnector
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.UpdateConnector.UpdateConnectorResponse
+instance Data.Hashable.Class.Hashable Amazonka.KafkaConnect.UpdateConnector.UpdateConnector
+instance Control.DeepSeq.NFData Amazonka.KafkaConnect.UpdateConnector.UpdateConnector
+instance Amazonka.Data.Headers.ToHeaders Amazonka.KafkaConnect.UpdateConnector.UpdateConnector
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.KafkaConnect.UpdateConnector.UpdateConnector
+instance Amazonka.Data.Path.ToPath Amazonka.KafkaConnect.UpdateConnector.UpdateConnector
+instance Amazonka.Data.Query.ToQuery Amazonka.KafkaConnect.UpdateConnector.UpdateConnector
 
 
-module Network.AWS.KafkaConnect.Lens
+module Amazonka.KafkaConnect.Lens
 
 -- | If the response of a ListWorkerConfigurations operation is truncated,
 --   it will include a NextToken. Send this NextToken in a subsequent
@@ -7445,12 +7445,12 @@ workerLogDeliveryDescription_firehose :: Lens' WorkerLogDeliveryDescription (May
 workerLogDeliveryDescription_s3 :: Lens' WorkerLogDeliveryDescription (Maybe S3LogDeliveryDescription)
 
 
-module Network.AWS.KafkaConnect.Waiters
+module Amazonka.KafkaConnect.Waiters
 
 
 -- | Derived from API version <tt>2021-09-14</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
-module Network.AWS.KafkaConnect
+module Amazonka.KafkaConnect
 
 -- | API version <tt>2021-09-14</tt> of the Amazon Managed Streaming for
 --   Kafka Connect SDK configuration.

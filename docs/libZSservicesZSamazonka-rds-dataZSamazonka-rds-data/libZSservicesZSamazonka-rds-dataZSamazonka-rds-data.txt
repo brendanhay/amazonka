@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.RDSData.Types.ArrayValue
+module Amazonka.RDSData.Types.ArrayValue
 
 -- | Contains an array.
 --   
@@ -66,17 +66,17 @@ arrayValue_arrayValues :: Lens' ArrayValue (Maybe [ArrayValue])
 
 -- | An array of Boolean values.
 arrayValue_booleanValues :: Lens' ArrayValue (Maybe [Bool])
-instance GHC.Generics.Generic Network.AWS.RDSData.Types.ArrayValue.ArrayValue
-instance GHC.Show.Show Network.AWS.RDSData.Types.ArrayValue.ArrayValue
-instance GHC.Read.Read Network.AWS.RDSData.Types.ArrayValue.ArrayValue
-instance GHC.Classes.Eq Network.AWS.RDSData.Types.ArrayValue.ArrayValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RDSData.Types.ArrayValue.ArrayValue
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.Types.ArrayValue.ArrayValue
-instance Control.DeepSeq.NFData Network.AWS.RDSData.Types.ArrayValue.ArrayValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RDSData.Types.ArrayValue.ArrayValue
+instance GHC.Generics.Generic Amazonka.RDSData.Types.ArrayValue.ArrayValue
+instance GHC.Show.Show Amazonka.RDSData.Types.ArrayValue.ArrayValue
+instance GHC.Read.Read Amazonka.RDSData.Types.ArrayValue.ArrayValue
+instance GHC.Classes.Eq Amazonka.RDSData.Types.ArrayValue.ArrayValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RDSData.Types.ArrayValue.ArrayValue
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.Types.ArrayValue.ArrayValue
+instance Control.DeepSeq.NFData Amazonka.RDSData.Types.ArrayValue.ArrayValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RDSData.Types.ArrayValue.ArrayValue
 
 
-module Network.AWS.RDSData.Types.ColumnMetadata
+module Amazonka.RDSData.Types.ColumnMetadata
 
 -- | Contains the metadata for a column.
 --   
@@ -223,43 +223,43 @@ columnMetadata_nullable :: Lens' ColumnMetadata (Maybe Int)
 
 -- | The name of the table that includes the column.
 columnMetadata_tableName :: Lens' ColumnMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.RDSData.Types.ColumnMetadata.ColumnMetadata
-instance GHC.Show.Show Network.AWS.RDSData.Types.ColumnMetadata.ColumnMetadata
-instance GHC.Read.Read Network.AWS.RDSData.Types.ColumnMetadata.ColumnMetadata
-instance GHC.Classes.Eq Network.AWS.RDSData.Types.ColumnMetadata.ColumnMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RDSData.Types.ColumnMetadata.ColumnMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.Types.ColumnMetadata.ColumnMetadata
-instance Control.DeepSeq.NFData Network.AWS.RDSData.Types.ColumnMetadata.ColumnMetadata
+instance GHC.Generics.Generic Amazonka.RDSData.Types.ColumnMetadata.ColumnMetadata
+instance GHC.Show.Show Amazonka.RDSData.Types.ColumnMetadata.ColumnMetadata
+instance GHC.Read.Read Amazonka.RDSData.Types.ColumnMetadata.ColumnMetadata
+instance GHC.Classes.Eq Amazonka.RDSData.Types.ColumnMetadata.ColumnMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RDSData.Types.ColumnMetadata.ColumnMetadata
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.Types.ColumnMetadata.ColumnMetadata
+instance Control.DeepSeq.NFData Amazonka.RDSData.Types.ColumnMetadata.ColumnMetadata
 
 
-module Network.AWS.RDSData.Types.DecimalReturnType
+module Amazonka.RDSData.Types.DecimalReturnType
 newtype DecimalReturnType
 DecimalReturnType' :: Text -> DecimalReturnType
 [fromDecimalReturnType] :: DecimalReturnType -> Text
 pattern DecimalReturnType_DOUBLE_OR_LONG :: DecimalReturnType
 pattern DecimalReturnType_STRING :: DecimalReturnType
-instance Network.AWS.Data.XML.ToXML Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Network.AWS.Data.XML.FromXML Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Network.AWS.Data.Log.ToLog Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Network.AWS.Data.Text.ToText Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Network.AWS.Data.Text.FromText Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Control.DeepSeq.NFData Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance GHC.Generics.Generic Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance GHC.Classes.Ord Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance GHC.Classes.Eq Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance GHC.Read.Read Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
-instance GHC.Show.Show Network.AWS.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Amazonka.Data.XML.ToXML Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Amazonka.Data.XML.FromXML Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Amazonka.Data.Query.ToQuery Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Amazonka.Data.Headers.ToHeader Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Amazonka.Data.Log.ToLog Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Amazonka.Data.Text.ToText Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Amazonka.Data.Text.FromText Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Control.DeepSeq.NFData Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance GHC.Generics.Generic Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance GHC.Classes.Ord Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance GHC.Classes.Eq Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance GHC.Read.Read Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
+instance GHC.Show.Show Amazonka.RDSData.Types.DecimalReturnType.DecimalReturnType
 
 
-module Network.AWS.RDSData.Types.Field
+module Amazonka.RDSData.Types.Field
 
 -- | Contains a value.
 --   
@@ -346,17 +346,17 @@ field_blobValue :: Lens' Field (Maybe ByteString)
 
 -- | A NULL value.
 field_isNull :: Lens' Field (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.RDSData.Types.Field.Field
-instance GHC.Show.Show Network.AWS.RDSData.Types.Field.Field
-instance GHC.Read.Read Network.AWS.RDSData.Types.Field.Field
-instance GHC.Classes.Eq Network.AWS.RDSData.Types.Field.Field
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RDSData.Types.Field.Field
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.Types.Field.Field
-instance Control.DeepSeq.NFData Network.AWS.RDSData.Types.Field.Field
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RDSData.Types.Field.Field
+instance GHC.Generics.Generic Amazonka.RDSData.Types.Field.Field
+instance GHC.Show.Show Amazonka.RDSData.Types.Field.Field
+instance GHC.Read.Read Amazonka.RDSData.Types.Field.Field
+instance GHC.Classes.Eq Amazonka.RDSData.Types.Field.Field
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RDSData.Types.Field.Field
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.Types.Field.Field
+instance Control.DeepSeq.NFData Amazonka.RDSData.Types.Field.Field
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RDSData.Types.Field.Field
 
 
-module Network.AWS.RDSData.Types.ResultSetOptions
+module Amazonka.RDSData.Types.ResultSetOptions
 
 -- | Options that control how the result set is returned.
 --   
@@ -407,16 +407,16 @@ newResultSetOptions :: ResultSetOptions
 --   precision loss. We recommend converting to String, especially when
 --   working with currency values.
 resultSetOptions_decimalReturnType :: Lens' ResultSetOptions (Maybe DecimalReturnType)
-instance GHC.Generics.Generic Network.AWS.RDSData.Types.ResultSetOptions.ResultSetOptions
-instance GHC.Show.Show Network.AWS.RDSData.Types.ResultSetOptions.ResultSetOptions
-instance GHC.Read.Read Network.AWS.RDSData.Types.ResultSetOptions.ResultSetOptions
-instance GHC.Classes.Eq Network.AWS.RDSData.Types.ResultSetOptions.ResultSetOptions
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.Types.ResultSetOptions.ResultSetOptions
-instance Control.DeepSeq.NFData Network.AWS.RDSData.Types.ResultSetOptions.ResultSetOptions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RDSData.Types.ResultSetOptions.ResultSetOptions
+instance GHC.Generics.Generic Amazonka.RDSData.Types.ResultSetOptions.ResultSetOptions
+instance GHC.Show.Show Amazonka.RDSData.Types.ResultSetOptions.ResultSetOptions
+instance GHC.Read.Read Amazonka.RDSData.Types.ResultSetOptions.ResultSetOptions
+instance GHC.Classes.Eq Amazonka.RDSData.Types.ResultSetOptions.ResultSetOptions
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.Types.ResultSetOptions.ResultSetOptions
+instance Control.DeepSeq.NFData Amazonka.RDSData.Types.ResultSetOptions.ResultSetOptions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RDSData.Types.ResultSetOptions.ResultSetOptions
 
 
-module Network.AWS.RDSData.Types.TypeHint
+module Amazonka.RDSData.Types.TypeHint
 newtype TypeHint
 TypeHint' :: Text -> TypeHint
 [fromTypeHint] :: TypeHint -> Text
@@ -426,28 +426,28 @@ pattern TypeHint_JSON :: TypeHint
 pattern TypeHint_TIME :: TypeHint
 pattern TypeHint_TIMESTAMP :: TypeHint
 pattern TypeHint_UUID :: TypeHint
-instance Network.AWS.Data.XML.ToXML Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Network.AWS.Data.XML.FromXML Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Network.AWS.Data.Log.ToLog Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Network.AWS.Data.Text.ToText Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Network.AWS.Data.Text.FromText Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Control.DeepSeq.NFData Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance GHC.Generics.Generic Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance GHC.Classes.Ord Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance GHC.Classes.Eq Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance GHC.Read.Read Network.AWS.RDSData.Types.TypeHint.TypeHint
-instance GHC.Show.Show Network.AWS.RDSData.Types.TypeHint.TypeHint
+instance Amazonka.Data.XML.ToXML Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Amazonka.Data.XML.FromXML Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Amazonka.Data.Query.ToQuery Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Amazonka.Data.Headers.ToHeader Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Amazonka.Data.Log.ToLog Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Amazonka.Data.ByteString.ToByteString Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Amazonka.Data.Text.ToText Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Amazonka.Data.Text.FromText Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Control.DeepSeq.NFData Amazonka.RDSData.Types.TypeHint.TypeHint
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.Types.TypeHint.TypeHint
+instance GHC.Generics.Generic Amazonka.RDSData.Types.TypeHint.TypeHint
+instance GHC.Classes.Ord Amazonka.RDSData.Types.TypeHint.TypeHint
+instance GHC.Classes.Eq Amazonka.RDSData.Types.TypeHint.TypeHint
+instance GHC.Read.Read Amazonka.RDSData.Types.TypeHint.TypeHint
+instance GHC.Show.Show Amazonka.RDSData.Types.TypeHint.TypeHint
 
 
-module Network.AWS.RDSData.Types.SqlParameter
+module Amazonka.RDSData.Types.SqlParameter
 
 -- | A parameter used in a SQL statement.
 --   
@@ -551,16 +551,16 @@ sqlParameter_name :: Lens' SqlParameter (Maybe Text)
 --   is sent as an object of <tt>UUID</tt> type to the database.</li>
 --   </ul>
 sqlParameter_typeHint :: Lens' SqlParameter (Maybe TypeHint)
-instance GHC.Generics.Generic Network.AWS.RDSData.Types.SqlParameter.SqlParameter
-instance GHC.Show.Show Network.AWS.RDSData.Types.SqlParameter.SqlParameter
-instance GHC.Read.Read Network.AWS.RDSData.Types.SqlParameter.SqlParameter
-instance GHC.Classes.Eq Network.AWS.RDSData.Types.SqlParameter.SqlParameter
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.Types.SqlParameter.SqlParameter
-instance Control.DeepSeq.NFData Network.AWS.RDSData.Types.SqlParameter.SqlParameter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RDSData.Types.SqlParameter.SqlParameter
+instance GHC.Generics.Generic Amazonka.RDSData.Types.SqlParameter.SqlParameter
+instance GHC.Show.Show Amazonka.RDSData.Types.SqlParameter.SqlParameter
+instance GHC.Read.Read Amazonka.RDSData.Types.SqlParameter.SqlParameter
+instance GHC.Classes.Eq Amazonka.RDSData.Types.SqlParameter.SqlParameter
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.Types.SqlParameter.SqlParameter
+instance Control.DeepSeq.NFData Amazonka.RDSData.Types.SqlParameter.SqlParameter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RDSData.Types.SqlParameter.SqlParameter
 
 
-module Network.AWS.RDSData.Types.UpdateResult
+module Amazonka.RDSData.Types.UpdateResult
 
 -- | The response elements represent the results of an update.
 --   
@@ -587,16 +587,16 @@ newUpdateResult :: UpdateResult
 
 -- | Values for fields generated during the request.
 updateResult_generatedFields :: Lens' UpdateResult (Maybe [Field])
-instance GHC.Generics.Generic Network.AWS.RDSData.Types.UpdateResult.UpdateResult
-instance GHC.Show.Show Network.AWS.RDSData.Types.UpdateResult.UpdateResult
-instance GHC.Read.Read Network.AWS.RDSData.Types.UpdateResult.UpdateResult
-instance GHC.Classes.Eq Network.AWS.RDSData.Types.UpdateResult.UpdateResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RDSData.Types.UpdateResult.UpdateResult
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.Types.UpdateResult.UpdateResult
-instance Control.DeepSeq.NFData Network.AWS.RDSData.Types.UpdateResult.UpdateResult
+instance GHC.Generics.Generic Amazonka.RDSData.Types.UpdateResult.UpdateResult
+instance GHC.Show.Show Amazonka.RDSData.Types.UpdateResult.UpdateResult
+instance GHC.Read.Read Amazonka.RDSData.Types.UpdateResult.UpdateResult
+instance GHC.Classes.Eq Amazonka.RDSData.Types.UpdateResult.UpdateResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RDSData.Types.UpdateResult.UpdateResult
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.Types.UpdateResult.UpdateResult
+instance Control.DeepSeq.NFData Amazonka.RDSData.Types.UpdateResult.UpdateResult
 
 
-module Network.AWS.RDSData.Types
+module Amazonka.RDSData.Types
 
 -- | API version <tt>2018-08-01</tt> of the Amazon RDS DataService SDK
 --   configuration.
@@ -1110,7 +1110,7 @@ updateResult_generatedFields :: Lens' UpdateResult (Maybe [Field])
 
 -- | Performs a rollback of a transaction. Rolling back a transaction
 --   cancels its changes.
-module Network.AWS.RDSData.RollbackTransaction
+module Amazonka.RDSData.RollbackTransaction
 
 -- | The request parameters represent the input of a request to perform a
 --   rollback of a transaction.
@@ -1195,22 +1195,22 @@ rollbackTransactionResponse_transactionStatus :: Lens' RollbackTransactionRespon
 
 -- | The response's http status code.
 rollbackTransactionResponse_httpStatus :: Lens' RollbackTransactionResponse Int
-instance GHC.Generics.Generic Network.AWS.RDSData.RollbackTransaction.RollbackTransaction
-instance GHC.Show.Show Network.AWS.RDSData.RollbackTransaction.RollbackTransaction
-instance GHC.Read.Read Network.AWS.RDSData.RollbackTransaction.RollbackTransaction
-instance GHC.Classes.Eq Network.AWS.RDSData.RollbackTransaction.RollbackTransaction
-instance GHC.Generics.Generic Network.AWS.RDSData.RollbackTransaction.RollbackTransactionResponse
-instance GHC.Show.Show Network.AWS.RDSData.RollbackTransaction.RollbackTransactionResponse
-instance GHC.Read.Read Network.AWS.RDSData.RollbackTransaction.RollbackTransactionResponse
-instance GHC.Classes.Eq Network.AWS.RDSData.RollbackTransaction.RollbackTransactionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RDSData.RollbackTransaction.RollbackTransaction
-instance Control.DeepSeq.NFData Network.AWS.RDSData.RollbackTransaction.RollbackTransactionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.RollbackTransaction.RollbackTransaction
-instance Control.DeepSeq.NFData Network.AWS.RDSData.RollbackTransaction.RollbackTransaction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RDSData.RollbackTransaction.RollbackTransaction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RDSData.RollbackTransaction.RollbackTransaction
-instance Network.AWS.Data.Path.ToPath Network.AWS.RDSData.RollbackTransaction.RollbackTransaction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RDSData.RollbackTransaction.RollbackTransaction
+instance GHC.Generics.Generic Amazonka.RDSData.RollbackTransaction.RollbackTransaction
+instance GHC.Show.Show Amazonka.RDSData.RollbackTransaction.RollbackTransaction
+instance GHC.Read.Read Amazonka.RDSData.RollbackTransaction.RollbackTransaction
+instance GHC.Classes.Eq Amazonka.RDSData.RollbackTransaction.RollbackTransaction
+instance GHC.Generics.Generic Amazonka.RDSData.RollbackTransaction.RollbackTransactionResponse
+instance GHC.Show.Show Amazonka.RDSData.RollbackTransaction.RollbackTransactionResponse
+instance GHC.Read.Read Amazonka.RDSData.RollbackTransaction.RollbackTransactionResponse
+instance GHC.Classes.Eq Amazonka.RDSData.RollbackTransaction.RollbackTransactionResponse
+instance Amazonka.Types.AWSRequest Amazonka.RDSData.RollbackTransaction.RollbackTransaction
+instance Control.DeepSeq.NFData Amazonka.RDSData.RollbackTransaction.RollbackTransactionResponse
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.RollbackTransaction.RollbackTransaction
+instance Control.DeepSeq.NFData Amazonka.RDSData.RollbackTransaction.RollbackTransaction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RDSData.RollbackTransaction.RollbackTransaction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RDSData.RollbackTransaction.RollbackTransaction
+instance Amazonka.Data.Path.ToPath Amazonka.RDSData.RollbackTransaction.RollbackTransaction
+instance Amazonka.Data.Query.ToQuery Amazonka.RDSData.RollbackTransaction.RollbackTransaction
 
 
 -- | Runs a SQL statement against a database.
@@ -1221,7 +1221,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.RDSData.RollbackTransaction.
 --   
 --   The response size limit is 1 MB. If the call returns more than 1 MB of
 --   response data, the call is terminated.
-module Network.AWS.RDSData.ExecuteStatement
+module Amazonka.RDSData.ExecuteStatement
 
 -- | The request parameters represent the input of a request to run a SQL
 --   statement against a database.
@@ -1462,27 +1462,27 @@ executeStatementResponse_numberOfRecordsUpdated :: Lens' ExecuteStatementRespons
 
 -- | The response's http status code.
 executeStatementResponse_httpStatus :: Lens' ExecuteStatementResponse Int
-instance GHC.Generics.Generic Network.AWS.RDSData.ExecuteStatement.ExecuteStatement
-instance GHC.Show.Show Network.AWS.RDSData.ExecuteStatement.ExecuteStatement
-instance GHC.Read.Read Network.AWS.RDSData.ExecuteStatement.ExecuteStatement
-instance GHC.Classes.Eq Network.AWS.RDSData.ExecuteStatement.ExecuteStatement
-instance GHC.Generics.Generic Network.AWS.RDSData.ExecuteStatement.ExecuteStatementResponse
-instance GHC.Show.Show Network.AWS.RDSData.ExecuteStatement.ExecuteStatementResponse
-instance GHC.Read.Read Network.AWS.RDSData.ExecuteStatement.ExecuteStatementResponse
-instance GHC.Classes.Eq Network.AWS.RDSData.ExecuteStatement.ExecuteStatementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RDSData.ExecuteStatement.ExecuteStatement
-instance Control.DeepSeq.NFData Network.AWS.RDSData.ExecuteStatement.ExecuteStatementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.ExecuteStatement.ExecuteStatement
-instance Control.DeepSeq.NFData Network.AWS.RDSData.ExecuteStatement.ExecuteStatement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RDSData.ExecuteStatement.ExecuteStatement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RDSData.ExecuteStatement.ExecuteStatement
-instance Network.AWS.Data.Path.ToPath Network.AWS.RDSData.ExecuteStatement.ExecuteStatement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RDSData.ExecuteStatement.ExecuteStatement
+instance GHC.Generics.Generic Amazonka.RDSData.ExecuteStatement.ExecuteStatement
+instance GHC.Show.Show Amazonka.RDSData.ExecuteStatement.ExecuteStatement
+instance GHC.Read.Read Amazonka.RDSData.ExecuteStatement.ExecuteStatement
+instance GHC.Classes.Eq Amazonka.RDSData.ExecuteStatement.ExecuteStatement
+instance GHC.Generics.Generic Amazonka.RDSData.ExecuteStatement.ExecuteStatementResponse
+instance GHC.Show.Show Amazonka.RDSData.ExecuteStatement.ExecuteStatementResponse
+instance GHC.Read.Read Amazonka.RDSData.ExecuteStatement.ExecuteStatementResponse
+instance GHC.Classes.Eq Amazonka.RDSData.ExecuteStatement.ExecuteStatementResponse
+instance Amazonka.Types.AWSRequest Amazonka.RDSData.ExecuteStatement.ExecuteStatement
+instance Control.DeepSeq.NFData Amazonka.RDSData.ExecuteStatement.ExecuteStatementResponse
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.ExecuteStatement.ExecuteStatement
+instance Control.DeepSeq.NFData Amazonka.RDSData.ExecuteStatement.ExecuteStatement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RDSData.ExecuteStatement.ExecuteStatement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RDSData.ExecuteStatement.ExecuteStatement
+instance Amazonka.Data.Path.ToPath Amazonka.RDSData.ExecuteStatement.ExecuteStatement
+instance Amazonka.Data.Query.ToQuery Amazonka.RDSData.ExecuteStatement.ExecuteStatement
 
 
 -- | Ends a SQL transaction started with the <tt>BeginTransaction</tt>
 --   operation and commits the changes.
-module Network.AWS.RDSData.CommitTransaction
+module Amazonka.RDSData.CommitTransaction
 
 -- | The request parameters represent the input of a commit transaction
 --   request.
@@ -1567,22 +1567,22 @@ commitTransactionResponse_transactionStatus :: Lens' CommitTransactionResponse (
 
 -- | The response's http status code.
 commitTransactionResponse_httpStatus :: Lens' CommitTransactionResponse Int
-instance GHC.Generics.Generic Network.AWS.RDSData.CommitTransaction.CommitTransaction
-instance GHC.Show.Show Network.AWS.RDSData.CommitTransaction.CommitTransaction
-instance GHC.Read.Read Network.AWS.RDSData.CommitTransaction.CommitTransaction
-instance GHC.Classes.Eq Network.AWS.RDSData.CommitTransaction.CommitTransaction
-instance GHC.Generics.Generic Network.AWS.RDSData.CommitTransaction.CommitTransactionResponse
-instance GHC.Show.Show Network.AWS.RDSData.CommitTransaction.CommitTransactionResponse
-instance GHC.Read.Read Network.AWS.RDSData.CommitTransaction.CommitTransactionResponse
-instance GHC.Classes.Eq Network.AWS.RDSData.CommitTransaction.CommitTransactionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RDSData.CommitTransaction.CommitTransaction
-instance Control.DeepSeq.NFData Network.AWS.RDSData.CommitTransaction.CommitTransactionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.CommitTransaction.CommitTransaction
-instance Control.DeepSeq.NFData Network.AWS.RDSData.CommitTransaction.CommitTransaction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RDSData.CommitTransaction.CommitTransaction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RDSData.CommitTransaction.CommitTransaction
-instance Network.AWS.Data.Path.ToPath Network.AWS.RDSData.CommitTransaction.CommitTransaction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RDSData.CommitTransaction.CommitTransaction
+instance GHC.Generics.Generic Amazonka.RDSData.CommitTransaction.CommitTransaction
+instance GHC.Show.Show Amazonka.RDSData.CommitTransaction.CommitTransaction
+instance GHC.Read.Read Amazonka.RDSData.CommitTransaction.CommitTransaction
+instance GHC.Classes.Eq Amazonka.RDSData.CommitTransaction.CommitTransaction
+instance GHC.Generics.Generic Amazonka.RDSData.CommitTransaction.CommitTransactionResponse
+instance GHC.Show.Show Amazonka.RDSData.CommitTransaction.CommitTransactionResponse
+instance GHC.Read.Read Amazonka.RDSData.CommitTransaction.CommitTransactionResponse
+instance GHC.Classes.Eq Amazonka.RDSData.CommitTransaction.CommitTransactionResponse
+instance Amazonka.Types.AWSRequest Amazonka.RDSData.CommitTransaction.CommitTransaction
+instance Control.DeepSeq.NFData Amazonka.RDSData.CommitTransaction.CommitTransactionResponse
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.CommitTransaction.CommitTransaction
+instance Control.DeepSeq.NFData Amazonka.RDSData.CommitTransaction.CommitTransaction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RDSData.CommitTransaction.CommitTransaction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RDSData.CommitTransaction.CommitTransaction
+instance Amazonka.Data.Path.ToPath Amazonka.RDSData.CommitTransaction.CommitTransaction
+instance Amazonka.Data.Query.ToQuery Amazonka.RDSData.CommitTransaction.CommitTransaction
 
 
 -- | Starts a SQL transaction.
@@ -1590,7 +1590,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.RDSData.CommitTransaction.Co
 --   <pre>
 --   &lt;important&gt; &lt;p&gt;A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24 hours.&lt;/p&gt; &lt;p&gt;A transaction times out if no calls use its transaction ID in three minutes. If a transaction times out before it's committed, it's rolled back automatically.&lt;/p&gt; &lt;p&gt;DDL statements inside a transaction cause an implicit commit. We recommend that you run each DDL statement in a separate &lt;code&gt;ExecuteStatement&lt;/code&gt; call with &lt;code&gt;continueAfterTimeout&lt;/code&gt; enabled.&lt;/p&gt; &lt;/important&gt;
 --   </pre>
-module Network.AWS.RDSData.BeginTransaction
+module Amazonka.RDSData.BeginTransaction
 
 -- | The request parameters represent the input of a request to start a SQL
 --   transaction.
@@ -1683,22 +1683,22 @@ beginTransactionResponse_transactionId :: Lens' BeginTransactionResponse (Maybe 
 
 -- | The response's http status code.
 beginTransactionResponse_httpStatus :: Lens' BeginTransactionResponse Int
-instance GHC.Generics.Generic Network.AWS.RDSData.BeginTransaction.BeginTransaction
-instance GHC.Show.Show Network.AWS.RDSData.BeginTransaction.BeginTransaction
-instance GHC.Read.Read Network.AWS.RDSData.BeginTransaction.BeginTransaction
-instance GHC.Classes.Eq Network.AWS.RDSData.BeginTransaction.BeginTransaction
-instance GHC.Generics.Generic Network.AWS.RDSData.BeginTransaction.BeginTransactionResponse
-instance GHC.Show.Show Network.AWS.RDSData.BeginTransaction.BeginTransactionResponse
-instance GHC.Read.Read Network.AWS.RDSData.BeginTransaction.BeginTransactionResponse
-instance GHC.Classes.Eq Network.AWS.RDSData.BeginTransaction.BeginTransactionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RDSData.BeginTransaction.BeginTransaction
-instance Control.DeepSeq.NFData Network.AWS.RDSData.BeginTransaction.BeginTransactionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.BeginTransaction.BeginTransaction
-instance Control.DeepSeq.NFData Network.AWS.RDSData.BeginTransaction.BeginTransaction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RDSData.BeginTransaction.BeginTransaction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RDSData.BeginTransaction.BeginTransaction
-instance Network.AWS.Data.Path.ToPath Network.AWS.RDSData.BeginTransaction.BeginTransaction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RDSData.BeginTransaction.BeginTransaction
+instance GHC.Generics.Generic Amazonka.RDSData.BeginTransaction.BeginTransaction
+instance GHC.Show.Show Amazonka.RDSData.BeginTransaction.BeginTransaction
+instance GHC.Read.Read Amazonka.RDSData.BeginTransaction.BeginTransaction
+instance GHC.Classes.Eq Amazonka.RDSData.BeginTransaction.BeginTransaction
+instance GHC.Generics.Generic Amazonka.RDSData.BeginTransaction.BeginTransactionResponse
+instance GHC.Show.Show Amazonka.RDSData.BeginTransaction.BeginTransactionResponse
+instance GHC.Read.Read Amazonka.RDSData.BeginTransaction.BeginTransactionResponse
+instance GHC.Classes.Eq Amazonka.RDSData.BeginTransaction.BeginTransactionResponse
+instance Amazonka.Types.AWSRequest Amazonka.RDSData.BeginTransaction.BeginTransaction
+instance Control.DeepSeq.NFData Amazonka.RDSData.BeginTransaction.BeginTransactionResponse
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.BeginTransaction.BeginTransaction
+instance Control.DeepSeq.NFData Amazonka.RDSData.BeginTransaction.BeginTransaction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RDSData.BeginTransaction.BeginTransaction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RDSData.BeginTransaction.BeginTransaction
+instance Amazonka.Data.Path.ToPath Amazonka.RDSData.BeginTransaction.BeginTransaction
+instance Amazonka.Data.Query.ToQuery Amazonka.RDSData.BeginTransaction.BeginTransaction
 
 
 -- | Runs a batch SQL statement over an array of data.
@@ -1711,7 +1711,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.RDSData.BeginTransaction.Beg
 --   If a call isn't part of a transaction because it doesn't include the
 --   <tt>transactionID</tt> parameter, changes that result from the call
 --   are committed automatically.
-module Network.AWS.RDSData.BatchExecuteStatement
+module Amazonka.RDSData.BatchExecuteStatement
 
 -- | The request parameters represent the input of a SQL statement over an
 --   array of data.
@@ -1884,25 +1884,25 @@ batchExecuteStatementResponse_updateResults :: Lens' BatchExecuteStatementRespon
 
 -- | The response's http status code.
 batchExecuteStatementResponse_httpStatus :: Lens' BatchExecuteStatementResponse Int
-instance GHC.Generics.Generic Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatement
-instance GHC.Show.Show Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatement
-instance GHC.Read.Read Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatement
-instance GHC.Classes.Eq Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatement
-instance GHC.Generics.Generic Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatementResponse
-instance GHC.Show.Show Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatementResponse
-instance GHC.Read.Read Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatementResponse
-instance GHC.Classes.Eq Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatement
-instance Control.DeepSeq.NFData Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatement
-instance Control.DeepSeq.NFData Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatement
-instance Network.AWS.Data.Path.ToPath Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RDSData.BatchExecuteStatement.BatchExecuteStatement
+instance GHC.Generics.Generic Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatement
+instance GHC.Show.Show Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatement
+instance GHC.Read.Read Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatement
+instance GHC.Classes.Eq Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatement
+instance GHC.Generics.Generic Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatementResponse
+instance GHC.Show.Show Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatementResponse
+instance GHC.Read.Read Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatementResponse
+instance GHC.Classes.Eq Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatementResponse
+instance Amazonka.Types.AWSRequest Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatement
+instance Control.DeepSeq.NFData Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatementResponse
+instance Data.Hashable.Class.Hashable Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatement
+instance Control.DeepSeq.NFData Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatement
+instance Amazonka.Data.Path.ToPath Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatement
+instance Amazonka.Data.Query.ToQuery Amazonka.RDSData.BatchExecuteStatement.BatchExecuteStatement
 
 
-module Network.AWS.RDSData.Lens
+module Amazonka.RDSData.Lens
 
 -- | The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
 rollbackTransaction_resourceArn :: Lens' RollbackTransaction Text
@@ -2188,7 +2188,7 @@ sqlParameter_typeHint :: Lens' SqlParameter (Maybe TypeHint)
 updateResult_generatedFields :: Lens' UpdateResult (Maybe [Field])
 
 
-module Network.AWS.RDSData.Waiters
+module Amazonka.RDSData.Waiters
 
 
 -- | Derived from API version <tt>2018-08-01</tt> of the AWS service
@@ -2202,7 +2202,7 @@ module Network.AWS.RDSData.Waiters
 --   
 --   For more information about the Data Service API, see <a>Using the Data
 --   API for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.
-module Network.AWS.RDSData
+module Amazonka.RDSData
 
 -- | API version <tt>2018-08-01</tt> of the Amazon RDS DataService SDK
 --   configuration.

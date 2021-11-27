@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CertificateManagerPCA.Types.ValidityPeriodType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CertificateManagerPCA.Types.ValidityPeriodType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType"><span class="hs-identifier">ValidityPeriodType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_ABSOLUTE"><span class="hs-identifier">ValidityPeriodType_ABSOLUTE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_DAYS"><span class="hs-identifier">ValidityPeriodType_DAYS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_END_DATE"><span class="hs-identifier">ValidityPeriodType_END_DATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_MONTHS"><span class="hs-identifier">ValidityPeriodType_MONTHS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_YEARS"><span class="hs-identifier">ValidityPeriodType_YEARS</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679212734"><span id="local-6989586621679212735"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ValidityPeriodType"><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType"><span class="hs-identifier hs-var">ValidityPeriodType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidityPeriodType%27"><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType%27"><span class="hs-identifier hs-var">ValidityPeriodType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromValidityPeriodType"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; Text
+</span><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#fromValidityPeriodType"><span class="hs-identifier hs-var hs-var">fromValidityPeriodType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679212726"><span id="local-6989586621679212728"><span id="local-6989586621679212730"><span class="annot"><span class="annottext">Int -&gt; ValidityPeriodType -&gt; ShowS
+[ValidityPeriodType] -&gt; ShowS
+ValidityPeriodType -&gt; String
+(Int -&gt; ValidityPeriodType -&gt; ShowS)
+-&gt; (ValidityPeriodType -&gt; String)
+-&gt; ([ValidityPeriodType] -&gt; ShowS)
+-&gt; Show ValidityPeriodType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ValidityPeriodType] -&gt; ShowS
+$cshowList :: [ValidityPeriodType] -&gt; ShowS
+show :: ValidityPeriodType -&gt; String
+$cshow :: ValidityPeriodType -&gt; String
+showsPrec :: Int -&gt; ValidityPeriodType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ValidityPeriodType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679212717"><span id="local-6989586621679212719"><span id="local-6989586621679212721"><span id="local-6989586621679212723"><span class="annot"><span class="annottext">ReadPrec [ValidityPeriodType]
+ReadPrec ValidityPeriodType
+Int -&gt; ReadS ValidityPeriodType
+ReadS [ValidityPeriodType]
+(Int -&gt; ReadS ValidityPeriodType)
+-&gt; ReadS [ValidityPeriodType]
+-&gt; ReadPrec ValidityPeriodType
+-&gt; ReadPrec [ValidityPeriodType]
+-&gt; Read ValidityPeriodType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ValidityPeriodType]
+$creadListPrec :: ReadPrec [ValidityPeriodType]
+readPrec :: ReadPrec ValidityPeriodType
+$creadPrec :: ReadPrec ValidityPeriodType
+readList :: ReadS [ValidityPeriodType]
+$creadList :: ReadS [ValidityPeriodType]
+readsPrec :: Int -&gt; ReadS ValidityPeriodType
+$creadsPrec :: Int -&gt; ReadS ValidityPeriodType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679212712"><span id="local-6989586621679212714"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+(ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool)
+-&gt; (ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool)
+-&gt; Eq ValidityPeriodType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+$c/= :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+== :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+$c== :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679212696"><span id="local-6989586621679212698"><span id="local-6989586621679212700"><span id="local-6989586621679212702"><span id="local-6989586621679212704"><span id="local-6989586621679212706"><span id="local-6989586621679212708"><span class="annot"><span class="annottext">Eq ValidityPeriodType
+Eq ValidityPeriodType
+-&gt; (ValidityPeriodType -&gt; ValidityPeriodType -&gt; Ordering)
+-&gt; (ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool)
+-&gt; (ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool)
+-&gt; (ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool)
+-&gt; (ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool)
+-&gt; (ValidityPeriodType -&gt; ValidityPeriodType -&gt; ValidityPeriodType)
+-&gt; (ValidityPeriodType -&gt; ValidityPeriodType -&gt; ValidityPeriodType)
+-&gt; Ord ValidityPeriodType
+ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+ValidityPeriodType -&gt; ValidityPeriodType -&gt; Ordering
+ValidityPeriodType -&gt; ValidityPeriodType -&gt; ValidityPeriodType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; ValidityPeriodType
+$cmin :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; ValidityPeriodType
+max :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; ValidityPeriodType
+$cmax :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; ValidityPeriodType
+&gt;= :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+$c&gt;= :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+&gt; :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+$c&gt; :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+&lt;= :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+$c&lt;= :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+&lt; :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+$c&lt; :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Bool
+compare :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Ordering
+$ccompare :: ValidityPeriodType -&gt; ValidityPeriodType -&gt; Ordering
+$cp1Ord :: Eq ValidityPeriodType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ValidityPeriodType -&gt; Rep ValidityPeriodType x)
+-&gt; (forall x. Rep ValidityPeriodType x -&gt; ValidityPeriodType)
+-&gt; Generic ValidityPeriodType
+forall x. Rep ValidityPeriodType x -&gt; ValidityPeriodType
+forall x. ValidityPeriodType -&gt; Rep ValidityPeriodType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ValidityPeriodType x -&gt; ValidityPeriodType
+$cfrom :: forall x. ValidityPeriodType -&gt; Rep ValidityPeriodType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679212688"><span id="local-6989586621679212690"><span class="annot"><span class="annottext">Int -&gt; ValidityPeriodType -&gt; Int
+ValidityPeriodType -&gt; Int
+(Int -&gt; ValidityPeriodType -&gt; Int)
+-&gt; (ValidityPeriodType -&gt; Int) -&gt; Hashable ValidityPeriodType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ValidityPeriodType -&gt; Int
+$chash :: ValidityPeriodType -&gt; Int
+hashWithSalt :: Int -&gt; ValidityPeriodType -&gt; Int
+$chashWithSalt :: Int -&gt; ValidityPeriodType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679212685"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; ()
+(ValidityPeriodType -&gt; ()) -&gt; NFData ValidityPeriodType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ValidityPeriodType -&gt; ()
+$crnf :: ValidityPeriodType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679212682"><span class="annot"><span class="annottext">Text -&gt; Either String ValidityPeriodType
+(Text -&gt; Either String ValidityPeriodType)
+-&gt; FromText ValidityPeriodType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ValidityPeriodType
+$cfromText :: Text -&gt; Either String ValidityPeriodType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679212679"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; Text
+(ValidityPeriodType -&gt; Text) -&gt; ToText ValidityPeriodType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ValidityPeriodType -&gt; Text
+$ctoText :: ValidityPeriodType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679212676"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; ByteString
+(ValidityPeriodType -&gt; ByteString)
+-&gt; ToByteString ValidityPeriodType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ValidityPeriodType -&gt; ByteString
+$ctoBS :: ValidityPeriodType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679212673"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; ByteStringBuilder
+(ValidityPeriodType -&gt; ByteStringBuilder)
+-&gt; ToLog ValidityPeriodType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ValidityPeriodType -&gt; ByteStringBuilder
+$cbuild :: ValidityPeriodType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679212670"><span class="annot"><span class="annottext">HeaderName -&gt; ValidityPeriodType -&gt; [Header]
+(HeaderName -&gt; ValidityPeriodType -&gt; [Header])
+-&gt; ToHeader ValidityPeriodType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ValidityPeriodType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ValidityPeriodType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679212667"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; QueryString
+(ValidityPeriodType -&gt; QueryString) -&gt; ToQuery ValidityPeriodType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ValidityPeriodType -&gt; QueryString
+$ctoQuery :: ValidityPeriodType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679212662"><span id="local-6989586621679212664"><span class="annot"><span class="annottext">Value -&gt; Parser [ValidityPeriodType]
+Value -&gt; Parser ValidityPeriodType
+(Value -&gt; Parser ValidityPeriodType)
+-&gt; (Value -&gt; Parser [ValidityPeriodType])
+-&gt; FromJSON ValidityPeriodType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ValidityPeriodType]
+$cparseJSONList :: Value -&gt; Parser [ValidityPeriodType]
+parseJSON :: Value -&gt; Parser ValidityPeriodType
+$cparseJSON :: Value -&gt; Parser ValidityPeriodType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679212657"><span id="local-6989586621679212659"><span class="annot"><span class="annottext">FromJSONKeyFunction [ValidityPeriodType]
+FromJSONKeyFunction ValidityPeriodType
+FromJSONKeyFunction ValidityPeriodType
+-&gt; FromJSONKeyFunction [ValidityPeriodType]
+-&gt; FromJSONKey ValidityPeriodType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ValidityPeriodType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ValidityPeriodType]
+fromJSONKey :: FromJSONKeyFunction ValidityPeriodType
+$cfromJSONKey :: FromJSONKeyFunction ValidityPeriodType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679212648"><span id="local-6989586621679212650"><span id="local-6989586621679212652"><span id="local-6989586621679212654"><span class="annot"><span class="annottext">[ValidityPeriodType] -&gt; Encoding
+[ValidityPeriodType] -&gt; Value
+ValidityPeriodType -&gt; Encoding
+ValidityPeriodType -&gt; Value
+(ValidityPeriodType -&gt; Value)
+-&gt; (ValidityPeriodType -&gt; Encoding)
+-&gt; ([ValidityPeriodType] -&gt; Value)
+-&gt; ([ValidityPeriodType] -&gt; Encoding)
+-&gt; ToJSON ValidityPeriodType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ValidityPeriodType] -&gt; Encoding
+$ctoEncodingList :: [ValidityPeriodType] -&gt; Encoding
+toJSONList :: [ValidityPeriodType] -&gt; Value
+$ctoJSONList :: [ValidityPeriodType] -&gt; Value
+toEncoding :: ValidityPeriodType -&gt; Encoding
+$ctoEncoding :: ValidityPeriodType -&gt; Encoding
+toJSON :: ValidityPeriodType -&gt; Value
+$ctoJSON :: ValidityPeriodType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679212643"><span id="local-6989586621679212645"><span class="annot"><span class="annottext">ToJSONKeyFunction [ValidityPeriodType]
+ToJSONKeyFunction ValidityPeriodType
+ToJSONKeyFunction ValidityPeriodType
+-&gt; ToJSONKeyFunction [ValidityPeriodType]
+-&gt; ToJSONKey ValidityPeriodType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ValidityPeriodType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ValidityPeriodType]
+toJSONKey :: ToJSONKeyFunction ValidityPeriodType
+$ctoJSONKey :: ToJSONKeyFunction ValidityPeriodType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679212640"><span class="annot"><span class="annottext">[Node] -&gt; Either String ValidityPeriodType
+([Node] -&gt; Either String ValidityPeriodType)
+-&gt; FromXML ValidityPeriodType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ValidityPeriodType
+$cparseXML :: [Node] -&gt; Either String ValidityPeriodType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679212637"><span class="annot"><span class="annottext">ValidityPeriodType -&gt; XML
+(ValidityPeriodType -&gt; XML) -&gt; ToXML ValidityPeriodType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ValidityPeriodType -&gt; XML
+$ctoXML :: ValidityPeriodType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_ABSOLUTE"><span class="hs-identifier hs-type">ValidityPeriodType_ABSOLUTE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType"><span class="hs-identifier hs-type">ValidityPeriodType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidityPeriodType_ABSOLUTE"><span id="%24mValidityPeriodType_ABSOLUTE"><span id="ValidityPeriodType_ABSOLUTE"><span class="annot"><span class="annottext">$bValidityPeriodType_ABSOLUTE :: ValidityPeriodType
+$mValidityPeriodType_ABSOLUTE :: forall r. ValidityPeriodType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#%24bValidityPeriodType_ABSOLUTE"><span class="hs-identifier hs-var hs-var hs-var">ValidityPeriodType_ABSOLUTE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType%27"><span class="hs-identifier hs-type">ValidityPeriodType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ABSOLUTE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_DAYS"><span class="hs-identifier hs-type">ValidityPeriodType_DAYS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType"><span class="hs-identifier hs-type">ValidityPeriodType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidityPeriodType_DAYS"><span id="%24mValidityPeriodType_DAYS"><span id="ValidityPeriodType_DAYS"><span class="annot"><span class="annottext">$bValidityPeriodType_DAYS :: ValidityPeriodType
+$mValidityPeriodType_DAYS :: forall r. ValidityPeriodType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#%24bValidityPeriodType_DAYS"><span class="hs-identifier hs-var hs-var hs-var">ValidityPeriodType_DAYS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType%27"><span class="hs-identifier hs-type">ValidityPeriodType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DAYS&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_END_DATE"><span class="hs-identifier hs-type">ValidityPeriodType_END_DATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType"><span class="hs-identifier hs-type">ValidityPeriodType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidityPeriodType_END_DATE"><span id="%24mValidityPeriodType_END_DATE"><span id="ValidityPeriodType_END_DATE"><span class="annot"><span class="annottext">$bValidityPeriodType_END_DATE :: ValidityPeriodType
+$mValidityPeriodType_END_DATE :: forall r. ValidityPeriodType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#%24bValidityPeriodType_END_DATE"><span class="hs-identifier hs-var hs-var hs-var">ValidityPeriodType_END_DATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType%27"><span class="hs-identifier hs-type">ValidityPeriodType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;END_DATE&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_MONTHS"><span class="hs-identifier hs-type">ValidityPeriodType_MONTHS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType"><span class="hs-identifier hs-type">ValidityPeriodType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidityPeriodType_MONTHS"><span id="%24mValidityPeriodType_MONTHS"><span id="ValidityPeriodType_MONTHS"><span class="annot"><span class="annottext">$bValidityPeriodType_MONTHS :: ValidityPeriodType
+$mValidityPeriodType_MONTHS :: forall r. ValidityPeriodType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#%24bValidityPeriodType_MONTHS"><span class="hs-identifier hs-var hs-var hs-var">ValidityPeriodType_MONTHS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType%27"><span class="hs-identifier hs-type">ValidityPeriodType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MONTHS&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_YEARS"><span class="hs-identifier hs-type">ValidityPeriodType_YEARS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType"><span class="hs-identifier hs-type">ValidityPeriodType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidityPeriodType_YEARS"><span id="%24mValidityPeriodType_YEARS"><span id="ValidityPeriodType_YEARS"><span class="annot"><span class="annottext">$bValidityPeriodType_YEARS :: ValidityPeriodType
+$mValidityPeriodType_YEARS :: forall r. ValidityPeriodType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#%24bValidityPeriodType_YEARS"><span class="hs-identifier hs-var hs-var hs-var">ValidityPeriodType_YEARS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType%27"><span class="hs-identifier hs-type">ValidityPeriodType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;YEARS&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_ABSOLUTE"><span class="hs-pragma hs-type">ValidityPeriodType_ABSOLUTE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_DAYS"><span class="hs-pragma hs-type">ValidityPeriodType_DAYS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_END_DATE"><span class="hs-pragma hs-type">ValidityPeriodType_END_DATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_MONTHS"><span class="hs-pragma hs-type">ValidityPeriodType_MONTHS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType_YEARS"><span class="hs-pragma hs-type">ValidityPeriodType_YEARS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType%27"><span class="hs-pragma hs-type">ValidityPeriodType'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

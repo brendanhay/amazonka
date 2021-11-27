@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Detective.Types.Account
+module Amazonka.Detective.Types.Account
 
 -- | An AWS account that is the administrator account of or a member of a
 --   behavior graph.
@@ -40,16 +40,16 @@ account_accountId :: Lens' Account Text
 
 -- | The AWS account root user email address for the AWS account.
 account_emailAddress :: Lens' Account Text
-instance GHC.Generics.Generic Network.AWS.Detective.Types.Account.Account
-instance GHC.Show.Show Network.AWS.Detective.Types.Account.Account
-instance GHC.Read.Read Network.AWS.Detective.Types.Account.Account
-instance GHC.Classes.Eq Network.AWS.Detective.Types.Account.Account
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.Types.Account.Account
-instance Control.DeepSeq.NFData Network.AWS.Detective.Types.Account.Account
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.Types.Account.Account
+instance GHC.Generics.Generic Amazonka.Detective.Types.Account.Account
+instance GHC.Show.Show Amazonka.Detective.Types.Account.Account
+instance GHC.Read.Read Amazonka.Detective.Types.Account.Account
+instance GHC.Classes.Eq Amazonka.Detective.Types.Account.Account
+instance Data.Hashable.Class.Hashable Amazonka.Detective.Types.Account.Account
+instance Control.DeepSeq.NFData Amazonka.Detective.Types.Account.Account
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.Types.Account.Account
 
 
-module Network.AWS.Detective.Types.Graph
+module Amazonka.Detective.Types.Graph
 
 -- | A behavior graph in Detective.
 --   
@@ -86,43 +86,43 @@ graph_arn :: Lens' Graph (Maybe Text)
 -- | The date and time that the behavior graph was created. The value is in
 --   milliseconds since the epoch.
 graph_createdTime :: Lens' Graph (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.Detective.Types.Graph.Graph
-instance GHC.Show.Show Network.AWS.Detective.Types.Graph.Graph
-instance GHC.Read.Read Network.AWS.Detective.Types.Graph.Graph
-instance GHC.Classes.Eq Network.AWS.Detective.Types.Graph.Graph
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Detective.Types.Graph.Graph
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.Types.Graph.Graph
-instance Control.DeepSeq.NFData Network.AWS.Detective.Types.Graph.Graph
+instance GHC.Generics.Generic Amazonka.Detective.Types.Graph.Graph
+instance GHC.Show.Show Amazonka.Detective.Types.Graph.Graph
+instance GHC.Read.Read Amazonka.Detective.Types.Graph.Graph
+instance GHC.Classes.Eq Amazonka.Detective.Types.Graph.Graph
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Detective.Types.Graph.Graph
+instance Data.Hashable.Class.Hashable Amazonka.Detective.Types.Graph.Graph
+instance Control.DeepSeq.NFData Amazonka.Detective.Types.Graph.Graph
 
 
-module Network.AWS.Detective.Types.MemberDisabledReason
+module Amazonka.Detective.Types.MemberDisabledReason
 newtype MemberDisabledReason
 MemberDisabledReason' :: Text -> MemberDisabledReason
 [fromMemberDisabledReason] :: MemberDisabledReason -> Text
 pattern MemberDisabledReason_VOLUME_TOO_HIGH :: MemberDisabledReason
 pattern MemberDisabledReason_VOLUME_UNKNOWN :: MemberDisabledReason
-instance Network.AWS.Data.XML.ToXML Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Network.AWS.Data.XML.FromXML Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Network.AWS.Data.Log.ToLog Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Network.AWS.Data.Text.ToText Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Network.AWS.Data.Text.FromText Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Control.DeepSeq.NFData Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance GHC.Generics.Generic Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance GHC.Classes.Ord Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance GHC.Classes.Eq Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance GHC.Read.Read Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
-instance GHC.Show.Show Network.AWS.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Amazonka.Data.XML.ToXML Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Amazonka.Data.XML.FromXML Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Amazonka.Data.Headers.ToHeader Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Amazonka.Data.Log.ToLog Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Amazonka.Data.Text.ToText Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Amazonka.Data.Text.FromText Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Control.DeepSeq.NFData Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance Data.Hashable.Class.Hashable Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance GHC.Generics.Generic Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance GHC.Classes.Ord Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance GHC.Classes.Eq Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance GHC.Read.Read Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
+instance GHC.Show.Show Amazonka.Detective.Types.MemberDisabledReason.MemberDisabledReason
 
 
-module Network.AWS.Detective.Types.MemberStatus
+module Amazonka.Detective.Types.MemberStatus
 newtype MemberStatus
 MemberStatus' :: Text -> MemberStatus
 [fromMemberStatus] :: MemberStatus -> Text
@@ -131,28 +131,28 @@ pattern MemberStatus_ENABLED :: MemberStatus
 pattern MemberStatus_INVITED :: MemberStatus
 pattern MemberStatus_VERIFICATION_FAILED :: MemberStatus
 pattern MemberStatus_VERIFICATION_IN_PROGRESS :: MemberStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Control.DeepSeq.NFData Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance GHC.Generics.Generic Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance GHC.Classes.Ord Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance GHC.Classes.Eq Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance GHC.Read.Read Network.AWS.Detective.Types.MemberStatus.MemberStatus
-instance GHC.Show.Show Network.AWS.Detective.Types.MemberStatus.MemberStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Amazonka.Data.Text.ToText Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Amazonka.Data.Text.FromText Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Control.DeepSeq.NFData Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance Data.Hashable.Class.Hashable Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance GHC.Generics.Generic Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance GHC.Classes.Ord Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance GHC.Classes.Eq Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance GHC.Read.Read Amazonka.Detective.Types.MemberStatus.MemberStatus
+instance GHC.Show.Show Amazonka.Detective.Types.MemberStatus.MemberStatus
 
 
-module Network.AWS.Detective.Types.MemberDetail
+module Amazonka.Detective.Types.MemberDetail
 
 -- | Details about a member account that was invited to contribute to a
 --   behavior graph.
@@ -444,16 +444,16 @@ memberDetail_updatedTime :: Lens' MemberDetail (Maybe UTCTime)
 
 -- | The data volume in bytes per day for the member account.
 memberDetail_volumeUsageInBytes :: Lens' MemberDetail (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.Detective.Types.MemberDetail.MemberDetail
-instance GHC.Show.Show Network.AWS.Detective.Types.MemberDetail.MemberDetail
-instance GHC.Read.Read Network.AWS.Detective.Types.MemberDetail.MemberDetail
-instance GHC.Classes.Eq Network.AWS.Detective.Types.MemberDetail.MemberDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Detective.Types.MemberDetail.MemberDetail
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.Types.MemberDetail.MemberDetail
-instance Control.DeepSeq.NFData Network.AWS.Detective.Types.MemberDetail.MemberDetail
+instance GHC.Generics.Generic Amazonka.Detective.Types.MemberDetail.MemberDetail
+instance GHC.Show.Show Amazonka.Detective.Types.MemberDetail.MemberDetail
+instance GHC.Read.Read Amazonka.Detective.Types.MemberDetail.MemberDetail
+instance GHC.Classes.Eq Amazonka.Detective.Types.MemberDetail.MemberDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Detective.Types.MemberDetail.MemberDetail
+instance Data.Hashable.Class.Hashable Amazonka.Detective.Types.MemberDetail.MemberDetail
+instance Control.DeepSeq.NFData Amazonka.Detective.Types.MemberDetail.MemberDetail
 
 
-module Network.AWS.Detective.Types.UnprocessedAccount
+module Amazonka.Detective.Types.UnprocessedAccount
 
 -- | A member account that was included in a request but for which the
 --   request could not be processed.
@@ -493,16 +493,16 @@ unprocessedAccount_accountId :: Lens' UnprocessedAccount (Maybe Text)
 
 -- | The reason that the member account request could not be processed.
 unprocessedAccount_reason :: Lens' UnprocessedAccount (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Detective.Types.UnprocessedAccount.UnprocessedAccount
-instance GHC.Show.Show Network.AWS.Detective.Types.UnprocessedAccount.UnprocessedAccount
-instance GHC.Read.Read Network.AWS.Detective.Types.UnprocessedAccount.UnprocessedAccount
-instance GHC.Classes.Eq Network.AWS.Detective.Types.UnprocessedAccount.UnprocessedAccount
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Detective.Types.UnprocessedAccount.UnprocessedAccount
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.Types.UnprocessedAccount.UnprocessedAccount
-instance Control.DeepSeq.NFData Network.AWS.Detective.Types.UnprocessedAccount.UnprocessedAccount
+instance GHC.Generics.Generic Amazonka.Detective.Types.UnprocessedAccount.UnprocessedAccount
+instance GHC.Show.Show Amazonka.Detective.Types.UnprocessedAccount.UnprocessedAccount
+instance GHC.Read.Read Amazonka.Detective.Types.UnprocessedAccount.UnprocessedAccount
+instance GHC.Classes.Eq Amazonka.Detective.Types.UnprocessedAccount.UnprocessedAccount
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Detective.Types.UnprocessedAccount.UnprocessedAccount
+instance Data.Hashable.Class.Hashable Amazonka.Detective.Types.UnprocessedAccount.UnprocessedAccount
+instance Control.DeepSeq.NFData Amazonka.Detective.Types.UnprocessedAccount.UnprocessedAccount
 
 
-module Network.AWS.Detective.Types
+module Amazonka.Detective.Types
 
 -- | API version <tt>2018-10-26</tt> of the Amazon Detective SDK
 --   configuration.
@@ -950,7 +950,7 @@ unprocessedAccount_reason :: Lens' UnprocessedAccount (Maybe Text)
 
 
 -- | Applies tag values to a behavior graph.
-module Network.AWS.Detective.TagResource
+module Amazonka.Detective.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1014,22 +1014,22 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Detective.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.Detective.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.Detective.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.Detective.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.Detective.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.Detective.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.Detective.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Detective.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Detective.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Detective.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Detective.TagResource.TagResource
+instance GHC.Show.Show Amazonka.Detective.TagResource.TagResource
+instance GHC.Read.Read Amazonka.Detective.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.Detective.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Detective.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.Detective.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.Detective.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.Detective.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Detective.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Detective.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.TagResource.TagResource
 
 
 -- | Sends a request to enable data ingest for a member account that has a
@@ -1043,7 +1043,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.TagResource.TagRes
 --   <li>If Detective cannot enable the member account, the status remains
 --   <tt>ACCEPTED_BUT_DISABLED</tt>.</li>
 --   </ul>
-module Network.AWS.Detective.StartMonitoringMember
+module Amazonka.Detective.StartMonitoringMember
 
 -- | <i>See:</i> <a>newStartMonitoringMember</a> smart constructor.
 data StartMonitoringMember
@@ -1097,28 +1097,28 @@ StartMonitoringMemberResponse' :: StartMonitoringMemberResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newStartMonitoringMemberResponse :: StartMonitoringMemberResponse
-instance GHC.Generics.Generic Network.AWS.Detective.StartMonitoringMember.StartMonitoringMember
-instance GHC.Show.Show Network.AWS.Detective.StartMonitoringMember.StartMonitoringMember
-instance GHC.Read.Read Network.AWS.Detective.StartMonitoringMember.StartMonitoringMember
-instance GHC.Classes.Eq Network.AWS.Detective.StartMonitoringMember.StartMonitoringMember
-instance GHC.Generics.Generic Network.AWS.Detective.StartMonitoringMember.StartMonitoringMemberResponse
-instance GHC.Show.Show Network.AWS.Detective.StartMonitoringMember.StartMonitoringMemberResponse
-instance GHC.Read.Read Network.AWS.Detective.StartMonitoringMember.StartMonitoringMemberResponse
-instance GHC.Classes.Eq Network.AWS.Detective.StartMonitoringMember.StartMonitoringMemberResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.StartMonitoringMember.StartMonitoringMember
-instance Control.DeepSeq.NFData Network.AWS.Detective.StartMonitoringMember.StartMonitoringMemberResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.StartMonitoringMember.StartMonitoringMember
-instance Control.DeepSeq.NFData Network.AWS.Detective.StartMonitoringMember.StartMonitoringMember
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.StartMonitoringMember.StartMonitoringMember
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.StartMonitoringMember.StartMonitoringMember
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.StartMonitoringMember.StartMonitoringMember
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.StartMonitoringMember.StartMonitoringMember
+instance GHC.Generics.Generic Amazonka.Detective.StartMonitoringMember.StartMonitoringMember
+instance GHC.Show.Show Amazonka.Detective.StartMonitoringMember.StartMonitoringMember
+instance GHC.Read.Read Amazonka.Detective.StartMonitoringMember.StartMonitoringMember
+instance GHC.Classes.Eq Amazonka.Detective.StartMonitoringMember.StartMonitoringMember
+instance GHC.Generics.Generic Amazonka.Detective.StartMonitoringMember.StartMonitoringMemberResponse
+instance GHC.Show.Show Amazonka.Detective.StartMonitoringMember.StartMonitoringMemberResponse
+instance GHC.Read.Read Amazonka.Detective.StartMonitoringMember.StartMonitoringMemberResponse
+instance GHC.Classes.Eq Amazonka.Detective.StartMonitoringMember.StartMonitoringMemberResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.StartMonitoringMember.StartMonitoringMember
+instance Control.DeepSeq.NFData Amazonka.Detective.StartMonitoringMember.StartMonitoringMemberResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.StartMonitoringMember.StartMonitoringMember
+instance Control.DeepSeq.NFData Amazonka.Detective.StartMonitoringMember.StartMonitoringMember
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.StartMonitoringMember.StartMonitoringMember
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.StartMonitoringMember.StartMonitoringMember
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.StartMonitoringMember.StartMonitoringMember
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.StartMonitoringMember.StartMonitoringMember
 
 
 -- | Rejects an invitation to contribute the account data to a behavior
 --   graph. This operation must be called by a member account that has the
 --   <tt>INVITED</tt> status.
-module Network.AWS.Detective.RejectInvitation
+module Amazonka.Detective.RejectInvitation
 
 -- | <i>See:</i> <a>newRejectInvitation</a> smart constructor.
 data RejectInvitation
@@ -1163,26 +1163,26 @@ RejectInvitationResponse' :: RejectInvitationResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newRejectInvitationResponse :: RejectInvitationResponse
-instance GHC.Generics.Generic Network.AWS.Detective.RejectInvitation.RejectInvitation
-instance GHC.Show.Show Network.AWS.Detective.RejectInvitation.RejectInvitation
-instance GHC.Read.Read Network.AWS.Detective.RejectInvitation.RejectInvitation
-instance GHC.Classes.Eq Network.AWS.Detective.RejectInvitation.RejectInvitation
-instance GHC.Generics.Generic Network.AWS.Detective.RejectInvitation.RejectInvitationResponse
-instance GHC.Show.Show Network.AWS.Detective.RejectInvitation.RejectInvitationResponse
-instance GHC.Read.Read Network.AWS.Detective.RejectInvitation.RejectInvitationResponse
-instance GHC.Classes.Eq Network.AWS.Detective.RejectInvitation.RejectInvitationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.RejectInvitation.RejectInvitation
-instance Control.DeepSeq.NFData Network.AWS.Detective.RejectInvitation.RejectInvitationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.RejectInvitation.RejectInvitation
-instance Control.DeepSeq.NFData Network.AWS.Detective.RejectInvitation.RejectInvitation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.RejectInvitation.RejectInvitation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.RejectInvitation.RejectInvitation
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.RejectInvitation.RejectInvitation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.RejectInvitation.RejectInvitation
+instance GHC.Generics.Generic Amazonka.Detective.RejectInvitation.RejectInvitation
+instance GHC.Show.Show Amazonka.Detective.RejectInvitation.RejectInvitation
+instance GHC.Read.Read Amazonka.Detective.RejectInvitation.RejectInvitation
+instance GHC.Classes.Eq Amazonka.Detective.RejectInvitation.RejectInvitation
+instance GHC.Generics.Generic Amazonka.Detective.RejectInvitation.RejectInvitationResponse
+instance GHC.Show.Show Amazonka.Detective.RejectInvitation.RejectInvitationResponse
+instance GHC.Read.Read Amazonka.Detective.RejectInvitation.RejectInvitationResponse
+instance GHC.Classes.Eq Amazonka.Detective.RejectInvitation.RejectInvitationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.RejectInvitation.RejectInvitation
+instance Control.DeepSeq.NFData Amazonka.Detective.RejectInvitation.RejectInvitationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.RejectInvitation.RejectInvitation
+instance Control.DeepSeq.NFData Amazonka.Detective.RejectInvitation.RejectInvitation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.RejectInvitation.RejectInvitation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.RejectInvitation.RejectInvitation
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.RejectInvitation.RejectInvitation
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.RejectInvitation.RejectInvitation
 
 
 -- | Returns the tag values that are assigned to a behavior graph.
-module Network.AWS.Detective.ListTagsForResource
+module Amazonka.Detective.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1244,26 +1244,26 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Detective.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.Detective.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.Detective.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.Detective.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.Detective.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.Detective.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.Detective.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.Detective.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Detective.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Detective.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Detective.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.Detective.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.Detective.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.Detective.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Detective.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.Detective.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.Detective.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.Detective.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Detective.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Detective.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.ListTagsForResource.ListTagsForResource
 
 
 -- | Retrieves the list of member accounts for a behavior graph. Does not
 --   return member accounts that were removed from the behavior graph.
-module Network.AWS.Detective.ListMembers
+module Amazonka.Detective.ListMembers
 
 -- | <i>See:</i> <a>newListMembers</a> smart constructor.
 data ListMembers
@@ -1383,22 +1383,22 @@ listMembersResponse_nextToken :: Lens' ListMembersResponse (Maybe Text)
 
 -- | The response's http status code.
 listMembersResponse_httpStatus :: Lens' ListMembersResponse Int
-instance GHC.Generics.Generic Network.AWS.Detective.ListMembers.ListMembers
-instance GHC.Show.Show Network.AWS.Detective.ListMembers.ListMembers
-instance GHC.Read.Read Network.AWS.Detective.ListMembers.ListMembers
-instance GHC.Classes.Eq Network.AWS.Detective.ListMembers.ListMembers
-instance GHC.Generics.Generic Network.AWS.Detective.ListMembers.ListMembersResponse
-instance GHC.Show.Show Network.AWS.Detective.ListMembers.ListMembersResponse
-instance GHC.Read.Read Network.AWS.Detective.ListMembers.ListMembersResponse
-instance GHC.Classes.Eq Network.AWS.Detective.ListMembers.ListMembersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.ListMembers.ListMembers
-instance Control.DeepSeq.NFData Network.AWS.Detective.ListMembers.ListMembersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.ListMembers.ListMembers
-instance Control.DeepSeq.NFData Network.AWS.Detective.ListMembers.ListMembers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.ListMembers.ListMembers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.ListMembers.ListMembers
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.ListMembers.ListMembers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.ListMembers.ListMembers
+instance GHC.Generics.Generic Amazonka.Detective.ListMembers.ListMembers
+instance GHC.Show.Show Amazonka.Detective.ListMembers.ListMembers
+instance GHC.Read.Read Amazonka.Detective.ListMembers.ListMembers
+instance GHC.Classes.Eq Amazonka.Detective.ListMembers.ListMembers
+instance GHC.Generics.Generic Amazonka.Detective.ListMembers.ListMembersResponse
+instance GHC.Show.Show Amazonka.Detective.ListMembers.ListMembersResponse
+instance GHC.Read.Read Amazonka.Detective.ListMembers.ListMembersResponse
+instance GHC.Classes.Eq Amazonka.Detective.ListMembers.ListMembersResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.ListMembers.ListMembers
+instance Control.DeepSeq.NFData Amazonka.Detective.ListMembers.ListMembersResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.ListMembers.ListMembers
+instance Control.DeepSeq.NFData Amazonka.Detective.ListMembers.ListMembers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.ListMembers.ListMembers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.ListMembers.ListMembers
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.ListMembers.ListMembers
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.ListMembers.ListMembers
 
 
 -- | Retrieves the list of open and accepted behavior graph invitations for
@@ -1412,7 +1412,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.ListMembers.ListMe
 --   account declined the invitation. The results also do not include
 --   behavior graphs that the member account resigned from or was removed
 --   from.
-module Network.AWS.Detective.ListInvitations
+module Amazonka.Detective.ListInvitations
 
 -- | <i>See:</i> <a>newListInvitations</a> smart constructor.
 data ListInvitations
@@ -1510,22 +1510,22 @@ listInvitationsResponse_nextToken :: Lens' ListInvitationsResponse (Maybe Text)
 
 -- | The response's http status code.
 listInvitationsResponse_httpStatus :: Lens' ListInvitationsResponse Int
-instance GHC.Generics.Generic Network.AWS.Detective.ListInvitations.ListInvitations
-instance GHC.Show.Show Network.AWS.Detective.ListInvitations.ListInvitations
-instance GHC.Read.Read Network.AWS.Detective.ListInvitations.ListInvitations
-instance GHC.Classes.Eq Network.AWS.Detective.ListInvitations.ListInvitations
-instance GHC.Generics.Generic Network.AWS.Detective.ListInvitations.ListInvitationsResponse
-instance GHC.Show.Show Network.AWS.Detective.ListInvitations.ListInvitationsResponse
-instance GHC.Read.Read Network.AWS.Detective.ListInvitations.ListInvitationsResponse
-instance GHC.Classes.Eq Network.AWS.Detective.ListInvitations.ListInvitationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.ListInvitations.ListInvitations
-instance Control.DeepSeq.NFData Network.AWS.Detective.ListInvitations.ListInvitationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.ListInvitations.ListInvitations
-instance Control.DeepSeq.NFData Network.AWS.Detective.ListInvitations.ListInvitations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.ListInvitations.ListInvitations
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.ListInvitations.ListInvitations
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.ListInvitations.ListInvitations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.ListInvitations.ListInvitations
+instance GHC.Generics.Generic Amazonka.Detective.ListInvitations.ListInvitations
+instance GHC.Show.Show Amazonka.Detective.ListInvitations.ListInvitations
+instance GHC.Read.Read Amazonka.Detective.ListInvitations.ListInvitations
+instance GHC.Classes.Eq Amazonka.Detective.ListInvitations.ListInvitations
+instance GHC.Generics.Generic Amazonka.Detective.ListInvitations.ListInvitationsResponse
+instance GHC.Show.Show Amazonka.Detective.ListInvitations.ListInvitationsResponse
+instance GHC.Read.Read Amazonka.Detective.ListInvitations.ListInvitationsResponse
+instance GHC.Classes.Eq Amazonka.Detective.ListInvitations.ListInvitationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.ListInvitations.ListInvitations
+instance Control.DeepSeq.NFData Amazonka.Detective.ListInvitations.ListInvitationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.ListInvitations.ListInvitations
+instance Control.DeepSeq.NFData Amazonka.Detective.ListInvitations.ListInvitations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.ListInvitations.ListInvitations
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.ListInvitations.ListInvitations
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.ListInvitations.ListInvitations
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.ListInvitations.ListInvitations
 
 
 -- | Returns the list of behavior graphs that the calling account is an
@@ -1535,7 +1535,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.ListInvitations.Li
 --   Because an account can currently only be the administrator of one
 --   behavior graph within a Region, the results always contain a single
 --   behavior graph.
-module Network.AWS.Detective.ListGraphs
+module Amazonka.Detective.ListGraphs
 
 -- | <i>See:</i> <a>newListGraphs</a> smart constructor.
 data ListGraphs
@@ -1630,27 +1630,27 @@ listGraphsResponse_graphList :: Lens' ListGraphsResponse (Maybe [Graph])
 
 -- | The response's http status code.
 listGraphsResponse_httpStatus :: Lens' ListGraphsResponse Int
-instance GHC.Generics.Generic Network.AWS.Detective.ListGraphs.ListGraphs
-instance GHC.Show.Show Network.AWS.Detective.ListGraphs.ListGraphs
-instance GHC.Read.Read Network.AWS.Detective.ListGraphs.ListGraphs
-instance GHC.Classes.Eq Network.AWS.Detective.ListGraphs.ListGraphs
-instance GHC.Generics.Generic Network.AWS.Detective.ListGraphs.ListGraphsResponse
-instance GHC.Show.Show Network.AWS.Detective.ListGraphs.ListGraphsResponse
-instance GHC.Read.Read Network.AWS.Detective.ListGraphs.ListGraphsResponse
-instance GHC.Classes.Eq Network.AWS.Detective.ListGraphs.ListGraphsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.ListGraphs.ListGraphs
-instance Control.DeepSeq.NFData Network.AWS.Detective.ListGraphs.ListGraphsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.ListGraphs.ListGraphs
-instance Control.DeepSeq.NFData Network.AWS.Detective.ListGraphs.ListGraphs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.ListGraphs.ListGraphs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.ListGraphs.ListGraphs
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.ListGraphs.ListGraphs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.ListGraphs.ListGraphs
+instance GHC.Generics.Generic Amazonka.Detective.ListGraphs.ListGraphs
+instance GHC.Show.Show Amazonka.Detective.ListGraphs.ListGraphs
+instance GHC.Read.Read Amazonka.Detective.ListGraphs.ListGraphs
+instance GHC.Classes.Eq Amazonka.Detective.ListGraphs.ListGraphs
+instance GHC.Generics.Generic Amazonka.Detective.ListGraphs.ListGraphsResponse
+instance GHC.Show.Show Amazonka.Detective.ListGraphs.ListGraphsResponse
+instance GHC.Read.Read Amazonka.Detective.ListGraphs.ListGraphsResponse
+instance GHC.Classes.Eq Amazonka.Detective.ListGraphs.ListGraphsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.ListGraphs.ListGraphs
+instance Control.DeepSeq.NFData Amazonka.Detective.ListGraphs.ListGraphsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.ListGraphs.ListGraphs
+instance Control.DeepSeq.NFData Amazonka.Detective.ListGraphs.ListGraphs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.ListGraphs.ListGraphs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.ListGraphs.ListGraphs
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.ListGraphs.ListGraphs
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.ListGraphs.ListGraphs
 
 
 -- | Returns the membership details for specified member accounts for a
 --   behavior graph.
-module Network.AWS.Detective.GetMembers
+module Amazonka.Detective.GetMembers
 
 -- | <i>See:</i> <a>newGetMembers</a> smart constructor.
 data GetMembers
@@ -1754,28 +1754,28 @@ getMembersResponse_unprocessedAccounts :: Lens' GetMembersResponse (Maybe [Unpro
 
 -- | The response's http status code.
 getMembersResponse_httpStatus :: Lens' GetMembersResponse Int
-instance GHC.Generics.Generic Network.AWS.Detective.GetMembers.GetMembers
-instance GHC.Show.Show Network.AWS.Detective.GetMembers.GetMembers
-instance GHC.Read.Read Network.AWS.Detective.GetMembers.GetMembers
-instance GHC.Classes.Eq Network.AWS.Detective.GetMembers.GetMembers
-instance GHC.Generics.Generic Network.AWS.Detective.GetMembers.GetMembersResponse
-instance GHC.Show.Show Network.AWS.Detective.GetMembers.GetMembersResponse
-instance GHC.Read.Read Network.AWS.Detective.GetMembers.GetMembersResponse
-instance GHC.Classes.Eq Network.AWS.Detective.GetMembers.GetMembersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.GetMembers.GetMembers
-instance Control.DeepSeq.NFData Network.AWS.Detective.GetMembers.GetMembersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.GetMembers.GetMembers
-instance Control.DeepSeq.NFData Network.AWS.Detective.GetMembers.GetMembers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.GetMembers.GetMembers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.GetMembers.GetMembers
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.GetMembers.GetMembers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.GetMembers.GetMembers
+instance GHC.Generics.Generic Amazonka.Detective.GetMembers.GetMembers
+instance GHC.Show.Show Amazonka.Detective.GetMembers.GetMembers
+instance GHC.Read.Read Amazonka.Detective.GetMembers.GetMembers
+instance GHC.Classes.Eq Amazonka.Detective.GetMembers.GetMembers
+instance GHC.Generics.Generic Amazonka.Detective.GetMembers.GetMembersResponse
+instance GHC.Show.Show Amazonka.Detective.GetMembers.GetMembersResponse
+instance GHC.Read.Read Amazonka.Detective.GetMembers.GetMembersResponse
+instance GHC.Classes.Eq Amazonka.Detective.GetMembers.GetMembersResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.GetMembers.GetMembers
+instance Control.DeepSeq.NFData Amazonka.Detective.GetMembers.GetMembersResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.GetMembers.GetMembers
+instance Control.DeepSeq.NFData Amazonka.Detective.GetMembers.GetMembers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.GetMembers.GetMembers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.GetMembers.GetMembers
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.GetMembers.GetMembers
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.GetMembers.GetMembers
 
 
 -- | Removes the member account from the specified behavior graph. This
 --   operation can only be called by a member account that has the
 --   <tt>ENABLED</tt> status.
-module Network.AWS.Detective.DisassociateMembership
+module Amazonka.Detective.DisassociateMembership
 
 -- | <i>See:</i> <a>newDisassociateMembership</a> smart constructor.
 data DisassociateMembership
@@ -1821,22 +1821,22 @@ DisassociateMembershipResponse' :: DisassociateMembershipResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDisassociateMembershipResponse :: DisassociateMembershipResponse
-instance GHC.Generics.Generic Network.AWS.Detective.DisassociateMembership.DisassociateMembership
-instance GHC.Show.Show Network.AWS.Detective.DisassociateMembership.DisassociateMembership
-instance GHC.Read.Read Network.AWS.Detective.DisassociateMembership.DisassociateMembership
-instance GHC.Classes.Eq Network.AWS.Detective.DisassociateMembership.DisassociateMembership
-instance GHC.Generics.Generic Network.AWS.Detective.DisassociateMembership.DisassociateMembershipResponse
-instance GHC.Show.Show Network.AWS.Detective.DisassociateMembership.DisassociateMembershipResponse
-instance GHC.Read.Read Network.AWS.Detective.DisassociateMembership.DisassociateMembershipResponse
-instance GHC.Classes.Eq Network.AWS.Detective.DisassociateMembership.DisassociateMembershipResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.DisassociateMembership.DisassociateMembership
-instance Control.DeepSeq.NFData Network.AWS.Detective.DisassociateMembership.DisassociateMembershipResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.DisassociateMembership.DisassociateMembership
-instance Control.DeepSeq.NFData Network.AWS.Detective.DisassociateMembership.DisassociateMembership
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.DisassociateMembership.DisassociateMembership
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.DisassociateMembership.DisassociateMembership
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.DisassociateMembership.DisassociateMembership
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.DisassociateMembership.DisassociateMembership
+instance GHC.Generics.Generic Amazonka.Detective.DisassociateMembership.DisassociateMembership
+instance GHC.Show.Show Amazonka.Detective.DisassociateMembership.DisassociateMembership
+instance GHC.Read.Read Amazonka.Detective.DisassociateMembership.DisassociateMembership
+instance GHC.Classes.Eq Amazonka.Detective.DisassociateMembership.DisassociateMembership
+instance GHC.Generics.Generic Amazonka.Detective.DisassociateMembership.DisassociateMembershipResponse
+instance GHC.Show.Show Amazonka.Detective.DisassociateMembership.DisassociateMembershipResponse
+instance GHC.Read.Read Amazonka.Detective.DisassociateMembership.DisassociateMembershipResponse
+instance GHC.Classes.Eq Amazonka.Detective.DisassociateMembership.DisassociateMembershipResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.DisassociateMembership.DisassociateMembership
+instance Control.DeepSeq.NFData Amazonka.Detective.DisassociateMembership.DisassociateMembershipResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.DisassociateMembership.DisassociateMembership
+instance Control.DeepSeq.NFData Amazonka.Detective.DisassociateMembership.DisassociateMembership
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.DisassociateMembership.DisassociateMembership
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.DisassociateMembership.DisassociateMembership
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.DisassociateMembership.DisassociateMembership
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.DisassociateMembership.DisassociateMembership
 
 
 -- | Deletes one or more member accounts from the administrator account's
@@ -1845,7 +1845,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.DisassociateMember
 --   to delete their own account from the behavior graph. To disable a
 --   behavior graph, the administrator account uses the
 --   <tt>DeleteGraph</tt> API method.
-module Network.AWS.Detective.DeleteMembers
+module Amazonka.Detective.DeleteMembers
 
 -- | <i>See:</i> <a>newDeleteMembers</a> smart constructor.
 data DeleteMembers
@@ -1937,22 +1937,22 @@ deleteMembersResponse_unprocessedAccounts :: Lens' DeleteMembersResponse (Maybe 
 
 -- | The response's http status code.
 deleteMembersResponse_httpStatus :: Lens' DeleteMembersResponse Int
-instance GHC.Generics.Generic Network.AWS.Detective.DeleteMembers.DeleteMembers
-instance GHC.Show.Show Network.AWS.Detective.DeleteMembers.DeleteMembers
-instance GHC.Read.Read Network.AWS.Detective.DeleteMembers.DeleteMembers
-instance GHC.Classes.Eq Network.AWS.Detective.DeleteMembers.DeleteMembers
-instance GHC.Generics.Generic Network.AWS.Detective.DeleteMembers.DeleteMembersResponse
-instance GHC.Show.Show Network.AWS.Detective.DeleteMembers.DeleteMembersResponse
-instance GHC.Read.Read Network.AWS.Detective.DeleteMembers.DeleteMembersResponse
-instance GHC.Classes.Eq Network.AWS.Detective.DeleteMembers.DeleteMembersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.DeleteMembers.DeleteMembers
-instance Control.DeepSeq.NFData Network.AWS.Detective.DeleteMembers.DeleteMembersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.DeleteMembers.DeleteMembers
-instance Control.DeepSeq.NFData Network.AWS.Detective.DeleteMembers.DeleteMembers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.DeleteMembers.DeleteMembers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.DeleteMembers.DeleteMembers
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.DeleteMembers.DeleteMembers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.DeleteMembers.DeleteMembers
+instance GHC.Generics.Generic Amazonka.Detective.DeleteMembers.DeleteMembers
+instance GHC.Show.Show Amazonka.Detective.DeleteMembers.DeleteMembers
+instance GHC.Read.Read Amazonka.Detective.DeleteMembers.DeleteMembers
+instance GHC.Classes.Eq Amazonka.Detective.DeleteMembers.DeleteMembers
+instance GHC.Generics.Generic Amazonka.Detective.DeleteMembers.DeleteMembersResponse
+instance GHC.Show.Show Amazonka.Detective.DeleteMembers.DeleteMembersResponse
+instance GHC.Read.Read Amazonka.Detective.DeleteMembers.DeleteMembersResponse
+instance GHC.Classes.Eq Amazonka.Detective.DeleteMembers.DeleteMembersResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.DeleteMembers.DeleteMembers
+instance Control.DeepSeq.NFData Amazonka.Detective.DeleteMembers.DeleteMembersResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.DeleteMembers.DeleteMembers
+instance Control.DeepSeq.NFData Amazonka.Detective.DeleteMembers.DeleteMembers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.DeleteMembers.DeleteMembers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.DeleteMembers.DeleteMembers
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.DeleteMembers.DeleteMembers
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.DeleteMembers.DeleteMembers
 
 
 -- | Disables the specified behavior graph and queues it to be deleted.
@@ -1961,7 +1961,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.DeleteMembers.Dele
 --   
 --   <tt>DeleteGraph</tt> can only be called by the administrator account
 --   for a behavior graph.
-module Network.AWS.Detective.DeleteGraph
+module Amazonka.Detective.DeleteGraph
 
 -- | <i>See:</i> <a>newDeleteGraph</a> smart constructor.
 data DeleteGraph
@@ -1995,22 +1995,22 @@ DeleteGraphResponse' :: DeleteGraphResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteGraphResponse :: DeleteGraphResponse
-instance GHC.Generics.Generic Network.AWS.Detective.DeleteGraph.DeleteGraph
-instance GHC.Show.Show Network.AWS.Detective.DeleteGraph.DeleteGraph
-instance GHC.Read.Read Network.AWS.Detective.DeleteGraph.DeleteGraph
-instance GHC.Classes.Eq Network.AWS.Detective.DeleteGraph.DeleteGraph
-instance GHC.Generics.Generic Network.AWS.Detective.DeleteGraph.DeleteGraphResponse
-instance GHC.Show.Show Network.AWS.Detective.DeleteGraph.DeleteGraphResponse
-instance GHC.Read.Read Network.AWS.Detective.DeleteGraph.DeleteGraphResponse
-instance GHC.Classes.Eq Network.AWS.Detective.DeleteGraph.DeleteGraphResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.DeleteGraph.DeleteGraph
-instance Control.DeepSeq.NFData Network.AWS.Detective.DeleteGraph.DeleteGraphResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.DeleteGraph.DeleteGraph
-instance Control.DeepSeq.NFData Network.AWS.Detective.DeleteGraph.DeleteGraph
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.DeleteGraph.DeleteGraph
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.DeleteGraph.DeleteGraph
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.DeleteGraph.DeleteGraph
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.DeleteGraph.DeleteGraph
+instance GHC.Generics.Generic Amazonka.Detective.DeleteGraph.DeleteGraph
+instance GHC.Show.Show Amazonka.Detective.DeleteGraph.DeleteGraph
+instance GHC.Read.Read Amazonka.Detective.DeleteGraph.DeleteGraph
+instance GHC.Classes.Eq Amazonka.Detective.DeleteGraph.DeleteGraph
+instance GHC.Generics.Generic Amazonka.Detective.DeleteGraph.DeleteGraphResponse
+instance GHC.Show.Show Amazonka.Detective.DeleteGraph.DeleteGraphResponse
+instance GHC.Read.Read Amazonka.Detective.DeleteGraph.DeleteGraphResponse
+instance GHC.Classes.Eq Amazonka.Detective.DeleteGraph.DeleteGraphResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.DeleteGraph.DeleteGraph
+instance Control.DeepSeq.NFData Amazonka.Detective.DeleteGraph.DeleteGraphResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.DeleteGraph.DeleteGraph
+instance Control.DeepSeq.NFData Amazonka.Detective.DeleteGraph.DeleteGraph
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.DeleteGraph.DeleteGraph
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.DeleteGraph.DeleteGraph
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.DeleteGraph.DeleteGraph
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.DeleteGraph.DeleteGraph
 
 
 -- | Sends a request to invite the specified AWS accounts to be member
@@ -2036,7 +2036,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.DeleteGraph.Delete
 --   This list includes accounts that were already invited to be member
 --   accounts in the behavior graph.</li>
 --   </ul>
-module Network.AWS.Detective.CreateMembers
+module Amazonka.Detective.CreateMembers
 
 -- | <i>See:</i> <a>newCreateMembers</a> smart constructor.
 data CreateMembers
@@ -2170,22 +2170,22 @@ createMembersResponse_unprocessedAccounts :: Lens' CreateMembersResponse (Maybe 
 
 -- | The response's http status code.
 createMembersResponse_httpStatus :: Lens' CreateMembersResponse Int
-instance GHC.Generics.Generic Network.AWS.Detective.CreateMembers.CreateMembers
-instance GHC.Show.Show Network.AWS.Detective.CreateMembers.CreateMembers
-instance GHC.Read.Read Network.AWS.Detective.CreateMembers.CreateMembers
-instance GHC.Classes.Eq Network.AWS.Detective.CreateMembers.CreateMembers
-instance GHC.Generics.Generic Network.AWS.Detective.CreateMembers.CreateMembersResponse
-instance GHC.Show.Show Network.AWS.Detective.CreateMembers.CreateMembersResponse
-instance GHC.Read.Read Network.AWS.Detective.CreateMembers.CreateMembersResponse
-instance GHC.Classes.Eq Network.AWS.Detective.CreateMembers.CreateMembersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.CreateMembers.CreateMembers
-instance Control.DeepSeq.NFData Network.AWS.Detective.CreateMembers.CreateMembersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.CreateMembers.CreateMembers
-instance Control.DeepSeq.NFData Network.AWS.Detective.CreateMembers.CreateMembers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.CreateMembers.CreateMembers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.CreateMembers.CreateMembers
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.CreateMembers.CreateMembers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.CreateMembers.CreateMembers
+instance GHC.Generics.Generic Amazonka.Detective.CreateMembers.CreateMembers
+instance GHC.Show.Show Amazonka.Detective.CreateMembers.CreateMembers
+instance GHC.Read.Read Amazonka.Detective.CreateMembers.CreateMembers
+instance GHC.Classes.Eq Amazonka.Detective.CreateMembers.CreateMembers
+instance GHC.Generics.Generic Amazonka.Detective.CreateMembers.CreateMembersResponse
+instance GHC.Show.Show Amazonka.Detective.CreateMembers.CreateMembersResponse
+instance GHC.Read.Read Amazonka.Detective.CreateMembers.CreateMembersResponse
+instance GHC.Classes.Eq Amazonka.Detective.CreateMembers.CreateMembersResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.CreateMembers.CreateMembers
+instance Control.DeepSeq.NFData Amazonka.Detective.CreateMembers.CreateMembersResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.CreateMembers.CreateMembers
+instance Control.DeepSeq.NFData Amazonka.Detective.CreateMembers.CreateMembers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.CreateMembers.CreateMembers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.CreateMembers.CreateMembers
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.CreateMembers.CreateMembers
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.CreateMembers.CreateMembers
 
 
 -- | Creates a new behavior graph for the calling account, and sets that
@@ -2210,7 +2210,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.CreateMembers.Crea
 --   graph within a Region. If the same account calls <tt>CreateGraph</tt>
 --   with the same administrator account, it always returns the same
 --   behavior graph ARN. It does not create a new behavior graph.
-module Network.AWS.Detective.CreateGraph
+module Amazonka.Detective.CreateGraph
 
 -- | <i>See:</i> <a>newCreateGraph</a> smart constructor.
 data CreateGraph
@@ -2276,22 +2276,22 @@ createGraphResponse_graphArn :: Lens' CreateGraphResponse (Maybe Text)
 
 -- | The response's http status code.
 createGraphResponse_httpStatus :: Lens' CreateGraphResponse Int
-instance GHC.Generics.Generic Network.AWS.Detective.CreateGraph.CreateGraph
-instance GHC.Show.Show Network.AWS.Detective.CreateGraph.CreateGraph
-instance GHC.Read.Read Network.AWS.Detective.CreateGraph.CreateGraph
-instance GHC.Classes.Eq Network.AWS.Detective.CreateGraph.CreateGraph
-instance GHC.Generics.Generic Network.AWS.Detective.CreateGraph.CreateGraphResponse
-instance GHC.Show.Show Network.AWS.Detective.CreateGraph.CreateGraphResponse
-instance GHC.Read.Read Network.AWS.Detective.CreateGraph.CreateGraphResponse
-instance GHC.Classes.Eq Network.AWS.Detective.CreateGraph.CreateGraphResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.CreateGraph.CreateGraph
-instance Control.DeepSeq.NFData Network.AWS.Detective.CreateGraph.CreateGraphResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.CreateGraph.CreateGraph
-instance Control.DeepSeq.NFData Network.AWS.Detective.CreateGraph.CreateGraph
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.CreateGraph.CreateGraph
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.CreateGraph.CreateGraph
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.CreateGraph.CreateGraph
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.CreateGraph.CreateGraph
+instance GHC.Generics.Generic Amazonka.Detective.CreateGraph.CreateGraph
+instance GHC.Show.Show Amazonka.Detective.CreateGraph.CreateGraph
+instance GHC.Read.Read Amazonka.Detective.CreateGraph.CreateGraph
+instance GHC.Classes.Eq Amazonka.Detective.CreateGraph.CreateGraph
+instance GHC.Generics.Generic Amazonka.Detective.CreateGraph.CreateGraphResponse
+instance GHC.Show.Show Amazonka.Detective.CreateGraph.CreateGraphResponse
+instance GHC.Read.Read Amazonka.Detective.CreateGraph.CreateGraphResponse
+instance GHC.Classes.Eq Amazonka.Detective.CreateGraph.CreateGraphResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.CreateGraph.CreateGraph
+instance Control.DeepSeq.NFData Amazonka.Detective.CreateGraph.CreateGraphResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.CreateGraph.CreateGraph
+instance Control.DeepSeq.NFData Amazonka.Detective.CreateGraph.CreateGraph
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.CreateGraph.CreateGraph
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.CreateGraph.CreateGraph
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.CreateGraph.CreateGraph
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.CreateGraph.CreateGraph
 
 
 -- | Accepts an invitation for the member account to contribute data to a
@@ -2301,7 +2301,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.CreateGraph.Create
 --   The request provides the ARN of behavior graph.
 --   
 --   The member account status in the graph must be <tt>INVITED</tt>.
-module Network.AWS.Detective.AcceptInvitation
+module Amazonka.Detective.AcceptInvitation
 
 -- | <i>See:</i> <a>newAcceptInvitation</a> smart constructor.
 data AcceptInvitation
@@ -2348,26 +2348,26 @@ AcceptInvitationResponse' :: AcceptInvitationResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newAcceptInvitationResponse :: AcceptInvitationResponse
-instance GHC.Generics.Generic Network.AWS.Detective.AcceptInvitation.AcceptInvitation
-instance GHC.Show.Show Network.AWS.Detective.AcceptInvitation.AcceptInvitation
-instance GHC.Read.Read Network.AWS.Detective.AcceptInvitation.AcceptInvitation
-instance GHC.Classes.Eq Network.AWS.Detective.AcceptInvitation.AcceptInvitation
-instance GHC.Generics.Generic Network.AWS.Detective.AcceptInvitation.AcceptInvitationResponse
-instance GHC.Show.Show Network.AWS.Detective.AcceptInvitation.AcceptInvitationResponse
-instance GHC.Read.Read Network.AWS.Detective.AcceptInvitation.AcceptInvitationResponse
-instance GHC.Classes.Eq Network.AWS.Detective.AcceptInvitation.AcceptInvitationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.AcceptInvitation.AcceptInvitation
-instance Control.DeepSeq.NFData Network.AWS.Detective.AcceptInvitation.AcceptInvitationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.AcceptInvitation.AcceptInvitation
-instance Control.DeepSeq.NFData Network.AWS.Detective.AcceptInvitation.AcceptInvitation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.AcceptInvitation.AcceptInvitation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Detective.AcceptInvitation.AcceptInvitation
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.AcceptInvitation.AcceptInvitation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.AcceptInvitation.AcceptInvitation
+instance GHC.Generics.Generic Amazonka.Detective.AcceptInvitation.AcceptInvitation
+instance GHC.Show.Show Amazonka.Detective.AcceptInvitation.AcceptInvitation
+instance GHC.Read.Read Amazonka.Detective.AcceptInvitation.AcceptInvitation
+instance GHC.Classes.Eq Amazonka.Detective.AcceptInvitation.AcceptInvitation
+instance GHC.Generics.Generic Amazonka.Detective.AcceptInvitation.AcceptInvitationResponse
+instance GHC.Show.Show Amazonka.Detective.AcceptInvitation.AcceptInvitationResponse
+instance GHC.Read.Read Amazonka.Detective.AcceptInvitation.AcceptInvitationResponse
+instance GHC.Classes.Eq Amazonka.Detective.AcceptInvitation.AcceptInvitationResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.AcceptInvitation.AcceptInvitation
+instance Control.DeepSeq.NFData Amazonka.Detective.AcceptInvitation.AcceptInvitationResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.AcceptInvitation.AcceptInvitation
+instance Control.DeepSeq.NFData Amazonka.Detective.AcceptInvitation.AcceptInvitation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.AcceptInvitation.AcceptInvitation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Detective.AcceptInvitation.AcceptInvitation
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.AcceptInvitation.AcceptInvitation
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.AcceptInvitation.AcceptInvitation
 
 
 -- | Removes tags from a behavior graph.
-module Network.AWS.Detective.UntagResource
+module Amazonka.Detective.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -2428,24 +2428,24 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Detective.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.Detective.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.Detective.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.Detective.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.Detective.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.Detective.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.Detective.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Detective.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Detective.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Detective.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Detective.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Detective.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Detective.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Detective.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Detective.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Detective.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.Detective.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.Detective.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.Detective.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Detective.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.Detective.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.Detective.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.Detective.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Detective.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Detective.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Detective.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Detective.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Detective.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Detective.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Detective.UntagResource.UntagResource
 
 
-module Network.AWS.Detective.Lens
+module Amazonka.Detective.Lens
 
 -- | The ARN of the behavior graph.
 startMonitoringMember_graphArn :: Lens' StartMonitoringMember Text
@@ -2786,7 +2786,7 @@ unprocessedAccount_accountId :: Lens' UnprocessedAccount (Maybe Text)
 unprocessedAccount_reason :: Lens' UnprocessedAccount (Maybe Text)
 
 
-module Network.AWS.Detective.Waiters
+module Amazonka.Detective.Waiters
 
 
 -- | Derived from API version <tt>2018-10-26</tt> of the AWS service
@@ -2836,7 +2836,7 @@ module Network.AWS.Detective.Waiters
 --   account." An administrator account is used to centrally manage
 --   multiple accounts. In the case of Detective, the administrator account
 --   manages the accounts in their behavior graph.
-module Network.AWS.Detective
+module Amazonka.Detective
 
 -- | API version <tt>2018-10-26</tt> of the Amazon Detective SDK
 --   configuration.

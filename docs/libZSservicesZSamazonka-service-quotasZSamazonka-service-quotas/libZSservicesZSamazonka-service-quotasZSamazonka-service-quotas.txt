@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ServiceQuotas.Types.ErrorCode
+module Amazonka.ServiceQuotas.Types.ErrorCode
 newtype ErrorCode
 ErrorCode' :: Text -> ErrorCode
 [fromErrorCode] :: ErrorCode -> Text
@@ -13,28 +13,28 @@ pattern ErrorCode_DEPENDENCY_ACCESS_DENIED_ERROR :: ErrorCode
 pattern ErrorCode_DEPENDENCY_SERVICE_ERROR :: ErrorCode
 pattern ErrorCode_DEPENDENCY_THROTTLING_ERROR :: ErrorCode
 pattern ErrorCode_SERVICE_QUOTA_NOT_AVAILABLE_ERROR :: ErrorCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.Text.ToText Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Network.AWS.Data.Text.FromText Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance GHC.Classes.Ord Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance GHC.Read.Read Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
-instance GHC.Show.Show Network.AWS.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.XML.ToXML Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.XML.FromXML Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.Log.ToLog Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.Text.ToText Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Amazonka.Data.Text.FromText Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance GHC.Classes.Ord Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance GHC.Read.Read Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
+instance GHC.Show.Show Amazonka.ServiceQuotas.Types.ErrorCode.ErrorCode
 
 
-module Network.AWS.ServiceQuotas.Types.ErrorReason
+module Amazonka.ServiceQuotas.Types.ErrorReason
 
 -- | An error that explains why an action did not succeed.
 --   
@@ -104,16 +104,16 @@ errorReason_errorCode :: Lens' ErrorReason (Maybe ErrorCode)
 
 -- | The error message.
 errorReason_errorMessage :: Lens' ErrorReason (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.Types.ErrorReason.ErrorReason
-instance GHC.Show.Show Network.AWS.ServiceQuotas.Types.ErrorReason.ErrorReason
-instance GHC.Read.Read Network.AWS.ServiceQuotas.Types.ErrorReason.ErrorReason
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.Types.ErrorReason.ErrorReason
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceQuotas.Types.ErrorReason.ErrorReason
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.Types.ErrorReason.ErrorReason
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.Types.ErrorReason.ErrorReason
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.Types.ErrorReason.ErrorReason
+instance GHC.Show.Show Amazonka.ServiceQuotas.Types.ErrorReason.ErrorReason
+instance GHC.Read.Read Amazonka.ServiceQuotas.Types.ErrorReason.ErrorReason
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.Types.ErrorReason.ErrorReason
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceQuotas.Types.ErrorReason.ErrorReason
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.Types.ErrorReason.ErrorReason
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.Types.ErrorReason.ErrorReason
 
 
-module Network.AWS.ServiceQuotas.Types.MetricInfo
+module Amazonka.ServiceQuotas.Types.MetricInfo
 
 -- | Information about the CloudWatch metric that reflects quota usage.
 --   
@@ -171,16 +171,16 @@ metricInfo_metricStatisticRecommendation :: Lens' MetricInfo (Maybe Text)
 
 -- | The namespace of the metric.
 metricInfo_metricNamespace :: Lens' MetricInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.Types.MetricInfo.MetricInfo
-instance GHC.Show.Show Network.AWS.ServiceQuotas.Types.MetricInfo.MetricInfo
-instance GHC.Read.Read Network.AWS.ServiceQuotas.Types.MetricInfo.MetricInfo
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.Types.MetricInfo.MetricInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceQuotas.Types.MetricInfo.MetricInfo
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.Types.MetricInfo.MetricInfo
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.Types.MetricInfo.MetricInfo
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.Types.MetricInfo.MetricInfo
+instance GHC.Show.Show Amazonka.ServiceQuotas.Types.MetricInfo.MetricInfo
+instance GHC.Read.Read Amazonka.ServiceQuotas.Types.MetricInfo.MetricInfo
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.Types.MetricInfo.MetricInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceQuotas.Types.MetricInfo.MetricInfo
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.Types.MetricInfo.MetricInfo
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.Types.MetricInfo.MetricInfo
 
 
-module Network.AWS.ServiceQuotas.Types.PeriodUnit
+module Amazonka.ServiceQuotas.Types.PeriodUnit
 newtype PeriodUnit
 PeriodUnit' :: Text -> PeriodUnit
 [fromPeriodUnit] :: PeriodUnit -> Text
@@ -191,28 +191,28 @@ pattern PeriodUnit_MILLISECOND :: PeriodUnit
 pattern PeriodUnit_MINUTE :: PeriodUnit
 pattern PeriodUnit_SECOND :: PeriodUnit
 pattern PeriodUnit_WEEK :: PeriodUnit
-instance Network.AWS.Data.XML.ToXML Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Network.AWS.Data.XML.FromXML Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Network.AWS.Data.Log.ToLog Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Network.AWS.Data.Text.ToText Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Network.AWS.Data.Text.FromText Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance GHC.Classes.Ord Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance GHC.Read.Read Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
-instance GHC.Show.Show Network.AWS.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Amazonka.Data.XML.ToXML Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Amazonka.Data.XML.FromXML Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Amazonka.Data.Headers.ToHeader Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Amazonka.Data.Log.ToLog Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Amazonka.Data.Text.ToText Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Amazonka.Data.Text.FromText Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance GHC.Classes.Ord Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance GHC.Read.Read Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
+instance GHC.Show.Show Amazonka.ServiceQuotas.Types.PeriodUnit.PeriodUnit
 
 
-module Network.AWS.ServiceQuotas.Types.QuotaPeriod
+module Amazonka.ServiceQuotas.Types.QuotaPeriod
 
 -- | Information about the quota period.
 --   
@@ -246,16 +246,16 @@ quotaPeriod_periodUnit :: Lens' QuotaPeriod (Maybe PeriodUnit)
 
 -- | The value.
 quotaPeriod_periodValue :: Lens' QuotaPeriod (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
-instance GHC.Show.Show Network.AWS.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
-instance GHC.Read.Read Network.AWS.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
+instance GHC.Show.Show Amazonka.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
+instance GHC.Read.Read Amazonka.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.Types.QuotaPeriod.QuotaPeriod
 
 
-module Network.AWS.ServiceQuotas.Types.RequestStatus
+module Amazonka.ServiceQuotas.Types.RequestStatus
 newtype RequestStatus
 RequestStatus' :: Text -> RequestStatus
 [fromRequestStatus] :: RequestStatus -> Text
@@ -264,28 +264,28 @@ pattern RequestStatus_CASE_CLOSED :: RequestStatus
 pattern RequestStatus_CASE_OPENED :: RequestStatus
 pattern RequestStatus_DENIED :: RequestStatus
 pattern RequestStatus_PENDING :: RequestStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance GHC.Classes.Ord Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance GHC.Read.Read Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
-instance GHC.Show.Show Network.AWS.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Amazonka.Data.XML.ToXML Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Amazonka.Data.XML.FromXML Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Amazonka.Data.Log.ToLog Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Amazonka.Data.Text.ToText Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Amazonka.Data.Text.FromText Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance GHC.Classes.Ord Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance GHC.Read.Read Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
+instance GHC.Show.Show Amazonka.ServiceQuotas.Types.RequestStatus.RequestStatus
 
 
-module Network.AWS.ServiceQuotas.Types.RequestedServiceQuotaChange
+module Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange
 
 -- | Information about a quota increase request.
 --   
@@ -438,16 +438,16 @@ requestedServiceQuotaChange_requester :: Lens' RequestedServiceQuotaChange (Mayb
 
 -- | The quota name.
 requestedServiceQuotaChange_quotaName :: Lens' RequestedServiceQuotaChange (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
-instance GHC.Show.Show Network.AWS.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
-instance GHC.Read.Read Network.AWS.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
+instance GHC.Show.Show Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
+instance GHC.Read.Read Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange.RequestedServiceQuotaChange
 
 
-module Network.AWS.ServiceQuotas.Types.ServiceInfo
+module Amazonka.ServiceQuotas.Types.ServiceInfo
 
 -- | Information about a service.
 --   
@@ -481,16 +481,16 @@ serviceInfo_serviceName :: Lens' ServiceInfo (Maybe Text)
 
 -- | The service identifier.
 serviceInfo_serviceCode :: Lens' ServiceInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.Types.ServiceInfo.ServiceInfo
-instance GHC.Show.Show Network.AWS.ServiceQuotas.Types.ServiceInfo.ServiceInfo
-instance GHC.Read.Read Network.AWS.ServiceQuotas.Types.ServiceInfo.ServiceInfo
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.Types.ServiceInfo.ServiceInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceQuotas.Types.ServiceInfo.ServiceInfo
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.Types.ServiceInfo.ServiceInfo
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.Types.ServiceInfo.ServiceInfo
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.Types.ServiceInfo.ServiceInfo
+instance GHC.Show.Show Amazonka.ServiceQuotas.Types.ServiceInfo.ServiceInfo
+instance GHC.Read.Read Amazonka.ServiceQuotas.Types.ServiceInfo.ServiceInfo
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.Types.ServiceInfo.ServiceInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceQuotas.Types.ServiceInfo.ServiceInfo
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.Types.ServiceInfo.ServiceInfo
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.Types.ServiceInfo.ServiceInfo
 
 
-module Network.AWS.ServiceQuotas.Types.ServiceQuota
+module Amazonka.ServiceQuotas.Types.ServiceQuota
 
 -- | Information about a quota.
 --   
@@ -615,16 +615,16 @@ serviceQuota_unit :: Lens' ServiceQuota (Maybe Text)
 
 -- | The quota name.
 serviceQuota_quotaName :: Lens' ServiceQuota (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.Types.ServiceQuota.ServiceQuota
-instance GHC.Show.Show Network.AWS.ServiceQuotas.Types.ServiceQuota.ServiceQuota
-instance GHC.Read.Read Network.AWS.ServiceQuotas.Types.ServiceQuota.ServiceQuota
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.Types.ServiceQuota.ServiceQuota
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceQuotas.Types.ServiceQuota.ServiceQuota
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.Types.ServiceQuota.ServiceQuota
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.Types.ServiceQuota.ServiceQuota
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.Types.ServiceQuota.ServiceQuota
+instance GHC.Show.Show Amazonka.ServiceQuotas.Types.ServiceQuota.ServiceQuota
+instance GHC.Read.Read Amazonka.ServiceQuotas.Types.ServiceQuota.ServiceQuota
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.Types.ServiceQuota.ServiceQuota
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceQuotas.Types.ServiceQuota.ServiceQuota
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.Types.ServiceQuota.ServiceQuota
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.Types.ServiceQuota.ServiceQuota
 
 
-module Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate
+module Amazonka.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate
 
 -- | Information about a quota increase request.
 --   
@@ -722,43 +722,43 @@ serviceQuotaIncreaseRequestInTemplate_unit :: Lens' ServiceQuotaIncreaseRequestI
 
 -- | The quota name.
 serviceQuotaIncreaseRequestInTemplate_quotaName :: Lens' ServiceQuotaIncreaseRequestInTemplate (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
-instance GHC.Show.Show Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
-instance GHC.Read.Read Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
+instance GHC.Show.Show Amazonka.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
+instance GHC.Read.Read Amazonka.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.ServiceQuotaIncreaseRequestInTemplate
 
 
-module Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus
+module Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus
 newtype ServiceQuotaTemplateAssociationStatus
 ServiceQuotaTemplateAssociationStatus' :: Text -> ServiceQuotaTemplateAssociationStatus
 [fromServiceQuotaTemplateAssociationStatus] :: ServiceQuotaTemplateAssociationStatus -> Text
 pattern ServiceQuotaTemplateAssociationStatus_ASSOCIATED :: ServiceQuotaTemplateAssociationStatus
 pattern ServiceQuotaTemplateAssociationStatus_DISASSOCIATED :: ServiceQuotaTemplateAssociationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance GHC.Classes.Ord Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance GHC.Read.Read Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
-instance GHC.Show.Show Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Amazonka.Data.Text.ToText Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Amazonka.Data.Text.FromText Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance GHC.Classes.Ord Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance GHC.Read.Read Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
+instance GHC.Show.Show Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.ServiceQuotaTemplateAssociationStatus
 
 
-module Network.AWS.ServiceQuotas.Types.Tag
+module Amazonka.ServiceQuotas.Types.Tag
 
 -- | A complex data type that contains a tag key and tag value.
 --   
@@ -804,17 +804,17 @@ tag_key :: Lens' Tag Text
 --   be between 0 and 256 characters. Valid characters include a-z, A-Z,
 --   0-9, space, and the special characters _ - . : / = + @.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.ServiceQuotas.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.ServiceQuotas.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceQuotas.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.ServiceQuotas.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.ServiceQuotas.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceQuotas.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.Types.Tag.Tag
 
 
-module Network.AWS.ServiceQuotas.Types
+module Amazonka.ServiceQuotas.Types
 
 -- | API version <tt>2019-06-24</tt> of the Amazon Quotas SDK
 --   configuration.
@@ -1522,7 +1522,7 @@ tag_value :: Lens' Tag Text
 
 -- | Adds tags to the specified applied quota. You can include one or more
 --   tags to add to the quota.
-module Network.AWS.ServiceQuotas.TagResource
+module Amazonka.ServiceQuotas.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1587,26 +1587,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.ServiceQuotas.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.ServiceQuotas.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.TagResource.TagResource
+instance GHC.Show.Show Amazonka.ServiceQuotas.TagResource.TagResource
+instance GHC.Read.Read Amazonka.ServiceQuotas.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.TagResource.TagResource
 
 
 -- | Submits a quota increase request for the specified quota.
-module Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease
+module Amazonka.ServiceQuotas.RequestServiceQuotaIncrease
 
 -- | <i>See:</i> <a>newRequestServiceQuotaIncrease</a> smart constructor.
 data RequestServiceQuotaIncrease
@@ -1685,26 +1685,26 @@ requestServiceQuotaIncreaseResponse_requestedQuota :: Lens' RequestServiceQuotaI
 
 -- | The response's http status code.
 requestServiceQuotaIncreaseResponse_httpStatus :: Lens' RequestServiceQuotaIncreaseResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
-instance GHC.Show.Show Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
-instance GHC.Read.Read Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncreaseResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncreaseResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncreaseResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncreaseResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncreaseResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
+instance GHC.Show.Show Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
+instance GHC.Read.Read Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncreaseResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncreaseResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncreaseResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncreaseResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncreaseResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.RequestServiceQuotaIncrease.RequestServiceQuotaIncrease
 
 
 -- | Adds a quota increase request to your quota request template.
-module Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate
+module Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate
 
 -- | <i>See:</i> <a>newPutServiceQuotaIncreaseRequestIntoTemplate</a> smart
 --   constructor.
@@ -1799,26 +1799,26 @@ putServiceQuotaIncreaseRequestIntoTemplateResponse_serviceQuotaIncreaseRequestIn
 
 -- | The response's http status code.
 putServiceQuotaIncreaseRequestIntoTemplateResponse_httpStatus :: Lens' PutServiceQuotaIncreaseRequestIntoTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
-instance GHC.Show.Show Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
-instance GHC.Read.Read Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplateResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplateResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplateResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
+instance GHC.Show.Show Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
+instance GHC.Read.Read Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplateResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplateResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplateResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplateResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate.PutServiceQuotaIncreaseRequestIntoTemplate
 
 
 -- | Returns a list of the tags assigned to the specified applied quota.
-module Network.AWS.ServiceQuotas.ListTagsForResource
+module Amazonka.ServiceQuotas.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1888,29 +1888,29 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the names and codes for the services integrated with Service
 --   Quotas.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServiceQuotas.ListServices
+module Amazonka.ServiceQuotas.ListServices
 
 -- | <i>See:</i> <a>newListServices</a> smart constructor.
 data ListServices
@@ -1995,23 +1995,23 @@ listServicesResponse_services :: Lens' ListServicesResponse (Maybe [ServiceInfo]
 
 -- | The response's http status code.
 listServicesResponse_httpStatus :: Lens' ListServicesResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListServices.ListServices
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListServices.ListServices
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListServices.ListServices
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListServices.ListServices
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListServices.ListServicesResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListServices.ListServicesResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListServices.ListServicesResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListServices.ListServicesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.ListServices.ListServices
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListServices.ListServicesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServiceQuotas.ListServices.ListServices
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.ListServices.ListServices
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListServices.ListServices
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.ListServices.ListServices
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.ListServices.ListServices
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.ListServices.ListServices
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.ListServices.ListServices
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListServices.ListServices
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListServices.ListServices
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListServices.ListServices
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListServices.ListServices
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListServices.ListServicesResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListServices.ListServicesResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListServices.ListServicesResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListServices.ListServicesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.ListServices.ListServices
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListServices.ListServicesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServiceQuotas.ListServices.ListServices
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.ListServices.ListServices
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListServices.ListServices
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.ListServices.ListServices
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.ListServices.ListServices
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.ListServices.ListServices
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.ListServices.ListServices
 
 
 -- | Lists the applied quota values for the specified AWS service. For some
@@ -2019,7 +2019,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.ListServices.L
 --   value is not available for a quota, the quota is not retrieved.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServiceQuotas.ListServiceQuotas
+module Amazonka.ServiceQuotas.ListServiceQuotas
 
 -- | <i>See:</i> <a>newListServiceQuotas</a> smart constructor.
 data ListServiceQuotas
@@ -2115,30 +2115,30 @@ listServiceQuotasResponse_quotas :: Lens' ListServiceQuotasResponse (Maybe [Serv
 
 -- | The response's http status code.
 listServiceQuotasResponse_httpStatus :: Lens' ListServiceQuotasResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotasResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotasResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotasResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotasResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotasResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotasResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotasResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotasResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotasResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotasResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.ListServiceQuotas.ListServiceQuotas
 
 
 -- | Lists the quota increase requests in the specified quota request
 --   template.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate
+module Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate
 
 -- | <i>See:</i> <a>newListServiceQuotaIncreaseRequestsInTemplate</a> smart
 --   constructor.
@@ -2252,29 +2252,29 @@ listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken :: Lens' ListServic
 
 -- | The response's http status code.
 listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus :: Lens' ListServiceQuotaIncreaseRequestsInTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplateResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplateResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplateResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplateResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplateResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplateResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplateResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplateResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.ListServiceQuotaIncreaseRequestsInTemplate
 
 
 -- | Retrieves the quota increase requests for the specified quota.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota
+module Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota
 
 -- | <i>See:</i> <a>newListRequestedServiceQuotaChangeHistoryByQuota</a>
 --   smart constructor.
@@ -2399,29 +2399,29 @@ listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas :: Lens' L
 
 -- | The response's http status code.
 listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus :: Lens' ListRequestedServiceQuotaChangeHistoryByQuotaResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuotaResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuotaResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuotaResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuotaResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuotaResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota.ListRequestedServiceQuotaChangeHistoryByQuota
 
 
 -- | Retrieves the quota increase requests for the specified service.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory
+module Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory
 
 -- | <i>See:</i> <a>newListRequestedServiceQuotaChangeHistory</a> smart
 --   constructor.
@@ -2534,30 +2534,30 @@ listRequestedServiceQuotaChangeHistoryResponse_requestedQuotas :: Lens' ListRequ
 
 -- | The response's http status code.
 listRequestedServiceQuotaChangeHistoryResponse_httpStatus :: Lens' ListRequestedServiceQuotaChangeHistoryResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistoryResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistoryResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistoryResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistoryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistoryResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistoryResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistoryResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistoryResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistoryResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistoryResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory.ListRequestedServiceQuotaChangeHistory
 
 
 -- | Lists the default values for the quotas for the specified AWS service.
 --   A default value does not reflect any quota increases.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas
+module Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas
 
 -- | <i>See:</i> <a>newListAWSDefaultServiceQuotas</a> smart constructor.
 data ListAWSDefaultServiceQuotas
@@ -2656,28 +2656,28 @@ listAWSDefaultServiceQuotasResponse_quotas :: Lens' ListAWSDefaultServiceQuotasR
 
 -- | The response's http status code.
 listAWSDefaultServiceQuotasResponse_httpStatus :: Lens' ListAWSDefaultServiceQuotasResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotasResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotasResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotasResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotasResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotasResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotasResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotasResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotasResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotasResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotasResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas.ListAWSDefaultServiceQuotas
 
 
 -- | Retrieves information about the specified quota increase request in
 --   your quota request template.
-module Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate
+module Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate
 
 -- | <i>See:</i> <a>newGetServiceQuotaIncreaseRequestFromTemplate</a> smart
 --   constructor.
@@ -2762,28 +2762,28 @@ getServiceQuotaIncreaseRequestFromTemplateResponse_serviceQuotaIncreaseRequestIn
 
 -- | The response's http status code.
 getServiceQuotaIncreaseRequestFromTemplateResponse_httpStatus :: Lens' GetServiceQuotaIncreaseRequestFromTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
-instance GHC.Show.Show Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
-instance GHC.Read.Read Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplateResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplateResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplateResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
+instance GHC.Show.Show Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
+instance GHC.Read.Read Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplateResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplateResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplateResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplateResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate.GetServiceQuotaIncreaseRequestFromTemplate
 
 
 -- | Retrieves the applied quota value for the specified quota. For some
 --   quotas, only the default values are available. If the applied quota
 --   value is not available for a quota, the quota is not retrieved.
-module Network.AWS.ServiceQuotas.GetServiceQuota
+module Amazonka.ServiceQuotas.GetServiceQuota
 
 -- | <i>See:</i> <a>newGetServiceQuota</a> smart constructor.
 data GetServiceQuota
@@ -2849,26 +2849,26 @@ getServiceQuotaResponse_quota :: Lens' GetServiceQuotaResponse (Maybe ServiceQuo
 
 -- | The response's http status code.
 getServiceQuotaResponse_httpStatus :: Lens' GetServiceQuotaResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuota
-instance GHC.Show.Show Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuota
-instance GHC.Read.Read Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuota
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuota
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuotaResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuotaResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuotaResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuotaResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuota
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuotaResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuota
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuota
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuota
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuota
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuota
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.GetServiceQuota.GetServiceQuota
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuota
+instance GHC.Show.Show Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuota
+instance GHC.Read.Read Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuota
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuota
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuotaResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuotaResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuotaResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuotaResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuota
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuotaResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuota
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuota
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuota
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuota
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuota
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.GetServiceQuota.GetServiceQuota
 
 
 -- | Retrieves information about the specified quota increase request.
-module Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange
+module Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange
 
 -- | <i>See:</i> <a>newGetRequestedServiceQuotaChange</a> smart
 --   constructor.
@@ -2929,27 +2929,27 @@ getRequestedServiceQuotaChangeResponse_requestedQuota :: Lens' GetRequestedServi
 
 -- | The response's http status code.
 getRequestedServiceQuotaChangeResponse_httpStatus :: Lens' GetRequestedServiceQuotaChangeResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
-instance GHC.Show.Show Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
-instance GHC.Read.Read Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChangeResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChangeResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChangeResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChangeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChangeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
+instance GHC.Show.Show Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
+instance GHC.Read.Read Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChangeResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChangeResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChangeResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChangeResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChangeResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange.GetRequestedServiceQuotaChange
 
 
 -- | Retrieves the status of the association for the quota request
 --   template.
-module Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate
+module Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate
 
 -- | <i>See:</i> <a>newGetAssociationForServiceQuotaTemplate</a> smart
 --   constructor.
@@ -3004,27 +3004,27 @@ getAssociationForServiceQuotaTemplateResponse_serviceQuotaTemplateAssociationSta
 
 -- | The response's http status code.
 getAssociationForServiceQuotaTemplateResponse_httpStatus :: Lens' GetAssociationForServiceQuotaTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
-instance GHC.Show.Show Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
-instance GHC.Read.Read Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplateResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplateResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplateResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
+instance GHC.Show.Show Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
+instance GHC.Read.Read Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplateResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplateResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplateResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplateResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.GetAssociationForServiceQuotaTemplate
 
 
 -- | Retrieves the default value for the specified quota. The default value
 --   does not reflect any quota increases.
-module Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota
+module Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota
 
 -- | <i>See:</i> <a>newGetAWSDefaultServiceQuota</a> smart constructor.
 data GetAWSDefaultServiceQuota
@@ -3092,29 +3092,29 @@ getAWSDefaultServiceQuotaResponse_quota :: Lens' GetAWSDefaultServiceQuotaRespon
 
 -- | The response's http status code.
 getAWSDefaultServiceQuotaResponse_httpStatus :: Lens' GetAWSDefaultServiceQuotaResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
-instance GHC.Show.Show Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
-instance GHC.Read.Read Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuotaResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuotaResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuotaResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuotaResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuotaResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
+instance GHC.Show.Show Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
+instance GHC.Read.Read Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuotaResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuotaResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuotaResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuotaResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuotaResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota.GetAWSDefaultServiceQuota
 
 
 -- | Disables your quota request template. After a template is disabled,
 --   the quota increase requests in the template are not applied to new
 --   accounts in your organization. Disabling a quota request template does
 --   not apply its quota increase requests.
-module Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate
+module Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate
 
 -- | <i>See:</i> <a>newDisassociateServiceQuotaTemplate</a> smart
 --   constructor.
@@ -3152,27 +3152,27 @@ newDisassociateServiceQuotaTemplateResponse :: Int -> DisassociateServiceQuotaTe
 
 -- | The response's http status code.
 disassociateServiceQuotaTemplateResponse_httpStatus :: Lens' DisassociateServiceQuotaTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
-instance GHC.Show.Show Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
-instance GHC.Read.Read Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplateResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplateResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplateResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
+instance GHC.Show.Show Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
+instance GHC.Read.Read Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplateResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplateResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplateResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplateResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate.DisassociateServiceQuotaTemplate
 
 
 -- | Deletes the quota increase request for the specified quota from your
 --   quota request template.
-module Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
+module Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
 
 -- | <i>See:</i> <a>newDeleteServiceQuotaIncreaseRequestFromTemplate</a>
 --   smart constructor.
@@ -3247,22 +3247,22 @@ newDeleteServiceQuotaIncreaseRequestFromTemplateResponse :: Int -> DeleteService
 
 -- | The response's http status code.
 deleteServiceQuotaIncreaseRequestFromTemplateResponse_httpStatus :: Lens' DeleteServiceQuotaIncreaseRequestFromTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
-instance GHC.Show.Show Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
-instance GHC.Read.Read Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplateResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplateResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplateResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
+instance GHC.Show.Show Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
+instance GHC.Read.Read Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplateResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplateResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplateResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplateResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate.DeleteServiceQuotaIncreaseRequestFromTemplate
 
 
 -- | Associates your quota request template with your organization. When a
@@ -3270,7 +3270,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.DeleteServiceQ
 --   requests in the template are automatically applied to the account. You
 --   can add a quota increase request for any adjustable quota to your
 --   template.
-module Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate
+module Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate
 
 -- | <i>See:</i> <a>newAssociateServiceQuotaTemplate</a> smart constructor.
 data AssociateServiceQuotaTemplate
@@ -3307,27 +3307,27 @@ newAssociateServiceQuotaTemplateResponse :: Int -> AssociateServiceQuotaTemplate
 
 -- | The response's http status code.
 associateServiceQuotaTemplateResponse_httpStatus :: Lens' AssociateServiceQuotaTemplateResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
-instance GHC.Show.Show Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
-instance GHC.Read.Read Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplateResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplateResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplateResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
+instance GHC.Show.Show Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
+instance GHC.Read.Read Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplateResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplateResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplateResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplateResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplateResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate.AssociateServiceQuotaTemplate
 
 
 -- | Removes tags from the specified applied quota. You can specify one or
 --   more tags to remove.
-module Network.AWS.ServiceQuotas.UntagResource
+module Amazonka.ServiceQuotas.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -3394,25 +3394,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.ServiceQuotas.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.ServiceQuotas.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.ServiceQuotas.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.ServiceQuotas.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.ServiceQuotas.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.ServiceQuotas.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceQuotas.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceQuotas.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceQuotas.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceQuotas.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceQuotas.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceQuotas.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceQuotas.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.ServiceQuotas.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.ServiceQuotas.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.ServiceQuotas.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.ServiceQuotas.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.ServiceQuotas.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.ServiceQuotas.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceQuotas.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceQuotas.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.ServiceQuotas.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceQuotas.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceQuotas.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceQuotas.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceQuotas.UntagResource.UntagResource
 
 
-module Network.AWS.ServiceQuotas.Lens
+module Amazonka.ServiceQuotas.Lens
 
 -- | The token for the next page of results.
 listServices_nextToken :: Lens' ListServices (Maybe Text)
@@ -3851,7 +3851,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.ServiceQuotas.Waiters
+module Amazonka.ServiceQuotas.Waiters
 
 
 -- | Derived from API version <tt>2019-06-24</tt> of the AWS service
@@ -3861,7 +3861,7 @@ module Network.AWS.ServiceQuotas.Waiters
 --   your AWS workloads grow. Quotas, also referred to as limits, are the
 --   maximum number of resources that you can create in your AWS account.
 --   For more information, see the <a>Service Quotas User Guide</a>.
-module Network.AWS.ServiceQuotas
+module Amazonka.ServiceQuotas
 
 -- | API version <tt>2019-06-24</tt> of the Amazon Quotas SDK
 --   configuration.

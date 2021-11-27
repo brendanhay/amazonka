@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EKS.Types.Issue</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EKS.Types.Issue</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupIssueCode.html"><span class="hs-identifier">Amazonka.EKS.Types.NodegroupIssueCode</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An object representing an issue with an Amazon EKS resource.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIssue' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679266926"><span id="local-6989586621679266927"></span></span><span class="hs-keyword">data</span><span> </span><span id="Issue"><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue"><span class="hs-identifier hs-var">Issue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Issue%27"><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue%27"><span class="hs-identifier hs-var">Issue'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services resources that are afflicted by this issue.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AresourceIds%3AIssue%27"><span class="annot"><span class="annottext">Issue -&gt; Maybe [Text]
+</span><a href="Amazonka.EKS.Types.Issue.html#%24sel%3AresourceIds%3AIssue%27"><span class="hs-identifier hs-var hs-var">resourceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A brief description of the error.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   __AccessDenied__: Amazon EKS or one or more of your managed nodes is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--     failing to authenticate or authorize with your Kubernetes cluster</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--     API server.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   __AsgInstanceLaunchFailures__: Your Auto Scaling group is</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     experiencing failures while attempting to launch instances.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   __AutoScalingGroupNotFound__: We couldn\'t find the Auto Scaling</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     group associated with the managed node group. You may be able to</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     recreate an Auto Scaling group with the same settings to recover.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   __ClusterUnreachable__: Amazon EKS or one or more of your managed</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     nodes is unable to to communicate with your Kubernetes cluster API</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     server. This can happen if there are network disruptions or if API</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     servers are timing out processing requests.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   __Ec2LaunchTemplateNotFound__: We couldn\'t find the Amazon EC2</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     launch template for your managed node group. You may be able to</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     recreate a launch template with the same settings to recover.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   __Ec2LaunchTemplateVersionMismatch__: The Amazon EC2 launch template</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     version for your managed node group does not match the version that</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     Amazon EKS created. You may be able to revert to the version that</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     Amazon EKS created to recover.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   __Ec2SecurityGroupDeletionFailure__: We could not delete the remote</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     access security group for your managed node group. Remove any</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     dependencies from the security group.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   __Ec2SecurityGroupNotFound__: We couldn\'t find the cluster security</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     group for the cluster. You must recreate your cluster.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   __Ec2SubnetInvalidConfiguration__: One or more Amazon EC2 subnets</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     specified for a node group do not automatically assign public IP</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     addresses to instances launched into it. If you want your instances</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     to be assigned a public IP address, then you need to enable the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     @auto-assign public IP address@ setting for the subnet. See</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip Modifying the public IPv4 addressing attribute for your subnet&gt;</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     in the Amazon VPC User Guide.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   __IamInstanceProfileNotFound__: We couldn\'t find the IAM instance</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     profile for your managed node group. You may be able to recreate an</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     instance profile with the same settings to recover.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   __IamNodeRoleNotFound__: We couldn\'t find the IAM role for your</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     managed node group. You may be able to recreate an IAM role with the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     same settings to recover.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   __InstanceLimitExceeded__: Your Amazon Web Services account is</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     unable to launch any more instances of the specified instance type.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     You may be able to request an Amazon EC2 instance limit increase to</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     recover.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- -   __InsufficientFreeAddresses__: One or more of the subnets associated</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     with your managed node group does not have enough available IP</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     addresses for new nodes.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   __InternalFailure__: These errors are usually caused by an Amazon</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     EKS server-side issue.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- -   __NodeCreationFailure__: Your launched instances are unable to</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     register with your Amazon EKS cluster. Common causes of this failure</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     are insufficient</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html node IAM role&gt;</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     permissions or lack of outbound internet access for the nodes.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3Acode%3AIssue%27"><span class="annot"><span class="annottext">Issue -&gt; Maybe NodegroupIssueCode
+</span><a href="Amazonka.EKS.Types.Issue.html#%24sel%3Acode%3AIssue%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupIssueCode.html#NodegroupIssueCode"><span class="hs-identifier hs-type">NodegroupIssueCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The error message associated with the issue.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3Amessage%3AIssue%27"><span class="annot"><span class="annottext">Issue -&gt; Maybe Text
+</span><a href="Amazonka.EKS.Types.Issue.html#%24sel%3Amessage%3AIssue%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266918"><span id="local-6989586621679266920"><span class="annot"><span class="annottext">Issue -&gt; Issue -&gt; Bool
+(Issue -&gt; Issue -&gt; Bool) -&gt; (Issue -&gt; Issue -&gt; Bool) -&gt; Eq Issue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Issue -&gt; Issue -&gt; Bool
+$c/= :: Issue -&gt; Issue -&gt; Bool
+== :: Issue -&gt; Issue -&gt; Bool
+$c== :: Issue -&gt; Issue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266909"><span id="local-6989586621679266911"><span id="local-6989586621679266913"><span id="local-6989586621679266915"><span class="annot"><span class="annottext">ReadPrec [Issue]
+ReadPrec Issue
+Int -&gt; ReadS Issue
+ReadS [Issue]
+(Int -&gt; ReadS Issue)
+-&gt; ReadS [Issue]
+-&gt; ReadPrec Issue
+-&gt; ReadPrec [Issue]
+-&gt; Read Issue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Issue]
+$creadListPrec :: ReadPrec [Issue]
+readPrec :: ReadPrec Issue
+$creadPrec :: ReadPrec Issue
+readList :: ReadS [Issue]
+$creadList :: ReadS [Issue]
+readsPrec :: Int -&gt; ReadS Issue
+$creadsPrec :: Int -&gt; ReadS Issue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266902"><span id="local-6989586621679266904"><span id="local-6989586621679266906"><span class="annot"><span class="annottext">Int -&gt; Issue -&gt; ShowS
+[Issue] -&gt; ShowS
+Issue -&gt; String
+(Int -&gt; Issue -&gt; ShowS)
+-&gt; (Issue -&gt; String) -&gt; ([Issue] -&gt; ShowS) -&gt; Show Issue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Issue] -&gt; ShowS
+$cshowList :: [Issue] -&gt; ShowS
+show :: Issue -&gt; String
+$cshow :: Issue -&gt; String
+showsPrec :: Int -&gt; Issue -&gt; ShowS
+$cshowsPrec :: Int -&gt; Issue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Issue -&gt; Rep Issue x)
+-&gt; (forall x. Rep Issue x -&gt; Issue) -&gt; Generic Issue
+forall x. Rep Issue x -&gt; Issue
+forall x. Issue -&gt; Rep Issue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Issue x -&gt; Issue
+$cfrom :: forall x. Issue -&gt; Rep Issue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Create a value of 'Issue' with all optional fields omitted.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'resourceIds', 'issue_resourceIds' - The Amazon Web Services resources that are afflicted by this issue.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'code', 'issue_code' - A brief description of the error.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   __AccessDenied__: Amazon EKS or one or more of your managed nodes is</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     failing to authenticate or authorize with your Kubernetes cluster</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     API server.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   __AsgInstanceLaunchFailures__: Your Auto Scaling group is</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     experiencing failures while attempting to launch instances.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   __AutoScalingGroupNotFound__: We couldn\'t find the Auto Scaling</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     group associated with the managed node group. You may be able to</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     recreate an Auto Scaling group with the same settings to recover.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   __ClusterUnreachable__: Amazon EKS or one or more of your managed</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     nodes is unable to to communicate with your Kubernetes cluster API</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--     server. This can happen if there are network disruptions or if API</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     servers are timing out processing requests.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   __Ec2LaunchTemplateNotFound__: We couldn\'t find the Amazon EC2</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     launch template for your managed node group. You may be able to</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--     recreate a launch template with the same settings to recover.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   __Ec2LaunchTemplateVersionMismatch__: The Amazon EC2 launch template</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     version for your managed node group does not match the version that</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     Amazon EKS created. You may be able to revert to the version that</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     Amazon EKS created to recover.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   __Ec2SecurityGroupDeletionFailure__: We could not delete the remote</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     access security group for your managed node group. Remove any</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     dependencies from the security group.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- -   __Ec2SecurityGroupNotFound__: We couldn\'t find the cluster security</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--     group for the cluster. You must recreate your cluster.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- -   __Ec2SubnetInvalidConfiguration__: One or more Amazon EC2 subnets</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--     specified for a node group do not automatically assign public IP</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     addresses to instances launched into it. If you want your instances</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     to be assigned a public IP address, then you need to enable the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     @auto-assign public IP address@ setting for the subnet. See</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip Modifying the public IPv4 addressing attribute for your subnet&gt;</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     in the Amazon VPC User Guide.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   __IamInstanceProfileNotFound__: We couldn\'t find the IAM instance</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     profile for your managed node group. You may be able to recreate an</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     instance profile with the same settings to recover.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   __IamNodeRoleNotFound__: We couldn\'t find the IAM role for your</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--     managed node group. You may be able to recreate an IAM role with the</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--     same settings to recover.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   __InstanceLimitExceeded__: Your Amazon Web Services account is</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     unable to launch any more instances of the specified instance type.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--     You may be able to request an Amazon EC2 instance limit increase to</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     recover.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   __InsufficientFreeAddresses__: One or more of the subnets associated</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--     with your managed node group does not have enough available IP</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     addresses for new nodes.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- -   __InternalFailure__: These errors are usually caused by an Amazon</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--     EKS server-side issue.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- -   __NodeCreationFailure__: Your launched instances are unable to</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     register with your Amazon EKS cluster. Common causes of this failure</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     are insufficient</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html node IAM role&gt;</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     permissions or lack of outbound internet access for the nodes.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'message', 'issue_message' - The error message associated with the issue.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#newIssue"><span class="hs-identifier hs-type">newIssue</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue"><span class="hs-identifier hs-type">Issue</span></a></span><span>
+</span><span id="line-187"></span><span id="newIssue"><span class="annot"><span class="annottext">newIssue :: Issue
+</span><a href="Amazonka.EKS.Types.Issue.html#newIssue"><span class="hs-identifier hs-var hs-var">newIssue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">Issue' :: Maybe [Text] -&gt; Maybe NodegroupIssueCode -&gt; Maybe Text -&gt; Issue
+</span><a href="Amazonka.EKS.Types.Issue.html#Issue%27"><span class="hs-identifier hs-type">Issue'</span></a></span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceIds:Issue' :: Maybe [Text]
+</span><a href="Amazonka.EKS.Types.Issue.html#%24sel%3AresourceIds%3AIssue%27"><span class="hs-identifier hs-var">resourceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:Issue' :: Maybe NodegroupIssueCode
+</span><a href="Amazonka.EKS.Types.Issue.html#%24sel%3Acode%3AIssue%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodegroupIssueCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:Issue' :: Maybe Text
+</span><a href="Amazonka.EKS.Types.Issue.html#%24sel%3Amessage%3AIssue%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The Amazon Web Services resources that are afflicted by this issue.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#issue_resourceIds"><span class="hs-identifier hs-type">issue_resourceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue"><span class="hs-identifier hs-type">Issue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="issue_resourceIds"><span class="annot"><span class="annottext">issue_resourceIds :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Issue -&gt; f Issue
+</span><a href="Amazonka.EKS.Types.Issue.html#issue_resourceIds"><span class="hs-identifier hs-var hs-var">issue_resourceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Issue -&gt; Maybe [Text])
+-&gt; (Issue -&gt; Maybe [Text] -&gt; Issue)
+-&gt; Lens Issue Issue (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue%27"><span class="hs-identifier hs-type">Issue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266893"><span class="annot"><span class="annottext">Maybe [Text]
+resourceIds :: Maybe [Text]
+$sel:resourceIds:Issue' :: Issue -&gt; Maybe [Text]
+</span><a href="#local-6989586621679266893"><span class="hs-identifier hs-var hs-var">resourceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679266893"><span class="hs-identifier hs-var">resourceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266892"><span class="annot"><span class="annottext">s :: Issue
+</span><a href="#local-6989586621679266892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue%27"><span class="hs-identifier hs-type">Issue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266891"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679266891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Issue
+</span><a href="#local-6989586621679266892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIds:Issue' :: Maybe [Text]
+</span><a href="Amazonka.EKS.Types.Issue.html#%24sel%3AresourceIds%3AIssue%27"><span class="hs-identifier hs-var">resourceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679266891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue"><span class="hs-identifier hs-type">Issue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Issue -&gt; f Issue)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Issue
+-&gt; f Issue
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | A brief description of the error.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- -   __AccessDenied__: Amazon EKS or one or more of your managed nodes is</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     failing to authenticate or authorize with your Kubernetes cluster</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--     API server.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- -   __AsgInstanceLaunchFailures__: Your Auto Scaling group is</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--     experiencing failures while attempting to launch instances.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- -   __AutoScalingGroupNotFound__: We couldn\'t find the Auto Scaling</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--     group associated with the managed node group. You may be able to</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--     recreate an Auto Scaling group with the same settings to recover.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- -   __ClusterUnreachable__: Amazon EKS or one or more of your managed</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     nodes is unable to to communicate with your Kubernetes cluster API</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--     server. This can happen if there are network disruptions or if API</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     servers are timing out processing requests.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- -   __Ec2LaunchTemplateNotFound__: We couldn\'t find the Amazon EC2</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--     launch template for your managed node group. You may be able to</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--     recreate a launch template with the same settings to recover.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- -   __Ec2LaunchTemplateVersionMismatch__: The Amazon EC2 launch template</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--     version for your managed node group does not match the version that</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     Amazon EKS created. You may be able to revert to the version that</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--     Amazon EKS created to recover.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- -   __Ec2SecurityGroupDeletionFailure__: We could not delete the remote</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     access security group for your managed node group. Remove any</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     dependencies from the security group.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   __Ec2SecurityGroupNotFound__: We couldn\'t find the cluster security</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     group for the cluster. You must recreate your cluster.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- -   __Ec2SubnetInvalidConfiguration__: One or more Amazon EC2 subnets</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--     specified for a node group do not automatically assign public IP</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     addresses to instances launched into it. If you want your instances</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--     to be assigned a public IP address, then you need to enable the</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--     @auto-assign public IP address@ setting for the subnet. See</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip Modifying the public IPv4 addressing attribute for your subnet&gt;</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     in the Amazon VPC User Guide.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   __IamInstanceProfileNotFound__: We couldn\'t find the IAM instance</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     profile for your managed node group. You may be able to recreate an</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--     instance profile with the same settings to recover.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- -   __IamNodeRoleNotFound__: We couldn\'t find the IAM role for your</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     managed node group. You may be able to recreate an IAM role with the</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--     same settings to recover.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   __InstanceLimitExceeded__: Your Amazon Web Services account is</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     unable to launch any more instances of the specified instance type.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--     You may be able to request an Amazon EC2 instance limit increase to</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     recover.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- -   __InsufficientFreeAddresses__: One or more of the subnets associated</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--     with your managed node group does not have enough available IP</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--     addresses for new nodes.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- -   __InternalFailure__: These errors are usually caused by an Amazon</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--     EKS server-side issue.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- -   __NodeCreationFailure__: Your launched instances are unable to</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--     register with your Amazon EKS cluster. Common causes of this failure</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--     are insufficient</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html node IAM role&gt;</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--     permissions or lack of outbound internet access for the nodes.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#issue_code"><span class="hs-identifier hs-type">issue_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue"><span class="hs-identifier hs-type">Issue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.NodegroupIssueCode.html#NodegroupIssueCode"><span class="hs-identifier hs-type">NodegroupIssueCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="issue_code"><span class="annot"><span class="annottext">issue_code :: (Maybe NodegroupIssueCode -&gt; f (Maybe NodegroupIssueCode))
+-&gt; Issue -&gt; f Issue
+</span><a href="Amazonka.EKS.Types.Issue.html#issue_code"><span class="hs-identifier hs-var hs-var">issue_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Issue -&gt; Maybe NodegroupIssueCode)
+-&gt; (Issue -&gt; Maybe NodegroupIssueCode -&gt; Issue)
+-&gt; Lens
+     Issue Issue (Maybe NodegroupIssueCode) (Maybe NodegroupIssueCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue%27"><span class="hs-identifier hs-type">Issue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266886"><span class="annot"><span class="annottext">Maybe NodegroupIssueCode
+code :: Maybe NodegroupIssueCode
+$sel:code:Issue' :: Issue -&gt; Maybe NodegroupIssueCode
+</span><a href="#local-6989586621679266886"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NodegroupIssueCode
+</span><a href="#local-6989586621679266886"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266885"><span class="annot"><span class="annottext">s :: Issue
+</span><a href="#local-6989586621679266885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue%27"><span class="hs-identifier hs-type">Issue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266884"><span class="annot"><span class="annottext">Maybe NodegroupIssueCode
+</span><a href="#local-6989586621679266884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Issue
+</span><a href="#local-6989586621679266885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:Issue' :: Maybe NodegroupIssueCode
+</span><a href="Amazonka.EKS.Types.Issue.html#%24sel%3Acode%3AIssue%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodegroupIssueCode
+</span><a href="#local-6989586621679266884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue"><span class="hs-identifier hs-type">Issue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | The error message associated with the issue.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#issue_message"><span class="hs-identifier hs-type">issue_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue"><span class="hs-identifier hs-type">Issue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="issue_message"><span class="annot"><span class="annottext">issue_message :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Issue -&gt; f Issue
+</span><a href="Amazonka.EKS.Types.Issue.html#issue_message"><span class="hs-identifier hs-var hs-var">issue_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Issue -&gt; Maybe Text)
+-&gt; (Issue -&gt; Maybe Text -&gt; Issue)
+-&gt; Lens Issue Issue (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue%27"><span class="hs-identifier hs-type">Issue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266882"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:Issue' :: Issue -&gt; Maybe Text
+</span><a href="#local-6989586621679266882"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266882"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266881"><span class="annot"><span class="annottext">s :: Issue
+</span><a href="#local-6989586621679266881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue%27"><span class="hs-identifier hs-type">Issue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266880"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Issue
+</span><a href="#local-6989586621679266881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Issue' :: Maybe Text
+</span><a href="Amazonka.EKS.Types.Issue.html#%24sel%3Amessage%3AIssue%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue"><span class="hs-identifier hs-type">Issue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266877"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue"><span class="hs-identifier hs-type">Issue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679266875"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Issue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Issue) -&gt; Value -&gt; Parser Issue
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Issue&quot;</span></span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266872"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266872"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-277"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe NodegroupIssueCode -&gt; Maybe Text -&gt; Issue
+</span><a href="Amazonka.EKS.Types.Issue.html#Issue%27"><span class="hs-identifier hs-var">Issue'</span></a></span><span>
+</span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe NodegroupIssueCode -&gt; Maybe Text -&gt; Issue)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe NodegroupIssueCode -&gt; Maybe Text -&gt; Issue)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe NodegroupIssueCode -&gt; Maybe Text -&gt; Issue)
+-&gt; Parser (Maybe NodegroupIssueCode)
+-&gt; Parser (Maybe Text -&gt; Issue)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NodegroupIssueCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Issue) -&gt; Parser (Maybe Text) -&gt; Parser Issue
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266865"><span id="local-6989586621679266867"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue"><span class="hs-identifier hs-type">Issue</span></a></span></span></span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266862"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EKS.Types.Issue.html#Issue"><span class="hs-identifier hs-type">Issue</span></a></span></span><span>
+</span><span id="line-286"></span></pre></body></html>

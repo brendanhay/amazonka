@@ -1,0 +1,810 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ElastiCache.DescribeReplicationGroups</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about a particular replication group. If no</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- identifier is specified, @DescribeReplicationGroups@ returns information</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- about all replication groups.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This operation is valid for Redis only.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElastiCache.DescribeReplicationGroups</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier">DescribeReplicationGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#newDescribeReplicationGroups"><span class="hs-identifier">newDescribeReplicationGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroups_marker"><span class="hs-identifier">describeReplicationGroups_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroups_maxRecords"><span class="hs-identifier">describeReplicationGroups_maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroups_replicationGroupId"><span class="hs-identifier">describeReplicationGroups_replicationGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse"><span class="hs-identifier">DescribeReplicationGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#newDescribeReplicationGroupsResponse"><span class="hs-identifier">newDescribeReplicationGroupsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroupsResponse_marker"><span class="hs-identifier">describeReplicationGroupsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroupsResponse_replicationGroups"><span class="hs-identifier">describeReplicationGroupsResponse_replicationGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroupsResponse_httpStatus"><span class="hs-identifier">describeReplicationGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.html"><span class="hs-identifier">Amazonka.ElastiCache.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | Represents the input of a @DescribeReplicationGroups@ operation.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newDescribeReplicationGroups' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679416932"><span id="local-6989586621679416933"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReplicationGroups"><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-var">DescribeReplicationGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReplicationGroups%27"><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups%27"><span class="hs-identifier hs-var">DescribeReplicationGroups'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional marker returned from a prior request. Use this marker for</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the value specified by @MaxRecords@.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeReplicationGroups%27"><span class="annot"><span class="annottext">DescribeReplicationGroups -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3Amarker%3ADescribeReplicationGroups%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a marker is</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- included in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Constraints: minimum 20; maximum 100.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeReplicationGroups%27"><span class="annot"><span class="annottext">DescribeReplicationGroups -&gt; Maybe Int
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3AmaxRecords%3ADescribeReplicationGroups%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The identifier for the replication group to be described. This parameter</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- is not case sensitive.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- If you do not specify this parameter, information about all replication</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- groups is returned.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AreplicationGroupId%3ADescribeReplicationGroups%27"><span class="annot"><span class="annottext">DescribeReplicationGroups -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3AreplicationGroupId%3ADescribeReplicationGroups%27"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416924"><span id="local-6989586621679416926"><span class="annot"><span class="annottext">DescribeReplicationGroups -&gt; DescribeReplicationGroups -&gt; Bool
+(DescribeReplicationGroups -&gt; DescribeReplicationGroups -&gt; Bool)
+-&gt; (DescribeReplicationGroups -&gt; DescribeReplicationGroups -&gt; Bool)
+-&gt; Eq DescribeReplicationGroups
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeReplicationGroups -&gt; DescribeReplicationGroups -&gt; Bool
+$c/= :: DescribeReplicationGroups -&gt; DescribeReplicationGroups -&gt; Bool
+== :: DescribeReplicationGroups -&gt; DescribeReplicationGroups -&gt; Bool
+$c== :: DescribeReplicationGroups -&gt; DescribeReplicationGroups -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416915"><span id="local-6989586621679416917"><span id="local-6989586621679416919"><span id="local-6989586621679416921"><span class="annot"><span class="annottext">ReadPrec [DescribeReplicationGroups]
+ReadPrec DescribeReplicationGroups
+Int -&gt; ReadS DescribeReplicationGroups
+ReadS [DescribeReplicationGroups]
+(Int -&gt; ReadS DescribeReplicationGroups)
+-&gt; ReadS [DescribeReplicationGroups]
+-&gt; ReadPrec DescribeReplicationGroups
+-&gt; ReadPrec [DescribeReplicationGroups]
+-&gt; Read DescribeReplicationGroups
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeReplicationGroups]
+$creadListPrec :: ReadPrec [DescribeReplicationGroups]
+readPrec :: ReadPrec DescribeReplicationGroups
+$creadPrec :: ReadPrec DescribeReplicationGroups
+readList :: ReadS [DescribeReplicationGroups]
+$creadList :: ReadS [DescribeReplicationGroups]
+readsPrec :: Int -&gt; ReadS DescribeReplicationGroups
+$creadsPrec :: Int -&gt; ReadS DescribeReplicationGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416908"><span id="local-6989586621679416910"><span id="local-6989586621679416912"><span class="annot"><span class="annottext">Int -&gt; DescribeReplicationGroups -&gt; ShowS
+[DescribeReplicationGroups] -&gt; ShowS
+DescribeReplicationGroups -&gt; String
+(Int -&gt; DescribeReplicationGroups -&gt; ShowS)
+-&gt; (DescribeReplicationGroups -&gt; String)
+-&gt; ([DescribeReplicationGroups] -&gt; ShowS)
+-&gt; Show DescribeReplicationGroups
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeReplicationGroups] -&gt; ShowS
+$cshowList :: [DescribeReplicationGroups] -&gt; ShowS
+show :: DescribeReplicationGroups -&gt; String
+$cshow :: DescribeReplicationGroups -&gt; String
+showsPrec :: Int -&gt; DescribeReplicationGroups -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeReplicationGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeReplicationGroups -&gt; Rep DescribeReplicationGroups x)
+-&gt; (forall x.
+    Rep DescribeReplicationGroups x -&gt; DescribeReplicationGroups)
+-&gt; Generic DescribeReplicationGroups
+forall x.
+Rep DescribeReplicationGroups x -&gt; DescribeReplicationGroups
+forall x.
+DescribeReplicationGroups -&gt; Rep DescribeReplicationGroups x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeReplicationGroups x -&gt; DescribeReplicationGroups
+$cfrom :: forall x.
+DescribeReplicationGroups -&gt; Rep DescribeReplicationGroups x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'DescribeReplicationGroups' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'marker', 'describeReplicationGroups_marker' - An optional marker returned from a prior request. Use this marker for</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the value specified by @MaxRecords@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'maxRecords', 'describeReplicationGroups_maxRecords' - The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a marker is</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- included in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Constraints: minimum 20; maximum 100.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'replicationGroupId', 'describeReplicationGroups_replicationGroupId' - The identifier for the replication group to be described. This parameter</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- is not case sensitive.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- If you do not specify this parameter, information about all replication</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- groups is returned.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#newDescribeReplicationGroups"><span class="hs-identifier hs-type">newDescribeReplicationGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span>
+</span><span id="line-112"></span><span id="newDescribeReplicationGroups"><span class="annot"><span class="annottext">newDescribeReplicationGroups :: DescribeReplicationGroups
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#newDescribeReplicationGroups"><span class="hs-identifier hs-var hs-var">newDescribeReplicationGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">DescribeReplicationGroups' :: Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; DescribeReplicationGroups
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups%27"><span class="hs-identifier hs-type">DescribeReplicationGroups'</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationGroups' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3Amarker%3ADescribeReplicationGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeReplicationGroups' :: Maybe Int
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3AmaxRecords%3ADescribeReplicationGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationGroupId:DescribeReplicationGroups' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3AreplicationGroupId%3ADescribeReplicationGroups%27"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | An optional marker returned from a prior request. Use this marker for</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- the value specified by @MaxRecords@.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroups_marker"><span class="hs-identifier hs-type">describeReplicationGroups_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="describeReplicationGroups_marker"><span class="annot"><span class="annottext">describeReplicationGroups_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeReplicationGroups -&gt; f DescribeReplicationGroups
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroups_marker"><span class="hs-identifier hs-var hs-var">describeReplicationGroups_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationGroups -&gt; Maybe Text)
+-&gt; (DescribeReplicationGroups
+    -&gt; Maybe Text -&gt; DescribeReplicationGroups)
+-&gt; Lens
+     DescribeReplicationGroups
+     DescribeReplicationGroups
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups%27"><span class="hs-identifier hs-type">DescribeReplicationGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416902"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeReplicationGroups' :: DescribeReplicationGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679416902"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416902"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416901"><span class="annot"><span class="annottext">s :: DescribeReplicationGroups
+</span><a href="#local-6989586621679416901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups%27"><span class="hs-identifier hs-type">DescribeReplicationGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416900"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationGroups
+</span><a href="#local-6989586621679416901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationGroups' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3Amarker%3ADescribeReplicationGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a marker is</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- included in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Constraints: minimum 20; maximum 100.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroups_maxRecords"><span class="hs-identifier hs-type">describeReplicationGroups_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="describeReplicationGroups_maxRecords"><span class="annot"><span class="annottext">describeReplicationGroups_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeReplicationGroups -&gt; f DescribeReplicationGroups
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroups_maxRecords"><span class="hs-identifier hs-var hs-var">describeReplicationGroups_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationGroups -&gt; Maybe Int)
+-&gt; (DescribeReplicationGroups
+    -&gt; Maybe Int -&gt; DescribeReplicationGroups)
+-&gt; Lens
+     DescribeReplicationGroups
+     DescribeReplicationGroups
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups%27"><span class="hs-identifier hs-type">DescribeReplicationGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416899"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeReplicationGroups' :: DescribeReplicationGroups -&gt; Maybe Int
+</span><a href="#local-6989586621679416899"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679416899"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416898"><span class="annot"><span class="annottext">s :: DescribeReplicationGroups
+</span><a href="#local-6989586621679416898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups%27"><span class="hs-identifier hs-type">DescribeReplicationGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416897"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679416897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationGroups
+</span><a href="#local-6989586621679416898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeReplicationGroups' :: Maybe Int
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3AmaxRecords%3ADescribeReplicationGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679416897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The identifier for the replication group to be described. This parameter</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- is not case sensitive.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- If you do not specify this parameter, information about all replication</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- groups is returned.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroups_replicationGroupId"><span class="hs-identifier hs-type">describeReplicationGroups_replicationGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="describeReplicationGroups_replicationGroupId"><span class="annot"><span class="annottext">describeReplicationGroups_replicationGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeReplicationGroups -&gt; f DescribeReplicationGroups
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroups_replicationGroupId"><span class="hs-identifier hs-var hs-var">describeReplicationGroups_replicationGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationGroups -&gt; Maybe Text)
+-&gt; (DescribeReplicationGroups
+    -&gt; Maybe Text -&gt; DescribeReplicationGroups)
+-&gt; Lens
+     DescribeReplicationGroups
+     DescribeReplicationGroups
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups%27"><span class="hs-identifier hs-type">DescribeReplicationGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416896"><span class="annot"><span class="annottext">Maybe Text
+replicationGroupId :: Maybe Text
+$sel:replicationGroupId:DescribeReplicationGroups' :: DescribeReplicationGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679416896"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416896"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416895"><span class="annot"><span class="annottext">s :: DescribeReplicationGroups
+</span><a href="#local-6989586621679416895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups%27"><span class="hs-identifier hs-type">DescribeReplicationGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416894"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationGroups
+</span><a href="#local-6989586621679416895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroupId:DescribeReplicationGroups' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3AreplicationGroupId%3ADescribeReplicationGroups%27"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679416890"><span class="annot"><span class="annottext">page :: DescribeReplicationGroups
+-&gt; AWSResponse DescribeReplicationGroups
+-&gt; Maybe DescribeReplicationGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679416888"><span class="annot"><span class="annottext">DescribeReplicationGroups
+</span><a href="#local-6989586621679416888"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679416887"><span class="annot"><span class="annottext">AWSResponse DescribeReplicationGroups
+</span><a href="#local-6989586621679416887"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-148"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeReplicationGroups
+DescribeReplicationGroupsResponse
+</span><a href="#local-6989586621679416887"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">DescribeReplicationGroupsResponse
+-&gt; Getting (First Text) DescribeReplicationGroupsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeReplicationGroupsResponse
+-&gt; Const (First Text) DescribeReplicationGroupsResponse
+Lens' DescribeReplicationGroupsResponse (Maybe Text)
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroupsResponse_marker"><span class="hs-identifier hs-var">describeReplicationGroupsResponse_marker</span></a></span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeReplicationGroupsResponse
+ -&gt; Const (First Text) DescribeReplicationGroupsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeReplicationGroupsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-151"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeReplicationGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationGroup] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-154"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeReplicationGroups
+DescribeReplicationGroupsResponse
+</span><a href="#local-6989586621679416887"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">DescribeReplicationGroupsResponse
+-&gt; Getting
+     (First [ReplicationGroup])
+     DescribeReplicationGroupsResponse
+     [ReplicationGroup]
+-&gt; Maybe [ReplicationGroup]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ReplicationGroup]
+ -&gt; Const (First [ReplicationGroup]) (Maybe [ReplicationGroup]))
+-&gt; DescribeReplicationGroupsResponse
+-&gt; Const
+     (First [ReplicationGroup]) DescribeReplicationGroupsResponse
+Lens' DescribeReplicationGroupsResponse (Maybe [ReplicationGroup])
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroupsResponse_replicationGroups"><span class="hs-identifier hs-var">describeReplicationGroupsResponse_replicationGroups</span></a></span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ReplicationGroup]
+  -&gt; Const (First [ReplicationGroup]) (Maybe [ReplicationGroup]))
+ -&gt; DescribeReplicationGroupsResponse
+ -&gt; Const
+      (First [ReplicationGroup]) DescribeReplicationGroupsResponse)
+-&gt; (([ReplicationGroup]
+     -&gt; Const (First [ReplicationGroup]) [ReplicationGroup])
+    -&gt; Maybe [ReplicationGroup]
+    -&gt; Const (First [ReplicationGroup]) (Maybe [ReplicationGroup]))
+-&gt; Getting
+     (First [ReplicationGroup])
+     DescribeReplicationGroupsResponse
+     [ReplicationGroup]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ReplicationGroup]
+ -&gt; Const (First [ReplicationGroup]) [ReplicationGroup])
+-&gt; Maybe [ReplicationGroup]
+-&gt; Const (First [ReplicationGroup]) (Maybe [ReplicationGroup])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-157"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeReplicationGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">DescribeReplicationGroups -&gt; Maybe DescribeReplicationGroups
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationGroups -&gt; Maybe DescribeReplicationGroups)
+-&gt; DescribeReplicationGroups -&gt; Maybe DescribeReplicationGroups
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">DescribeReplicationGroups
+</span><a href="#local-6989586621679416888"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">DescribeReplicationGroups
+-&gt; (DescribeReplicationGroups -&gt; DescribeReplicationGroups)
+-&gt; DescribeReplicationGroups
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeReplicationGroups -&gt; Identity DescribeReplicationGroups
+Lens
+  DescribeReplicationGroups
+  DescribeReplicationGroups
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroups_marker"><span class="hs-identifier hs-var">describeReplicationGroups_marker</span></a></span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeReplicationGroups -&gt; Identity DescribeReplicationGroups)
+-&gt; Maybe Text
+-&gt; DescribeReplicationGroups
+-&gt; DescribeReplicationGroups
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeReplicationGroups
+DescribeReplicationGroupsResponse
+</span><a href="#local-6989586621679416887"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">DescribeReplicationGroupsResponse
+-&gt; Getting (First Text) DescribeReplicationGroupsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeReplicationGroupsResponse
+-&gt; Const (First Text) DescribeReplicationGroupsResponse
+Lens' DescribeReplicationGroupsResponse (Maybe Text)
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroupsResponse_marker"><span class="hs-identifier hs-var">describeReplicationGroupsResponse_marker</span></a></span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeReplicationGroupsResponse
+ -&gt; Const (First Text) DescribeReplicationGroupsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeReplicationGroupsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-169"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse</span></a></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679416877"><span class="annot"><span class="annottext">request :: DescribeReplicationGroups -&gt; Request DescribeReplicationGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeReplicationGroups -&gt; Request DescribeReplicationGroups
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679416873"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeReplicationGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeReplicationGroups)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeReplicationGroups))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeReplicationGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeReplicationGroups)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeReplicationGroupsResult&quot;</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416870"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416870"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416869"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679416869"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416868"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679416868"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ReplicationGroup]
+-&gt; Int
+-&gt; DescribeReplicationGroupsResponse
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-var">DescribeReplicationGroupsResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ReplicationGroup]
+ -&gt; Int
+ -&gt; DescribeReplicationGroupsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ReplicationGroup]
+      -&gt; Int -&gt; DescribeReplicationGroupsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679416868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ReplicationGroup]
+   -&gt; Int -&gt; DescribeReplicationGroupsResponse)
+-&gt; Either String (Maybe [ReplicationGroup])
+-&gt; Either String (Int -&gt; DescribeReplicationGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679416868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationGroups&quot;</span></span><span>
+</span><span id="line-179"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-180"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ReplicationGroup]))
+-&gt; Either String (Maybe [ReplicationGroup])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ReplicationGroup])
+-&gt; [Node] -&gt; Either String (Maybe [ReplicationGroup])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ReplicationGroup]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeReplicationGroupsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeReplicationGroupsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416870"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416857"><span id="local-6989586621679416859"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span></span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679416850"><span class="annot"><span class="annottext">toHeaders :: DescribeReplicationGroups -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeReplicationGroups -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679416845"><span class="annot"><span class="annottext">toPath :: DescribeReplicationGroups -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeReplicationGroups -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups"><span class="hs-identifier hs-type">DescribeReplicationGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679416841"><span class="annot"><span class="annottext">toQuery :: DescribeReplicationGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroups%27"><span class="hs-identifier hs-type">DescribeReplicationGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416837"><span id="local-6989586621679416838"><span id="local-6989586621679416839"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+replicationGroupId :: Maybe Text
+maxRecords :: Maybe Int
+marker :: Maybe Text
+$sel:replicationGroupId:DescribeReplicationGroups' :: DescribeReplicationGroups -&gt; Maybe Text
+$sel:maxRecords:DescribeReplicationGroups' :: DescribeReplicationGroups -&gt; Maybe Int
+$sel:marker:DescribeReplicationGroups' :: DescribeReplicationGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679416837"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeReplicationGroups&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-02-02&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416839"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679416838"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReplicationGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416837"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | Represents the output of a @DescribeReplicationGroups@ operation.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- /See:/ 'newDescribeReplicationGroupsResponse' smart constructor.</span><span>
+</span><span id="line-210"></span><span id="local-6989586621679416834"><span id="local-6989586621679416835"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReplicationGroupsResponse"><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse"><span class="hs-identifier hs-var">DescribeReplicationGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReplicationGroupsResponse%27"><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-var">DescribeReplicationGroupsResponse'</span></a></span></span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides an identifier to allow retrieval of paginated results.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeReplicationGroupsResponse%27"><span class="annot"><span class="annottext">DescribeReplicationGroupsResponse -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3Amarker%3ADescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | A list of replication groups. Each item in the list contains detailed</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- information about one replication group.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AreplicationGroups%3ADescribeReplicationGroupsResponse%27"><span class="annot"><span class="annottext">DescribeReplicationGroupsResponse -&gt; Maybe [ReplicationGroup]
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3AreplicationGroups%3ADescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-var hs-var">replicationGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReplicationGroup.html#ReplicationGroup"><span class="hs-identifier hs-type">ReplicationGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeReplicationGroupsResponse%27"><span class="annot"><span class="annottext">DescribeReplicationGroupsResponse -&gt; Int
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3AhttpStatus%3ADescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416827"><span id="local-6989586621679416829"><span class="annot"><span class="annottext">DescribeReplicationGroupsResponse
+-&gt; DescribeReplicationGroupsResponse -&gt; Bool
+(DescribeReplicationGroupsResponse
+ -&gt; DescribeReplicationGroupsResponse -&gt; Bool)
+-&gt; (DescribeReplicationGroupsResponse
+    -&gt; DescribeReplicationGroupsResponse -&gt; Bool)
+-&gt; Eq DescribeReplicationGroupsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeReplicationGroupsResponse
+-&gt; DescribeReplicationGroupsResponse -&gt; Bool
+$c/= :: DescribeReplicationGroupsResponse
+-&gt; DescribeReplicationGroupsResponse -&gt; Bool
+== :: DescribeReplicationGroupsResponse
+-&gt; DescribeReplicationGroupsResponse -&gt; Bool
+$c== :: DescribeReplicationGroupsResponse
+-&gt; DescribeReplicationGroupsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416819"><span id="local-6989586621679416821"><span id="local-6989586621679416823"><span id="local-6989586621679416825"><span class="annot"><span class="annottext">ReadPrec [DescribeReplicationGroupsResponse]
+ReadPrec DescribeReplicationGroupsResponse
+Int -&gt; ReadS DescribeReplicationGroupsResponse
+ReadS [DescribeReplicationGroupsResponse]
+(Int -&gt; ReadS DescribeReplicationGroupsResponse)
+-&gt; ReadS [DescribeReplicationGroupsResponse]
+-&gt; ReadPrec DescribeReplicationGroupsResponse
+-&gt; ReadPrec [DescribeReplicationGroupsResponse]
+-&gt; Read DescribeReplicationGroupsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeReplicationGroupsResponse]
+$creadListPrec :: ReadPrec [DescribeReplicationGroupsResponse]
+readPrec :: ReadPrec DescribeReplicationGroupsResponse
+$creadPrec :: ReadPrec DescribeReplicationGroupsResponse
+readList :: ReadS [DescribeReplicationGroupsResponse]
+$creadList :: ReadS [DescribeReplicationGroupsResponse]
+readsPrec :: Int -&gt; ReadS DescribeReplicationGroupsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeReplicationGroupsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416813"><span id="local-6989586621679416815"><span id="local-6989586621679416817"><span class="annot"><span class="annottext">Int -&gt; DescribeReplicationGroupsResponse -&gt; ShowS
+[DescribeReplicationGroupsResponse] -&gt; ShowS
+DescribeReplicationGroupsResponse -&gt; String
+(Int -&gt; DescribeReplicationGroupsResponse -&gt; ShowS)
+-&gt; (DescribeReplicationGroupsResponse -&gt; String)
+-&gt; ([DescribeReplicationGroupsResponse] -&gt; ShowS)
+-&gt; Show DescribeReplicationGroupsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeReplicationGroupsResponse] -&gt; ShowS
+$cshowList :: [DescribeReplicationGroupsResponse] -&gt; ShowS
+show :: DescribeReplicationGroupsResponse -&gt; String
+$cshow :: DescribeReplicationGroupsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeReplicationGroupsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeReplicationGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeReplicationGroupsResponse
+ -&gt; Rep DescribeReplicationGroupsResponse x)
+-&gt; (forall x.
+    Rep DescribeReplicationGroupsResponse x
+    -&gt; DescribeReplicationGroupsResponse)
+-&gt; Generic DescribeReplicationGroupsResponse
+forall x.
+Rep DescribeReplicationGroupsResponse x
+-&gt; DescribeReplicationGroupsResponse
+forall x.
+DescribeReplicationGroupsResponse
+-&gt; Rep DescribeReplicationGroupsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeReplicationGroupsResponse x
+-&gt; DescribeReplicationGroupsResponse
+$cfrom :: forall x.
+DescribeReplicationGroupsResponse
+-&gt; Rep DescribeReplicationGroupsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Create a value of 'DescribeReplicationGroupsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'marker', 'describeReplicationGroupsResponse_marker' - Provides an identifier to allow retrieval of paginated results.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'replicationGroups', 'describeReplicationGroupsResponse_replicationGroups' - A list of replication groups. Each item in the list contains detailed</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- information about one replication group.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'httpStatus', 'describeReplicationGroupsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#newDescribeReplicationGroupsResponse"><span class="hs-identifier hs-type">newDescribeReplicationGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse</span></a></span><span>
+</span><span id="line-239"></span><span id="newDescribeReplicationGroupsResponse"><span class="annot"><span class="annottext">newDescribeReplicationGroupsResponse :: Int -&gt; DescribeReplicationGroupsResponse
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#newDescribeReplicationGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeReplicationGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679416810"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416810"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><span class="annottext">DescribeReplicationGroupsResponse' :: Maybe Text
+-&gt; Maybe [ReplicationGroup]
+-&gt; Int
+-&gt; DescribeReplicationGroupsResponse
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse'</span></a></span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationGroupsResponse' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3Amarker%3ADescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationGroups:DescribeReplicationGroupsResponse' :: Maybe [ReplicationGroup]
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3AreplicationGroups%3ADescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-var">replicationGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationGroup]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReplicationGroupsResponse' :: Int
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3AhttpStatus%3ADescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416810"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | Provides an identifier to allow retrieval of paginated results.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroupsResponse_marker"><span class="hs-identifier hs-type">describeReplicationGroupsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="describeReplicationGroupsResponse_marker"><span class="annot"><span class="annottext">describeReplicationGroupsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeReplicationGroupsResponse
+-&gt; f DescribeReplicationGroupsResponse
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroupsResponse_marker"><span class="hs-identifier hs-var hs-var">describeReplicationGroupsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationGroupsResponse -&gt; Maybe Text)
+-&gt; (DescribeReplicationGroupsResponse
+    -&gt; Maybe Text -&gt; DescribeReplicationGroupsResponse)
+-&gt; Lens' DescribeReplicationGroupsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416809"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeReplicationGroupsResponse' :: DescribeReplicationGroupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679416809"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416809"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416808"><span class="annot"><span class="annottext">s :: DescribeReplicationGroupsResponse
+</span><a href="#local-6989586621679416808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416807"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationGroupsResponse
+</span><a href="#local-6989586621679416808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationGroupsResponse' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3Amarker%3ADescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | A list of replication groups. Each item in the list contains detailed</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- information about one replication group.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroupsResponse_replicationGroups"><span class="hs-identifier hs-type">describeReplicationGroupsResponse_replicationGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElastiCache.Types.ReplicationGroup.html#ReplicationGroup"><span class="hs-identifier hs-type">ReplicationGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="describeReplicationGroupsResponse_replicationGroups"><span class="annot"><span class="annottext">describeReplicationGroupsResponse_replicationGroups :: (Maybe [ReplicationGroup] -&gt; f (Maybe [ReplicationGroup]))
+-&gt; DescribeReplicationGroupsResponse
+-&gt; f DescribeReplicationGroupsResponse
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroupsResponse_replicationGroups"><span class="hs-identifier hs-var hs-var">describeReplicationGroupsResponse_replicationGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationGroupsResponse -&gt; Maybe [ReplicationGroup])
+-&gt; (DescribeReplicationGroupsResponse
+    -&gt; Maybe [ReplicationGroup] -&gt; DescribeReplicationGroupsResponse)
+-&gt; Lens'
+     DescribeReplicationGroupsResponse (Maybe [ReplicationGroup])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416806"><span class="annot"><span class="annottext">Maybe [ReplicationGroup]
+replicationGroups :: Maybe [ReplicationGroup]
+$sel:replicationGroups:DescribeReplicationGroupsResponse' :: DescribeReplicationGroupsResponse -&gt; Maybe [ReplicationGroup]
+</span><a href="#local-6989586621679416806"><span class="hs-identifier hs-var hs-var">replicationGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationGroup]
+</span><a href="#local-6989586621679416806"><span class="hs-identifier hs-var">replicationGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416805"><span class="annot"><span class="annottext">s :: DescribeReplicationGroupsResponse
+</span><a href="#local-6989586621679416805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416804"><span class="annot"><span class="annottext">Maybe [ReplicationGroup]
+</span><a href="#local-6989586621679416804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationGroupsResponse
+</span><a href="#local-6989586621679416805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroups:DescribeReplicationGroupsResponse' :: Maybe [ReplicationGroup]
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3AreplicationGroups%3ADescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-var">replicationGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationGroup]
+</span><a href="#local-6989586621679416804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicationGroup] -&gt; f (Maybe [ReplicationGroup]))
+ -&gt; DescribeReplicationGroupsResponse
+ -&gt; f DescribeReplicationGroupsResponse)
+-&gt; ((Maybe [ReplicationGroup] -&gt; f (Maybe [ReplicationGroup]))
+    -&gt; Maybe [ReplicationGroup] -&gt; f (Maybe [ReplicationGroup]))
+-&gt; (Maybe [ReplicationGroup] -&gt; f (Maybe [ReplicationGroup]))
+-&gt; DescribeReplicationGroupsResponse
+-&gt; f DescribeReplicationGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReplicationGroup]
+  [ReplicationGroup]
+  [ReplicationGroup]
+  [ReplicationGroup]
+-&gt; Iso
+     (Maybe [ReplicationGroup])
+     (Maybe [ReplicationGroup])
+     (Maybe [ReplicationGroup])
+     (Maybe [ReplicationGroup])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReplicationGroup]
+  [ReplicationGroup]
+  [ReplicationGroup]
+  [ReplicationGroup]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroupsResponse_httpStatus"><span class="hs-identifier hs-type">describeReplicationGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-258"></span><span id="describeReplicationGroupsResponse_httpStatus"><span class="annot"><span class="annottext">describeReplicationGroupsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeReplicationGroupsResponse
+-&gt; f DescribeReplicationGroupsResponse
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#describeReplicationGroupsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeReplicationGroupsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationGroupsResponse -&gt; Int)
+-&gt; (DescribeReplicationGroupsResponse
+    -&gt; Int -&gt; DescribeReplicationGroupsResponse)
+-&gt; Lens
+     DescribeReplicationGroupsResponse
+     DescribeReplicationGroupsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416801"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeReplicationGroupsResponse' :: DescribeReplicationGroupsResponse -&gt; Int
+</span><a href="#local-6989586621679416801"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416801"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416800"><span class="annot"><span class="annottext">s :: DescribeReplicationGroupsResponse
+</span><a href="#local-6989586621679416800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416799"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationGroupsResponse
+</span><a href="#local-6989586621679416800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReplicationGroupsResponse' :: Int
+</span><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#%24sel%3AhttpStatus%3ADescribeReplicationGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679416797"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.DescribeReplicationGroups.html#DescribeReplicationGroupsResponse"><span class="hs-identifier hs-type">DescribeReplicationGroupsResponse</span></a></span></span><span>
+</span><span id="line-263"></span></pre></body></html>

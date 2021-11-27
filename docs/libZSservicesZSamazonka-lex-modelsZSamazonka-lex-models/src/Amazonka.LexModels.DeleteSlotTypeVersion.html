@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.LexModels.DeleteSlotTypeVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a specific version of a slot type. To delete all versions of a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- slot type, use the DeleteSlotType operation.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation requires permissions for the @lex:DeleteSlotTypeVersion@</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LexModels.DeleteSlotTypeVersion</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier">DeleteSlotTypeVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#newDeleteSlotTypeVersion"><span class="hs-identifier">newDeleteSlotTypeVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#deleteSlotTypeVersion_name"><span class="hs-identifier">deleteSlotTypeVersion_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#deleteSlotTypeVersion_version"><span class="hs-identifier">deleteSlotTypeVersion_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersionResponse"><span class="hs-identifier">DeleteSlotTypeVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#newDeleteSlotTypeVersionResponse"><span class="hs-identifier">newDeleteSlotTypeVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.LexModels.Types.html"><span class="hs-identifier">Amazonka.LexModels.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteSlotTypeVersion' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679326105"><span id="local-6989586621679326106"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSlotTypeVersion"><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-var">DeleteSlotTypeVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSlotTypeVersion%27"><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion%27"><span class="hs-identifier hs-var">DeleteSlotTypeVersion'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the slot type.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aname%3ADeleteSlotTypeVersion%27"><span class="annot"><span class="annottext">DeleteSlotTypeVersion -&gt; Text
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#%24sel%3Aname%3ADeleteSlotTypeVersion%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The version of the slot type to delete. You cannot delete the @$LATEST@</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- version of the slot type. To delete the @$LATEST@ version, use the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- DeleteSlotType operation.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aversion%3ADeleteSlotTypeVersion%27"><span class="annot"><span class="annottext">DeleteSlotTypeVersion -&gt; Text
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#%24sel%3Aversion%3ADeleteSlotTypeVersion%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326098"><span id="local-6989586621679326100"><span class="annot"><span class="annottext">DeleteSlotTypeVersion -&gt; DeleteSlotTypeVersion -&gt; Bool
+(DeleteSlotTypeVersion -&gt; DeleteSlotTypeVersion -&gt; Bool)
+-&gt; (DeleteSlotTypeVersion -&gt; DeleteSlotTypeVersion -&gt; Bool)
+-&gt; Eq DeleteSlotTypeVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteSlotTypeVersion -&gt; DeleteSlotTypeVersion -&gt; Bool
+$c/= :: DeleteSlotTypeVersion -&gt; DeleteSlotTypeVersion -&gt; Bool
+== :: DeleteSlotTypeVersion -&gt; DeleteSlotTypeVersion -&gt; Bool
+$c== :: DeleteSlotTypeVersion -&gt; DeleteSlotTypeVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326089"><span id="local-6989586621679326091"><span id="local-6989586621679326093"><span id="local-6989586621679326095"><span class="annot"><span class="annottext">ReadPrec [DeleteSlotTypeVersion]
+ReadPrec DeleteSlotTypeVersion
+Int -&gt; ReadS DeleteSlotTypeVersion
+ReadS [DeleteSlotTypeVersion]
+(Int -&gt; ReadS DeleteSlotTypeVersion)
+-&gt; ReadS [DeleteSlotTypeVersion]
+-&gt; ReadPrec DeleteSlotTypeVersion
+-&gt; ReadPrec [DeleteSlotTypeVersion]
+-&gt; Read DeleteSlotTypeVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteSlotTypeVersion]
+$creadListPrec :: ReadPrec [DeleteSlotTypeVersion]
+readPrec :: ReadPrec DeleteSlotTypeVersion
+$creadPrec :: ReadPrec DeleteSlotTypeVersion
+readList :: ReadS [DeleteSlotTypeVersion]
+$creadList :: ReadS [DeleteSlotTypeVersion]
+readsPrec :: Int -&gt; ReadS DeleteSlotTypeVersion
+$creadsPrec :: Int -&gt; ReadS DeleteSlotTypeVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326082"><span id="local-6989586621679326084"><span id="local-6989586621679326086"><span class="annot"><span class="annottext">Int -&gt; DeleteSlotTypeVersion -&gt; ShowS
+[DeleteSlotTypeVersion] -&gt; ShowS
+DeleteSlotTypeVersion -&gt; String
+(Int -&gt; DeleteSlotTypeVersion -&gt; ShowS)
+-&gt; (DeleteSlotTypeVersion -&gt; String)
+-&gt; ([DeleteSlotTypeVersion] -&gt; ShowS)
+-&gt; Show DeleteSlotTypeVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteSlotTypeVersion] -&gt; ShowS
+$cshowList :: [DeleteSlotTypeVersion] -&gt; ShowS
+show :: DeleteSlotTypeVersion -&gt; String
+$cshow :: DeleteSlotTypeVersion -&gt; String
+showsPrec :: Int -&gt; DeleteSlotTypeVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteSlotTypeVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteSlotTypeVersion -&gt; Rep DeleteSlotTypeVersion x)
+-&gt; (forall x. Rep DeleteSlotTypeVersion x -&gt; DeleteSlotTypeVersion)
+-&gt; Generic DeleteSlotTypeVersion
+forall x. Rep DeleteSlotTypeVersion x -&gt; DeleteSlotTypeVersion
+forall x. DeleteSlotTypeVersion -&gt; Rep DeleteSlotTypeVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteSlotTypeVersion x -&gt; DeleteSlotTypeVersion
+$cfrom :: forall x. DeleteSlotTypeVersion -&gt; Rep DeleteSlotTypeVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DeleteSlotTypeVersion' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'name', 'deleteSlotTypeVersion_name' - The name of the slot type.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'version', 'deleteSlotTypeVersion_version' - The version of the slot type to delete. You cannot delete the @$LATEST@</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- version of the slot type. To delete the @$LATEST@ version, use the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- DeleteSlotType operation.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#newDeleteSlotTypeVersion"><span class="hs-identifier hs-type">newDeleteSlotTypeVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'version'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-type">DeleteSlotTypeVersion</span></a></span><span>
+</span><span id="line-80"></span><span id="newDeleteSlotTypeVersion"><span class="annot"><span class="annottext">newDeleteSlotTypeVersion :: Text -&gt; Text -&gt; DeleteSlotTypeVersion
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#newDeleteSlotTypeVersion"><span class="hs-identifier hs-var hs-var">newDeleteSlotTypeVersion</span></a></span></span><span> </span><span id="local-6989586621679326077"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326077"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679326076"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326076"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">DeleteSlotTypeVersion' :: Text -&gt; Text -&gt; DeleteSlotTypeVersion
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion%27"><span class="hs-identifier hs-type">DeleteSlotTypeVersion'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:DeleteSlotTypeVersion' :: Text
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#%24sel%3Aname%3ADeleteSlotTypeVersion%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326077"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:DeleteSlotTypeVersion' :: Text
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#%24sel%3Aversion%3ADeleteSlotTypeVersion%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326076"><span class="hs-identifier hs-var">pVersion_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The name of the slot type.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#deleteSlotTypeVersion_name"><span class="hs-identifier hs-type">deleteSlotTypeVersion_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-type">DeleteSlotTypeVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="deleteSlotTypeVersion_name"><span class="annot"><span class="annottext">deleteSlotTypeVersion_name :: (Text -&gt; f Text)
+-&gt; DeleteSlotTypeVersion -&gt; f DeleteSlotTypeVersion
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#deleteSlotTypeVersion_name"><span class="hs-identifier hs-var hs-var">deleteSlotTypeVersion_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteSlotTypeVersion -&gt; Text)
+-&gt; (DeleteSlotTypeVersion -&gt; Text -&gt; DeleteSlotTypeVersion)
+-&gt; Lens DeleteSlotTypeVersion DeleteSlotTypeVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion%27"><span class="hs-identifier hs-type">DeleteSlotTypeVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326073"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DeleteSlotTypeVersion' :: DeleteSlotTypeVersion -&gt; Text
+</span><a href="#local-6989586621679326073"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326073"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326072"><span class="annot"><span class="annottext">s :: DeleteSlotTypeVersion
+</span><a href="#local-6989586621679326072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion%27"><span class="hs-identifier hs-type">DeleteSlotTypeVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326071"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSlotTypeVersion
+</span><a href="#local-6989586621679326072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteSlotTypeVersion' :: Text
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#%24sel%3Aname%3ADeleteSlotTypeVersion%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-type">DeleteSlotTypeVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The version of the slot type to delete. You cannot delete the @$LATEST@</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- version of the slot type. To delete the @$LATEST@ version, use the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- DeleteSlotType operation.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#deleteSlotTypeVersion_version"><span class="hs-identifier hs-type">deleteSlotTypeVersion_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-type">DeleteSlotTypeVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="deleteSlotTypeVersion_version"><span class="annot"><span class="annottext">deleteSlotTypeVersion_version :: (Text -&gt; f Text)
+-&gt; DeleteSlotTypeVersion -&gt; f DeleteSlotTypeVersion
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#deleteSlotTypeVersion_version"><span class="hs-identifier hs-var hs-var">deleteSlotTypeVersion_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteSlotTypeVersion -&gt; Text)
+-&gt; (DeleteSlotTypeVersion -&gt; Text -&gt; DeleteSlotTypeVersion)
+-&gt; Lens DeleteSlotTypeVersion DeleteSlotTypeVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion%27"><span class="hs-identifier hs-type">DeleteSlotTypeVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326070"><span class="annot"><span class="annottext">Text
+version :: Text
+$sel:version:DeleteSlotTypeVersion' :: DeleteSlotTypeVersion -&gt; Text
+</span><a href="#local-6989586621679326070"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326070"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326069"><span class="annot"><span class="annottext">s :: DeleteSlotTypeVersion
+</span><a href="#local-6989586621679326069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion%27"><span class="hs-identifier hs-type">DeleteSlotTypeVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326068"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSlotTypeVersion
+</span><a href="#local-6989586621679326069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:DeleteSlotTypeVersion' :: Text
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#%24sel%3Aversion%3ADeleteSlotTypeVersion%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-type">DeleteSlotTypeVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-type">DeleteSlotTypeVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-type">DeleteSlotTypeVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersionResponse"><span class="hs-identifier hs-type">DeleteSlotTypeVersionResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679326064"><span class="annot"><span class="annottext">request :: DeleteSlotTypeVersion -&gt; Request DeleteSlotTypeVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteSlotTypeVersion -&gt; Request DeleteSlotTypeVersion
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.LexModels.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679326060"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteSlotTypeVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteSlotTypeVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteSlotTypeVersion
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteSlotTypeVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteSlotTypeVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteSlotTypeVersion
+DeleteSlotTypeVersionResponse
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersionResponse%27"><span class="hs-identifier hs-var">DeleteSlotTypeVersionResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326053"><span id="local-6989586621679326055"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-type">DeleteSlotTypeVersion</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-type">DeleteSlotTypeVersion</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-type">DeleteSlotTypeVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679326046"><span class="annot"><span class="annottext">toHeaders :: DeleteSlotTypeVersion -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteSlotTypeVersion -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-type">DeleteSlotTypeVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679326040"><span class="annot"><span class="annottext">toPath :: DeleteSlotTypeVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion%27"><span class="hs-identifier hs-type">DeleteSlotTypeVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326037"><span id="local-6989586621679326038"><span class="annot"><span class="annottext">Text
+version :: Text
+name :: Text
+$sel:version:DeleteSlotTypeVersion' :: DeleteSlotTypeVersion -&gt; Text
+$sel:name:DeleteSlotTypeVersion' :: DeleteSlotTypeVersion -&gt; Text
+</span><a href="#local-6989586621679326037"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/slottypes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326038"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/version/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326037"><span class="hs-identifier hs-var">version</span></a></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersion"><span class="hs-identifier hs-type">DeleteSlotTypeVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679326033"><span class="annot"><span class="annottext">toQuery :: DeleteSlotTypeVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteSlotTypeVersion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newDeleteSlotTypeVersionResponse' smart constructor.</span><span>
+</span><span id="line-132"></span><span id="local-6989586621679326030"><span id="local-6989586621679326031"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSlotTypeVersionResponse"><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersionResponse"><span class="hs-identifier hs-var">DeleteSlotTypeVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSlotTypeVersionResponse%27"><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersionResponse%27"><span class="hs-identifier hs-var">DeleteSlotTypeVersionResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326026"><span id="local-6989586621679326028"><span class="annot"><span class="annottext">DeleteSlotTypeVersionResponse
+-&gt; DeleteSlotTypeVersionResponse -&gt; Bool
+(DeleteSlotTypeVersionResponse
+ -&gt; DeleteSlotTypeVersionResponse -&gt; Bool)
+-&gt; (DeleteSlotTypeVersionResponse
+    -&gt; DeleteSlotTypeVersionResponse -&gt; Bool)
+-&gt; Eq DeleteSlotTypeVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteSlotTypeVersionResponse
+-&gt; DeleteSlotTypeVersionResponse -&gt; Bool
+$c/= :: DeleteSlotTypeVersionResponse
+-&gt; DeleteSlotTypeVersionResponse -&gt; Bool
+== :: DeleteSlotTypeVersionResponse
+-&gt; DeleteSlotTypeVersionResponse -&gt; Bool
+$c== :: DeleteSlotTypeVersionResponse
+-&gt; DeleteSlotTypeVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326018"><span id="local-6989586621679326020"><span id="local-6989586621679326022"><span id="local-6989586621679326024"><span class="annot"><span class="annottext">ReadPrec [DeleteSlotTypeVersionResponse]
+ReadPrec DeleteSlotTypeVersionResponse
+Int -&gt; ReadS DeleteSlotTypeVersionResponse
+ReadS [DeleteSlotTypeVersionResponse]
+(Int -&gt; ReadS DeleteSlotTypeVersionResponse)
+-&gt; ReadS [DeleteSlotTypeVersionResponse]
+-&gt; ReadPrec DeleteSlotTypeVersionResponse
+-&gt; ReadPrec [DeleteSlotTypeVersionResponse]
+-&gt; Read DeleteSlotTypeVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteSlotTypeVersionResponse]
+$creadListPrec :: ReadPrec [DeleteSlotTypeVersionResponse]
+readPrec :: ReadPrec DeleteSlotTypeVersionResponse
+$creadPrec :: ReadPrec DeleteSlotTypeVersionResponse
+readList :: ReadS [DeleteSlotTypeVersionResponse]
+$creadList :: ReadS [DeleteSlotTypeVersionResponse]
+readsPrec :: Int -&gt; ReadS DeleteSlotTypeVersionResponse
+$creadsPrec :: Int -&gt; ReadS DeleteSlotTypeVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326012"><span id="local-6989586621679326014"><span id="local-6989586621679326016"><span class="annot"><span class="annottext">Int -&gt; DeleteSlotTypeVersionResponse -&gt; ShowS
+[DeleteSlotTypeVersionResponse] -&gt; ShowS
+DeleteSlotTypeVersionResponse -&gt; String
+(Int -&gt; DeleteSlotTypeVersionResponse -&gt; ShowS)
+-&gt; (DeleteSlotTypeVersionResponse -&gt; String)
+-&gt; ([DeleteSlotTypeVersionResponse] -&gt; ShowS)
+-&gt; Show DeleteSlotTypeVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteSlotTypeVersionResponse] -&gt; ShowS
+$cshowList :: [DeleteSlotTypeVersionResponse] -&gt; ShowS
+show :: DeleteSlotTypeVersionResponse -&gt; String
+$cshow :: DeleteSlotTypeVersionResponse -&gt; String
+showsPrec :: Int -&gt; DeleteSlotTypeVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteSlotTypeVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteSlotTypeVersionResponse
+ -&gt; Rep DeleteSlotTypeVersionResponse x)
+-&gt; (forall x.
+    Rep DeleteSlotTypeVersionResponse x
+    -&gt; DeleteSlotTypeVersionResponse)
+-&gt; Generic DeleteSlotTypeVersionResponse
+forall x.
+Rep DeleteSlotTypeVersionResponse x
+-&gt; DeleteSlotTypeVersionResponse
+forall x.
+DeleteSlotTypeVersionResponse
+-&gt; Rep DeleteSlotTypeVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteSlotTypeVersionResponse x
+-&gt; DeleteSlotTypeVersionResponse
+$cfrom :: forall x.
+DeleteSlotTypeVersionResponse
+-&gt; Rep DeleteSlotTypeVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Create a value of 'DeleteSlotTypeVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#newDeleteSlotTypeVersionResponse"><span class="hs-identifier hs-type">newDeleteSlotTypeVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersionResponse"><span class="hs-identifier hs-type">DeleteSlotTypeVersionResponse</span></a></span><span>
+</span><span id="line-143"></span><span id="newDeleteSlotTypeVersionResponse"><span class="annot"><span class="annottext">newDeleteSlotTypeVersionResponse :: DeleteSlotTypeVersionResponse
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#newDeleteSlotTypeVersionResponse"><span class="hs-identifier hs-var hs-var">newDeleteSlotTypeVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">DeleteSlotTypeVersionResponse
+</span><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersionResponse%27"><span class="hs-identifier hs-var">DeleteSlotTypeVersionResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.LexModels.DeleteSlotTypeVersion.html#DeleteSlotTypeVersionResponse"><span class="hs-identifier hs-type">DeleteSlotTypeVersionResponse</span></a></span></span><span>
+</span><span id="line-147"></span></pre></body></html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Config.Types.AggregatedSourceStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Config.Types.AggregatedSourceStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html"><span class="hs-identifier">Amazonka.Config.Types.AggregatedSourceStatusType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceType.html"><span class="hs-identifier">Amazonka.Config.Types.AggregatedSourceType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The current sync status between the source and the aggregator account.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAggregatedSourceStatus' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679394982"><span id="local-6989586621679394983"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregatedSourceStatus"><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-var">AggregatedSourceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregatedSourceStatus%27"><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-var">AggregatedSourceStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code that Config returned when the source account aggregation</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- last failed.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastErrorCode%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorCode%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Filters the last updated status type.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   Valid value FAILED indicates errors while moving data.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   Valid value SUCCEEDED indicates the data was successfully moved.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   Valid value OUTDATED indicates the data is not the most recent.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastUpdateStatus%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe AggregatedSourceStatusType
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateStatus%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">lastUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType"><span class="hs-identifier hs-type">AggregatedSourceStatusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The source account or an organization.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AsourceType%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe AggregatedSourceType
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceType%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceType.html#AggregatedSourceType"><span class="hs-identifier hs-type">AggregatedSourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The source account ID or an organization.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AsourceId%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceId%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The message indicating that the source account aggregation failed due to</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- an error.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AlastErrorMessage%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorMessage%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The region authorized to collect aggregated data.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AawsRegion%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AawsRegion%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The time of the last update.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe POSIX
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateTime%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394970"><span id="local-6989586621679394972"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool
+(AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool)
+-&gt; (AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool)
+-&gt; Eq AggregatedSourceStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool
+$c/= :: AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool
+== :: AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool
+$c== :: AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394961"><span id="local-6989586621679394963"><span id="local-6989586621679394965"><span id="local-6989586621679394967"><span class="annot"><span class="annottext">ReadPrec [AggregatedSourceStatus]
+ReadPrec AggregatedSourceStatus
+Int -&gt; ReadS AggregatedSourceStatus
+ReadS [AggregatedSourceStatus]
+(Int -&gt; ReadS AggregatedSourceStatus)
+-&gt; ReadS [AggregatedSourceStatus]
+-&gt; ReadPrec AggregatedSourceStatus
+-&gt; ReadPrec [AggregatedSourceStatus]
+-&gt; Read AggregatedSourceStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AggregatedSourceStatus]
+$creadListPrec :: ReadPrec [AggregatedSourceStatus]
+readPrec :: ReadPrec AggregatedSourceStatus
+$creadPrec :: ReadPrec AggregatedSourceStatus
+readList :: ReadS [AggregatedSourceStatus]
+$creadList :: ReadS [AggregatedSourceStatus]
+readsPrec :: Int -&gt; ReadS AggregatedSourceStatus
+$creadsPrec :: Int -&gt; ReadS AggregatedSourceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394954"><span id="local-6989586621679394956"><span id="local-6989586621679394958"><span class="annot"><span class="annottext">Int -&gt; AggregatedSourceStatus -&gt; ShowS
+[AggregatedSourceStatus] -&gt; ShowS
+AggregatedSourceStatus -&gt; String
+(Int -&gt; AggregatedSourceStatus -&gt; ShowS)
+-&gt; (AggregatedSourceStatus -&gt; String)
+-&gt; ([AggregatedSourceStatus] -&gt; ShowS)
+-&gt; Show AggregatedSourceStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AggregatedSourceStatus] -&gt; ShowS
+$cshowList :: [AggregatedSourceStatus] -&gt; ShowS
+show :: AggregatedSourceStatus -&gt; String
+$cshow :: AggregatedSourceStatus -&gt; String
+showsPrec :: Int -&gt; AggregatedSourceStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AggregatedSourceStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AggregatedSourceStatus -&gt; Rep AggregatedSourceStatus x)
+-&gt; (forall x.
+    Rep AggregatedSourceStatus x -&gt; AggregatedSourceStatus)
+-&gt; Generic AggregatedSourceStatus
+forall x. Rep AggregatedSourceStatus x -&gt; AggregatedSourceStatus
+forall x. AggregatedSourceStatus -&gt; Rep AggregatedSourceStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AggregatedSourceStatus x -&gt; AggregatedSourceStatus
+$cfrom :: forall x. AggregatedSourceStatus -&gt; Rep AggregatedSourceStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'AggregatedSourceStatus' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'lastErrorCode', 'aggregatedSourceStatus_lastErrorCode' - The error code that Config returned when the source account aggregation</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- last failed.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'lastUpdateStatus', 'aggregatedSourceStatus_lastUpdateStatus' - Filters the last updated status type.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- -   Valid value FAILED indicates errors while moving data.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -   Valid value SUCCEEDED indicates the data was successfully moved.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- -   Valid value OUTDATED indicates the data is not the most recent.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'sourceType', 'aggregatedSourceStatus_sourceType' - The source account or an organization.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'sourceId', 'aggregatedSourceStatus_sourceId' - The source account ID or an organization.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'lastErrorMessage', 'aggregatedSourceStatus_lastErrorMessage' - The message indicating that the source account aggregation failed due to</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- an error.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'awsRegion', 'aggregatedSourceStatus_awsRegion' - The region authorized to collect aggregated data.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'lastUpdateTime', 'aggregatedSourceStatus_lastUpdateTime' - The time of the last update.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#newAggregatedSourceStatus"><span class="hs-identifier hs-type">newAggregatedSourceStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span>
+</span><span id="line-88"></span><span id="newAggregatedSourceStatus"><span class="annot"><span class="annottext">newAggregatedSourceStatus :: AggregatedSourceStatus
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#newAggregatedSourceStatus"><span class="hs-identifier hs-var hs-var">newAggregatedSourceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">AggregatedSourceStatus' :: Maybe Text
+-&gt; Maybe AggregatedSourceStatusType
+-&gt; Maybe AggregatedSourceType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; AggregatedSourceStatus
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastErrorCode:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorCode%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateStatus:AggregatedSourceStatus' :: Maybe AggregatedSourceStatusType
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateStatus%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:AggregatedSourceStatus' :: Maybe AggregatedSourceType
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceType%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceId:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceId%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastErrorMessage:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorMessage%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegion:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AawsRegion%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:AggregatedSourceStatus' :: Maybe POSIX
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateTime%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The error code that Config returned when the source account aggregation</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- last failed.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastErrorCode"><span class="hs-identifier hs-type">aggregatedSourceStatus_lastErrorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="aggregatedSourceStatus_lastErrorCode"><span class="annot"><span class="annottext">aggregatedSourceStatus_lastErrorCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastErrorCode"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe Text)
+-&gt; (AggregatedSourceStatus -&gt; Maybe Text -&gt; AggregatedSourceStatus)
+-&gt; Lens
+     AggregatedSourceStatus
+     AggregatedSourceStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394945"><span class="annot"><span class="annottext">Maybe Text
+lastErrorCode :: Maybe Text
+$sel:lastErrorCode:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679394945"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394945"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394944"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679394944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394943"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679394944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorCode:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorCode%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Filters the last updated status type.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   Valid value FAILED indicates errors while moving data.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   Valid value SUCCEEDED indicates the data was successfully moved.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   Valid value OUTDATED indicates the data is not the most recent.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastUpdateStatus"><span class="hs-identifier hs-type">aggregatedSourceStatus_lastUpdateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType"><span class="hs-identifier hs-type">AggregatedSourceStatusType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="aggregatedSourceStatus_lastUpdateStatus"><span class="annot"><span class="annottext">aggregatedSourceStatus_lastUpdateStatus :: (Maybe AggregatedSourceStatusType
+ -&gt; f (Maybe AggregatedSourceStatusType))
+-&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastUpdateStatus"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_lastUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe AggregatedSourceStatusType)
+-&gt; (AggregatedSourceStatus
+    -&gt; Maybe AggregatedSourceStatusType -&gt; AggregatedSourceStatus)
+-&gt; Lens
+     AggregatedSourceStatus
+     AggregatedSourceStatus
+     (Maybe AggregatedSourceStatusType)
+     (Maybe AggregatedSourceStatusType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394941"><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
+lastUpdateStatus :: Maybe AggregatedSourceStatusType
+$sel:lastUpdateStatus:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe AggregatedSourceStatusType
+</span><a href="#local-6989586621679394941"><span class="hs-identifier hs-var hs-var">lastUpdateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
+</span><a href="#local-6989586621679394941"><span class="hs-identifier hs-var">lastUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394940"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679394940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394939"><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
+</span><a href="#local-6989586621679394939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679394940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateStatus:AggregatedSourceStatus' :: Maybe AggregatedSourceStatusType
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateStatus%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
+</span><a href="#local-6989586621679394939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The source account or an organization.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_sourceType"><span class="hs-identifier hs-type">aggregatedSourceStatus_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceType.html#AggregatedSourceType"><span class="hs-identifier hs-type">AggregatedSourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="aggregatedSourceStatus_sourceType"><span class="annot"><span class="annottext">aggregatedSourceStatus_sourceType :: (Maybe AggregatedSourceType -&gt; f (Maybe AggregatedSourceType))
+-&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_sourceType"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe AggregatedSourceType)
+-&gt; (AggregatedSourceStatus
+    -&gt; Maybe AggregatedSourceType -&gt; AggregatedSourceStatus)
+-&gt; Lens
+     AggregatedSourceStatus
+     AggregatedSourceStatus
+     (Maybe AggregatedSourceType)
+     (Maybe AggregatedSourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394937"><span class="annot"><span class="annottext">Maybe AggregatedSourceType
+sourceType :: Maybe AggregatedSourceType
+$sel:sourceType:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe AggregatedSourceType
+</span><a href="#local-6989586621679394937"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceType
+</span><a href="#local-6989586621679394937"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394936"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679394936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394935"><span class="annot"><span class="annottext">Maybe AggregatedSourceType
+</span><a href="#local-6989586621679394935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679394936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:AggregatedSourceStatus' :: Maybe AggregatedSourceType
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceType%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceType
+</span><a href="#local-6989586621679394935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The source account ID or an organization.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_sourceId"><span class="hs-identifier hs-type">aggregatedSourceStatus_sourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="aggregatedSourceStatus_sourceId"><span class="annot"><span class="annottext">aggregatedSourceStatus_sourceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_sourceId"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_sourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe Text)
+-&gt; (AggregatedSourceStatus -&gt; Maybe Text -&gt; AggregatedSourceStatus)
+-&gt; Lens
+     AggregatedSourceStatus
+     AggregatedSourceStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394933"><span class="annot"><span class="annottext">Maybe Text
+sourceId :: Maybe Text
+$sel:sourceId:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679394933"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394933"><span class="hs-identifier hs-var">sourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394932"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679394932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394931"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679394932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceId:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceId%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The message indicating that the source account aggregation failed due to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- an error.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastErrorMessage"><span class="hs-identifier hs-type">aggregatedSourceStatus_lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="aggregatedSourceStatus_lastErrorMessage"><span class="annot"><span class="annottext">aggregatedSourceStatus_lastErrorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastErrorMessage"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe Text)
+-&gt; (AggregatedSourceStatus -&gt; Maybe Text -&gt; AggregatedSourceStatus)
+-&gt; Lens
+     AggregatedSourceStatus
+     AggregatedSourceStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394929"><span class="annot"><span class="annottext">Maybe Text
+lastErrorMessage :: Maybe Text
+$sel:lastErrorMessage:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679394929"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394929"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394928"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679394928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394927"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679394928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorMessage:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorMessage%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The region authorized to collect aggregated data.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_awsRegion"><span class="hs-identifier hs-type">aggregatedSourceStatus_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="aggregatedSourceStatus_awsRegion"><span class="annot"><span class="annottext">aggregatedSourceStatus_awsRegion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_awsRegion"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_awsRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe Text)
+-&gt; (AggregatedSourceStatus -&gt; Maybe Text -&gt; AggregatedSourceStatus)
+-&gt; Lens
+     AggregatedSourceStatus
+     AggregatedSourceStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394925"><span class="annot"><span class="annottext">Maybe Text
+awsRegion :: Maybe Text
+$sel:awsRegion:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679394925"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394925"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394924"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679394924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394923"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679394924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AawsRegion%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The time of the last update.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastUpdateTime"><span class="hs-identifier hs-type">aggregatedSourceStatus_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="aggregatedSourceStatus_lastUpdateTime"><span class="annot"><span class="annottext">aggregatedSourceStatus_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastUpdateTime"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe POSIX)
+-&gt; (AggregatedSourceStatus
+    -&gt; Maybe POSIX -&gt; AggregatedSourceStatus)
+-&gt; Lens
+     AggregatedSourceStatus
+     AggregatedSourceStatus
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394921"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdateTime :: Maybe POSIX
+$sel:lastUpdateTime:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe POSIX
+</span><a href="#local-6989586621679394921"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679394921"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394920"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679394920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394919"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679394919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679394920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:AggregatedSourceStatus' :: Maybe POSIX
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateTime%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679394919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AggregatedSourceStatus
+-&gt; f AggregatedSourceStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394913"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679394911"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregatedSourceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AggregatedSourceStatus)
+-&gt; Value
+-&gt; Parser AggregatedSourceStatus
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AggregatedSourceStatus&quot;</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394908"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394908"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe AggregatedSourceStatusType
+-&gt; Maybe AggregatedSourceType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; AggregatedSourceStatus
+</span><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-var">AggregatedSourceStatus'</span></a></span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe AggregatedSourceStatusType
+ -&gt; Maybe AggregatedSourceType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; AggregatedSourceStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AggregatedSourceStatusType
+      -&gt; Maybe AggregatedSourceType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; AggregatedSourceStatus)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AggregatedSourceStatusType
+   -&gt; Maybe AggregatedSourceType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; AggregatedSourceStatus)
+-&gt; Parser (Maybe AggregatedSourceStatusType)
+-&gt; Parser
+     (Maybe AggregatedSourceType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; AggregatedSourceStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AggregatedSourceStatusType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdateStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AggregatedSourceType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; AggregatedSourceStatus)
+-&gt; Parser (Maybe AggregatedSourceType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; AggregatedSourceStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AggregatedSourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; AggregatedSourceStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; AggregatedSourceStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; AggregatedSourceStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; AggregatedSourceStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; AggregatedSourceStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; AggregatedSourceStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsRegion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; AggregatedSourceStatus)
+-&gt; Parser (Maybe POSIX) -&gt; Parser AggregatedSourceStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394902"><span id="local-6989586621679394904"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

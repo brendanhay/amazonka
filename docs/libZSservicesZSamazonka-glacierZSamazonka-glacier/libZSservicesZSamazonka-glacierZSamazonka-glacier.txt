@@ -5,35 +5,35 @@
 @version 2.0
 
 
-module Network.AWS.Glacier.Types.ActionCode
+module Amazonka.Glacier.Types.ActionCode
 newtype ActionCode
 ActionCode' :: Text -> ActionCode
 [fromActionCode] :: ActionCode -> Text
 pattern ActionCode_ArchiveRetrieval :: ActionCode
 pattern ActionCode_InventoryRetrieval :: ActionCode
 pattern ActionCode_Select :: ActionCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Network.AWS.Data.Text.ToText Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Network.AWS.Data.Text.FromText Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance GHC.Classes.Ord Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance GHC.Read.Read Network.AWS.Glacier.Types.ActionCode.ActionCode
-instance GHC.Show.Show Network.AWS.Glacier.Types.ActionCode.ActionCode
+instance Amazonka.Data.XML.ToXML Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Amazonka.Data.XML.FromXML Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Amazonka.Data.Log.ToLog Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Amazonka.Data.Text.ToText Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Amazonka.Data.Text.FromText Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.ActionCode.ActionCode
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.ActionCode.ActionCode
+instance GHC.Generics.Generic Amazonka.Glacier.Types.ActionCode.ActionCode
+instance GHC.Classes.Ord Amazonka.Glacier.Types.ActionCode.ActionCode
+instance GHC.Classes.Eq Amazonka.Glacier.Types.ActionCode.ActionCode
+instance GHC.Read.Read Amazonka.Glacier.Types.ActionCode.ActionCode
+instance GHC.Show.Show Amazonka.Glacier.Types.ActionCode.ActionCode
 
 
-module Network.AWS.Glacier.Types.ArchiveCreationOutput
+module Amazonka.Glacier.Types.ArchiveCreationOutput
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --   
@@ -86,16 +86,16 @@ archiveCreationOutput_checksum :: Lens' ArchiveCreationOutput (Maybe Text)
 
 -- | The relative URI path of the newly added archive resource.
 archiveCreationOutput_location :: Lens' ArchiveCreationOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
-instance GHC.Show.Show Network.AWS.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
-instance GHC.Read.Read Network.AWS.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
+instance GHC.Generics.Generic Amazonka.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
+instance GHC.Show.Show Amazonka.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
+instance GHC.Read.Read Amazonka.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
+instance GHC.Classes.Eq Amazonka.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.ArchiveCreationOutput.ArchiveCreationOutput
 
 
-module Network.AWS.Glacier.Types.CannedACL
+module Amazonka.Glacier.Types.CannedACL
 newtype CannedACL
 CannedACL' :: Text -> CannedACL
 [fromCannedACL] :: CannedACL -> Text
@@ -106,28 +106,28 @@ pattern CannedACL_Bucket_owner_read :: CannedACL
 pattern CannedACL_Private :: CannedACL
 pattern CannedACL_Public_read :: CannedACL
 pattern CannedACL_Public_read_write :: CannedACL
-instance Network.AWS.Data.XML.ToXML Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Network.AWS.Data.XML.FromXML Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Network.AWS.Data.Log.ToLog Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Network.AWS.Data.Text.ToText Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Network.AWS.Data.Text.FromText Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance GHC.Classes.Ord Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance GHC.Read.Read Network.AWS.Glacier.Types.CannedACL.CannedACL
-instance GHC.Show.Show Network.AWS.Glacier.Types.CannedACL.CannedACL
+instance Amazonka.Data.XML.ToXML Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Amazonka.Data.XML.FromXML Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Amazonka.Data.Headers.ToHeader Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Amazonka.Data.Log.ToLog Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Amazonka.Data.Text.ToText Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Amazonka.Data.Text.FromText Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.CannedACL.CannedACL
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.CannedACL.CannedACL
+instance GHC.Generics.Generic Amazonka.Glacier.Types.CannedACL.CannedACL
+instance GHC.Classes.Ord Amazonka.Glacier.Types.CannedACL.CannedACL
+instance GHC.Classes.Eq Amazonka.Glacier.Types.CannedACL.CannedACL
+instance GHC.Read.Read Amazonka.Glacier.Types.CannedACL.CannedACL
+instance GHC.Show.Show Amazonka.Glacier.Types.CannedACL.CannedACL
 
 
-module Network.AWS.Glacier.Types.DataRetrievalRule
+module Amazonka.Glacier.Types.DataRetrievalRule
 
 -- | Data retrieval policy rule.
 --   
@@ -185,17 +185,17 @@ dataRetrievalRule_strategy :: Lens' DataRetrievalRule (Maybe Text)
 --   Strategy field is not set to <tt>BytesPerHour</tt> and you set this
 --   field.
 dataRetrievalRule_bytesPerHour :: Lens' DataRetrievalRule (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.DataRetrievalRule.DataRetrievalRule
-instance GHC.Show.Show Network.AWS.Glacier.Types.DataRetrievalRule.DataRetrievalRule
-instance GHC.Read.Read Network.AWS.Glacier.Types.DataRetrievalRule.DataRetrievalRule
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.DataRetrievalRule.DataRetrievalRule
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.DataRetrievalRule.DataRetrievalRule
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.DataRetrievalRule.DataRetrievalRule
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.DataRetrievalRule.DataRetrievalRule
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.DataRetrievalRule.DataRetrievalRule
+instance GHC.Generics.Generic Amazonka.Glacier.Types.DataRetrievalRule.DataRetrievalRule
+instance GHC.Show.Show Amazonka.Glacier.Types.DataRetrievalRule.DataRetrievalRule
+instance GHC.Read.Read Amazonka.Glacier.Types.DataRetrievalRule.DataRetrievalRule
+instance GHC.Classes.Eq Amazonka.Glacier.Types.DataRetrievalRule.DataRetrievalRule
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.DataRetrievalRule.DataRetrievalRule
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.DataRetrievalRule.DataRetrievalRule
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.DataRetrievalRule.DataRetrievalRule
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.DataRetrievalRule.DataRetrievalRule
 
 
-module Network.AWS.Glacier.Types.DataRetrievalPolicy
+module Amazonka.Glacier.Types.DataRetrievalPolicy
 
 -- | Data retrieval policy.
 --   
@@ -227,17 +227,17 @@ newDataRetrievalPolicy :: DataRetrievalPolicy
 --   only one rule, which contains a Strategy field and optionally a
 --   BytesPerHour field.
 dataRetrievalPolicy_rules :: Lens' DataRetrievalPolicy (Maybe [DataRetrievalRule])
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
-instance GHC.Show.Show Network.AWS.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
-instance GHC.Read.Read Network.AWS.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
+instance GHC.Show.Show Amazonka.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
+instance GHC.Read.Read Amazonka.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
+instance GHC.Classes.Eq Amazonka.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.DataRetrievalPolicy.DataRetrievalPolicy
 
 
-module Network.AWS.Glacier.Types.DescribeVaultOutput
+module Amazonka.Glacier.Types.DescribeVaultOutput
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --   
@@ -339,43 +339,43 @@ describeVaultOutput_creationDate :: Lens' DescribeVaultOutput (Maybe Text)
 --   This field will return <tt>null</tt> if an inventory has not yet run
 --   on the vault, for example if you just created the vault.
 describeVaultOutput_numberOfArchives :: Lens' DescribeVaultOutput (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
-instance GHC.Show.Show Network.AWS.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
-instance GHC.Read.Read Network.AWS.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
+instance GHC.Generics.Generic Amazonka.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
+instance GHC.Show.Show Amazonka.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
+instance GHC.Read.Read Amazonka.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
+instance GHC.Classes.Eq Amazonka.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.DescribeVaultOutput.DescribeVaultOutput
 
 
-module Network.AWS.Glacier.Types.EncryptionType
+module Amazonka.Glacier.Types.EncryptionType
 newtype EncryptionType
 EncryptionType' :: Text -> EncryptionType
 [fromEncryptionType] :: EncryptionType -> Text
 pattern EncryptionType_AES256 :: EncryptionType
 pattern EncryptionType_Aws_kms :: EncryptionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.Text.ToText Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Network.AWS.Data.Text.FromText Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance GHC.Classes.Ord Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance GHC.Read.Read Network.AWS.Glacier.Types.EncryptionType.EncryptionType
-instance GHC.Show.Show Network.AWS.Glacier.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.XML.ToXML Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.XML.FromXML Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.Log.ToLog Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.Text.ToText Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Amazonka.Data.Text.FromText Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance GHC.Generics.Generic Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance GHC.Classes.Ord Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance GHC.Classes.Eq Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance GHC.Read.Read Amazonka.Glacier.Types.EncryptionType.EncryptionType
+instance GHC.Show.Show Amazonka.Glacier.Types.EncryptionType.EncryptionType
 
 
-module Network.AWS.Glacier.Types.Encryption
+module Amazonka.Glacier.Types.Encryption
 
 -- | Contains information about the encryption used to store the job
 --   results in Amazon S3.
@@ -432,71 +432,71 @@ encryption_kmsKeyId :: Lens' Encryption (Maybe Text)
 -- | Optional. If the encryption type is <tt>aws:kms</tt>, you can use this
 --   value to specify the encryption context for the job results.
 encryption_kmsContext :: Lens' Encryption (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.Encryption.Encryption
-instance GHC.Show.Show Network.AWS.Glacier.Types.Encryption.Encryption
-instance GHC.Read.Read Network.AWS.Glacier.Types.Encryption.Encryption
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.Encryption.Encryption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.Encryption.Encryption
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.Encryption.Encryption
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.Encryption.Encryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.Encryption.Encryption
+instance GHC.Generics.Generic Amazonka.Glacier.Types.Encryption.Encryption
+instance GHC.Show.Show Amazonka.Glacier.Types.Encryption.Encryption
+instance GHC.Read.Read Amazonka.Glacier.Types.Encryption.Encryption
+instance GHC.Classes.Eq Amazonka.Glacier.Types.Encryption.Encryption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.Encryption.Encryption
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.Encryption.Encryption
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.Encryption.Encryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.Encryption.Encryption
 
 
-module Network.AWS.Glacier.Types.ExpressionType
+module Amazonka.Glacier.Types.ExpressionType
 newtype ExpressionType
 ExpressionType' :: Text -> ExpressionType
 [fromExpressionType] :: ExpressionType -> Text
 pattern ExpressionType_SQL :: ExpressionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Network.AWS.Data.Text.ToText Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Network.AWS.Data.Text.FromText Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance GHC.Classes.Ord Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance GHC.Read.Read Network.AWS.Glacier.Types.ExpressionType.ExpressionType
-instance GHC.Show.Show Network.AWS.Glacier.Types.ExpressionType.ExpressionType
+instance Amazonka.Data.XML.ToXML Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Amazonka.Data.XML.FromXML Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Amazonka.Data.Log.ToLog Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Amazonka.Data.Text.ToText Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Amazonka.Data.Text.FromText Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance GHC.Generics.Generic Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance GHC.Classes.Ord Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance GHC.Classes.Eq Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance GHC.Read.Read Amazonka.Glacier.Types.ExpressionType.ExpressionType
+instance GHC.Show.Show Amazonka.Glacier.Types.ExpressionType.ExpressionType
 
 
-module Network.AWS.Glacier.Types.FileHeaderInfo
+module Amazonka.Glacier.Types.FileHeaderInfo
 newtype FileHeaderInfo
 FileHeaderInfo' :: Text -> FileHeaderInfo
 [fromFileHeaderInfo] :: FileHeaderInfo -> Text
 pattern FileHeaderInfo_IGNORE :: FileHeaderInfo
 pattern FileHeaderInfo_NONE :: FileHeaderInfo
 pattern FileHeaderInfo_USE :: FileHeaderInfo
-instance Network.AWS.Data.XML.ToXML Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Network.AWS.Data.XML.FromXML Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Network.AWS.Data.Log.ToLog Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Network.AWS.Data.Text.ToText Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Network.AWS.Data.Text.FromText Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance GHC.Classes.Ord Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance GHC.Read.Read Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
-instance GHC.Show.Show Network.AWS.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Amazonka.Data.XML.ToXML Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Amazonka.Data.XML.FromXML Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Amazonka.Data.Headers.ToHeader Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Amazonka.Data.Log.ToLog Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Amazonka.Data.Text.ToText Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Amazonka.Data.Text.FromText Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance GHC.Generics.Generic Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance GHC.Classes.Ord Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance GHC.Classes.Eq Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance GHC.Read.Read Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
+instance GHC.Show.Show Amazonka.Glacier.Types.FileHeaderInfo.FileHeaderInfo
 
 
-module Network.AWS.Glacier.Types.CSVInput
+module Amazonka.Glacier.Types.CSVInput
 
 -- | Contains information about the comma-separated value (CSV) file to
 --   select from.
@@ -582,17 +582,17 @@ cSVInput_comments :: Lens' CSVInput (Maybe Text)
 -- | A value used to separate individual fields from each other within a
 --   record.
 cSVInput_fieldDelimiter :: Lens' CSVInput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.CSVInput.CSVInput
-instance GHC.Show.Show Network.AWS.Glacier.Types.CSVInput.CSVInput
-instance GHC.Read.Read Network.AWS.Glacier.Types.CSVInput.CSVInput
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.CSVInput.CSVInput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.CSVInput.CSVInput
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.CSVInput.CSVInput
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.CSVInput.CSVInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.CSVInput.CSVInput
+instance GHC.Generics.Generic Amazonka.Glacier.Types.CSVInput.CSVInput
+instance GHC.Show.Show Amazonka.Glacier.Types.CSVInput.CSVInput
+instance GHC.Read.Read Amazonka.Glacier.Types.CSVInput.CSVInput
+instance GHC.Classes.Eq Amazonka.Glacier.Types.CSVInput.CSVInput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.CSVInput.CSVInput
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.CSVInput.CSVInput
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.CSVInput.CSVInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.CSVInput.CSVInput
 
 
-module Network.AWS.Glacier.Types.InputSerialization
+module Amazonka.Glacier.Types.InputSerialization
 
 -- | Describes how the archive is serialized.
 --   
@@ -618,17 +618,17 @@ newInputSerialization :: InputSerialization
 
 -- | Describes the serialization of a CSV-encoded object.
 inputSerialization_csv :: Lens' InputSerialization (Maybe CSVInput)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.InputSerialization.InputSerialization
-instance GHC.Show.Show Network.AWS.Glacier.Types.InputSerialization.InputSerialization
-instance GHC.Read.Read Network.AWS.Glacier.Types.InputSerialization.InputSerialization
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.InputSerialization.InputSerialization
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.InputSerialization.InputSerialization
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.InputSerialization.InputSerialization
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.InputSerialization.InputSerialization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.InputSerialization.InputSerialization
+instance GHC.Generics.Generic Amazonka.Glacier.Types.InputSerialization.InputSerialization
+instance GHC.Show.Show Amazonka.Glacier.Types.InputSerialization.InputSerialization
+instance GHC.Read.Read Amazonka.Glacier.Types.InputSerialization.InputSerialization
+instance GHC.Classes.Eq Amazonka.Glacier.Types.InputSerialization.InputSerialization
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.InputSerialization.InputSerialization
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.InputSerialization.InputSerialization
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.InputSerialization.InputSerialization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.InputSerialization.InputSerialization
 
 
-module Network.AWS.Glacier.Types.InventoryRetrievalJobDescription
+module Amazonka.Glacier.Types.InventoryRetrievalJobDescription
 
 -- | Describes the options for a range inventory retrieval job.
 --   
@@ -737,16 +737,16 @@ inventoryRetrievalJobDescription_marker :: Lens' InventoryRetrievalJobDescriptio
 --   retrieval request. This limit is set when initiating the job with the
 --   a <b>InitiateJob</b> request.
 inventoryRetrievalJobDescription_limit :: Lens' InventoryRetrievalJobDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
-instance GHC.Show.Show Network.AWS.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
-instance GHC.Read.Read Network.AWS.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
+instance GHC.Generics.Generic Amazonka.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
+instance GHC.Show.Show Amazonka.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
+instance GHC.Read.Read Amazonka.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
+instance GHC.Classes.Eq Amazonka.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.InventoryRetrievalJobDescription.InventoryRetrievalJobDescription
 
 
-module Network.AWS.Glacier.Types.InventoryRetrievalJobInput
+module Amazonka.Glacier.Types.InventoryRetrievalJobInput
 
 -- | Provides options for specifying a range inventory retrieval job.
 --   
@@ -833,16 +833,16 @@ inventoryRetrievalJobInput_marker :: Lens' InventoryRetrievalJobInput (Maybe Tex
 --   inventory retrieval request. Valid values are greater than or equal to
 --   1.
 inventoryRetrievalJobInput_limit :: Lens' InventoryRetrievalJobInput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
-instance GHC.Show.Show Network.AWS.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
-instance GHC.Read.Read Network.AWS.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
+instance GHC.Generics.Generic Amazonka.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
+instance GHC.Show.Show Amazonka.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
+instance GHC.Read.Read Amazonka.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
+instance GHC.Classes.Eq Amazonka.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.InventoryRetrievalJobInput.InventoryRetrievalJobInput
 
 
-module Network.AWS.Glacier.Types.PartListElement
+module Amazonka.Glacier.Types.PartListElement
 
 -- | A list of the part sizes of the multipart upload.
 --   
@@ -882,16 +882,16 @@ partListElement_sHA256TreeHash :: Lens' PartListElement (Maybe Text)
 
 -- | The byte range of a part, inclusive of the upper value of the range.
 partListElement_rangeInBytes :: Lens' PartListElement (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.PartListElement.PartListElement
-instance GHC.Show.Show Network.AWS.Glacier.Types.PartListElement.PartListElement
-instance GHC.Read.Read Network.AWS.Glacier.Types.PartListElement.PartListElement
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.PartListElement.PartListElement
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.PartListElement.PartListElement
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.PartListElement.PartListElement
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.PartListElement.PartListElement
+instance GHC.Generics.Generic Amazonka.Glacier.Types.PartListElement.PartListElement
+instance GHC.Show.Show Amazonka.Glacier.Types.PartListElement.PartListElement
+instance GHC.Read.Read Amazonka.Glacier.Types.PartListElement.PartListElement
+instance GHC.Classes.Eq Amazonka.Glacier.Types.PartListElement.PartListElement
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.PartListElement.PartListElement
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.PartListElement.PartListElement
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.PartListElement.PartListElement
 
 
-module Network.AWS.Glacier.Types.Permission
+module Amazonka.Glacier.Types.Permission
 newtype Permission
 Permission' :: Text -> Permission
 [fromPermission] :: Permission -> Text
@@ -900,28 +900,28 @@ pattern Permission_READ :: Permission
 pattern Permission_READ_ACP :: Permission
 pattern Permission_WRITE :: Permission
 pattern Permission_WRITE_ACP :: Permission
-instance Network.AWS.Data.XML.ToXML Network.AWS.Glacier.Types.Permission.Permission
-instance Network.AWS.Data.XML.FromXML Network.AWS.Glacier.Types.Permission.Permission
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Glacier.Types.Permission.Permission
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.Permission.Permission
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Glacier.Types.Permission.Permission
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.Permission.Permission
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.Types.Permission.Permission
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Glacier.Types.Permission.Permission
-instance Network.AWS.Data.Log.ToLog Network.AWS.Glacier.Types.Permission.Permission
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Glacier.Types.Permission.Permission
-instance Network.AWS.Data.Text.ToText Network.AWS.Glacier.Types.Permission.Permission
-instance Network.AWS.Data.Text.FromText Network.AWS.Glacier.Types.Permission.Permission
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.Permission.Permission
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.Permission.Permission
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.Permission.Permission
-instance GHC.Classes.Ord Network.AWS.Glacier.Types.Permission.Permission
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.Permission.Permission
-instance GHC.Read.Read Network.AWS.Glacier.Types.Permission.Permission
-instance GHC.Show.Show Network.AWS.Glacier.Types.Permission.Permission
+instance Amazonka.Data.XML.ToXML Amazonka.Glacier.Types.Permission.Permission
+instance Amazonka.Data.XML.FromXML Amazonka.Glacier.Types.Permission.Permission
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Glacier.Types.Permission.Permission
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.Permission.Permission
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Glacier.Types.Permission.Permission
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.Permission.Permission
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.Types.Permission.Permission
+instance Amazonka.Data.Headers.ToHeader Amazonka.Glacier.Types.Permission.Permission
+instance Amazonka.Data.Log.ToLog Amazonka.Glacier.Types.Permission.Permission
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Glacier.Types.Permission.Permission
+instance Amazonka.Data.Text.ToText Amazonka.Glacier.Types.Permission.Permission
+instance Amazonka.Data.Text.FromText Amazonka.Glacier.Types.Permission.Permission
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.Permission.Permission
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.Permission.Permission
+instance GHC.Generics.Generic Amazonka.Glacier.Types.Permission.Permission
+instance GHC.Classes.Ord Amazonka.Glacier.Types.Permission.Permission
+instance GHC.Classes.Eq Amazonka.Glacier.Types.Permission.Permission
+instance GHC.Read.Read Amazonka.Glacier.Types.Permission.Permission
+instance GHC.Show.Show Amazonka.Glacier.Types.Permission.Permission
 
 
-module Network.AWS.Glacier.Types.ProvisionedCapacityDescription
+module Amazonka.Glacier.Types.ProvisionedCapacityDescription
 
 -- | The definition for a provisioned capacity unit.
 --   
@@ -975,43 +975,43 @@ provisionedCapacityDescription_startDate :: Lens' ProvisionedCapacityDescription
 -- | The date that the provisioned capacity unit expires, in Universal
 --   Coordinated Time (UTC).
 provisionedCapacityDescription_expirationDate :: Lens' ProvisionedCapacityDescription (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
-instance GHC.Show.Show Network.AWS.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
-instance GHC.Read.Read Network.AWS.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance GHC.Generics.Generic Amazonka.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance GHC.Show.Show Amazonka.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance GHC.Read.Read Amazonka.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance GHC.Classes.Eq Amazonka.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.ProvisionedCapacityDescription.ProvisionedCapacityDescription
 
 
-module Network.AWS.Glacier.Types.QuoteFields
+module Amazonka.Glacier.Types.QuoteFields
 newtype QuoteFields
 QuoteFields' :: Text -> QuoteFields
 [fromQuoteFields] :: QuoteFields -> Text
 pattern QuoteFields_ALWAYS :: QuoteFields
 pattern QuoteFields_ASNEEDED :: QuoteFields
-instance Network.AWS.Data.XML.ToXML Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Network.AWS.Data.XML.FromXML Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Network.AWS.Data.Log.ToLog Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Network.AWS.Data.Text.ToText Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Network.AWS.Data.Text.FromText Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance GHC.Classes.Ord Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance GHC.Read.Read Network.AWS.Glacier.Types.QuoteFields.QuoteFields
-instance GHC.Show.Show Network.AWS.Glacier.Types.QuoteFields.QuoteFields
+instance Amazonka.Data.XML.ToXML Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Amazonka.Data.XML.FromXML Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Amazonka.Data.Headers.ToHeader Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Amazonka.Data.Log.ToLog Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Amazonka.Data.Text.ToText Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Amazonka.Data.Text.FromText Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance GHC.Generics.Generic Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance GHC.Classes.Ord Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance GHC.Classes.Eq Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance GHC.Read.Read Amazonka.Glacier.Types.QuoteFields.QuoteFields
+instance GHC.Show.Show Amazonka.Glacier.Types.QuoteFields.QuoteFields
 
 
-module Network.AWS.Glacier.Types.CSVOutput
+module Amazonka.Glacier.Types.CSVOutput
 
 -- | Contains information about the comma-separated value (CSV) file that
 --   the job results are stored in.
@@ -1086,17 +1086,17 @@ cSVOutput_quoteEscapeCharacter :: Lens' CSVOutput (Maybe Text)
 -- | A value used to separate individual fields from each other within a
 --   record.
 cSVOutput_fieldDelimiter :: Lens' CSVOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.CSVOutput.CSVOutput
-instance GHC.Show.Show Network.AWS.Glacier.Types.CSVOutput.CSVOutput
-instance GHC.Read.Read Network.AWS.Glacier.Types.CSVOutput.CSVOutput
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.CSVOutput.CSVOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.CSVOutput.CSVOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.CSVOutput.CSVOutput
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.CSVOutput.CSVOutput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.CSVOutput.CSVOutput
+instance GHC.Generics.Generic Amazonka.Glacier.Types.CSVOutput.CSVOutput
+instance GHC.Show.Show Amazonka.Glacier.Types.CSVOutput.CSVOutput
+instance GHC.Read.Read Amazonka.Glacier.Types.CSVOutput.CSVOutput
+instance GHC.Classes.Eq Amazonka.Glacier.Types.CSVOutput.CSVOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.CSVOutput.CSVOutput
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.CSVOutput.CSVOutput
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.CSVOutput.CSVOutput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.CSVOutput.CSVOutput
 
 
-module Network.AWS.Glacier.Types.OutputSerialization
+module Amazonka.Glacier.Types.OutputSerialization
 
 -- | Describes how the select output is serialized.
 --   
@@ -1122,17 +1122,17 @@ newOutputSerialization :: OutputSerialization
 
 -- | Describes the serialization of CSV-encoded query results.
 outputSerialization_csv :: Lens' OutputSerialization (Maybe CSVOutput)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.OutputSerialization.OutputSerialization
-instance GHC.Show.Show Network.AWS.Glacier.Types.OutputSerialization.OutputSerialization
-instance GHC.Read.Read Network.AWS.Glacier.Types.OutputSerialization.OutputSerialization
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.OutputSerialization.OutputSerialization
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.OutputSerialization.OutputSerialization
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.OutputSerialization.OutputSerialization
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.OutputSerialization.OutputSerialization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.OutputSerialization.OutputSerialization
+instance GHC.Generics.Generic Amazonka.Glacier.Types.OutputSerialization.OutputSerialization
+instance GHC.Show.Show Amazonka.Glacier.Types.OutputSerialization.OutputSerialization
+instance GHC.Read.Read Amazonka.Glacier.Types.OutputSerialization.OutputSerialization
+instance GHC.Classes.Eq Amazonka.Glacier.Types.OutputSerialization.OutputSerialization
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.OutputSerialization.OutputSerialization
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.OutputSerialization.OutputSerialization
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.OutputSerialization.OutputSerialization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.OutputSerialization.OutputSerialization
 
 
-module Network.AWS.Glacier.Types.SelectParameters
+module Amazonka.Glacier.Types.SelectParameters
 
 -- | Contains information about the parameters used for a select.
 --   
@@ -1189,101 +1189,101 @@ selectParameters_expression :: Lens' SelectParameters (Maybe Text)
 
 -- | Describes the serialization format of the object.
 selectParameters_inputSerialization :: Lens' SelectParameters (Maybe InputSerialization)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.SelectParameters.SelectParameters
-instance GHC.Show.Show Network.AWS.Glacier.Types.SelectParameters.SelectParameters
-instance GHC.Read.Read Network.AWS.Glacier.Types.SelectParameters.SelectParameters
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.SelectParameters.SelectParameters
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.SelectParameters.SelectParameters
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.SelectParameters.SelectParameters
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.SelectParameters.SelectParameters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.SelectParameters.SelectParameters
+instance GHC.Generics.Generic Amazonka.Glacier.Types.SelectParameters.SelectParameters
+instance GHC.Show.Show Amazonka.Glacier.Types.SelectParameters.SelectParameters
+instance GHC.Read.Read Amazonka.Glacier.Types.SelectParameters.SelectParameters
+instance GHC.Classes.Eq Amazonka.Glacier.Types.SelectParameters.SelectParameters
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.SelectParameters.SelectParameters
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.SelectParameters.SelectParameters
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.SelectParameters.SelectParameters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.SelectParameters.SelectParameters
 
 
-module Network.AWS.Glacier.Types.StatusCode
+module Amazonka.Glacier.Types.StatusCode
 newtype StatusCode
 StatusCode' :: Text -> StatusCode
 [fromStatusCode] :: StatusCode -> Text
 pattern StatusCode_Failed :: StatusCode
 pattern StatusCode_InProgress :: StatusCode
 pattern StatusCode_Succeeded :: StatusCode
-instance Network.AWS.Data.XML.ToXML Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Network.AWS.Data.XML.FromXML Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Network.AWS.Data.Log.ToLog Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Network.AWS.Data.Text.ToText Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Network.AWS.Data.Text.FromText Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance GHC.Classes.Ord Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance GHC.Read.Read Network.AWS.Glacier.Types.StatusCode.StatusCode
-instance GHC.Show.Show Network.AWS.Glacier.Types.StatusCode.StatusCode
+instance Amazonka.Data.XML.ToXML Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Amazonka.Data.XML.FromXML Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Amazonka.Data.Headers.ToHeader Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Amazonka.Data.Log.ToLog Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Amazonka.Data.Text.ToText Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Amazonka.Data.Text.FromText Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.StatusCode.StatusCode
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.StatusCode.StatusCode
+instance GHC.Generics.Generic Amazonka.Glacier.Types.StatusCode.StatusCode
+instance GHC.Classes.Ord Amazonka.Glacier.Types.StatusCode.StatusCode
+instance GHC.Classes.Eq Amazonka.Glacier.Types.StatusCode.StatusCode
+instance GHC.Read.Read Amazonka.Glacier.Types.StatusCode.StatusCode
+instance GHC.Show.Show Amazonka.Glacier.Types.StatusCode.StatusCode
 
 
-module Network.AWS.Glacier.Types.StorageClass
+module Amazonka.Glacier.Types.StorageClass
 newtype StorageClass
 StorageClass' :: Text -> StorageClass
 [fromStorageClass] :: StorageClass -> Text
 pattern StorageClass_REDUCED_REDUNDANCY :: StorageClass
 pattern StorageClass_STANDARD :: StorageClass
 pattern StorageClass_STANDARD_IA :: StorageClass
-instance Network.AWS.Data.XML.ToXML Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Network.AWS.Data.XML.FromXML Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Network.AWS.Data.Log.ToLog Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Network.AWS.Data.Text.ToText Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Network.AWS.Data.Text.FromText Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance GHC.Classes.Ord Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance GHC.Read.Read Network.AWS.Glacier.Types.StorageClass.StorageClass
-instance GHC.Show.Show Network.AWS.Glacier.Types.StorageClass.StorageClass
+instance Amazonka.Data.XML.ToXML Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Amazonka.Data.XML.FromXML Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Amazonka.Data.Headers.ToHeader Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Amazonka.Data.Log.ToLog Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Amazonka.Data.Text.ToText Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Amazonka.Data.Text.FromText Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.StorageClass.StorageClass
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.StorageClass.StorageClass
+instance GHC.Generics.Generic Amazonka.Glacier.Types.StorageClass.StorageClass
+instance GHC.Classes.Ord Amazonka.Glacier.Types.StorageClass.StorageClass
+instance GHC.Classes.Eq Amazonka.Glacier.Types.StorageClass.StorageClass
+instance GHC.Read.Read Amazonka.Glacier.Types.StorageClass.StorageClass
+instance GHC.Show.Show Amazonka.Glacier.Types.StorageClass.StorageClass
 
 
-module Network.AWS.Glacier.Types.Type
+module Amazonka.Glacier.Types.Type
 newtype Type
 Type' :: Text -> Type
 [fromType] :: Type -> Text
 pattern Type_AmazonCustomerByEmail :: Type
 pattern Type_CanonicalUser :: Type
 pattern Type_Group :: Type
-instance Network.AWS.Data.XML.ToXML Network.AWS.Glacier.Types.Type.Type
-instance Network.AWS.Data.XML.FromXML Network.AWS.Glacier.Types.Type.Type
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Glacier.Types.Type.Type
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.Type.Type
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Glacier.Types.Type.Type
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.Type.Type
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.Types.Type.Type
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Glacier.Types.Type.Type
-instance Network.AWS.Data.Log.ToLog Network.AWS.Glacier.Types.Type.Type
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Glacier.Types.Type.Type
-instance Network.AWS.Data.Text.ToText Network.AWS.Glacier.Types.Type.Type
-instance Network.AWS.Data.Text.FromText Network.AWS.Glacier.Types.Type.Type
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.Type.Type
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.Type.Type
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.Type.Type
-instance GHC.Classes.Ord Network.AWS.Glacier.Types.Type.Type
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.Type.Type
-instance GHC.Read.Read Network.AWS.Glacier.Types.Type.Type
-instance GHC.Show.Show Network.AWS.Glacier.Types.Type.Type
+instance Amazonka.Data.XML.ToXML Amazonka.Glacier.Types.Type.Type
+instance Amazonka.Data.XML.FromXML Amazonka.Glacier.Types.Type.Type
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Glacier.Types.Type.Type
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.Type.Type
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Glacier.Types.Type.Type
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.Type.Type
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.Types.Type.Type
+instance Amazonka.Data.Headers.ToHeader Amazonka.Glacier.Types.Type.Type
+instance Amazonka.Data.Log.ToLog Amazonka.Glacier.Types.Type.Type
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Glacier.Types.Type.Type
+instance Amazonka.Data.Text.ToText Amazonka.Glacier.Types.Type.Type
+instance Amazonka.Data.Text.FromText Amazonka.Glacier.Types.Type.Type
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.Type.Type
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.Type.Type
+instance GHC.Generics.Generic Amazonka.Glacier.Types.Type.Type
+instance GHC.Classes.Ord Amazonka.Glacier.Types.Type.Type
+instance GHC.Classes.Eq Amazonka.Glacier.Types.Type.Type
+instance GHC.Read.Read Amazonka.Glacier.Types.Type.Type
+instance GHC.Show.Show Amazonka.Glacier.Types.Type.Type
 
 
-module Network.AWS.Glacier.Types.Grantee
+module Amazonka.Glacier.Types.Grantee
 
 -- | Contains information about the grantee.
 --   
@@ -1343,17 +1343,17 @@ grantee_id :: Lens' Grantee (Maybe Text)
 
 -- | Type of grantee
 grantee_type :: Lens' Grantee Type
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.Grantee.Grantee
-instance GHC.Show.Show Network.AWS.Glacier.Types.Grantee.Grantee
-instance GHC.Read.Read Network.AWS.Glacier.Types.Grantee.Grantee
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.Grantee.Grantee
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.Grantee.Grantee
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.Grantee.Grantee
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.Grantee.Grantee
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.Grantee.Grantee
+instance GHC.Generics.Generic Amazonka.Glacier.Types.Grantee.Grantee
+instance GHC.Show.Show Amazonka.Glacier.Types.Grantee.Grantee
+instance GHC.Read.Read Amazonka.Glacier.Types.Grantee.Grantee
+instance GHC.Classes.Eq Amazonka.Glacier.Types.Grantee.Grantee
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.Grantee.Grantee
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.Grantee.Grantee
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.Grantee.Grantee
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.Grantee.Grantee
 
 
-module Network.AWS.Glacier.Types.Grant
+module Amazonka.Glacier.Types.Grant
 
 -- | Contains information about a grant.
 --   
@@ -1386,17 +1386,17 @@ grant_permission :: Lens' Grant (Maybe Permission)
 
 -- | The grantee.
 grant_grantee :: Lens' Grant (Maybe Grantee)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.Grant.Grant
-instance GHC.Show.Show Network.AWS.Glacier.Types.Grant.Grant
-instance GHC.Read.Read Network.AWS.Glacier.Types.Grant.Grant
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.Grant.Grant
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.Grant.Grant
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.Grant.Grant
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.Grant.Grant
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.Grant.Grant
+instance GHC.Generics.Generic Amazonka.Glacier.Types.Grant.Grant
+instance GHC.Show.Show Amazonka.Glacier.Types.Grant.Grant
+instance GHC.Read.Read Amazonka.Glacier.Types.Grant.Grant
+instance GHC.Classes.Eq Amazonka.Glacier.Types.Grant.Grant
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.Grant.Grant
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.Grant.Grant
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.Grant.Grant
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.Grant.Grant
 
 
-module Network.AWS.Glacier.Types.S3Location
+module Amazonka.Glacier.Types.S3Location
 
 -- | Contains information about the location in Amazon S3 where the select
 --   job results are stored.
@@ -1489,17 +1489,17 @@ s3Location_storageClass :: Lens' S3Location (Maybe StorageClass)
 
 -- | The tag-set that is applied to the job results.
 s3Location_tagging :: Lens' S3Location (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.S3Location.S3Location
-instance GHC.Show.Show Network.AWS.Glacier.Types.S3Location.S3Location
-instance GHC.Read.Read Network.AWS.Glacier.Types.S3Location.S3Location
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.S3Location.S3Location
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.S3Location.S3Location
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.S3Location.S3Location
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.S3Location.S3Location
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.S3Location.S3Location
+instance GHC.Generics.Generic Amazonka.Glacier.Types.S3Location.S3Location
+instance GHC.Show.Show Amazonka.Glacier.Types.S3Location.S3Location
+instance GHC.Read.Read Amazonka.Glacier.Types.S3Location.S3Location
+instance GHC.Classes.Eq Amazonka.Glacier.Types.S3Location.S3Location
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.S3Location.S3Location
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.S3Location.S3Location
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.S3Location.S3Location
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.S3Location.S3Location
 
 
-module Network.AWS.Glacier.Types.OutputLocation
+module Amazonka.Glacier.Types.OutputLocation
 
 -- | Contains information about the location where the select job results
 --   are stored.
@@ -1528,17 +1528,17 @@ newOutputLocation :: OutputLocation
 -- | Describes an S3 location that will receive the results of the job
 --   request.
 outputLocation_s3 :: Lens' OutputLocation (Maybe S3Location)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.OutputLocation.OutputLocation
-instance GHC.Show.Show Network.AWS.Glacier.Types.OutputLocation.OutputLocation
-instance GHC.Read.Read Network.AWS.Glacier.Types.OutputLocation.OutputLocation
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.OutputLocation.OutputLocation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.OutputLocation.OutputLocation
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.OutputLocation.OutputLocation
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.OutputLocation.OutputLocation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.OutputLocation.OutputLocation
+instance GHC.Generics.Generic Amazonka.Glacier.Types.OutputLocation.OutputLocation
+instance GHC.Show.Show Amazonka.Glacier.Types.OutputLocation.OutputLocation
+instance GHC.Read.Read Amazonka.Glacier.Types.OutputLocation.OutputLocation
+instance GHC.Classes.Eq Amazonka.Glacier.Types.OutputLocation.OutputLocation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.OutputLocation.OutputLocation
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.OutputLocation.OutputLocation
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.OutputLocation.OutputLocation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.OutputLocation.OutputLocation
 
 
-module Network.AWS.Glacier.Types.JobParameters
+module Amazonka.Glacier.Types.JobParameters
 
 -- | Provides options for defining a job.
 --   
@@ -1732,16 +1732,16 @@ jobParameters_type :: Lens' JobParameters (Maybe Text)
 --   without control codes-specifically, ASCII values 32-126 decimal or
 --   0x20-0x7E hexadecimal.
 jobParameters_description :: Lens' JobParameters (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.JobParameters.JobParameters
-instance GHC.Show.Show Network.AWS.Glacier.Types.JobParameters.JobParameters
-instance GHC.Read.Read Network.AWS.Glacier.Types.JobParameters.JobParameters
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.JobParameters.JobParameters
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.JobParameters.JobParameters
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.JobParameters.JobParameters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.JobParameters.JobParameters
+instance GHC.Generics.Generic Amazonka.Glacier.Types.JobParameters.JobParameters
+instance GHC.Show.Show Amazonka.Glacier.Types.JobParameters.JobParameters
+instance GHC.Read.Read Amazonka.Glacier.Types.JobParameters.JobParameters
+instance GHC.Classes.Eq Amazonka.Glacier.Types.JobParameters.JobParameters
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.JobParameters.JobParameters
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.JobParameters.JobParameters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.JobParameters.JobParameters
 
 
-module Network.AWS.Glacier.Types.GlacierJobDescription
+module Amazonka.Glacier.Types.GlacierJobDescription
 
 -- | Contains the description of an Amazon S3 Glacier job.
 --   
@@ -2080,16 +2080,16 @@ glacierJobDescription_archiveSizeInBytes :: Lens' GlacierJobDescription (Maybe I
 -- | The status code can be <tt>InProgress</tt>, <tt>Succeeded</tt>, or
 --   <tt>Failed</tt>, and indicates the status of the job.
 glacierJobDescription_statusCode :: Lens' GlacierJobDescription (Maybe StatusCode)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.GlacierJobDescription.GlacierJobDescription
-instance GHC.Show.Show Network.AWS.Glacier.Types.GlacierJobDescription.GlacierJobDescription
-instance GHC.Read.Read Network.AWS.Glacier.Types.GlacierJobDescription.GlacierJobDescription
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.GlacierJobDescription.GlacierJobDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.GlacierJobDescription.GlacierJobDescription
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.GlacierJobDescription.GlacierJobDescription
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.GlacierJobDescription.GlacierJobDescription
+instance GHC.Generics.Generic Amazonka.Glacier.Types.GlacierJobDescription.GlacierJobDescription
+instance GHC.Show.Show Amazonka.Glacier.Types.GlacierJobDescription.GlacierJobDescription
+instance GHC.Read.Read Amazonka.Glacier.Types.GlacierJobDescription.GlacierJobDescription
+instance GHC.Classes.Eq Amazonka.Glacier.Types.GlacierJobDescription.GlacierJobDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.GlacierJobDescription.GlacierJobDescription
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.GlacierJobDescription.GlacierJobDescription
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.GlacierJobDescription.GlacierJobDescription
 
 
-module Network.AWS.Glacier.Types.UploadListElement
+module Amazonka.Glacier.Types.UploadListElement
 
 -- | A list of in-progress multipart uploads for a vault.
 --   
@@ -2164,16 +2164,16 @@ uploadListElement_vaultARN :: Lens' UploadListElement (Maybe Text)
 
 -- | The UTC time at which the multipart upload was initiated.
 uploadListElement_creationDate :: Lens' UploadListElement (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.UploadListElement.UploadListElement
-instance GHC.Show.Show Network.AWS.Glacier.Types.UploadListElement.UploadListElement
-instance GHC.Read.Read Network.AWS.Glacier.Types.UploadListElement.UploadListElement
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.UploadListElement.UploadListElement
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.UploadListElement.UploadListElement
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.UploadListElement.UploadListElement
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.UploadListElement.UploadListElement
+instance GHC.Generics.Generic Amazonka.Glacier.Types.UploadListElement.UploadListElement
+instance GHC.Show.Show Amazonka.Glacier.Types.UploadListElement.UploadListElement
+instance GHC.Read.Read Amazonka.Glacier.Types.UploadListElement.UploadListElement
+instance GHC.Classes.Eq Amazonka.Glacier.Types.UploadListElement.UploadListElement
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.UploadListElement.UploadListElement
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.UploadListElement.UploadListElement
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.UploadListElement.UploadListElement
 
 
-module Network.AWS.Glacier.Types.VaultAccessPolicy
+module Amazonka.Glacier.Types.VaultAccessPolicy
 
 -- | Contains the vault access policy.
 --   
@@ -2199,17 +2199,17 @@ newVaultAccessPolicy :: VaultAccessPolicy
 
 -- | The vault access policy.
 vaultAccessPolicy_policy :: Lens' VaultAccessPolicy (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
-instance GHC.Show.Show Network.AWS.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
-instance GHC.Read.Read Network.AWS.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
+instance GHC.Show.Show Amazonka.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
+instance GHC.Read.Read Amazonka.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
+instance GHC.Classes.Eq Amazonka.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.VaultAccessPolicy.VaultAccessPolicy
 
 
-module Network.AWS.Glacier.Types.VaultLockPolicy
+module Amazonka.Glacier.Types.VaultLockPolicy
 
 -- | Contains the vault lock policy.
 --   
@@ -2235,16 +2235,16 @@ newVaultLockPolicy :: VaultLockPolicy
 
 -- | The vault lock policy.
 vaultLockPolicy_policy :: Lens' VaultLockPolicy (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.VaultLockPolicy.VaultLockPolicy
-instance GHC.Show.Show Network.AWS.Glacier.Types.VaultLockPolicy.VaultLockPolicy
-instance GHC.Read.Read Network.AWS.Glacier.Types.VaultLockPolicy.VaultLockPolicy
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.VaultLockPolicy.VaultLockPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.VaultLockPolicy.VaultLockPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.VaultLockPolicy.VaultLockPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.VaultLockPolicy.VaultLockPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.Types.VaultLockPolicy.VaultLockPolicy
+instance GHC.Show.Show Amazonka.Glacier.Types.VaultLockPolicy.VaultLockPolicy
+instance GHC.Read.Read Amazonka.Glacier.Types.VaultLockPolicy.VaultLockPolicy
+instance GHC.Classes.Eq Amazonka.Glacier.Types.VaultLockPolicy.VaultLockPolicy
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.VaultLockPolicy.VaultLockPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.VaultLockPolicy.VaultLockPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.VaultLockPolicy.VaultLockPolicy
 
 
-module Network.AWS.Glacier.Types.VaultNotificationConfig
+module Amazonka.Glacier.Types.VaultNotificationConfig
 
 -- | Represents a vault's notification configuration.
 --   
@@ -2286,17 +2286,17 @@ vaultNotificationConfig_sNSTopic :: Lens' VaultNotificationConfig (Maybe Text)
 -- | A list of one or more events for which Amazon S3 Glacier will send a
 --   notification to the specified Amazon SNS topic.
 vaultNotificationConfig_events :: Lens' VaultNotificationConfig (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
-instance GHC.Show.Show Network.AWS.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
-instance GHC.Read.Read Network.AWS.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
-instance GHC.Classes.Eq Network.AWS.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
-instance Control.DeepSeq.NFData Network.AWS.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
+instance GHC.Generics.Generic Amazonka.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
+instance GHC.Show.Show Amazonka.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
+instance GHC.Read.Read Amazonka.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
+instance GHC.Classes.Eq Amazonka.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
+instance Control.DeepSeq.NFData Amazonka.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.Types.VaultNotificationConfig.VaultNotificationConfig
 
 
-module Network.AWS.Glacier.Types
+module Amazonka.Glacier.Types
 
 -- | API version <tt>2012-06-01</tt> of the Amazon Glacier SDK
 --   configuration.
@@ -4189,7 +4189,7 @@ vaultNotificationConfig_events :: Lens' VaultNotificationConfig (Maybe [Text])
 --   Vault Notifications in Amazon S3 Glacier</a> and <a>Set Vault
 --   Notification Configuration</a> in the <i>Amazon Glacier Developer
 --   Guide</i>.
-module Network.AWS.Glacier.SetVaultNotifications
+module Amazonka.Glacier.SetVaultNotifications
 
 -- | Provides options to configure notifications that will be sent when
 --   specific events happen to a vault.
@@ -4261,22 +4261,22 @@ SetVaultNotificationsResponse' :: SetVaultNotificationsResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSetVaultNotificationsResponse :: SetVaultNotificationsResponse
-instance GHC.Generics.Generic Network.AWS.Glacier.SetVaultNotifications.SetVaultNotifications
-instance GHC.Show.Show Network.AWS.Glacier.SetVaultNotifications.SetVaultNotifications
-instance GHC.Read.Read Network.AWS.Glacier.SetVaultNotifications.SetVaultNotifications
-instance GHC.Classes.Eq Network.AWS.Glacier.SetVaultNotifications.SetVaultNotifications
-instance GHC.Generics.Generic Network.AWS.Glacier.SetVaultNotifications.SetVaultNotificationsResponse
-instance GHC.Show.Show Network.AWS.Glacier.SetVaultNotifications.SetVaultNotificationsResponse
-instance GHC.Read.Read Network.AWS.Glacier.SetVaultNotifications.SetVaultNotificationsResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.SetVaultNotifications.SetVaultNotificationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.SetVaultNotifications.SetVaultNotifications
-instance Control.DeepSeq.NFData Network.AWS.Glacier.SetVaultNotifications.SetVaultNotificationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.SetVaultNotifications.SetVaultNotifications
-instance Control.DeepSeq.NFData Network.AWS.Glacier.SetVaultNotifications.SetVaultNotifications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.SetVaultNotifications.SetVaultNotifications
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.SetVaultNotifications.SetVaultNotifications
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.SetVaultNotifications.SetVaultNotifications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.SetVaultNotifications.SetVaultNotifications
+instance GHC.Generics.Generic Amazonka.Glacier.SetVaultNotifications.SetVaultNotifications
+instance GHC.Show.Show Amazonka.Glacier.SetVaultNotifications.SetVaultNotifications
+instance GHC.Read.Read Amazonka.Glacier.SetVaultNotifications.SetVaultNotifications
+instance GHC.Classes.Eq Amazonka.Glacier.SetVaultNotifications.SetVaultNotifications
+instance GHC.Generics.Generic Amazonka.Glacier.SetVaultNotifications.SetVaultNotificationsResponse
+instance GHC.Show.Show Amazonka.Glacier.SetVaultNotifications.SetVaultNotificationsResponse
+instance GHC.Read.Read Amazonka.Glacier.SetVaultNotifications.SetVaultNotificationsResponse
+instance GHC.Classes.Eq Amazonka.Glacier.SetVaultNotifications.SetVaultNotificationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.SetVaultNotifications.SetVaultNotifications
+instance Control.DeepSeq.NFData Amazonka.Glacier.SetVaultNotifications.SetVaultNotificationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.SetVaultNotifications.SetVaultNotifications
+instance Control.DeepSeq.NFData Amazonka.Glacier.SetVaultNotifications.SetVaultNotifications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.SetVaultNotifications.SetVaultNotifications
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.SetVaultNotifications.SetVaultNotifications
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.SetVaultNotifications.SetVaultNotifications
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.SetVaultNotifications.SetVaultNotifications
 
 
 -- | This operation configures an access policy for a vault and will
@@ -4287,7 +4287,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.SetVaultNotification
 --   can be up to 20 KB in size. For more information about vault access
 --   policies, see <a>Amazon Glacier Access Control with Vault Access
 --   Policies</a>.
-module Network.AWS.Glacier.SetVaultAccessPolicy
+module Amazonka.Glacier.SetVaultAccessPolicy
 
 -- | SetVaultAccessPolicy input.
 --   
@@ -4358,22 +4358,22 @@ SetVaultAccessPolicyResponse' :: SetVaultAccessPolicyResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSetVaultAccessPolicyResponse :: SetVaultAccessPolicyResponse
-instance GHC.Generics.Generic Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
-instance GHC.Show.Show Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
-instance GHC.Read.Read Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
-instance GHC.Classes.Eq Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
-instance GHC.Generics.Generic Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicyResponse
-instance GHC.Show.Show Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicyResponse
-instance GHC.Read.Read Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicyResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
+instance GHC.Show.Show Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
+instance GHC.Read.Read Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
+instance GHC.Classes.Eq Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicyResponse
+instance GHC.Show.Show Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicyResponse
+instance GHC.Read.Read Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicyResponse
+instance GHC.Classes.Eq Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.SetVaultAccessPolicy.SetVaultAccessPolicy
 
 
 -- | This operation sets and then enacts a data retrieval policy in the
@@ -4385,7 +4385,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.SetVaultAccessPolicy
 --   progress before the policy was enacted. For more information about
 --   data retrieval policies, see <a>Amazon Glacier Data Retrieval
 --   Policies</a>.
-module Network.AWS.Glacier.SetDataRetrievalPolicy
+module Amazonka.Glacier.SetDataRetrievalPolicy
 
 -- | SetDataRetrievalPolicy input.
 --   
@@ -4451,29 +4451,29 @@ SetDataRetrievalPolicyResponse' :: SetDataRetrievalPolicyResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newSetDataRetrievalPolicyResponse :: SetDataRetrievalPolicyResponse
-instance GHC.Generics.Generic Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
-instance GHC.Show.Show Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
-instance GHC.Read.Read Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
-instance GHC.Classes.Eq Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
-instance GHC.Generics.Generic Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicyResponse
-instance GHC.Show.Show Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicyResponse
-instance GHC.Read.Read Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicyResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
+instance GHC.Show.Show Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
+instance GHC.Read.Read Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
+instance GHC.Classes.Eq Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicyResponse
+instance GHC.Show.Show Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicyResponse
+instance GHC.Read.Read Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicyResponse
+instance GHC.Classes.Eq Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.SetDataRetrievalPolicy.SetDataRetrievalPolicy
 
 
 -- | This operation removes one or more tags from the set of tags attached
 --   to a vault. For more information about tags, see <a>Tagging Amazon S3
 --   Glacier Resources</a>. This operation is idempotent. The operation
 --   will be successful, even if there are no tags attached to the vault.
-module Network.AWS.Glacier.RemoveTagsFromVault
+module Amazonka.Glacier.RemoveTagsFromVault
 
 -- | The input value for <tt>RemoveTagsFromVaultInput</tt>.
 --   
@@ -4544,27 +4544,27 @@ RemoveTagsFromVaultResponse' :: RemoveTagsFromVaultResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newRemoveTagsFromVaultResponse :: RemoveTagsFromVaultResponse
-instance GHC.Generics.Generic Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
-instance GHC.Show.Show Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
-instance GHC.Read.Read Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
-instance GHC.Classes.Eq Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
-instance GHC.Generics.Generic Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVaultResponse
-instance GHC.Show.Show Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVaultResponse
-instance GHC.Read.Read Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVaultResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVaultResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
-instance Control.DeepSeq.NFData Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVaultResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
-instance Control.DeepSeq.NFData Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
+instance GHC.Generics.Generic Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
+instance GHC.Show.Show Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
+instance GHC.Read.Read Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
+instance GHC.Classes.Eq Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
+instance GHC.Generics.Generic Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVaultResponse
+instance GHC.Show.Show Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVaultResponse
+instance GHC.Read.Read Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVaultResponse
+instance GHC.Classes.Eq Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVaultResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
+instance Control.DeepSeq.NFData Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVaultResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
+instance Control.DeepSeq.NFData Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.RemoveTagsFromVault.RemoveTagsFromVault
 
 
 -- | This operation purchases a provisioned capacity unit for an AWS
 --   account.
-module Network.AWS.Glacier.PurchaseProvisionedCapacity
+module Amazonka.Glacier.PurchaseProvisionedCapacity
 
 -- | <i>See:</i> <a>newPurchaseProvisionedCapacity</a> smart constructor.
 data PurchaseProvisionedCapacity
@@ -4636,22 +4636,22 @@ purchaseProvisionedCapacityResponse_capacityId :: Lens' PurchaseProvisionedCapac
 
 -- | The response's http status code.
 purchaseProvisionedCapacityResponse_httpStatus :: Lens' PurchaseProvisionedCapacityResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
-instance GHC.Show.Show Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
-instance GHC.Read.Read Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
-instance GHC.Classes.Eq Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
-instance GHC.Generics.Generic Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacityResponse
-instance GHC.Show.Show Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacityResponse
-instance GHC.Read.Read Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacityResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
-instance Control.DeepSeq.NFData Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
-instance Control.DeepSeq.NFData Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
+instance GHC.Generics.Generic Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
+instance GHC.Show.Show Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
+instance GHC.Read.Read Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
+instance GHC.Classes.Eq Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
+instance GHC.Generics.Generic Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacityResponse
+instance GHC.Show.Show Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacityResponse
+instance GHC.Read.Read Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacityResponse
+instance GHC.Classes.Eq Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacityResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
+instance Control.DeepSeq.NFData Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacityResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
+instance Control.DeepSeq.NFData Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.PurchaseProvisionedCapacity.PurchaseProvisionedCapacity
 
 
 -- | This operation lists all vaults owned by the calling user's account.
@@ -4678,7 +4678,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.PurchaseProvisionedC
 --   <i>Amazon Glacier Developer Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Glacier.ListVaults
+module Amazonka.Glacier.ListVaults
 
 -- | Provides options to retrieve the vault list owned by the calling
 --   user's account. The list provides metadata information for each vault.
@@ -4799,28 +4799,28 @@ listVaultsResponse_vaultList :: Lens' ListVaultsResponse (Maybe [DescribeVaultOu
 
 -- | The response's http status code.
 listVaultsResponse_httpStatus :: Lens' ListVaultsResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.ListVaults.ListVaults
-instance GHC.Show.Show Network.AWS.Glacier.ListVaults.ListVaults
-instance GHC.Read.Read Network.AWS.Glacier.ListVaults.ListVaults
-instance GHC.Classes.Eq Network.AWS.Glacier.ListVaults.ListVaults
-instance GHC.Generics.Generic Network.AWS.Glacier.ListVaults.ListVaultsResponse
-instance GHC.Show.Show Network.AWS.Glacier.ListVaults.ListVaultsResponse
-instance GHC.Read.Read Network.AWS.Glacier.ListVaults.ListVaultsResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.ListVaults.ListVaultsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.ListVaults.ListVaults
-instance Control.DeepSeq.NFData Network.AWS.Glacier.ListVaults.ListVaultsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Glacier.ListVaults.ListVaults
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.ListVaults.ListVaults
-instance Control.DeepSeq.NFData Network.AWS.Glacier.ListVaults.ListVaults
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.ListVaults.ListVaults
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.ListVaults.ListVaults
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.ListVaults.ListVaults
+instance GHC.Generics.Generic Amazonka.Glacier.ListVaults.ListVaults
+instance GHC.Show.Show Amazonka.Glacier.ListVaults.ListVaults
+instance GHC.Read.Read Amazonka.Glacier.ListVaults.ListVaults
+instance GHC.Classes.Eq Amazonka.Glacier.ListVaults.ListVaults
+instance GHC.Generics.Generic Amazonka.Glacier.ListVaults.ListVaultsResponse
+instance GHC.Show.Show Amazonka.Glacier.ListVaults.ListVaultsResponse
+instance GHC.Read.Read Amazonka.Glacier.ListVaults.ListVaultsResponse
+instance GHC.Classes.Eq Amazonka.Glacier.ListVaults.ListVaultsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.ListVaults.ListVaults
+instance Control.DeepSeq.NFData Amazonka.Glacier.ListVaults.ListVaultsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Glacier.ListVaults.ListVaults
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.ListVaults.ListVaults
+instance Control.DeepSeq.NFData Amazonka.Glacier.ListVaults.ListVaults
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.ListVaults.ListVaults
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.ListVaults.ListVaults
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.ListVaults.ListVaults
 
 
 -- | This operation lists all the tags attached to a vault. The operation
 --   returns an empty map if there are no tags. For more information about
 --   tags, see <a>Tagging Amazon S3 Glacier Resources</a>.
-module Network.AWS.Glacier.ListTagsForVault
+module Amazonka.Glacier.ListTagsForVault
 
 -- | The input value for <tt>ListTagsForVaultInput</tt>.
 --   
@@ -4908,26 +4908,26 @@ listTagsForVaultResponse_tags :: Lens' ListTagsForVaultResponse (Maybe (HashMap 
 
 -- | The response's http status code.
 listTagsForVaultResponse_httpStatus :: Lens' ListTagsForVaultResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.ListTagsForVault.ListTagsForVault
-instance GHC.Show.Show Network.AWS.Glacier.ListTagsForVault.ListTagsForVault
-instance GHC.Read.Read Network.AWS.Glacier.ListTagsForVault.ListTagsForVault
-instance GHC.Classes.Eq Network.AWS.Glacier.ListTagsForVault.ListTagsForVault
-instance GHC.Generics.Generic Network.AWS.Glacier.ListTagsForVault.ListTagsForVaultResponse
-instance GHC.Show.Show Network.AWS.Glacier.ListTagsForVault.ListTagsForVaultResponse
-instance GHC.Read.Read Network.AWS.Glacier.ListTagsForVault.ListTagsForVaultResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.ListTagsForVault.ListTagsForVaultResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.ListTagsForVault.ListTagsForVault
-instance Control.DeepSeq.NFData Network.AWS.Glacier.ListTagsForVault.ListTagsForVaultResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.ListTagsForVault.ListTagsForVault
-instance Control.DeepSeq.NFData Network.AWS.Glacier.ListTagsForVault.ListTagsForVault
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.ListTagsForVault.ListTagsForVault
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.ListTagsForVault.ListTagsForVault
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.ListTagsForVault.ListTagsForVault
+instance GHC.Generics.Generic Amazonka.Glacier.ListTagsForVault.ListTagsForVault
+instance GHC.Show.Show Amazonka.Glacier.ListTagsForVault.ListTagsForVault
+instance GHC.Read.Read Amazonka.Glacier.ListTagsForVault.ListTagsForVault
+instance GHC.Classes.Eq Amazonka.Glacier.ListTagsForVault.ListTagsForVault
+instance GHC.Generics.Generic Amazonka.Glacier.ListTagsForVault.ListTagsForVaultResponse
+instance GHC.Show.Show Amazonka.Glacier.ListTagsForVault.ListTagsForVaultResponse
+instance GHC.Read.Read Amazonka.Glacier.ListTagsForVault.ListTagsForVaultResponse
+instance GHC.Classes.Eq Amazonka.Glacier.ListTagsForVault.ListTagsForVaultResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.ListTagsForVault.ListTagsForVault
+instance Control.DeepSeq.NFData Amazonka.Glacier.ListTagsForVault.ListTagsForVaultResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.ListTagsForVault.ListTagsForVault
+instance Control.DeepSeq.NFData Amazonka.Glacier.ListTagsForVault.ListTagsForVault
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.ListTagsForVault.ListTagsForVault
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.ListTagsForVault.ListTagsForVault
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.ListTagsForVault.ListTagsForVault
 
 
 -- | This operation lists the provisioned capacity units for the specified
 --   AWS account.
-module Network.AWS.Glacier.ListProvisionedCapacity
+module Amazonka.Glacier.ListProvisionedCapacity
 
 -- | <i>See:</i> <a>newListProvisionedCapacity</a> smart constructor.
 data ListProvisionedCapacity
@@ -4999,21 +4999,21 @@ listProvisionedCapacityResponse_provisionedCapacityList :: Lens' ListProvisioned
 
 -- | The response's http status code.
 listProvisionedCapacityResponse_httpStatus :: Lens' ListProvisionedCapacityResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
-instance GHC.Show.Show Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
-instance GHC.Read.Read Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
-instance GHC.Classes.Eq Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
-instance GHC.Generics.Generic Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacityResponse
-instance GHC.Show.Show Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacityResponse
-instance GHC.Read.Read Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacityResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacityResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
-instance Control.DeepSeq.NFData Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacityResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
-instance Control.DeepSeq.NFData Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
+instance GHC.Generics.Generic Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
+instance GHC.Show.Show Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
+instance GHC.Read.Read Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
+instance GHC.Classes.Eq Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
+instance GHC.Generics.Generic Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacityResponse
+instance GHC.Show.Show Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacityResponse
+instance GHC.Read.Read Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacityResponse
+instance GHC.Classes.Eq Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacityResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
+instance Control.DeepSeq.NFData Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacityResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
+instance Control.DeepSeq.NFData Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.ListProvisionedCapacity.ListProvisionedCapacity
 
 
 -- | This operation lists the parts of an archive that have been uploaded
@@ -5044,7 +5044,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.ListProvisionedCapac
 --   <i>Amazon Glacier Developer Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Glacier.ListParts
+module Amazonka.Glacier.ListParts
 
 -- | Provides options for retrieving a list of parts of an archive that
 --   have been uploaded in a specific multipart upload.
@@ -5254,22 +5254,22 @@ listPartsResponse_creationDate :: Lens' ListPartsResponse (Maybe Text)
 
 -- | The response's http status code.
 listPartsResponse_httpStatus :: Lens' ListPartsResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.ListParts.ListParts
-instance GHC.Show.Show Network.AWS.Glacier.ListParts.ListParts
-instance GHC.Read.Read Network.AWS.Glacier.ListParts.ListParts
-instance GHC.Classes.Eq Network.AWS.Glacier.ListParts.ListParts
-instance GHC.Generics.Generic Network.AWS.Glacier.ListParts.ListPartsResponse
-instance GHC.Show.Show Network.AWS.Glacier.ListParts.ListPartsResponse
-instance GHC.Read.Read Network.AWS.Glacier.ListParts.ListPartsResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.ListParts.ListPartsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.ListParts.ListParts
-instance Control.DeepSeq.NFData Network.AWS.Glacier.ListParts.ListPartsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Glacier.ListParts.ListParts
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.ListParts.ListParts
-instance Control.DeepSeq.NFData Network.AWS.Glacier.ListParts.ListParts
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.ListParts.ListParts
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.ListParts.ListParts
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.ListParts.ListParts
+instance GHC.Generics.Generic Amazonka.Glacier.ListParts.ListParts
+instance GHC.Show.Show Amazonka.Glacier.ListParts.ListParts
+instance GHC.Read.Read Amazonka.Glacier.ListParts.ListParts
+instance GHC.Classes.Eq Amazonka.Glacier.ListParts.ListParts
+instance GHC.Generics.Generic Amazonka.Glacier.ListParts.ListPartsResponse
+instance GHC.Show.Show Amazonka.Glacier.ListParts.ListPartsResponse
+instance GHC.Read.Read Amazonka.Glacier.ListParts.ListPartsResponse
+instance GHC.Classes.Eq Amazonka.Glacier.ListParts.ListPartsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.ListParts.ListParts
+instance Control.DeepSeq.NFData Amazonka.Glacier.ListParts.ListPartsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Glacier.ListParts.ListParts
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.ListParts.ListParts
+instance Control.DeepSeq.NFData Amazonka.Glacier.ListParts.ListParts
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.ListParts.ListParts
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.ListParts.ListParts
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.ListParts.ListParts
 
 
 -- | This operation lists in-progress multipart uploads for the specified
@@ -5305,7 +5305,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.ListParts.ListParts
 --   Uploads</a> in the <i>Amazon Glacier Developer Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Glacier.ListMultipartUploads
+module Amazonka.Glacier.ListMultipartUploads
 
 -- | Provides options for retrieving list of in-progress multipart uploads
 --   for an Amazon Glacier vault.
@@ -5448,22 +5448,22 @@ listMultipartUploadsResponse_marker :: Lens' ListMultipartUploadsResponse (Maybe
 
 -- | The response's http status code.
 listMultipartUploadsResponse_httpStatus :: Lens' ListMultipartUploadsResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploads
-instance GHC.Show.Show Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploads
-instance GHC.Read.Read Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploads
-instance GHC.Classes.Eq Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploads
-instance GHC.Generics.Generic Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploadsResponse
-instance GHC.Show.Show Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploadsResponse
-instance GHC.Read.Read Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploadsResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploadsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploads
-instance Control.DeepSeq.NFData Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploadsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploads
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploads
-instance Control.DeepSeq.NFData Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploads
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploads
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploads
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.ListMultipartUploads.ListMultipartUploads
+instance GHC.Generics.Generic Amazonka.Glacier.ListMultipartUploads.ListMultipartUploads
+instance GHC.Show.Show Amazonka.Glacier.ListMultipartUploads.ListMultipartUploads
+instance GHC.Read.Read Amazonka.Glacier.ListMultipartUploads.ListMultipartUploads
+instance GHC.Classes.Eq Amazonka.Glacier.ListMultipartUploads.ListMultipartUploads
+instance GHC.Generics.Generic Amazonka.Glacier.ListMultipartUploads.ListMultipartUploadsResponse
+instance GHC.Show.Show Amazonka.Glacier.ListMultipartUploads.ListMultipartUploadsResponse
+instance GHC.Read.Read Amazonka.Glacier.ListMultipartUploads.ListMultipartUploadsResponse
+instance GHC.Classes.Eq Amazonka.Glacier.ListMultipartUploads.ListMultipartUploadsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.ListMultipartUploads.ListMultipartUploads
+instance Control.DeepSeq.NFData Amazonka.Glacier.ListMultipartUploads.ListMultipartUploadsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Glacier.ListMultipartUploads.ListMultipartUploads
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.ListMultipartUploads.ListMultipartUploads
+instance Control.DeepSeq.NFData Amazonka.Glacier.ListMultipartUploads.ListMultipartUploads
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.ListMultipartUploads.ListMultipartUploads
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.ListMultipartUploads.ListMultipartUploads
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.ListMultipartUploads.ListMultipartUploads
 
 
 -- | This operation lists jobs for a vault, including jobs that are
@@ -5509,7 +5509,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.ListMultipartUploads
 --   for the underlying REST API <a>List Jobs</a>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Glacier.ListJobs
+module Amazonka.Glacier.ListJobs
 
 -- | Provides options for retrieving a job list for an Amazon S3 Glacier
 --   vault.
@@ -5677,22 +5677,22 @@ listJobsResponse_jobList :: Lens' ListJobsResponse (Maybe [GlacierJobDescription
 
 -- | The response's http status code.
 listJobsResponse_httpStatus :: Lens' ListJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.ListJobs.ListJobs
-instance GHC.Show.Show Network.AWS.Glacier.ListJobs.ListJobs
-instance GHC.Read.Read Network.AWS.Glacier.ListJobs.ListJobs
-instance GHC.Classes.Eq Network.AWS.Glacier.ListJobs.ListJobs
-instance GHC.Generics.Generic Network.AWS.Glacier.ListJobs.ListJobsResponse
-instance GHC.Show.Show Network.AWS.Glacier.ListJobs.ListJobsResponse
-instance GHC.Read.Read Network.AWS.Glacier.ListJobs.ListJobsResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.ListJobs.ListJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.ListJobs.ListJobs
-instance Control.DeepSeq.NFData Network.AWS.Glacier.ListJobs.ListJobsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Glacier.ListJobs.ListJobs
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.ListJobs.ListJobs
-instance Control.DeepSeq.NFData Network.AWS.Glacier.ListJobs.ListJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.ListJobs.ListJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.ListJobs.ListJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.ListJobs.ListJobs
+instance GHC.Generics.Generic Amazonka.Glacier.ListJobs.ListJobs
+instance GHC.Show.Show Amazonka.Glacier.ListJobs.ListJobs
+instance GHC.Read.Read Amazonka.Glacier.ListJobs.ListJobs
+instance GHC.Classes.Eq Amazonka.Glacier.ListJobs.ListJobs
+instance GHC.Generics.Generic Amazonka.Glacier.ListJobs.ListJobsResponse
+instance GHC.Show.Show Amazonka.Glacier.ListJobs.ListJobsResponse
+instance GHC.Read.Read Amazonka.Glacier.ListJobs.ListJobsResponse
+instance GHC.Classes.Eq Amazonka.Glacier.ListJobs.ListJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.ListJobs.ListJobs
+instance Control.DeepSeq.NFData Amazonka.Glacier.ListJobs.ListJobsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Glacier.ListJobs.ListJobs
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.ListJobs.ListJobs
+instance Control.DeepSeq.NFData Amazonka.Glacier.ListJobs.ListJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.ListJobs.ListJobs
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.ListJobs.ListJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.ListJobs.ListJobs
 
 
 -- | This operation initiates the vault locking process by doing the
@@ -5730,7 +5730,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.ListJobs.ListJobs
 --   <tt>AccessDeniedException</tt> error. When the vault lock is in the
 --   <tt>InProgress</tt> state you must call AbortVaultLock before you can
 --   initiate a new vault lock policy.
-module Network.AWS.Glacier.InitiateVaultLock
+module Amazonka.Glacier.InitiateVaultLock
 
 -- | The input values for <tt>InitiateVaultLock</tt>.
 --   
@@ -5831,22 +5831,22 @@ initiateVaultLockResponse_lockId :: Lens' InitiateVaultLockResponse (Maybe Text)
 
 -- | The response's http status code.
 initiateVaultLockResponse_httpStatus :: Lens' InitiateVaultLockResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLock
-instance GHC.Show.Show Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLock
-instance GHC.Read.Read Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLock
-instance GHC.Classes.Eq Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLock
-instance GHC.Generics.Generic Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLockResponse
-instance GHC.Show.Show Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLockResponse
-instance GHC.Read.Read Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLockResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLockResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLock
-instance Control.DeepSeq.NFData Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLockResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLock
-instance Control.DeepSeq.NFData Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLock
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLock
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLock
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLock
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.InitiateVaultLock.InitiateVaultLock
+instance GHC.Generics.Generic Amazonka.Glacier.InitiateVaultLock.InitiateVaultLock
+instance GHC.Show.Show Amazonka.Glacier.InitiateVaultLock.InitiateVaultLock
+instance GHC.Read.Read Amazonka.Glacier.InitiateVaultLock.InitiateVaultLock
+instance GHC.Classes.Eq Amazonka.Glacier.InitiateVaultLock.InitiateVaultLock
+instance GHC.Generics.Generic Amazonka.Glacier.InitiateVaultLock.InitiateVaultLockResponse
+instance GHC.Show.Show Amazonka.Glacier.InitiateVaultLock.InitiateVaultLockResponse
+instance GHC.Read.Read Amazonka.Glacier.InitiateVaultLock.InitiateVaultLockResponse
+instance GHC.Classes.Eq Amazonka.Glacier.InitiateVaultLock.InitiateVaultLockResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.InitiateVaultLock.InitiateVaultLock
+instance Control.DeepSeq.NFData Amazonka.Glacier.InitiateVaultLock.InitiateVaultLockResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.InitiateVaultLock.InitiateVaultLock
+instance Control.DeepSeq.NFData Amazonka.Glacier.InitiateVaultLock.InitiateVaultLock
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.InitiateVaultLock.InitiateVaultLock
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.InitiateVaultLock.InitiateVaultLock
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.InitiateVaultLock.InitiateVaultLock
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.InitiateVaultLock.InitiateVaultLock
 
 
 -- | This operation initiates a multipart upload. Amazon S3 Glacier creates
@@ -5885,7 +5885,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.InitiateVaultLock.In
 --   For conceptual information and underlying REST API, see <a>Uploading
 --   Large Archives in Parts (Multipart Upload)</a> and <a>Initiate
 --   Multipart Upload</a> in the <i>Amazon Glacier Developer Guide</i>.
-module Network.AWS.Glacier.InitiateMultipartUpload
+module Amazonka.Glacier.InitiateMultipartUpload
 
 -- | Provides options for initiating a multipart upload to an Amazon S3
 --   Glacier vault.
@@ -6024,29 +6024,29 @@ initiateMultipartUploadResponse_uploadId :: Lens' InitiateMultipartUploadRespons
 
 -- | The response's http status code.
 initiateMultipartUploadResponse_httpStatus :: Lens' InitiateMultipartUploadResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
-instance GHC.Show.Show Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
-instance GHC.Read.Read Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
-instance GHC.Classes.Eq Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
-instance GHC.Generics.Generic Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUploadResponse
-instance GHC.Show.Show Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUploadResponse
-instance GHC.Read.Read Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUploadResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUploadResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
-instance Control.DeepSeq.NFData Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUploadResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
-instance Control.DeepSeq.NFData Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
+instance GHC.Generics.Generic Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
+instance GHC.Show.Show Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
+instance GHC.Read.Read Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
+instance GHC.Classes.Eq Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
+instance GHC.Generics.Generic Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUploadResponse
+instance GHC.Show.Show Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUploadResponse
+instance GHC.Read.Read Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUploadResponse
+instance GHC.Classes.Eq Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUploadResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
+instance Control.DeepSeq.NFData Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUploadResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
+instance Control.DeepSeq.NFData Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.InitiateMultipartUpload.InitiateMultipartUpload
 
 
 -- | This operation initiates a job of the specified type, which can be a
 --   select, an archival retrieval, or a vault retrieval. For more
 --   information about using this operation, see the documentation for the
 --   underlying REST API <a>Initiate a Job</a>.
-module Network.AWS.Glacier.InitiateJob
+module Amazonka.Glacier.InitiateJob
 
 -- | Provides options for initiating an Amazon S3 Glacier job.
 --   
@@ -6160,22 +6160,22 @@ initiateJobResponse_location :: Lens' InitiateJobResponse (Maybe Text)
 
 -- | The response's http status code.
 initiateJobResponse_httpStatus :: Lens' InitiateJobResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.InitiateJob.InitiateJob
-instance GHC.Show.Show Network.AWS.Glacier.InitiateJob.InitiateJob
-instance GHC.Read.Read Network.AWS.Glacier.InitiateJob.InitiateJob
-instance GHC.Classes.Eq Network.AWS.Glacier.InitiateJob.InitiateJob
-instance GHC.Generics.Generic Network.AWS.Glacier.InitiateJob.InitiateJobResponse
-instance GHC.Show.Show Network.AWS.Glacier.InitiateJob.InitiateJobResponse
-instance GHC.Read.Read Network.AWS.Glacier.InitiateJob.InitiateJobResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.InitiateJob.InitiateJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.InitiateJob.InitiateJob
-instance Control.DeepSeq.NFData Network.AWS.Glacier.InitiateJob.InitiateJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.InitiateJob.InitiateJob
-instance Control.DeepSeq.NFData Network.AWS.Glacier.InitiateJob.InitiateJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.InitiateJob.InitiateJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.InitiateJob.InitiateJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.InitiateJob.InitiateJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.InitiateJob.InitiateJob
+instance GHC.Generics.Generic Amazonka.Glacier.InitiateJob.InitiateJob
+instance GHC.Show.Show Amazonka.Glacier.InitiateJob.InitiateJob
+instance GHC.Read.Read Amazonka.Glacier.InitiateJob.InitiateJob
+instance GHC.Classes.Eq Amazonka.Glacier.InitiateJob.InitiateJob
+instance GHC.Generics.Generic Amazonka.Glacier.InitiateJob.InitiateJobResponse
+instance GHC.Show.Show Amazonka.Glacier.InitiateJob.InitiateJobResponse
+instance GHC.Read.Read Amazonka.Glacier.InitiateJob.InitiateJobResponse
+instance GHC.Classes.Eq Amazonka.Glacier.InitiateJob.InitiateJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.InitiateJob.InitiateJob
+instance Control.DeepSeq.NFData Amazonka.Glacier.InitiateJob.InitiateJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.InitiateJob.InitiateJob
+instance Control.DeepSeq.NFData Amazonka.Glacier.InitiateJob.InitiateJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.InitiateJob.InitiateJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.InitiateJob.InitiateJob
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.InitiateJob.InitiateJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.InitiateJob.InitiateJob
 
 
 -- | This operation retrieves the <tt>notification-configuration</tt>
@@ -6197,7 +6197,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.InitiateJob.Initiate
 --   Vault Notifications in Amazon S3 Glacier</a> and <a>Get Vault
 --   Notification Configuration</a> in the <i>Amazon Glacier Developer
 --   Guide</i>.
-module Network.AWS.Glacier.GetVaultNotifications
+module Amazonka.Glacier.GetVaultNotifications
 
 -- | Provides options for retrieving the notification configuration set on
 --   an Amazon Glacier vault.
@@ -6284,21 +6284,21 @@ getVaultNotificationsResponse_vaultNotificationConfig :: Lens' GetVaultNotificat
 
 -- | The response's http status code.
 getVaultNotificationsResponse_httpStatus :: Lens' GetVaultNotificationsResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.GetVaultNotifications.GetVaultNotifications
-instance GHC.Show.Show Network.AWS.Glacier.GetVaultNotifications.GetVaultNotifications
-instance GHC.Read.Read Network.AWS.Glacier.GetVaultNotifications.GetVaultNotifications
-instance GHC.Classes.Eq Network.AWS.Glacier.GetVaultNotifications.GetVaultNotifications
-instance GHC.Generics.Generic Network.AWS.Glacier.GetVaultNotifications.GetVaultNotificationsResponse
-instance GHC.Show.Show Network.AWS.Glacier.GetVaultNotifications.GetVaultNotificationsResponse
-instance GHC.Read.Read Network.AWS.Glacier.GetVaultNotifications.GetVaultNotificationsResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.GetVaultNotifications.GetVaultNotificationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.GetVaultNotifications.GetVaultNotifications
-instance Control.DeepSeq.NFData Network.AWS.Glacier.GetVaultNotifications.GetVaultNotificationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.GetVaultNotifications.GetVaultNotifications
-instance Control.DeepSeq.NFData Network.AWS.Glacier.GetVaultNotifications.GetVaultNotifications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.GetVaultNotifications.GetVaultNotifications
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.GetVaultNotifications.GetVaultNotifications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.GetVaultNotifications.GetVaultNotifications
+instance GHC.Generics.Generic Amazonka.Glacier.GetVaultNotifications.GetVaultNotifications
+instance GHC.Show.Show Amazonka.Glacier.GetVaultNotifications.GetVaultNotifications
+instance GHC.Read.Read Amazonka.Glacier.GetVaultNotifications.GetVaultNotifications
+instance GHC.Classes.Eq Amazonka.Glacier.GetVaultNotifications.GetVaultNotifications
+instance GHC.Generics.Generic Amazonka.Glacier.GetVaultNotifications.GetVaultNotificationsResponse
+instance GHC.Show.Show Amazonka.Glacier.GetVaultNotifications.GetVaultNotificationsResponse
+instance GHC.Read.Read Amazonka.Glacier.GetVaultNotifications.GetVaultNotificationsResponse
+instance GHC.Classes.Eq Amazonka.Glacier.GetVaultNotifications.GetVaultNotificationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.GetVaultNotifications.GetVaultNotifications
+instance Control.DeepSeq.NFData Amazonka.Glacier.GetVaultNotifications.GetVaultNotificationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.GetVaultNotifications.GetVaultNotifications
+instance Control.DeepSeq.NFData Amazonka.Glacier.GetVaultNotifications.GetVaultNotifications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.GetVaultNotifications.GetVaultNotifications
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.GetVaultNotifications.GetVaultNotifications
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.GetVaultNotifications.GetVaultNotifications
 
 
 -- | This operation retrieves the following attributes from the
@@ -6324,7 +6324,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.GetVaultNotification
 --   returns a <tt>404 Not found</tt> error. For more information about
 --   vault lock policies, <a>Amazon Glacier Access Control with Vault Lock
 --   Policies</a>.
-module Network.AWS.Glacier.GetVaultLock
+module Amazonka.Glacier.GetVaultLock
 
 -- | The input values for <tt>GetVaultLock</tt>.
 --   
@@ -6447,21 +6447,21 @@ getVaultLockResponse_policy :: Lens' GetVaultLockResponse (Maybe Text)
 
 -- | The response's http status code.
 getVaultLockResponse_httpStatus :: Lens' GetVaultLockResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.GetVaultLock.GetVaultLock
-instance GHC.Show.Show Network.AWS.Glacier.GetVaultLock.GetVaultLock
-instance GHC.Read.Read Network.AWS.Glacier.GetVaultLock.GetVaultLock
-instance GHC.Classes.Eq Network.AWS.Glacier.GetVaultLock.GetVaultLock
-instance GHC.Generics.Generic Network.AWS.Glacier.GetVaultLock.GetVaultLockResponse
-instance GHC.Show.Show Network.AWS.Glacier.GetVaultLock.GetVaultLockResponse
-instance GHC.Read.Read Network.AWS.Glacier.GetVaultLock.GetVaultLockResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.GetVaultLock.GetVaultLockResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.GetVaultLock.GetVaultLock
-instance Control.DeepSeq.NFData Network.AWS.Glacier.GetVaultLock.GetVaultLockResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.GetVaultLock.GetVaultLock
-instance Control.DeepSeq.NFData Network.AWS.Glacier.GetVaultLock.GetVaultLock
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.GetVaultLock.GetVaultLock
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.GetVaultLock.GetVaultLock
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.GetVaultLock.GetVaultLock
+instance GHC.Generics.Generic Amazonka.Glacier.GetVaultLock.GetVaultLock
+instance GHC.Show.Show Amazonka.Glacier.GetVaultLock.GetVaultLock
+instance GHC.Read.Read Amazonka.Glacier.GetVaultLock.GetVaultLock
+instance GHC.Classes.Eq Amazonka.Glacier.GetVaultLock.GetVaultLock
+instance GHC.Generics.Generic Amazonka.Glacier.GetVaultLock.GetVaultLockResponse
+instance GHC.Show.Show Amazonka.Glacier.GetVaultLock.GetVaultLockResponse
+instance GHC.Read.Read Amazonka.Glacier.GetVaultLock.GetVaultLockResponse
+instance GHC.Classes.Eq Amazonka.Glacier.GetVaultLock.GetVaultLockResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.GetVaultLock.GetVaultLock
+instance Control.DeepSeq.NFData Amazonka.Glacier.GetVaultLock.GetVaultLockResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.GetVaultLock.GetVaultLock
+instance Control.DeepSeq.NFData Amazonka.Glacier.GetVaultLock.GetVaultLock
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.GetVaultLock.GetVaultLock
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.GetVaultLock.GetVaultLock
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.GetVaultLock.GetVaultLock
 
 
 -- | This operation retrieves the <tt>access-policy</tt> subresource set on
@@ -6470,7 +6470,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.GetVaultLock.GetVaul
 --   access policy set on the vault, the operation returns a <tt>404 Not
 --   found</tt> error. For more information about vault access policies,
 --   see <a>Amazon Glacier Access Control with Vault Access Policies</a>.
-module Network.AWS.Glacier.GetVaultAccessPolicy
+module Amazonka.Glacier.GetVaultAccessPolicy
 
 -- | Input for GetVaultAccessPolicy.
 --   
@@ -6556,21 +6556,21 @@ getVaultAccessPolicyResponse_policy :: Lens' GetVaultAccessPolicyResponse (Maybe
 
 -- | The response's http status code.
 getVaultAccessPolicyResponse_httpStatus :: Lens' GetVaultAccessPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
-instance GHC.Show.Show Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
-instance GHC.Read.Read Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
-instance GHC.Classes.Eq Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
-instance GHC.Generics.Generic Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicyResponse
-instance GHC.Show.Show Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicyResponse
-instance GHC.Read.Read Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicyResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
+instance GHC.Show.Show Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
+instance GHC.Read.Read Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
+instance GHC.Classes.Eq Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicyResponse
+instance GHC.Show.Show Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicyResponse
+instance GHC.Read.Read Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicyResponse
+instance GHC.Classes.Eq Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.GetVaultAccessPolicy.GetVaultAccessPolicy
 
 
 -- | This operation downloads the output of the job you initiated using
@@ -6618,7 +6618,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.GetVaultAccessPolicy
 --   For conceptual information and the underlying REST API, see
 --   <a>Downloading a Vault Inventory</a>, <a>Downloading an Archive</a>,
 --   and <a>Get Job Output</a>
-module Network.AWS.Glacier.GetJobOutput
+module Amazonka.Glacier.GetJobOutput
 
 -- | Provides options for downloading output of an Amazon S3 Glacier job.
 --   
@@ -6931,25 +6931,25 @@ getJobOutputResponse_status :: Lens' GetJobOutputResponse Int
 
 -- | The job data, either archive data or inventory data.
 getJobOutputResponse_body :: Lens' GetJobOutputResponse ResponseBody
-instance GHC.Generics.Generic Network.AWS.Glacier.GetJobOutput.GetJobOutput
-instance GHC.Show.Show Network.AWS.Glacier.GetJobOutput.GetJobOutput
-instance GHC.Read.Read Network.AWS.Glacier.GetJobOutput.GetJobOutput
-instance GHC.Classes.Eq Network.AWS.Glacier.GetJobOutput.GetJobOutput
-instance GHC.Generics.Generic Network.AWS.Glacier.GetJobOutput.GetJobOutputResponse
-instance GHC.Show.Show Network.AWS.Glacier.GetJobOutput.GetJobOutputResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.GetJobOutput.GetJobOutput
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.GetJobOutput.GetJobOutput
-instance Control.DeepSeq.NFData Network.AWS.Glacier.GetJobOutput.GetJobOutput
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.GetJobOutput.GetJobOutput
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.GetJobOutput.GetJobOutput
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.GetJobOutput.GetJobOutput
+instance GHC.Generics.Generic Amazonka.Glacier.GetJobOutput.GetJobOutput
+instance GHC.Show.Show Amazonka.Glacier.GetJobOutput.GetJobOutput
+instance GHC.Read.Read Amazonka.Glacier.GetJobOutput.GetJobOutput
+instance GHC.Classes.Eq Amazonka.Glacier.GetJobOutput.GetJobOutput
+instance GHC.Generics.Generic Amazonka.Glacier.GetJobOutput.GetJobOutputResponse
+instance GHC.Show.Show Amazonka.Glacier.GetJobOutput.GetJobOutputResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.GetJobOutput.GetJobOutput
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.GetJobOutput.GetJobOutput
+instance Control.DeepSeq.NFData Amazonka.Glacier.GetJobOutput.GetJobOutput
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.GetJobOutput.GetJobOutput
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.GetJobOutput.GetJobOutput
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.GetJobOutput.GetJobOutput
 
 
 -- | This operation returns the current data retrieval policy for the
 --   account and region specified in the GET request. For more information
 --   about data retrieval policies, see <a>Amazon Glacier Data Retrieval
 --   Policies</a>.
-module Network.AWS.Glacier.GetDataRetrievalPolicy
+module Amazonka.Glacier.GetDataRetrievalPolicy
 
 -- | Input for GetDataRetrievalPolicy.
 --   
@@ -7031,21 +7031,21 @@ getDataRetrievalPolicyResponse_policy :: Lens' GetDataRetrievalPolicyResponse (M
 
 -- | The response's http status code.
 getDataRetrievalPolicyResponse_httpStatus :: Lens' GetDataRetrievalPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
-instance GHC.Show.Show Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
-instance GHC.Read.Read Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
-instance GHC.Classes.Eq Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
-instance GHC.Generics.Generic Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicyResponse
-instance GHC.Show.Show Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicyResponse
-instance GHC.Read.Read Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicyResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
+instance GHC.Show.Show Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
+instance GHC.Read.Read Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
+instance GHC.Classes.Eq Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicyResponse
+instance GHC.Show.Show Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicyResponse
+instance GHC.Read.Read Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicyResponse
+instance GHC.Classes.Eq Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.GetDataRetrievalPolicy.GetDataRetrievalPolicy
 
 
 -- | This operation returns information about a vault, including the
@@ -7069,7 +7069,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.GetDataRetrievalPoli
 --   For conceptual information and underlying REST API, see <a>Retrieving
 --   Vault Metadata in Amazon S3 Glacier</a> and <a>Describe Vault</a> in
 --   the <i>Amazon Glacier Developer Guide</i>.
-module Network.AWS.Glacier.DescribeVault
+module Amazonka.Glacier.DescribeVault
 
 -- | Provides options for retrieving metadata for a specific vault in
 --   Amazon Glacier.
@@ -7221,16 +7221,16 @@ describeVaultOutput_creationDate :: Lens' DescribeVaultOutput (Maybe Text)
 --   This field will return <tt>null</tt> if an inventory has not yet run
 --   on the vault, for example if you just created the vault.
 describeVaultOutput_numberOfArchives :: Lens' DescribeVaultOutput (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.Glacier.DescribeVault.DescribeVault
-instance GHC.Show.Show Network.AWS.Glacier.DescribeVault.DescribeVault
-instance GHC.Read.Read Network.AWS.Glacier.DescribeVault.DescribeVault
-instance GHC.Classes.Eq Network.AWS.Glacier.DescribeVault.DescribeVault
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.DescribeVault.DescribeVault
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.DescribeVault.DescribeVault
-instance Control.DeepSeq.NFData Network.AWS.Glacier.DescribeVault.DescribeVault
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.DescribeVault.DescribeVault
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.DescribeVault.DescribeVault
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.DescribeVault.DescribeVault
+instance GHC.Generics.Generic Amazonka.Glacier.DescribeVault.DescribeVault
+instance GHC.Show.Show Amazonka.Glacier.DescribeVault.DescribeVault
+instance GHC.Read.Read Amazonka.Glacier.DescribeVault.DescribeVault
+instance GHC.Classes.Eq Amazonka.Glacier.DescribeVault.DescribeVault
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.DescribeVault.DescribeVault
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.DescribeVault.DescribeVault
+instance Control.DeepSeq.NFData Amazonka.Glacier.DescribeVault.DescribeVault
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.DescribeVault.DescribeVault
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.DescribeVault.DescribeVault
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.DescribeVault.DescribeVault
 
 
 -- | This operation returns information about a job you previously
@@ -7256,7 +7256,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.DescribeVault.Descri
 --   For more information about using this operation, see the documentation
 --   for the underlying REST API <a>Describe Job</a> in the <i>Amazon
 --   Glacier Developer Guide</i>.
-module Network.AWS.Glacier.DescribeJob
+module Amazonka.Glacier.DescribeJob
 
 -- | Provides options for retrieving a job description.
 --   
@@ -7652,16 +7652,16 @@ glacierJobDescription_archiveSizeInBytes :: Lens' GlacierJobDescription (Maybe I
 -- | The status code can be <tt>InProgress</tt>, <tt>Succeeded</tt>, or
 --   <tt>Failed</tt>, and indicates the status of the job.
 glacierJobDescription_statusCode :: Lens' GlacierJobDescription (Maybe StatusCode)
-instance GHC.Generics.Generic Network.AWS.Glacier.DescribeJob.DescribeJob
-instance GHC.Show.Show Network.AWS.Glacier.DescribeJob.DescribeJob
-instance GHC.Read.Read Network.AWS.Glacier.DescribeJob.DescribeJob
-instance GHC.Classes.Eq Network.AWS.Glacier.DescribeJob.DescribeJob
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.DescribeJob.DescribeJob
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.DescribeJob.DescribeJob
-instance Control.DeepSeq.NFData Network.AWS.Glacier.DescribeJob.DescribeJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.DescribeJob.DescribeJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.DescribeJob.DescribeJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.DescribeJob.DescribeJob
+instance GHC.Generics.Generic Amazonka.Glacier.DescribeJob.DescribeJob
+instance GHC.Show.Show Amazonka.Glacier.DescribeJob.DescribeJob
+instance GHC.Read.Read Amazonka.Glacier.DescribeJob.DescribeJob
+instance GHC.Classes.Eq Amazonka.Glacier.DescribeJob.DescribeJob
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.DescribeJob.DescribeJob
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.DescribeJob.DescribeJob
+instance Control.DeepSeq.NFData Amazonka.Glacier.DescribeJob.DescribeJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.DescribeJob.DescribeJob
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.DescribeJob.DescribeJob
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.DescribeJob.DescribeJob
 
 
 -- | This operation deletes the notification configuration set for a vault.
@@ -7680,7 +7680,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.DescribeJob.Describe
 --   Vault Notifications in Amazon S3 Glacier</a> and <a>Delete Vault
 --   Notification Configuration</a> in the Amazon S3 Glacier Developer
 --   Guide.
-module Network.AWS.Glacier.DeleteVaultNotifications
+module Amazonka.Glacier.DeleteVaultNotifications
 
 -- | Provides options for deleting a vault notification configuration from
 --   an Amazon Glacier vault.
@@ -7743,21 +7743,21 @@ DeleteVaultNotificationsResponse' :: DeleteVaultNotificationsResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteVaultNotificationsResponse :: DeleteVaultNotificationsResponse
-instance GHC.Generics.Generic Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
-instance GHC.Show.Show Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
-instance GHC.Read.Read Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
-instance GHC.Classes.Eq Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
-instance GHC.Generics.Generic Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotificationsResponse
-instance GHC.Show.Show Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotificationsResponse
-instance GHC.Read.Read Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotificationsResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotificationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
-instance Control.DeepSeq.NFData Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotificationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
-instance Control.DeepSeq.NFData Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
+instance GHC.Generics.Generic Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
+instance GHC.Show.Show Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
+instance GHC.Read.Read Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
+instance GHC.Classes.Eq Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
+instance GHC.Generics.Generic Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotificationsResponse
+instance GHC.Show.Show Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotificationsResponse
+instance GHC.Read.Read Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotificationsResponse
+instance GHC.Classes.Eq Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotificationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
+instance Control.DeepSeq.NFData Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotificationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
+instance Control.DeepSeq.NFData Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.DeleteVaultNotifications.DeleteVaultNotifications
 
 
 -- | This operation deletes the access policy associated with the specified
@@ -7770,7 +7770,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.DeleteVaultNotificat
 --   even if there is no policy associated with the vault. For more
 --   information about vault access policies, see <a>Amazon Glacier Access
 --   Control with Vault Access Policies</a>.
-module Network.AWS.Glacier.DeleteVaultAccessPolicy
+module Amazonka.Glacier.DeleteVaultAccessPolicy
 
 -- | DeleteVaultAccessPolicy input.
 --   
@@ -7832,21 +7832,21 @@ DeleteVaultAccessPolicyResponse' :: DeleteVaultAccessPolicyResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteVaultAccessPolicyResponse :: DeleteVaultAccessPolicyResponse
-instance GHC.Generics.Generic Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
-instance GHC.Show.Show Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
-instance GHC.Read.Read Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
-instance GHC.Classes.Eq Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
-instance GHC.Generics.Generic Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicyResponse
-instance GHC.Show.Show Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicyResponse
-instance GHC.Read.Read Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicyResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
-instance Control.DeepSeq.NFData Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
+instance GHC.Show.Show Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
+instance GHC.Read.Read Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
+instance GHC.Classes.Eq Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
+instance GHC.Generics.Generic Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicyResponse
+instance GHC.Show.Show Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicyResponse
+instance GHC.Read.Read Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicyResponse
+instance GHC.Classes.Eq Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
+instance Control.DeepSeq.NFData Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.DeleteVaultAccessPolicy.DeleteVaultAccessPolicy
 
 
 -- | This operation deletes a vault. Amazon S3 Glacier will delete a vault
@@ -7871,7 +7871,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.DeleteVaultAccessPol
 --   For conceptual information and underlying REST API, see <a>Deleting a
 --   Vault in Amazon Glacier</a> and <a>Delete Vault</a> in the <i>Amazon
 --   S3 Glacier Developer Guide</i>.
-module Network.AWS.Glacier.DeleteVault
+module Amazonka.Glacier.DeleteVault
 
 -- | Provides options for deleting a vault from Amazon S3 Glacier.
 --   
@@ -7931,21 +7931,21 @@ DeleteVaultResponse' :: DeleteVaultResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteVaultResponse :: DeleteVaultResponse
-instance GHC.Generics.Generic Network.AWS.Glacier.DeleteVault.DeleteVault
-instance GHC.Show.Show Network.AWS.Glacier.DeleteVault.DeleteVault
-instance GHC.Read.Read Network.AWS.Glacier.DeleteVault.DeleteVault
-instance GHC.Classes.Eq Network.AWS.Glacier.DeleteVault.DeleteVault
-instance GHC.Generics.Generic Network.AWS.Glacier.DeleteVault.DeleteVaultResponse
-instance GHC.Show.Show Network.AWS.Glacier.DeleteVault.DeleteVaultResponse
-instance GHC.Read.Read Network.AWS.Glacier.DeleteVault.DeleteVaultResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.DeleteVault.DeleteVaultResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.DeleteVault.DeleteVault
-instance Control.DeepSeq.NFData Network.AWS.Glacier.DeleteVault.DeleteVaultResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.DeleteVault.DeleteVault
-instance Control.DeepSeq.NFData Network.AWS.Glacier.DeleteVault.DeleteVault
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.DeleteVault.DeleteVault
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.DeleteVault.DeleteVault
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.DeleteVault.DeleteVault
+instance GHC.Generics.Generic Amazonka.Glacier.DeleteVault.DeleteVault
+instance GHC.Show.Show Amazonka.Glacier.DeleteVault.DeleteVault
+instance GHC.Read.Read Amazonka.Glacier.DeleteVault.DeleteVault
+instance GHC.Classes.Eq Amazonka.Glacier.DeleteVault.DeleteVault
+instance GHC.Generics.Generic Amazonka.Glacier.DeleteVault.DeleteVaultResponse
+instance GHC.Show.Show Amazonka.Glacier.DeleteVault.DeleteVaultResponse
+instance GHC.Read.Read Amazonka.Glacier.DeleteVault.DeleteVaultResponse
+instance GHC.Classes.Eq Amazonka.Glacier.DeleteVault.DeleteVaultResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.DeleteVault.DeleteVault
+instance Control.DeepSeq.NFData Amazonka.Glacier.DeleteVault.DeleteVaultResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.DeleteVault.DeleteVault
+instance Control.DeepSeq.NFData Amazonka.Glacier.DeleteVault.DeleteVault
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.DeleteVault.DeleteVault
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.DeleteVault.DeleteVault
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.DeleteVault.DeleteVault
 
 
 -- | This operation deletes an archive from a vault. Subsequent requests to
@@ -7974,7 +7974,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.DeleteVault.DeleteVa
 --   For conceptual information and underlying REST API, see <a>Deleting an
 --   Archive in Amazon Glacier</a> and <a>Delete Archive</a> in the
 --   <i>Amazon Glacier Developer Guide</i>.
-module Network.AWS.Glacier.DeleteArchive
+module Amazonka.Glacier.DeleteArchive
 
 -- | Provides options for deleting an archive from an Amazon S3 Glacier
 --   vault.
@@ -8045,21 +8045,21 @@ DeleteArchiveResponse' :: DeleteArchiveResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteArchiveResponse :: DeleteArchiveResponse
-instance GHC.Generics.Generic Network.AWS.Glacier.DeleteArchive.DeleteArchive
-instance GHC.Show.Show Network.AWS.Glacier.DeleteArchive.DeleteArchive
-instance GHC.Read.Read Network.AWS.Glacier.DeleteArchive.DeleteArchive
-instance GHC.Classes.Eq Network.AWS.Glacier.DeleteArchive.DeleteArchive
-instance GHC.Generics.Generic Network.AWS.Glacier.DeleteArchive.DeleteArchiveResponse
-instance GHC.Show.Show Network.AWS.Glacier.DeleteArchive.DeleteArchiveResponse
-instance GHC.Read.Read Network.AWS.Glacier.DeleteArchive.DeleteArchiveResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.DeleteArchive.DeleteArchiveResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.DeleteArchive.DeleteArchive
-instance Control.DeepSeq.NFData Network.AWS.Glacier.DeleteArchive.DeleteArchiveResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.DeleteArchive.DeleteArchive
-instance Control.DeepSeq.NFData Network.AWS.Glacier.DeleteArchive.DeleteArchive
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.DeleteArchive.DeleteArchive
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.DeleteArchive.DeleteArchive
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.DeleteArchive.DeleteArchive
+instance GHC.Generics.Generic Amazonka.Glacier.DeleteArchive.DeleteArchive
+instance GHC.Show.Show Amazonka.Glacier.DeleteArchive.DeleteArchive
+instance GHC.Read.Read Amazonka.Glacier.DeleteArchive.DeleteArchive
+instance GHC.Classes.Eq Amazonka.Glacier.DeleteArchive.DeleteArchive
+instance GHC.Generics.Generic Amazonka.Glacier.DeleteArchive.DeleteArchiveResponse
+instance GHC.Show.Show Amazonka.Glacier.DeleteArchive.DeleteArchiveResponse
+instance GHC.Read.Read Amazonka.Glacier.DeleteArchive.DeleteArchiveResponse
+instance GHC.Classes.Eq Amazonka.Glacier.DeleteArchive.DeleteArchiveResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.DeleteArchive.DeleteArchive
+instance Control.DeepSeq.NFData Amazonka.Glacier.DeleteArchive.DeleteArchiveResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.DeleteArchive.DeleteArchive
+instance Control.DeepSeq.NFData Amazonka.Glacier.DeleteArchive.DeleteArchive
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.DeleteArchive.DeleteArchive
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.DeleteArchive.DeleteArchive
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.DeleteArchive.DeleteArchive
 
 
 -- | This operation creates a new vault with the specified name. The name
@@ -8086,7 +8086,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.DeleteArchive.Delete
 --   For conceptual information and underlying REST API, see <a>Creating a
 --   Vault in Amazon Glacier</a> and <a>Create Vault</a> in the <i>Amazon
 --   Glacier Developer Guide</i>.
-module Network.AWS.Glacier.CreateVault
+module Amazonka.Glacier.CreateVault
 
 -- | Provides options to create a vault.
 --   
@@ -8174,22 +8174,22 @@ createVaultResponse_location :: Lens' CreateVaultResponse (Maybe Text)
 
 -- | The response's http status code.
 createVaultResponse_httpStatus :: Lens' CreateVaultResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.CreateVault.CreateVault
-instance GHC.Show.Show Network.AWS.Glacier.CreateVault.CreateVault
-instance GHC.Read.Read Network.AWS.Glacier.CreateVault.CreateVault
-instance GHC.Classes.Eq Network.AWS.Glacier.CreateVault.CreateVault
-instance GHC.Generics.Generic Network.AWS.Glacier.CreateVault.CreateVaultResponse
-instance GHC.Show.Show Network.AWS.Glacier.CreateVault.CreateVaultResponse
-instance GHC.Read.Read Network.AWS.Glacier.CreateVault.CreateVaultResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.CreateVault.CreateVaultResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.CreateVault.CreateVault
-instance Control.DeepSeq.NFData Network.AWS.Glacier.CreateVault.CreateVaultResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.CreateVault.CreateVault
-instance Control.DeepSeq.NFData Network.AWS.Glacier.CreateVault.CreateVault
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.CreateVault.CreateVault
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.CreateVault.CreateVault
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.CreateVault.CreateVault
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.CreateVault.CreateVault
+instance GHC.Generics.Generic Amazonka.Glacier.CreateVault.CreateVault
+instance GHC.Show.Show Amazonka.Glacier.CreateVault.CreateVault
+instance GHC.Read.Read Amazonka.Glacier.CreateVault.CreateVault
+instance GHC.Classes.Eq Amazonka.Glacier.CreateVault.CreateVault
+instance GHC.Generics.Generic Amazonka.Glacier.CreateVault.CreateVaultResponse
+instance GHC.Show.Show Amazonka.Glacier.CreateVault.CreateVaultResponse
+instance GHC.Read.Read Amazonka.Glacier.CreateVault.CreateVaultResponse
+instance GHC.Classes.Eq Amazonka.Glacier.CreateVault.CreateVaultResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.CreateVault.CreateVault
+instance Control.DeepSeq.NFData Amazonka.Glacier.CreateVault.CreateVaultResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.CreateVault.CreateVault
+instance Control.DeepSeq.NFData Amazonka.Glacier.CreateVault.CreateVault
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.CreateVault.CreateVault
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.CreateVault.CreateVault
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.CreateVault.CreateVault
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.CreateVault.CreateVault
 
 
 -- | This operation completes the vault locking process by transitioning
@@ -8209,7 +8209,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.CreateVault.CreateVa
 --   <tt>AccessDeniedException</tt> error. If an invalid lock ID is passed
 --   in the request when the vault lock is in the <tt>InProgress</tt>
 --   state, the operation throws an <tt>InvalidParameter</tt> error.
-module Network.AWS.Glacier.CompleteVaultLock
+module Amazonka.Glacier.CompleteVaultLock
 
 -- | The input values for <tt>CompleteVaultLock</tt>.
 --   
@@ -8285,22 +8285,22 @@ CompleteVaultLockResponse' :: CompleteVaultLockResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newCompleteVaultLockResponse :: CompleteVaultLockResponse
-instance GHC.Generics.Generic Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLock
-instance GHC.Show.Show Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLock
-instance GHC.Read.Read Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLock
-instance GHC.Classes.Eq Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLock
-instance GHC.Generics.Generic Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLockResponse
-instance GHC.Show.Show Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLockResponse
-instance GHC.Read.Read Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLockResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLockResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLock
-instance Control.DeepSeq.NFData Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLockResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLock
-instance Control.DeepSeq.NFData Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLock
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLock
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLock
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLock
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.CompleteVaultLock.CompleteVaultLock
+instance GHC.Generics.Generic Amazonka.Glacier.CompleteVaultLock.CompleteVaultLock
+instance GHC.Show.Show Amazonka.Glacier.CompleteVaultLock.CompleteVaultLock
+instance GHC.Read.Read Amazonka.Glacier.CompleteVaultLock.CompleteVaultLock
+instance GHC.Classes.Eq Amazonka.Glacier.CompleteVaultLock.CompleteVaultLock
+instance GHC.Generics.Generic Amazonka.Glacier.CompleteVaultLock.CompleteVaultLockResponse
+instance GHC.Show.Show Amazonka.Glacier.CompleteVaultLock.CompleteVaultLockResponse
+instance GHC.Read.Read Amazonka.Glacier.CompleteVaultLock.CompleteVaultLockResponse
+instance GHC.Classes.Eq Amazonka.Glacier.CompleteVaultLock.CompleteVaultLockResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.CompleteVaultLock.CompleteVaultLock
+instance Control.DeepSeq.NFData Amazonka.Glacier.CompleteVaultLock.CompleteVaultLockResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.CompleteVaultLock.CompleteVaultLock
+instance Control.DeepSeq.NFData Amazonka.Glacier.CompleteVaultLock.CompleteVaultLock
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.CompleteVaultLock.CompleteVaultLock
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.CompleteVaultLock.CompleteVaultLock
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.CompleteVaultLock.CompleteVaultLock
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.CompleteVaultLock.CompleteVaultLock
 
 
 -- | You call this operation to inform Amazon S3 Glacier (Glacier) that all
@@ -8348,7 +8348,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.CompleteVaultLock.Co
 --   For conceptual information and underlying REST API, see <a>Uploading
 --   Large Archives in Parts (Multipart Upload)</a> and <a>Complete
 --   Multipart Upload</a> in the <i>Amazon Glacier Developer Guide</i>.
-module Network.AWS.Glacier.CompleteMultipartUpload
+module Amazonka.Glacier.CompleteMultipartUpload
 
 -- | Provides options to complete a multipart upload operation. This
 --   informs Amazon Glacier that all the archive parts have been uploaded
@@ -8499,17 +8499,17 @@ archiveCreationOutput_checksum :: Lens' ArchiveCreationOutput (Maybe Text)
 
 -- | The relative URI path of the newly added archive resource.
 archiveCreationOutput_location :: Lens' ArchiveCreationOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
-instance GHC.Show.Show Network.AWS.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
-instance GHC.Read.Read Network.AWS.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
-instance GHC.Classes.Eq Network.AWS.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
-instance Control.DeepSeq.NFData Network.AWS.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
+instance GHC.Generics.Generic Amazonka.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
+instance GHC.Show.Show Amazonka.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
+instance GHC.Read.Read Amazonka.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
+instance GHC.Classes.Eq Amazonka.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
+instance Control.DeepSeq.NFData Amazonka.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.CompleteMultipartUpload.CompleteMultipartUpload
 
 
 -- | This operation adds the specified tags to a vault. Each tag is
@@ -8519,7 +8519,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.CompleteMultipartUpl
 --   tag already exists on the vault under a specified key, the existing
 --   key value will be overwritten. For more information about tags, see
 --   <a>Tagging Amazon S3 Glacier Resources</a>.
-module Network.AWS.Glacier.AddTagsToVault
+module Amazonka.Glacier.AddTagsToVault
 
 -- | The input values for <tt>AddTagsToVault</tt>.
 --   
@@ -8592,22 +8592,22 @@ AddTagsToVaultResponse' :: AddTagsToVaultResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newAddTagsToVaultResponse :: AddTagsToVaultResponse
-instance GHC.Generics.Generic Network.AWS.Glacier.AddTagsToVault.AddTagsToVault
-instance GHC.Show.Show Network.AWS.Glacier.AddTagsToVault.AddTagsToVault
-instance GHC.Read.Read Network.AWS.Glacier.AddTagsToVault.AddTagsToVault
-instance GHC.Classes.Eq Network.AWS.Glacier.AddTagsToVault.AddTagsToVault
-instance GHC.Generics.Generic Network.AWS.Glacier.AddTagsToVault.AddTagsToVaultResponse
-instance GHC.Show.Show Network.AWS.Glacier.AddTagsToVault.AddTagsToVaultResponse
-instance GHC.Read.Read Network.AWS.Glacier.AddTagsToVault.AddTagsToVaultResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.AddTagsToVault.AddTagsToVaultResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.AddTagsToVault.AddTagsToVault
-instance Control.DeepSeq.NFData Network.AWS.Glacier.AddTagsToVault.AddTagsToVaultResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.AddTagsToVault.AddTagsToVault
-instance Control.DeepSeq.NFData Network.AWS.Glacier.AddTagsToVault.AddTagsToVault
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.AddTagsToVault.AddTagsToVault
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Glacier.AddTagsToVault.AddTagsToVault
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.AddTagsToVault.AddTagsToVault
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.AddTagsToVault.AddTagsToVault
+instance GHC.Generics.Generic Amazonka.Glacier.AddTagsToVault.AddTagsToVault
+instance GHC.Show.Show Amazonka.Glacier.AddTagsToVault.AddTagsToVault
+instance GHC.Read.Read Amazonka.Glacier.AddTagsToVault.AddTagsToVault
+instance GHC.Classes.Eq Amazonka.Glacier.AddTagsToVault.AddTagsToVault
+instance GHC.Generics.Generic Amazonka.Glacier.AddTagsToVault.AddTagsToVaultResponse
+instance GHC.Show.Show Amazonka.Glacier.AddTagsToVault.AddTagsToVaultResponse
+instance GHC.Read.Read Amazonka.Glacier.AddTagsToVault.AddTagsToVaultResponse
+instance GHC.Classes.Eq Amazonka.Glacier.AddTagsToVault.AddTagsToVaultResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.AddTagsToVault.AddTagsToVault
+instance Control.DeepSeq.NFData Amazonka.Glacier.AddTagsToVault.AddTagsToVaultResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.AddTagsToVault.AddTagsToVault
+instance Control.DeepSeq.NFData Amazonka.Glacier.AddTagsToVault.AddTagsToVault
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.AddTagsToVault.AddTagsToVault
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Glacier.AddTagsToVault.AddTagsToVault
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.AddTagsToVault.AddTagsToVault
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.AddTagsToVault.AddTagsToVault
 
 
 -- | This operation aborts the vault locking process if the vault lock is
@@ -8629,7 +8629,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.AddTagsToVault.AddTa
 --   operation multiple times, if the vault lock is in the
 --   <tt>InProgress</tt> state or if there is no policy associated with the
 --   vault.
-module Network.AWS.Glacier.AbortVaultLock
+module Amazonka.Glacier.AbortVaultLock
 
 -- | The input values for <tt>AbortVaultLock</tt>.
 --   
@@ -8693,21 +8693,21 @@ AbortVaultLockResponse' :: AbortVaultLockResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newAbortVaultLockResponse :: AbortVaultLockResponse
-instance GHC.Generics.Generic Network.AWS.Glacier.AbortVaultLock.AbortVaultLock
-instance GHC.Show.Show Network.AWS.Glacier.AbortVaultLock.AbortVaultLock
-instance GHC.Read.Read Network.AWS.Glacier.AbortVaultLock.AbortVaultLock
-instance GHC.Classes.Eq Network.AWS.Glacier.AbortVaultLock.AbortVaultLock
-instance GHC.Generics.Generic Network.AWS.Glacier.AbortVaultLock.AbortVaultLockResponse
-instance GHC.Show.Show Network.AWS.Glacier.AbortVaultLock.AbortVaultLockResponse
-instance GHC.Read.Read Network.AWS.Glacier.AbortVaultLock.AbortVaultLockResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.AbortVaultLock.AbortVaultLockResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.AbortVaultLock.AbortVaultLock
-instance Control.DeepSeq.NFData Network.AWS.Glacier.AbortVaultLock.AbortVaultLockResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.AbortVaultLock.AbortVaultLock
-instance Control.DeepSeq.NFData Network.AWS.Glacier.AbortVaultLock.AbortVaultLock
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.AbortVaultLock.AbortVaultLock
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.AbortVaultLock.AbortVaultLock
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.AbortVaultLock.AbortVaultLock
+instance GHC.Generics.Generic Amazonka.Glacier.AbortVaultLock.AbortVaultLock
+instance GHC.Show.Show Amazonka.Glacier.AbortVaultLock.AbortVaultLock
+instance GHC.Read.Read Amazonka.Glacier.AbortVaultLock.AbortVaultLock
+instance GHC.Classes.Eq Amazonka.Glacier.AbortVaultLock.AbortVaultLock
+instance GHC.Generics.Generic Amazonka.Glacier.AbortVaultLock.AbortVaultLockResponse
+instance GHC.Show.Show Amazonka.Glacier.AbortVaultLock.AbortVaultLockResponse
+instance GHC.Read.Read Amazonka.Glacier.AbortVaultLock.AbortVaultLockResponse
+instance GHC.Classes.Eq Amazonka.Glacier.AbortVaultLock.AbortVaultLockResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.AbortVaultLock.AbortVaultLock
+instance Control.DeepSeq.NFData Amazonka.Glacier.AbortVaultLock.AbortVaultLockResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.AbortVaultLock.AbortVaultLock
+instance Control.DeepSeq.NFData Amazonka.Glacier.AbortVaultLock.AbortVaultLock
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.AbortVaultLock.AbortVaultLock
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.AbortVaultLock.AbortVaultLock
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.AbortVaultLock.AbortVaultLock
 
 
 -- | This operation aborts a multipart upload identified by the upload ID.
@@ -8730,7 +8730,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.AbortVaultLock.Abort
 --   For conceptual information and underlying REST API, see <a>Working
 --   with Archives in Amazon S3 Glacier</a> and <a>Abort Multipart
 --   Upload</a> in the <i>Amazon Glacier Developer Guide</i>.
-module Network.AWS.Glacier.AbortMultipartUpload
+module Amazonka.Glacier.AbortMultipartUpload
 
 -- | Provides options to abort a multipart upload identified by the upload
 --   ID.
@@ -8806,21 +8806,21 @@ AbortMultipartUploadResponse' :: AbortMultipartUploadResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newAbortMultipartUploadResponse :: AbortMultipartUploadResponse
-instance GHC.Generics.Generic Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUpload
-instance GHC.Show.Show Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUpload
-instance GHC.Read.Read Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUpload
-instance GHC.Classes.Eq Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUpload
-instance GHC.Generics.Generic Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUploadResponse
-instance GHC.Show.Show Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUploadResponse
-instance GHC.Read.Read Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUploadResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUploadResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUpload
-instance Control.DeepSeq.NFData Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUploadResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUpload
-instance Control.DeepSeq.NFData Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUpload
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUpload
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUpload
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.AbortMultipartUpload.AbortMultipartUpload
+instance GHC.Generics.Generic Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUpload
+instance GHC.Show.Show Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUpload
+instance GHC.Read.Read Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUpload
+instance GHC.Classes.Eq Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUpload
+instance GHC.Generics.Generic Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUploadResponse
+instance GHC.Show.Show Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUploadResponse
+instance GHC.Read.Read Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUploadResponse
+instance GHC.Classes.Eq Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUploadResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUpload
+instance Control.DeepSeq.NFData Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUploadResponse
+instance Data.Hashable.Class.Hashable Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUpload
+instance Control.DeepSeq.NFData Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUpload
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUpload
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUpload
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.AbortMultipartUpload.AbortMultipartUpload
 
 
 -- | This operation adds an archive to a vault. This is a synchronous
@@ -8862,7 +8862,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.AbortMultipartUpload
 --   For conceptual information and underlying REST API, see <a>Uploading
 --   an Archive in Amazon Glacier</a> and <a>Upload Archive</a> in the
 --   <i>Amazon Glacier Developer Guide</i>.
-module Network.AWS.Glacier.UploadArchive
+module Amazonka.Glacier.UploadArchive
 
 -- | Provides options to add an archive to a vault.
 --   
@@ -8992,13 +8992,13 @@ archiveCreationOutput_checksum :: Lens' ArchiveCreationOutput (Maybe Text)
 
 -- | The relative URI path of the newly added archive resource.
 archiveCreationOutput_location :: Lens' ArchiveCreationOutput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Glacier.UploadArchive.UploadArchive
-instance GHC.Show.Show Network.AWS.Glacier.UploadArchive.UploadArchive
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.UploadArchive.UploadArchive
-instance Network.AWS.Data.Body.ToBody Network.AWS.Glacier.UploadArchive.UploadArchive
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.UploadArchive.UploadArchive
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.UploadArchive.UploadArchive
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.UploadArchive.UploadArchive
+instance GHC.Generics.Generic Amazonka.Glacier.UploadArchive.UploadArchive
+instance GHC.Show.Show Amazonka.Glacier.UploadArchive.UploadArchive
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.UploadArchive.UploadArchive
+instance Amazonka.Data.Body.ToBody Amazonka.Glacier.UploadArchive.UploadArchive
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.UploadArchive.UploadArchive
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.UploadArchive.UploadArchive
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.UploadArchive.UploadArchive
 
 
 -- | This operation uploads a part of an archive. You can upload archive
@@ -9045,7 +9045,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.UploadArchive.Upload
 --   For conceptual information and underlying REST API, see <a>Uploading
 --   Large Archives in Parts (Multipart Upload)</a> and <a>Upload Part</a>
 --   in the <i>Amazon Glacier Developer Guide</i>.
-module Network.AWS.Glacier.UploadMultipartPart
+module Amazonka.Glacier.UploadMultipartPart
 
 -- | Provides options to upload a part of an archive in a multipart upload
 --   operation.
@@ -9184,21 +9184,21 @@ uploadMultipartPartResponse_checksum :: Lens' UploadMultipartPartResponse (Maybe
 
 -- | The response's http status code.
 uploadMultipartPartResponse_httpStatus :: Lens' UploadMultipartPartResponse Int
-instance GHC.Generics.Generic Network.AWS.Glacier.UploadMultipartPart.UploadMultipartPart
-instance GHC.Show.Show Network.AWS.Glacier.UploadMultipartPart.UploadMultipartPart
-instance GHC.Generics.Generic Network.AWS.Glacier.UploadMultipartPart.UploadMultipartPartResponse
-instance GHC.Show.Show Network.AWS.Glacier.UploadMultipartPart.UploadMultipartPartResponse
-instance GHC.Read.Read Network.AWS.Glacier.UploadMultipartPart.UploadMultipartPartResponse
-instance GHC.Classes.Eq Network.AWS.Glacier.UploadMultipartPart.UploadMultipartPartResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Glacier.UploadMultipartPart.UploadMultipartPart
-instance Control.DeepSeq.NFData Network.AWS.Glacier.UploadMultipartPart.UploadMultipartPartResponse
-instance Network.AWS.Data.Body.ToBody Network.AWS.Glacier.UploadMultipartPart.UploadMultipartPart
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Glacier.UploadMultipartPart.UploadMultipartPart
-instance Network.AWS.Data.Path.ToPath Network.AWS.Glacier.UploadMultipartPart.UploadMultipartPart
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Glacier.UploadMultipartPart.UploadMultipartPart
+instance GHC.Generics.Generic Amazonka.Glacier.UploadMultipartPart.UploadMultipartPart
+instance GHC.Show.Show Amazonka.Glacier.UploadMultipartPart.UploadMultipartPart
+instance GHC.Generics.Generic Amazonka.Glacier.UploadMultipartPart.UploadMultipartPartResponse
+instance GHC.Show.Show Amazonka.Glacier.UploadMultipartPart.UploadMultipartPartResponse
+instance GHC.Read.Read Amazonka.Glacier.UploadMultipartPart.UploadMultipartPartResponse
+instance GHC.Classes.Eq Amazonka.Glacier.UploadMultipartPart.UploadMultipartPartResponse
+instance Amazonka.Types.AWSRequest Amazonka.Glacier.UploadMultipartPart.UploadMultipartPart
+instance Control.DeepSeq.NFData Amazonka.Glacier.UploadMultipartPart.UploadMultipartPartResponse
+instance Amazonka.Data.Body.ToBody Amazonka.Glacier.UploadMultipartPart.UploadMultipartPart
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Glacier.UploadMultipartPart.UploadMultipartPart
+instance Amazonka.Data.Path.ToPath Amazonka.Glacier.UploadMultipartPart.UploadMultipartPart
+instance Amazonka.Data.Query.ToQuery Amazonka.Glacier.UploadMultipartPart.UploadMultipartPart
 
 
-module Network.AWS.Glacier.Lens
+module Amazonka.Glacier.Lens
 
 -- | The vault access policy as a JSON string.
 setVaultAccessPolicy_policy :: Lens' SetVaultAccessPolicy (Maybe VaultAccessPolicy)
@@ -10533,7 +10533,7 @@ vaultNotificationConfig_sNSTopic :: Lens' VaultNotificationConfig (Maybe Text)
 vaultNotificationConfig_events :: Lens' VaultNotificationConfig (Maybe [Text])
 
 
-module Network.AWS.Glacier.Waiters
+module Amazonka.Glacier.Waiters
 
 -- | Polls <a>DescribeVault</a> every 3 seconds until a successful state is
 --   reached. An error is returned after 15 failed checks.
@@ -10580,7 +10580,7 @@ newVaultExists :: Wait DescribeVault
 --   creating a vault, uploading archives, creating jobs to download
 --   archives, retrieving the job output, and deleting archives.</li>
 --   </ul>
-module Network.AWS.Glacier
+module Amazonka.Glacier
 
 -- | API version <tt>2012-06-01</tt> of the Amazon Glacier SDK
 --   configuration.

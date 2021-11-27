@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.DeleteDataSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a dataset.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.DeleteDataSet</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier">DeleteDataSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#newDeleteDataSet"><span class="hs-identifier">newDeleteDataSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSet_awsAccountId"><span class="hs-identifier">deleteDataSet_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSet_dataSetId"><span class="hs-identifier">deleteDataSet_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier">DeleteDataSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#newDeleteDataSetResponse"><span class="hs-identifier">newDeleteDataSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSetResponse_requestId"><span class="hs-identifier">deleteDataSetResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSetResponse_arn"><span class="hs-identifier">deleteDataSetResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSetResponse_dataSetId"><span class="hs-identifier">deleteDataSetResponse_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSetResponse_status"><span class="hs-identifier">deleteDataSetResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteDataSet' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679591476"><span id="local-6989586621679591477"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDataSet"><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-var">DeleteDataSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDataSet%27"><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet%27"><span class="hs-identifier hs-var">DeleteDataSet'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADeleteDataSet%27"><span class="annot"><span class="annottext">DeleteDataSet -&gt; Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3AawsAccountId%3ADeleteDataSet%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The ID for the dataset that you want to create. This ID is unique per</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Amazon Web Services Region for each Amazon Web Services account.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdataSetId%3ADeleteDataSet%27"><span class="annot"><span class="annottext">DeleteDataSet -&gt; Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3AdataSetId%3ADeleteDataSet%27"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679591469"><span id="local-6989586621679591471"><span class="annot"><span class="annottext">DeleteDataSet -&gt; DeleteDataSet -&gt; Bool
+(DeleteDataSet -&gt; DeleteDataSet -&gt; Bool)
+-&gt; (DeleteDataSet -&gt; DeleteDataSet -&gt; Bool) -&gt; Eq DeleteDataSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteDataSet -&gt; DeleteDataSet -&gt; Bool
+$c/= :: DeleteDataSet -&gt; DeleteDataSet -&gt; Bool
+== :: DeleteDataSet -&gt; DeleteDataSet -&gt; Bool
+$c== :: DeleteDataSet -&gt; DeleteDataSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591460"><span id="local-6989586621679591462"><span id="local-6989586621679591464"><span id="local-6989586621679591466"><span class="annot"><span class="annottext">ReadPrec [DeleteDataSet]
+ReadPrec DeleteDataSet
+Int -&gt; ReadS DeleteDataSet
+ReadS [DeleteDataSet]
+(Int -&gt; ReadS DeleteDataSet)
+-&gt; ReadS [DeleteDataSet]
+-&gt; ReadPrec DeleteDataSet
+-&gt; ReadPrec [DeleteDataSet]
+-&gt; Read DeleteDataSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteDataSet]
+$creadListPrec :: ReadPrec [DeleteDataSet]
+readPrec :: ReadPrec DeleteDataSet
+$creadPrec :: ReadPrec DeleteDataSet
+readList :: ReadS [DeleteDataSet]
+$creadList :: ReadS [DeleteDataSet]
+readsPrec :: Int -&gt; ReadS DeleteDataSet
+$creadsPrec :: Int -&gt; ReadS DeleteDataSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591453"><span id="local-6989586621679591455"><span id="local-6989586621679591457"><span class="annot"><span class="annottext">Int -&gt; DeleteDataSet -&gt; ShowS
+[DeleteDataSet] -&gt; ShowS
+DeleteDataSet -&gt; String
+(Int -&gt; DeleteDataSet -&gt; ShowS)
+-&gt; (DeleteDataSet -&gt; String)
+-&gt; ([DeleteDataSet] -&gt; ShowS)
+-&gt; Show DeleteDataSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteDataSet] -&gt; ShowS
+$cshowList :: [DeleteDataSet] -&gt; ShowS
+show :: DeleteDataSet -&gt; String
+$cshow :: DeleteDataSet -&gt; String
+showsPrec :: Int -&gt; DeleteDataSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteDataSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteDataSet -&gt; Rep DeleteDataSet x)
+-&gt; (forall x. Rep DeleteDataSet x -&gt; DeleteDataSet)
+-&gt; Generic DeleteDataSet
+forall x. Rep DeleteDataSet x -&gt; DeleteDataSet
+forall x. DeleteDataSet -&gt; Rep DeleteDataSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteDataSet x -&gt; DeleteDataSet
+$cfrom :: forall x. DeleteDataSet -&gt; Rep DeleteDataSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DeleteDataSet' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'awsAccountId', 'deleteDataSet_awsAccountId' - The Amazon Web Services account ID.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'dataSetId', 'deleteDataSet_dataSetId' - The ID for the dataset that you want to create. This ID is unique per</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Amazon Web Services Region for each Amazon Web Services account.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#newDeleteDataSet"><span class="hs-identifier hs-type">newDeleteDataSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'dataSetId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-type">DeleteDataSet</span></a></span><span>
+</span><span id="line-80"></span><span id="newDeleteDataSet"><span class="annot"><span class="annottext">newDeleteDataSet :: Text -&gt; Text -&gt; DeleteDataSet
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#newDeleteDataSet"><span class="hs-identifier hs-var hs-var">newDeleteDataSet</span></a></span></span><span> </span><span id="local-6989586621679591448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591448"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span id="local-6989586621679591447"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591447"><span class="hs-identifier hs-var">pDataSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">DeleteDataSet' :: Text -&gt; Text -&gt; DeleteDataSet
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet%27"><span class="hs-identifier hs-type">DeleteDataSet'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:DeleteDataSet' :: Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3AawsAccountId%3ADeleteDataSet%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591448"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSetId:DeleteDataSet' :: Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3AdataSetId%3ADeleteDataSet%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591447"><span class="hs-identifier hs-var">pDataSetId_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSet_awsAccountId"><span class="hs-identifier hs-type">deleteDataSet_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-type">DeleteDataSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="deleteDataSet_awsAccountId"><span class="annot"><span class="annottext">deleteDataSet_awsAccountId :: (Text -&gt; f Text) -&gt; DeleteDataSet -&gt; f DeleteDataSet
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSet_awsAccountId"><span class="hs-identifier hs-var hs-var">deleteDataSet_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDataSet -&gt; Text)
+-&gt; (DeleteDataSet -&gt; Text -&gt; DeleteDataSet)
+-&gt; Lens DeleteDataSet DeleteDataSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet%27"><span class="hs-identifier hs-type">DeleteDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591444"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:DeleteDataSet' :: DeleteDataSet -&gt; Text
+</span><a href="#local-6989586621679591444"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591444"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591443"><span class="annot"><span class="annottext">s :: DeleteDataSet
+</span><a href="#local-6989586621679591443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet%27"><span class="hs-identifier hs-type">DeleteDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDataSet
+</span><a href="#local-6989586621679591443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DeleteDataSet' :: Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3AawsAccountId%3ADeleteDataSet%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-type">DeleteDataSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The ID for the dataset that you want to create. This ID is unique per</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Amazon Web Services Region for each Amazon Web Services account.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSet_dataSetId"><span class="hs-identifier hs-type">deleteDataSet_dataSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-type">DeleteDataSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="deleteDataSet_dataSetId"><span class="annot"><span class="annottext">deleteDataSet_dataSetId :: (Text -&gt; f Text) -&gt; DeleteDataSet -&gt; f DeleteDataSet
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSet_dataSetId"><span class="hs-identifier hs-var hs-var">deleteDataSet_dataSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDataSet -&gt; Text)
+-&gt; (DeleteDataSet -&gt; Text -&gt; DeleteDataSet)
+-&gt; Lens DeleteDataSet DeleteDataSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet%27"><span class="hs-identifier hs-type">DeleteDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591441"><span class="annot"><span class="annottext">Text
+dataSetId :: Text
+$sel:dataSetId:DeleteDataSet' :: DeleteDataSet -&gt; Text
+</span><a href="#local-6989586621679591441"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591441"><span class="hs-identifier hs-var">dataSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591440"><span class="annot"><span class="annottext">s :: DeleteDataSet
+</span><a href="#local-6989586621679591440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet%27"><span class="hs-identifier hs-type">DeleteDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDataSet
+</span><a href="#local-6989586621679591440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetId:DeleteDataSet' :: Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3AdataSetId%3ADeleteDataSet%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-type">DeleteDataSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-type">DeleteDataSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-type">DeleteDataSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier hs-type">DeleteDataSetResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679591435"><span class="annot"><span class="annottext">request :: DeleteDataSet -&gt; Request DeleteDataSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDataSet -&gt; Request DeleteDataSet
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679591431"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteDataSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteDataSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteDataSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteDataSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteDataSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679591428"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591428"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679591427"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679591427"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679591426"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteDataSetResponse
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse%27"><span class="hs-identifier hs-var">DeleteDataSetResponse'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteDataSetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteDataSetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteDataSetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DeleteDataSetResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DeleteDataSetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DeleteDataSetResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteDataSetResponse)
+-&gt; Either String Int -&gt; Either String DeleteDataSetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591428"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591418"><span id="local-6989586621679591420"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-type">DeleteDataSet</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591415"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-type">DeleteDataSet</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-type">DeleteDataSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679591411"><span class="annot"><span class="annottext">toHeaders :: DeleteDataSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDataSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-type">DeleteDataSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679591405"><span class="annot"><span class="annottext">toPath :: DeleteDataSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet%27"><span class="hs-identifier hs-type">DeleteDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591402"><span id="local-6989586621679591403"><span class="annot"><span class="annottext">Text
+dataSetId :: Text
+awsAccountId :: Text
+$sel:dataSetId:DeleteDataSet' :: DeleteDataSet -&gt; Text
+$sel:awsAccountId:DeleteDataSet' :: DeleteDataSet -&gt; Text
+</span><a href="#local-6989586621679591402"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591403"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/data-sets/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591402"><span class="hs-identifier hs-var">dataSetId</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSet"><span class="hs-identifier hs-type">DeleteDataSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679591398"><span class="annot"><span class="annottext">toQuery :: DeleteDataSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDataSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newDeleteDataSetResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679591395"><span id="local-6989586621679591396"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDataSetResponse"><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier hs-var">DeleteDataSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDataSetResponse%27"><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse%27"><span class="hs-identifier hs-var">DeleteDataSetResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3ArequestId%3ADeleteDataSetResponse%27"><span class="annot"><span class="annottext">DeleteDataSetResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3ArequestId%3ADeleteDataSetResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Aarn%3ADeleteDataSetResponse%27"><span class="annot"><span class="annottext">DeleteDataSetResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3Aarn%3ADeleteDataSetResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The ID for the dataset that you want to create. This ID is unique per</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- Amazon Web Services Region for each Amazon Web Services account.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AdataSetId%3ADeleteDataSetResponse%27"><span class="annot"><span class="annottext">DeleteDataSetResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3AdataSetId%3ADeleteDataSetResponse%27"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3Astatus%3ADeleteDataSetResponse%27"><span class="annot"><span class="annottext">DeleteDataSetResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3Astatus%3ADeleteDataSetResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679591387"><span id="local-6989586621679591389"><span class="annot"><span class="annottext">DeleteDataSetResponse -&gt; DeleteDataSetResponse -&gt; Bool
+(DeleteDataSetResponse -&gt; DeleteDataSetResponse -&gt; Bool)
+-&gt; (DeleteDataSetResponse -&gt; DeleteDataSetResponse -&gt; Bool)
+-&gt; Eq DeleteDataSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteDataSetResponse -&gt; DeleteDataSetResponse -&gt; Bool
+$c/= :: DeleteDataSetResponse -&gt; DeleteDataSetResponse -&gt; Bool
+== :: DeleteDataSetResponse -&gt; DeleteDataSetResponse -&gt; Bool
+$c== :: DeleteDataSetResponse -&gt; DeleteDataSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591379"><span id="local-6989586621679591381"><span id="local-6989586621679591383"><span id="local-6989586621679591385"><span class="annot"><span class="annottext">ReadPrec [DeleteDataSetResponse]
+ReadPrec DeleteDataSetResponse
+Int -&gt; ReadS DeleteDataSetResponse
+ReadS [DeleteDataSetResponse]
+(Int -&gt; ReadS DeleteDataSetResponse)
+-&gt; ReadS [DeleteDataSetResponse]
+-&gt; ReadPrec DeleteDataSetResponse
+-&gt; ReadPrec [DeleteDataSetResponse]
+-&gt; Read DeleteDataSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteDataSetResponse]
+$creadListPrec :: ReadPrec [DeleteDataSetResponse]
+readPrec :: ReadPrec DeleteDataSetResponse
+$creadPrec :: ReadPrec DeleteDataSetResponse
+readList :: ReadS [DeleteDataSetResponse]
+$creadList :: ReadS [DeleteDataSetResponse]
+readsPrec :: Int -&gt; ReadS DeleteDataSetResponse
+$creadsPrec :: Int -&gt; ReadS DeleteDataSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591373"><span id="local-6989586621679591375"><span id="local-6989586621679591377"><span class="annot"><span class="annottext">Int -&gt; DeleteDataSetResponse -&gt; ShowS
+[DeleteDataSetResponse] -&gt; ShowS
+DeleteDataSetResponse -&gt; String
+(Int -&gt; DeleteDataSetResponse -&gt; ShowS)
+-&gt; (DeleteDataSetResponse -&gt; String)
+-&gt; ([DeleteDataSetResponse] -&gt; ShowS)
+-&gt; Show DeleteDataSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteDataSetResponse] -&gt; ShowS
+$cshowList :: [DeleteDataSetResponse] -&gt; ShowS
+show :: DeleteDataSetResponse -&gt; String
+$cshow :: DeleteDataSetResponse -&gt; String
+showsPrec :: Int -&gt; DeleteDataSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteDataSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteDataSetResponse -&gt; Rep DeleteDataSetResponse x)
+-&gt; (forall x. Rep DeleteDataSetResponse x -&gt; DeleteDataSetResponse)
+-&gt; Generic DeleteDataSetResponse
+forall x. Rep DeleteDataSetResponse x -&gt; DeleteDataSetResponse
+forall x. DeleteDataSetResponse -&gt; Rep DeleteDataSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteDataSetResponse x -&gt; DeleteDataSetResponse
+$cfrom :: forall x. DeleteDataSetResponse -&gt; Rep DeleteDataSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Create a value of 'DeleteDataSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'requestId', 'deleteDataSetResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'arn', 'deleteDataSetResponse_arn' - The Amazon Resource Name (ARN) of the dataset.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'dataSetId', 'deleteDataSetResponse_dataSetId' - The ID for the dataset that you want to create. This ID is unique per</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Amazon Web Services Region for each Amazon Web Services account.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'status', 'deleteDataSetResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#newDeleteDataSetResponse"><span class="hs-identifier hs-type">newDeleteDataSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier hs-type">DeleteDataSetResponse</span></a></span><span>
+</span><span id="line-171"></span><span id="newDeleteDataSetResponse"><span class="annot"><span class="annottext">newDeleteDataSetResponse :: Int -&gt; DeleteDataSetResponse
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#newDeleteDataSetResponse"><span class="hs-identifier hs-var hs-var">newDeleteDataSetResponse</span></a></span></span><span> </span><span id="local-6989586621679591370"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591370"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">DeleteDataSetResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteDataSetResponse
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse%27"><span class="hs-identifier hs-type">DeleteDataSetResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:DeleteDataSetResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3ArequestId%3ADeleteDataSetResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DeleteDataSetResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3Aarn%3ADeleteDataSetResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSetId:DeleteDataSetResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3AdataSetId%3ADeleteDataSetResponse%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DeleteDataSetResponse' :: Int
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3Astatus%3ADeleteDataSetResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591370"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSetResponse_requestId"><span class="hs-identifier hs-type">deleteDataSetResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier hs-type">DeleteDataSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="deleteDataSetResponse_requestId"><span class="annot"><span class="annottext">deleteDataSetResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteDataSetResponse -&gt; f DeleteDataSetResponse
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSetResponse_requestId"><span class="hs-identifier hs-var hs-var">deleteDataSetResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDataSetResponse -&gt; Maybe Text)
+-&gt; (DeleteDataSetResponse -&gt; Maybe Text -&gt; DeleteDataSetResponse)
+-&gt; Lens
+     DeleteDataSetResponse
+     DeleteDataSetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse%27"><span class="hs-identifier hs-type">DeleteDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591369"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DeleteDataSetResponse' :: DeleteDataSetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679591369"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591369"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591368"><span class="annot"><span class="annottext">s :: DeleteDataSetResponse
+</span><a href="#local-6989586621679591368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse%27"><span class="hs-identifier hs-type">DeleteDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591367"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDataSetResponse
+</span><a href="#local-6989586621679591368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DeleteDataSetResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3ArequestId%3ADeleteDataSetResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier hs-type">DeleteDataSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSetResponse_arn"><span class="hs-identifier hs-type">deleteDataSetResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier hs-type">DeleteDataSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="deleteDataSetResponse_arn"><span class="annot"><span class="annottext">deleteDataSetResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteDataSetResponse -&gt; f DeleteDataSetResponse
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSetResponse_arn"><span class="hs-identifier hs-var hs-var">deleteDataSetResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDataSetResponse -&gt; Maybe Text)
+-&gt; (DeleteDataSetResponse -&gt; Maybe Text -&gt; DeleteDataSetResponse)
+-&gt; Lens
+     DeleteDataSetResponse
+     DeleteDataSetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse%27"><span class="hs-identifier hs-type">DeleteDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591366"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DeleteDataSetResponse' :: DeleteDataSetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679591366"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591366"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591365"><span class="annot"><span class="annottext">s :: DeleteDataSetResponse
+</span><a href="#local-6989586621679591365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse%27"><span class="hs-identifier hs-type">DeleteDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591364"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDataSetResponse
+</span><a href="#local-6989586621679591365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeleteDataSetResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3Aarn%3ADeleteDataSetResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier hs-type">DeleteDataSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The ID for the dataset that you want to create. This ID is unique per</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Amazon Web Services Region for each Amazon Web Services account.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSetResponse_dataSetId"><span class="hs-identifier hs-type">deleteDataSetResponse_dataSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier hs-type">DeleteDataSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="deleteDataSetResponse_dataSetId"><span class="annot"><span class="annottext">deleteDataSetResponse_dataSetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteDataSetResponse -&gt; f DeleteDataSetResponse
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSetResponse_dataSetId"><span class="hs-identifier hs-var hs-var">deleteDataSetResponse_dataSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDataSetResponse -&gt; Maybe Text)
+-&gt; (DeleteDataSetResponse -&gt; Maybe Text -&gt; DeleteDataSetResponse)
+-&gt; Lens
+     DeleteDataSetResponse
+     DeleteDataSetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse%27"><span class="hs-identifier hs-type">DeleteDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591363"><span class="annot"><span class="annottext">Maybe Text
+dataSetId :: Maybe Text
+$sel:dataSetId:DeleteDataSetResponse' :: DeleteDataSetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679591363"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591363"><span class="hs-identifier hs-var">dataSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591362"><span class="annot"><span class="annottext">s :: DeleteDataSetResponse
+</span><a href="#local-6989586621679591362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse%27"><span class="hs-identifier hs-type">DeleteDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591361"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDataSetResponse
+</span><a href="#local-6989586621679591362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetId:DeleteDataSetResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3AdataSetId%3ADeleteDataSetResponse%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier hs-type">DeleteDataSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSetResponse_status"><span class="hs-identifier hs-type">deleteDataSetResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier hs-type">DeleteDataSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="deleteDataSetResponse_status"><span class="annot"><span class="annottext">deleteDataSetResponse_status :: (Int -&gt; f Int) -&gt; DeleteDataSetResponse -&gt; f DeleteDataSetResponse
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#deleteDataSetResponse_status"><span class="hs-identifier hs-var hs-var">deleteDataSetResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDataSetResponse -&gt; Int)
+-&gt; (DeleteDataSetResponse -&gt; Int -&gt; DeleteDataSetResponse)
+-&gt; Lens DeleteDataSetResponse DeleteDataSetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse%27"><span class="hs-identifier hs-type">DeleteDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591360"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:DeleteDataSetResponse' :: DeleteDataSetResponse -&gt; Int
+</span><a href="#local-6989586621679591360"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591360"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591359"><span class="annot"><span class="annottext">s :: DeleteDataSetResponse
+</span><a href="#local-6989586621679591359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse%27"><span class="hs-identifier hs-type">DeleteDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591358"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDataSetResponse
+</span><a href="#local-6989586621679591359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeleteDataSetResponse' :: Int
+</span><a href="Amazonka.QuickSight.DeleteDataSet.html#%24sel%3Astatus%3ADeleteDataSetResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier hs-type">DeleteDataSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DeleteDataSet.html#DeleteDataSetResponse"><span class="hs-identifier hs-type">DeleteDataSetResponse</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

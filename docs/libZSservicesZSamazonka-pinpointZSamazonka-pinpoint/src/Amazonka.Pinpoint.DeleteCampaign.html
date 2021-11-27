@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.DeleteCampaign</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a campaign from an application.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.DeleteCampaign</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier">DeleteCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#newDeleteCampaign"><span class="hs-identifier">newDeleteCampaign</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#deleteCampaign_campaignId"><span class="hs-identifier">deleteCampaign_campaignId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#deleteCampaign_applicationId"><span class="hs-identifier">deleteCampaign_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier">DeleteCampaignResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#newDeleteCampaignResponse"><span class="hs-identifier">newDeleteCampaignResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#deleteCampaignResponse_httpStatus"><span class="hs-identifier">deleteCampaignResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#deleteCampaignResponse_campaignResponse"><span class="hs-identifier">deleteCampaignResponse_campaignResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.html"><span class="hs-identifier">Amazonka.Pinpoint.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteCampaign' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679637891"><span id="local-6989586621679637892"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCampaign"><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-var">DeleteCampaign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCampaign%27"><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-var">DeleteCampaign'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the campaign.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AcampaignId%3ADeleteCampaign%27"><span class="annot"><span class="annottext">DeleteCampaign -&gt; Text
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#%24sel%3AcampaignId%3ADeleteCampaign%27"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AapplicationId%3ADeleteCampaign%27"><span class="annot"><span class="annottext">DeleteCampaign -&gt; Text
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#%24sel%3AapplicationId%3ADeleteCampaign%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679637884"><span id="local-6989586621679637886"><span class="annot"><span class="annottext">DeleteCampaign -&gt; DeleteCampaign -&gt; Bool
+(DeleteCampaign -&gt; DeleteCampaign -&gt; Bool)
+-&gt; (DeleteCampaign -&gt; DeleteCampaign -&gt; Bool) -&gt; Eq DeleteCampaign
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCampaign -&gt; DeleteCampaign -&gt; Bool
+$c/= :: DeleteCampaign -&gt; DeleteCampaign -&gt; Bool
+== :: DeleteCampaign -&gt; DeleteCampaign -&gt; Bool
+$c== :: DeleteCampaign -&gt; DeleteCampaign -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637875"><span id="local-6989586621679637877"><span id="local-6989586621679637879"><span id="local-6989586621679637881"><span class="annot"><span class="annottext">ReadPrec [DeleteCampaign]
+ReadPrec DeleteCampaign
+Int -&gt; ReadS DeleteCampaign
+ReadS [DeleteCampaign]
+(Int -&gt; ReadS DeleteCampaign)
+-&gt; ReadS [DeleteCampaign]
+-&gt; ReadPrec DeleteCampaign
+-&gt; ReadPrec [DeleteCampaign]
+-&gt; Read DeleteCampaign
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCampaign]
+$creadListPrec :: ReadPrec [DeleteCampaign]
+readPrec :: ReadPrec DeleteCampaign
+$creadPrec :: ReadPrec DeleteCampaign
+readList :: ReadS [DeleteCampaign]
+$creadList :: ReadS [DeleteCampaign]
+readsPrec :: Int -&gt; ReadS DeleteCampaign
+$creadsPrec :: Int -&gt; ReadS DeleteCampaign
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637868"><span id="local-6989586621679637870"><span id="local-6989586621679637872"><span class="annot"><span class="annottext">Int -&gt; DeleteCampaign -&gt; ShowS
+[DeleteCampaign] -&gt; ShowS
+DeleteCampaign -&gt; String
+(Int -&gt; DeleteCampaign -&gt; ShowS)
+-&gt; (DeleteCampaign -&gt; String)
+-&gt; ([DeleteCampaign] -&gt; ShowS)
+-&gt; Show DeleteCampaign
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCampaign] -&gt; ShowS
+$cshowList :: [DeleteCampaign] -&gt; ShowS
+show :: DeleteCampaign -&gt; String
+$cshow :: DeleteCampaign -&gt; String
+showsPrec :: Int -&gt; DeleteCampaign -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCampaign -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteCampaign -&gt; Rep DeleteCampaign x)
+-&gt; (forall x. Rep DeleteCampaign x -&gt; DeleteCampaign)
+-&gt; Generic DeleteCampaign
+forall x. Rep DeleteCampaign x -&gt; DeleteCampaign
+forall x. DeleteCampaign -&gt; Rep DeleteCampaign x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteCampaign x -&gt; DeleteCampaign
+$cfrom :: forall x. DeleteCampaign -&gt; Rep DeleteCampaign x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DeleteCampaign' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'campaignId', 'deleteCampaign_campaignId' - The unique identifier for the campaign.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'applicationId', 'deleteCampaign_applicationId' - The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#newDeleteCampaign"><span class="hs-identifier hs-type">newDeleteCampaign</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'campaignId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span>
+</span><span id="line-78"></span><span id="newDeleteCampaign"><span class="annot"><span class="annottext">newDeleteCampaign :: Text -&gt; Text -&gt; DeleteCampaign
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#newDeleteCampaign"><span class="hs-identifier hs-var hs-var">newDeleteCampaign</span></a></span></span><span> </span><span id="local-6989586621679637863"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637863"><span class="hs-identifier hs-var">pCampaignId_</span></a></span></span><span> </span><span id="local-6989586621679637862"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637862"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DeleteCampaign' :: Text -&gt; Text -&gt; DeleteCampaign
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:campaignId:DeleteCampaign' :: Text
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#%24sel%3AcampaignId%3ADeleteCampaign%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637863"><span class="hs-identifier hs-var">pCampaignId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:DeleteCampaign' :: Text
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#%24sel%3AapplicationId%3ADeleteCampaign%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637862"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The unique identifier for the campaign.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#deleteCampaign_campaignId"><span class="hs-identifier hs-type">deleteCampaign_campaignId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="deleteCampaign_campaignId"><span class="annot"><span class="annottext">deleteCampaign_campaignId :: (Text -&gt; f Text) -&gt; DeleteCampaign -&gt; f DeleteCampaign
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#deleteCampaign_campaignId"><span class="hs-identifier hs-var hs-var">deleteCampaign_campaignId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCampaign -&gt; Text)
+-&gt; (DeleteCampaign -&gt; Text -&gt; DeleteCampaign)
+-&gt; Lens DeleteCampaign DeleteCampaign Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637859"><span class="annot"><span class="annottext">Text
+campaignId :: Text
+$sel:campaignId:DeleteCampaign' :: DeleteCampaign -&gt; Text
+</span><a href="#local-6989586621679637859"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637859"><span class="hs-identifier hs-var">campaignId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637858"><span class="annot"><span class="annottext">s :: DeleteCampaign
+</span><a href="#local-6989586621679637858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637857"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCampaign
+</span><a href="#local-6989586621679637858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignId:DeleteCampaign' :: Text
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#%24sel%3AcampaignId%3ADeleteCampaign%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#deleteCampaign_applicationId"><span class="hs-identifier hs-type">deleteCampaign_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="deleteCampaign_applicationId"><span class="annot"><span class="annottext">deleteCampaign_applicationId :: (Text -&gt; f Text) -&gt; DeleteCampaign -&gt; f DeleteCampaign
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#deleteCampaign_applicationId"><span class="hs-identifier hs-var hs-var">deleteCampaign_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCampaign -&gt; Text)
+-&gt; (DeleteCampaign -&gt; Text -&gt; DeleteCampaign)
+-&gt; Lens DeleteCampaign DeleteCampaign Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637856"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:DeleteCampaign' :: DeleteCampaign -&gt; Text
+</span><a href="#local-6989586621679637856"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637856"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637855"><span class="annot"><span class="annottext">s :: DeleteCampaign
+</span><a href="#local-6989586621679637855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637854"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCampaign
+</span><a href="#local-6989586621679637855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:DeleteCampaign' :: Text
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#%24sel%3AapplicationId%3ADeleteCampaign%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679637850"><span class="annot"><span class="annottext">request :: DeleteCampaign -&gt; Request DeleteCampaign
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCampaign -&gt; Request DeleteCampaign
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679637846"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteCampaign
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteCampaign)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteCampaign))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteCampaign
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteCampaign)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679637843"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637843"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679637842"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679637842"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679637841"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679637841"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CampaignResponse -&gt; DeleteCampaignResponse
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-var">DeleteCampaignResponse'</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CampaignResponse -&gt; DeleteCampaignResponse)
+-&gt; Either String Int
+-&gt; Either String (CampaignResponse -&gt; DeleteCampaignResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637843"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (CampaignResponse -&gt; DeleteCampaignResponse)
+-&gt; Either String CampaignResponse
+-&gt; Either String DeleteCampaignResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String CampaignResponse
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679637841"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637833"><span id="local-6989586621679637835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679637826"><span class="annot"><span class="annottext">toHeaders :: DeleteCampaign -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCampaign -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679637820"><span class="annot"><span class="annottext">toPath :: DeleteCampaign -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637817"><span id="local-6989586621679637818"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+campaignId :: Text
+$sel:applicationId:DeleteCampaign' :: DeleteCampaign -&gt; Text
+$sel:campaignId:DeleteCampaign' :: DeleteCampaign -&gt; Text
+</span><a href="#local-6989586621679637817"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637817"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/campaigns/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637818"><span class="hs-identifier hs-var">campaignId</span></a></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679637813"><span class="annot"><span class="annottext">toQuery :: DeleteCampaign -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCampaign -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newDeleteCampaignResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679637810"><span id="local-6989586621679637811"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCampaignResponse"><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-var">DeleteCampaignResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCampaignResponse%27"><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-var">DeleteCampaignResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteCampaignResponse%27"><span class="annot"><span class="annottext">DeleteCampaignResponse -&gt; Int
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#%24sel%3AhttpStatus%3ADeleteCampaignResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AcampaignResponse%3ADeleteCampaignResponse%27"><span class="annot"><span class="annottext">DeleteCampaignResponse -&gt; CampaignResponse
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#%24sel%3AcampaignResponse%3ADeleteCampaignResponse%27"><span class="hs-identifier hs-var hs-var">campaignResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.CampaignResponse.html#CampaignResponse"><span class="hs-identifier hs-type">CampaignResponse</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679637804"><span id="local-6989586621679637806"><span class="annot"><span class="annottext">DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool
+(DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool)
+-&gt; (DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool)
+-&gt; Eq DeleteCampaignResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool
+$c/= :: DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool
+== :: DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool
+$c== :: DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637796"><span id="local-6989586621679637798"><span id="local-6989586621679637800"><span id="local-6989586621679637802"><span class="annot"><span class="annottext">ReadPrec [DeleteCampaignResponse]
+ReadPrec DeleteCampaignResponse
+Int -&gt; ReadS DeleteCampaignResponse
+ReadS [DeleteCampaignResponse]
+(Int -&gt; ReadS DeleteCampaignResponse)
+-&gt; ReadS [DeleteCampaignResponse]
+-&gt; ReadPrec DeleteCampaignResponse
+-&gt; ReadPrec [DeleteCampaignResponse]
+-&gt; Read DeleteCampaignResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCampaignResponse]
+$creadListPrec :: ReadPrec [DeleteCampaignResponse]
+readPrec :: ReadPrec DeleteCampaignResponse
+$creadPrec :: ReadPrec DeleteCampaignResponse
+readList :: ReadS [DeleteCampaignResponse]
+$creadList :: ReadS [DeleteCampaignResponse]
+readsPrec :: Int -&gt; ReadS DeleteCampaignResponse
+$creadsPrec :: Int -&gt; ReadS DeleteCampaignResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637790"><span id="local-6989586621679637792"><span id="local-6989586621679637794"><span class="annot"><span class="annottext">Int -&gt; DeleteCampaignResponse -&gt; ShowS
+[DeleteCampaignResponse] -&gt; ShowS
+DeleteCampaignResponse -&gt; String
+(Int -&gt; DeleteCampaignResponse -&gt; ShowS)
+-&gt; (DeleteCampaignResponse -&gt; String)
+-&gt; ([DeleteCampaignResponse] -&gt; ShowS)
+-&gt; Show DeleteCampaignResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCampaignResponse] -&gt; ShowS
+$cshowList :: [DeleteCampaignResponse] -&gt; ShowS
+show :: DeleteCampaignResponse -&gt; String
+$cshow :: DeleteCampaignResponse -&gt; String
+showsPrec :: Int -&gt; DeleteCampaignResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCampaignResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteCampaignResponse -&gt; Rep DeleteCampaignResponse x)
+-&gt; (forall x.
+    Rep DeleteCampaignResponse x -&gt; DeleteCampaignResponse)
+-&gt; Generic DeleteCampaignResponse
+forall x. Rep DeleteCampaignResponse x -&gt; DeleteCampaignResponse
+forall x. DeleteCampaignResponse -&gt; Rep DeleteCampaignResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteCampaignResponse x -&gt; DeleteCampaignResponse
+$cfrom :: forall x. DeleteCampaignResponse -&gt; Rep DeleteCampaignResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'DeleteCampaignResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'deleteCampaignResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'campaignResponse', 'deleteCampaignResponse_campaignResponse' - Undocumented member.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#newDeleteCampaignResponse"><span class="hs-identifier hs-type">newDeleteCampaignResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-comment">-- | 'campaignResponse'</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.CampaignResponse.html#CampaignResponse"><span class="hs-identifier hs-type">CampaignResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span>
+</span><span id="line-158"></span><span id="newDeleteCampaignResponse"><span class="annot"><span class="annottext">newDeleteCampaignResponse :: Int -&gt; CampaignResponse -&gt; DeleteCampaignResponse
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#newDeleteCampaignResponse"><span class="hs-identifier hs-var hs-var">newDeleteCampaignResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679637787"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637787"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679637786"><span class="annot"><span class="annottext">CampaignResponse
+</span><a href="#local-6989586621679637786"><span class="hs-identifier hs-var">pCampaignResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">DeleteCampaignResponse' :: Int -&gt; CampaignResponse -&gt; DeleteCampaignResponse
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCampaignResponse' :: Int
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#%24sel%3AhttpStatus%3ADeleteCampaignResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637787"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:campaignResponse:DeleteCampaignResponse' :: CampaignResponse
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#%24sel%3AcampaignResponse%3ADeleteCampaignResponse%27"><span class="hs-identifier hs-var">campaignResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CampaignResponse
+</span><a href="#local-6989586621679637786"><span class="hs-identifier hs-var">pCampaignResponse_</span></a></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#deleteCampaignResponse_httpStatus"><span class="hs-identifier hs-type">deleteCampaignResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span id="deleteCampaignResponse_httpStatus"><span class="annot"><span class="annottext">deleteCampaignResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteCampaignResponse -&gt; f DeleteCampaignResponse
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#deleteCampaignResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteCampaignResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCampaignResponse -&gt; Int)
+-&gt; (DeleteCampaignResponse -&gt; Int -&gt; DeleteCampaignResponse)
+-&gt; Lens DeleteCampaignResponse DeleteCampaignResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637785"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteCampaignResponse' :: DeleteCampaignResponse -&gt; Int
+</span><a href="#local-6989586621679637785"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637785"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637784"><span class="annot"><span class="annottext">s :: DeleteCampaignResponse
+</span><a href="#local-6989586621679637784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637783"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCampaignResponse
+</span><a href="#local-6989586621679637784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCampaignResponse' :: Int
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#%24sel%3AhttpStatus%3ADeleteCampaignResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#deleteCampaignResponse_campaignResponse"><span class="hs-identifier hs-type">deleteCampaignResponse_campaignResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.CampaignResponse.html#CampaignResponse"><span class="hs-identifier hs-type">CampaignResponse</span></a></span><span>
+</span><span id="line-172"></span><span id="deleteCampaignResponse_campaignResponse"><span class="annot"><span class="annottext">deleteCampaignResponse_campaignResponse :: (CampaignResponse -&gt; f CampaignResponse)
+-&gt; DeleteCampaignResponse -&gt; f DeleteCampaignResponse
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#deleteCampaignResponse_campaignResponse"><span class="hs-identifier hs-var hs-var">deleteCampaignResponse_campaignResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCampaignResponse -&gt; CampaignResponse)
+-&gt; (DeleteCampaignResponse
+    -&gt; CampaignResponse -&gt; DeleteCampaignResponse)
+-&gt; Lens
+     DeleteCampaignResponse
+     DeleteCampaignResponse
+     CampaignResponse
+     CampaignResponse
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637782"><span class="annot"><span class="annottext">CampaignResponse
+campaignResponse :: CampaignResponse
+$sel:campaignResponse:DeleteCampaignResponse' :: DeleteCampaignResponse -&gt; CampaignResponse
+</span><a href="#local-6989586621679637782"><span class="hs-identifier hs-var hs-var">campaignResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignResponse
+</span><a href="#local-6989586621679637782"><span class="hs-identifier hs-var">campaignResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637781"><span class="annot"><span class="annottext">s :: DeleteCampaignResponse
+</span><a href="#local-6989586621679637781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637780"><span class="annot"><span class="annottext">CampaignResponse
+</span><a href="#local-6989586621679637780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCampaignResponse
+</span><a href="#local-6989586621679637781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignResponse:DeleteCampaignResponse' :: CampaignResponse
+</span><a href="Amazonka.Pinpoint.DeleteCampaign.html#%24sel%3AcampaignResponse%3ADeleteCampaignResponse%27"><span class="hs-identifier hs-var">campaignResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CampaignResponse
+</span><a href="#local-6989586621679637780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span></span><span>
+</span><span id="line-175"></span></pre></body></html>

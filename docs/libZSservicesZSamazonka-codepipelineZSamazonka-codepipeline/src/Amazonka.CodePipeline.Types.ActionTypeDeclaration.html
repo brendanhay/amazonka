@@ -1,0 +1,718 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodePipeline.Types.ActionTypeDeclaration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodePipeline.Types.ActionTypeDeclaration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeArtifactDetails.html"><span class="hs-identifier">Amazonka.CodePipeline.Types.ActionTypeArtifactDetails</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeExecutor.html"><span class="hs-identifier">Amazonka.CodePipeline.Types.ActionTypeExecutor</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeIdentifier.html"><span class="hs-identifier">Amazonka.CodePipeline.Types.ActionTypeIdentifier</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html"><span class="hs-identifier">Amazonka.CodePipeline.Types.ActionTypePermissions</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeProperty.html"><span class="hs-identifier">Amazonka.CodePipeline.Types.ActionTypeProperty</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeUrls.html"><span class="hs-identifier">Amazonka.CodePipeline.Types.ActionTypeUrls</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The parameters for the action type definition that are provided when the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- action type is created or updated.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newActionTypeDeclaration' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679278929"><span id="local-6989586621679278930"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionTypeDeclaration"><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-var">ActionTypeDeclaration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionTypeDeclaration%27"><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-var">ActionTypeDeclaration'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The links associated with the action type to be updated.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aurls%3AActionTypeDeclaration%27"><span class="annot"><span class="annottext">ActionTypeDeclaration -&gt; Maybe ActionTypeUrls
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Aurls%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var hs-var">urls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeUrls.html#ActionTypeUrls"><span class="hs-identifier hs-type">ActionTypeUrls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Details identifying the accounts with permissions to use the action</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Apermissions%3AActionTypeDeclaration%27"><span class="annot"><span class="annottext">ActionTypeDeclaration -&gt; Maybe ActionTypePermissions
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Apermissions%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The description for the action type to be updated.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adescription%3AActionTypeDeclaration%27"><span class="annot"><span class="annottext">ActionTypeDeclaration -&gt; Maybe Text
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Adescription%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The properties of the action type to be updated.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aproperties%3AActionTypeDeclaration%27"><span class="annot"><span class="annottext">ActionTypeDeclaration -&gt; Maybe [ActionTypeProperty]
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Aproperties%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Information about the executor for an action type that was created with</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- any supported integration model.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aexecutor%3AActionTypeDeclaration%27"><span class="annot"><span class="annottext">ActionTypeDeclaration -&gt; ActionTypeExecutor
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Aexecutor%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var hs-var">executor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The action category, owner, provider, and version of the action type to</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- be updated.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aid%3AActionTypeDeclaration%27"><span class="annot"><span class="annottext">ActionTypeDeclaration -&gt; ActionTypeIdentifier
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Aid%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeIdentifier.html#ActionTypeIdentifier"><span class="hs-identifier hs-type">ActionTypeIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Details for the artifacts, such as application files, to be worked on by</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- the action. For example, the minimum and maximum number of input</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- artifacts allowed.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AinputArtifactDetails%3AActionTypeDeclaration%27"><span class="annot"><span class="annottext">ActionTypeDeclaration -&gt; ActionTypeArtifactDetails
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3AinputArtifactDetails%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var hs-var">inputArtifactDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeArtifactDetails.html#ActionTypeArtifactDetails"><span class="hs-identifier hs-type">ActionTypeArtifactDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Details for the output artifacts, such as a built application, that are</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the result of the action. For example, the minimum and maximum number of</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- output artifacts allowed.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AoutputArtifactDetails%3AActionTypeDeclaration%27"><span class="annot"><span class="annottext">ActionTypeDeclaration -&gt; ActionTypeArtifactDetails
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3AoutputArtifactDetails%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var hs-var">outputArtifactDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeArtifactDetails.html#ActionTypeArtifactDetails"><span class="hs-identifier hs-type">ActionTypeArtifactDetails</span></a></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278916"><span id="local-6989586621679278918"><span class="annot"><span class="annottext">ActionTypeDeclaration -&gt; ActionTypeDeclaration -&gt; Bool
+(ActionTypeDeclaration -&gt; ActionTypeDeclaration -&gt; Bool)
+-&gt; (ActionTypeDeclaration -&gt; ActionTypeDeclaration -&gt; Bool)
+-&gt; Eq ActionTypeDeclaration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ActionTypeDeclaration -&gt; ActionTypeDeclaration -&gt; Bool
+$c/= :: ActionTypeDeclaration -&gt; ActionTypeDeclaration -&gt; Bool
+== :: ActionTypeDeclaration -&gt; ActionTypeDeclaration -&gt; Bool
+$c== :: ActionTypeDeclaration -&gt; ActionTypeDeclaration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278907"><span id="local-6989586621679278909"><span id="local-6989586621679278911"><span id="local-6989586621679278913"><span class="annot"><span class="annottext">ReadPrec [ActionTypeDeclaration]
+ReadPrec ActionTypeDeclaration
+Int -&gt; ReadS ActionTypeDeclaration
+ReadS [ActionTypeDeclaration]
+(Int -&gt; ReadS ActionTypeDeclaration)
+-&gt; ReadS [ActionTypeDeclaration]
+-&gt; ReadPrec ActionTypeDeclaration
+-&gt; ReadPrec [ActionTypeDeclaration]
+-&gt; Read ActionTypeDeclaration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ActionTypeDeclaration]
+$creadListPrec :: ReadPrec [ActionTypeDeclaration]
+readPrec :: ReadPrec ActionTypeDeclaration
+$creadPrec :: ReadPrec ActionTypeDeclaration
+readList :: ReadS [ActionTypeDeclaration]
+$creadList :: ReadS [ActionTypeDeclaration]
+readsPrec :: Int -&gt; ReadS ActionTypeDeclaration
+$creadsPrec :: Int -&gt; ReadS ActionTypeDeclaration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278900"><span id="local-6989586621679278902"><span id="local-6989586621679278904"><span class="annot"><span class="annottext">Int -&gt; ActionTypeDeclaration -&gt; ShowS
+[ActionTypeDeclaration] -&gt; ShowS
+ActionTypeDeclaration -&gt; String
+(Int -&gt; ActionTypeDeclaration -&gt; ShowS)
+-&gt; (ActionTypeDeclaration -&gt; String)
+-&gt; ([ActionTypeDeclaration] -&gt; ShowS)
+-&gt; Show ActionTypeDeclaration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ActionTypeDeclaration] -&gt; ShowS
+$cshowList :: [ActionTypeDeclaration] -&gt; ShowS
+show :: ActionTypeDeclaration -&gt; String
+$cshow :: ActionTypeDeclaration -&gt; String
+showsPrec :: Int -&gt; ActionTypeDeclaration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ActionTypeDeclaration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ActionTypeDeclaration -&gt; Rep ActionTypeDeclaration x)
+-&gt; (forall x. Rep ActionTypeDeclaration x -&gt; ActionTypeDeclaration)
+-&gt; Generic ActionTypeDeclaration
+forall x. Rep ActionTypeDeclaration x -&gt; ActionTypeDeclaration
+forall x. ActionTypeDeclaration -&gt; Rep ActionTypeDeclaration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ActionTypeDeclaration x -&gt; ActionTypeDeclaration
+$cfrom :: forall x. ActionTypeDeclaration -&gt; Rep ActionTypeDeclaration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'ActionTypeDeclaration' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'urls', 'actionTypeDeclaration_urls' - The links associated with the action type to be updated.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'permissions', 'actionTypeDeclaration_permissions' - Details identifying the accounts with permissions to use the action</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'description', 'actionTypeDeclaration_description' - The description for the action type to be updated.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'properties', 'actionTypeDeclaration_properties' - The properties of the action type to be updated.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'executor', 'actionTypeDeclaration_executor' - Information about the executor for an action type that was created with</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- any supported integration model.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'id', 'actionTypeDeclaration_id' - The action category, owner, provider, and version of the action type to</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- be updated.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'inputArtifactDetails', 'actionTypeDeclaration_inputArtifactDetails' - Details for the artifacts, such as application files, to be worked on by</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- the action. For example, the minimum and maximum number of input</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- artifacts allowed.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'outputArtifactDetails', 'actionTypeDeclaration_outputArtifactDetails' - Details for the output artifacts, such as a built application, that are</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- the result of the action. For example, the minimum and maximum number of</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- output artifacts allowed.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#newActionTypeDeclaration"><span class="hs-identifier hs-type">newActionTypeDeclaration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'executor'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeIdentifier.html#ActionTypeIdentifier"><span class="hs-identifier hs-type">ActionTypeIdentifier</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'inputArtifactDetails'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeArtifactDetails.html#ActionTypeArtifactDetails"><span class="hs-identifier hs-type">ActionTypeArtifactDetails</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'outputArtifactDetails'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeArtifactDetails.html#ActionTypeArtifactDetails"><span class="hs-identifier hs-type">ActionTypeArtifactDetails</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span>
+</span><span id="line-103"></span><span id="newActionTypeDeclaration"><span class="annot"><span class="annottext">newActionTypeDeclaration :: ActionTypeExecutor
+-&gt; ActionTypeIdentifier
+-&gt; ActionTypeArtifactDetails
+-&gt; ActionTypeArtifactDetails
+-&gt; ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#newActionTypeDeclaration"><span class="hs-identifier hs-var hs-var">newActionTypeDeclaration</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679278894"><span class="annot"><span class="annottext">ActionTypeExecutor
+</span><a href="#local-6989586621679278894"><span class="hs-identifier hs-var">pExecutor_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679278893"><span class="annot"><span class="annottext">ActionTypeIdentifier
+</span><a href="#local-6989586621679278893"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679278892"><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278892"><span class="hs-identifier hs-var">pInputArtifactDetails_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679278891"><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278891"><span class="hs-identifier hs-var">pOutputArtifactDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ActionTypeDeclaration' :: Maybe ActionTypeUrls
+-&gt; Maybe ActionTypePermissions
+-&gt; Maybe Text
+-&gt; Maybe [ActionTypeProperty]
+-&gt; ActionTypeExecutor
+-&gt; ActionTypeIdentifier
+-&gt; ActionTypeArtifactDetails
+-&gt; ActionTypeArtifactDetails
+-&gt; ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:urls:ActionTypeDeclaration' :: Maybe ActionTypeUrls
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Aurls%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">urls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypeUrls
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:permissions:ActionTypeDeclaration' :: Maybe ActionTypePermissions
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Apermissions%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypePermissions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:ActionTypeDeclaration' :: Maybe Text
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Adescription%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:properties:ActionTypeDeclaration' :: Maybe [ActionTypeProperty]
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Aproperties%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ActionTypeProperty]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:executor:ActionTypeDeclaration' :: ActionTypeExecutor
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Aexecutor%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">executor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionTypeExecutor
+</span><a href="#local-6989586621679278894"><span class="hs-identifier hs-var">pExecutor_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:ActionTypeDeclaration' :: ActionTypeIdentifier
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Aid%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionTypeIdentifier
+</span><a href="#local-6989586621679278893"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:inputArtifactDetails:ActionTypeDeclaration' :: ActionTypeArtifactDetails
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3AinputArtifactDetails%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">inputArtifactDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278892"><span class="hs-identifier hs-var">pInputArtifactDetails_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputArtifactDetails:ActionTypeDeclaration' :: ActionTypeArtifactDetails
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3AoutputArtifactDetails%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">outputArtifactDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278891"><span class="hs-identifier hs-var">pOutputArtifactDetails_</span></a></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The links associated with the action type to be updated.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_urls"><span class="hs-identifier hs-type">actionTypeDeclaration_urls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeUrls.html#ActionTypeUrls"><span class="hs-identifier hs-type">ActionTypeUrls</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="actionTypeDeclaration_urls"><span class="annot"><span class="annottext">actionTypeDeclaration_urls :: (Maybe ActionTypeUrls -&gt; f (Maybe ActionTypeUrls))
+-&gt; ActionTypeDeclaration -&gt; f ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_urls"><span class="hs-identifier hs-var hs-var">actionTypeDeclaration_urls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionTypeDeclaration -&gt; Maybe ActionTypeUrls)
+-&gt; (ActionTypeDeclaration
+    -&gt; Maybe ActionTypeUrls -&gt; ActionTypeDeclaration)
+-&gt; Lens
+     ActionTypeDeclaration
+     ActionTypeDeclaration
+     (Maybe ActionTypeUrls)
+     (Maybe ActionTypeUrls)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278887"><span class="annot"><span class="annottext">Maybe ActionTypeUrls
+urls :: Maybe ActionTypeUrls
+$sel:urls:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; Maybe ActionTypeUrls
+</span><a href="#local-6989586621679278887"><span class="hs-identifier hs-var hs-var">urls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypeUrls
+</span><a href="#local-6989586621679278887"><span class="hs-identifier hs-var">urls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278886"><span class="annot"><span class="annottext">s :: ActionTypeDeclaration
+</span><a href="#local-6989586621679278886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278885"><span class="annot"><span class="annottext">Maybe ActionTypeUrls
+</span><a href="#local-6989586621679278885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeDeclaration
+</span><a href="#local-6989586621679278886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:urls:ActionTypeDeclaration' :: Maybe ActionTypeUrls
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Aurls%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">urls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypeUrls
+</span><a href="#local-6989586621679278885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Details identifying the accounts with permissions to use the action</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_permissions"><span class="hs-identifier hs-type">actionTypeDeclaration_permissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="actionTypeDeclaration_permissions"><span class="annot"><span class="annottext">actionTypeDeclaration_permissions :: (Maybe ActionTypePermissions -&gt; f (Maybe ActionTypePermissions))
+-&gt; ActionTypeDeclaration -&gt; f ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_permissions"><span class="hs-identifier hs-var hs-var">actionTypeDeclaration_permissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionTypeDeclaration -&gt; Maybe ActionTypePermissions)
+-&gt; (ActionTypeDeclaration
+    -&gt; Maybe ActionTypePermissions -&gt; ActionTypeDeclaration)
+-&gt; Lens
+     ActionTypeDeclaration
+     ActionTypeDeclaration
+     (Maybe ActionTypePermissions)
+     (Maybe ActionTypePermissions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278883"><span class="annot"><span class="annottext">Maybe ActionTypePermissions
+permissions :: Maybe ActionTypePermissions
+$sel:permissions:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; Maybe ActionTypePermissions
+</span><a href="#local-6989586621679278883"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypePermissions
+</span><a href="#local-6989586621679278883"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278882"><span class="annot"><span class="annottext">s :: ActionTypeDeclaration
+</span><a href="#local-6989586621679278882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278881"><span class="annot"><span class="annottext">Maybe ActionTypePermissions
+</span><a href="#local-6989586621679278881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeDeclaration
+</span><a href="#local-6989586621679278882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:ActionTypeDeclaration' :: Maybe ActionTypePermissions
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Apermissions%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypePermissions
+</span><a href="#local-6989586621679278881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The description for the action type to be updated.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_description"><span class="hs-identifier hs-type">actionTypeDeclaration_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="actionTypeDeclaration_description"><span class="annot"><span class="annottext">actionTypeDeclaration_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ActionTypeDeclaration -&gt; f ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_description"><span class="hs-identifier hs-var hs-var">actionTypeDeclaration_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionTypeDeclaration -&gt; Maybe Text)
+-&gt; (ActionTypeDeclaration -&gt; Maybe Text -&gt; ActionTypeDeclaration)
+-&gt; Lens
+     ActionTypeDeclaration
+     ActionTypeDeclaration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278879"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; Maybe Text
+</span><a href="#local-6989586621679278879"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278879"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278878"><span class="annot"><span class="annottext">s :: ActionTypeDeclaration
+</span><a href="#local-6989586621679278878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278877"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeDeclaration
+</span><a href="#local-6989586621679278878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ActionTypeDeclaration' :: Maybe Text
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Adescription%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The properties of the action type to be updated.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_properties"><span class="hs-identifier hs-type">actionTypeDeclaration_properties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="actionTypeDeclaration_properties"><span class="annot"><span class="annottext">actionTypeDeclaration_properties :: (Maybe [ActionTypeProperty] -&gt; f (Maybe [ActionTypeProperty]))
+-&gt; ActionTypeDeclaration -&gt; f ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_properties"><span class="hs-identifier hs-var hs-var">actionTypeDeclaration_properties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionTypeDeclaration -&gt; Maybe [ActionTypeProperty])
+-&gt; (ActionTypeDeclaration
+    -&gt; Maybe [ActionTypeProperty] -&gt; ActionTypeDeclaration)
+-&gt; Lens
+     ActionTypeDeclaration
+     ActionTypeDeclaration
+     (Maybe [ActionTypeProperty])
+     (Maybe [ActionTypeProperty])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278875"><span class="annot"><span class="annottext">Maybe [ActionTypeProperty]
+properties :: Maybe [ActionTypeProperty]
+$sel:properties:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; Maybe [ActionTypeProperty]
+</span><a href="#local-6989586621679278875"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ActionTypeProperty]
+</span><a href="#local-6989586621679278875"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278874"><span class="annot"><span class="annottext">s :: ActionTypeDeclaration
+</span><a href="#local-6989586621679278874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278873"><span class="annot"><span class="annottext">Maybe [ActionTypeProperty]
+</span><a href="#local-6989586621679278873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeDeclaration
+</span><a href="#local-6989586621679278874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:ActionTypeDeclaration' :: Maybe [ActionTypeProperty]
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Aproperties%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ActionTypeProperty]
+</span><a href="#local-6989586621679278873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ActionTypeProperty] -&gt; f (Maybe [ActionTypeProperty]))
+ -&gt; ActionTypeDeclaration -&gt; f ActionTypeDeclaration)
+-&gt; ((Maybe [ActionTypeProperty] -&gt; f (Maybe [ActionTypeProperty]))
+    -&gt; Maybe [ActionTypeProperty] -&gt; f (Maybe [ActionTypeProperty]))
+-&gt; (Maybe [ActionTypeProperty] -&gt; f (Maybe [ActionTypeProperty]))
+-&gt; ActionTypeDeclaration
+-&gt; f ActionTypeDeclaration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ActionTypeProperty]
+  [ActionTypeProperty]
+  [ActionTypeProperty]
+  [ActionTypeProperty]
+-&gt; Iso
+     (Maybe [ActionTypeProperty])
+     (Maybe [ActionTypeProperty])
+     (Maybe [ActionTypeProperty])
+     (Maybe [ActionTypeProperty])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ActionTypeProperty]
+  [ActionTypeProperty]
+  [ActionTypeProperty]
+  [ActionTypeProperty]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Information about the executor for an action type that was created with</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- any supported integration model.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_executor"><span class="hs-identifier hs-type">actionTypeDeclaration_executor</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeExecutor.html#ActionTypeExecutor"><span class="hs-identifier hs-type">ActionTypeExecutor</span></a></span><span>
+</span><span id="line-139"></span><span id="actionTypeDeclaration_executor"><span class="annot"><span class="annottext">actionTypeDeclaration_executor :: (ActionTypeExecutor -&gt; f ActionTypeExecutor)
+-&gt; ActionTypeDeclaration -&gt; f ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_executor"><span class="hs-identifier hs-var hs-var">actionTypeDeclaration_executor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionTypeDeclaration -&gt; ActionTypeExecutor)
+-&gt; (ActionTypeDeclaration
+    -&gt; ActionTypeExecutor -&gt; ActionTypeDeclaration)
+-&gt; Lens
+     ActionTypeDeclaration
+     ActionTypeDeclaration
+     ActionTypeExecutor
+     ActionTypeExecutor
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278868"><span class="annot"><span class="annottext">ActionTypeExecutor
+executor :: ActionTypeExecutor
+$sel:executor:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; ActionTypeExecutor
+</span><a href="#local-6989586621679278868"><span class="hs-identifier hs-var hs-var">executor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeExecutor
+</span><a href="#local-6989586621679278868"><span class="hs-identifier hs-var">executor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278867"><span class="annot"><span class="annottext">s :: ActionTypeDeclaration
+</span><a href="#local-6989586621679278867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278866"><span class="annot"><span class="annottext">ActionTypeExecutor
+</span><a href="#local-6989586621679278866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeDeclaration
+</span><a href="#local-6989586621679278867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executor:ActionTypeDeclaration' :: ActionTypeExecutor
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Aexecutor%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">executor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionTypeExecutor
+</span><a href="#local-6989586621679278866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The action category, owner, provider, and version of the action type to</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- be updated.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_id"><span class="hs-identifier hs-type">actionTypeDeclaration_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeIdentifier.html#ActionTypeIdentifier"><span class="hs-identifier hs-type">ActionTypeIdentifier</span></a></span><span>
+</span><span id="line-144"></span><span id="actionTypeDeclaration_id"><span class="annot"><span class="annottext">actionTypeDeclaration_id :: (ActionTypeIdentifier -&gt; f ActionTypeIdentifier)
+-&gt; ActionTypeDeclaration -&gt; f ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_id"><span class="hs-identifier hs-var hs-var">actionTypeDeclaration_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionTypeDeclaration -&gt; ActionTypeIdentifier)
+-&gt; (ActionTypeDeclaration
+    -&gt; ActionTypeIdentifier -&gt; ActionTypeDeclaration)
+-&gt; Lens
+     ActionTypeDeclaration
+     ActionTypeDeclaration
+     ActionTypeIdentifier
+     ActionTypeIdentifier
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278864"><span class="annot"><span class="annottext">ActionTypeIdentifier
+id :: ActionTypeIdentifier
+$sel:id:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; ActionTypeIdentifier
+</span><a href="#local-6989586621679278864"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeIdentifier
+</span><a href="#local-6989586621679278864"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278863"><span class="annot"><span class="annottext">s :: ActionTypeDeclaration
+</span><a href="#local-6989586621679278863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278862"><span class="annot"><span class="annottext">ActionTypeIdentifier
+</span><a href="#local-6989586621679278862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeDeclaration
+</span><a href="#local-6989586621679278863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ActionTypeDeclaration' :: ActionTypeIdentifier
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3Aid%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionTypeIdentifier
+</span><a href="#local-6989586621679278862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | Details for the artifacts, such as application files, to be worked on by</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- the action. For example, the minimum and maximum number of input</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- artifacts allowed.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_inputArtifactDetails"><span class="hs-identifier hs-type">actionTypeDeclaration_inputArtifactDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeArtifactDetails.html#ActionTypeArtifactDetails"><span class="hs-identifier hs-type">ActionTypeArtifactDetails</span></a></span><span>
+</span><span id="line-150"></span><span id="actionTypeDeclaration_inputArtifactDetails"><span class="annot"><span class="annottext">actionTypeDeclaration_inputArtifactDetails :: (ActionTypeArtifactDetails -&gt; f ActionTypeArtifactDetails)
+-&gt; ActionTypeDeclaration -&gt; f ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_inputArtifactDetails"><span class="hs-identifier hs-var hs-var">actionTypeDeclaration_inputArtifactDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionTypeDeclaration -&gt; ActionTypeArtifactDetails)
+-&gt; (ActionTypeDeclaration
+    -&gt; ActionTypeArtifactDetails -&gt; ActionTypeDeclaration)
+-&gt; Lens
+     ActionTypeDeclaration
+     ActionTypeDeclaration
+     ActionTypeArtifactDetails
+     ActionTypeArtifactDetails
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278860"><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+inputArtifactDetails :: ActionTypeArtifactDetails
+$sel:inputArtifactDetails:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278860"><span class="hs-identifier hs-var hs-var">inputArtifactDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278860"><span class="hs-identifier hs-var">inputArtifactDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278859"><span class="annot"><span class="annottext">s :: ActionTypeDeclaration
+</span><a href="#local-6989586621679278859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278858"><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeDeclaration
+</span><a href="#local-6989586621679278859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputArtifactDetails:ActionTypeDeclaration' :: ActionTypeArtifactDetails
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3AinputArtifactDetails%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">inputArtifactDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Details for the output artifacts, such as a built application, that are</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- the result of the action. For example, the minimum and maximum number of</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- output artifacts allowed.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_outputArtifactDetails"><span class="hs-identifier hs-type">actionTypeDeclaration_outputArtifactDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeArtifactDetails.html#ActionTypeArtifactDetails"><span class="hs-identifier hs-type">ActionTypeArtifactDetails</span></a></span><span>
+</span><span id="line-156"></span><span id="actionTypeDeclaration_outputArtifactDetails"><span class="annot"><span class="annottext">actionTypeDeclaration_outputArtifactDetails :: (ActionTypeArtifactDetails -&gt; f ActionTypeArtifactDetails)
+-&gt; ActionTypeDeclaration -&gt; f ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#actionTypeDeclaration_outputArtifactDetails"><span class="hs-identifier hs-var hs-var">actionTypeDeclaration_outputArtifactDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionTypeDeclaration -&gt; ActionTypeArtifactDetails)
+-&gt; (ActionTypeDeclaration
+    -&gt; ActionTypeArtifactDetails -&gt; ActionTypeDeclaration)
+-&gt; Lens
+     ActionTypeDeclaration
+     ActionTypeDeclaration
+     ActionTypeArtifactDetails
+     ActionTypeArtifactDetails
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278856"><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+outputArtifactDetails :: ActionTypeArtifactDetails
+$sel:outputArtifactDetails:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278856"><span class="hs-identifier hs-var hs-var">outputArtifactDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278856"><span class="hs-identifier hs-var">outputArtifactDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278855"><span class="annot"><span class="annottext">s :: ActionTypeDeclaration
+</span><a href="#local-6989586621679278855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278854"><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeDeclaration
+</span><a href="#local-6989586621679278855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputArtifactDetails:ActionTypeDeclaration' :: ActionTypeArtifactDetails
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#%24sel%3AoutputArtifactDetails%3AActionTypeDeclaration%27"><span class="hs-identifier hs-var">outputArtifactDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278851"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679278849"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionTypeDeclaration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ActionTypeDeclaration)
+-&gt; Value
+-&gt; Parser ActionTypeDeclaration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ActionTypeDeclaration&quot;</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278846"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278846"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe ActionTypeUrls
+-&gt; Maybe ActionTypePermissions
+-&gt; Maybe Text
+-&gt; Maybe [ActionTypeProperty]
+-&gt; ActionTypeExecutor
+-&gt; ActionTypeIdentifier
+-&gt; ActionTypeArtifactDetails
+-&gt; ActionTypeArtifactDetails
+-&gt; ActionTypeDeclaration
+</span><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-var">ActionTypeDeclaration'</span></a></span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ActionTypeUrls
+ -&gt; Maybe ActionTypePermissions
+ -&gt; Maybe Text
+ -&gt; Maybe [ActionTypeProperty]
+ -&gt; ActionTypeExecutor
+ -&gt; ActionTypeIdentifier
+ -&gt; ActionTypeArtifactDetails
+ -&gt; ActionTypeArtifactDetails
+ -&gt; ActionTypeDeclaration)
+-&gt; Parser (Maybe ActionTypeUrls)
+-&gt; Parser
+     (Maybe ActionTypePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [ActionTypeProperty]
+      -&gt; ActionTypeExecutor
+      -&gt; ActionTypeIdentifier
+      -&gt; ActionTypeArtifactDetails
+      -&gt; ActionTypeArtifactDetails
+      -&gt; ActionTypeDeclaration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionTypeUrls)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;urls&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ActionTypePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [ActionTypeProperty]
+   -&gt; ActionTypeExecutor
+   -&gt; ActionTypeIdentifier
+   -&gt; ActionTypeArtifactDetails
+   -&gt; ActionTypeArtifactDetails
+   -&gt; ActionTypeDeclaration)
+-&gt; Parser (Maybe ActionTypePermissions)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [ActionTypeProperty]
+      -&gt; ActionTypeExecutor
+      -&gt; ActionTypeIdentifier
+      -&gt; ActionTypeArtifactDetails
+      -&gt; ActionTypeArtifactDetails
+      -&gt; ActionTypeDeclaration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionTypePermissions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;permissions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [ActionTypeProperty]
+   -&gt; ActionTypeExecutor
+   -&gt; ActionTypeIdentifier
+   -&gt; ActionTypeArtifactDetails
+   -&gt; ActionTypeArtifactDetails
+   -&gt; ActionTypeDeclaration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [ActionTypeProperty]
+      -&gt; ActionTypeExecutor
+      -&gt; ActionTypeIdentifier
+      -&gt; ActionTypeArtifactDetails
+      -&gt; ActionTypeArtifactDetails
+      -&gt; ActionTypeDeclaration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ActionTypeProperty]
+   -&gt; ActionTypeExecutor
+   -&gt; ActionTypeIdentifier
+   -&gt; ActionTypeArtifactDetails
+   -&gt; ActionTypeArtifactDetails
+   -&gt; ActionTypeDeclaration)
+-&gt; Parser (Maybe [ActionTypeProperty])
+-&gt; Parser
+     (ActionTypeExecutor
+      -&gt; ActionTypeIdentifier
+      -&gt; ActionTypeArtifactDetails
+      -&gt; ActionTypeArtifactDetails
+      -&gt; ActionTypeDeclaration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ActionTypeProperty]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;properties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ActionTypeProperty]))
+-&gt; Maybe [ActionTypeProperty]
+-&gt; Parser (Maybe [ActionTypeProperty])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ActionTypeProperty]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ActionTypeExecutor
+   -&gt; ActionTypeIdentifier
+   -&gt; ActionTypeArtifactDetails
+   -&gt; ActionTypeArtifactDetails
+   -&gt; ActionTypeDeclaration)
+-&gt; Parser ActionTypeExecutor
+-&gt; Parser
+     (ActionTypeIdentifier
+      -&gt; ActionTypeArtifactDetails
+      -&gt; ActionTypeArtifactDetails
+      -&gt; ActionTypeDeclaration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActionTypeExecutor
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;executor&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ActionTypeIdentifier
+   -&gt; ActionTypeArtifactDetails
+   -&gt; ActionTypeArtifactDetails
+   -&gt; ActionTypeDeclaration)
+-&gt; Parser ActionTypeIdentifier
+-&gt; Parser
+     (ActionTypeArtifactDetails
+      -&gt; ActionTypeArtifactDetails -&gt; ActionTypeDeclaration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActionTypeIdentifier
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ActionTypeArtifactDetails
+   -&gt; ActionTypeArtifactDetails -&gt; ActionTypeDeclaration)
+-&gt; Parser ActionTypeArtifactDetails
+-&gt; Parser (ActionTypeArtifactDetails -&gt; ActionTypeDeclaration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActionTypeArtifactDetails
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputArtifactDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser (ActionTypeArtifactDetails -&gt; ActionTypeDeclaration)
+-&gt; Parser ActionTypeArtifactDetails -&gt; Parser ActionTypeDeclaration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActionTypeArtifactDetails
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputArtifactDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278838"><span id="local-6989586621679278840"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278827"><span id="local-6989586621679278829"><span id="local-6989586621679278831"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration"><span class="hs-identifier hs-type">ActionTypeDeclaration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679278825"><span class="annot"><span class="annottext">toJSON :: ActionTypeDeclaration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodePipeline.Types.ActionTypeDeclaration.html#ActionTypeDeclaration%27"><span class="hs-identifier hs-type">ActionTypeDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278816"><span id="local-6989586621679278817"><span id="local-6989586621679278818"><span id="local-6989586621679278819"><span id="local-6989586621679278820"><span id="local-6989586621679278821"><span id="local-6989586621679278822"><span id="local-6989586621679278823"><span class="annot"><span class="annottext">Maybe [ActionTypeProperty]
+Maybe Text
+Maybe ActionTypePermissions
+Maybe ActionTypeUrls
+ActionTypeArtifactDetails
+ActionTypeIdentifier
+ActionTypeExecutor
+outputArtifactDetails :: ActionTypeArtifactDetails
+inputArtifactDetails :: ActionTypeArtifactDetails
+id :: ActionTypeIdentifier
+executor :: ActionTypeExecutor
+properties :: Maybe [ActionTypeProperty]
+description :: Maybe Text
+permissions :: Maybe ActionTypePermissions
+urls :: Maybe ActionTypeUrls
+$sel:outputArtifactDetails:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; ActionTypeArtifactDetails
+$sel:inputArtifactDetails:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; ActionTypeArtifactDetails
+$sel:id:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; ActionTypeIdentifier
+$sel:executor:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; ActionTypeExecutor
+$sel:properties:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; Maybe [ActionTypeProperty]
+$sel:description:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; Maybe Text
+$sel:permissions:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; Maybe ActionTypePermissions
+$sel:urls:ActionTypeDeclaration' :: ActionTypeDeclaration -&gt; Maybe ActionTypeUrls
+</span><a href="#local-6989586621679278816"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;urls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ActionTypeUrls -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ActionTypeUrls -&gt; Pair) -&gt; Maybe ActionTypeUrls -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypeUrls
+</span><a href="#local-6989586621679278823"><span class="hs-identifier hs-var">urls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;permissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ActionTypePermissions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ActionTypePermissions -&gt; Pair)
+-&gt; Maybe ActionTypePermissions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypePermissions
+</span><a href="#local-6989586621679278822"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278821"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;properties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ActionTypeProperty] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ActionTypeProperty] -&gt; Pair)
+-&gt; Maybe [ActionTypeProperty] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ActionTypeProperty]
+</span><a href="#local-6989586621679278820"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;executor&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ActionTypeExecutor -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ActionTypeExecutor
+</span><a href="#local-6989586621679278819"><span class="hs-identifier hs-var">executor</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ActionTypeIdentifier -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ActionTypeIdentifier
+</span><a href="#local-6989586621679278818"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-189"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputArtifactDetails&quot;</span></span><span>
+</span><span id="line-190"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ActionTypeArtifactDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278817"><span class="hs-identifier hs-var">inputArtifactDetails</span></a></span><span>
+</span><span id="line-191"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-193"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputArtifactDetails&quot;</span></span><span>
+</span><span id="line-194"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ActionTypeArtifactDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ActionTypeArtifactDetails
+</span><a href="#local-6989586621679278816"><span class="hs-identifier hs-var">outputArtifactDetails</span></a></span><span>
+</span><span id="line-195"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span></pre></body></html>

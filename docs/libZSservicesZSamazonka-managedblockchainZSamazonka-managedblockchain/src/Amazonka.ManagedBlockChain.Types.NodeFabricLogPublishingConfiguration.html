@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.LogConfigurations.html"><span class="hs-identifier">Amazonka.ManagedBlockChain.Types.LogConfigurations</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Configuration properties for logging events associated with a peer node</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- owned by a member in a Managed Blockchain network.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNodeFabricLogPublishingConfiguration' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679217921"><span id="local-6989586621679217922"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeFabricLogPublishingConfiguration"><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration"><span class="hs-identifier hs-var">NodeFabricLogPublishingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeFabricLogPublishingConfiguration%27"><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-var">NodeFabricLogPublishingConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configuration properties for logging events associated with chaincode</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- execution on a peer node. Chaincode logs contain the results of</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- instantiating, invoking, and querying the chaincode. A peer can run</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- multiple instances of chaincode. When enabled, a log stream is created</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- for all chaincodes, with an individual log stream for each chaincode.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AchaincodeLogs%3ANodeFabricLogPublishingConfiguration%27"><span class="annot"><span class="annottext">NodeFabricLogPublishingConfiguration -&gt; Maybe LogConfigurations
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#%24sel%3AchaincodeLogs%3ANodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-var hs-var">chaincodeLogs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.LogConfigurations.html#LogConfigurations"><span class="hs-identifier hs-type">LogConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Configuration properties for a peer node log. Peer node logs contain</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- messages generated when your client submits transaction proposals to</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- peer nodes, requests to join channels, enrolls an admin peer, and lists</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the chaincode instances on a peer node.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ApeerLogs%3ANodeFabricLogPublishingConfiguration%27"><span class="annot"><span class="annottext">NodeFabricLogPublishingConfiguration -&gt; Maybe LogConfigurations
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#%24sel%3ApeerLogs%3ANodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-var hs-var">peerLogs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.LogConfigurations.html#LogConfigurations"><span class="hs-identifier hs-type">LogConfigurations</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217914"><span id="local-6989586621679217916"><span class="annot"><span class="annottext">NodeFabricLogPublishingConfiguration
+-&gt; NodeFabricLogPublishingConfiguration -&gt; Bool
+(NodeFabricLogPublishingConfiguration
+ -&gt; NodeFabricLogPublishingConfiguration -&gt; Bool)
+-&gt; (NodeFabricLogPublishingConfiguration
+    -&gt; NodeFabricLogPublishingConfiguration -&gt; Bool)
+-&gt; Eq NodeFabricLogPublishingConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NodeFabricLogPublishingConfiguration
+-&gt; NodeFabricLogPublishingConfiguration -&gt; Bool
+$c/= :: NodeFabricLogPublishingConfiguration
+-&gt; NodeFabricLogPublishingConfiguration -&gt; Bool
+== :: NodeFabricLogPublishingConfiguration
+-&gt; NodeFabricLogPublishingConfiguration -&gt; Bool
+$c== :: NodeFabricLogPublishingConfiguration
+-&gt; NodeFabricLogPublishingConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217905"><span id="local-6989586621679217907"><span id="local-6989586621679217909"><span id="local-6989586621679217911"><span class="annot"><span class="annottext">ReadPrec [NodeFabricLogPublishingConfiguration]
+ReadPrec NodeFabricLogPublishingConfiguration
+Int -&gt; ReadS NodeFabricLogPublishingConfiguration
+ReadS [NodeFabricLogPublishingConfiguration]
+(Int -&gt; ReadS NodeFabricLogPublishingConfiguration)
+-&gt; ReadS [NodeFabricLogPublishingConfiguration]
+-&gt; ReadPrec NodeFabricLogPublishingConfiguration
+-&gt; ReadPrec [NodeFabricLogPublishingConfiguration]
+-&gt; Read NodeFabricLogPublishingConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NodeFabricLogPublishingConfiguration]
+$creadListPrec :: ReadPrec [NodeFabricLogPublishingConfiguration]
+readPrec :: ReadPrec NodeFabricLogPublishingConfiguration
+$creadPrec :: ReadPrec NodeFabricLogPublishingConfiguration
+readList :: ReadS [NodeFabricLogPublishingConfiguration]
+$creadList :: ReadS [NodeFabricLogPublishingConfiguration]
+readsPrec :: Int -&gt; ReadS NodeFabricLogPublishingConfiguration
+$creadsPrec :: Int -&gt; ReadS NodeFabricLogPublishingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217898"><span id="local-6989586621679217900"><span id="local-6989586621679217902"><span class="annot"><span class="annottext">Int -&gt; NodeFabricLogPublishingConfiguration -&gt; ShowS
+[NodeFabricLogPublishingConfiguration] -&gt; ShowS
+NodeFabricLogPublishingConfiguration -&gt; String
+(Int -&gt; NodeFabricLogPublishingConfiguration -&gt; ShowS)
+-&gt; (NodeFabricLogPublishingConfiguration -&gt; String)
+-&gt; ([NodeFabricLogPublishingConfiguration] -&gt; ShowS)
+-&gt; Show NodeFabricLogPublishingConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NodeFabricLogPublishingConfiguration] -&gt; ShowS
+$cshowList :: [NodeFabricLogPublishingConfiguration] -&gt; ShowS
+show :: NodeFabricLogPublishingConfiguration -&gt; String
+$cshow :: NodeFabricLogPublishingConfiguration -&gt; String
+showsPrec :: Int -&gt; NodeFabricLogPublishingConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; NodeFabricLogPublishingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ NodeFabricLogPublishingConfiguration
+ -&gt; Rep NodeFabricLogPublishingConfiguration x)
+-&gt; (forall x.
+    Rep NodeFabricLogPublishingConfiguration x
+    -&gt; NodeFabricLogPublishingConfiguration)
+-&gt; Generic NodeFabricLogPublishingConfiguration
+forall x.
+Rep NodeFabricLogPublishingConfiguration x
+-&gt; NodeFabricLogPublishingConfiguration
+forall x.
+NodeFabricLogPublishingConfiguration
+-&gt; Rep NodeFabricLogPublishingConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NodeFabricLogPublishingConfiguration x
+-&gt; NodeFabricLogPublishingConfiguration
+$cfrom :: forall x.
+NodeFabricLogPublishingConfiguration
+-&gt; Rep NodeFabricLogPublishingConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'NodeFabricLogPublishingConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'chaincodeLogs', 'nodeFabricLogPublishingConfiguration_chaincodeLogs' - Configuration properties for logging events associated with chaincode</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- execution on a peer node. Chaincode logs contain the results of</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- instantiating, invoking, and querying the chaincode. A peer can run</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- multiple instances of chaincode. When enabled, a log stream is created</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for all chaincodes, with an individual log stream for each chaincode.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'peerLogs', 'nodeFabricLogPublishingConfiguration_peerLogs' - Configuration properties for a peer node log. Peer node logs contain</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- messages generated when your client submits transaction proposals to</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- peer nodes, requests to join channels, enrolls an admin peer, and lists</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- the chaincode instances on a peer node.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#newNodeFabricLogPublishingConfiguration"><span class="hs-identifier hs-type">newNodeFabricLogPublishingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration</span></a></span><span>
+</span><span id="line-66"></span><span id="newNodeFabricLogPublishingConfiguration"><span class="annot"><span class="annottext">newNodeFabricLogPublishingConfiguration :: NodeFabricLogPublishingConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#newNodeFabricLogPublishingConfiguration"><span class="hs-identifier hs-var hs-var">newNodeFabricLogPublishingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">NodeFabricLogPublishingConfiguration' :: Maybe LogConfigurations
+-&gt; Maybe LogConfigurations -&gt; NodeFabricLogPublishingConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:chaincodeLogs:NodeFabricLogPublishingConfiguration' :: Maybe LogConfigurations
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#%24sel%3AchaincodeLogs%3ANodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-var">chaincodeLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe LogConfigurations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:peerLogs:NodeFabricLogPublishingConfiguration' :: Maybe LogConfigurations
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#%24sel%3ApeerLogs%3ANodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-var">peerLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfigurations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | Configuration properties for logging events associated with chaincode</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- execution on a peer node. Chaincode logs contain the results of</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- instantiating, invoking, and querying the chaincode. A peer can run</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- multiple instances of chaincode. When enabled, a log stream is created</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for all chaincodes, with an individual log stream for each chaincode.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#nodeFabricLogPublishingConfiguration_chaincodeLogs"><span class="hs-identifier hs-type">nodeFabricLogPublishingConfiguration_chaincodeLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.LogConfigurations.html#LogConfigurations"><span class="hs-identifier hs-type">LogConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="nodeFabricLogPublishingConfiguration_chaincodeLogs"><span class="annot"><span class="annottext">nodeFabricLogPublishingConfiguration_chaincodeLogs :: (Maybe LogConfigurations -&gt; f (Maybe LogConfigurations))
+-&gt; NodeFabricLogPublishingConfiguration
+-&gt; f NodeFabricLogPublishingConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#nodeFabricLogPublishingConfiguration_chaincodeLogs"><span class="hs-identifier hs-var hs-var">nodeFabricLogPublishingConfiguration_chaincodeLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeFabricLogPublishingConfiguration -&gt; Maybe LogConfigurations)
+-&gt; (NodeFabricLogPublishingConfiguration
+    -&gt; Maybe LogConfigurations -&gt; NodeFabricLogPublishingConfiguration)
+-&gt; Lens
+     NodeFabricLogPublishingConfiguration
+     NodeFabricLogPublishingConfiguration
+     (Maybe LogConfigurations)
+     (Maybe LogConfigurations)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217889"><span class="annot"><span class="annottext">Maybe LogConfigurations
+chaincodeLogs :: Maybe LogConfigurations
+$sel:chaincodeLogs:NodeFabricLogPublishingConfiguration' :: NodeFabricLogPublishingConfiguration -&gt; Maybe LogConfigurations
+</span><a href="#local-6989586621679217889"><span class="hs-identifier hs-var hs-var">chaincodeLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfigurations
+</span><a href="#local-6989586621679217889"><span class="hs-identifier hs-var">chaincodeLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217888"><span class="annot"><span class="annottext">s :: NodeFabricLogPublishingConfiguration
+</span><a href="#local-6989586621679217888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217887"><span class="annot"><span class="annottext">Maybe LogConfigurations
+</span><a href="#local-6989586621679217887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeFabricLogPublishingConfiguration
+</span><a href="#local-6989586621679217888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:chaincodeLogs:NodeFabricLogPublishingConfiguration' :: Maybe LogConfigurations
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#%24sel%3AchaincodeLogs%3ANodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-var">chaincodeLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfigurations
+</span><a href="#local-6989586621679217887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Configuration properties for a peer node log. Peer node logs contain</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- messages generated when your client submits transaction proposals to</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- peer nodes, requests to join channels, enrolls an admin peer, and lists</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- the chaincode instances on a peer node.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#nodeFabricLogPublishingConfiguration_peerLogs"><span class="hs-identifier hs-type">nodeFabricLogPublishingConfiguration_peerLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.LogConfigurations.html#LogConfigurations"><span class="hs-identifier hs-type">LogConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="nodeFabricLogPublishingConfiguration_peerLogs"><span class="annot"><span class="annottext">nodeFabricLogPublishingConfiguration_peerLogs :: (Maybe LogConfigurations -&gt; f (Maybe LogConfigurations))
+-&gt; NodeFabricLogPublishingConfiguration
+-&gt; f NodeFabricLogPublishingConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#nodeFabricLogPublishingConfiguration_peerLogs"><span class="hs-identifier hs-var hs-var">nodeFabricLogPublishingConfiguration_peerLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeFabricLogPublishingConfiguration -&gt; Maybe LogConfigurations)
+-&gt; (NodeFabricLogPublishingConfiguration
+    -&gt; Maybe LogConfigurations -&gt; NodeFabricLogPublishingConfiguration)
+-&gt; Lens
+     NodeFabricLogPublishingConfiguration
+     NodeFabricLogPublishingConfiguration
+     (Maybe LogConfigurations)
+     (Maybe LogConfigurations)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217885"><span class="annot"><span class="annottext">Maybe LogConfigurations
+peerLogs :: Maybe LogConfigurations
+$sel:peerLogs:NodeFabricLogPublishingConfiguration' :: NodeFabricLogPublishingConfiguration -&gt; Maybe LogConfigurations
+</span><a href="#local-6989586621679217885"><span class="hs-identifier hs-var hs-var">peerLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfigurations
+</span><a href="#local-6989586621679217885"><span class="hs-identifier hs-var">peerLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217884"><span class="annot"><span class="annottext">s :: NodeFabricLogPublishingConfiguration
+</span><a href="#local-6989586621679217884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217883"><span class="annot"><span class="annottext">Maybe LogConfigurations
+</span><a href="#local-6989586621679217883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeFabricLogPublishingConfiguration
+</span><a href="#local-6989586621679217884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:peerLogs:NodeFabricLogPublishingConfiguration' :: Maybe LogConfigurations
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#%24sel%3ApeerLogs%3ANodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-var">peerLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfigurations
+</span><a href="#local-6989586621679217883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679217880"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679217878"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodeFabricLogPublishingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NodeFabricLogPublishingConfiguration)
+-&gt; Value
+-&gt; Parser NodeFabricLogPublishingConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NodeFabricLogPublishingConfiguration&quot;</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217875"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217875"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe LogConfigurations
+-&gt; Maybe LogConfigurations -&gt; NodeFabricLogPublishingConfiguration
+</span><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-var">NodeFabricLogPublishingConfiguration'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LogConfigurations
+ -&gt; Maybe LogConfigurations -&gt; NodeFabricLogPublishingConfiguration)
+-&gt; Parser (Maybe LogConfigurations)
+-&gt; Parser
+     (Maybe LogConfigurations -&gt; NodeFabricLogPublishingConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogConfigurations)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChaincodeLogs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LogConfigurations -&gt; NodeFabricLogPublishingConfiguration)
+-&gt; Parser (Maybe LogConfigurations)
+-&gt; Parser NodeFabricLogPublishingConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogConfigurations)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PeerLogs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679217869"><span id="local-6989586621679217871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679217866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679217858"><span id="local-6989586621679217860"><span id="local-6989586621679217862"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration</span></a></span></span></span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679217856"><span class="annot"><span class="annottext">toJSON :: NodeFabricLogPublishingConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration.html#NodeFabricLogPublishingConfiguration%27"><span class="hs-identifier hs-type">NodeFabricLogPublishingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217853"><span id="local-6989586621679217854"><span class="annot"><span class="annottext">Maybe LogConfigurations
+peerLogs :: Maybe LogConfigurations
+chaincodeLogs :: Maybe LogConfigurations
+$sel:peerLogs:NodeFabricLogPublishingConfiguration' :: NodeFabricLogPublishingConfiguration -&gt; Maybe LogConfigurations
+$sel:chaincodeLogs:NodeFabricLogPublishingConfiguration' :: NodeFabricLogPublishingConfiguration -&gt; Maybe LogConfigurations
+</span><a href="#local-6989586621679217853"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChaincodeLogs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogConfigurations -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LogConfigurations -&gt; Pair)
+-&gt; Maybe LogConfigurations -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogConfigurations
+</span><a href="#local-6989586621679217854"><span class="hs-identifier hs-var">chaincodeLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PeerLogs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogConfigurations -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LogConfigurations -&gt; Pair)
+-&gt; Maybe LogConfigurations -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogConfigurations
+</span><a href="#local-6989586621679217853"><span class="hs-identifier hs-var">peerLogs</span></a></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span></pre></body></html>

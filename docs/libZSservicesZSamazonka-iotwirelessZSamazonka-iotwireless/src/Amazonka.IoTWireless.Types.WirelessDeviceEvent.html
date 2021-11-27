@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.Types.WirelessDeviceEvent</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.Types.WirelessDeviceEvent</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent"><span class="hs-identifier">WirelessDeviceEvent</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Downlink_Data"><span class="hs-identifier">WirelessDeviceEvent_Downlink_Data</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Join"><span class="hs-identifier">WirelessDeviceEvent_Join</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Registration"><span class="hs-identifier">WirelessDeviceEvent_Registration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Rejoin"><span class="hs-identifier">WirelessDeviceEvent_Rejoin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Uplink_Data"><span class="hs-identifier">WirelessDeviceEvent_Uplink_Data</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- | The event for a log message, if the log message is tied to a wireless</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- device.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679278676"><span id="local-6989586621679278677"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WirelessDeviceEvent"><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent"><span class="hs-identifier hs-var">WirelessDeviceEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WirelessDeviceEvent%27"><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent%27"><span class="hs-identifier hs-var">WirelessDeviceEvent'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWirelessDeviceEvent"><span class="annot"><span class="annottext">WirelessDeviceEvent -&gt; Text
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#fromWirelessDeviceEvent"><span class="hs-identifier hs-var hs-var">fromWirelessDeviceEvent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679278668"><span id="local-6989586621679278670"><span id="local-6989586621679278672"><span class="annot"><span class="annottext">Int -&gt; WirelessDeviceEvent -&gt; ShowS
+[WirelessDeviceEvent] -&gt; ShowS
+WirelessDeviceEvent -&gt; String
+(Int -&gt; WirelessDeviceEvent -&gt; ShowS)
+-&gt; (WirelessDeviceEvent -&gt; String)
+-&gt; ([WirelessDeviceEvent] -&gt; ShowS)
+-&gt; Show WirelessDeviceEvent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WirelessDeviceEvent] -&gt; ShowS
+$cshowList :: [WirelessDeviceEvent] -&gt; ShowS
+show :: WirelessDeviceEvent -&gt; String
+$cshow :: WirelessDeviceEvent -&gt; String
+showsPrec :: Int -&gt; WirelessDeviceEvent -&gt; ShowS
+$cshowsPrec :: Int -&gt; WirelessDeviceEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679278659"><span id="local-6989586621679278661"><span id="local-6989586621679278663"><span id="local-6989586621679278665"><span class="annot"><span class="annottext">ReadPrec [WirelessDeviceEvent]
+ReadPrec WirelessDeviceEvent
+Int -&gt; ReadS WirelessDeviceEvent
+ReadS [WirelessDeviceEvent]
+(Int -&gt; ReadS WirelessDeviceEvent)
+-&gt; ReadS [WirelessDeviceEvent]
+-&gt; ReadPrec WirelessDeviceEvent
+-&gt; ReadPrec [WirelessDeviceEvent]
+-&gt; Read WirelessDeviceEvent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WirelessDeviceEvent]
+$creadListPrec :: ReadPrec [WirelessDeviceEvent]
+readPrec :: ReadPrec WirelessDeviceEvent
+$creadPrec :: ReadPrec WirelessDeviceEvent
+readList :: ReadS [WirelessDeviceEvent]
+$creadList :: ReadS [WirelessDeviceEvent]
+readsPrec :: Int -&gt; ReadS WirelessDeviceEvent
+$creadsPrec :: Int -&gt; ReadS WirelessDeviceEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679278654"><span id="local-6989586621679278656"><span class="annot"><span class="annottext">WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+(WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool)
+-&gt; (WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool)
+-&gt; Eq WirelessDeviceEvent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+$c/= :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+== :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+$c== :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679278638"><span id="local-6989586621679278640"><span id="local-6989586621679278642"><span id="local-6989586621679278644"><span id="local-6989586621679278646"><span id="local-6989586621679278648"><span id="local-6989586621679278650"><span class="annot"><span class="annottext">Eq WirelessDeviceEvent
+Eq WirelessDeviceEvent
+-&gt; (WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Ordering)
+-&gt; (WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool)
+-&gt; (WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool)
+-&gt; (WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool)
+-&gt; (WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool)
+-&gt; (WirelessDeviceEvent
+    -&gt; WirelessDeviceEvent -&gt; WirelessDeviceEvent)
+-&gt; (WirelessDeviceEvent
+    -&gt; WirelessDeviceEvent -&gt; WirelessDeviceEvent)
+-&gt; Ord WirelessDeviceEvent
+WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Ordering
+WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; WirelessDeviceEvent
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; WirelessDeviceEvent
+$cmin :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; WirelessDeviceEvent
+max :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; WirelessDeviceEvent
+$cmax :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; WirelessDeviceEvent
+&gt;= :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+$c&gt;= :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+&gt; :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+$c&gt; :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+&lt;= :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+$c&lt;= :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+&lt; :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+$c&lt; :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Bool
+compare :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Ordering
+$ccompare :: WirelessDeviceEvent -&gt; WirelessDeviceEvent -&gt; Ordering
+$cp1Ord :: Eq WirelessDeviceEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. WirelessDeviceEvent -&gt; Rep WirelessDeviceEvent x)
+-&gt; (forall x. Rep WirelessDeviceEvent x -&gt; WirelessDeviceEvent)
+-&gt; Generic WirelessDeviceEvent
+forall x. Rep WirelessDeviceEvent x -&gt; WirelessDeviceEvent
+forall x. WirelessDeviceEvent -&gt; Rep WirelessDeviceEvent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WirelessDeviceEvent x -&gt; WirelessDeviceEvent
+$cfrom :: forall x. WirelessDeviceEvent -&gt; Rep WirelessDeviceEvent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679278630"><span id="local-6989586621679278632"><span class="annot"><span class="annottext">Int -&gt; WirelessDeviceEvent -&gt; Int
+WirelessDeviceEvent -&gt; Int
+(Int -&gt; WirelessDeviceEvent -&gt; Int)
+-&gt; (WirelessDeviceEvent -&gt; Int) -&gt; Hashable WirelessDeviceEvent
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WirelessDeviceEvent -&gt; Int
+$chash :: WirelessDeviceEvent -&gt; Int
+hashWithSalt :: Int -&gt; WirelessDeviceEvent -&gt; Int
+$chashWithSalt :: Int -&gt; WirelessDeviceEvent -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679278627"><span class="annot"><span class="annottext">WirelessDeviceEvent -&gt; ()
+(WirelessDeviceEvent -&gt; ()) -&gt; NFData WirelessDeviceEvent
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WirelessDeviceEvent -&gt; ()
+$crnf :: WirelessDeviceEvent -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679278624"><span class="annot"><span class="annottext">Text -&gt; Either String WirelessDeviceEvent
+(Text -&gt; Either String WirelessDeviceEvent)
+-&gt; FromText WirelessDeviceEvent
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WirelessDeviceEvent
+$cfromText :: Text -&gt; Either String WirelessDeviceEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679278621"><span class="annot"><span class="annottext">WirelessDeviceEvent -&gt; Text
+(WirelessDeviceEvent -&gt; Text) -&gt; ToText WirelessDeviceEvent
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WirelessDeviceEvent -&gt; Text
+$ctoText :: WirelessDeviceEvent -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679278618"><span class="annot"><span class="annottext">WirelessDeviceEvent -&gt; ByteString
+(WirelessDeviceEvent -&gt; ByteString)
+-&gt; ToByteString WirelessDeviceEvent
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WirelessDeviceEvent -&gt; ByteString
+$ctoBS :: WirelessDeviceEvent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679278615"><span class="annot"><span class="annottext">WirelessDeviceEvent -&gt; ByteStringBuilder
+(WirelessDeviceEvent -&gt; ByteStringBuilder)
+-&gt; ToLog WirelessDeviceEvent
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WirelessDeviceEvent -&gt; ByteStringBuilder
+$cbuild :: WirelessDeviceEvent -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679278612"><span class="annot"><span class="annottext">HeaderName -&gt; WirelessDeviceEvent -&gt; [Header]
+(HeaderName -&gt; WirelessDeviceEvent -&gt; [Header])
+-&gt; ToHeader WirelessDeviceEvent
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WirelessDeviceEvent -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WirelessDeviceEvent -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679278609"><span class="annot"><span class="annottext">WirelessDeviceEvent -&gt; QueryString
+(WirelessDeviceEvent -&gt; QueryString) -&gt; ToQuery WirelessDeviceEvent
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WirelessDeviceEvent -&gt; QueryString
+$ctoQuery :: WirelessDeviceEvent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679278604"><span id="local-6989586621679278606"><span class="annot"><span class="annottext">Value -&gt; Parser [WirelessDeviceEvent]
+Value -&gt; Parser WirelessDeviceEvent
+(Value -&gt; Parser WirelessDeviceEvent)
+-&gt; (Value -&gt; Parser [WirelessDeviceEvent])
+-&gt; FromJSON WirelessDeviceEvent
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WirelessDeviceEvent]
+$cparseJSONList :: Value -&gt; Parser [WirelessDeviceEvent]
+parseJSON :: Value -&gt; Parser WirelessDeviceEvent
+$cparseJSON :: Value -&gt; Parser WirelessDeviceEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679278599"><span id="local-6989586621679278601"><span class="annot"><span class="annottext">FromJSONKeyFunction [WirelessDeviceEvent]
+FromJSONKeyFunction WirelessDeviceEvent
+FromJSONKeyFunction WirelessDeviceEvent
+-&gt; FromJSONKeyFunction [WirelessDeviceEvent]
+-&gt; FromJSONKey WirelessDeviceEvent
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WirelessDeviceEvent]
+$cfromJSONKeyList :: FromJSONKeyFunction [WirelessDeviceEvent]
+fromJSONKey :: FromJSONKeyFunction WirelessDeviceEvent
+$cfromJSONKey :: FromJSONKeyFunction WirelessDeviceEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679278590"><span id="local-6989586621679278592"><span id="local-6989586621679278594"><span id="local-6989586621679278596"><span class="annot"><span class="annottext">[WirelessDeviceEvent] -&gt; Encoding
+[WirelessDeviceEvent] -&gt; Value
+WirelessDeviceEvent -&gt; Encoding
+WirelessDeviceEvent -&gt; Value
+(WirelessDeviceEvent -&gt; Value)
+-&gt; (WirelessDeviceEvent -&gt; Encoding)
+-&gt; ([WirelessDeviceEvent] -&gt; Value)
+-&gt; ([WirelessDeviceEvent] -&gt; Encoding)
+-&gt; ToJSON WirelessDeviceEvent
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WirelessDeviceEvent] -&gt; Encoding
+$ctoEncodingList :: [WirelessDeviceEvent] -&gt; Encoding
+toJSONList :: [WirelessDeviceEvent] -&gt; Value
+$ctoJSONList :: [WirelessDeviceEvent] -&gt; Value
+toEncoding :: WirelessDeviceEvent -&gt; Encoding
+$ctoEncoding :: WirelessDeviceEvent -&gt; Encoding
+toJSON :: WirelessDeviceEvent -&gt; Value
+$ctoJSON :: WirelessDeviceEvent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679278585"><span id="local-6989586621679278587"><span class="annot"><span class="annottext">ToJSONKeyFunction [WirelessDeviceEvent]
+ToJSONKeyFunction WirelessDeviceEvent
+ToJSONKeyFunction WirelessDeviceEvent
+-&gt; ToJSONKeyFunction [WirelessDeviceEvent]
+-&gt; ToJSONKey WirelessDeviceEvent
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WirelessDeviceEvent]
+$ctoJSONKeyList :: ToJSONKeyFunction [WirelessDeviceEvent]
+toJSONKey :: ToJSONKeyFunction WirelessDeviceEvent
+$ctoJSONKey :: ToJSONKeyFunction WirelessDeviceEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679278582"><span class="annot"><span class="annottext">[Node] -&gt; Either String WirelessDeviceEvent
+([Node] -&gt; Either String WirelessDeviceEvent)
+-&gt; FromXML WirelessDeviceEvent
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WirelessDeviceEvent
+$cparseXML :: [Node] -&gt; Either String WirelessDeviceEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679278579"><span class="annot"><span class="annottext">WirelessDeviceEvent -&gt; XML
+(WirelessDeviceEvent -&gt; XML) -&gt; ToXML WirelessDeviceEvent
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WirelessDeviceEvent -&gt; XML
+$ctoXML :: WirelessDeviceEvent -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Downlink_Data"><span class="hs-identifier hs-type">WirelessDeviceEvent_Downlink_Data</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent"><span class="hs-identifier hs-type">WirelessDeviceEvent</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWirelessDeviceEvent_Downlink_Data"><span id="%24mWirelessDeviceEvent_Downlink_Data"><span id="WirelessDeviceEvent_Downlink_Data"><span class="annot"><span class="annottext">$bWirelessDeviceEvent_Downlink_Data :: WirelessDeviceEvent
+$mWirelessDeviceEvent_Downlink_Data :: forall r. WirelessDeviceEvent -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#%24bWirelessDeviceEvent_Downlink_Data"><span class="hs-identifier hs-var hs-var hs-var">WirelessDeviceEvent_Downlink_Data</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent%27"><span class="hs-identifier hs-type">WirelessDeviceEvent'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Downlink_Data&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Join"><span class="hs-identifier hs-type">WirelessDeviceEvent_Join</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent"><span class="hs-identifier hs-type">WirelessDeviceEvent</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWirelessDeviceEvent_Join"><span id="%24mWirelessDeviceEvent_Join"><span id="WirelessDeviceEvent_Join"><span class="annot"><span class="annottext">$bWirelessDeviceEvent_Join :: WirelessDeviceEvent
+$mWirelessDeviceEvent_Join :: forall r. WirelessDeviceEvent -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#%24bWirelessDeviceEvent_Join"><span class="hs-identifier hs-var hs-var hs-var">WirelessDeviceEvent_Join</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent%27"><span class="hs-identifier hs-type">WirelessDeviceEvent'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Join&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Registration"><span class="hs-identifier hs-type">WirelessDeviceEvent_Registration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent"><span class="hs-identifier hs-type">WirelessDeviceEvent</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWirelessDeviceEvent_Registration"><span id="%24mWirelessDeviceEvent_Registration"><span id="WirelessDeviceEvent_Registration"><span class="annot"><span class="annottext">$bWirelessDeviceEvent_Registration :: WirelessDeviceEvent
+$mWirelessDeviceEvent_Registration :: forall r. WirelessDeviceEvent -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#%24bWirelessDeviceEvent_Registration"><span class="hs-identifier hs-var hs-var hs-var">WirelessDeviceEvent_Registration</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent%27"><span class="hs-identifier hs-type">WirelessDeviceEvent'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Registration&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Rejoin"><span class="hs-identifier hs-type">WirelessDeviceEvent_Rejoin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent"><span class="hs-identifier hs-type">WirelessDeviceEvent</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWirelessDeviceEvent_Rejoin"><span id="%24mWirelessDeviceEvent_Rejoin"><span id="WirelessDeviceEvent_Rejoin"><span class="annot"><span class="annottext">$bWirelessDeviceEvent_Rejoin :: WirelessDeviceEvent
+$mWirelessDeviceEvent_Rejoin :: forall r. WirelessDeviceEvent -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#%24bWirelessDeviceEvent_Rejoin"><span class="hs-identifier hs-var hs-var hs-var">WirelessDeviceEvent_Rejoin</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent%27"><span class="hs-identifier hs-type">WirelessDeviceEvent'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Rejoin&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Uplink_Data"><span class="hs-identifier hs-type">WirelessDeviceEvent_Uplink_Data</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent"><span class="hs-identifier hs-type">WirelessDeviceEvent</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWirelessDeviceEvent_Uplink_Data"><span id="%24mWirelessDeviceEvent_Uplink_Data"><span id="WirelessDeviceEvent_Uplink_Data"><span class="annot"><span class="annottext">$bWirelessDeviceEvent_Uplink_Data :: WirelessDeviceEvent
+$mWirelessDeviceEvent_Uplink_Data :: forall r. WirelessDeviceEvent -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#%24bWirelessDeviceEvent_Uplink_Data"><span class="hs-identifier hs-var hs-var hs-var">WirelessDeviceEvent_Uplink_Data</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent%27"><span class="hs-identifier hs-type">WirelessDeviceEvent'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Uplink_Data&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Downlink_Data"><span class="hs-pragma hs-type">WirelessDeviceEvent_Downlink_Data</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Join"><span class="hs-pragma hs-type">WirelessDeviceEvent_Join</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Registration"><span class="hs-pragma hs-type">WirelessDeviceEvent_Registration</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Rejoin"><span class="hs-pragma hs-type">WirelessDeviceEvent_Rejoin</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent_Uplink_Data"><span class="hs-pragma hs-type">WirelessDeviceEvent_Uplink_Data</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.Types.WirelessDeviceEvent.html#WirelessDeviceEvent%27"><span class="hs-pragma hs-type">WirelessDeviceEvent'</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-88"></span></pre></body></html>

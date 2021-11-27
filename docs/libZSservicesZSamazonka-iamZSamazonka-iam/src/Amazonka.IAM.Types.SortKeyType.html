@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IAM.Types.SortKeyType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.Types.SortKeyType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType"><span class="hs-identifier">SortKeyType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING"><span class="hs-identifier">SortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING"><span class="hs-identifier">SortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType_SERVICE_NAMESPACE_ASCENDING"><span class="hs-identifier">SortKeyType_SERVICE_NAMESPACE_ASCENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType_SERVICE_NAMESPACE_DESCENDING"><span class="hs-identifier">SortKeyType_SERVICE_NAMESPACE_DESCENDING</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679429814"><span id="local-6989586621679429815"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortKeyType"><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType"><span class="hs-identifier hs-var">SortKeyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortKeyType%27"><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType%27"><span class="hs-identifier hs-var">SortKeyType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSortKeyType"><span class="annot"><span class="annottext">SortKeyType -&gt; Text
+</span><a href="Amazonka.IAM.Types.SortKeyType.html#fromSortKeyType"><span class="hs-identifier hs-var hs-var">fromSortKeyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679429806"><span id="local-6989586621679429808"><span id="local-6989586621679429810"><span class="annot"><span class="annottext">Int -&gt; SortKeyType -&gt; ShowS
+[SortKeyType] -&gt; ShowS
+SortKeyType -&gt; String
+(Int -&gt; SortKeyType -&gt; ShowS)
+-&gt; (SortKeyType -&gt; String)
+-&gt; ([SortKeyType] -&gt; ShowS)
+-&gt; Show SortKeyType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SortKeyType] -&gt; ShowS
+$cshowList :: [SortKeyType] -&gt; ShowS
+show :: SortKeyType -&gt; String
+$cshow :: SortKeyType -&gt; String
+showsPrec :: Int -&gt; SortKeyType -&gt; ShowS
+$cshowsPrec :: Int -&gt; SortKeyType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679429797"><span id="local-6989586621679429799"><span id="local-6989586621679429801"><span id="local-6989586621679429803"><span class="annot"><span class="annottext">ReadPrec [SortKeyType]
+ReadPrec SortKeyType
+Int -&gt; ReadS SortKeyType
+ReadS [SortKeyType]
+(Int -&gt; ReadS SortKeyType)
+-&gt; ReadS [SortKeyType]
+-&gt; ReadPrec SortKeyType
+-&gt; ReadPrec [SortKeyType]
+-&gt; Read SortKeyType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SortKeyType]
+$creadListPrec :: ReadPrec [SortKeyType]
+readPrec :: ReadPrec SortKeyType
+$creadPrec :: ReadPrec SortKeyType
+readList :: ReadS [SortKeyType]
+$creadList :: ReadS [SortKeyType]
+readsPrec :: Int -&gt; ReadS SortKeyType
+$creadsPrec :: Int -&gt; ReadS SortKeyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679429792"><span id="local-6989586621679429794"><span class="annot"><span class="annottext">SortKeyType -&gt; SortKeyType -&gt; Bool
+(SortKeyType -&gt; SortKeyType -&gt; Bool)
+-&gt; (SortKeyType -&gt; SortKeyType -&gt; Bool) -&gt; Eq SortKeyType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SortKeyType -&gt; SortKeyType -&gt; Bool
+$c/= :: SortKeyType -&gt; SortKeyType -&gt; Bool
+== :: SortKeyType -&gt; SortKeyType -&gt; Bool
+$c== :: SortKeyType -&gt; SortKeyType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679429776"><span id="local-6989586621679429778"><span id="local-6989586621679429780"><span id="local-6989586621679429782"><span id="local-6989586621679429784"><span id="local-6989586621679429786"><span id="local-6989586621679429788"><span class="annot"><span class="annottext">Eq SortKeyType
+Eq SortKeyType
+-&gt; (SortKeyType -&gt; SortKeyType -&gt; Ordering)
+-&gt; (SortKeyType -&gt; SortKeyType -&gt; Bool)
+-&gt; (SortKeyType -&gt; SortKeyType -&gt; Bool)
+-&gt; (SortKeyType -&gt; SortKeyType -&gt; Bool)
+-&gt; (SortKeyType -&gt; SortKeyType -&gt; Bool)
+-&gt; (SortKeyType -&gt; SortKeyType -&gt; SortKeyType)
+-&gt; (SortKeyType -&gt; SortKeyType -&gt; SortKeyType)
+-&gt; Ord SortKeyType
+SortKeyType -&gt; SortKeyType -&gt; Bool
+SortKeyType -&gt; SortKeyType -&gt; Ordering
+SortKeyType -&gt; SortKeyType -&gt; SortKeyType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SortKeyType -&gt; SortKeyType -&gt; SortKeyType
+$cmin :: SortKeyType -&gt; SortKeyType -&gt; SortKeyType
+max :: SortKeyType -&gt; SortKeyType -&gt; SortKeyType
+$cmax :: SortKeyType -&gt; SortKeyType -&gt; SortKeyType
+&gt;= :: SortKeyType -&gt; SortKeyType -&gt; Bool
+$c&gt;= :: SortKeyType -&gt; SortKeyType -&gt; Bool
+&gt; :: SortKeyType -&gt; SortKeyType -&gt; Bool
+$c&gt; :: SortKeyType -&gt; SortKeyType -&gt; Bool
+&lt;= :: SortKeyType -&gt; SortKeyType -&gt; Bool
+$c&lt;= :: SortKeyType -&gt; SortKeyType -&gt; Bool
+&lt; :: SortKeyType -&gt; SortKeyType -&gt; Bool
+$c&lt; :: SortKeyType -&gt; SortKeyType -&gt; Bool
+compare :: SortKeyType -&gt; SortKeyType -&gt; Ordering
+$ccompare :: SortKeyType -&gt; SortKeyType -&gt; Ordering
+$cp1Ord :: Eq SortKeyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SortKeyType -&gt; Rep SortKeyType x)
+-&gt; (forall x. Rep SortKeyType x -&gt; SortKeyType)
+-&gt; Generic SortKeyType
+forall x. Rep SortKeyType x -&gt; SortKeyType
+forall x. SortKeyType -&gt; Rep SortKeyType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SortKeyType x -&gt; SortKeyType
+$cfrom :: forall x. SortKeyType -&gt; Rep SortKeyType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679429768"><span id="local-6989586621679429770"><span class="annot"><span class="annottext">Int -&gt; SortKeyType -&gt; Int
+SortKeyType -&gt; Int
+(Int -&gt; SortKeyType -&gt; Int)
+-&gt; (SortKeyType -&gt; Int) -&gt; Hashable SortKeyType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SortKeyType -&gt; Int
+$chash :: SortKeyType -&gt; Int
+hashWithSalt :: Int -&gt; SortKeyType -&gt; Int
+$chashWithSalt :: Int -&gt; SortKeyType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679429765"><span class="annot"><span class="annottext">SortKeyType -&gt; ()
+(SortKeyType -&gt; ()) -&gt; NFData SortKeyType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SortKeyType -&gt; ()
+$crnf :: SortKeyType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679429762"><span class="annot"><span class="annottext">Text -&gt; Either String SortKeyType
+(Text -&gt; Either String SortKeyType) -&gt; FromText SortKeyType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SortKeyType
+$cfromText :: Text -&gt; Either String SortKeyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679429759"><span class="annot"><span class="annottext">SortKeyType -&gt; Text
+(SortKeyType -&gt; Text) -&gt; ToText SortKeyType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SortKeyType -&gt; Text
+$ctoText :: SortKeyType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679429756"><span class="annot"><span class="annottext">SortKeyType -&gt; ByteString
+(SortKeyType -&gt; ByteString) -&gt; ToByteString SortKeyType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SortKeyType -&gt; ByteString
+$ctoBS :: SortKeyType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679429753"><span class="annot"><span class="annottext">SortKeyType -&gt; ByteStringBuilder
+(SortKeyType -&gt; ByteStringBuilder) -&gt; ToLog SortKeyType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SortKeyType -&gt; ByteStringBuilder
+$cbuild :: SortKeyType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679429750"><span class="annot"><span class="annottext">HeaderName -&gt; SortKeyType -&gt; [Header]
+(HeaderName -&gt; SortKeyType -&gt; [Header]) -&gt; ToHeader SortKeyType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SortKeyType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SortKeyType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679429747"><span class="annot"><span class="annottext">SortKeyType -&gt; QueryString
+(SortKeyType -&gt; QueryString) -&gt; ToQuery SortKeyType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SortKeyType -&gt; QueryString
+$ctoQuery :: SortKeyType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679429742"><span id="local-6989586621679429744"><span class="annot"><span class="annottext">Value -&gt; Parser [SortKeyType]
+Value -&gt; Parser SortKeyType
+(Value -&gt; Parser SortKeyType)
+-&gt; (Value -&gt; Parser [SortKeyType]) -&gt; FromJSON SortKeyType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SortKeyType]
+$cparseJSONList :: Value -&gt; Parser [SortKeyType]
+parseJSON :: Value -&gt; Parser SortKeyType
+$cparseJSON :: Value -&gt; Parser SortKeyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679429737"><span id="local-6989586621679429739"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortKeyType]
+FromJSONKeyFunction SortKeyType
+FromJSONKeyFunction SortKeyType
+-&gt; FromJSONKeyFunction [SortKeyType] -&gt; FromJSONKey SortKeyType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SortKeyType]
+$cfromJSONKeyList :: FromJSONKeyFunction [SortKeyType]
+fromJSONKey :: FromJSONKeyFunction SortKeyType
+$cfromJSONKey :: FromJSONKeyFunction SortKeyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679429728"><span id="local-6989586621679429730"><span id="local-6989586621679429732"><span id="local-6989586621679429734"><span class="annot"><span class="annottext">[SortKeyType] -&gt; Encoding
+[SortKeyType] -&gt; Value
+SortKeyType -&gt; Encoding
+SortKeyType -&gt; Value
+(SortKeyType -&gt; Value)
+-&gt; (SortKeyType -&gt; Encoding)
+-&gt; ([SortKeyType] -&gt; Value)
+-&gt; ([SortKeyType] -&gt; Encoding)
+-&gt; ToJSON SortKeyType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SortKeyType] -&gt; Encoding
+$ctoEncodingList :: [SortKeyType] -&gt; Encoding
+toJSONList :: [SortKeyType] -&gt; Value
+$ctoJSONList :: [SortKeyType] -&gt; Value
+toEncoding :: SortKeyType -&gt; Encoding
+$ctoEncoding :: SortKeyType -&gt; Encoding
+toJSON :: SortKeyType -&gt; Value
+$ctoJSON :: SortKeyType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679429723"><span id="local-6989586621679429725"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortKeyType]
+ToJSONKeyFunction SortKeyType
+ToJSONKeyFunction SortKeyType
+-&gt; ToJSONKeyFunction [SortKeyType] -&gt; ToJSONKey SortKeyType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SortKeyType]
+$ctoJSONKeyList :: ToJSONKeyFunction [SortKeyType]
+toJSONKey :: ToJSONKeyFunction SortKeyType
+$ctoJSONKey :: ToJSONKeyFunction SortKeyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679429720"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortKeyType
+([Node] -&gt; Either String SortKeyType) -&gt; FromXML SortKeyType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SortKeyType
+$cparseXML :: [Node] -&gt; Either String SortKeyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679429717"><span class="annot"><span class="annottext">SortKeyType -&gt; XML
+(SortKeyType -&gt; XML) -&gt; ToXML SortKeyType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SortKeyType -&gt; XML
+$ctoXML :: SortKeyType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING"><span class="hs-identifier hs-type">SortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType"><span class="hs-identifier hs-type">SortKeyType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING"><span id="%24mSortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING"><span id="SortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING"><span class="annot"><span class="annottext">$bSortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING :: SortKeyType
+$mSortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING :: forall r. SortKeyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IAM.Types.SortKeyType.html#%24bSortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING"><span class="hs-identifier hs-var hs-var hs-var">SortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType%27"><span class="hs-identifier hs-type">SortKeyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LAST_AUTHENTICATED_TIME_ASCENDING&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING"><span class="hs-identifier hs-type">SortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType"><span class="hs-identifier hs-type">SortKeyType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING"><span id="%24mSortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING"><span id="SortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING"><span class="annot"><span class="annottext">$bSortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING :: SortKeyType
+$mSortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING :: forall r. SortKeyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IAM.Types.SortKeyType.html#%24bSortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING"><span class="hs-identifier hs-var hs-var hs-var">SortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType%27"><span class="hs-identifier hs-type">SortKeyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LAST_AUTHENTICATED_TIME_DESCENDING&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType_SERVICE_NAMESPACE_ASCENDING"><span class="hs-identifier hs-type">SortKeyType_SERVICE_NAMESPACE_ASCENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType"><span class="hs-identifier hs-type">SortKeyType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSortKeyType_SERVICE_NAMESPACE_ASCENDING"><span id="%24mSortKeyType_SERVICE_NAMESPACE_ASCENDING"><span id="SortKeyType_SERVICE_NAMESPACE_ASCENDING"><span class="annot"><span class="annottext">$bSortKeyType_SERVICE_NAMESPACE_ASCENDING :: SortKeyType
+$mSortKeyType_SERVICE_NAMESPACE_ASCENDING :: forall r. SortKeyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IAM.Types.SortKeyType.html#%24bSortKeyType_SERVICE_NAMESPACE_ASCENDING"><span class="hs-identifier hs-var hs-var hs-var">SortKeyType_SERVICE_NAMESPACE_ASCENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType%27"><span class="hs-identifier hs-type">SortKeyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SERVICE_NAMESPACE_ASCENDING&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType_SERVICE_NAMESPACE_DESCENDING"><span class="hs-identifier hs-type">SortKeyType_SERVICE_NAMESPACE_DESCENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType"><span class="hs-identifier hs-type">SortKeyType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSortKeyType_SERVICE_NAMESPACE_DESCENDING"><span id="%24mSortKeyType_SERVICE_NAMESPACE_DESCENDING"><span id="SortKeyType_SERVICE_NAMESPACE_DESCENDING"><span class="annot"><span class="annottext">$bSortKeyType_SERVICE_NAMESPACE_DESCENDING :: SortKeyType
+$mSortKeyType_SERVICE_NAMESPACE_DESCENDING :: forall r. SortKeyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IAM.Types.SortKeyType.html#%24bSortKeyType_SERVICE_NAMESPACE_DESCENDING"><span class="hs-identifier hs-var hs-var hs-var">SortKeyType_SERVICE_NAMESPACE_DESCENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType%27"><span class="hs-identifier hs-type">SortKeyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SERVICE_NAMESPACE_DESCENDING&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING"><span class="hs-pragma hs-type">SortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING"><span class="hs-pragma hs-type">SortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType_SERVICE_NAMESPACE_ASCENDING"><span class="hs-pragma hs-type">SortKeyType_SERVICE_NAMESPACE_ASCENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType_SERVICE_NAMESPACE_DESCENDING"><span class="hs-pragma hs-type">SortKeyType_SERVICE_NAMESPACE_DESCENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.Types.SortKeyType.html#SortKeyType%27"><span class="hs-pragma hs-type">SortKeyType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

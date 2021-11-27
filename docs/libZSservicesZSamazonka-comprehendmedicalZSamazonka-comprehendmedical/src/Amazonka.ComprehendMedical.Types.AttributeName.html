@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ComprehendMedical.Types.AttributeName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComprehendMedical.Types.AttributeName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName"><span class="hs-identifier">AttributeName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName_DIAGNOSIS"><span class="hs-identifier">AttributeName_DIAGNOSIS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName_NEGATION"><span class="hs-identifier">AttributeName_NEGATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName_SIGN"><span class="hs-identifier">AttributeName_SIGN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName_SYMPTOM"><span class="hs-identifier">AttributeName_SYMPTOM</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679206140"><span id="local-6989586621679206141"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AttributeName"><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName"><span class="hs-identifier hs-var">AttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeName%27"><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName%27"><span class="hs-identifier hs-var">AttributeName'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAttributeName"><span class="annot"><span class="annottext">AttributeName -&gt; Text
+</span><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#fromAttributeName"><span class="hs-identifier hs-var hs-var">fromAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206132"><span id="local-6989586621679206134"><span id="local-6989586621679206136"><span class="annot"><span class="annottext">Int -&gt; AttributeName -&gt; ShowS
+[AttributeName] -&gt; ShowS
+AttributeName -&gt; String
+(Int -&gt; AttributeName -&gt; ShowS)
+-&gt; (AttributeName -&gt; String)
+-&gt; ([AttributeName] -&gt; ShowS)
+-&gt; Show AttributeName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AttributeName] -&gt; ShowS
+$cshowList :: [AttributeName] -&gt; ShowS
+show :: AttributeName -&gt; String
+$cshow :: AttributeName -&gt; String
+showsPrec :: Int -&gt; AttributeName -&gt; ShowS
+$cshowsPrec :: Int -&gt; AttributeName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679206123"><span id="local-6989586621679206125"><span id="local-6989586621679206127"><span id="local-6989586621679206129"><span class="annot"><span class="annottext">ReadPrec [AttributeName]
+ReadPrec AttributeName
+Int -&gt; ReadS AttributeName
+ReadS [AttributeName]
+(Int -&gt; ReadS AttributeName)
+-&gt; ReadS [AttributeName]
+-&gt; ReadPrec AttributeName
+-&gt; ReadPrec [AttributeName]
+-&gt; Read AttributeName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AttributeName]
+$creadListPrec :: ReadPrec [AttributeName]
+readPrec :: ReadPrec AttributeName
+$creadPrec :: ReadPrec AttributeName
+readList :: ReadS [AttributeName]
+$creadList :: ReadS [AttributeName]
+readsPrec :: Int -&gt; ReadS AttributeName
+$creadsPrec :: Int -&gt; ReadS AttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679206118"><span id="local-6989586621679206120"><span class="annot"><span class="annottext">AttributeName -&gt; AttributeName -&gt; Bool
+(AttributeName -&gt; AttributeName -&gt; Bool)
+-&gt; (AttributeName -&gt; AttributeName -&gt; Bool) -&gt; Eq AttributeName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AttributeName -&gt; AttributeName -&gt; Bool
+$c/= :: AttributeName -&gt; AttributeName -&gt; Bool
+== :: AttributeName -&gt; AttributeName -&gt; Bool
+$c== :: AttributeName -&gt; AttributeName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679206102"><span id="local-6989586621679206104"><span id="local-6989586621679206106"><span id="local-6989586621679206108"><span id="local-6989586621679206110"><span id="local-6989586621679206112"><span id="local-6989586621679206114"><span class="annot"><span class="annottext">Eq AttributeName
+Eq AttributeName
+-&gt; (AttributeName -&gt; AttributeName -&gt; Ordering)
+-&gt; (AttributeName -&gt; AttributeName -&gt; Bool)
+-&gt; (AttributeName -&gt; AttributeName -&gt; Bool)
+-&gt; (AttributeName -&gt; AttributeName -&gt; Bool)
+-&gt; (AttributeName -&gt; AttributeName -&gt; Bool)
+-&gt; (AttributeName -&gt; AttributeName -&gt; AttributeName)
+-&gt; (AttributeName -&gt; AttributeName -&gt; AttributeName)
+-&gt; Ord AttributeName
+AttributeName -&gt; AttributeName -&gt; Bool
+AttributeName -&gt; AttributeName -&gt; Ordering
+AttributeName -&gt; AttributeName -&gt; AttributeName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AttributeName -&gt; AttributeName -&gt; AttributeName
+$cmin :: AttributeName -&gt; AttributeName -&gt; AttributeName
+max :: AttributeName -&gt; AttributeName -&gt; AttributeName
+$cmax :: AttributeName -&gt; AttributeName -&gt; AttributeName
+&gt;= :: AttributeName -&gt; AttributeName -&gt; Bool
+$c&gt;= :: AttributeName -&gt; AttributeName -&gt; Bool
+&gt; :: AttributeName -&gt; AttributeName -&gt; Bool
+$c&gt; :: AttributeName -&gt; AttributeName -&gt; Bool
+&lt;= :: AttributeName -&gt; AttributeName -&gt; Bool
+$c&lt;= :: AttributeName -&gt; AttributeName -&gt; Bool
+&lt; :: AttributeName -&gt; AttributeName -&gt; Bool
+$c&lt; :: AttributeName -&gt; AttributeName -&gt; Bool
+compare :: AttributeName -&gt; AttributeName -&gt; Ordering
+$ccompare :: AttributeName -&gt; AttributeName -&gt; Ordering
+$cp1Ord :: Eq AttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AttributeName -&gt; Rep AttributeName x)
+-&gt; (forall x. Rep AttributeName x -&gt; AttributeName)
+-&gt; Generic AttributeName
+forall x. Rep AttributeName x -&gt; AttributeName
+forall x. AttributeName -&gt; Rep AttributeName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AttributeName x -&gt; AttributeName
+$cfrom :: forall x. AttributeName -&gt; Rep AttributeName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679206094"><span id="local-6989586621679206096"><span class="annot"><span class="annottext">Int -&gt; AttributeName -&gt; Int
+AttributeName -&gt; Int
+(Int -&gt; AttributeName -&gt; Int)
+-&gt; (AttributeName -&gt; Int) -&gt; Hashable AttributeName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AttributeName -&gt; Int
+$chash :: AttributeName -&gt; Int
+hashWithSalt :: Int -&gt; AttributeName -&gt; Int
+$chashWithSalt :: Int -&gt; AttributeName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679206091"><span class="annot"><span class="annottext">AttributeName -&gt; ()
+(AttributeName -&gt; ()) -&gt; NFData AttributeName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AttributeName -&gt; ()
+$crnf :: AttributeName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679206088"><span class="annot"><span class="annottext">Text -&gt; Either String AttributeName
+(Text -&gt; Either String AttributeName) -&gt; FromText AttributeName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AttributeName
+$cfromText :: Text -&gt; Either String AttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679206085"><span class="annot"><span class="annottext">AttributeName -&gt; Text
+(AttributeName -&gt; Text) -&gt; ToText AttributeName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AttributeName -&gt; Text
+$ctoText :: AttributeName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679206082"><span class="annot"><span class="annottext">AttributeName -&gt; ByteString
+(AttributeName -&gt; ByteString) -&gt; ToByteString AttributeName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AttributeName -&gt; ByteString
+$ctoBS :: AttributeName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679206079"><span class="annot"><span class="annottext">AttributeName -&gt; ByteStringBuilder
+(AttributeName -&gt; ByteStringBuilder) -&gt; ToLog AttributeName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AttributeName -&gt; ByteStringBuilder
+$cbuild :: AttributeName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679206076"><span class="annot"><span class="annottext">HeaderName -&gt; AttributeName -&gt; [Header]
+(HeaderName -&gt; AttributeName -&gt; [Header]) -&gt; ToHeader AttributeName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AttributeName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AttributeName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679206073"><span class="annot"><span class="annottext">AttributeName -&gt; QueryString
+(AttributeName -&gt; QueryString) -&gt; ToQuery AttributeName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AttributeName -&gt; QueryString
+$ctoQuery :: AttributeName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679206068"><span id="local-6989586621679206070"><span class="annot"><span class="annottext">Value -&gt; Parser [AttributeName]
+Value -&gt; Parser AttributeName
+(Value -&gt; Parser AttributeName)
+-&gt; (Value -&gt; Parser [AttributeName]) -&gt; FromJSON AttributeName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AttributeName]
+$cparseJSONList :: Value -&gt; Parser [AttributeName]
+parseJSON :: Value -&gt; Parser AttributeName
+$cparseJSON :: Value -&gt; Parser AttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679206063"><span id="local-6989586621679206065"><span class="annot"><span class="annottext">FromJSONKeyFunction [AttributeName]
+FromJSONKeyFunction AttributeName
+FromJSONKeyFunction AttributeName
+-&gt; FromJSONKeyFunction [AttributeName] -&gt; FromJSONKey AttributeName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AttributeName]
+$cfromJSONKeyList :: FromJSONKeyFunction [AttributeName]
+fromJSONKey :: FromJSONKeyFunction AttributeName
+$cfromJSONKey :: FromJSONKeyFunction AttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679206054"><span id="local-6989586621679206056"><span id="local-6989586621679206058"><span id="local-6989586621679206060"><span class="annot"><span class="annottext">[AttributeName] -&gt; Encoding
+[AttributeName] -&gt; Value
+AttributeName -&gt; Encoding
+AttributeName -&gt; Value
+(AttributeName -&gt; Value)
+-&gt; (AttributeName -&gt; Encoding)
+-&gt; ([AttributeName] -&gt; Value)
+-&gt; ([AttributeName] -&gt; Encoding)
+-&gt; ToJSON AttributeName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AttributeName] -&gt; Encoding
+$ctoEncodingList :: [AttributeName] -&gt; Encoding
+toJSONList :: [AttributeName] -&gt; Value
+$ctoJSONList :: [AttributeName] -&gt; Value
+toEncoding :: AttributeName -&gt; Encoding
+$ctoEncoding :: AttributeName -&gt; Encoding
+toJSON :: AttributeName -&gt; Value
+$ctoJSON :: AttributeName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679206049"><span id="local-6989586621679206051"><span class="annot"><span class="annottext">ToJSONKeyFunction [AttributeName]
+ToJSONKeyFunction AttributeName
+ToJSONKeyFunction AttributeName
+-&gt; ToJSONKeyFunction [AttributeName] -&gt; ToJSONKey AttributeName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AttributeName]
+$ctoJSONKeyList :: ToJSONKeyFunction [AttributeName]
+toJSONKey :: ToJSONKeyFunction AttributeName
+$ctoJSONKey :: ToJSONKeyFunction AttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679206046"><span class="annot"><span class="annottext">[Node] -&gt; Either String AttributeName
+([Node] -&gt; Either String AttributeName) -&gt; FromXML AttributeName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AttributeName
+$cparseXML :: [Node] -&gt; Either String AttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679206043"><span class="annot"><span class="annottext">AttributeName -&gt; XML
+(AttributeName -&gt; XML) -&gt; ToXML AttributeName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AttributeName -&gt; XML
+$ctoXML :: AttributeName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName_DIAGNOSIS"><span class="hs-identifier hs-type">AttributeName_DIAGNOSIS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName"><span class="hs-identifier hs-type">AttributeName</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAttributeName_DIAGNOSIS"><span id="%24mAttributeName_DIAGNOSIS"><span id="AttributeName_DIAGNOSIS"><span class="annot"><span class="annottext">$bAttributeName_DIAGNOSIS :: AttributeName
+$mAttributeName_DIAGNOSIS :: forall r. AttributeName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#%24bAttributeName_DIAGNOSIS"><span class="hs-identifier hs-var hs-var hs-var">AttributeName_DIAGNOSIS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName%27"><span class="hs-identifier hs-type">AttributeName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DIAGNOSIS&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName_NEGATION"><span class="hs-identifier hs-type">AttributeName_NEGATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName"><span class="hs-identifier hs-type">AttributeName</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAttributeName_NEGATION"><span id="%24mAttributeName_NEGATION"><span id="AttributeName_NEGATION"><span class="annot"><span class="annottext">$bAttributeName_NEGATION :: AttributeName
+$mAttributeName_NEGATION :: forall r. AttributeName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#%24bAttributeName_NEGATION"><span class="hs-identifier hs-var hs-var hs-var">AttributeName_NEGATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName%27"><span class="hs-identifier hs-type">AttributeName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NEGATION&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName_SIGN"><span class="hs-identifier hs-type">AttributeName_SIGN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName"><span class="hs-identifier hs-type">AttributeName</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAttributeName_SIGN"><span id="%24mAttributeName_SIGN"><span id="AttributeName_SIGN"><span class="annot"><span class="annottext">$bAttributeName_SIGN :: AttributeName
+$mAttributeName_SIGN :: forall r. AttributeName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#%24bAttributeName_SIGN"><span class="hs-identifier hs-var hs-var hs-var">AttributeName_SIGN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName%27"><span class="hs-identifier hs-type">AttributeName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SIGN&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName_SYMPTOM"><span class="hs-identifier hs-type">AttributeName_SYMPTOM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName"><span class="hs-identifier hs-type">AttributeName</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAttributeName_SYMPTOM"><span id="%24mAttributeName_SYMPTOM"><span id="AttributeName_SYMPTOM"><span class="annot"><span class="annottext">$bAttributeName_SYMPTOM :: AttributeName
+$mAttributeName_SYMPTOM :: forall r. AttributeName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#%24bAttributeName_SYMPTOM"><span class="hs-identifier hs-var hs-var hs-var">AttributeName_SYMPTOM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName%27"><span class="hs-identifier hs-type">AttributeName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SYMPTOM&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName_DIAGNOSIS"><span class="hs-pragma hs-type">AttributeName_DIAGNOSIS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName_NEGATION"><span class="hs-pragma hs-type">AttributeName_NEGATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName_SIGN"><span class="hs-pragma hs-type">AttributeName_SIGN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName_SYMPTOM"><span class="hs-pragma hs-type">AttributeName_SYMPTOM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.AttributeName.html#AttributeName%27"><span class="hs-pragma hs-type">AttributeName'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

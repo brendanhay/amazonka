@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AutoScaling.Types.WarmPoolConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AutoScaling.Types.WarmPoolConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolState.html"><span class="hs-identifier">Amazonka.AutoScaling.Types.WarmPoolState</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolStatus.html"><span class="hs-identifier">Amazonka.AutoScaling.Types.WarmPoolStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a warm pool configuration.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newWarmPoolConfiguration' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679333848"><span id="local-6989586621679333849"></span></span><span class="hs-keyword">data</span><span> </span><span id="WarmPoolConfiguration"><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-var">WarmPoolConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WarmPoolConfiguration%27"><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-var">WarmPoolConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of a warm pool that is marked for deletion.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3AWarmPoolConfiguration%27"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; Maybe WarmPoolStatus
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3Astatus%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolStatus.html#WarmPoolStatus"><span class="hs-identifier hs-type">WarmPoolStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The minimum number of instances to maintain in the warm pool.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AminSize%3AWarmPoolConfiguration%27"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; Maybe Natural
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AminSize%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The maximum number of instances that are allowed to be in the warm pool</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- or in any state except @Terminated@ for the Auto Scaling group.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmaxGroupPreparedCapacity%3AWarmPoolConfiguration%27"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; Maybe Int
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AmaxGroupPreparedCapacity%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var hs-var">maxGroupPreparedCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The instance state to transition to after the lifecycle actions are</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- complete.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ApoolState%3AWarmPoolConfiguration%27"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; Maybe WarmPoolState
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3ApoolState%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var hs-var">poolState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolState.html#WarmPoolState"><span class="hs-identifier hs-type">WarmPoolState</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333839"><span id="local-6989586621679333841"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool
+(WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool)
+-&gt; (WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool)
+-&gt; Eq WarmPoolConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool
+$c/= :: WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool
+== :: WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool
+$c== :: WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333830"><span id="local-6989586621679333832"><span id="local-6989586621679333834"><span id="local-6989586621679333836"><span class="annot"><span class="annottext">ReadPrec [WarmPoolConfiguration]
+ReadPrec WarmPoolConfiguration
+Int -&gt; ReadS WarmPoolConfiguration
+ReadS [WarmPoolConfiguration]
+(Int -&gt; ReadS WarmPoolConfiguration)
+-&gt; ReadS [WarmPoolConfiguration]
+-&gt; ReadPrec WarmPoolConfiguration
+-&gt; ReadPrec [WarmPoolConfiguration]
+-&gt; Read WarmPoolConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WarmPoolConfiguration]
+$creadListPrec :: ReadPrec [WarmPoolConfiguration]
+readPrec :: ReadPrec WarmPoolConfiguration
+$creadPrec :: ReadPrec WarmPoolConfiguration
+readList :: ReadS [WarmPoolConfiguration]
+$creadList :: ReadS [WarmPoolConfiguration]
+readsPrec :: Int -&gt; ReadS WarmPoolConfiguration
+$creadsPrec :: Int -&gt; ReadS WarmPoolConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333823"><span id="local-6989586621679333825"><span id="local-6989586621679333827"><span class="annot"><span class="annottext">Int -&gt; WarmPoolConfiguration -&gt; ShowS
+[WarmPoolConfiguration] -&gt; ShowS
+WarmPoolConfiguration -&gt; String
+(Int -&gt; WarmPoolConfiguration -&gt; ShowS)
+-&gt; (WarmPoolConfiguration -&gt; String)
+-&gt; ([WarmPoolConfiguration] -&gt; ShowS)
+-&gt; Show WarmPoolConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WarmPoolConfiguration] -&gt; ShowS
+$cshowList :: [WarmPoolConfiguration] -&gt; ShowS
+show :: WarmPoolConfiguration -&gt; String
+$cshow :: WarmPoolConfiguration -&gt; String
+showsPrec :: Int -&gt; WarmPoolConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; WarmPoolConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. WarmPoolConfiguration -&gt; Rep WarmPoolConfiguration x)
+-&gt; (forall x. Rep WarmPoolConfiguration x -&gt; WarmPoolConfiguration)
+-&gt; Generic WarmPoolConfiguration
+forall x. Rep WarmPoolConfiguration x -&gt; WarmPoolConfiguration
+forall x. WarmPoolConfiguration -&gt; Rep WarmPoolConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WarmPoolConfiguration x -&gt; WarmPoolConfiguration
+$cfrom :: forall x. WarmPoolConfiguration -&gt; Rep WarmPoolConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'WarmPoolConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'status', 'warmPoolConfiguration_status' - The status of a warm pool that is marked for deletion.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'minSize', 'warmPoolConfiguration_minSize' - The minimum number of instances to maintain in the warm pool.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'maxGroupPreparedCapacity', 'warmPoolConfiguration_maxGroupPreparedCapacity' - The maximum number of instances that are allowed to be in the warm pool</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- or in any state except @Terminated@ for the Auto Scaling group.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'poolState', 'warmPoolConfiguration_poolState' - The instance state to transition to after the lifecycle actions are</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- complete.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#newWarmPoolConfiguration"><span class="hs-identifier hs-type">newWarmPoolConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span>
+</span><span id="line-64"></span><span id="newWarmPoolConfiguration"><span class="annot"><span class="annottext">newWarmPoolConfiguration :: WarmPoolConfiguration
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#newWarmPoolConfiguration"><span class="hs-identifier hs-var hs-var">newWarmPoolConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">WarmPoolConfiguration' :: Maybe WarmPoolStatus
+-&gt; Maybe Natural
+-&gt; Maybe Int
+-&gt; Maybe WarmPoolState
+-&gt; WarmPoolConfiguration
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:WarmPoolConfiguration' :: Maybe WarmPoolStatus
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3Astatus%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:minSize:WarmPoolConfiguration' :: Maybe Natural
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AminSize%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxGroupPreparedCapacity:WarmPoolConfiguration' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AmaxGroupPreparedCapacity%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolState:WarmPoolConfiguration' :: Maybe WarmPoolState
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3ApoolState%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">poolState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The status of a warm pool that is marked for deletion.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_status"><span class="hs-identifier hs-type">warmPoolConfiguration_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolStatus.html#WarmPoolStatus"><span class="hs-identifier hs-type">WarmPoolStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="warmPoolConfiguration_status"><span class="annot"><span class="annottext">warmPoolConfiguration_status :: (Maybe WarmPoolStatus -&gt; f (Maybe WarmPoolStatus))
+-&gt; WarmPoolConfiguration -&gt; f WarmPoolConfiguration
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_status"><span class="hs-identifier hs-var hs-var">warmPoolConfiguration_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WarmPoolConfiguration -&gt; Maybe WarmPoolStatus)
+-&gt; (WarmPoolConfiguration
+    -&gt; Maybe WarmPoolStatus -&gt; WarmPoolConfiguration)
+-&gt; Lens
+     WarmPoolConfiguration
+     WarmPoolConfiguration
+     (Maybe WarmPoolStatus)
+     (Maybe WarmPoolStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333814"><span class="annot"><span class="annottext">Maybe WarmPoolStatus
+status :: Maybe WarmPoolStatus
+$sel:status:WarmPoolConfiguration' :: WarmPoolConfiguration -&gt; Maybe WarmPoolStatus
+</span><a href="#local-6989586621679333814"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolStatus
+</span><a href="#local-6989586621679333814"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333813"><span class="annot"><span class="annottext">s :: WarmPoolConfiguration
+</span><a href="#local-6989586621679333813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333812"><span class="annot"><span class="annottext">Maybe WarmPoolStatus
+</span><a href="#local-6989586621679333812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmPoolConfiguration
+</span><a href="#local-6989586621679333813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:WarmPoolConfiguration' :: Maybe WarmPoolStatus
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3Astatus%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolStatus
+</span><a href="#local-6989586621679333812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The minimum number of instances to maintain in the warm pool.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_minSize"><span class="hs-identifier hs-type">warmPoolConfiguration_minSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="warmPoolConfiguration_minSize"><span class="annot"><span class="annottext">warmPoolConfiguration_minSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; WarmPoolConfiguration -&gt; f WarmPoolConfiguration
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_minSize"><span class="hs-identifier hs-var hs-var">warmPoolConfiguration_minSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WarmPoolConfiguration -&gt; Maybe Natural)
+-&gt; (WarmPoolConfiguration
+    -&gt; Maybe Natural -&gt; WarmPoolConfiguration)
+-&gt; Lens
+     WarmPoolConfiguration
+     WarmPoolConfiguration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333810"><span class="annot"><span class="annottext">Maybe Natural
+minSize :: Maybe Natural
+$sel:minSize:WarmPoolConfiguration' :: WarmPoolConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621679333810"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333810"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333809"><span class="annot"><span class="annottext">s :: WarmPoolConfiguration
+</span><a href="#local-6989586621679333809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333808"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmPoolConfiguration
+</span><a href="#local-6989586621679333809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minSize:WarmPoolConfiguration' :: Maybe Natural
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AminSize%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The maximum number of instances that are allowed to be in the warm pool</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- or in any state except @Terminated@ for the Auto Scaling group.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_maxGroupPreparedCapacity"><span class="hs-identifier hs-type">warmPoolConfiguration_maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="warmPoolConfiguration_maxGroupPreparedCapacity"><span class="annot"><span class="annottext">warmPoolConfiguration_maxGroupPreparedCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; WarmPoolConfiguration -&gt; f WarmPoolConfiguration
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_maxGroupPreparedCapacity"><span class="hs-identifier hs-var hs-var">warmPoolConfiguration_maxGroupPreparedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WarmPoolConfiguration -&gt; Maybe Int)
+-&gt; (WarmPoolConfiguration -&gt; Maybe Int -&gt; WarmPoolConfiguration)
+-&gt; Lens
+     WarmPoolConfiguration WarmPoolConfiguration (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333806"><span class="annot"><span class="annottext">Maybe Int
+maxGroupPreparedCapacity :: Maybe Int
+$sel:maxGroupPreparedCapacity:WarmPoolConfiguration' :: WarmPoolConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679333806"><span class="hs-identifier hs-var hs-var">maxGroupPreparedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679333806"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333805"><span class="annot"><span class="annottext">s :: WarmPoolConfiguration
+</span><a href="#local-6989586621679333805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333804"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679333804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmPoolConfiguration
+</span><a href="#local-6989586621679333805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxGroupPreparedCapacity:WarmPoolConfiguration' :: Maybe Int
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AmaxGroupPreparedCapacity%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679333804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The instance state to transition to after the lifecycle actions are</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- complete.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_poolState"><span class="hs-identifier hs-type">warmPoolConfiguration_poolState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolState.html#WarmPoolState"><span class="hs-identifier hs-type">WarmPoolState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="warmPoolConfiguration_poolState"><span class="annot"><span class="annottext">warmPoolConfiguration_poolState :: (Maybe WarmPoolState -&gt; f (Maybe WarmPoolState))
+-&gt; WarmPoolConfiguration -&gt; f WarmPoolConfiguration
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_poolState"><span class="hs-identifier hs-var hs-var">warmPoolConfiguration_poolState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WarmPoolConfiguration -&gt; Maybe WarmPoolState)
+-&gt; (WarmPoolConfiguration
+    -&gt; Maybe WarmPoolState -&gt; WarmPoolConfiguration)
+-&gt; Lens
+     WarmPoolConfiguration
+     WarmPoolConfiguration
+     (Maybe WarmPoolState)
+     (Maybe WarmPoolState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333802"><span class="annot"><span class="annottext">Maybe WarmPoolState
+poolState :: Maybe WarmPoolState
+$sel:poolState:WarmPoolConfiguration' :: WarmPoolConfiguration -&gt; Maybe WarmPoolState
+</span><a href="#local-6989586621679333802"><span class="hs-identifier hs-var hs-var">poolState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
+</span><a href="#local-6989586621679333802"><span class="hs-identifier hs-var">poolState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333801"><span class="annot"><span class="annottext">s :: WarmPoolConfiguration
+</span><a href="#local-6989586621679333801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333800"><span class="annot"><span class="annottext">Maybe WarmPoolState
+</span><a href="#local-6989586621679333800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmPoolConfiguration
+</span><a href="#local-6989586621679333801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolState:WarmPoolConfiguration' :: Maybe WarmPoolState
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3ApoolState%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">poolState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
+</span><a href="#local-6989586621679333800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679333797"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String WarmPoolConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679333795"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679333795"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">Maybe WarmPoolStatus
+-&gt; Maybe Natural
+-&gt; Maybe Int
+-&gt; Maybe WarmPoolState
+-&gt; WarmPoolConfiguration
+</span><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-var">WarmPoolConfiguration'</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">(Maybe WarmPoolStatus
+ -&gt; Maybe Natural
+ -&gt; Maybe Int
+ -&gt; Maybe WarmPoolState
+ -&gt; WarmPoolConfiguration)
+-&gt; Either String (Maybe WarmPoolStatus)
+-&gt; Either
+     String
+     (Maybe Natural
+      -&gt; Maybe Int -&gt; Maybe WarmPoolState -&gt; WarmPoolConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679333795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe WarmPoolStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Natural
+   -&gt; Maybe Int -&gt; Maybe WarmPoolState -&gt; WarmPoolConfiguration)
+-&gt; Either String (Maybe Natural)
+-&gt; Either
+     String (Maybe Int -&gt; Maybe WarmPoolState -&gt; WarmPoolConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679333795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Int -&gt; Maybe WarmPoolState -&gt; WarmPoolConfiguration)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe WarmPoolState -&gt; WarmPoolConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679333795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxGroupPreparedCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe WarmPoolState -&gt; WarmPoolConfiguration)
+-&gt; Either String (Maybe WarmPoolState)
+-&gt; Either String WarmPoolConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679333795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe WarmPoolState)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PoolState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333789"><span id="local-6989586621679333791"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333786"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span></span><span>
+</span><span id="line-101"></span></pre></body></html>

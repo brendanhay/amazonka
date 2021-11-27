@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Mobile.Types.Platform
+module Amazonka.Mobile.Types.Platform
 
 -- | Developer desktop or target mobile app or website platform.
 newtype Platform
@@ -18,28 +18,28 @@ pattern Platform_OBJC :: Platform
 pattern Platform_OSX :: Platform
 pattern Platform_SWIFT :: Platform
 pattern Platform_WINDOWS :: Platform
-instance Network.AWS.Data.XML.ToXML Network.AWS.Mobile.Types.Platform.Platform
-instance Network.AWS.Data.XML.FromXML Network.AWS.Mobile.Types.Platform.Platform
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Mobile.Types.Platform.Platform
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Mobile.Types.Platform.Platform
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Mobile.Types.Platform.Platform
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Mobile.Types.Platform.Platform
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Mobile.Types.Platform.Platform
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Mobile.Types.Platform.Platform
-instance Network.AWS.Data.Log.ToLog Network.AWS.Mobile.Types.Platform.Platform
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Mobile.Types.Platform.Platform
-instance Network.AWS.Data.Text.ToText Network.AWS.Mobile.Types.Platform.Platform
-instance Network.AWS.Data.Text.FromText Network.AWS.Mobile.Types.Platform.Platform
-instance Control.DeepSeq.NFData Network.AWS.Mobile.Types.Platform.Platform
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.Types.Platform.Platform
-instance GHC.Generics.Generic Network.AWS.Mobile.Types.Platform.Platform
-instance GHC.Classes.Ord Network.AWS.Mobile.Types.Platform.Platform
-instance GHC.Classes.Eq Network.AWS.Mobile.Types.Platform.Platform
-instance GHC.Read.Read Network.AWS.Mobile.Types.Platform.Platform
-instance GHC.Show.Show Network.AWS.Mobile.Types.Platform.Platform
+instance Amazonka.Data.XML.ToXML Amazonka.Mobile.Types.Platform.Platform
+instance Amazonka.Data.XML.FromXML Amazonka.Mobile.Types.Platform.Platform
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Mobile.Types.Platform.Platform
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Mobile.Types.Platform.Platform
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Mobile.Types.Platform.Platform
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Mobile.Types.Platform.Platform
+instance Amazonka.Data.Query.ToQuery Amazonka.Mobile.Types.Platform.Platform
+instance Amazonka.Data.Headers.ToHeader Amazonka.Mobile.Types.Platform.Platform
+instance Amazonka.Data.Log.ToLog Amazonka.Mobile.Types.Platform.Platform
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Mobile.Types.Platform.Platform
+instance Amazonka.Data.Text.ToText Amazonka.Mobile.Types.Platform.Platform
+instance Amazonka.Data.Text.FromText Amazonka.Mobile.Types.Platform.Platform
+instance Control.DeepSeq.NFData Amazonka.Mobile.Types.Platform.Platform
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.Types.Platform.Platform
+instance GHC.Generics.Generic Amazonka.Mobile.Types.Platform.Platform
+instance GHC.Classes.Ord Amazonka.Mobile.Types.Platform.Platform
+instance GHC.Classes.Eq Amazonka.Mobile.Types.Platform.Platform
+instance GHC.Read.Read Amazonka.Mobile.Types.Platform.Platform
+instance GHC.Show.Show Amazonka.Mobile.Types.Platform.Platform
 
 
-module Network.AWS.Mobile.Types.BundleDetails
+module Amazonka.Mobile.Types.BundleDetails
 
 -- | The details of the bundle.
 --   
@@ -98,16 +98,16 @@ bundleDetails_title :: Lens' BundleDetails (Maybe Text)
 
 -- | Undocumented member.
 bundleDetails_description :: Lens' BundleDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Mobile.Types.BundleDetails.BundleDetails
-instance GHC.Show.Show Network.AWS.Mobile.Types.BundleDetails.BundleDetails
-instance GHC.Read.Read Network.AWS.Mobile.Types.BundleDetails.BundleDetails
-instance GHC.Classes.Eq Network.AWS.Mobile.Types.BundleDetails.BundleDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Mobile.Types.BundleDetails.BundleDetails
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.Types.BundleDetails.BundleDetails
-instance Control.DeepSeq.NFData Network.AWS.Mobile.Types.BundleDetails.BundleDetails
+instance GHC.Generics.Generic Amazonka.Mobile.Types.BundleDetails.BundleDetails
+instance GHC.Show.Show Amazonka.Mobile.Types.BundleDetails.BundleDetails
+instance GHC.Read.Read Amazonka.Mobile.Types.BundleDetails.BundleDetails
+instance GHC.Classes.Eq Amazonka.Mobile.Types.BundleDetails.BundleDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Mobile.Types.BundleDetails.BundleDetails
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.Types.BundleDetails.BundleDetails
+instance Control.DeepSeq.NFData Amazonka.Mobile.Types.BundleDetails.BundleDetails
 
 
-module Network.AWS.Mobile.Types.ProjectState
+module Amazonka.Mobile.Types.ProjectState
 
 -- | Synchronization state for a project.
 newtype ProjectState
@@ -116,28 +116,28 @@ ProjectState' :: Text -> ProjectState
 pattern ProjectState_IMPORTING :: ProjectState
 pattern ProjectState_NORMAL :: ProjectState
 pattern ProjectState_SYNCING :: ProjectState
-instance Network.AWS.Data.XML.ToXML Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Network.AWS.Data.XML.FromXML Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Network.AWS.Data.Log.ToLog Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Network.AWS.Data.Text.ToText Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Network.AWS.Data.Text.FromText Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Control.DeepSeq.NFData Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance GHC.Generics.Generic Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance GHC.Classes.Ord Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance GHC.Classes.Eq Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance GHC.Read.Read Network.AWS.Mobile.Types.ProjectState.ProjectState
-instance GHC.Show.Show Network.AWS.Mobile.Types.ProjectState.ProjectState
+instance Amazonka.Data.XML.ToXML Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Amazonka.Data.XML.FromXML Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Amazonka.Data.Query.ToQuery Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Amazonka.Data.Headers.ToHeader Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Amazonka.Data.Log.ToLog Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Amazonka.Data.Text.ToText Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Amazonka.Data.Text.FromText Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Control.DeepSeq.NFData Amazonka.Mobile.Types.ProjectState.ProjectState
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.Types.ProjectState.ProjectState
+instance GHC.Generics.Generic Amazonka.Mobile.Types.ProjectState.ProjectState
+instance GHC.Classes.Ord Amazonka.Mobile.Types.ProjectState.ProjectState
+instance GHC.Classes.Eq Amazonka.Mobile.Types.ProjectState.ProjectState
+instance GHC.Read.Read Amazonka.Mobile.Types.ProjectState.ProjectState
+instance GHC.Show.Show Amazonka.Mobile.Types.ProjectState.ProjectState
 
 
-module Network.AWS.Mobile.Types.ProjectSummary
+module Amazonka.Mobile.Types.ProjectSummary
 
 -- | Summary information about an AWS Mobile Hub project.
 --   
@@ -172,16 +172,16 @@ projectSummary_name :: Lens' ProjectSummary (Maybe Text)
 
 -- | Unique project identifier.
 projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Mobile.Types.ProjectSummary.ProjectSummary
-instance GHC.Show.Show Network.AWS.Mobile.Types.ProjectSummary.ProjectSummary
-instance GHC.Read.Read Network.AWS.Mobile.Types.ProjectSummary.ProjectSummary
-instance GHC.Classes.Eq Network.AWS.Mobile.Types.ProjectSummary.ProjectSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Mobile.Types.ProjectSummary.ProjectSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.Types.ProjectSummary.ProjectSummary
-instance Control.DeepSeq.NFData Network.AWS.Mobile.Types.ProjectSummary.ProjectSummary
+instance GHC.Generics.Generic Amazonka.Mobile.Types.ProjectSummary.ProjectSummary
+instance GHC.Show.Show Amazonka.Mobile.Types.ProjectSummary.ProjectSummary
+instance GHC.Read.Read Amazonka.Mobile.Types.ProjectSummary.ProjectSummary
+instance GHC.Classes.Eq Amazonka.Mobile.Types.ProjectSummary.ProjectSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Mobile.Types.ProjectSummary.ProjectSummary
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.Types.ProjectSummary.ProjectSummary
+instance Control.DeepSeq.NFData Amazonka.Mobile.Types.ProjectSummary.ProjectSummary
 
 
-module Network.AWS.Mobile.Types.Resource
+module Amazonka.Mobile.Types.Resource
 
 -- | Information about an instance of an AWS resource associated with a
 --   project.
@@ -232,16 +232,16 @@ resource_attributes :: Lens' Resource (Maybe (HashMap Text Text))
 
 -- | Undocumented member.
 resource_type :: Lens' Resource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Mobile.Types.Resource.Resource
-instance GHC.Show.Show Network.AWS.Mobile.Types.Resource.Resource
-instance GHC.Read.Read Network.AWS.Mobile.Types.Resource.Resource
-instance GHC.Classes.Eq Network.AWS.Mobile.Types.Resource.Resource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Mobile.Types.Resource.Resource
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.Types.Resource.Resource
-instance Control.DeepSeq.NFData Network.AWS.Mobile.Types.Resource.Resource
+instance GHC.Generics.Generic Amazonka.Mobile.Types.Resource.Resource
+instance GHC.Show.Show Amazonka.Mobile.Types.Resource.Resource
+instance GHC.Read.Read Amazonka.Mobile.Types.Resource.Resource
+instance GHC.Classes.Eq Amazonka.Mobile.Types.Resource.Resource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Mobile.Types.Resource.Resource
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.Types.Resource.Resource
+instance Control.DeepSeq.NFData Amazonka.Mobile.Types.Resource.Resource
 
 
-module Network.AWS.Mobile.Types.ProjectDetails
+module Amazonka.Mobile.Types.ProjectDetails
 
 -- | Detailed information about an AWS Mobile Hub project.
 --   
@@ -322,16 +322,16 @@ projectDetails_projectId :: Lens' ProjectDetails (Maybe Text)
 
 -- | Date of the last modification of the project.
 projectDetails_lastUpdatedDate :: Lens' ProjectDetails (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.Mobile.Types.ProjectDetails.ProjectDetails
-instance GHC.Show.Show Network.AWS.Mobile.Types.ProjectDetails.ProjectDetails
-instance GHC.Read.Read Network.AWS.Mobile.Types.ProjectDetails.ProjectDetails
-instance GHC.Classes.Eq Network.AWS.Mobile.Types.ProjectDetails.ProjectDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Mobile.Types.ProjectDetails.ProjectDetails
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.Types.ProjectDetails.ProjectDetails
-instance Control.DeepSeq.NFData Network.AWS.Mobile.Types.ProjectDetails.ProjectDetails
+instance GHC.Generics.Generic Amazonka.Mobile.Types.ProjectDetails.ProjectDetails
+instance GHC.Show.Show Amazonka.Mobile.Types.ProjectDetails.ProjectDetails
+instance GHC.Read.Read Amazonka.Mobile.Types.ProjectDetails.ProjectDetails
+instance GHC.Classes.Eq Amazonka.Mobile.Types.ProjectDetails.ProjectDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Mobile.Types.ProjectDetails.ProjectDetails
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.Types.ProjectDetails.ProjectDetails
+instance Control.DeepSeq.NFData Amazonka.Mobile.Types.ProjectDetails.ProjectDetails
 
 
-module Network.AWS.Mobile.Types
+module Amazonka.Mobile.Types
 
 -- | API version <tt>2017-07-01</tt> of the Amazon Mobile SDK
 --   configuration.
@@ -614,7 +614,7 @@ resource_type :: Lens' Resource (Maybe Text)
 -- | Lists projects in AWS Mobile Hub.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Mobile.ListProjects
+module Amazonka.Mobile.ListProjects
 
 -- | Request structure used to request projects list in AWS Mobile Hub.
 --   
@@ -695,28 +695,28 @@ listProjectsResponse_projects :: Lens' ListProjectsResponse (Maybe [ProjectSumma
 
 -- | The response's http status code.
 listProjectsResponse_httpStatus :: Lens' ListProjectsResponse Int
-instance GHC.Generics.Generic Network.AWS.Mobile.ListProjects.ListProjects
-instance GHC.Show.Show Network.AWS.Mobile.ListProjects.ListProjects
-instance GHC.Read.Read Network.AWS.Mobile.ListProjects.ListProjects
-instance GHC.Classes.Eq Network.AWS.Mobile.ListProjects.ListProjects
-instance GHC.Generics.Generic Network.AWS.Mobile.ListProjects.ListProjectsResponse
-instance GHC.Show.Show Network.AWS.Mobile.ListProjects.ListProjectsResponse
-instance GHC.Read.Read Network.AWS.Mobile.ListProjects.ListProjectsResponse
-instance GHC.Classes.Eq Network.AWS.Mobile.ListProjects.ListProjectsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Mobile.ListProjects.ListProjects
-instance Control.DeepSeq.NFData Network.AWS.Mobile.ListProjects.ListProjectsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Mobile.ListProjects.ListProjects
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.ListProjects.ListProjects
-instance Control.DeepSeq.NFData Network.AWS.Mobile.ListProjects.ListProjects
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Mobile.ListProjects.ListProjects
-instance Network.AWS.Data.Path.ToPath Network.AWS.Mobile.ListProjects.ListProjects
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Mobile.ListProjects.ListProjects
+instance GHC.Generics.Generic Amazonka.Mobile.ListProjects.ListProjects
+instance GHC.Show.Show Amazonka.Mobile.ListProjects.ListProjects
+instance GHC.Read.Read Amazonka.Mobile.ListProjects.ListProjects
+instance GHC.Classes.Eq Amazonka.Mobile.ListProjects.ListProjects
+instance GHC.Generics.Generic Amazonka.Mobile.ListProjects.ListProjectsResponse
+instance GHC.Show.Show Amazonka.Mobile.ListProjects.ListProjectsResponse
+instance GHC.Read.Read Amazonka.Mobile.ListProjects.ListProjectsResponse
+instance GHC.Classes.Eq Amazonka.Mobile.ListProjects.ListProjectsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Mobile.ListProjects.ListProjects
+instance Control.DeepSeq.NFData Amazonka.Mobile.ListProjects.ListProjectsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Mobile.ListProjects.ListProjects
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.ListProjects.ListProjects
+instance Control.DeepSeq.NFData Amazonka.Mobile.ListProjects.ListProjects
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Mobile.ListProjects.ListProjects
+instance Amazonka.Data.Path.ToPath Amazonka.Mobile.ListProjects.ListProjects
+instance Amazonka.Data.Query.ToQuery Amazonka.Mobile.ListProjects.ListProjects
 
 
 -- | List all available bundles.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Mobile.ListBundles
+module Amazonka.Mobile.ListBundles
 
 -- | Request structure to request all available bundles.
 --   
@@ -805,29 +805,29 @@ listBundlesResponse_nextToken :: Lens' ListBundlesResponse (Maybe Text)
 
 -- | The response's http status code.
 listBundlesResponse_httpStatus :: Lens' ListBundlesResponse Int
-instance GHC.Generics.Generic Network.AWS.Mobile.ListBundles.ListBundles
-instance GHC.Show.Show Network.AWS.Mobile.ListBundles.ListBundles
-instance GHC.Read.Read Network.AWS.Mobile.ListBundles.ListBundles
-instance GHC.Classes.Eq Network.AWS.Mobile.ListBundles.ListBundles
-instance GHC.Generics.Generic Network.AWS.Mobile.ListBundles.ListBundlesResponse
-instance GHC.Show.Show Network.AWS.Mobile.ListBundles.ListBundlesResponse
-instance GHC.Read.Read Network.AWS.Mobile.ListBundles.ListBundlesResponse
-instance GHC.Classes.Eq Network.AWS.Mobile.ListBundles.ListBundlesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Mobile.ListBundles.ListBundles
-instance Control.DeepSeq.NFData Network.AWS.Mobile.ListBundles.ListBundlesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Mobile.ListBundles.ListBundles
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.ListBundles.ListBundles
-instance Control.DeepSeq.NFData Network.AWS.Mobile.ListBundles.ListBundles
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Mobile.ListBundles.ListBundles
-instance Network.AWS.Data.Path.ToPath Network.AWS.Mobile.ListBundles.ListBundles
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Mobile.ListBundles.ListBundles
+instance GHC.Generics.Generic Amazonka.Mobile.ListBundles.ListBundles
+instance GHC.Show.Show Amazonka.Mobile.ListBundles.ListBundles
+instance GHC.Read.Read Amazonka.Mobile.ListBundles.ListBundles
+instance GHC.Classes.Eq Amazonka.Mobile.ListBundles.ListBundles
+instance GHC.Generics.Generic Amazonka.Mobile.ListBundles.ListBundlesResponse
+instance GHC.Show.Show Amazonka.Mobile.ListBundles.ListBundlesResponse
+instance GHC.Read.Read Amazonka.Mobile.ListBundles.ListBundlesResponse
+instance GHC.Classes.Eq Amazonka.Mobile.ListBundles.ListBundlesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Mobile.ListBundles.ListBundles
+instance Control.DeepSeq.NFData Amazonka.Mobile.ListBundles.ListBundlesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Mobile.ListBundles.ListBundles
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.ListBundles.ListBundles
+instance Control.DeepSeq.NFData Amazonka.Mobile.ListBundles.ListBundles
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Mobile.ListBundles.ListBundles
+instance Amazonka.Data.Path.ToPath Amazonka.Mobile.ListBundles.ListBundles
+instance Amazonka.Data.Query.ToQuery Amazonka.Mobile.ListBundles.ListBundles
 
 
 -- | Exports project configuration to a snapshot which can be downloaded
 --   and shared. Note that mobile app push credentials are encrypted in
 --   exported projects, so they can only be shared successfully within the
 --   same AWS account.
-module Network.AWS.Mobile.ExportProject
+module Amazonka.Mobile.ExportProject
 
 -- | Request structure used in requests to export project configuration
 --   details.
@@ -931,28 +931,28 @@ exportProjectResponse_snapshotId :: Lens' ExportProjectResponse (Maybe Text)
 
 -- | The response's http status code.
 exportProjectResponse_httpStatus :: Lens' ExportProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.Mobile.ExportProject.ExportProject
-instance GHC.Show.Show Network.AWS.Mobile.ExportProject.ExportProject
-instance GHC.Read.Read Network.AWS.Mobile.ExportProject.ExportProject
-instance GHC.Classes.Eq Network.AWS.Mobile.ExportProject.ExportProject
-instance GHC.Generics.Generic Network.AWS.Mobile.ExportProject.ExportProjectResponse
-instance GHC.Show.Show Network.AWS.Mobile.ExportProject.ExportProjectResponse
-instance GHC.Read.Read Network.AWS.Mobile.ExportProject.ExportProjectResponse
-instance GHC.Classes.Eq Network.AWS.Mobile.ExportProject.ExportProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Mobile.ExportProject.ExportProject
-instance Control.DeepSeq.NFData Network.AWS.Mobile.ExportProject.ExportProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.ExportProject.ExportProject
-instance Control.DeepSeq.NFData Network.AWS.Mobile.ExportProject.ExportProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Mobile.ExportProject.ExportProject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Mobile.ExportProject.ExportProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.Mobile.ExportProject.ExportProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Mobile.ExportProject.ExportProject
+instance GHC.Generics.Generic Amazonka.Mobile.ExportProject.ExportProject
+instance GHC.Show.Show Amazonka.Mobile.ExportProject.ExportProject
+instance GHC.Read.Read Amazonka.Mobile.ExportProject.ExportProject
+instance GHC.Classes.Eq Amazonka.Mobile.ExportProject.ExportProject
+instance GHC.Generics.Generic Amazonka.Mobile.ExportProject.ExportProjectResponse
+instance GHC.Show.Show Amazonka.Mobile.ExportProject.ExportProjectResponse
+instance GHC.Read.Read Amazonka.Mobile.ExportProject.ExportProjectResponse
+instance GHC.Classes.Eq Amazonka.Mobile.ExportProject.ExportProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.Mobile.ExportProject.ExportProject
+instance Control.DeepSeq.NFData Amazonka.Mobile.ExportProject.ExportProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.ExportProject.ExportProject
+instance Control.DeepSeq.NFData Amazonka.Mobile.ExportProject.ExportProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Mobile.ExportProject.ExportProject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Mobile.ExportProject.ExportProject
+instance Amazonka.Data.Path.ToPath Amazonka.Mobile.ExportProject.ExportProject
+instance Amazonka.Data.Query.ToQuery Amazonka.Mobile.ExportProject.ExportProject
 
 
 -- | Generates customized software development kit (SDK) and or tool
 --   packages used to integrate mobile web or mobile app clients with
 --   backend AWS resources.
-module Network.AWS.Mobile.ExportBundle
+module Amazonka.Mobile.ExportBundle
 
 -- | Request structure used to request generation of custom SDK and tool
 --   packages required to integrate mobile web or app clients with backed
@@ -1042,26 +1042,26 @@ exportBundleResponse_downloadUrl :: Lens' ExportBundleResponse (Maybe Text)
 
 -- | The response's http status code.
 exportBundleResponse_httpStatus :: Lens' ExportBundleResponse Int
-instance GHC.Generics.Generic Network.AWS.Mobile.ExportBundle.ExportBundle
-instance GHC.Show.Show Network.AWS.Mobile.ExportBundle.ExportBundle
-instance GHC.Read.Read Network.AWS.Mobile.ExportBundle.ExportBundle
-instance GHC.Classes.Eq Network.AWS.Mobile.ExportBundle.ExportBundle
-instance GHC.Generics.Generic Network.AWS.Mobile.ExportBundle.ExportBundleResponse
-instance GHC.Show.Show Network.AWS.Mobile.ExportBundle.ExportBundleResponse
-instance GHC.Read.Read Network.AWS.Mobile.ExportBundle.ExportBundleResponse
-instance GHC.Classes.Eq Network.AWS.Mobile.ExportBundle.ExportBundleResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Mobile.ExportBundle.ExportBundle
-instance Control.DeepSeq.NFData Network.AWS.Mobile.ExportBundle.ExportBundleResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.ExportBundle.ExportBundle
-instance Control.DeepSeq.NFData Network.AWS.Mobile.ExportBundle.ExportBundle
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Mobile.ExportBundle.ExportBundle
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Mobile.ExportBundle.ExportBundle
-instance Network.AWS.Data.Path.ToPath Network.AWS.Mobile.ExportBundle.ExportBundle
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Mobile.ExportBundle.ExportBundle
+instance GHC.Generics.Generic Amazonka.Mobile.ExportBundle.ExportBundle
+instance GHC.Show.Show Amazonka.Mobile.ExportBundle.ExportBundle
+instance GHC.Read.Read Amazonka.Mobile.ExportBundle.ExportBundle
+instance GHC.Classes.Eq Amazonka.Mobile.ExportBundle.ExportBundle
+instance GHC.Generics.Generic Amazonka.Mobile.ExportBundle.ExportBundleResponse
+instance GHC.Show.Show Amazonka.Mobile.ExportBundle.ExportBundleResponse
+instance GHC.Read.Read Amazonka.Mobile.ExportBundle.ExportBundleResponse
+instance GHC.Classes.Eq Amazonka.Mobile.ExportBundle.ExportBundleResponse
+instance Amazonka.Types.AWSRequest Amazonka.Mobile.ExportBundle.ExportBundle
+instance Control.DeepSeq.NFData Amazonka.Mobile.ExportBundle.ExportBundleResponse
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.ExportBundle.ExportBundle
+instance Control.DeepSeq.NFData Amazonka.Mobile.ExportBundle.ExportBundle
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Mobile.ExportBundle.ExportBundle
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Mobile.ExportBundle.ExportBundle
+instance Amazonka.Data.Path.ToPath Amazonka.Mobile.ExportBundle.ExportBundle
+instance Amazonka.Data.Query.ToQuery Amazonka.Mobile.ExportBundle.ExportBundle
 
 
 -- | Gets details about a project in AWS Mobile Hub.
-module Network.AWS.Mobile.DescribeProject
+module Amazonka.Mobile.DescribeProject
 
 -- | Request structure used to request details about a project.
 --   
@@ -1136,25 +1136,25 @@ describeProjectResponse_details :: Lens' DescribeProjectResponse (Maybe ProjectD
 
 -- | The response's http status code.
 describeProjectResponse_httpStatus :: Lens' DescribeProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.Mobile.DescribeProject.DescribeProject
-instance GHC.Show.Show Network.AWS.Mobile.DescribeProject.DescribeProject
-instance GHC.Read.Read Network.AWS.Mobile.DescribeProject.DescribeProject
-instance GHC.Classes.Eq Network.AWS.Mobile.DescribeProject.DescribeProject
-instance GHC.Generics.Generic Network.AWS.Mobile.DescribeProject.DescribeProjectResponse
-instance GHC.Show.Show Network.AWS.Mobile.DescribeProject.DescribeProjectResponse
-instance GHC.Read.Read Network.AWS.Mobile.DescribeProject.DescribeProjectResponse
-instance GHC.Classes.Eq Network.AWS.Mobile.DescribeProject.DescribeProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Mobile.DescribeProject.DescribeProject
-instance Control.DeepSeq.NFData Network.AWS.Mobile.DescribeProject.DescribeProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.DescribeProject.DescribeProject
-instance Control.DeepSeq.NFData Network.AWS.Mobile.DescribeProject.DescribeProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Mobile.DescribeProject.DescribeProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.Mobile.DescribeProject.DescribeProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Mobile.DescribeProject.DescribeProject
+instance GHC.Generics.Generic Amazonka.Mobile.DescribeProject.DescribeProject
+instance GHC.Show.Show Amazonka.Mobile.DescribeProject.DescribeProject
+instance GHC.Read.Read Amazonka.Mobile.DescribeProject.DescribeProject
+instance GHC.Classes.Eq Amazonka.Mobile.DescribeProject.DescribeProject
+instance GHC.Generics.Generic Amazonka.Mobile.DescribeProject.DescribeProjectResponse
+instance GHC.Show.Show Amazonka.Mobile.DescribeProject.DescribeProjectResponse
+instance GHC.Read.Read Amazonka.Mobile.DescribeProject.DescribeProjectResponse
+instance GHC.Classes.Eq Amazonka.Mobile.DescribeProject.DescribeProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.Mobile.DescribeProject.DescribeProject
+instance Control.DeepSeq.NFData Amazonka.Mobile.DescribeProject.DescribeProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.DescribeProject.DescribeProject
+instance Control.DeepSeq.NFData Amazonka.Mobile.DescribeProject.DescribeProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Mobile.DescribeProject.DescribeProject
+instance Amazonka.Data.Path.ToPath Amazonka.Mobile.DescribeProject.DescribeProject
+instance Amazonka.Data.Query.ToQuery Amazonka.Mobile.DescribeProject.DescribeProject
 
 
 -- | Get the bundle details for the requested bundle id.
-module Network.AWS.Mobile.DescribeBundle
+module Amazonka.Mobile.DescribeBundle
 
 -- | Request structure to request the details of a specific bundle.
 --   
@@ -1215,25 +1215,25 @@ describeBundleResponse_details :: Lens' DescribeBundleResponse (Maybe BundleDeta
 
 -- | The response's http status code.
 describeBundleResponse_httpStatus :: Lens' DescribeBundleResponse Int
-instance GHC.Generics.Generic Network.AWS.Mobile.DescribeBundle.DescribeBundle
-instance GHC.Show.Show Network.AWS.Mobile.DescribeBundle.DescribeBundle
-instance GHC.Read.Read Network.AWS.Mobile.DescribeBundle.DescribeBundle
-instance GHC.Classes.Eq Network.AWS.Mobile.DescribeBundle.DescribeBundle
-instance GHC.Generics.Generic Network.AWS.Mobile.DescribeBundle.DescribeBundleResponse
-instance GHC.Show.Show Network.AWS.Mobile.DescribeBundle.DescribeBundleResponse
-instance GHC.Read.Read Network.AWS.Mobile.DescribeBundle.DescribeBundleResponse
-instance GHC.Classes.Eq Network.AWS.Mobile.DescribeBundle.DescribeBundleResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Mobile.DescribeBundle.DescribeBundle
-instance Control.DeepSeq.NFData Network.AWS.Mobile.DescribeBundle.DescribeBundleResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.DescribeBundle.DescribeBundle
-instance Control.DeepSeq.NFData Network.AWS.Mobile.DescribeBundle.DescribeBundle
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Mobile.DescribeBundle.DescribeBundle
-instance Network.AWS.Data.Path.ToPath Network.AWS.Mobile.DescribeBundle.DescribeBundle
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Mobile.DescribeBundle.DescribeBundle
+instance GHC.Generics.Generic Amazonka.Mobile.DescribeBundle.DescribeBundle
+instance GHC.Show.Show Amazonka.Mobile.DescribeBundle.DescribeBundle
+instance GHC.Read.Read Amazonka.Mobile.DescribeBundle.DescribeBundle
+instance GHC.Classes.Eq Amazonka.Mobile.DescribeBundle.DescribeBundle
+instance GHC.Generics.Generic Amazonka.Mobile.DescribeBundle.DescribeBundleResponse
+instance GHC.Show.Show Amazonka.Mobile.DescribeBundle.DescribeBundleResponse
+instance GHC.Read.Read Amazonka.Mobile.DescribeBundle.DescribeBundleResponse
+instance GHC.Classes.Eq Amazonka.Mobile.DescribeBundle.DescribeBundleResponse
+instance Amazonka.Types.AWSRequest Amazonka.Mobile.DescribeBundle.DescribeBundle
+instance Control.DeepSeq.NFData Amazonka.Mobile.DescribeBundle.DescribeBundleResponse
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.DescribeBundle.DescribeBundle
+instance Control.DeepSeq.NFData Amazonka.Mobile.DescribeBundle.DescribeBundle
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Mobile.DescribeBundle.DescribeBundle
+instance Amazonka.Data.Path.ToPath Amazonka.Mobile.DescribeBundle.DescribeBundle
+instance Amazonka.Data.Query.ToQuery Amazonka.Mobile.DescribeBundle.DescribeBundle
 
 
 -- | Delets a project in AWS Mobile Hub.
-module Network.AWS.Mobile.DeleteProject
+module Amazonka.Mobile.DeleteProject
 
 -- | Request structure used to request a project be deleted.
 --   
@@ -1308,25 +1308,25 @@ deleteProjectResponse_orphanedResources :: Lens' DeleteProjectResponse (Maybe [R
 
 -- | The response's http status code.
 deleteProjectResponse_httpStatus :: Lens' DeleteProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.Mobile.DeleteProject.DeleteProject
-instance GHC.Show.Show Network.AWS.Mobile.DeleteProject.DeleteProject
-instance GHC.Read.Read Network.AWS.Mobile.DeleteProject.DeleteProject
-instance GHC.Classes.Eq Network.AWS.Mobile.DeleteProject.DeleteProject
-instance GHC.Generics.Generic Network.AWS.Mobile.DeleteProject.DeleteProjectResponse
-instance GHC.Show.Show Network.AWS.Mobile.DeleteProject.DeleteProjectResponse
-instance GHC.Read.Read Network.AWS.Mobile.DeleteProject.DeleteProjectResponse
-instance GHC.Classes.Eq Network.AWS.Mobile.DeleteProject.DeleteProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Mobile.DeleteProject.DeleteProject
-instance Control.DeepSeq.NFData Network.AWS.Mobile.DeleteProject.DeleteProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.DeleteProject.DeleteProject
-instance Control.DeepSeq.NFData Network.AWS.Mobile.DeleteProject.DeleteProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Mobile.DeleteProject.DeleteProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.Mobile.DeleteProject.DeleteProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Mobile.DeleteProject.DeleteProject
+instance GHC.Generics.Generic Amazonka.Mobile.DeleteProject.DeleteProject
+instance GHC.Show.Show Amazonka.Mobile.DeleteProject.DeleteProject
+instance GHC.Read.Read Amazonka.Mobile.DeleteProject.DeleteProject
+instance GHC.Classes.Eq Amazonka.Mobile.DeleteProject.DeleteProject
+instance GHC.Generics.Generic Amazonka.Mobile.DeleteProject.DeleteProjectResponse
+instance GHC.Show.Show Amazonka.Mobile.DeleteProject.DeleteProjectResponse
+instance GHC.Read.Read Amazonka.Mobile.DeleteProject.DeleteProjectResponse
+instance GHC.Classes.Eq Amazonka.Mobile.DeleteProject.DeleteProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.Mobile.DeleteProject.DeleteProject
+instance Control.DeepSeq.NFData Amazonka.Mobile.DeleteProject.DeleteProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.DeleteProject.DeleteProject
+instance Control.DeepSeq.NFData Amazonka.Mobile.DeleteProject.DeleteProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Mobile.DeleteProject.DeleteProject
+instance Amazonka.Data.Path.ToPath Amazonka.Mobile.DeleteProject.DeleteProject
+instance Amazonka.Data.Query.ToQuery Amazonka.Mobile.DeleteProject.DeleteProject
 
 
 -- | Creates an AWS Mobile Hub project.
-module Network.AWS.Mobile.CreateProject
+module Amazonka.Mobile.CreateProject
 
 -- | Request structure used to request a project be created.
 --   
@@ -1427,26 +1427,26 @@ createProjectResponse_details :: Lens' CreateProjectResponse (Maybe ProjectDetai
 
 -- | The response's http status code.
 createProjectResponse_httpStatus :: Lens' CreateProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.Mobile.CreateProject.CreateProject
-instance GHC.Show.Show Network.AWS.Mobile.CreateProject.CreateProject
-instance GHC.Read.Read Network.AWS.Mobile.CreateProject.CreateProject
-instance GHC.Classes.Eq Network.AWS.Mobile.CreateProject.CreateProject
-instance GHC.Generics.Generic Network.AWS.Mobile.CreateProject.CreateProjectResponse
-instance GHC.Show.Show Network.AWS.Mobile.CreateProject.CreateProjectResponse
-instance GHC.Read.Read Network.AWS.Mobile.CreateProject.CreateProjectResponse
-instance GHC.Classes.Eq Network.AWS.Mobile.CreateProject.CreateProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Mobile.CreateProject.CreateProject
-instance Control.DeepSeq.NFData Network.AWS.Mobile.CreateProject.CreateProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.CreateProject.CreateProject
-instance Control.DeepSeq.NFData Network.AWS.Mobile.CreateProject.CreateProject
-instance Network.AWS.Data.Body.ToBody Network.AWS.Mobile.CreateProject.CreateProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Mobile.CreateProject.CreateProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.Mobile.CreateProject.CreateProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Mobile.CreateProject.CreateProject
+instance GHC.Generics.Generic Amazonka.Mobile.CreateProject.CreateProject
+instance GHC.Show.Show Amazonka.Mobile.CreateProject.CreateProject
+instance GHC.Read.Read Amazonka.Mobile.CreateProject.CreateProject
+instance GHC.Classes.Eq Amazonka.Mobile.CreateProject.CreateProject
+instance GHC.Generics.Generic Amazonka.Mobile.CreateProject.CreateProjectResponse
+instance GHC.Show.Show Amazonka.Mobile.CreateProject.CreateProjectResponse
+instance GHC.Read.Read Amazonka.Mobile.CreateProject.CreateProjectResponse
+instance GHC.Classes.Eq Amazonka.Mobile.CreateProject.CreateProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.Mobile.CreateProject.CreateProject
+instance Control.DeepSeq.NFData Amazonka.Mobile.CreateProject.CreateProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.CreateProject.CreateProject
+instance Control.DeepSeq.NFData Amazonka.Mobile.CreateProject.CreateProject
+instance Amazonka.Data.Body.ToBody Amazonka.Mobile.CreateProject.CreateProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Mobile.CreateProject.CreateProject
+instance Amazonka.Data.Path.ToPath Amazonka.Mobile.CreateProject.CreateProject
+instance Amazonka.Data.Query.ToQuery Amazonka.Mobile.CreateProject.CreateProject
 
 
 -- | Update an existing project.
-module Network.AWS.Mobile.UpdateProject
+module Amazonka.Mobile.UpdateProject
 
 -- | Request structure used for requests to update project configuration.
 --   
@@ -1523,25 +1523,25 @@ updateProjectResponse_details :: Lens' UpdateProjectResponse (Maybe ProjectDetai
 
 -- | The response's http status code.
 updateProjectResponse_httpStatus :: Lens' UpdateProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.Mobile.UpdateProject.UpdateProject
-instance GHC.Show.Show Network.AWS.Mobile.UpdateProject.UpdateProject
-instance GHC.Read.Read Network.AWS.Mobile.UpdateProject.UpdateProject
-instance GHC.Classes.Eq Network.AWS.Mobile.UpdateProject.UpdateProject
-instance GHC.Generics.Generic Network.AWS.Mobile.UpdateProject.UpdateProjectResponse
-instance GHC.Show.Show Network.AWS.Mobile.UpdateProject.UpdateProjectResponse
-instance GHC.Read.Read Network.AWS.Mobile.UpdateProject.UpdateProjectResponse
-instance GHC.Classes.Eq Network.AWS.Mobile.UpdateProject.UpdateProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Mobile.UpdateProject.UpdateProject
-instance Control.DeepSeq.NFData Network.AWS.Mobile.UpdateProject.UpdateProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Mobile.UpdateProject.UpdateProject
-instance Control.DeepSeq.NFData Network.AWS.Mobile.UpdateProject.UpdateProject
-instance Network.AWS.Data.Body.ToBody Network.AWS.Mobile.UpdateProject.UpdateProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Mobile.UpdateProject.UpdateProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.Mobile.UpdateProject.UpdateProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Mobile.UpdateProject.UpdateProject
+instance GHC.Generics.Generic Amazonka.Mobile.UpdateProject.UpdateProject
+instance GHC.Show.Show Amazonka.Mobile.UpdateProject.UpdateProject
+instance GHC.Read.Read Amazonka.Mobile.UpdateProject.UpdateProject
+instance GHC.Classes.Eq Amazonka.Mobile.UpdateProject.UpdateProject
+instance GHC.Generics.Generic Amazonka.Mobile.UpdateProject.UpdateProjectResponse
+instance GHC.Show.Show Amazonka.Mobile.UpdateProject.UpdateProjectResponse
+instance GHC.Read.Read Amazonka.Mobile.UpdateProject.UpdateProjectResponse
+instance GHC.Classes.Eq Amazonka.Mobile.UpdateProject.UpdateProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.Mobile.UpdateProject.UpdateProject
+instance Control.DeepSeq.NFData Amazonka.Mobile.UpdateProject.UpdateProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.Mobile.UpdateProject.UpdateProject
+instance Control.DeepSeq.NFData Amazonka.Mobile.UpdateProject.UpdateProject
+instance Amazonka.Data.Body.ToBody Amazonka.Mobile.UpdateProject.UpdateProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Mobile.UpdateProject.UpdateProject
+instance Amazonka.Data.Path.ToPath Amazonka.Mobile.UpdateProject.UpdateProject
+instance Amazonka.Data.Query.ToQuery Amazonka.Mobile.UpdateProject.UpdateProject
 
 
-module Network.AWS.Mobile.Lens
+module Amazonka.Mobile.Lens
 
 -- | Pagination token. Set to null to start listing projects from start. If
 --   non-null pagination token is returned in a result, then pass its value
@@ -1753,7 +1753,7 @@ resource_attributes :: Lens' Resource (Maybe (HashMap Text Text))
 resource_type :: Lens' Resource (Maybe Text)
 
 
-module Network.AWS.Mobile.Waiters
+module Amazonka.Mobile.Waiters
 
 
 -- | Derived from API version <tt>2017-07-01</tt> of the AWS service
@@ -1763,7 +1763,7 @@ module Network.AWS.Mobile.Waiters
 --   capabilities required to configure AWS resources and bootstrap their
 --   developer desktop projects with the necessary SDKs, constants, tools
 --   and samples to make use of those resources.
-module Network.AWS.Mobile
+module Amazonka.Mobile
 
 -- | API version <tt>2017-07-01</tt> of the Amazon Mobile SDK
 --   configuration.

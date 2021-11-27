@@ -1,0 +1,959 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DMS.Types.ReplicationTaskAssessmentRun</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DMS.Types.ReplicationTaskAssessmentRun</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRunProgress.html"><span class="hs-identifier">Amazonka.DMS.Types.ReplicationTaskAssessmentRunProgress</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides information that describes a premigration assessment run that</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- you have started using the @StartReplicationTaskAssessmentRun@</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Some of the information appears based on other operations that can</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- return the @ReplicationTaskAssessmentRun@ object.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newReplicationTaskAssessmentRun' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679437182"><span id="local-6989586621679437183"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationTaskAssessmentRun"><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-var">ReplicationTaskAssessmentRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationTaskAssessmentRun%27"><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">ReplicationTaskAssessmentRun'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Assessment run status.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- This status can have one of the following values:</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @\&quot;cancelling\&quot;@ &#8211; The assessment run was canceled by the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     @CancelReplicationTaskAssessmentRun@ operation.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @\&quot;deleting\&quot;@ &#8211; The assessment run was deleted by the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     @DeleteReplicationTaskAssessmentRun@ operation.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @\&quot;failed\&quot;@ &#8211; At least one individual assessment completed with a</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     @failed@ status.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   @\&quot;error-provisioning\&quot;@ &#8211; An internal error occurred while</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     resources were provisioned (during @provisioning@ status).</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   @\&quot;error-executing\&quot;@ &#8211; An internal error occurred while individual</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     assessments ran (during @running@ status).</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   @\&quot;invalid state\&quot;@ &#8211; The assessment run is in an unknown state.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- -   @\&quot;passed\&quot;@ &#8211; All individual assessments have completed, and none</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     has a @failed@ status.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @\&quot;provisioning\&quot;@ &#8211; Resources required to run individual</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     assessments are being provisioned.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @\&quot;running\&quot;@ &#8211; Individual assessments are being run.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   @\&quot;starting\&quot;@ &#8211; The assessment run is starting, but resources are</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     not yet being provisioned for individual assessments.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Astatus%3AReplicationTaskAssessmentRun%27"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3Astatus%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | ARN of the service role used to start the assessment run using the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @StartReplicationTaskAssessmentRun@ operation. The role must allow the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @iam:PassRole@ action.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AserviceAccessRoleArn%3AReplicationTaskAssessmentRun%27"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AserviceAccessRoleArn%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Date on which the assessment run was created using the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @StartReplicationTaskAssessmentRun@ operation.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AreplicationTaskAssessmentRunCreationDate%3AReplicationTaskAssessmentRun%27"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun -&gt; Maybe POSIX
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AreplicationTaskAssessmentRunCreationDate%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRunCreationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Indication of the completion progress for the individual assessments</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- specified to run.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AassessmentProgress%3AReplicationTaskAssessmentRun%27"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+-&gt; Maybe ReplicationTaskAssessmentRunProgress
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AassessmentProgress%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var hs-var">assessmentProgress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRunProgress.html#ReplicationTaskAssessmentRunProgress"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRunProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | ARN of the KMS encryption key used to encrypt the assessment run</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AresultKmsKeyArn%3AReplicationTaskAssessmentRun%27"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AresultKmsKeyArn%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var hs-var">resultKmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | ARN of the migration task associated with this premigration assessment</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- run.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AreplicationTaskArn%3AReplicationTaskAssessmentRun%27"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AreplicationTaskArn%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var hs-var">replicationTaskArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Amazon S3 bucket where DMS stores the results of this assessment run.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AresultLocationBucket%3AReplicationTaskAssessmentRun%27"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AresultLocationBucket%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var hs-var">resultLocationBucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Folder in an Amazon S3 bucket where DMS stores the results of this</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- assessment run.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AresultLocationFolder%3AReplicationTaskAssessmentRun%27"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AresultLocationFolder%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var hs-var">resultLocationFolder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | Encryption mode used to encrypt the assessment run results.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AresultEncryptionMode%3AReplicationTaskAssessmentRun%27"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AresultEncryptionMode%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var hs-var">resultEncryptionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Unique name of the assessment run.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AassessmentRunName%3AReplicationTaskAssessmentRun%27"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AassessmentRunName%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var hs-var">assessmentRunName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Amazon Resource Name (ARN) of this assessment run.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AreplicationTaskAssessmentRunArn%3AReplicationTaskAssessmentRun%27"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AreplicationTaskAssessmentRunArn%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRunArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | Last message generated by an individual assessment failure.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AlastFailureMessage%3AReplicationTaskAssessmentRun%27"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AlastFailureMessage%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var hs-var">lastFailureMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437165"><span id="local-6989586621679437167"><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+-&gt; ReplicationTaskAssessmentRun -&gt; Bool
+(ReplicationTaskAssessmentRun
+ -&gt; ReplicationTaskAssessmentRun -&gt; Bool)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; ReplicationTaskAssessmentRun -&gt; Bool)
+-&gt; Eq ReplicationTaskAssessmentRun
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplicationTaskAssessmentRun
+-&gt; ReplicationTaskAssessmentRun -&gt; Bool
+$c/= :: ReplicationTaskAssessmentRun
+-&gt; ReplicationTaskAssessmentRun -&gt; Bool
+== :: ReplicationTaskAssessmentRun
+-&gt; ReplicationTaskAssessmentRun -&gt; Bool
+$c== :: ReplicationTaskAssessmentRun
+-&gt; ReplicationTaskAssessmentRun -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437156"><span id="local-6989586621679437158"><span id="local-6989586621679437160"><span id="local-6989586621679437162"><span class="annot"><span class="annottext">ReadPrec [ReplicationTaskAssessmentRun]
+ReadPrec ReplicationTaskAssessmentRun
+Int -&gt; ReadS ReplicationTaskAssessmentRun
+ReadS [ReplicationTaskAssessmentRun]
+(Int -&gt; ReadS ReplicationTaskAssessmentRun)
+-&gt; ReadS [ReplicationTaskAssessmentRun]
+-&gt; ReadPrec ReplicationTaskAssessmentRun
+-&gt; ReadPrec [ReplicationTaskAssessmentRun]
+-&gt; Read ReplicationTaskAssessmentRun
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplicationTaskAssessmentRun]
+$creadListPrec :: ReadPrec [ReplicationTaskAssessmentRun]
+readPrec :: ReadPrec ReplicationTaskAssessmentRun
+$creadPrec :: ReadPrec ReplicationTaskAssessmentRun
+readList :: ReadS [ReplicationTaskAssessmentRun]
+$creadList :: ReadS [ReplicationTaskAssessmentRun]
+readsPrec :: Int -&gt; ReadS ReplicationTaskAssessmentRun
+$creadsPrec :: Int -&gt; ReadS ReplicationTaskAssessmentRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437149"><span id="local-6989586621679437151"><span id="local-6989586621679437153"><span class="annot"><span class="annottext">Int -&gt; ReplicationTaskAssessmentRun -&gt; ShowS
+[ReplicationTaskAssessmentRun] -&gt; ShowS
+ReplicationTaskAssessmentRun -&gt; String
+(Int -&gt; ReplicationTaskAssessmentRun -&gt; ShowS)
+-&gt; (ReplicationTaskAssessmentRun -&gt; String)
+-&gt; ([ReplicationTaskAssessmentRun] -&gt; ShowS)
+-&gt; Show ReplicationTaskAssessmentRun
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplicationTaskAssessmentRun] -&gt; ShowS
+$cshowList :: [ReplicationTaskAssessmentRun] -&gt; ShowS
+show :: ReplicationTaskAssessmentRun -&gt; String
+$cshow :: ReplicationTaskAssessmentRun -&gt; String
+showsPrec :: Int -&gt; ReplicationTaskAssessmentRun -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplicationTaskAssessmentRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ReplicationTaskAssessmentRun -&gt; Rep ReplicationTaskAssessmentRun x)
+-&gt; (forall x.
+    Rep ReplicationTaskAssessmentRun x -&gt; ReplicationTaskAssessmentRun)
+-&gt; Generic ReplicationTaskAssessmentRun
+forall x.
+Rep ReplicationTaskAssessmentRun x -&gt; ReplicationTaskAssessmentRun
+forall x.
+ReplicationTaskAssessmentRun -&gt; Rep ReplicationTaskAssessmentRun x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ReplicationTaskAssessmentRun x -&gt; ReplicationTaskAssessmentRun
+$cfrom :: forall x.
+ReplicationTaskAssessmentRun -&gt; Rep ReplicationTaskAssessmentRun x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Create a value of 'ReplicationTaskAssessmentRun' with all optional fields omitted.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'status', 'replicationTaskAssessmentRun_status' - Assessment run status.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- This status can have one of the following values:</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   @\&quot;cancelling\&quot;@ &#8211; The assessment run was canceled by the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     @CancelReplicationTaskAssessmentRun@ operation.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   @\&quot;deleting\&quot;@ &#8211; The assessment run was deleted by the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     @DeleteReplicationTaskAssessmentRun@ operation.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @\&quot;failed\&quot;@ &#8211; At least one individual assessment completed with a</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     @failed@ status.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   @\&quot;error-provisioning\&quot;@ &#8211; An internal error occurred while</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     resources were provisioned (during @provisioning@ status).</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   @\&quot;error-executing\&quot;@ &#8211; An internal error occurred while individual</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     assessments ran (during @running@ status).</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -   @\&quot;invalid state\&quot;@ &#8211; The assessment run is in an unknown state.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   @\&quot;passed\&quot;@ &#8211; All individual assessments have completed, and none</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     has a @failed@ status.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   @\&quot;provisioning\&quot;@ &#8211; Resources required to run individual</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--     assessments are being provisioned.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   @\&quot;running\&quot;@ &#8211; Individual assessments are being run.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   @\&quot;starting\&quot;@ &#8211; The assessment run is starting, but resources are</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--     not yet being provisioned for individual assessments.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'serviceAccessRoleArn', 'replicationTaskAssessmentRun_serviceAccessRoleArn' - ARN of the service role used to start the assessment run using the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @StartReplicationTaskAssessmentRun@ operation. The role must allow the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- @iam:PassRole@ action.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'replicationTaskAssessmentRunCreationDate', 'replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate' - Date on which the assessment run was created using the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @StartReplicationTaskAssessmentRun@ operation.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'assessmentProgress', 'replicationTaskAssessmentRun_assessmentProgress' - Indication of the completion progress for the individual assessments</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- specified to run.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'resultKmsKeyArn', 'replicationTaskAssessmentRun_resultKmsKeyArn' - ARN of the KMS encryption key used to encrypt the assessment run</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'replicationTaskArn', 'replicationTaskAssessmentRun_replicationTaskArn' - ARN of the migration task associated with this premigration assessment</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- run.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'resultLocationBucket', 'replicationTaskAssessmentRun_resultLocationBucket' - Amazon S3 bucket where DMS stores the results of this assessment run.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'resultLocationFolder', 'replicationTaskAssessmentRun_resultLocationFolder' - Folder in an Amazon S3 bucket where DMS stores the results of this</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- assessment run.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'resultEncryptionMode', 'replicationTaskAssessmentRun_resultEncryptionMode' - Encryption mode used to encrypt the assessment run results.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'assessmentRunName', 'replicationTaskAssessmentRun_assessmentRunName' - Unique name of the assessment run.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'replicationTaskAssessmentRunArn', 'replicationTaskAssessmentRun_replicationTaskAssessmentRunArn' - Amazon Resource Name (ARN) of this assessment run.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'lastFailureMessage', 'replicationTaskAssessmentRun_lastFailureMessage' - Last message generated by an individual assessment failure.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#newReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">newReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span>
+</span><span id="line-170"></span><span id="newReplicationTaskAssessmentRun"><span class="annot"><span class="annottext">newReplicationTaskAssessmentRun :: ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#newReplicationTaskAssessmentRun"><span class="hs-identifier hs-var hs-var">newReplicationTaskAssessmentRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ReplicationTaskAssessmentRunProgress
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3Astatus%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AserviceAccessRoleArn%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationTaskAssessmentRunCreationDate:ReplicationTaskAssessmentRun' :: Maybe POSIX
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AreplicationTaskAssessmentRunCreationDate%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">replicationTaskAssessmentRunCreationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentProgress:ReplicationTaskAssessmentRun' :: Maybe ReplicationTaskAssessmentRunProgress
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AassessmentProgress%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">assessmentProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTaskAssessmentRunProgress
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultKmsKeyArn:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AresultKmsKeyArn%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">resultKmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationTaskArn:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AreplicationTaskArn%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultLocationBucket:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AresultLocationBucket%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">resultLocationBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultLocationFolder:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AresultLocationFolder%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">resultLocationFolder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultEncryptionMode:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AresultEncryptionMode%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">resultEncryptionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentRunName:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AassessmentRunName%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">assessmentRunName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationTaskAssessmentRunArn:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AreplicationTaskAssessmentRunArn%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">replicationTaskAssessmentRunArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastFailureMessage:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AlastFailureMessage%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">lastFailureMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Assessment run status.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- This status can have one of the following values:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   @\&quot;cancelling\&quot;@ &#8211; The assessment run was canceled by the</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     @CancelReplicationTaskAssessmentRun@ operation.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- -   @\&quot;deleting\&quot;@ &#8211; The assessment run was deleted by the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     @DeleteReplicationTaskAssessmentRun@ operation.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   @\&quot;failed\&quot;@ &#8211; At least one individual assessment completed with a</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     @failed@ status.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- -   @\&quot;error-provisioning\&quot;@ &#8211; An internal error occurred while</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--     resources were provisioned (during @provisioning@ status).</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   @\&quot;error-executing\&quot;@ &#8211; An internal error occurred while individual</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--     assessments ran (during @running@ status).</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- -   @\&quot;invalid state\&quot;@ &#8211; The assessment run is in an unknown state.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- -   @\&quot;passed\&quot;@ &#8211; All individual assessments have completed, and none</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--     has a @failed@ status.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- -   @\&quot;provisioning\&quot;@ &#8211; Resources required to run individual</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     assessments are being provisioned.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- -   @\&quot;running\&quot;@ &#8211; Individual assessments are being run.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- -   @\&quot;starting\&quot;@ &#8211; The assessment run is starting, but resources are</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--     not yet being provisioned for individual assessments.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_status"><span class="hs-identifier hs-type">replicationTaskAssessmentRun_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="replicationTaskAssessmentRun_status"><span class="annot"><span class="annottext">replicationTaskAssessmentRun_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_status"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRun_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskAssessmentRun -&gt; Maybe Text)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Lens
+     ReplicationTaskAssessmentRun
+     ReplicationTaskAssessmentRun
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437140"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:ReplicationTaskAssessmentRun' :: ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="#local-6989586621679437140"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437140"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437139"><span class="annot"><span class="annottext">s :: ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3Astatus%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | ARN of the service role used to start the assessment run using the</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- @StartReplicationTaskAssessmentRun@ operation. The role must allow the</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- @iam:PassRole@ action.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_serviceAccessRoleArn"><span class="hs-identifier hs-type">replicationTaskAssessmentRun_serviceAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="replicationTaskAssessmentRun_serviceAccessRoleArn"><span class="annot"><span class="annottext">replicationTaskAssessmentRun_serviceAccessRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_serviceAccessRoleArn"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRun_serviceAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskAssessmentRun -&gt; Maybe Text)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Lens
+     ReplicationTaskAssessmentRun
+     ReplicationTaskAssessmentRun
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437136"><span class="annot"><span class="annottext">Maybe Text
+serviceAccessRoleArn :: Maybe Text
+$sel:serviceAccessRoleArn:ReplicationTaskAssessmentRun' :: ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="#local-6989586621679437136"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437136"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437135"><span class="annot"><span class="annottext">s :: ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437134"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AserviceAccessRoleArn%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | Date on which the assessment run was created using the</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- @StartReplicationTaskAssessmentRun@ operation.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate"><span class="hs-identifier hs-type">replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate"><span class="annot"><span class="annottext">replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskAssessmentRun -&gt; Maybe POSIX)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; Maybe POSIX -&gt; ReplicationTaskAssessmentRun)
+-&gt; Lens
+     ReplicationTaskAssessmentRun
+     ReplicationTaskAssessmentRun
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437132"><span class="annot"><span class="annottext">Maybe POSIX
+replicationTaskAssessmentRunCreationDate :: Maybe POSIX
+$sel:replicationTaskAssessmentRunCreationDate:ReplicationTaskAssessmentRun' :: ReplicationTaskAssessmentRun -&gt; Maybe POSIX
+</span><a href="#local-6989586621679437132"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRunCreationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437132"><span class="hs-identifier hs-var">replicationTaskAssessmentRunCreationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437131"><span class="annot"><span class="annottext">s :: ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437130"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskAssessmentRunCreationDate:ReplicationTaskAssessmentRun' :: Maybe POSIX
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AreplicationTaskAssessmentRunCreationDate%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">replicationTaskAssessmentRunCreationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicationTaskAssessmentRun
+-&gt; f ReplicationTaskAssessmentRun
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | Indication of the completion progress for the individual assessments</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- specified to run.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_assessmentProgress"><span class="hs-identifier hs-type">replicationTaskAssessmentRun_assessmentProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRunProgress.html#ReplicationTaskAssessmentRunProgress"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRunProgress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="replicationTaskAssessmentRun_assessmentProgress"><span class="annot"><span class="annottext">replicationTaskAssessmentRun_assessmentProgress :: (Maybe ReplicationTaskAssessmentRunProgress
+ -&gt; f (Maybe ReplicationTaskAssessmentRunProgress))
+-&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_assessmentProgress"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRun_assessmentProgress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskAssessmentRun
+ -&gt; Maybe ReplicationTaskAssessmentRunProgress)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; Maybe ReplicationTaskAssessmentRunProgress
+    -&gt; ReplicationTaskAssessmentRun)
+-&gt; Lens
+     ReplicationTaskAssessmentRun
+     ReplicationTaskAssessmentRun
+     (Maybe ReplicationTaskAssessmentRunProgress)
+     (Maybe ReplicationTaskAssessmentRunProgress)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437125"><span class="annot"><span class="annottext">Maybe ReplicationTaskAssessmentRunProgress
+assessmentProgress :: Maybe ReplicationTaskAssessmentRunProgress
+$sel:assessmentProgress:ReplicationTaskAssessmentRun' :: ReplicationTaskAssessmentRun
+-&gt; Maybe ReplicationTaskAssessmentRunProgress
+</span><a href="#local-6989586621679437125"><span class="hs-identifier hs-var hs-var">assessmentProgress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTaskAssessmentRunProgress
+</span><a href="#local-6989586621679437125"><span class="hs-identifier hs-var">assessmentProgress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437124"><span class="annot"><span class="annottext">s :: ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437123"><span class="annot"><span class="annottext">Maybe ReplicationTaskAssessmentRunProgress
+</span><a href="#local-6989586621679437123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentProgress:ReplicationTaskAssessmentRun' :: Maybe ReplicationTaskAssessmentRunProgress
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AassessmentProgress%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">assessmentProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTaskAssessmentRunProgress
+</span><a href="#local-6989586621679437123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | ARN of the KMS encryption key used to encrypt the assessment run</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_resultKmsKeyArn"><span class="hs-identifier hs-type">replicationTaskAssessmentRun_resultKmsKeyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="replicationTaskAssessmentRun_resultKmsKeyArn"><span class="annot"><span class="annottext">replicationTaskAssessmentRun_resultKmsKeyArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_resultKmsKeyArn"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRun_resultKmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskAssessmentRun -&gt; Maybe Text)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Lens
+     ReplicationTaskAssessmentRun
+     ReplicationTaskAssessmentRun
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437121"><span class="annot"><span class="annottext">Maybe Text
+resultKmsKeyArn :: Maybe Text
+$sel:resultKmsKeyArn:ReplicationTaskAssessmentRun' :: ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="#local-6989586621679437121"><span class="hs-identifier hs-var hs-var">resultKmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437121"><span class="hs-identifier hs-var">resultKmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437120"><span class="annot"><span class="annottext">s :: ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437119"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultKmsKeyArn:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AresultKmsKeyArn%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">resultKmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | ARN of the migration task associated with this premigration assessment</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- run.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_replicationTaskArn"><span class="hs-identifier hs-type">replicationTaskAssessmentRun_replicationTaskArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="replicationTaskAssessmentRun_replicationTaskArn"><span class="annot"><span class="annottext">replicationTaskAssessmentRun_replicationTaskArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_replicationTaskArn"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRun_replicationTaskArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskAssessmentRun -&gt; Maybe Text)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Lens
+     ReplicationTaskAssessmentRun
+     ReplicationTaskAssessmentRun
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437117"><span class="annot"><span class="annottext">Maybe Text
+replicationTaskArn :: Maybe Text
+$sel:replicationTaskArn:ReplicationTaskAssessmentRun' :: ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="#local-6989586621679437117"><span class="hs-identifier hs-var hs-var">replicationTaskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437117"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437116"><span class="annot"><span class="annottext">s :: ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437115"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskArn:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AreplicationTaskArn%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | Amazon S3 bucket where DMS stores the results of this assessment run.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_resultLocationBucket"><span class="hs-identifier hs-type">replicationTaskAssessmentRun_resultLocationBucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="replicationTaskAssessmentRun_resultLocationBucket"><span class="annot"><span class="annottext">replicationTaskAssessmentRun_resultLocationBucket :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_resultLocationBucket"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRun_resultLocationBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskAssessmentRun -&gt; Maybe Text)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Lens
+     ReplicationTaskAssessmentRun
+     ReplicationTaskAssessmentRun
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437113"><span class="annot"><span class="annottext">Maybe Text
+resultLocationBucket :: Maybe Text
+$sel:resultLocationBucket:ReplicationTaskAssessmentRun' :: ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="#local-6989586621679437113"><span class="hs-identifier hs-var hs-var">resultLocationBucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437113"><span class="hs-identifier hs-var">resultLocationBucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437112"><span class="annot"><span class="annottext">s :: ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437111"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultLocationBucket:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AresultLocationBucket%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">resultLocationBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | Folder in an Amazon S3 bucket where DMS stores the results of this</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- assessment run.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_resultLocationFolder"><span class="hs-identifier hs-type">replicationTaskAssessmentRun_resultLocationFolder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="replicationTaskAssessmentRun_resultLocationFolder"><span class="annot"><span class="annottext">replicationTaskAssessmentRun_resultLocationFolder :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_resultLocationFolder"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRun_resultLocationFolder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskAssessmentRun -&gt; Maybe Text)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Lens
+     ReplicationTaskAssessmentRun
+     ReplicationTaskAssessmentRun
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437109"><span class="annot"><span class="annottext">Maybe Text
+resultLocationFolder :: Maybe Text
+$sel:resultLocationFolder:ReplicationTaskAssessmentRun' :: ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="#local-6989586621679437109"><span class="hs-identifier hs-var hs-var">resultLocationFolder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437109"><span class="hs-identifier hs-var">resultLocationFolder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437108"><span class="annot"><span class="annottext">s :: ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437107"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultLocationFolder:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AresultLocationFolder%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">resultLocationFolder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | Encryption mode used to encrypt the assessment run results.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_resultEncryptionMode"><span class="hs-identifier hs-type">replicationTaskAssessmentRun_resultEncryptionMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="replicationTaskAssessmentRun_resultEncryptionMode"><span class="annot"><span class="annottext">replicationTaskAssessmentRun_resultEncryptionMode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_resultEncryptionMode"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRun_resultEncryptionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskAssessmentRun -&gt; Maybe Text)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Lens
+     ReplicationTaskAssessmentRun
+     ReplicationTaskAssessmentRun
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437105"><span class="annot"><span class="annottext">Maybe Text
+resultEncryptionMode :: Maybe Text
+$sel:resultEncryptionMode:ReplicationTaskAssessmentRun' :: ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="#local-6989586621679437105"><span class="hs-identifier hs-var hs-var">resultEncryptionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437105"><span class="hs-identifier hs-var">resultEncryptionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437104"><span class="annot"><span class="annottext">s :: ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437103"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultEncryptionMode:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AresultEncryptionMode%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">resultEncryptionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | Unique name of the assessment run.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_assessmentRunName"><span class="hs-identifier hs-type">replicationTaskAssessmentRun_assessmentRunName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="replicationTaskAssessmentRun_assessmentRunName"><span class="annot"><span class="annottext">replicationTaskAssessmentRun_assessmentRunName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_assessmentRunName"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRun_assessmentRunName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskAssessmentRun -&gt; Maybe Text)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Lens
+     ReplicationTaskAssessmentRun
+     ReplicationTaskAssessmentRun
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437101"><span class="annot"><span class="annottext">Maybe Text
+assessmentRunName :: Maybe Text
+$sel:assessmentRunName:ReplicationTaskAssessmentRun' :: ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="#local-6989586621679437101"><span class="hs-identifier hs-var hs-var">assessmentRunName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437101"><span class="hs-identifier hs-var">assessmentRunName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437100"><span class="annot"><span class="annottext">s :: ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437099"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentRunName:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AassessmentRunName%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">assessmentRunName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of this assessment run.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_replicationTaskAssessmentRunArn"><span class="hs-identifier hs-type">replicationTaskAssessmentRun_replicationTaskAssessmentRunArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="replicationTaskAssessmentRun_replicationTaskAssessmentRunArn"><span class="annot"><span class="annottext">replicationTaskAssessmentRun_replicationTaskAssessmentRunArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_replicationTaskAssessmentRunArn"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRun_replicationTaskAssessmentRunArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskAssessmentRun -&gt; Maybe Text)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Lens
+     ReplicationTaskAssessmentRun
+     ReplicationTaskAssessmentRun
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437097"><span class="annot"><span class="annottext">Maybe Text
+replicationTaskAssessmentRunArn :: Maybe Text
+$sel:replicationTaskAssessmentRunArn:ReplicationTaskAssessmentRun' :: ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="#local-6989586621679437097"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRunArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437097"><span class="hs-identifier hs-var">replicationTaskAssessmentRunArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437096"><span class="annot"><span class="annottext">s :: ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskAssessmentRunArn:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AreplicationTaskAssessmentRunArn%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">replicationTaskAssessmentRunArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | Last message generated by an individual assessment failure.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_lastFailureMessage"><span class="hs-identifier hs-type">replicationTaskAssessmentRun_lastFailureMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="replicationTaskAssessmentRun_lastFailureMessage"><span class="annot"><span class="annottext">replicationTaskAssessmentRun_lastFailureMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationTaskAssessmentRun -&gt; f ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#replicationTaskAssessmentRun_lastFailureMessage"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRun_lastFailureMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskAssessmentRun -&gt; Maybe Text)
+-&gt; (ReplicationTaskAssessmentRun
+    -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Lens
+     ReplicationTaskAssessmentRun
+     ReplicationTaskAssessmentRun
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437093"><span class="annot"><span class="annottext">Maybe Text
+lastFailureMessage :: Maybe Text
+$sel:lastFailureMessage:ReplicationTaskAssessmentRun' :: ReplicationTaskAssessmentRun -&gt; Maybe Text
+</span><a href="#local-6989586621679437093"><span class="hs-identifier hs-var hs-var">lastFailureMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437093"><span class="hs-identifier hs-var">lastFailureMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437092"><span class="annot"><span class="annottext">s :: ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437091"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskAssessmentRun
+</span><a href="#local-6989586621679437092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastFailureMessage:ReplicationTaskAssessmentRun' :: Maybe Text
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#%24sel%3AlastFailureMessage%3AReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">lastFailureMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437088"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679437086"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicationTaskAssessmentRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ReplicationTaskAssessmentRun)
+-&gt; Value
+-&gt; Parser ReplicationTaskAssessmentRun
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-277"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ReplicationTaskAssessmentRun&quot;</span></span><span>
+</span><span id="line-278"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679437083"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-279"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ReplicationTaskAssessmentRunProgress
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ReplicationTaskAssessmentRun
+</span><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun%27"><span class="hs-identifier hs-var">ReplicationTaskAssessmentRun'</span></a></span><span>
+</span><span id="line-280"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe ReplicationTaskAssessmentRunProgress
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ReplicationTaskAssessmentRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ReplicationTaskAssessmentRunProgress
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ReplicationTaskAssessmentRun)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ReplicationTaskAssessmentRunProgress
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ReplicationTaskAssessmentRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe ReplicationTaskAssessmentRunProgress
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ReplicationTaskAssessmentRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceAccessRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe ReplicationTaskAssessmentRunProgress
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ReplicationTaskAssessmentRun)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ReplicationTaskAssessmentRunProgress
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ReplicationTaskAssessmentRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-283"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationTaskAssessmentRunCreationDate&quot;</span></span><span>
+</span><span id="line-284"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReplicationTaskAssessmentRunProgress
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ReplicationTaskAssessmentRun)
+-&gt; Parser (Maybe ReplicationTaskAssessmentRunProgress)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ReplicationTaskAssessmentRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe ReplicationTaskAssessmentRunProgress)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssessmentProgress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ReplicationTaskAssessmentRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ReplicationTaskAssessmentRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResultKmsKeyArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ReplicationTaskAssessmentRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ReplicationTaskAssessmentRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationTaskArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ReplicationTaskAssessmentRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ReplicationTaskAssessmentRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResultLocationBucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ReplicationTaskAssessmentRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ReplicationTaskAssessmentRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResultLocationFolder&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ReplicationTaskAssessmentRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResultEncryptionMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssessmentRunName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; ReplicationTaskAssessmentRun)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationTaskAssessmentRunArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ReplicationTaskAssessmentRun)
+-&gt; Parser (Maybe Text) -&gt; Parser ReplicationTaskAssessmentRun
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastFailureMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-297"></span><span>  </span><span id="local-6989586621679437077"><span id="local-6989586621679437079"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span></span></span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437074"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTaskAssessmentRun.html#ReplicationTaskAssessmentRun"><span class="hs-identifier hs-type">ReplicationTaskAssessmentRun</span></a></span></span><span>
+</span><span id="line-301"></span></pre></body></html>

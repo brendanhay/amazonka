@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Create a new cross account readiness authorization.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier">CreateCrossAccountAuthorization</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#newCreateCrossAccountAuthorization"><span class="hs-identifier">newCreateCrossAccountAuthorization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#createCrossAccountAuthorization_crossAccountAuthorization"><span class="hs-identifier">createCrossAccountAuthorization_crossAccountAuthorization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse"><span class="hs-identifier">CreateCrossAccountAuthorizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#newCreateCrossAccountAuthorizationResponse"><span class="hs-identifier">newCreateCrossAccountAuthorizationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#createCrossAccountAuthorizationResponse_crossAccountAuthorization"><span class="hs-identifier">createCrossAccountAuthorizationResponse_crossAccountAuthorization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#createCrossAccountAuthorizationResponse_httpStatus"><span class="hs-identifier">createCrossAccountAuthorizationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.html"><span class="hs-identifier">Amazonka.Route53RecoveryReadiness.Types</span></a></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | The cross account authorization</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newCreateCrossAccountAuthorization' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679206762"><span id="local-6989586621679206763"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCrossAccountAuthorization"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier hs-var">CreateCrossAccountAuthorization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCrossAccountAuthorization%27"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization%27"><span class="hs-identifier hs-var">CreateCrossAccountAuthorization'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cross account authorization</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcrossAccountAuthorization%3ACreateCrossAccountAuthorization%27"><span class="annot"><span class="annottext">CreateCrossAccountAuthorization -&gt; Text
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#%24sel%3AcrossAccountAuthorization%3ACreateCrossAccountAuthorization%27"><span class="hs-identifier hs-var hs-var">crossAccountAuthorization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206756"><span id="local-6989586621679206758"><span class="annot"><span class="annottext">CreateCrossAccountAuthorization
+-&gt; CreateCrossAccountAuthorization -&gt; Bool
+(CreateCrossAccountAuthorization
+ -&gt; CreateCrossAccountAuthorization -&gt; Bool)
+-&gt; (CreateCrossAccountAuthorization
+    -&gt; CreateCrossAccountAuthorization -&gt; Bool)
+-&gt; Eq CreateCrossAccountAuthorization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCrossAccountAuthorization
+-&gt; CreateCrossAccountAuthorization -&gt; Bool
+$c/= :: CreateCrossAccountAuthorization
+-&gt; CreateCrossAccountAuthorization -&gt; Bool
+== :: CreateCrossAccountAuthorization
+-&gt; CreateCrossAccountAuthorization -&gt; Bool
+$c== :: CreateCrossAccountAuthorization
+-&gt; CreateCrossAccountAuthorization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206747"><span id="local-6989586621679206749"><span id="local-6989586621679206751"><span id="local-6989586621679206753"><span class="annot"><span class="annottext">ReadPrec [CreateCrossAccountAuthorization]
+ReadPrec CreateCrossAccountAuthorization
+Int -&gt; ReadS CreateCrossAccountAuthorization
+ReadS [CreateCrossAccountAuthorization]
+(Int -&gt; ReadS CreateCrossAccountAuthorization)
+-&gt; ReadS [CreateCrossAccountAuthorization]
+-&gt; ReadPrec CreateCrossAccountAuthorization
+-&gt; ReadPrec [CreateCrossAccountAuthorization]
+-&gt; Read CreateCrossAccountAuthorization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCrossAccountAuthorization]
+$creadListPrec :: ReadPrec [CreateCrossAccountAuthorization]
+readPrec :: ReadPrec CreateCrossAccountAuthorization
+$creadPrec :: ReadPrec CreateCrossAccountAuthorization
+readList :: ReadS [CreateCrossAccountAuthorization]
+$creadList :: ReadS [CreateCrossAccountAuthorization]
+readsPrec :: Int -&gt; ReadS CreateCrossAccountAuthorization
+$creadsPrec :: Int -&gt; ReadS CreateCrossAccountAuthorization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206740"><span id="local-6989586621679206742"><span id="local-6989586621679206744"><span class="annot"><span class="annottext">Int -&gt; CreateCrossAccountAuthorization -&gt; ShowS
+[CreateCrossAccountAuthorization] -&gt; ShowS
+CreateCrossAccountAuthorization -&gt; String
+(Int -&gt; CreateCrossAccountAuthorization -&gt; ShowS)
+-&gt; (CreateCrossAccountAuthorization -&gt; String)
+-&gt; ([CreateCrossAccountAuthorization] -&gt; ShowS)
+-&gt; Show CreateCrossAccountAuthorization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCrossAccountAuthorization] -&gt; ShowS
+$cshowList :: [CreateCrossAccountAuthorization] -&gt; ShowS
+show :: CreateCrossAccountAuthorization -&gt; String
+$cshow :: CreateCrossAccountAuthorization -&gt; String
+showsPrec :: Int -&gt; CreateCrossAccountAuthorization -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCrossAccountAuthorization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateCrossAccountAuthorization
+ -&gt; Rep CreateCrossAccountAuthorization x)
+-&gt; (forall x.
+    Rep CreateCrossAccountAuthorization x
+    -&gt; CreateCrossAccountAuthorization)
+-&gt; Generic CreateCrossAccountAuthorization
+forall x.
+Rep CreateCrossAccountAuthorization x
+-&gt; CreateCrossAccountAuthorization
+forall x.
+CreateCrossAccountAuthorization
+-&gt; Rep CreateCrossAccountAuthorization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateCrossAccountAuthorization x
+-&gt; CreateCrossAccountAuthorization
+$cfrom :: forall x.
+CreateCrossAccountAuthorization
+-&gt; Rep CreateCrossAccountAuthorization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'CreateCrossAccountAuthorization' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'crossAccountAuthorization', 'createCrossAccountAuthorization_crossAccountAuthorization' - The cross account authorization</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#newCreateCrossAccountAuthorization"><span class="hs-identifier hs-type">newCreateCrossAccountAuthorization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'crossAccountAuthorization'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization</span></a></span><span>
+</span><span id="line-71"></span><span id="newCreateCrossAccountAuthorization"><span class="annot"><span class="annottext">newCreateCrossAccountAuthorization :: Text -&gt; CreateCrossAccountAuthorization
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#newCreateCrossAccountAuthorization"><span class="hs-identifier hs-var hs-var">newCreateCrossAccountAuthorization</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679206735"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206735"><span class="hs-identifier hs-var">pCrossAccountAuthorization_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">CreateCrossAccountAuthorization' :: Text -&gt; CreateCrossAccountAuthorization
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization%27"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization'</span></a></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:crossAccountAuthorization:CreateCrossAccountAuthorization' :: Text
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#%24sel%3AcrossAccountAuthorization%3ACreateCrossAccountAuthorization%27"><span class="hs-identifier hs-var">crossAccountAuthorization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206735"><span class="hs-identifier hs-var">pCrossAccountAuthorization_</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The cross account authorization</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#createCrossAccountAuthorization_crossAccountAuthorization"><span class="hs-identifier hs-type">createCrossAccountAuthorization_crossAccountAuthorization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="createCrossAccountAuthorization_crossAccountAuthorization"><span class="annot"><span class="annottext">createCrossAccountAuthorization_crossAccountAuthorization :: (Text -&gt; f Text)
+-&gt; CreateCrossAccountAuthorization
+-&gt; f CreateCrossAccountAuthorization
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#createCrossAccountAuthorization_crossAccountAuthorization"><span class="hs-identifier hs-var hs-var">createCrossAccountAuthorization_crossAccountAuthorization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCrossAccountAuthorization -&gt; Text)
+-&gt; (CreateCrossAccountAuthorization
+    -&gt; Text -&gt; CreateCrossAccountAuthorization)
+-&gt; Lens
+     CreateCrossAccountAuthorization
+     CreateCrossAccountAuthorization
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization%27"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206732"><span class="annot"><span class="annottext">Text
+crossAccountAuthorization :: Text
+$sel:crossAccountAuthorization:CreateCrossAccountAuthorization' :: CreateCrossAccountAuthorization -&gt; Text
+</span><a href="#local-6989586621679206732"><span class="hs-identifier hs-var hs-var">crossAccountAuthorization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206732"><span class="hs-identifier hs-var">crossAccountAuthorization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206731"><span class="annot"><span class="annottext">s :: CreateCrossAccountAuthorization
+</span><a href="#local-6989586621679206731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization%27"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206730"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCrossAccountAuthorization
+</span><a href="#local-6989586621679206731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crossAccountAuthorization:CreateCrossAccountAuthorization' :: Text
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#%24sel%3AcrossAccountAuthorization%3ACreateCrossAccountAuthorization%27"><span class="hs-identifier hs-var">crossAccountAuthorization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse"><span class="hs-identifier hs-type">CreateCrossAccountAuthorizationResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679206726"><span class="annot"><span class="annottext">request :: CreateCrossAccountAuthorization
+-&gt; Request CreateCrossAccountAuthorization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateCrossAccountAuthorization
+-&gt; Request CreateCrossAccountAuthorization
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679206722"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateCrossAccountAuthorization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateCrossAccountAuthorization)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateCrossAccountAuthorization))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateCrossAccountAuthorization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateCrossAccountAuthorization)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206719"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206719"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679206718"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679206718"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679206717"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateCrossAccountAuthorizationResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-var">CreateCrossAccountAuthorizationResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateCrossAccountAuthorizationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateCrossAccountAuthorizationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;crossAccountAuthorization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateCrossAccountAuthorizationResponse)
+-&gt; Either String Int
+-&gt; Either String CreateCrossAccountAuthorizationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206719"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679206709"><span id="local-6989586621679206711"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679206706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679206702"><span class="annot"><span class="annottext">toHeaders :: CreateCrossAccountAuthorization -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateCrossAccountAuthorization -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206692"><span id="local-6989586621679206694"><span id="local-6989586621679206696"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679206690"><span class="annot"><span class="annottext">toJSON :: CreateCrossAccountAuthorization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization%27"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206688"><span class="annot"><span class="annottext">Text
+crossAccountAuthorization :: Text
+$sel:crossAccountAuthorization:CreateCrossAccountAuthorization' :: CreateCrossAccountAuthorization -&gt; Text
+</span><a href="#local-6989586621679206688"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;crossAccountAuthorization&quot;</span></span><span>
+</span><span id="line-126"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206688"><span class="hs-identifier hs-var">crossAccountAuthorization</span></a></span><span>
+</span><span id="line-127"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679206682"><span class="annot"><span class="annottext">toPath :: CreateCrossAccountAuthorization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateCrossAccountAuthorization -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/crossaccountauthorizations&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorization"><span class="hs-identifier hs-type">CreateCrossAccountAuthorization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679206678"><span class="annot"><span class="annottext">toQuery :: CreateCrossAccountAuthorization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateCrossAccountAuthorization -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newCreateCrossAccountAuthorizationResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679206675"><span id="local-6989586621679206676"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCrossAccountAuthorizationResponse"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse"><span class="hs-identifier hs-var">CreateCrossAccountAuthorizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCrossAccountAuthorizationResponse%27"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-var">CreateCrossAccountAuthorizationResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cross account authorization</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AcrossAccountAuthorization%3ACreateCrossAccountAuthorizationResponse%27"><span class="annot"><span class="annottext">CreateCrossAccountAuthorizationResponse -&gt; Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#%24sel%3AcrossAccountAuthorization%3ACreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-var hs-var">crossAccountAuthorization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateCrossAccountAuthorizationResponse%27"><span class="annot"><span class="annottext">CreateCrossAccountAuthorizationResponse -&gt; Int
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#%24sel%3AhttpStatus%3ACreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206669"><span id="local-6989586621679206671"><span class="annot"><span class="annottext">CreateCrossAccountAuthorizationResponse
+-&gt; CreateCrossAccountAuthorizationResponse -&gt; Bool
+(CreateCrossAccountAuthorizationResponse
+ -&gt; CreateCrossAccountAuthorizationResponse -&gt; Bool)
+-&gt; (CreateCrossAccountAuthorizationResponse
+    -&gt; CreateCrossAccountAuthorizationResponse -&gt; Bool)
+-&gt; Eq CreateCrossAccountAuthorizationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCrossAccountAuthorizationResponse
+-&gt; CreateCrossAccountAuthorizationResponse -&gt; Bool
+$c/= :: CreateCrossAccountAuthorizationResponse
+-&gt; CreateCrossAccountAuthorizationResponse -&gt; Bool
+== :: CreateCrossAccountAuthorizationResponse
+-&gt; CreateCrossAccountAuthorizationResponse -&gt; Bool
+$c== :: CreateCrossAccountAuthorizationResponse
+-&gt; CreateCrossAccountAuthorizationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206661"><span id="local-6989586621679206663"><span id="local-6989586621679206665"><span id="local-6989586621679206667"><span class="annot"><span class="annottext">ReadPrec [CreateCrossAccountAuthorizationResponse]
+ReadPrec CreateCrossAccountAuthorizationResponse
+Int -&gt; ReadS CreateCrossAccountAuthorizationResponse
+ReadS [CreateCrossAccountAuthorizationResponse]
+(Int -&gt; ReadS CreateCrossAccountAuthorizationResponse)
+-&gt; ReadS [CreateCrossAccountAuthorizationResponse]
+-&gt; ReadPrec CreateCrossAccountAuthorizationResponse
+-&gt; ReadPrec [CreateCrossAccountAuthorizationResponse]
+-&gt; Read CreateCrossAccountAuthorizationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCrossAccountAuthorizationResponse]
+$creadListPrec :: ReadPrec [CreateCrossAccountAuthorizationResponse]
+readPrec :: ReadPrec CreateCrossAccountAuthorizationResponse
+$creadPrec :: ReadPrec CreateCrossAccountAuthorizationResponse
+readList :: ReadS [CreateCrossAccountAuthorizationResponse]
+$creadList :: ReadS [CreateCrossAccountAuthorizationResponse]
+readsPrec :: Int -&gt; ReadS CreateCrossAccountAuthorizationResponse
+$creadsPrec :: Int -&gt; ReadS CreateCrossAccountAuthorizationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206655"><span id="local-6989586621679206657"><span id="local-6989586621679206659"><span class="annot"><span class="annottext">Int -&gt; CreateCrossAccountAuthorizationResponse -&gt; ShowS
+[CreateCrossAccountAuthorizationResponse] -&gt; ShowS
+CreateCrossAccountAuthorizationResponse -&gt; String
+(Int -&gt; CreateCrossAccountAuthorizationResponse -&gt; ShowS)
+-&gt; (CreateCrossAccountAuthorizationResponse -&gt; String)
+-&gt; ([CreateCrossAccountAuthorizationResponse] -&gt; ShowS)
+-&gt; Show CreateCrossAccountAuthorizationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCrossAccountAuthorizationResponse] -&gt; ShowS
+$cshowList :: [CreateCrossAccountAuthorizationResponse] -&gt; ShowS
+show :: CreateCrossAccountAuthorizationResponse -&gt; String
+$cshow :: CreateCrossAccountAuthorizationResponse -&gt; String
+showsPrec :: Int -&gt; CreateCrossAccountAuthorizationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCrossAccountAuthorizationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateCrossAccountAuthorizationResponse
+ -&gt; Rep CreateCrossAccountAuthorizationResponse x)
+-&gt; (forall x.
+    Rep CreateCrossAccountAuthorizationResponse x
+    -&gt; CreateCrossAccountAuthorizationResponse)
+-&gt; Generic CreateCrossAccountAuthorizationResponse
+forall x.
+Rep CreateCrossAccountAuthorizationResponse x
+-&gt; CreateCrossAccountAuthorizationResponse
+forall x.
+CreateCrossAccountAuthorizationResponse
+-&gt; Rep CreateCrossAccountAuthorizationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateCrossAccountAuthorizationResponse x
+-&gt; CreateCrossAccountAuthorizationResponse
+$cfrom :: forall x.
+CreateCrossAccountAuthorizationResponse
+-&gt; Rep CreateCrossAccountAuthorizationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'CreateCrossAccountAuthorizationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'crossAccountAuthorization', 'createCrossAccountAuthorizationResponse_crossAccountAuthorization' - The cross account authorization</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'createCrossAccountAuthorizationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#newCreateCrossAccountAuthorizationResponse"><span class="hs-identifier hs-type">newCreateCrossAccountAuthorizationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse"><span class="hs-identifier hs-type">CreateCrossAccountAuthorizationResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newCreateCrossAccountAuthorizationResponse"><span class="annot"><span class="annottext">newCreateCrossAccountAuthorizationResponse :: Int -&gt; CreateCrossAccountAuthorizationResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#newCreateCrossAccountAuthorizationResponse"><span class="hs-identifier hs-var hs-var">newCreateCrossAccountAuthorizationResponse</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679206652"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206652"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">CreateCrossAccountAuthorizationResponse' :: Maybe Text -&gt; Int -&gt; CreateCrossAccountAuthorizationResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-type">CreateCrossAccountAuthorizationResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:crossAccountAuthorization:CreateCrossAccountAuthorizationResponse' :: Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#%24sel%3AcrossAccountAuthorization%3ACreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-var">crossAccountAuthorization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCrossAccountAuthorizationResponse' :: Int
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#%24sel%3AhttpStatus%3ACreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206652"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The cross account authorization</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#createCrossAccountAuthorizationResponse_crossAccountAuthorization"><span class="hs-identifier hs-type">createCrossAccountAuthorizationResponse_crossAccountAuthorization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse"><span class="hs-identifier hs-type">CreateCrossAccountAuthorizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="createCrossAccountAuthorizationResponse_crossAccountAuthorization"><span class="annot"><span class="annottext">createCrossAccountAuthorizationResponse_crossAccountAuthorization :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateCrossAccountAuthorizationResponse
+-&gt; f CreateCrossAccountAuthorizationResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#createCrossAccountAuthorizationResponse_crossAccountAuthorization"><span class="hs-identifier hs-var hs-var">createCrossAccountAuthorizationResponse_crossAccountAuthorization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCrossAccountAuthorizationResponse -&gt; Maybe Text)
+-&gt; (CreateCrossAccountAuthorizationResponse
+    -&gt; Maybe Text -&gt; CreateCrossAccountAuthorizationResponse)
+-&gt; Lens
+     CreateCrossAccountAuthorizationResponse
+     CreateCrossAccountAuthorizationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-type">CreateCrossAccountAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206651"><span class="annot"><span class="annottext">Maybe Text
+crossAccountAuthorization :: Maybe Text
+$sel:crossAccountAuthorization:CreateCrossAccountAuthorizationResponse' :: CreateCrossAccountAuthorizationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679206651"><span class="hs-identifier hs-var hs-var">crossAccountAuthorization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206651"><span class="hs-identifier hs-var">crossAccountAuthorization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206650"><span class="annot"><span class="annottext">s :: CreateCrossAccountAuthorizationResponse
+</span><a href="#local-6989586621679206650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-type">CreateCrossAccountAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206649"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCrossAccountAuthorizationResponse
+</span><a href="#local-6989586621679206650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crossAccountAuthorization:CreateCrossAccountAuthorizationResponse' :: Maybe Text
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#%24sel%3AcrossAccountAuthorization%3ACreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-var">crossAccountAuthorization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse"><span class="hs-identifier hs-type">CreateCrossAccountAuthorizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#createCrossAccountAuthorizationResponse_httpStatus"><span class="hs-identifier hs-type">createCrossAccountAuthorizationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse"><span class="hs-identifier hs-type">CreateCrossAccountAuthorizationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-175"></span><span id="createCrossAccountAuthorizationResponse_httpStatus"><span class="annot"><span class="annottext">createCrossAccountAuthorizationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateCrossAccountAuthorizationResponse
+-&gt; f CreateCrossAccountAuthorizationResponse
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#createCrossAccountAuthorizationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createCrossAccountAuthorizationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCrossAccountAuthorizationResponse -&gt; Int)
+-&gt; (CreateCrossAccountAuthorizationResponse
+    -&gt; Int -&gt; CreateCrossAccountAuthorizationResponse)
+-&gt; Lens
+     CreateCrossAccountAuthorizationResponse
+     CreateCrossAccountAuthorizationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-type">CreateCrossAccountAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206648"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateCrossAccountAuthorizationResponse' :: CreateCrossAccountAuthorizationResponse -&gt; Int
+</span><a href="#local-6989586621679206648"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206648"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206647"><span class="annot"><span class="annottext">s :: CreateCrossAccountAuthorizationResponse
+</span><a href="#local-6989586621679206647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-type">CreateCrossAccountAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206646"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCrossAccountAuthorizationResponse
+</span><a href="#local-6989586621679206647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCrossAccountAuthorizationResponse' :: Int
+</span><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#%24sel%3AhttpStatus%3ACreateCrossAccountAuthorizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse"><span class="hs-identifier hs-type">CreateCrossAccountAuthorizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679206644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization.html#CreateCrossAccountAuthorizationResponse"><span class="hs-identifier hs-type">CreateCrossAccountAuthorizationResponse</span></a></span></span><span>
+</span><span id="line-180"></span></pre></body></html>

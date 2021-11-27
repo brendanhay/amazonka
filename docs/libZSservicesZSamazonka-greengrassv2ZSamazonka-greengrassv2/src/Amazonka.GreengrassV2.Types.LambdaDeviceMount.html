@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GreengrassV2.Types.LambdaDeviceMount</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GreengrassV2.Types.LambdaDeviceMount</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaFilesystemPermission.html"><span class="hs-identifier">Amazonka.GreengrassV2.Types.LambdaFilesystemPermission</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a device that Linux processes in a container</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- can access.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLambdaDeviceMount' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679231397"><span id="local-6989586621679231398"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaDeviceMount"><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-var">LambdaDeviceMount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaDeviceMount%27"><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount%27"><span class="hs-identifier hs-var">LambdaDeviceMount'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether or not to add the component\'s system user as an owner of the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- device.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AaddGroupOwner%3ALambdaDeviceMount%27"><span class="annot"><span class="annottext">LambdaDeviceMount -&gt; Maybe Bool
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#%24sel%3AaddGroupOwner%3ALambdaDeviceMount%27"><span class="hs-identifier hs-var hs-var">addGroupOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The permission to access the device: read\/only (@ro@) or read\/write</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- (@rw@).</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Default: @ro@</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Apermission%3ALambdaDeviceMount%27"><span class="annot"><span class="annottext">LambdaDeviceMount -&gt; Maybe LambdaFilesystemPermission
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#%24sel%3Apermission%3ALambdaDeviceMount%27"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaFilesystemPermission.html#LambdaFilesystemPermission"><span class="hs-identifier hs-type">LambdaFilesystemPermission</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The mount path for the device in the file system.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Apath%3ALambdaDeviceMount%27"><span class="annot"><span class="annottext">LambdaDeviceMount -&gt; Text
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#%24sel%3Apath%3ALambdaDeviceMount%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231389"><span id="local-6989586621679231391"><span class="annot"><span class="annottext">LambdaDeviceMount -&gt; LambdaDeviceMount -&gt; Bool
+(LambdaDeviceMount -&gt; LambdaDeviceMount -&gt; Bool)
+-&gt; (LambdaDeviceMount -&gt; LambdaDeviceMount -&gt; Bool)
+-&gt; Eq LambdaDeviceMount
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LambdaDeviceMount -&gt; LambdaDeviceMount -&gt; Bool
+$c/= :: LambdaDeviceMount -&gt; LambdaDeviceMount -&gt; Bool
+== :: LambdaDeviceMount -&gt; LambdaDeviceMount -&gt; Bool
+$c== :: LambdaDeviceMount -&gt; LambdaDeviceMount -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231380"><span id="local-6989586621679231382"><span id="local-6989586621679231384"><span id="local-6989586621679231386"><span class="annot"><span class="annottext">ReadPrec [LambdaDeviceMount]
+ReadPrec LambdaDeviceMount
+Int -&gt; ReadS LambdaDeviceMount
+ReadS [LambdaDeviceMount]
+(Int -&gt; ReadS LambdaDeviceMount)
+-&gt; ReadS [LambdaDeviceMount]
+-&gt; ReadPrec LambdaDeviceMount
+-&gt; ReadPrec [LambdaDeviceMount]
+-&gt; Read LambdaDeviceMount
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LambdaDeviceMount]
+$creadListPrec :: ReadPrec [LambdaDeviceMount]
+readPrec :: ReadPrec LambdaDeviceMount
+$creadPrec :: ReadPrec LambdaDeviceMount
+readList :: ReadS [LambdaDeviceMount]
+$creadList :: ReadS [LambdaDeviceMount]
+readsPrec :: Int -&gt; ReadS LambdaDeviceMount
+$creadsPrec :: Int -&gt; ReadS LambdaDeviceMount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231373"><span id="local-6989586621679231375"><span id="local-6989586621679231377"><span class="annot"><span class="annottext">Int -&gt; LambdaDeviceMount -&gt; ShowS
+[LambdaDeviceMount] -&gt; ShowS
+LambdaDeviceMount -&gt; String
+(Int -&gt; LambdaDeviceMount -&gt; ShowS)
+-&gt; (LambdaDeviceMount -&gt; String)
+-&gt; ([LambdaDeviceMount] -&gt; ShowS)
+-&gt; Show LambdaDeviceMount
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LambdaDeviceMount] -&gt; ShowS
+$cshowList :: [LambdaDeviceMount] -&gt; ShowS
+show :: LambdaDeviceMount -&gt; String
+$cshow :: LambdaDeviceMount -&gt; String
+showsPrec :: Int -&gt; LambdaDeviceMount -&gt; ShowS
+$cshowsPrec :: Int -&gt; LambdaDeviceMount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LambdaDeviceMount -&gt; Rep LambdaDeviceMount x)
+-&gt; (forall x. Rep LambdaDeviceMount x -&gt; LambdaDeviceMount)
+-&gt; Generic LambdaDeviceMount
+forall x. Rep LambdaDeviceMount x -&gt; LambdaDeviceMount
+forall x. LambdaDeviceMount -&gt; Rep LambdaDeviceMount x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LambdaDeviceMount x -&gt; LambdaDeviceMount
+$cfrom :: forall x. LambdaDeviceMount -&gt; Rep LambdaDeviceMount x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'LambdaDeviceMount' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'addGroupOwner', 'lambdaDeviceMount_addGroupOwner' - Whether or not to add the component\'s system user as an owner of the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- device.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'permission', 'lambdaDeviceMount_permission' - The permission to access the device: read\/only (@ro@) or read\/write</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- (@rw@).</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Default: @ro@</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'path', 'lambdaDeviceMount_path' - The mount path for the device in the file system.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#newLambdaDeviceMount"><span class="hs-identifier hs-type">newLambdaDeviceMount</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'path'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-type">LambdaDeviceMount</span></a></span><span>
+</span><span id="line-70"></span><span id="newLambdaDeviceMount"><span class="annot"><span class="annottext">newLambdaDeviceMount :: Text -&gt; LambdaDeviceMount
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#newLambdaDeviceMount"><span class="hs-identifier hs-var hs-var">newLambdaDeviceMount</span></a></span></span><span> </span><span id="local-6989586621679231367"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231367"><span class="hs-identifier hs-var">pPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">LambdaDeviceMount' :: Maybe Bool
+-&gt; Maybe LambdaFilesystemPermission -&gt; Text -&gt; LambdaDeviceMount
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount%27"><span class="hs-identifier hs-type">LambdaDeviceMount'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addGroupOwner:LambdaDeviceMount' :: Maybe Bool
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#%24sel%3AaddGroupOwner%3ALambdaDeviceMount%27"><span class="hs-identifier hs-var">addGroupOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:permission:LambdaDeviceMount' :: Maybe LambdaFilesystemPermission
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#%24sel%3Apermission%3ALambdaDeviceMount%27"><span class="hs-identifier hs-var">permission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFilesystemPermission
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:LambdaDeviceMount' :: Text
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#%24sel%3Apath%3ALambdaDeviceMount%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231367"><span class="hs-identifier hs-var">pPath_</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Whether or not to add the component\'s system user as an owner of the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- device.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#lambdaDeviceMount_addGroupOwner"><span class="hs-identifier hs-type">lambdaDeviceMount_addGroupOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-type">LambdaDeviceMount</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="lambdaDeviceMount_addGroupOwner"><span class="annot"><span class="annottext">lambdaDeviceMount_addGroupOwner :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LambdaDeviceMount -&gt; f LambdaDeviceMount
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#lambdaDeviceMount_addGroupOwner"><span class="hs-identifier hs-var hs-var">lambdaDeviceMount_addGroupOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaDeviceMount -&gt; Maybe Bool)
+-&gt; (LambdaDeviceMount -&gt; Maybe Bool -&gt; LambdaDeviceMount)
+-&gt; Lens
+     LambdaDeviceMount LambdaDeviceMount (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount%27"><span class="hs-identifier hs-type">LambdaDeviceMount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231363"><span class="annot"><span class="annottext">Maybe Bool
+addGroupOwner :: Maybe Bool
+$sel:addGroupOwner:LambdaDeviceMount' :: LambdaDeviceMount -&gt; Maybe Bool
+</span><a href="#local-6989586621679231363"><span class="hs-identifier hs-var hs-var">addGroupOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679231363"><span class="hs-identifier hs-var">addGroupOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231362"><span class="annot"><span class="annottext">s :: LambdaDeviceMount
+</span><a href="#local-6989586621679231362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount%27"><span class="hs-identifier hs-type">LambdaDeviceMount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231361"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679231361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaDeviceMount
+</span><a href="#local-6989586621679231362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addGroupOwner:LambdaDeviceMount' :: Maybe Bool
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#%24sel%3AaddGroupOwner%3ALambdaDeviceMount%27"><span class="hs-identifier hs-var">addGroupOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679231361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-type">LambdaDeviceMount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The permission to access the device: read\/only (@ro@) or read\/write</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- (@rw@).</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Default: @ro@</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#lambdaDeviceMount_permission"><span class="hs-identifier hs-type">lambdaDeviceMount_permission</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-type">LambdaDeviceMount</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaFilesystemPermission.html#LambdaFilesystemPermission"><span class="hs-identifier hs-type">LambdaFilesystemPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="lambdaDeviceMount_permission"><span class="annot"><span class="annottext">lambdaDeviceMount_permission :: (Maybe LambdaFilesystemPermission
+ -&gt; f (Maybe LambdaFilesystemPermission))
+-&gt; LambdaDeviceMount -&gt; f LambdaDeviceMount
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#lambdaDeviceMount_permission"><span class="hs-identifier hs-var hs-var">lambdaDeviceMount_permission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaDeviceMount -&gt; Maybe LambdaFilesystemPermission)
+-&gt; (LambdaDeviceMount
+    -&gt; Maybe LambdaFilesystemPermission -&gt; LambdaDeviceMount)
+-&gt; Lens
+     LambdaDeviceMount
+     LambdaDeviceMount
+     (Maybe LambdaFilesystemPermission)
+     (Maybe LambdaFilesystemPermission)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount%27"><span class="hs-identifier hs-type">LambdaDeviceMount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231359"><span class="annot"><span class="annottext">Maybe LambdaFilesystemPermission
+permission :: Maybe LambdaFilesystemPermission
+$sel:permission:LambdaDeviceMount' :: LambdaDeviceMount -&gt; Maybe LambdaFilesystemPermission
+</span><a href="#local-6989586621679231359"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFilesystemPermission
+</span><a href="#local-6989586621679231359"><span class="hs-identifier hs-var">permission</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231358"><span class="annot"><span class="annottext">s :: LambdaDeviceMount
+</span><a href="#local-6989586621679231358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount%27"><span class="hs-identifier hs-type">LambdaDeviceMount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231357"><span class="annot"><span class="annottext">Maybe LambdaFilesystemPermission
+</span><a href="#local-6989586621679231357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaDeviceMount
+</span><a href="#local-6989586621679231358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permission:LambdaDeviceMount' :: Maybe LambdaFilesystemPermission
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#%24sel%3Apermission%3ALambdaDeviceMount%27"><span class="hs-identifier hs-var">permission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFilesystemPermission
+</span><a href="#local-6989586621679231357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-type">LambdaDeviceMount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The mount path for the device in the file system.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#lambdaDeviceMount_path"><span class="hs-identifier hs-type">lambdaDeviceMount_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-type">LambdaDeviceMount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="lambdaDeviceMount_path"><span class="annot"><span class="annottext">lambdaDeviceMount_path :: (Text -&gt; f Text) -&gt; LambdaDeviceMount -&gt; f LambdaDeviceMount
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#lambdaDeviceMount_path"><span class="hs-identifier hs-var hs-var">lambdaDeviceMount_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaDeviceMount -&gt; Text)
+-&gt; (LambdaDeviceMount -&gt; Text -&gt; LambdaDeviceMount)
+-&gt; Lens LambdaDeviceMount LambdaDeviceMount Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount%27"><span class="hs-identifier hs-type">LambdaDeviceMount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231355"><span class="annot"><span class="annottext">Text
+path :: Text
+$sel:path:LambdaDeviceMount' :: LambdaDeviceMount -&gt; Text
+</span><a href="#local-6989586621679231355"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231355"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231354"><span class="annot"><span class="annottext">s :: LambdaDeviceMount
+</span><a href="#local-6989586621679231354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount%27"><span class="hs-identifier hs-type">LambdaDeviceMount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231353"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaDeviceMount
+</span><a href="#local-6989586621679231354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:LambdaDeviceMount' :: Text
+</span><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#%24sel%3Apath%3ALambdaDeviceMount%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-type">LambdaDeviceMount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231349"><span id="local-6989586621679231351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-type">LambdaDeviceMount</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-type">LambdaDeviceMount</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231338"><span id="local-6989586621679231340"><span id="local-6989586621679231342"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-type">LambdaDeviceMount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679231336"><span class="annot"><span class="annottext">toJSON :: LambdaDeviceMount -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount%27"><span class="hs-identifier hs-type">LambdaDeviceMount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231332"><span id="local-6989586621679231333"><span id="local-6989586621679231334"><span class="annot"><span class="annottext">Maybe Bool
+Maybe LambdaFilesystemPermission
+Text
+path :: Text
+permission :: Maybe LambdaFilesystemPermission
+addGroupOwner :: Maybe Bool
+$sel:path:LambdaDeviceMount' :: LambdaDeviceMount -&gt; Text
+$sel:permission:LambdaDeviceMount' :: LambdaDeviceMount -&gt; Maybe LambdaFilesystemPermission
+$sel:addGroupOwner:LambdaDeviceMount' :: LambdaDeviceMount -&gt; Maybe Bool
+</span><a href="#local-6989586621679231332"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addGroupOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679231334"><span class="hs-identifier hs-var">addGroupOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;permission&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaFilesystemPermission -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LambdaFilesystemPermission -&gt; Pair)
+-&gt; Maybe LambdaFilesystemPermission -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFilesystemPermission
+</span><a href="#local-6989586621679231333"><span class="hs-identifier hs-var">permission</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;path&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231332"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span></pre></body></html>

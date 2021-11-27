@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-4"></span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Module      : Amazonka.MediaStoreData.Lens</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-14"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaStoreData.Lens</span><span>
+</span><span id="line-15"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-16"></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutObject</span></span><span>
+</span><span id="line-18"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#putObject_storageClass"><span class="hs-identifier">putObject_storageClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#putObject_uploadAvailability"><span class="hs-identifier">putObject_uploadAvailability</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#putObject_cacheControl"><span class="hs-identifier">putObject_cacheControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#putObject_contentType"><span class="hs-identifier">putObject_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#putObject_path"><span class="hs-identifier">putObject_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#putObject_body"><span class="hs-identifier">putObject_body</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#putObjectResponse_eTag"><span class="hs-identifier">putObjectResponse_eTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#putObjectResponse_storageClass"><span class="hs-identifier">putObjectResponse_storageClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#putObjectResponse_contentSHA256"><span class="hs-identifier">putObjectResponse_contentSHA256</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html#putObjectResponse_httpStatus"><span class="hs-identifier">putObjectResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteObject</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DeleteObject.html#deleteObject_path"><span class="hs-identifier">deleteObject_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DeleteObject.html#deleteObjectResponse_httpStatus"><span class="hs-identifier">deleteObjectResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DescribeObject</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#describeObject_path"><span class="hs-identifier">describeObject_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#describeObjectResponse_eTag"><span class="hs-identifier">describeObjectResponse_eTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#describeObjectResponse_contentLength"><span class="hs-identifier">describeObjectResponse_contentLength</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#describeObjectResponse_cacheControl"><span class="hs-identifier">describeObjectResponse_cacheControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#describeObjectResponse_lastModified"><span class="hs-identifier">describeObjectResponse_lastModified</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#describeObjectResponse_contentType"><span class="hs-identifier">describeObjectResponse_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html#describeObjectResponse_httpStatus"><span class="hs-identifier">describeObjectResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetObject</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#getObject_range"><span class="hs-identifier">getObject_range</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#getObject_path"><span class="hs-identifier">getObject_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#getObjectResponse_eTag"><span class="hs-identifier">getObjectResponse_eTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#getObjectResponse_contentLength"><span class="hs-identifier">getObjectResponse_contentLength</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#getObjectResponse_cacheControl"><span class="hs-identifier">getObjectResponse_cacheControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#getObjectResponse_lastModified"><span class="hs-identifier">getObjectResponse_lastModified</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#getObjectResponse_contentRange"><span class="hs-identifier">getObjectResponse_contentRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#getObjectResponse_contentType"><span class="hs-identifier">getObjectResponse_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#getObjectResponse_statusCode"><span class="hs-identifier">getObjectResponse_statusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html#getObjectResponse_body"><span class="hs-identifier">getObjectResponse_body</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListItems</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html#listItems_path"><span class="hs-identifier">listItems_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html#listItems_nextToken"><span class="hs-identifier">listItems_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html#listItems_maxResults"><span class="hs-identifier">listItems_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html#listItemsResponse_items"><span class="hs-identifier">listItemsResponse_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html#listItemsResponse_nextToken"><span class="hs-identifier">listItemsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html#listItemsResponse_httpStatus"><span class="hs-identifier">listItemsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Item</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#item_eTag"><span class="hs-identifier">item_eTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#item_contentLength"><span class="hs-identifier">item_contentLength</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#item_name"><span class="hs-identifier">item_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#item_type"><span class="hs-identifier">item_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#item_lastModified"><span class="hs-identifier">item_lastModified</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#item_contentType"><span class="hs-identifier">item_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.DeleteObject.html"><span class="hs-identifier">Amazonka.MediaStoreData.DeleteObject</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.DescribeObject.html"><span class="hs-identifier">Amazonka.MediaStoreData.DescribeObject</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.GetObject.html"><span class="hs-identifier">Amazonka.MediaStoreData.GetObject</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.ListItems.html"><span class="hs-identifier">Amazonka.MediaStoreData.ListItems</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.PutObject.html"><span class="hs-identifier">Amazonka.MediaStoreData.PutObject</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html"><span class="hs-identifier">Amazonka.MediaStoreData.Types.Item</span></a></span><span>
+</span><span id="line-80"></span></pre></body></html>

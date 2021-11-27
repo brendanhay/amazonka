@@ -1,0 +1,1107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Redshift.DescribeScheduledActions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes properties of scheduled actions.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Redshift.DescribeScheduledActions</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier">DescribeScheduledActions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#newDescribeScheduledActions"><span class="hs-identifier">newDescribeScheduledActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_startTime"><span class="hs-identifier">describeScheduledActions_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_scheduledActionName"><span class="hs-identifier">describeScheduledActions_scheduledActionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_filters"><span class="hs-identifier">describeScheduledActions_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_active"><span class="hs-identifier">describeScheduledActions_active</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_targetActionType"><span class="hs-identifier">describeScheduledActions_targetActionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_marker"><span class="hs-identifier">describeScheduledActions_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_maxRecords"><span class="hs-identifier">describeScheduledActions_maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_endTime"><span class="hs-identifier">describeScheduledActions_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier">DescribeScheduledActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#newDescribeScheduledActionsResponse"><span class="hs-identifier">newDescribeScheduledActionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActionsResponse_scheduledActions"><span class="hs-identifier">describeScheduledActionsResponse_scheduledActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActionsResponse_marker"><span class="hs-identifier">describeScheduledActionsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActionsResponse_httpStatus"><span class="hs-identifier">describeScheduledActionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.html"><span class="hs-identifier">Amazonka.Redshift.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribeScheduledActions' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679513998"><span id="local-6989586621679513999"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScheduledActions"><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-var">DescribeScheduledActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScheduledActions%27"><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-var">DescribeScheduledActions'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start time in UTC of the scheduled actions to retrieve. Only active</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- scheduled actions that have invocations after this time are retrieved.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AstartTime%3ADescribeScheduledActions%27"><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; Maybe ISO8601
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AstartTime%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The name of the scheduled action to retrieve.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AscheduledActionName%3ADescribeScheduledActions%27"><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AscheduledActionName%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | List of scheduled action filters.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeScheduledActions%27"><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; Maybe [ScheduledActionFilter]
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3Afilters%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-type">ScheduledActionFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | If true, retrieve only active scheduled actions. If false, retrieve only</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- disabled scheduled actions.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Aactive%3ADescribeScheduledActions%27"><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; Maybe Bool
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3Aactive%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var hs-var">active</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The type of the scheduled actions to retrieve.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AtargetActionType%3ADescribeScheduledActions%27"><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; Maybe ScheduledActionTypeValues
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AtargetActionType%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var hs-var">targetActionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.ScheduledActionTypeValues.html#ScheduledActionTypeValues"><span class="hs-identifier hs-type">ScheduledActionTypeValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- of response records. When the results of a DescribeScheduledActions</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeScheduledActions%27"><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3Amarker%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeScheduledActions%27"><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; Maybe Int
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AmaxRecords%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The end time in UTC of the scheduled action to retrieve. Only active</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- scheduled actions that have invocations before this time are retrieved.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AendTime%3ADescribeScheduledActions%27"><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; Maybe ISO8601
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AendTime%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679513985"><span id="local-6989586621679513987"><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool
+(DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool)
+-&gt; (DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool)
+-&gt; Eq DescribeScheduledActions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool
+$c/= :: DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool
+== :: DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool
+$c== :: DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513976"><span id="local-6989586621679513978"><span id="local-6989586621679513980"><span id="local-6989586621679513982"><span class="annot"><span class="annottext">ReadPrec [DescribeScheduledActions]
+ReadPrec DescribeScheduledActions
+Int -&gt; ReadS DescribeScheduledActions
+ReadS [DescribeScheduledActions]
+(Int -&gt; ReadS DescribeScheduledActions)
+-&gt; ReadS [DescribeScheduledActions]
+-&gt; ReadPrec DescribeScheduledActions
+-&gt; ReadPrec [DescribeScheduledActions]
+-&gt; Read DescribeScheduledActions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeScheduledActions]
+$creadListPrec :: ReadPrec [DescribeScheduledActions]
+readPrec :: ReadPrec DescribeScheduledActions
+$creadPrec :: ReadPrec DescribeScheduledActions
+readList :: ReadS [DescribeScheduledActions]
+$creadList :: ReadS [DescribeScheduledActions]
+readsPrec :: Int -&gt; ReadS DescribeScheduledActions
+$creadsPrec :: Int -&gt; ReadS DescribeScheduledActions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513969"><span id="local-6989586621679513971"><span id="local-6989586621679513973"><span class="annot"><span class="annottext">Int -&gt; DescribeScheduledActions -&gt; ShowS
+[DescribeScheduledActions] -&gt; ShowS
+DescribeScheduledActions -&gt; String
+(Int -&gt; DescribeScheduledActions -&gt; ShowS)
+-&gt; (DescribeScheduledActions -&gt; String)
+-&gt; ([DescribeScheduledActions] -&gt; ShowS)
+-&gt; Show DescribeScheduledActions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeScheduledActions] -&gt; ShowS
+$cshowList :: [DescribeScheduledActions] -&gt; ShowS
+show :: DescribeScheduledActions -&gt; String
+$cshow :: DescribeScheduledActions -&gt; String
+showsPrec :: Int -&gt; DescribeScheduledActions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeScheduledActions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeScheduledActions -&gt; Rep DescribeScheduledActions x)
+-&gt; (forall x.
+    Rep DescribeScheduledActions x -&gt; DescribeScheduledActions)
+-&gt; Generic DescribeScheduledActions
+forall x.
+Rep DescribeScheduledActions x -&gt; DescribeScheduledActions
+forall x.
+DescribeScheduledActions -&gt; Rep DescribeScheduledActions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeScheduledActions x -&gt; DescribeScheduledActions
+$cfrom :: forall x.
+DescribeScheduledActions -&gt; Rep DescribeScheduledActions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'DescribeScheduledActions' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'startTime', 'describeScheduledActions_startTime' - The start time in UTC of the scheduled actions to retrieve. Only active</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- scheduled actions that have invocations after this time are retrieved.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'scheduledActionName', 'describeScheduledActions_scheduledActionName' - The name of the scheduled action to retrieve.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'filters', 'describeScheduledActions_filters' - List of scheduled action filters.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'active', 'describeScheduledActions_active' - If true, retrieve only active scheduled actions. If false, retrieve only</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- disabled scheduled actions.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'targetActionType', 'describeScheduledActions_targetActionType' - The type of the scheduled actions to retrieve.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'marker', 'describeScheduledActions_marker' - An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- of response records. When the results of a DescribeScheduledActions</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'maxRecords', 'describeScheduledActions_maxRecords' - The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'endTime', 'describeScheduledActions_endTime' - The end time in UTC of the scheduled action to retrieve. Only active</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- scheduled actions that have invocations before this time are retrieved.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#newDescribeScheduledActions"><span class="hs-identifier hs-type">newDescribeScheduledActions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span>
+</span><span id="line-137"></span><span id="newDescribeScheduledActions"><span class="annot"><span class="annottext">newDescribeScheduledActions :: DescribeScheduledActions
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#newDescribeScheduledActions"><span class="hs-identifier hs-var hs-var">newDescribeScheduledActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">DescribeScheduledActions' :: Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe [ScheduledActionFilter]
+-&gt; Maybe Bool
+-&gt; Maybe ScheduledActionTypeValues
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe ISO8601
+-&gt; DescribeScheduledActions
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:DescribeScheduledActions' :: Maybe ISO8601
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AstartTime%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduledActionName:DescribeScheduledActions' :: Maybe Text
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AscheduledActionName%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeScheduledActions' :: Maybe [ScheduledActionFilter]
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3Afilters%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledActionFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:active:DescribeScheduledActions' :: Maybe Bool
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3Aactive%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">active</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetActionType:DescribeScheduledActions' :: Maybe ScheduledActionTypeValues
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AtargetActionType%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">targetActionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionTypeValues
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeScheduledActions' :: Maybe Text
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3Amarker%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeScheduledActions' :: Maybe Int
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AmaxRecords%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:DescribeScheduledActions' :: Maybe ISO8601
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AendTime%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The start time in UTC of the scheduled actions to retrieve. Only active</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- scheduled actions that have invocations after this time are retrieved.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_startTime"><span class="hs-identifier hs-type">describeScheduledActions_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="describeScheduledActions_startTime"><span class="annot"><span class="annottext">describeScheduledActions_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeScheduledActions -&gt; f DescribeScheduledActions
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_startTime"><span class="hs-identifier hs-var hs-var">describeScheduledActions_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeScheduledActions -&gt; Maybe ISO8601)
+-&gt; (DescribeScheduledActions
+    -&gt; Maybe ISO8601 -&gt; DescribeScheduledActions)
+-&gt; Lens
+     DescribeScheduledActions
+     DescribeScheduledActions
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513963"><span class="annot"><span class="annottext">Maybe ISO8601
+startTime :: Maybe ISO8601
+$sel:startTime:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679513963"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679513963"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513962"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679513962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513961"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679513961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679513962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:DescribeScheduledActions' :: Maybe ISO8601
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AstartTime%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679513961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; DescribeScheduledActions -&gt; f DescribeScheduledActions)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeScheduledActions
+-&gt; f DescribeScheduledActions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The name of the scheduled action to retrieve.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_scheduledActionName"><span class="hs-identifier hs-type">describeScheduledActions_scheduledActionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="describeScheduledActions_scheduledActionName"><span class="annot"><span class="annottext">describeScheduledActions_scheduledActionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeScheduledActions -&gt; f DescribeScheduledActions
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_scheduledActionName"><span class="hs-identifier hs-var hs-var">describeScheduledActions_scheduledActionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeScheduledActions -&gt; Maybe Text)
+-&gt; (DescribeScheduledActions
+    -&gt; Maybe Text -&gt; DescribeScheduledActions)
+-&gt; Lens
+     DescribeScheduledActions
+     DescribeScheduledActions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513957"><span class="annot"><span class="annottext">Maybe Text
+scheduledActionName :: Maybe Text
+$sel:scheduledActionName:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Text
+</span><a href="#local-6989586621679513957"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513957"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513956"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679513956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513955"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679513956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionName:DescribeScheduledActions' :: Maybe Text
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AscheduledActionName%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | List of scheduled action filters.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_filters"><span class="hs-identifier hs-type">describeScheduledActions_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-type">ScheduledActionFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="describeScheduledActions_filters"><span class="annot"><span class="annottext">describeScheduledActions_filters :: (Maybe [ScheduledActionFilter]
+ -&gt; f (Maybe [ScheduledActionFilter]))
+-&gt; DescribeScheduledActions -&gt; f DescribeScheduledActions
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_filters"><span class="hs-identifier hs-var hs-var">describeScheduledActions_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeScheduledActions -&gt; Maybe [ScheduledActionFilter])
+-&gt; (DescribeScheduledActions
+    -&gt; Maybe [ScheduledActionFilter] -&gt; DescribeScheduledActions)
+-&gt; Lens
+     DescribeScheduledActions
+     DescribeScheduledActions
+     (Maybe [ScheduledActionFilter])
+     (Maybe [ScheduledActionFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513954"><span class="annot"><span class="annottext">Maybe [ScheduledActionFilter]
+filters :: Maybe [ScheduledActionFilter]
+$sel:filters:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe [ScheduledActionFilter]
+</span><a href="#local-6989586621679513954"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledActionFilter]
+</span><a href="#local-6989586621679513954"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513953"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679513953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513952"><span class="annot"><span class="annottext">Maybe [ScheduledActionFilter]
+</span><a href="#local-6989586621679513952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679513953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeScheduledActions' :: Maybe [ScheduledActionFilter]
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3Afilters%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledActionFilter]
+</span><a href="#local-6989586621679513952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScheduledActionFilter]
+  -&gt; f (Maybe [ScheduledActionFilter]))
+ -&gt; DescribeScheduledActions -&gt; f DescribeScheduledActions)
+-&gt; ((Maybe [ScheduledActionFilter]
+     -&gt; f (Maybe [ScheduledActionFilter]))
+    -&gt; Maybe [ScheduledActionFilter]
+    -&gt; f (Maybe [ScheduledActionFilter]))
+-&gt; (Maybe [ScheduledActionFilter]
+    -&gt; f (Maybe [ScheduledActionFilter]))
+-&gt; DescribeScheduledActions
+-&gt; f DescribeScheduledActions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScheduledActionFilter]
+  [ScheduledActionFilter]
+  [ScheduledActionFilter]
+  [ScheduledActionFilter]
+-&gt; Iso
+     (Maybe [ScheduledActionFilter])
+     (Maybe [ScheduledActionFilter])
+     (Maybe [ScheduledActionFilter])
+     (Maybe [ScheduledActionFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScheduledActionFilter]
+  [ScheduledActionFilter]
+  [ScheduledActionFilter]
+  [ScheduledActionFilter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | If true, retrieve only active scheduled actions. If false, retrieve only</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- disabled scheduled actions.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_active"><span class="hs-identifier hs-type">describeScheduledActions_active</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="describeScheduledActions_active"><span class="annot"><span class="annottext">describeScheduledActions_active :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeScheduledActions -&gt; f DescribeScheduledActions
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_active"><span class="hs-identifier hs-var hs-var">describeScheduledActions_active</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeScheduledActions -&gt; Maybe Bool)
+-&gt; (DescribeScheduledActions
+    -&gt; Maybe Bool -&gt; DescribeScheduledActions)
+-&gt; Lens
+     DescribeScheduledActions
+     DescribeScheduledActions
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513950"><span class="annot"><span class="annottext">Maybe Bool
+active :: Maybe Bool
+$sel:active:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Bool
+</span><a href="#local-6989586621679513950"><span class="hs-identifier hs-var hs-var">active</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679513950"><span class="hs-identifier hs-var">active</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513949"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679513949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513948"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679513948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679513949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:active:DescribeScheduledActions' :: Maybe Bool
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3Aactive%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">active</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679513948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The type of the scheduled actions to retrieve.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_targetActionType"><span class="hs-identifier hs-type">describeScheduledActions_targetActionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.ScheduledActionTypeValues.html#ScheduledActionTypeValues"><span class="hs-identifier hs-type">ScheduledActionTypeValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="describeScheduledActions_targetActionType"><span class="annot"><span class="annottext">describeScheduledActions_targetActionType :: (Maybe ScheduledActionTypeValues
+ -&gt; f (Maybe ScheduledActionTypeValues))
+-&gt; DescribeScheduledActions -&gt; f DescribeScheduledActions
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_targetActionType"><span class="hs-identifier hs-var hs-var">describeScheduledActions_targetActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeScheduledActions -&gt; Maybe ScheduledActionTypeValues)
+-&gt; (DescribeScheduledActions
+    -&gt; Maybe ScheduledActionTypeValues -&gt; DescribeScheduledActions)
+-&gt; Lens
+     DescribeScheduledActions
+     DescribeScheduledActions
+     (Maybe ScheduledActionTypeValues)
+     (Maybe ScheduledActionTypeValues)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513947"><span class="annot"><span class="annottext">Maybe ScheduledActionTypeValues
+targetActionType :: Maybe ScheduledActionTypeValues
+$sel:targetActionType:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe ScheduledActionTypeValues
+</span><a href="#local-6989586621679513947"><span class="hs-identifier hs-var hs-var">targetActionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionTypeValues
+</span><a href="#local-6989586621679513947"><span class="hs-identifier hs-var">targetActionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513946"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679513946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513945"><span class="annot"><span class="annottext">Maybe ScheduledActionTypeValues
+</span><a href="#local-6989586621679513945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679513946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetActionType:DescribeScheduledActions' :: Maybe ScheduledActionTypeValues
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AtargetActionType%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">targetActionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionTypeValues
+</span><a href="#local-6989586621679513945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- of response records. When the results of a DescribeScheduledActions</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_marker"><span class="hs-identifier hs-type">describeScheduledActions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="describeScheduledActions_marker"><span class="annot"><span class="annottext">describeScheduledActions_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeScheduledActions -&gt; f DescribeScheduledActions
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_marker"><span class="hs-identifier hs-var hs-var">describeScheduledActions_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeScheduledActions -&gt; Maybe Text)
+-&gt; (DescribeScheduledActions
+    -&gt; Maybe Text -&gt; DescribeScheduledActions)
+-&gt; Lens
+     DescribeScheduledActions
+     DescribeScheduledActions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513944"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Text
+</span><a href="#local-6989586621679513944"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513944"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513943"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679513943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513942"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679513943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeScheduledActions' :: Maybe Text
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3Amarker%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_maxRecords"><span class="hs-identifier hs-type">describeScheduledActions_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="describeScheduledActions_maxRecords"><span class="annot"><span class="annottext">describeScheduledActions_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeScheduledActions -&gt; f DescribeScheduledActions
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_maxRecords"><span class="hs-identifier hs-var hs-var">describeScheduledActions_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeScheduledActions -&gt; Maybe Int)
+-&gt; (DescribeScheduledActions
+    -&gt; Maybe Int -&gt; DescribeScheduledActions)
+-&gt; Lens
+     DescribeScheduledActions
+     DescribeScheduledActions
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513941"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Int
+</span><a href="#local-6989586621679513941"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679513941"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513940"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679513940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513939"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679513939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679513940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeScheduledActions' :: Maybe Int
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AmaxRecords%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679513939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The end time in UTC of the scheduled action to retrieve. Only active</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- scheduled actions that have invocations before this time are retrieved.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_endTime"><span class="hs-identifier hs-type">describeScheduledActions_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="describeScheduledActions_endTime"><span class="annot"><span class="annottext">describeScheduledActions_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeScheduledActions -&gt; f DescribeScheduledActions
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_endTime"><span class="hs-identifier hs-var hs-var">describeScheduledActions_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeScheduledActions -&gt; Maybe ISO8601)
+-&gt; (DescribeScheduledActions
+    -&gt; Maybe ISO8601 -&gt; DescribeScheduledActions)
+-&gt; Lens
+     DescribeScheduledActions
+     DescribeScheduledActions
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513938"><span class="annot"><span class="annottext">Maybe ISO8601
+endTime :: Maybe ISO8601
+$sel:endTime:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679513938"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679513938"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513937"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679513937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513936"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679513936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679513937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:DescribeScheduledActions' :: Maybe ISO8601
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AendTime%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679513936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; DescribeScheduledActions -&gt; f DescribeScheduledActions)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeScheduledActions
+-&gt; f DescribeScheduledActions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679513932"><span class="annot"><span class="annottext">page :: DescribeScheduledActions
+-&gt; AWSResponse DescribeScheduledActions
+-&gt; Maybe DescribeScheduledActions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679513930"><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679513930"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679513929"><span class="annot"><span class="annottext">AWSResponse DescribeScheduledActions
+</span><a href="#local-6989586621679513929"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-201"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeScheduledActions
+DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679513929"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
+-&gt; Getting (First Text) DescribeScheduledActionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeScheduledActionsResponse
+-&gt; Const (First Text) DescribeScheduledActionsResponse
+Lens' DescribeScheduledActionsResponse (Maybe Text)
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActionsResponse_marker"><span class="hs-identifier hs-var">describeScheduledActionsResponse_marker</span></a></span><span>
+</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeScheduledActionsResponse
+ -&gt; Const (First Text) DescribeScheduledActionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeScheduledActionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-204"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeScheduledActions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledAction] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-207"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeScheduledActions
+DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679513929"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
+-&gt; Getting
+     (First [ScheduledAction])
+     DescribeScheduledActionsResponse
+     [ScheduledAction]
+-&gt; Maybe [ScheduledAction]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ScheduledAction]
+ -&gt; Const (First [ScheduledAction]) (Maybe [ScheduledAction]))
+-&gt; DescribeScheduledActionsResponse
+-&gt; Const (First [ScheduledAction]) DescribeScheduledActionsResponse
+Lens' DescribeScheduledActionsResponse (Maybe [ScheduledAction])
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActionsResponse_scheduledActions"><span class="hs-identifier hs-var">describeScheduledActionsResponse_scheduledActions</span></a></span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ScheduledAction]
+  -&gt; Const (First [ScheduledAction]) (Maybe [ScheduledAction]))
+ -&gt; DescribeScheduledActionsResponse
+ -&gt; Const
+      (First [ScheduledAction]) DescribeScheduledActionsResponse)
+-&gt; (([ScheduledAction]
+     -&gt; Const (First [ScheduledAction]) [ScheduledAction])
+    -&gt; Maybe [ScheduledAction]
+    -&gt; Const (First [ScheduledAction]) (Maybe [ScheduledAction]))
+-&gt; Getting
+     (First [ScheduledAction])
+     DescribeScheduledActionsResponse
+     [ScheduledAction]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ScheduledAction]
+ -&gt; Const (First [ScheduledAction]) [ScheduledAction])
+-&gt; Maybe [ScheduledAction]
+-&gt; Const (First [ScheduledAction]) (Maybe [ScheduledAction])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-210"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeScheduledActions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; Maybe DescribeScheduledActions
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeScheduledActions -&gt; Maybe DescribeScheduledActions)
+-&gt; DescribeScheduledActions -&gt; Maybe DescribeScheduledActions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679513930"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">DescribeScheduledActions
+-&gt; (DescribeScheduledActions -&gt; DescribeScheduledActions)
+-&gt; DescribeScheduledActions
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeScheduledActions -&gt; Identity DescribeScheduledActions
+Lens
+  DescribeScheduledActions
+  DescribeScheduledActions
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActions_marker"><span class="hs-identifier hs-var">describeScheduledActions_marker</span></a></span><span>
+</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeScheduledActions -&gt; Identity DescribeScheduledActions)
+-&gt; Maybe Text
+-&gt; DescribeScheduledActions
+-&gt; DescribeScheduledActions
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeScheduledActions
+DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679513929"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
+-&gt; Getting (First Text) DescribeScheduledActionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeScheduledActionsResponse
+-&gt; Const (First Text) DescribeScheduledActionsResponse
+Lens' DescribeScheduledActionsResponse (Maybe Text)
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActionsResponse_marker"><span class="hs-identifier hs-var">describeScheduledActionsResponse_marker</span></a></span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeScheduledActionsResponse
+ -&gt; Const (First Text) DescribeScheduledActionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeScheduledActionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-222"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679513920"><span class="annot"><span class="annottext">request :: DescribeScheduledActions -&gt; Request DescribeScheduledActions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeScheduledActions -&gt; Request DescribeScheduledActions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679513916"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeScheduledActions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeScheduledActions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeScheduledActions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeScheduledActions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeScheduledActions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeScheduledActionsResult&quot;</span></span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679513913"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513913"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679513912"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679513912"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679513911"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679513911"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-229"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ScheduledAction]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeScheduledActionsResponse
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">DescribeScheduledActionsResponse'</span></a></span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ScheduledAction]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeScheduledActionsResponse)
+-&gt; Either String (Maybe [ScheduledAction])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeScheduledActionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679513911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduledActions&quot;</span></span><span>
+</span><span id="line-231"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-232"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ScheduledAction]))
+-&gt; Either String (Maybe [ScheduledAction])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ScheduledAction])
+-&gt; [Node] -&gt; Either String (Maybe [ScheduledAction])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ScheduledAction]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduledAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeScheduledActionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeScheduledActionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679513911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeScheduledActionsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeScheduledActionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513913"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679513900"><span id="local-6989586621679513902"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span></span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679513897"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679513893"><span class="annot"><span class="annottext">toHeaders :: DescribeScheduledActions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeScheduledActions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679513888"><span class="annot"><span class="annottext">toPath :: DescribeScheduledActions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeScheduledActions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679513884"><span class="annot"><span class="annottext">toQuery :: DescribeScheduledActions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513875"><span id="local-6989586621679513876"><span id="local-6989586621679513877"><span id="local-6989586621679513878"><span id="local-6989586621679513879"><span id="local-6989586621679513880"><span id="local-6989586621679513881"><span id="local-6989586621679513882"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [ScheduledActionFilter]
+Maybe Text
+Maybe ISO8601
+Maybe ScheduledActionTypeValues
+endTime :: Maybe ISO8601
+maxRecords :: Maybe Int
+marker :: Maybe Text
+targetActionType :: Maybe ScheduledActionTypeValues
+active :: Maybe Bool
+filters :: Maybe [ScheduledActionFilter]
+scheduledActionName :: Maybe Text
+startTime :: Maybe ISO8601
+$sel:endTime:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe ISO8601
+$sel:maxRecords:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Int
+$sel:marker:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Text
+$sel:targetActionType:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe ScheduledActionTypeValues
+$sel:active:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Bool
+$sel:filters:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe [ScheduledActionFilter]
+$sel:scheduledActionName:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Text
+$sel:startTime:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679513875"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeScheduledActions&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-254"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2012-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679513882"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ScheduledActionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513881"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span>
+</span><span id="line-258"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [ScheduledActionFilter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ScheduledActionFilter&quot;</span></span><span>
+</span><span id="line-260"></span><span>                </span><span class="annot"><span class="annottext">([ScheduledActionFilter] -&gt; QueryString)
+-&gt; Maybe [ScheduledActionFilter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledActionFilter]
+</span><a href="#local-6989586621679513880"><span class="hs-identifier hs-var">filters</span></a></span><span>
+</span><span id="line-261"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Active&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679513879"><span class="hs-identifier hs-var">active</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TargetActionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ScheduledActionTypeValues -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionTypeValues
+</span><a href="#local-6989586621679513878"><span class="hs-identifier hs-var">targetActionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513877"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679513876"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679513875"><span class="hs-identifier hs-var">endTime</span></a></span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | /See:/ 'newDescribeScheduledActionsResponse' smart constructor.</span><span>
+</span><span id="line-270"></span><span id="local-6989586621679513871"><span id="local-6989586621679513872"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScheduledActionsResponse"><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-var">DescribeScheduledActionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScheduledActionsResponse%27"><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">DescribeScheduledActionsResponse'</span></a></span></span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of retrieved scheduled actions.</span><span>
+</span><span id="line-272"></span><span>    </span><span id="%24sel%3AscheduledActions%3ADescribeScheduledActionsResponse%27"><span class="annot"><span class="annottext">DescribeScheduledActionsResponse -&gt; Maybe [ScheduledAction]
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AscheduledActions%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var hs-var">scheduledActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-274"></span><span>    </span><span class="hs-comment">-- of response records. When the results of a DescribeScheduledActions</span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-279"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeScheduledActionsResponse%27"><span class="annot"><span class="annottext">DescribeScheduledActionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3Amarker%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-281"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeScheduledActionsResponse%27"><span class="annot"><span class="annottext">DescribeScheduledActionsResponse -&gt; Int
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AhttpStatus%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-282"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-283"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679513864"><span id="local-6989586621679513866"><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
+-&gt; DescribeScheduledActionsResponse -&gt; Bool
+(DescribeScheduledActionsResponse
+ -&gt; DescribeScheduledActionsResponse -&gt; Bool)
+-&gt; (DescribeScheduledActionsResponse
+    -&gt; DescribeScheduledActionsResponse -&gt; Bool)
+-&gt; Eq DescribeScheduledActionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeScheduledActionsResponse
+-&gt; DescribeScheduledActionsResponse -&gt; Bool
+$c/= :: DescribeScheduledActionsResponse
+-&gt; DescribeScheduledActionsResponse -&gt; Bool
+== :: DescribeScheduledActionsResponse
+-&gt; DescribeScheduledActionsResponse -&gt; Bool
+$c== :: DescribeScheduledActionsResponse
+-&gt; DescribeScheduledActionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513856"><span id="local-6989586621679513858"><span id="local-6989586621679513860"><span id="local-6989586621679513862"><span class="annot"><span class="annottext">ReadPrec [DescribeScheduledActionsResponse]
+ReadPrec DescribeScheduledActionsResponse
+Int -&gt; ReadS DescribeScheduledActionsResponse
+ReadS [DescribeScheduledActionsResponse]
+(Int -&gt; ReadS DescribeScheduledActionsResponse)
+-&gt; ReadS [DescribeScheduledActionsResponse]
+-&gt; ReadPrec DescribeScheduledActionsResponse
+-&gt; ReadPrec [DescribeScheduledActionsResponse]
+-&gt; Read DescribeScheduledActionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeScheduledActionsResponse]
+$creadListPrec :: ReadPrec [DescribeScheduledActionsResponse]
+readPrec :: ReadPrec DescribeScheduledActionsResponse
+$creadPrec :: ReadPrec DescribeScheduledActionsResponse
+readList :: ReadS [DescribeScheduledActionsResponse]
+$creadList :: ReadS [DescribeScheduledActionsResponse]
+readsPrec :: Int -&gt; ReadS DescribeScheduledActionsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeScheduledActionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513850"><span id="local-6989586621679513852"><span id="local-6989586621679513854"><span class="annot"><span class="annottext">Int -&gt; DescribeScheduledActionsResponse -&gt; ShowS
+[DescribeScheduledActionsResponse] -&gt; ShowS
+DescribeScheduledActionsResponse -&gt; String
+(Int -&gt; DescribeScheduledActionsResponse -&gt; ShowS)
+-&gt; (DescribeScheduledActionsResponse -&gt; String)
+-&gt; ([DescribeScheduledActionsResponse] -&gt; ShowS)
+-&gt; Show DescribeScheduledActionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeScheduledActionsResponse] -&gt; ShowS
+$cshowList :: [DescribeScheduledActionsResponse] -&gt; ShowS
+show :: DescribeScheduledActionsResponse -&gt; String
+$cshow :: DescribeScheduledActionsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeScheduledActionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeScheduledActionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeScheduledActionsResponse
+ -&gt; Rep DescribeScheduledActionsResponse x)
+-&gt; (forall x.
+    Rep DescribeScheduledActionsResponse x
+    -&gt; DescribeScheduledActionsResponse)
+-&gt; Generic DescribeScheduledActionsResponse
+forall x.
+Rep DescribeScheduledActionsResponse x
+-&gt; DescribeScheduledActionsResponse
+forall x.
+DescribeScheduledActionsResponse
+-&gt; Rep DescribeScheduledActionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeScheduledActionsResponse x
+-&gt; DescribeScheduledActionsResponse
+$cfrom :: forall x.
+DescribeScheduledActionsResponse
+-&gt; Rep DescribeScheduledActionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- Create a value of 'DescribeScheduledActionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- 'scheduledActions', 'describeScheduledActionsResponse_scheduledActions' - List of retrieved scheduled actions.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- 'marker', 'describeScheduledActionsResponse_marker' - An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- of response records. When the results of a DescribeScheduledActions</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- 'httpStatus', 'describeScheduledActionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#newDescribeScheduledActionsResponse"><span class="hs-identifier hs-type">newDescribeScheduledActionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-304"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-305"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-306"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span>
+</span><span id="line-307"></span><span id="newDescribeScheduledActionsResponse"><span class="annot"><span class="annottext">newDescribeScheduledActionsResponse :: Int -&gt; DescribeScheduledActionsResponse
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#newDescribeScheduledActionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeScheduledActionsResponse</span></a></span></span><span> </span><span id="local-6989586621679513847"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513847"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-308"></span><span>  </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse' :: Maybe [ScheduledAction]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeScheduledActionsResponse
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span>
+</span><span id="line-309"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scheduledActions:DescribeScheduledActionsResponse' :: Maybe [ScheduledAction]
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AscheduledActions%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">scheduledActions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-310"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ScheduledAction]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeScheduledActionsResponse' :: Maybe Text
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3Amarker%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeScheduledActionsResponse' :: Int
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AhttpStatus%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513847"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-313"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | List of retrieved scheduled actions.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActionsResponse_scheduledActions"><span class="hs-identifier hs-type">describeScheduledActionsResponse_scheduledActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span id="describeScheduledActionsResponse_scheduledActions"><span class="annot"><span class="annottext">describeScheduledActionsResponse_scheduledActions :: (Maybe [ScheduledAction] -&gt; f (Maybe [ScheduledAction]))
+-&gt; DescribeScheduledActionsResponse
+-&gt; f DescribeScheduledActionsResponse
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActionsResponse_scheduledActions"><span class="hs-identifier hs-var hs-var">describeScheduledActionsResponse_scheduledActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeScheduledActionsResponse -&gt; Maybe [ScheduledAction])
+-&gt; (DescribeScheduledActionsResponse
+    -&gt; Maybe [ScheduledAction] -&gt; DescribeScheduledActionsResponse)
+-&gt; Lens' DescribeScheduledActionsResponse (Maybe [ScheduledAction])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513846"><span class="annot"><span class="annottext">Maybe [ScheduledAction]
+scheduledActions :: Maybe [ScheduledAction]
+$sel:scheduledActions:DescribeScheduledActionsResponse' :: DescribeScheduledActionsResponse -&gt; Maybe [ScheduledAction]
+</span><a href="#local-6989586621679513846"><span class="hs-identifier hs-var hs-var">scheduledActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledAction]
+</span><a href="#local-6989586621679513846"><span class="hs-identifier hs-var">scheduledActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513845"><span class="annot"><span class="annottext">s :: DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679513845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513844"><span class="annot"><span class="annottext">Maybe [ScheduledAction]
+</span><a href="#local-6989586621679513844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679513845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActions:DescribeScheduledActionsResponse' :: Maybe [ScheduledAction]
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AscheduledActions%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">scheduledActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledAction]
+</span><a href="#local-6989586621679513844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScheduledAction] -&gt; f (Maybe [ScheduledAction]))
+ -&gt; DescribeScheduledActionsResponse
+ -&gt; f DescribeScheduledActionsResponse)
+-&gt; ((Maybe [ScheduledAction] -&gt; f (Maybe [ScheduledAction]))
+    -&gt; Maybe [ScheduledAction] -&gt; f (Maybe [ScheduledAction]))
+-&gt; (Maybe [ScheduledAction] -&gt; f (Maybe [ScheduledAction]))
+-&gt; DescribeScheduledActionsResponse
+-&gt; f DescribeScheduledActionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScheduledAction]
+  [ScheduledAction]
+  [ScheduledAction]
+  [ScheduledAction]
+-&gt; Iso
+     (Maybe [ScheduledAction])
+     (Maybe [ScheduledAction])
+     (Maybe [ScheduledAction])
+     (Maybe [ScheduledAction])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScheduledAction]
+  [ScheduledAction]
+  [ScheduledAction]
+  [ScheduledAction]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- of response records. When the results of a DescribeScheduledActions</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActionsResponse_marker"><span class="hs-identifier hs-type">describeScheduledActionsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span id="describeScheduledActionsResponse_marker"><span class="annot"><span class="annottext">describeScheduledActionsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeScheduledActionsResponse
+-&gt; f DescribeScheduledActionsResponse
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActionsResponse_marker"><span class="hs-identifier hs-var hs-var">describeScheduledActionsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeScheduledActionsResponse -&gt; Maybe Text)
+-&gt; (DescribeScheduledActionsResponse
+    -&gt; Maybe Text -&gt; DescribeScheduledActionsResponse)
+-&gt; Lens' DescribeScheduledActionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513843"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeScheduledActionsResponse' :: DescribeScheduledActionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679513843"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513843"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513842"><span class="annot"><span class="annottext">s :: DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679513842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513841"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679513842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeScheduledActionsResponse' :: Maybe Text
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3Amarker%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActionsResponse_httpStatus"><span class="hs-identifier hs-type">describeScheduledActionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-330"></span><span id="describeScheduledActionsResponse_httpStatus"><span class="annot"><span class="annottext">describeScheduledActionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeScheduledActionsResponse
+-&gt; f DescribeScheduledActionsResponse
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#describeScheduledActionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeScheduledActionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeScheduledActionsResponse -&gt; Int)
+-&gt; (DescribeScheduledActionsResponse
+    -&gt; Int -&gt; DescribeScheduledActionsResponse)
+-&gt; Lens
+     DescribeScheduledActionsResponse
+     DescribeScheduledActionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513840"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeScheduledActionsResponse' :: DescribeScheduledActionsResponse -&gt; Int
+</span><a href="#local-6989586621679513840"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513840"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513839"><span class="annot"><span class="annottext">s :: DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679513839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513838"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679513839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeScheduledActionsResponse' :: Int
+</span><a href="Amazonka.Redshift.DescribeScheduledActions.html#%24sel%3AhttpStatus%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-333"></span><span>  </span><span id="local-6989586621679513836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-334"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span></span><span>
+</span><span id="line-335"></span></pre></body></html>

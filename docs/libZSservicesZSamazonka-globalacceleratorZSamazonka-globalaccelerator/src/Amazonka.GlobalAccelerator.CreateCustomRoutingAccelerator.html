@@ -1,0 +1,861 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Create a custom routing accelerator. A custom routing accelerator</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- directs traffic to one of possibly thousands of Amazon EC2 instance</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- destinations running in a single or multiple virtual private clouds</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- (VPC) subnet endpoints.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Be aware that, by default, all destination EC2 instances in a VPC subnet</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- endpoint cannot receive traffic. To enable all destinations to receive</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- traffic, or to specify individual port mappings that can receive</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- traffic, see the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html AllowCustomRoutingTraffic&gt;</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- Global Accelerator is a global service that supports endpoints in</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- multiple AWS Regions but you must specify the US West (Oregon) Region to</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- create or update accelerators.</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier">CreateCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#newCreateCustomRoutingAccelerator"><span class="hs-identifier">newCreateCustomRoutingAccelerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_enabled"><span class="hs-identifier">createCustomRoutingAccelerator_enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_ipAddressType"><span class="hs-identifier">createCustomRoutingAccelerator_ipAddressType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_tags"><span class="hs-identifier">createCustomRoutingAccelerator_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_ipAddresses"><span class="hs-identifier">createCustomRoutingAccelerator_ipAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_name"><span class="hs-identifier">createCustomRoutingAccelerator_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_idempotencyToken"><span class="hs-identifier">createCustomRoutingAccelerator_idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse"><span class="hs-identifier">CreateCustomRoutingAcceleratorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#newCreateCustomRoutingAcceleratorResponse"><span class="hs-identifier">newCreateCustomRoutingAcceleratorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAcceleratorResponse_accelerator"><span class="hs-identifier">createCustomRoutingAcceleratorResponse_accelerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAcceleratorResponse_httpStatus"><span class="hs-identifier">createCustomRoutingAcceleratorResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.html"><span class="hs-identifier">Amazonka.GlobalAccelerator.Types</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newCreateCustomRoutingAccelerator' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679247461"><span id="local-6989586621679247462"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCustomRoutingAccelerator"><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-var">CreateCustomRoutingAccelerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCustomRoutingAccelerator%27"><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">CreateCustomRoutingAccelerator'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether an accelerator is enabled. The value is true or false.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- The default value is true.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- If the value is set to true, an accelerator cannot be deleted. If set to</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- false, the accelerator can be deleted.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aenabled%3ACreateCustomRoutingAccelerator%27"><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator -&gt; Maybe Bool
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3Aenabled%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The value for the address type must be IPv4.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AipAddressType%3ACreateCustomRoutingAccelerator%27"><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator -&gt; Maybe IpAddressType
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3AipAddressType%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.IpAddressType.html#IpAddressType"><span class="hs-identifier hs-type">IpAddressType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Create tags for an accelerator.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in AWS Global Accelerator&gt;</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- in the /AWS Global Accelerator Developer Guide/.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Atags%3ACreateCustomRoutingAccelerator%27"><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator -&gt; Maybe [Tag]
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3Atags%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Optionally, if you\'ve added your own IP address pool to Global</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- Accelerator (BYOIP), you can choose IP addresses from your own pool to</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- use for the accelerator\'s static IP addresses when you create an</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- accelerator. You can specify one or two addresses, separated by a space.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- Do not include the \/32 suffix.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Only one IP address from each of your IP address ranges can be used for</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- each accelerator. If you specify only one IP address from your IP</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- address range, Global Accelerator assigns a second static IP address for</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- the accelerator from the AWS IP address pool.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- Note that you can\'t update IP addresses for an existing accelerator. To</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- change them, you must create a new accelerator with the new addresses.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)&gt;</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- in the /AWS Global Accelerator Developer Guide/.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AipAddresses%3ACreateCustomRoutingAccelerator%27"><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator -&gt; Maybe [Text]
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3AipAddresses%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var hs-var">ipAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The name of a custom routing accelerator. The name can have a maximum of</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- 64 characters, must contain only alphanumeric characters or hyphens (-),</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- and must not begin or end with a hyphen.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3Aname%3ACreateCustomRoutingAccelerator%27"><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator -&gt; Text
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3Aname%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- idempotency&#8212;that is, the uniqueness&#8212;of the request.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AidempotencyToken%3ACreateCustomRoutingAccelerator%27"><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator -&gt; Text
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3AidempotencyToken%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247450"><span id="local-6989586621679247452"><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator
+-&gt; CreateCustomRoutingAccelerator -&gt; Bool
+(CreateCustomRoutingAccelerator
+ -&gt; CreateCustomRoutingAccelerator -&gt; Bool)
+-&gt; (CreateCustomRoutingAccelerator
+    -&gt; CreateCustomRoutingAccelerator -&gt; Bool)
+-&gt; Eq CreateCustomRoutingAccelerator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCustomRoutingAccelerator
+-&gt; CreateCustomRoutingAccelerator -&gt; Bool
+$c/= :: CreateCustomRoutingAccelerator
+-&gt; CreateCustomRoutingAccelerator -&gt; Bool
+== :: CreateCustomRoutingAccelerator
+-&gt; CreateCustomRoutingAccelerator -&gt; Bool
+$c== :: CreateCustomRoutingAccelerator
+-&gt; CreateCustomRoutingAccelerator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247441"><span id="local-6989586621679247443"><span id="local-6989586621679247445"><span id="local-6989586621679247447"><span class="annot"><span class="annottext">ReadPrec [CreateCustomRoutingAccelerator]
+ReadPrec CreateCustomRoutingAccelerator
+Int -&gt; ReadS CreateCustomRoutingAccelerator
+ReadS [CreateCustomRoutingAccelerator]
+(Int -&gt; ReadS CreateCustomRoutingAccelerator)
+-&gt; ReadS [CreateCustomRoutingAccelerator]
+-&gt; ReadPrec CreateCustomRoutingAccelerator
+-&gt; ReadPrec [CreateCustomRoutingAccelerator]
+-&gt; Read CreateCustomRoutingAccelerator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCustomRoutingAccelerator]
+$creadListPrec :: ReadPrec [CreateCustomRoutingAccelerator]
+readPrec :: ReadPrec CreateCustomRoutingAccelerator
+$creadPrec :: ReadPrec CreateCustomRoutingAccelerator
+readList :: ReadS [CreateCustomRoutingAccelerator]
+$creadList :: ReadS [CreateCustomRoutingAccelerator]
+readsPrec :: Int -&gt; ReadS CreateCustomRoutingAccelerator
+$creadsPrec :: Int -&gt; ReadS CreateCustomRoutingAccelerator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247434"><span id="local-6989586621679247436"><span id="local-6989586621679247438"><span class="annot"><span class="annottext">Int -&gt; CreateCustomRoutingAccelerator -&gt; ShowS
+[CreateCustomRoutingAccelerator] -&gt; ShowS
+CreateCustomRoutingAccelerator -&gt; String
+(Int -&gt; CreateCustomRoutingAccelerator -&gt; ShowS)
+-&gt; (CreateCustomRoutingAccelerator -&gt; String)
+-&gt; ([CreateCustomRoutingAccelerator] -&gt; ShowS)
+-&gt; Show CreateCustomRoutingAccelerator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCustomRoutingAccelerator] -&gt; ShowS
+$cshowList :: [CreateCustomRoutingAccelerator] -&gt; ShowS
+show :: CreateCustomRoutingAccelerator -&gt; String
+$cshow :: CreateCustomRoutingAccelerator -&gt; String
+showsPrec :: Int -&gt; CreateCustomRoutingAccelerator -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCustomRoutingAccelerator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateCustomRoutingAccelerator
+ -&gt; Rep CreateCustomRoutingAccelerator x)
+-&gt; (forall x.
+    Rep CreateCustomRoutingAccelerator x
+    -&gt; CreateCustomRoutingAccelerator)
+-&gt; Generic CreateCustomRoutingAccelerator
+forall x.
+Rep CreateCustomRoutingAccelerator x
+-&gt; CreateCustomRoutingAccelerator
+forall x.
+CreateCustomRoutingAccelerator
+-&gt; Rep CreateCustomRoutingAccelerator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateCustomRoutingAccelerator x
+-&gt; CreateCustomRoutingAccelerator
+$cfrom :: forall x.
+CreateCustomRoutingAccelerator
+-&gt; Rep CreateCustomRoutingAccelerator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Create a value of 'CreateCustomRoutingAccelerator' with all optional fields omitted.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'enabled', 'createCustomRoutingAccelerator_enabled' - Indicates whether an accelerator is enabled. The value is true or false.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- The default value is true.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- If the value is set to true, an accelerator cannot be deleted. If set to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- false, the accelerator can be deleted.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'ipAddressType', 'createCustomRoutingAccelerator_ipAddressType' - The value for the address type must be IPv4.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'tags', 'createCustomRoutingAccelerator_tags' - Create tags for an accelerator.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in AWS Global Accelerator&gt;</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- in the /AWS Global Accelerator Developer Guide/.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'ipAddresses', 'createCustomRoutingAccelerator_ipAddresses' - Optionally, if you\'ve added your own IP address pool to Global</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Accelerator (BYOIP), you can choose IP addresses from your own pool to</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- use for the accelerator\'s static IP addresses when you create an</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- accelerator. You can specify one or two addresses, separated by a space.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Do not include the \/32 suffix.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Only one IP address from each of your IP address ranges can be used for</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- each accelerator. If you specify only one IP address from your IP</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- address range, Global Accelerator assigns a second static IP address for</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- the accelerator from the AWS IP address pool.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Note that you can\'t update IP addresses for an existing accelerator. To</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- change them, you must create a new accelerator with the new addresses.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)&gt;</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- in the /AWS Global Accelerator Developer Guide/.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'name', 'createCustomRoutingAccelerator_name' - The name of a custom routing accelerator. The name can have a maximum of</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 64 characters, must contain only alphanumeric characters or hyphens (-),</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- and must not begin or end with a hyphen.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'idempotencyToken', 'createCustomRoutingAccelerator_idempotencyToken' - A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- idempotency&#8212;that is, the uniqueness&#8212;of the request.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#newCreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">newCreateCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-comment">-- | 'idempotencyToken'</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span>
+</span><span id="line-164"></span><span id="newCreateCustomRoutingAccelerator"><span class="annot"><span class="annottext">newCreateCustomRoutingAccelerator :: Text -&gt; Text -&gt; CreateCustomRoutingAccelerator
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#newCreateCustomRoutingAccelerator"><span class="hs-identifier hs-var hs-var">newCreateCustomRoutingAccelerator</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679247429"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247429"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679247428"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247428"><span class="hs-identifier hs-var">pIdempotencyToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator' :: Maybe Bool
+-&gt; Maybe IpAddressType
+-&gt; Maybe [Tag]
+-&gt; Maybe [Text]
+-&gt; Text
+-&gt; Text
+-&gt; CreateCustomRoutingAccelerator
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enabled:CreateCustomRoutingAccelerator' :: Maybe Bool
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3Aenabled%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:ipAddressType:CreateCustomRoutingAccelerator' :: Maybe IpAddressType
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3AipAddressType%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateCustomRoutingAccelerator' :: Maybe [Tag]
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3Atags%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">$sel:ipAddresses:CreateCustomRoutingAccelerator' :: Maybe [Text]
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3AipAddresses%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">ipAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateCustomRoutingAccelerator' :: Text
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3Aname%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247429"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateCustomRoutingAccelerator' :: Text
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3AidempotencyToken%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247428"><span class="hs-identifier hs-var">pIdempotencyToken_</span></a></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Indicates whether an accelerator is enabled. The value is true or false.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- The default value is true.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- If the value is set to true, an accelerator cannot be deleted. If set to</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- false, the accelerator can be deleted.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_enabled"><span class="hs-identifier hs-type">createCustomRoutingAccelerator_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="createCustomRoutingAccelerator_enabled"><span class="annot"><span class="annottext">createCustomRoutingAccelerator_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateCustomRoutingAccelerator
+-&gt; f CreateCustomRoutingAccelerator
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_enabled"><span class="hs-identifier hs-var hs-var">createCustomRoutingAccelerator_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingAccelerator -&gt; Maybe Bool)
+-&gt; (CreateCustomRoutingAccelerator
+    -&gt; Maybe Bool -&gt; CreateCustomRoutingAccelerator)
+-&gt; Lens
+     CreateCustomRoutingAccelerator
+     CreateCustomRoutingAccelerator
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247425"><span class="annot"><span class="annottext">Maybe Bool
+enabled :: Maybe Bool
+$sel:enabled:CreateCustomRoutingAccelerator' :: CreateCustomRoutingAccelerator -&gt; Maybe Bool
+</span><a href="#local-6989586621679247425"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247425"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247424"><span class="annot"><span class="annottext">s :: CreateCustomRoutingAccelerator
+</span><a href="#local-6989586621679247424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247423"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator
+</span><a href="#local-6989586621679247424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:CreateCustomRoutingAccelerator' :: Maybe Bool
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3Aenabled%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The value for the address type must be IPv4.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_ipAddressType"><span class="hs-identifier hs-type">createCustomRoutingAccelerator_ipAddressType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.IpAddressType.html#IpAddressType"><span class="hs-identifier hs-type">IpAddressType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="createCustomRoutingAccelerator_ipAddressType"><span class="annot"><span class="annottext">createCustomRoutingAccelerator_ipAddressType :: (Maybe IpAddressType -&gt; f (Maybe IpAddressType))
+-&gt; CreateCustomRoutingAccelerator
+-&gt; f CreateCustomRoutingAccelerator
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_ipAddressType"><span class="hs-identifier hs-var hs-var">createCustomRoutingAccelerator_ipAddressType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingAccelerator -&gt; Maybe IpAddressType)
+-&gt; (CreateCustomRoutingAccelerator
+    -&gt; Maybe IpAddressType -&gt; CreateCustomRoutingAccelerator)
+-&gt; Lens
+     CreateCustomRoutingAccelerator
+     CreateCustomRoutingAccelerator
+     (Maybe IpAddressType)
+     (Maybe IpAddressType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247422"><span class="annot"><span class="annottext">Maybe IpAddressType
+ipAddressType :: Maybe IpAddressType
+$sel:ipAddressType:CreateCustomRoutingAccelerator' :: CreateCustomRoutingAccelerator -&gt; Maybe IpAddressType
+</span><a href="#local-6989586621679247422"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679247422"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247421"><span class="annot"><span class="annottext">s :: CreateCustomRoutingAccelerator
+</span><a href="#local-6989586621679247421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247420"><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679247420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator
+</span><a href="#local-6989586621679247421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressType:CreateCustomRoutingAccelerator' :: Maybe IpAddressType
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3AipAddressType%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679247420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Create tags for an accelerator.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in AWS Global Accelerator&gt;</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- in the /AWS Global Accelerator Developer Guide/.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_tags"><span class="hs-identifier hs-type">createCustomRoutingAccelerator_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="createCustomRoutingAccelerator_tags"><span class="annot"><span class="annottext">createCustomRoutingAccelerator_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateCustomRoutingAccelerator
+-&gt; f CreateCustomRoutingAccelerator
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_tags"><span class="hs-identifier hs-var hs-var">createCustomRoutingAccelerator_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingAccelerator -&gt; Maybe [Tag])
+-&gt; (CreateCustomRoutingAccelerator
+    -&gt; Maybe [Tag] -&gt; CreateCustomRoutingAccelerator)
+-&gt; Lens
+     CreateCustomRoutingAccelerator
+     CreateCustomRoutingAccelerator
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247419"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateCustomRoutingAccelerator' :: CreateCustomRoutingAccelerator -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679247419"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679247419"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247418"><span class="annot"><span class="annottext">s :: CreateCustomRoutingAccelerator
+</span><a href="#local-6989586621679247418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247417"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679247417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator
+</span><a href="#local-6989586621679247418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateCustomRoutingAccelerator' :: Maybe [Tag]
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3Atags%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679247417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateCustomRoutingAccelerator
+ -&gt; f CreateCustomRoutingAccelerator)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateCustomRoutingAccelerator
+-&gt; f CreateCustomRoutingAccelerator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | Optionally, if you\'ve added your own IP address pool to Global</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Accelerator (BYOIP), you can choose IP addresses from your own pool to</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- use for the accelerator\'s static IP addresses when you create an</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- accelerator. You can specify one or two addresses, separated by a space.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Do not include the \/32 suffix.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Only one IP address from each of your IP address ranges can be used for</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- each accelerator. If you specify only one IP address from your IP</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- address range, Global Accelerator assigns a second static IP address for</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- the accelerator from the AWS IP address pool.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Note that you can\'t update IP addresses for an existing accelerator. To</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- change them, you must create a new accelerator with the new addresses.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)&gt;</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- in the /AWS Global Accelerator Developer Guide/.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_ipAddresses"><span class="hs-identifier hs-type">createCustomRoutingAccelerator_ipAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="createCustomRoutingAccelerator_ipAddresses"><span class="annot"><span class="annottext">createCustomRoutingAccelerator_ipAddresses :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateCustomRoutingAccelerator
+-&gt; f CreateCustomRoutingAccelerator
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_ipAddresses"><span class="hs-identifier hs-var hs-var">createCustomRoutingAccelerator_ipAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingAccelerator -&gt; Maybe [Text])
+-&gt; (CreateCustomRoutingAccelerator
+    -&gt; Maybe [Text] -&gt; CreateCustomRoutingAccelerator)
+-&gt; Lens
+     CreateCustomRoutingAccelerator
+     CreateCustomRoutingAccelerator
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247413"><span class="annot"><span class="annottext">Maybe [Text]
+ipAddresses :: Maybe [Text]
+$sel:ipAddresses:CreateCustomRoutingAccelerator' :: CreateCustomRoutingAccelerator -&gt; Maybe [Text]
+</span><a href="#local-6989586621679247413"><span class="hs-identifier hs-var hs-var">ipAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679247413"><span class="hs-identifier hs-var">ipAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247412"><span class="annot"><span class="annottext">s :: CreateCustomRoutingAccelerator
+</span><a href="#local-6989586621679247412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247411"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679247411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator
+</span><a href="#local-6989586621679247412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddresses:CreateCustomRoutingAccelerator' :: Maybe [Text]
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3AipAddresses%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">ipAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679247411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateCustomRoutingAccelerator
+ -&gt; f CreateCustomRoutingAccelerator)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateCustomRoutingAccelerator
+-&gt; f CreateCustomRoutingAccelerator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The name of a custom routing accelerator. The name can have a maximum of</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 64 characters, must contain only alphanumeric characters or hyphens (-),</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- and must not begin or end with a hyphen.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_name"><span class="hs-identifier hs-type">createCustomRoutingAccelerator_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-221"></span><span id="createCustomRoutingAccelerator_name"><span class="annot"><span class="annottext">createCustomRoutingAccelerator_name :: (Text -&gt; f Text)
+-&gt; CreateCustomRoutingAccelerator
+-&gt; f CreateCustomRoutingAccelerator
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_name"><span class="hs-identifier hs-var hs-var">createCustomRoutingAccelerator_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingAccelerator -&gt; Text)
+-&gt; (CreateCustomRoutingAccelerator
+    -&gt; Text -&gt; CreateCustomRoutingAccelerator)
+-&gt; Lens
+     CreateCustomRoutingAccelerator
+     CreateCustomRoutingAccelerator
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247410"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateCustomRoutingAccelerator' :: CreateCustomRoutingAccelerator -&gt; Text
+</span><a href="#local-6989586621679247410"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247410"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247409"><span class="annot"><span class="annottext">s :: CreateCustomRoutingAccelerator
+</span><a href="#local-6989586621679247409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247408"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator
+</span><a href="#local-6989586621679247409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateCustomRoutingAccelerator' :: Text
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3Aname%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- idempotency&#8212;that is, the uniqueness&#8212;of the request.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_idempotencyToken"><span class="hs-identifier hs-type">createCustomRoutingAccelerator_idempotencyToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-226"></span><span id="createCustomRoutingAccelerator_idempotencyToken"><span class="annot"><span class="annottext">createCustomRoutingAccelerator_idempotencyToken :: (Text -&gt; f Text)
+-&gt; CreateCustomRoutingAccelerator
+-&gt; f CreateCustomRoutingAccelerator
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAccelerator_idempotencyToken"><span class="hs-identifier hs-var hs-var">createCustomRoutingAccelerator_idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingAccelerator -&gt; Text)
+-&gt; (CreateCustomRoutingAccelerator
+    -&gt; Text -&gt; CreateCustomRoutingAccelerator)
+-&gt; Lens
+     CreateCustomRoutingAccelerator
+     CreateCustomRoutingAccelerator
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247407"><span class="annot"><span class="annottext">Text
+idempotencyToken :: Text
+$sel:idempotencyToken:CreateCustomRoutingAccelerator' :: CreateCustomRoutingAccelerator -&gt; Text
+</span><a href="#local-6989586621679247407"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247407"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247406"><span class="annot"><span class="annottext">s :: CreateCustomRoutingAccelerator
+</span><a href="#local-6989586621679247406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247405"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingAccelerator
+</span><a href="#local-6989586621679247406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateCustomRoutingAccelerator' :: Text
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3AidempotencyToken%3ACreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-233"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">CreateCustomRoutingAcceleratorResponse</span></a></span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679247401"><span class="annot"><span class="annottext">request :: CreateCustomRoutingAccelerator
+-&gt; Request CreateCustomRoutingAccelerator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateCustomRoutingAccelerator
+-&gt; Request CreateCustomRoutingAccelerator
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679247397"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateCustomRoutingAccelerator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateCustomRoutingAccelerator)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateCustomRoutingAccelerator))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateCustomRoutingAccelerator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateCustomRoutingAccelerator)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247394"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247394"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679247393"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679247393"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679247392"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247392"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">Maybe CustomRoutingAccelerator
+-&gt; Int -&gt; CreateCustomRoutingAcceleratorResponse
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var">CreateCustomRoutingAcceleratorResponse'</span></a></span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CustomRoutingAccelerator
+ -&gt; Int -&gt; CreateCustomRoutingAcceleratorResponse)
+-&gt; Either String (Maybe CustomRoutingAccelerator)
+-&gt; Either String (Int -&gt; CreateCustomRoutingAcceleratorResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CustomRoutingAccelerator)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Accelerator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateCustomRoutingAcceleratorResponse)
+-&gt; Either String Int
+-&gt; Either String CreateCustomRoutingAcceleratorResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247394"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679247384"><span id="local-6989586621679247386"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span></span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679247381"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-253"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span>
+</span><span id="line-255"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679247377"><span class="annot"><span class="annottext">toHeaders :: CreateCustomRoutingAccelerator -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateCustomRoutingAccelerator -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-259"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GlobalAccelerator_V20180706.CreateCustomRoutingAccelerator&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-261"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-262"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-264"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-265"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-266"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247367"><span id="local-6989586621679247369"><span id="local-6989586621679247371"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679247365"><span class="annot"><span class="annottext">toJSON :: CreateCustomRoutingAccelerator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator%27"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247358"><span id="local-6989586621679247359"><span id="local-6989586621679247360"><span id="local-6989586621679247361"><span id="local-6989586621679247362"><span id="local-6989586621679247363"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe [Tag]
+Maybe IpAddressType
+Text
+idempotencyToken :: Text
+name :: Text
+ipAddresses :: Maybe [Text]
+tags :: Maybe [Tag]
+ipAddressType :: Maybe IpAddressType
+enabled :: Maybe Bool
+$sel:idempotencyToken:CreateCustomRoutingAccelerator' :: CreateCustomRoutingAccelerator -&gt; Text
+$sel:name:CreateCustomRoutingAccelerator' :: CreateCustomRoutingAccelerator -&gt; Text
+$sel:ipAddresses:CreateCustomRoutingAccelerator' :: CreateCustomRoutingAccelerator -&gt; Maybe [Text]
+$sel:tags:CreateCustomRoutingAccelerator' :: CreateCustomRoutingAccelerator -&gt; Maybe [Tag]
+$sel:ipAddressType:CreateCustomRoutingAccelerator' :: CreateCustomRoutingAccelerator -&gt; Maybe IpAddressType
+$sel:enabled:CreateCustomRoutingAccelerator' :: CreateCustomRoutingAccelerator -&gt; Maybe Bool
+</span><a href="#local-6989586621679247358"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-273"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-274"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247363"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpAddressType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IpAddressType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IpAddressType -&gt; Pair) -&gt; Maybe IpAddressType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679247362"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679247361"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679247360"><span class="hs-identifier hs-var">ipAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247359"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-280"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdempotencyToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247358"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-282"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-285"></span><span>  </span><span id="local-6989586621679247352"><span class="annot"><span class="annottext">toPath :: CreateCustomRoutingAccelerator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateCustomRoutingAccelerator -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAccelerator"><span class="hs-identifier hs-type">CreateCustomRoutingAccelerator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-288"></span><span>  </span><span id="local-6989586621679247348"><span class="annot"><span class="annottext">toQuery :: CreateCustomRoutingAccelerator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateCustomRoutingAccelerator -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | /See:/ 'newCreateCustomRoutingAcceleratorResponse' smart constructor.</span><span>
+</span><span id="line-291"></span><span id="local-6989586621679247345"><span id="local-6989586621679247346"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCustomRoutingAcceleratorResponse"><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-var">CreateCustomRoutingAcceleratorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCustomRoutingAcceleratorResponse%27"><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var">CreateCustomRoutingAcceleratorResponse'</span></a></span></span><span>
+</span><span id="line-292"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The accelerator that is created.</span><span>
+</span><span id="line-293"></span><span>    </span><span id="%24sel%3Aaccelerator%3ACreateCustomRoutingAcceleratorResponse%27"><span class="annot"><span class="annottext">CreateCustomRoutingAcceleratorResponse
+-&gt; Maybe CustomRoutingAccelerator
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3Aaccelerator%3ACreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var hs-var">accelerator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAccelerator.html#CustomRoutingAccelerator"><span class="hs-identifier hs-type">CustomRoutingAccelerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-295"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateCustomRoutingAcceleratorResponse%27"><span class="annot"><span class="annottext">CreateCustomRoutingAcceleratorResponse -&gt; Int
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3AhttpStatus%3ACreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-296"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-297"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247339"><span id="local-6989586621679247341"><span class="annot"><span class="annottext">CreateCustomRoutingAcceleratorResponse
+-&gt; CreateCustomRoutingAcceleratorResponse -&gt; Bool
+(CreateCustomRoutingAcceleratorResponse
+ -&gt; CreateCustomRoutingAcceleratorResponse -&gt; Bool)
+-&gt; (CreateCustomRoutingAcceleratorResponse
+    -&gt; CreateCustomRoutingAcceleratorResponse -&gt; Bool)
+-&gt; Eq CreateCustomRoutingAcceleratorResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCustomRoutingAcceleratorResponse
+-&gt; CreateCustomRoutingAcceleratorResponse -&gt; Bool
+$c/= :: CreateCustomRoutingAcceleratorResponse
+-&gt; CreateCustomRoutingAcceleratorResponse -&gt; Bool
+== :: CreateCustomRoutingAcceleratorResponse
+-&gt; CreateCustomRoutingAcceleratorResponse -&gt; Bool
+$c== :: CreateCustomRoutingAcceleratorResponse
+-&gt; CreateCustomRoutingAcceleratorResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247331"><span id="local-6989586621679247333"><span id="local-6989586621679247335"><span id="local-6989586621679247337"><span class="annot"><span class="annottext">ReadPrec [CreateCustomRoutingAcceleratorResponse]
+ReadPrec CreateCustomRoutingAcceleratorResponse
+Int -&gt; ReadS CreateCustomRoutingAcceleratorResponse
+ReadS [CreateCustomRoutingAcceleratorResponse]
+(Int -&gt; ReadS CreateCustomRoutingAcceleratorResponse)
+-&gt; ReadS [CreateCustomRoutingAcceleratorResponse]
+-&gt; ReadPrec CreateCustomRoutingAcceleratorResponse
+-&gt; ReadPrec [CreateCustomRoutingAcceleratorResponse]
+-&gt; Read CreateCustomRoutingAcceleratorResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCustomRoutingAcceleratorResponse]
+$creadListPrec :: ReadPrec [CreateCustomRoutingAcceleratorResponse]
+readPrec :: ReadPrec CreateCustomRoutingAcceleratorResponse
+$creadPrec :: ReadPrec CreateCustomRoutingAcceleratorResponse
+readList :: ReadS [CreateCustomRoutingAcceleratorResponse]
+$creadList :: ReadS [CreateCustomRoutingAcceleratorResponse]
+readsPrec :: Int -&gt; ReadS CreateCustomRoutingAcceleratorResponse
+$creadsPrec :: Int -&gt; ReadS CreateCustomRoutingAcceleratorResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247325"><span id="local-6989586621679247327"><span id="local-6989586621679247329"><span class="annot"><span class="annottext">Int -&gt; CreateCustomRoutingAcceleratorResponse -&gt; ShowS
+[CreateCustomRoutingAcceleratorResponse] -&gt; ShowS
+CreateCustomRoutingAcceleratorResponse -&gt; String
+(Int -&gt; CreateCustomRoutingAcceleratorResponse -&gt; ShowS)
+-&gt; (CreateCustomRoutingAcceleratorResponse -&gt; String)
+-&gt; ([CreateCustomRoutingAcceleratorResponse] -&gt; ShowS)
+-&gt; Show CreateCustomRoutingAcceleratorResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCustomRoutingAcceleratorResponse] -&gt; ShowS
+$cshowList :: [CreateCustomRoutingAcceleratorResponse] -&gt; ShowS
+show :: CreateCustomRoutingAcceleratorResponse -&gt; String
+$cshow :: CreateCustomRoutingAcceleratorResponse -&gt; String
+showsPrec :: Int -&gt; CreateCustomRoutingAcceleratorResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCustomRoutingAcceleratorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateCustomRoutingAcceleratorResponse
+ -&gt; Rep CreateCustomRoutingAcceleratorResponse x)
+-&gt; (forall x.
+    Rep CreateCustomRoutingAcceleratorResponse x
+    -&gt; CreateCustomRoutingAcceleratorResponse)
+-&gt; Generic CreateCustomRoutingAcceleratorResponse
+forall x.
+Rep CreateCustomRoutingAcceleratorResponse x
+-&gt; CreateCustomRoutingAcceleratorResponse
+forall x.
+CreateCustomRoutingAcceleratorResponse
+-&gt; Rep CreateCustomRoutingAcceleratorResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateCustomRoutingAcceleratorResponse x
+-&gt; CreateCustomRoutingAcceleratorResponse
+$cfrom :: forall x.
+CreateCustomRoutingAcceleratorResponse
+-&gt; Rep CreateCustomRoutingAcceleratorResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- Create a value of 'CreateCustomRoutingAcceleratorResponse' with all optional fields omitted.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- 'accelerator', 'createCustomRoutingAcceleratorResponse_accelerator' - The accelerator that is created.</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- 'httpStatus', 'createCustomRoutingAcceleratorResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#newCreateCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">newCreateCustomRoutingAcceleratorResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-311"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-312"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-313"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">CreateCustomRoutingAcceleratorResponse</span></a></span><span>
+</span><span id="line-314"></span><span id="newCreateCustomRoutingAcceleratorResponse"><span class="annot"><span class="annottext">newCreateCustomRoutingAcceleratorResponse :: Int -&gt; CreateCustomRoutingAcceleratorResponse
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#newCreateCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-var hs-var">newCreateCustomRoutingAcceleratorResponse</span></a></span></span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621679247322"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247322"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><span class="annottext">CreateCustomRoutingAcceleratorResponse' :: Maybe CustomRoutingAccelerator
+-&gt; Int -&gt; CreateCustomRoutingAcceleratorResponse
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-type">CreateCustomRoutingAcceleratorResponse'</span></a></span><span>
+</span><span id="line-317"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accelerator:CreateCustomRoutingAcceleratorResponse' :: Maybe CustomRoutingAccelerator
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3Aaccelerator%3ACreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var">accelerator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-318"></span><span>          </span><span class="annot"><span class="annottext">Maybe CustomRoutingAccelerator
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCustomRoutingAcceleratorResponse' :: Int
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3AhttpStatus%3ACreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247322"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-320"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- | The accelerator that is created.</span><span>
+</span><span id="line-323"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAcceleratorResponse_accelerator"><span class="hs-identifier hs-type">createCustomRoutingAcceleratorResponse_accelerator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">CreateCustomRoutingAcceleratorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.CustomRoutingAccelerator.html#CustomRoutingAccelerator"><span class="hs-identifier hs-type">CustomRoutingAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span id="createCustomRoutingAcceleratorResponse_accelerator"><span class="annot"><span class="annottext">createCustomRoutingAcceleratorResponse_accelerator :: (Maybe CustomRoutingAccelerator
+ -&gt; f (Maybe CustomRoutingAccelerator))
+-&gt; CreateCustomRoutingAcceleratorResponse
+-&gt; f CreateCustomRoutingAcceleratorResponse
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAcceleratorResponse_accelerator"><span class="hs-identifier hs-var hs-var">createCustomRoutingAcceleratorResponse_accelerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingAcceleratorResponse
+ -&gt; Maybe CustomRoutingAccelerator)
+-&gt; (CreateCustomRoutingAcceleratorResponse
+    -&gt; Maybe CustomRoutingAccelerator
+    -&gt; CreateCustomRoutingAcceleratorResponse)
+-&gt; Lens
+     CreateCustomRoutingAcceleratorResponse
+     CreateCustomRoutingAcceleratorResponse
+     (Maybe CustomRoutingAccelerator)
+     (Maybe CustomRoutingAccelerator)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-type">CreateCustomRoutingAcceleratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247321"><span class="annot"><span class="annottext">Maybe CustomRoutingAccelerator
+accelerator :: Maybe CustomRoutingAccelerator
+$sel:accelerator:CreateCustomRoutingAcceleratorResponse' :: CreateCustomRoutingAcceleratorResponse
+-&gt; Maybe CustomRoutingAccelerator
+</span><a href="#local-6989586621679247321"><span class="hs-identifier hs-var hs-var">accelerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomRoutingAccelerator
+</span><a href="#local-6989586621679247321"><span class="hs-identifier hs-var">accelerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247320"><span class="annot"><span class="annottext">s :: CreateCustomRoutingAcceleratorResponse
+</span><a href="#local-6989586621679247320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-type">CreateCustomRoutingAcceleratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247319"><span class="annot"><span class="annottext">Maybe CustomRoutingAccelerator
+</span><a href="#local-6989586621679247319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingAcceleratorResponse
+</span><a href="#local-6989586621679247320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accelerator:CreateCustomRoutingAcceleratorResponse' :: Maybe CustomRoutingAccelerator
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3Aaccelerator%3ACreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var">accelerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomRoutingAccelerator
+</span><a href="#local-6989586621679247319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">CreateCustomRoutingAcceleratorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-327"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAcceleratorResponse_httpStatus"><span class="hs-identifier hs-type">createCustomRoutingAcceleratorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">CreateCustomRoutingAcceleratorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-328"></span><span id="createCustomRoutingAcceleratorResponse_httpStatus"><span class="annot"><span class="annottext">createCustomRoutingAcceleratorResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateCustomRoutingAcceleratorResponse
+-&gt; f CreateCustomRoutingAcceleratorResponse
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#createCustomRoutingAcceleratorResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createCustomRoutingAcceleratorResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingAcceleratorResponse -&gt; Int)
+-&gt; (CreateCustomRoutingAcceleratorResponse
+    -&gt; Int -&gt; CreateCustomRoutingAcceleratorResponse)
+-&gt; Lens
+     CreateCustomRoutingAcceleratorResponse
+     CreateCustomRoutingAcceleratorResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-type">CreateCustomRoutingAcceleratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247318"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateCustomRoutingAcceleratorResponse' :: CreateCustomRoutingAcceleratorResponse -&gt; Int
+</span><a href="#local-6989586621679247318"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247318"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247317"><span class="annot"><span class="annottext">s :: CreateCustomRoutingAcceleratorResponse
+</span><a href="#local-6989586621679247317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-type">CreateCustomRoutingAcceleratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247316"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingAcceleratorResponse
+</span><a href="#local-6989586621679247317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCustomRoutingAcceleratorResponse' :: Int
+</span><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#%24sel%3AhttpStatus%3ACreateCustomRoutingAcceleratorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">CreateCustomRoutingAcceleratorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-331"></span><span>  </span><span id="local-6989586621679247314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator.html#CreateCustomRoutingAcceleratorResponse"><span class="hs-identifier hs-type">CreateCustomRoutingAcceleratorResponse</span></a></span></span><span>
+</span><span id="line-333"></span></pre></body></html>

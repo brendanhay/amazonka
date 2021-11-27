@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest
+module Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
 
 -- | Lists all the devices under test
 --   
@@ -40,17 +40,17 @@ deviceUnderTest_certificateArn :: Lens' DeviceUnderTest (Maybe Text)
 
 -- | Lists devices thing arn
 deviceUnderTest_thingArn :: Lens' DeviceUnderTest (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest.DeviceUnderTest
 
 
-module Network.AWS.IoTDeviceAdvisor.Types.Status
+module Amazonka.IoTDeviceAdvisor.Types.Status
 newtype Status
 Status' :: Text -> Status
 [fromStatus] :: Status -> Text
@@ -63,28 +63,28 @@ pattern Status_PENDING :: Status
 pattern Status_RUNNING :: Status
 pattern Status_STOPPED :: Status
 pattern Status_STOPPING :: Status
-instance Network.AWS.Data.XML.ToXML Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Network.AWS.Data.XML.FromXML Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Network.AWS.Data.Log.ToLog Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Network.AWS.Data.Text.ToText Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Network.AWS.Data.Text.FromText Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance GHC.Classes.Ord Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.Types.Status.Status
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.Types.Status.Status
+instance Amazonka.Data.XML.ToXML Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Amazonka.Data.XML.FromXML Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Amazonka.Data.Headers.ToHeader Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Amazonka.Data.Log.ToLog Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Amazonka.Data.Text.ToText Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Amazonka.Data.Text.FromText Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance GHC.Classes.Ord Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.Types.Status.Status
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.Types.Status.Status
 
 
-module Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
+module Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
 
 -- | Gets Suite Definition Configuration.
 --   
@@ -151,17 +151,17 @@ suiteDefinitionConfiguration_devices :: Lens' SuiteDefinitionConfiguration (Mayb
 
 -- | Gets test suite root group.
 suiteDefinitionConfiguration_rootGroup :: Lens' SuiteDefinitionConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.SuiteDefinitionConfiguration
 
 
-module Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionInformation
+module Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation
 
 -- | Information about the suite definition.
 --   
@@ -228,16 +228,16 @@ suiteDefinitionInformation_suiteDefinitionName :: Lens' SuiteDefinitionInformati
 
 -- | Specifies if the test suite is intended for qualification.
 suiteDefinitionInformation_intendedForQualification :: Lens' SuiteDefinitionInformation (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation.SuiteDefinitionInformation
 
 
-module Network.AWS.IoTDeviceAdvisor.Types.SuiteRunConfiguration
+module Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration
 
 -- | Gets suite run configuration.
 --   
@@ -273,17 +273,17 @@ suiteRunConfiguration_primaryDevice :: Lens' SuiteRunConfiguration (Maybe Device
 
 -- | Gets test case list.
 suiteRunConfiguration_selectedTestList :: Lens' SuiteRunConfiguration (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration.SuiteRunConfiguration
 
 
-module Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus
+module Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus
 newtype SuiteRunStatus
 SuiteRunStatus' :: Text -> SuiteRunStatus
 [fromSuiteRunStatus] :: SuiteRunStatus -> Text
@@ -296,28 +296,28 @@ pattern SuiteRunStatus_PENDING :: SuiteRunStatus
 pattern SuiteRunStatus_RUNNING :: SuiteRunStatus
 pattern SuiteRunStatus_STOPPED :: SuiteRunStatus
 pattern SuiteRunStatus_STOPPING :: SuiteRunStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance GHC.Classes.Ord Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Amazonka.Data.XML.ToXML Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Amazonka.Data.XML.FromXML Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Amazonka.Data.Log.ToLog Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Amazonka.Data.Text.ToText Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Amazonka.Data.Text.FromText Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance GHC.Classes.Ord Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus.SuiteRunStatus
 
 
-module Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation
+module Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation
 
 -- | Information about the suite run.
 --   
@@ -432,16 +432,16 @@ suiteRunInformation_suiteRunId :: Lens' SuiteRunInformation (Maybe Text)
 
 -- | Number of test cases that failed in the suite run.
 suiteRunInformation_failed :: Lens' SuiteRunInformation (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation.SuiteRunInformation
 
 
-module Network.AWS.IoTDeviceAdvisor.Types.TestCaseRun
+module Amazonka.IoTDeviceAdvisor.Types.TestCaseRun
 
 -- | Provides test case run.
 --   
@@ -540,16 +540,16 @@ testCaseRun_failure :: Lens' TestCaseRun (Maybe Text)
 
 -- | Provides test case run definition Name.
 testCaseRun_testCaseDefinitionName :: Lens' TestCaseRun (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.Types.TestCaseRun.TestCaseRun
 
 
-module Network.AWS.IoTDeviceAdvisor.Types.GroupResult
+module Amazonka.IoTDeviceAdvisor.Types.GroupResult
 
 -- | Show Group Result.
 --   
@@ -592,16 +592,16 @@ groupResult_groupId :: Lens' GroupResult (Maybe Text)
 
 -- | Group Result Name.
 groupResult_groupName :: Lens' GroupResult (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.Types.GroupResult.GroupResult
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.Types.GroupResult.GroupResult
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.Types.GroupResult.GroupResult
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.Types.GroupResult.GroupResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTDeviceAdvisor.Types.GroupResult.GroupResult
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.Types.GroupResult.GroupResult
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.Types.GroupResult.GroupResult
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.Types.GroupResult.GroupResult
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.Types.GroupResult.GroupResult
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.Types.GroupResult.GroupResult
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.Types.GroupResult.GroupResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTDeviceAdvisor.Types.GroupResult.GroupResult
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.Types.GroupResult.GroupResult
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.Types.GroupResult.GroupResult
 
 
-module Network.AWS.IoTDeviceAdvisor.Types.TestResult
+module Amazonka.IoTDeviceAdvisor.Types.TestResult
 
 -- | Show each group result.
 --   
@@ -626,16 +626,16 @@ newTestResult :: TestResult
 
 -- | Show each group of test results.
 testResult_groups :: Lens' TestResult (Maybe [GroupResult])
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.Types.TestResult.TestResult
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.Types.TestResult.TestResult
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.Types.TestResult.TestResult
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.Types.TestResult.TestResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoTDeviceAdvisor.Types.TestResult.TestResult
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.Types.TestResult.TestResult
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.Types.TestResult.TestResult
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.Types.TestResult.TestResult
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.Types.TestResult.TestResult
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.Types.TestResult.TestResult
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.Types.TestResult.TestResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoTDeviceAdvisor.Types.TestResult.TestResult
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.Types.TestResult.TestResult
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.Types.TestResult.TestResult
 
 
-module Network.AWS.IoTDeviceAdvisor.Types
+module Amazonka.IoTDeviceAdvisor.Types
 
 -- | API version <tt>2020-09-18</tt> of the Amazon IoT Core Device Advisor
 --   SDK configuration.
@@ -1158,7 +1158,7 @@ testResult_groups :: Lens' TestResult (Maybe [GroupResult])
 
 
 -- | Adds to and modifies existing tags of an IoT Device Advisor resource.
-module Network.AWS.IoTDeviceAdvisor.TagResource
+module Amazonka.IoTDeviceAdvisor.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1214,26 +1214,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTDeviceAdvisor.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.TagResource.TagResource
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.TagResource.TagResource
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTDeviceAdvisor.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.TagResource.TagResource
 
 
 -- | Stops a Device Advisor test suite run that is currently running.
-module Network.AWS.IoTDeviceAdvisor.StopSuiteRun
+module Amazonka.IoTDeviceAdvisor.StopSuiteRun
 
 -- | <i>See:</i> <a>newStopSuiteRun</a> smart constructor.
 data StopSuiteRun
@@ -1291,26 +1291,26 @@ newStopSuiteRunResponse :: Int -> StopSuiteRunResponse
 
 -- | The response's http status code.
 stopSuiteRunResponse_httpStatus :: Lens' StopSuiteRunResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRunResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRunResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRunResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRunResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRunResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRunResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRunResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRunResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRunResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRunResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.StopSuiteRun.StopSuiteRun
 
 
 -- | Starts a Device Advisor test suite run.
-module Network.AWS.IoTDeviceAdvisor.StartSuiteRun
+module Amazonka.IoTDeviceAdvisor.StartSuiteRun
 
 -- | <i>See:</i> <a>newStartSuiteRun</a> smart constructor.
 data StartSuiteRun
@@ -1417,26 +1417,26 @@ startSuiteRunResponse_suiteRunId :: Lens' StartSuiteRunResponse (Maybe Text)
 
 -- | The response's http status code.
 startSuiteRunResponse_httpStatus :: Lens' StartSuiteRunResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRunResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRunResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRunResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRunResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRunResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRunResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRunResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRunResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRunResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRunResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.StartSuiteRun.StartSuiteRun
 
 
 -- | Lists the tags attached to an IoT Device Advisor resource.
-module Network.AWS.IoTDeviceAdvisor.ListTagsForResource
+module Amazonka.IoTDeviceAdvisor.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1495,27 +1495,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the runs of the specified Device Advisor test suite. You can
 --   list all runs of the test suite, or the runs of a specific version of
 --   the test suite.
-module Network.AWS.IoTDeviceAdvisor.ListSuiteRuns
+module Amazonka.IoTDeviceAdvisor.ListSuiteRuns
 
 -- | <i>See:</i> <a>newListSuiteRuns</a> smart constructor.
 data ListSuiteRuns
@@ -1619,25 +1619,25 @@ listSuiteRunsResponse_suiteRunsList :: Lens' ListSuiteRunsResponse (Maybe [Suite
 
 -- | The response's http status code.
 listSuiteRunsResponse_httpStatus :: Lens' ListSuiteRunsResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRunsResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRunsResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRunsResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRunsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRunsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRunsResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRunsResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRunsResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRunsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRunsResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.ListSuiteRuns.ListSuiteRuns
 
 
 -- | Lists the Device Advisor test suites you have created.
-module Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions
+module Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions
 
 -- | <i>See:</i> <a>newListSuiteDefinitions</a> smart constructor.
 data ListSuiteDefinitions
@@ -1720,26 +1720,26 @@ listSuiteDefinitionsResponse_nextToken :: Lens' ListSuiteDefinitionsResponse (Ma
 
 -- | The response's http status code.
 listSuiteDefinitionsResponse_httpStatus :: Lens' ListSuiteDefinitionsResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitionsResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitionsResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitionsResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitionsResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitionsResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitionsResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions.ListSuiteDefinitions
 
 
 -- | Gets a report download link for a successful Device Advisor qualifying
 --   test suite run.
-module Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport
+module Amazonka.IoTDeviceAdvisor.GetSuiteRunReport
 
 -- | <i>See:</i> <a>newGetSuiteRunReport</a> smart constructor.
 data GetSuiteRunReport
@@ -1808,25 +1808,25 @@ getSuiteRunReportResponse_qualificationReportDownloadUrl :: Lens' GetSuiteRunRep
 
 -- | The response's http status code.
 getSuiteRunReportResponse_httpStatus :: Lens' GetSuiteRunReportResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReportResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReportResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReportResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReportResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReportResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReportResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReportResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReportResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReportResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReportResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.GetSuiteRunReport.GetSuiteRunReport
 
 
 -- | Gets information about a Device Advisor test suite run.
-module Network.AWS.IoTDeviceAdvisor.GetSuiteRun
+module Amazonka.IoTDeviceAdvisor.GetSuiteRun
 
 -- | <i>See:</i> <a>newGetSuiteRun</a> smart constructor.
 data GetSuiteRun
@@ -1990,25 +1990,25 @@ getSuiteRunResponse_tags :: Lens' GetSuiteRunResponse (Maybe (HashMap Text Text)
 
 -- | The response's http status code.
 getSuiteRunResponse_httpStatus :: Lens' GetSuiteRunResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRunResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRunResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRunResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRunResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRunResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRunResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRunResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRunResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRunResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRunResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.GetSuiteRun.GetSuiteRun
 
 
 -- | Gets information about a Device Advisor test suite.
-module Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition
+module Amazonka.IoTDeviceAdvisor.GetSuiteDefinition
 
 -- | <i>See:</i> <a>newGetSuiteDefinition</a> smart constructor.
 data GetSuiteDefinition
@@ -2147,25 +2147,25 @@ getSuiteDefinitionResponse_tags :: Lens' GetSuiteDefinitionResponse (Maybe (Hash
 
 -- | The response's http status code.
 getSuiteDefinitionResponse_httpStatus :: Lens' GetSuiteDefinitionResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinitionResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinitionResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinitionResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinitionResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinitionResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.GetSuiteDefinition.GetSuiteDefinition
 
 
 -- | Deletes a Device Advisor test suite.
-module Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition
+module Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition
 
 -- | <i>See:</i> <a>newDeleteSuiteDefinition</a> smart constructor.
 data DeleteSuiteDefinition
@@ -2214,25 +2214,25 @@ newDeleteSuiteDefinitionResponse :: Int -> DeleteSuiteDefinitionResponse
 
 -- | The response's http status code.
 deleteSuiteDefinitionResponse_httpStatus :: Lens' DeleteSuiteDefinitionResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinitionResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinitionResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinitionResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinitionResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinitionResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition.DeleteSuiteDefinition
 
 
 -- | Creates a Device Advisor test suite.
-module Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition
+module Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition
 
 -- | <i>See:</i> <a>newCreateSuiteDefinition</a> smart constructor.
 data CreateSuiteDefinition
@@ -2335,26 +2335,26 @@ createSuiteDefinitionResponse_suiteDefinitionName :: Lens' CreateSuiteDefinition
 
 -- | The response's http status code.
 createSuiteDefinitionResponse_httpStatus :: Lens' CreateSuiteDefinitionResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinitionResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinitionResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinitionResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinitionResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinitionResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition.CreateSuiteDefinition
 
 
 -- | Removes tags from an IoT Device Advisor resource.
-module Network.AWS.IoTDeviceAdvisor.UntagResource
+module Amazonka.IoTDeviceAdvisor.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -2412,25 +2412,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.UntagResource.UntagResource
 
 
 -- | Updates a Device Advisor test suite.
-module Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition
+module Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition
 
 -- | <i>See:</i> <a>newUpdateSuiteDefinition</a> smart constructor.
 data UpdateSuiteDefinition
@@ -2551,25 +2551,25 @@ updateSuiteDefinitionResponse_suiteDefinitionName :: Lens' UpdateSuiteDefinition
 
 -- | The response's http status code.
 updateSuiteDefinitionResponse_httpStatus :: Lens' UpdateSuiteDefinitionResponse Int
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
-instance GHC.Generics.Generic Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinitionResponse
-instance GHC.Show.Show Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinitionResponse
-instance GHC.Read.Read Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinitionResponse
-instance GHC.Classes.Eq Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinitionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinitionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
-instance Control.DeepSeq.NFData Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
+instance GHC.Generics.Generic Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinitionResponse
+instance GHC.Show.Show Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinitionResponse
+instance GHC.Read.Read Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinitionResponse
+instance GHC.Classes.Eq Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinitionResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinitionResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
+instance Control.DeepSeq.NFData Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
+instance Amazonka.Data.Path.ToPath Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
+instance Amazonka.Data.Query.ToQuery Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition.UpdateSuiteDefinition
 
 
-module Network.AWS.IoTDeviceAdvisor.Lens
+module Amazonka.IoTDeviceAdvisor.Lens
 
 -- | Suite definition Id of the test suite.
 getSuiteRunReport_suiteDefinitionId :: Lens' GetSuiteRunReport Text
@@ -2927,7 +2927,7 @@ testCaseRun_testCaseDefinitionName :: Lens' TestCaseRun (Maybe Text)
 testResult_groups :: Lens' TestResult (Maybe [GroupResult])
 
 
-module Network.AWS.IoTDeviceAdvisor.Waiters
+module Amazonka.IoTDeviceAdvisor.Waiters
 
 
 -- | Derived from API version <tt>2020-09-18</tt> of the AWS service
@@ -2944,7 +2944,7 @@ module Network.AWS.IoTDeviceAdvisor.Waiters
 --   signed qualification reports to submit to the AWS Partner Network to
 --   get your device qualified for the AWS Partner Device Catalog without
 --   the need to send your device in and wait for it to be tested.
-module Network.AWS.IoTDeviceAdvisor
+module Amazonka.IoTDeviceAdvisor
 
 -- | API version <tt>2020-09-18</tt> of the Amazon IoT Core Device Advisor
 --   SDK configuration.

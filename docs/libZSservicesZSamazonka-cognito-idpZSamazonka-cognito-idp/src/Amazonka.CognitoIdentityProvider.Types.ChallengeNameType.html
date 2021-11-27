@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentityProvider.Types.ChallengeNameType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentityProvider.Types.ChallengeNameType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType"><span class="hs-identifier">ChallengeNameType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_ADMIN_NO_SRP_AUTH"><span class="hs-identifier">ChallengeNameType_ADMIN_NO_SRP_AUTH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_CUSTOM_CHALLENGE"><span class="hs-identifier">ChallengeNameType_CUSTOM_CHALLENGE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_DEVICE_PASSWORD_VERIFIER"><span class="hs-identifier">ChallengeNameType_DEVICE_PASSWORD_VERIFIER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_DEVICE_SRP_AUTH"><span class="hs-identifier">ChallengeNameType_DEVICE_SRP_AUTH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_MFA_SETUP"><span class="hs-identifier">ChallengeNameType_MFA_SETUP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_NEW_PASSWORD_REQUIRED"><span class="hs-identifier">ChallengeNameType_NEW_PASSWORD_REQUIRED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_PASSWORD_VERIFIER"><span class="hs-identifier">ChallengeNameType_PASSWORD_VERIFIER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_SELECT_MFA_TYPE"><span class="hs-identifier">ChallengeNameType_SELECT_MFA_TYPE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_SMS_MFA"><span class="hs-identifier">ChallengeNameType_SMS_MFA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_SOFTWARE_TOKEN_MFA"><span class="hs-identifier">ChallengeNameType_SOFTWARE_TOKEN_MFA</span></a></span><span>
+</span><span id="line-33"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679425178"><span id="local-6989586621679425179"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChallengeNameType"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType"><span class="hs-identifier hs-var">ChallengeNameType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChallengeNameType%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType%27"><span class="hs-identifier hs-var">ChallengeNameType'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChallengeNameType"><span class="annot"><span class="annottext">ChallengeNameType -&gt; Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#fromChallengeNameType"><span class="hs-identifier hs-var hs-var">fromChallengeNameType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425170"><span id="local-6989586621679425172"><span id="local-6989586621679425174"><span class="annot"><span class="annottext">Int -&gt; ChallengeNameType -&gt; ShowS
+[ChallengeNameType] -&gt; ShowS
+ChallengeNameType -&gt; String
+(Int -&gt; ChallengeNameType -&gt; ShowS)
+-&gt; (ChallengeNameType -&gt; String)
+-&gt; ([ChallengeNameType] -&gt; ShowS)
+-&gt; Show ChallengeNameType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChallengeNameType] -&gt; ShowS
+$cshowList :: [ChallengeNameType] -&gt; ShowS
+show :: ChallengeNameType -&gt; String
+$cshow :: ChallengeNameType -&gt; String
+showsPrec :: Int -&gt; ChallengeNameType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChallengeNameType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679425161"><span id="local-6989586621679425163"><span id="local-6989586621679425165"><span id="local-6989586621679425167"><span class="annot"><span class="annottext">ReadPrec [ChallengeNameType]
+ReadPrec ChallengeNameType
+Int -&gt; ReadS ChallengeNameType
+ReadS [ChallengeNameType]
+(Int -&gt; ReadS ChallengeNameType)
+-&gt; ReadS [ChallengeNameType]
+-&gt; ReadPrec ChallengeNameType
+-&gt; ReadPrec [ChallengeNameType]
+-&gt; Read ChallengeNameType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChallengeNameType]
+$creadListPrec :: ReadPrec [ChallengeNameType]
+readPrec :: ReadPrec ChallengeNameType
+$creadPrec :: ReadPrec ChallengeNameType
+readList :: ReadS [ChallengeNameType]
+$creadList :: ReadS [ChallengeNameType]
+readsPrec :: Int -&gt; ReadS ChallengeNameType
+$creadsPrec :: Int -&gt; ReadS ChallengeNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679425156"><span id="local-6989586621679425158"><span class="annot"><span class="annottext">ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+(ChallengeNameType -&gt; ChallengeNameType -&gt; Bool)
+-&gt; (ChallengeNameType -&gt; ChallengeNameType -&gt; Bool)
+-&gt; Eq ChallengeNameType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+$c/= :: ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+== :: ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+$c== :: ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679425140"><span id="local-6989586621679425142"><span id="local-6989586621679425144"><span id="local-6989586621679425146"><span id="local-6989586621679425148"><span id="local-6989586621679425150"><span id="local-6989586621679425152"><span class="annot"><span class="annottext">Eq ChallengeNameType
+Eq ChallengeNameType
+-&gt; (ChallengeNameType -&gt; ChallengeNameType -&gt; Ordering)
+-&gt; (ChallengeNameType -&gt; ChallengeNameType -&gt; Bool)
+-&gt; (ChallengeNameType -&gt; ChallengeNameType -&gt; Bool)
+-&gt; (ChallengeNameType -&gt; ChallengeNameType -&gt; Bool)
+-&gt; (ChallengeNameType -&gt; ChallengeNameType -&gt; Bool)
+-&gt; (ChallengeNameType -&gt; ChallengeNameType -&gt; ChallengeNameType)
+-&gt; (ChallengeNameType -&gt; ChallengeNameType -&gt; ChallengeNameType)
+-&gt; Ord ChallengeNameType
+ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+ChallengeNameType -&gt; ChallengeNameType -&gt; Ordering
+ChallengeNameType -&gt; ChallengeNameType -&gt; ChallengeNameType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ChallengeNameType -&gt; ChallengeNameType -&gt; ChallengeNameType
+$cmin :: ChallengeNameType -&gt; ChallengeNameType -&gt; ChallengeNameType
+max :: ChallengeNameType -&gt; ChallengeNameType -&gt; ChallengeNameType
+$cmax :: ChallengeNameType -&gt; ChallengeNameType -&gt; ChallengeNameType
+&gt;= :: ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+$c&gt;= :: ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+&gt; :: ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+$c&gt; :: ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+&lt;= :: ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+$c&lt;= :: ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+&lt; :: ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+$c&lt; :: ChallengeNameType -&gt; ChallengeNameType -&gt; Bool
+compare :: ChallengeNameType -&gt; ChallengeNameType -&gt; Ordering
+$ccompare :: ChallengeNameType -&gt; ChallengeNameType -&gt; Ordering
+$cp1Ord :: Eq ChallengeNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ChallengeNameType -&gt; Rep ChallengeNameType x)
+-&gt; (forall x. Rep ChallengeNameType x -&gt; ChallengeNameType)
+-&gt; Generic ChallengeNameType
+forall x. Rep ChallengeNameType x -&gt; ChallengeNameType
+forall x. ChallengeNameType -&gt; Rep ChallengeNameType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChallengeNameType x -&gt; ChallengeNameType
+$cfrom :: forall x. ChallengeNameType -&gt; Rep ChallengeNameType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425132"><span id="local-6989586621679425134"><span class="annot"><span class="annottext">Int -&gt; ChallengeNameType -&gt; Int
+ChallengeNameType -&gt; Int
+(Int -&gt; ChallengeNameType -&gt; Int)
+-&gt; (ChallengeNameType -&gt; Int) -&gt; Hashable ChallengeNameType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ChallengeNameType -&gt; Int
+$chash :: ChallengeNameType -&gt; Int
+hashWithSalt :: Int -&gt; ChallengeNameType -&gt; Int
+$chashWithSalt :: Int -&gt; ChallengeNameType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679425129"><span class="annot"><span class="annottext">ChallengeNameType -&gt; ()
+(ChallengeNameType -&gt; ()) -&gt; NFData ChallengeNameType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ChallengeNameType -&gt; ()
+$crnf :: ChallengeNameType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679425126"><span class="annot"><span class="annottext">Text -&gt; Either String ChallengeNameType
+(Text -&gt; Either String ChallengeNameType)
+-&gt; FromText ChallengeNameType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ChallengeNameType
+$cfromText :: Text -&gt; Either String ChallengeNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679425123"><span class="annot"><span class="annottext">ChallengeNameType -&gt; Text
+(ChallengeNameType -&gt; Text) -&gt; ToText ChallengeNameType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ChallengeNameType -&gt; Text
+$ctoText :: ChallengeNameType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679425120"><span class="annot"><span class="annottext">ChallengeNameType -&gt; ByteString
+(ChallengeNameType -&gt; ByteString) -&gt; ToByteString ChallengeNameType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ChallengeNameType -&gt; ByteString
+$ctoBS :: ChallengeNameType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679425117"><span class="annot"><span class="annottext">ChallengeNameType -&gt; ByteStringBuilder
+(ChallengeNameType -&gt; ByteStringBuilder) -&gt; ToLog ChallengeNameType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ChallengeNameType -&gt; ByteStringBuilder
+$cbuild :: ChallengeNameType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679425114"><span class="annot"><span class="annottext">HeaderName -&gt; ChallengeNameType -&gt; [Header]
+(HeaderName -&gt; ChallengeNameType -&gt; [Header])
+-&gt; ToHeader ChallengeNameType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ChallengeNameType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ChallengeNameType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679425111"><span class="annot"><span class="annottext">ChallengeNameType -&gt; QueryString
+(ChallengeNameType -&gt; QueryString) -&gt; ToQuery ChallengeNameType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ChallengeNameType -&gt; QueryString
+$ctoQuery :: ChallengeNameType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679425106"><span id="local-6989586621679425108"><span class="annot"><span class="annottext">Value -&gt; Parser [ChallengeNameType]
+Value -&gt; Parser ChallengeNameType
+(Value -&gt; Parser ChallengeNameType)
+-&gt; (Value -&gt; Parser [ChallengeNameType])
+-&gt; FromJSON ChallengeNameType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ChallengeNameType]
+$cparseJSONList :: Value -&gt; Parser [ChallengeNameType]
+parseJSON :: Value -&gt; Parser ChallengeNameType
+$cparseJSON :: Value -&gt; Parser ChallengeNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679425101"><span id="local-6989586621679425103"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChallengeNameType]
+FromJSONKeyFunction ChallengeNameType
+FromJSONKeyFunction ChallengeNameType
+-&gt; FromJSONKeyFunction [ChallengeNameType]
+-&gt; FromJSONKey ChallengeNameType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ChallengeNameType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ChallengeNameType]
+fromJSONKey :: FromJSONKeyFunction ChallengeNameType
+$cfromJSONKey :: FromJSONKeyFunction ChallengeNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679425092"><span id="local-6989586621679425094"><span id="local-6989586621679425096"><span id="local-6989586621679425098"><span class="annot"><span class="annottext">[ChallengeNameType] -&gt; Encoding
+[ChallengeNameType] -&gt; Value
+ChallengeNameType -&gt; Encoding
+ChallengeNameType -&gt; Value
+(ChallengeNameType -&gt; Value)
+-&gt; (ChallengeNameType -&gt; Encoding)
+-&gt; ([ChallengeNameType] -&gt; Value)
+-&gt; ([ChallengeNameType] -&gt; Encoding)
+-&gt; ToJSON ChallengeNameType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ChallengeNameType] -&gt; Encoding
+$ctoEncodingList :: [ChallengeNameType] -&gt; Encoding
+toJSONList :: [ChallengeNameType] -&gt; Value
+$ctoJSONList :: [ChallengeNameType] -&gt; Value
+toEncoding :: ChallengeNameType -&gt; Encoding
+$ctoEncoding :: ChallengeNameType -&gt; Encoding
+toJSON :: ChallengeNameType -&gt; Value
+$ctoJSON :: ChallengeNameType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679425087"><span id="local-6989586621679425089"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChallengeNameType]
+ToJSONKeyFunction ChallengeNameType
+ToJSONKeyFunction ChallengeNameType
+-&gt; ToJSONKeyFunction [ChallengeNameType]
+-&gt; ToJSONKey ChallengeNameType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ChallengeNameType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ChallengeNameType]
+toJSONKey :: ToJSONKeyFunction ChallengeNameType
+$ctoJSONKey :: ToJSONKeyFunction ChallengeNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679425084"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChallengeNameType
+([Node] -&gt; Either String ChallengeNameType)
+-&gt; FromXML ChallengeNameType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ChallengeNameType
+$cparseXML :: [Node] -&gt; Either String ChallengeNameType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679425081"><span class="annot"><span class="annottext">ChallengeNameType -&gt; XML
+(ChallengeNameType -&gt; XML) -&gt; ToXML ChallengeNameType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ChallengeNameType -&gt; XML
+$ctoXML :: ChallengeNameType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_ADMIN_NO_SRP_AUTH"><span class="hs-identifier hs-type">ChallengeNameType_ADMIN_NO_SRP_AUTH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType"><span class="hs-identifier hs-type">ChallengeNameType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChallengeNameType_ADMIN_NO_SRP_AUTH"><span id="%24mChallengeNameType_ADMIN_NO_SRP_AUTH"><span id="ChallengeNameType_ADMIN_NO_SRP_AUTH"><span class="annot"><span class="annottext">$bChallengeNameType_ADMIN_NO_SRP_AUTH :: ChallengeNameType
+$mChallengeNameType_ADMIN_NO_SRP_AUTH :: forall r. ChallengeNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#%24bChallengeNameType_ADMIN_NO_SRP_AUTH"><span class="hs-identifier hs-var hs-var hs-var">ChallengeNameType_ADMIN_NO_SRP_AUTH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType%27"><span class="hs-identifier hs-type">ChallengeNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADMIN_NO_SRP_AUTH&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_CUSTOM_CHALLENGE"><span class="hs-identifier hs-type">ChallengeNameType_CUSTOM_CHALLENGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType"><span class="hs-identifier hs-type">ChallengeNameType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChallengeNameType_CUSTOM_CHALLENGE"><span id="%24mChallengeNameType_CUSTOM_CHALLENGE"><span id="ChallengeNameType_CUSTOM_CHALLENGE"><span class="annot"><span class="annottext">$bChallengeNameType_CUSTOM_CHALLENGE :: ChallengeNameType
+$mChallengeNameType_CUSTOM_CHALLENGE :: forall r. ChallengeNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#%24bChallengeNameType_CUSTOM_CHALLENGE"><span class="hs-identifier hs-var hs-var hs-var">ChallengeNameType_CUSTOM_CHALLENGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType%27"><span class="hs-identifier hs-type">ChallengeNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUSTOM_CHALLENGE&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_DEVICE_PASSWORD_VERIFIER"><span class="hs-identifier hs-type">ChallengeNameType_DEVICE_PASSWORD_VERIFIER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType"><span class="hs-identifier hs-type">ChallengeNameType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChallengeNameType_DEVICE_PASSWORD_VERIFIER"><span id="%24mChallengeNameType_DEVICE_PASSWORD_VERIFIER"><span id="ChallengeNameType_DEVICE_PASSWORD_VERIFIER"><span class="annot"><span class="annottext">$bChallengeNameType_DEVICE_PASSWORD_VERIFIER :: ChallengeNameType
+$mChallengeNameType_DEVICE_PASSWORD_VERIFIER :: forall r. ChallengeNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#%24bChallengeNameType_DEVICE_PASSWORD_VERIFIER"><span class="hs-identifier hs-var hs-var hs-var">ChallengeNameType_DEVICE_PASSWORD_VERIFIER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType%27"><span class="hs-identifier hs-type">ChallengeNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEVICE_PASSWORD_VERIFIER&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_DEVICE_SRP_AUTH"><span class="hs-identifier hs-type">ChallengeNameType_DEVICE_SRP_AUTH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType"><span class="hs-identifier hs-type">ChallengeNameType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChallengeNameType_DEVICE_SRP_AUTH"><span id="%24mChallengeNameType_DEVICE_SRP_AUTH"><span id="ChallengeNameType_DEVICE_SRP_AUTH"><span class="annot"><span class="annottext">$bChallengeNameType_DEVICE_SRP_AUTH :: ChallengeNameType
+$mChallengeNameType_DEVICE_SRP_AUTH :: forall r. ChallengeNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#%24bChallengeNameType_DEVICE_SRP_AUTH"><span class="hs-identifier hs-var hs-var hs-var">ChallengeNameType_DEVICE_SRP_AUTH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType%27"><span class="hs-identifier hs-type">ChallengeNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEVICE_SRP_AUTH&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_MFA_SETUP"><span class="hs-identifier hs-type">ChallengeNameType_MFA_SETUP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType"><span class="hs-identifier hs-type">ChallengeNameType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChallengeNameType_MFA_SETUP"><span id="%24mChallengeNameType_MFA_SETUP"><span id="ChallengeNameType_MFA_SETUP"><span class="annot"><span class="annottext">$bChallengeNameType_MFA_SETUP :: ChallengeNameType
+$mChallengeNameType_MFA_SETUP :: forall r. ChallengeNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#%24bChallengeNameType_MFA_SETUP"><span class="hs-identifier hs-var hs-var hs-var">ChallengeNameType_MFA_SETUP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType%27"><span class="hs-identifier hs-type">ChallengeNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MFA_SETUP&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_NEW_PASSWORD_REQUIRED"><span class="hs-identifier hs-type">ChallengeNameType_NEW_PASSWORD_REQUIRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType"><span class="hs-identifier hs-type">ChallengeNameType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChallengeNameType_NEW_PASSWORD_REQUIRED"><span id="%24mChallengeNameType_NEW_PASSWORD_REQUIRED"><span id="ChallengeNameType_NEW_PASSWORD_REQUIRED"><span class="annot"><span class="annottext">$bChallengeNameType_NEW_PASSWORD_REQUIRED :: ChallengeNameType
+$mChallengeNameType_NEW_PASSWORD_REQUIRED :: forall r. ChallengeNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#%24bChallengeNameType_NEW_PASSWORD_REQUIRED"><span class="hs-identifier hs-var hs-var hs-var">ChallengeNameType_NEW_PASSWORD_REQUIRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType%27"><span class="hs-identifier hs-type">ChallengeNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NEW_PASSWORD_REQUIRED&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_PASSWORD_VERIFIER"><span class="hs-identifier hs-type">ChallengeNameType_PASSWORD_VERIFIER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType"><span class="hs-identifier hs-type">ChallengeNameType</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChallengeNameType_PASSWORD_VERIFIER"><span id="%24mChallengeNameType_PASSWORD_VERIFIER"><span id="ChallengeNameType_PASSWORD_VERIFIER"><span class="annot"><span class="annottext">$bChallengeNameType_PASSWORD_VERIFIER :: ChallengeNameType
+$mChallengeNameType_PASSWORD_VERIFIER :: forall r. ChallengeNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#%24bChallengeNameType_PASSWORD_VERIFIER"><span class="hs-identifier hs-var hs-var hs-var">ChallengeNameType_PASSWORD_VERIFIER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType%27"><span class="hs-identifier hs-type">ChallengeNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PASSWORD_VERIFIER&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_SELECT_MFA_TYPE"><span class="hs-identifier hs-type">ChallengeNameType_SELECT_MFA_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType"><span class="hs-identifier hs-type">ChallengeNameType</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChallengeNameType_SELECT_MFA_TYPE"><span id="%24mChallengeNameType_SELECT_MFA_TYPE"><span id="ChallengeNameType_SELECT_MFA_TYPE"><span class="annot"><span class="annottext">$bChallengeNameType_SELECT_MFA_TYPE :: ChallengeNameType
+$mChallengeNameType_SELECT_MFA_TYPE :: forall r. ChallengeNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#%24bChallengeNameType_SELECT_MFA_TYPE"><span class="hs-identifier hs-var hs-var hs-var">ChallengeNameType_SELECT_MFA_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType%27"><span class="hs-identifier hs-type">ChallengeNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SELECT_MFA_TYPE&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_SMS_MFA"><span class="hs-identifier hs-type">ChallengeNameType_SMS_MFA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType"><span class="hs-identifier hs-type">ChallengeNameType</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChallengeNameType_SMS_MFA"><span id="%24mChallengeNameType_SMS_MFA"><span id="ChallengeNameType_SMS_MFA"><span class="annot"><span class="annottext">$bChallengeNameType_SMS_MFA :: ChallengeNameType
+$mChallengeNameType_SMS_MFA :: forall r. ChallengeNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#%24bChallengeNameType_SMS_MFA"><span class="hs-identifier hs-var hs-var hs-var">ChallengeNameType_SMS_MFA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType%27"><span class="hs-identifier hs-type">ChallengeNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SMS_MFA&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_SOFTWARE_TOKEN_MFA"><span class="hs-identifier hs-type">ChallengeNameType_SOFTWARE_TOKEN_MFA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType"><span class="hs-identifier hs-type">ChallengeNameType</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChallengeNameType_SOFTWARE_TOKEN_MFA"><span id="%24mChallengeNameType_SOFTWARE_TOKEN_MFA"><span id="ChallengeNameType_SOFTWARE_TOKEN_MFA"><span class="annot"><span class="annottext">$bChallengeNameType_SOFTWARE_TOKEN_MFA :: ChallengeNameType
+$mChallengeNameType_SOFTWARE_TOKEN_MFA :: forall r. ChallengeNameType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#%24bChallengeNameType_SOFTWARE_TOKEN_MFA"><span class="hs-identifier hs-var hs-var hs-var">ChallengeNameType_SOFTWARE_TOKEN_MFA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType%27"><span class="hs-identifier hs-type">ChallengeNameType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SOFTWARE_TOKEN_MFA&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_ADMIN_NO_SRP_AUTH"><span class="hs-pragma hs-type">ChallengeNameType_ADMIN_NO_SRP_AUTH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_CUSTOM_CHALLENGE"><span class="hs-pragma hs-type">ChallengeNameType_CUSTOM_CHALLENGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_DEVICE_PASSWORD_VERIFIER"><span class="hs-pragma hs-type">ChallengeNameType_DEVICE_PASSWORD_VERIFIER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_DEVICE_SRP_AUTH"><span class="hs-pragma hs-type">ChallengeNameType_DEVICE_SRP_AUTH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_MFA_SETUP"><span class="hs-pragma hs-type">ChallengeNameType_MFA_SETUP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_NEW_PASSWORD_REQUIRED"><span class="hs-pragma hs-type">ChallengeNameType_NEW_PASSWORD_REQUIRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_PASSWORD_VERIFIER"><span class="hs-pragma hs-type">ChallengeNameType_PASSWORD_VERIFIER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_SELECT_MFA_TYPE"><span class="hs-pragma hs-type">ChallengeNameType_SELECT_MFA_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_SMS_MFA"><span class="hs-pragma hs-type">ChallengeNameType_SMS_MFA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType_SOFTWARE_TOKEN_MFA"><span class="hs-pragma hs-type">ChallengeNameType_SOFTWARE_TOKEN_MFA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.ChallengeNameType.html#ChallengeNameType%27"><span class="hs-pragma hs-type">ChallengeNameType'</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-111"></span></pre></body></html>

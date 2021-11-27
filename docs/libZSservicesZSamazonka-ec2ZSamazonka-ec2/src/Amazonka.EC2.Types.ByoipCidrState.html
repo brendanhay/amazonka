@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ByoipCidrState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ByoipCidrState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier">ByoipCidrState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Advertised"><span class="hs-identifier">ByoipCidrState_Advertised</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Deprovisioned"><span class="hs-identifier">ByoipCidrState_Deprovisioned</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Failed_deprovision"><span class="hs-identifier">ByoipCidrState_Failed_deprovision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Failed_provision"><span class="hs-identifier">ByoipCidrState_Failed_provision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Pending_deprovision"><span class="hs-identifier">ByoipCidrState_Pending_deprovision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Pending_provision"><span class="hs-identifier">ByoipCidrState_Pending_provision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Provisioned"><span class="hs-identifier">ByoipCidrState_Provisioned</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Provisioned_not_publicly_advertisable"><span class="hs-identifier">ByoipCidrState_Provisioned_not_publicly_advertisable</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span id="local-6989586621681089695"><span id="local-6989586621681089696"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ByoipCidrState"><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier hs-var">ByoipCidrState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ByoipCidrState%27"><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState%27"><span class="hs-identifier hs-var">ByoipCidrState'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromByoipCidrState"><span class="annot"><span class="annottext">ByoipCidrState -&gt; Text
+</span><a href="Amazonka.EC2.Types.ByoipCidrState.html#fromByoipCidrState"><span class="hs-identifier hs-var hs-var">fromByoipCidrState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089687"><span id="local-6989586621681089689"><span id="local-6989586621681089691"><span class="annot"><span class="annottext">Int -&gt; ByoipCidrState -&gt; ShowS
+[ByoipCidrState] -&gt; ShowS
+ByoipCidrState -&gt; String
+(Int -&gt; ByoipCidrState -&gt; ShowS)
+-&gt; (ByoipCidrState -&gt; String)
+-&gt; ([ByoipCidrState] -&gt; ShowS)
+-&gt; Show ByoipCidrState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ByoipCidrState] -&gt; ShowS
+$cshowList :: [ByoipCidrState] -&gt; ShowS
+show :: ByoipCidrState -&gt; String
+$cshow :: ByoipCidrState -&gt; String
+showsPrec :: Int -&gt; ByoipCidrState -&gt; ShowS
+$cshowsPrec :: Int -&gt; ByoipCidrState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681089678"><span id="local-6989586621681089680"><span id="local-6989586621681089682"><span id="local-6989586621681089684"><span class="annot"><span class="annottext">ReadPrec [ByoipCidrState]
+ReadPrec ByoipCidrState
+Int -&gt; ReadS ByoipCidrState
+ReadS [ByoipCidrState]
+(Int -&gt; ReadS ByoipCidrState)
+-&gt; ReadS [ByoipCidrState]
+-&gt; ReadPrec ByoipCidrState
+-&gt; ReadPrec [ByoipCidrState]
+-&gt; Read ByoipCidrState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ByoipCidrState]
+$creadListPrec :: ReadPrec [ByoipCidrState]
+readPrec :: ReadPrec ByoipCidrState
+$creadPrec :: ReadPrec ByoipCidrState
+readList :: ReadS [ByoipCidrState]
+$creadList :: ReadS [ByoipCidrState]
+readsPrec :: Int -&gt; ReadS ByoipCidrState
+$creadsPrec :: Int -&gt; ReadS ByoipCidrState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681089673"><span id="local-6989586621681089675"><span class="annot"><span class="annottext">ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+(ByoipCidrState -&gt; ByoipCidrState -&gt; Bool)
+-&gt; (ByoipCidrState -&gt; ByoipCidrState -&gt; Bool) -&gt; Eq ByoipCidrState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+$c/= :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+== :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+$c== :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681089657"><span id="local-6989586621681089659"><span id="local-6989586621681089661"><span id="local-6989586621681089663"><span id="local-6989586621681089665"><span id="local-6989586621681089667"><span id="local-6989586621681089669"><span class="annot"><span class="annottext">Eq ByoipCidrState
+Eq ByoipCidrState
+-&gt; (ByoipCidrState -&gt; ByoipCidrState -&gt; Ordering)
+-&gt; (ByoipCidrState -&gt; ByoipCidrState -&gt; Bool)
+-&gt; (ByoipCidrState -&gt; ByoipCidrState -&gt; Bool)
+-&gt; (ByoipCidrState -&gt; ByoipCidrState -&gt; Bool)
+-&gt; (ByoipCidrState -&gt; ByoipCidrState -&gt; Bool)
+-&gt; (ByoipCidrState -&gt; ByoipCidrState -&gt; ByoipCidrState)
+-&gt; (ByoipCidrState -&gt; ByoipCidrState -&gt; ByoipCidrState)
+-&gt; Ord ByoipCidrState
+ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+ByoipCidrState -&gt; ByoipCidrState -&gt; Ordering
+ByoipCidrState -&gt; ByoipCidrState -&gt; ByoipCidrState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ByoipCidrState -&gt; ByoipCidrState -&gt; ByoipCidrState
+$cmin :: ByoipCidrState -&gt; ByoipCidrState -&gt; ByoipCidrState
+max :: ByoipCidrState -&gt; ByoipCidrState -&gt; ByoipCidrState
+$cmax :: ByoipCidrState -&gt; ByoipCidrState -&gt; ByoipCidrState
+&gt;= :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+$c&gt;= :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+&gt; :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+$c&gt; :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+&lt;= :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+$c&lt;= :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+&lt; :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+$c&lt; :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+compare :: ByoipCidrState -&gt; ByoipCidrState -&gt; Ordering
+$ccompare :: ByoipCidrState -&gt; ByoipCidrState -&gt; Ordering
+$cp1Ord :: Eq ByoipCidrState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ByoipCidrState -&gt; Rep ByoipCidrState x)
+-&gt; (forall x. Rep ByoipCidrState x -&gt; ByoipCidrState)
+-&gt; Generic ByoipCidrState
+forall x. Rep ByoipCidrState x -&gt; ByoipCidrState
+forall x. ByoipCidrState -&gt; Rep ByoipCidrState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ByoipCidrState x -&gt; ByoipCidrState
+$cfrom :: forall x. ByoipCidrState -&gt; Rep ByoipCidrState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089649"><span id="local-6989586621681089651"><span class="annot"><span class="annottext">Int -&gt; ByoipCidrState -&gt; Int
+ByoipCidrState -&gt; Int
+(Int -&gt; ByoipCidrState -&gt; Int)
+-&gt; (ByoipCidrState -&gt; Int) -&gt; Hashable ByoipCidrState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ByoipCidrState -&gt; Int
+$chash :: ByoipCidrState -&gt; Int
+hashWithSalt :: Int -&gt; ByoipCidrState -&gt; Int
+$chashWithSalt :: Int -&gt; ByoipCidrState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681089646"><span class="annot"><span class="annottext">ByoipCidrState -&gt; ()
+(ByoipCidrState -&gt; ()) -&gt; NFData ByoipCidrState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ByoipCidrState -&gt; ()
+$crnf :: ByoipCidrState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681089643"><span class="annot"><span class="annottext">Text -&gt; Either String ByoipCidrState
+(Text -&gt; Either String ByoipCidrState) -&gt; FromText ByoipCidrState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ByoipCidrState
+$cfromText :: Text -&gt; Either String ByoipCidrState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681089640"><span class="annot"><span class="annottext">ByoipCidrState -&gt; Text
+(ByoipCidrState -&gt; Text) -&gt; ToText ByoipCidrState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ByoipCidrState -&gt; Text
+$ctoText :: ByoipCidrState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681089637"><span class="annot"><span class="annottext">ByoipCidrState -&gt; ByteString
+(ByoipCidrState -&gt; ByteString) -&gt; ToByteString ByoipCidrState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ByoipCidrState -&gt; ByteString
+$ctoBS :: ByoipCidrState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681089634"><span class="annot"><span class="annottext">ByoipCidrState -&gt; ByteStringBuilder
+(ByoipCidrState -&gt; ByteStringBuilder) -&gt; ToLog ByoipCidrState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ByoipCidrState -&gt; ByteStringBuilder
+$cbuild :: ByoipCidrState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681089631"><span class="annot"><span class="annottext">HeaderName -&gt; ByoipCidrState -&gt; [Header]
+(HeaderName -&gt; ByoipCidrState -&gt; [Header])
+-&gt; ToHeader ByoipCidrState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ByoipCidrState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ByoipCidrState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681089628"><span class="annot"><span class="annottext">ByoipCidrState -&gt; QueryString
+(ByoipCidrState -&gt; QueryString) -&gt; ToQuery ByoipCidrState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ByoipCidrState -&gt; QueryString
+$ctoQuery :: ByoipCidrState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681089623"><span id="local-6989586621681089625"><span class="annot"><span class="annottext">Value -&gt; Parser [ByoipCidrState]
+Value -&gt; Parser ByoipCidrState
+(Value -&gt; Parser ByoipCidrState)
+-&gt; (Value -&gt; Parser [ByoipCidrState]) -&gt; FromJSON ByoipCidrState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ByoipCidrState]
+$cparseJSONList :: Value -&gt; Parser [ByoipCidrState]
+parseJSON :: Value -&gt; Parser ByoipCidrState
+$cparseJSON :: Value -&gt; Parser ByoipCidrState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681089618"><span id="local-6989586621681089620"><span class="annot"><span class="annottext">FromJSONKeyFunction [ByoipCidrState]
+FromJSONKeyFunction ByoipCidrState
+FromJSONKeyFunction ByoipCidrState
+-&gt; FromJSONKeyFunction [ByoipCidrState]
+-&gt; FromJSONKey ByoipCidrState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ByoipCidrState]
+$cfromJSONKeyList :: FromJSONKeyFunction [ByoipCidrState]
+fromJSONKey :: FromJSONKeyFunction ByoipCidrState
+$cfromJSONKey :: FromJSONKeyFunction ByoipCidrState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681089609"><span id="local-6989586621681089611"><span id="local-6989586621681089613"><span id="local-6989586621681089615"><span class="annot"><span class="annottext">[ByoipCidrState] -&gt; Encoding
+[ByoipCidrState] -&gt; Value
+ByoipCidrState -&gt; Encoding
+ByoipCidrState -&gt; Value
+(ByoipCidrState -&gt; Value)
+-&gt; (ByoipCidrState -&gt; Encoding)
+-&gt; ([ByoipCidrState] -&gt; Value)
+-&gt; ([ByoipCidrState] -&gt; Encoding)
+-&gt; ToJSON ByoipCidrState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ByoipCidrState] -&gt; Encoding
+$ctoEncodingList :: [ByoipCidrState] -&gt; Encoding
+toJSONList :: [ByoipCidrState] -&gt; Value
+$ctoJSONList :: [ByoipCidrState] -&gt; Value
+toEncoding :: ByoipCidrState -&gt; Encoding
+$ctoEncoding :: ByoipCidrState -&gt; Encoding
+toJSON :: ByoipCidrState -&gt; Value
+$ctoJSON :: ByoipCidrState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681089604"><span id="local-6989586621681089606"><span class="annot"><span class="annottext">ToJSONKeyFunction [ByoipCidrState]
+ToJSONKeyFunction ByoipCidrState
+ToJSONKeyFunction ByoipCidrState
+-&gt; ToJSONKeyFunction [ByoipCidrState] -&gt; ToJSONKey ByoipCidrState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ByoipCidrState]
+$ctoJSONKeyList :: ToJSONKeyFunction [ByoipCidrState]
+toJSONKey :: ToJSONKeyFunction ByoipCidrState
+$ctoJSONKey :: ToJSONKeyFunction ByoipCidrState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681089601"><span class="annot"><span class="annottext">[Node] -&gt; Either String ByoipCidrState
+([Node] -&gt; Either String ByoipCidrState) -&gt; FromXML ByoipCidrState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ByoipCidrState
+$cparseXML :: [Node] -&gt; Either String ByoipCidrState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621681089598"><span class="annot"><span class="annottext">ByoipCidrState -&gt; XML
+(ByoipCidrState -&gt; XML) -&gt; ToXML ByoipCidrState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ByoipCidrState -&gt; XML
+$ctoXML :: ByoipCidrState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Advertised"><span class="hs-identifier hs-type">ByoipCidrState_Advertised</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier hs-type">ByoipCidrState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bByoipCidrState_Advertised"><span id="%24mByoipCidrState_Advertised"><span id="ByoipCidrState_Advertised"><span class="annot"><span class="annottext">$bByoipCidrState_Advertised :: ByoipCidrState
+$mByoipCidrState_Advertised :: forall r. ByoipCidrState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ByoipCidrState.html#%24bByoipCidrState_Advertised"><span class="hs-identifier hs-var hs-var hs-var">ByoipCidrState_Advertised</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState%27"><span class="hs-identifier hs-type">ByoipCidrState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;advertised&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Deprovisioned"><span class="hs-identifier hs-type">ByoipCidrState_Deprovisioned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier hs-type">ByoipCidrState</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bByoipCidrState_Deprovisioned"><span id="%24mByoipCidrState_Deprovisioned"><span id="ByoipCidrState_Deprovisioned"><span class="annot"><span class="annottext">$bByoipCidrState_Deprovisioned :: ByoipCidrState
+$mByoipCidrState_Deprovisioned :: forall r. ByoipCidrState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ByoipCidrState.html#%24bByoipCidrState_Deprovisioned"><span class="hs-identifier hs-var hs-var hs-var">ByoipCidrState_Deprovisioned</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState%27"><span class="hs-identifier hs-type">ByoipCidrState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;deprovisioned&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Failed_deprovision"><span class="hs-identifier hs-type">ByoipCidrState_Failed_deprovision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier hs-type">ByoipCidrState</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bByoipCidrState_Failed_deprovision"><span id="%24mByoipCidrState_Failed_deprovision"><span id="ByoipCidrState_Failed_deprovision"><span class="annot"><span class="annottext">$bByoipCidrState_Failed_deprovision :: ByoipCidrState
+$mByoipCidrState_Failed_deprovision :: forall r. ByoipCidrState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ByoipCidrState.html#%24bByoipCidrState_Failed_deprovision"><span class="hs-identifier hs-var hs-var hs-var">ByoipCidrState_Failed_deprovision</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState%27"><span class="hs-identifier hs-type">ByoipCidrState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed-deprovision&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Failed_provision"><span class="hs-identifier hs-type">ByoipCidrState_Failed_provision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier hs-type">ByoipCidrState</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bByoipCidrState_Failed_provision"><span id="%24mByoipCidrState_Failed_provision"><span id="ByoipCidrState_Failed_provision"><span class="annot"><span class="annottext">$bByoipCidrState_Failed_provision :: ByoipCidrState
+$mByoipCidrState_Failed_provision :: forall r. ByoipCidrState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ByoipCidrState.html#%24bByoipCidrState_Failed_provision"><span class="hs-identifier hs-var hs-var hs-var">ByoipCidrState_Failed_provision</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState%27"><span class="hs-identifier hs-type">ByoipCidrState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed-provision&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Pending_deprovision"><span class="hs-identifier hs-type">ByoipCidrState_Pending_deprovision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier hs-type">ByoipCidrState</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bByoipCidrState_Pending_deprovision"><span id="%24mByoipCidrState_Pending_deprovision"><span id="ByoipCidrState_Pending_deprovision"><span class="annot"><span class="annottext">$bByoipCidrState_Pending_deprovision :: ByoipCidrState
+$mByoipCidrState_Pending_deprovision :: forall r. ByoipCidrState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ByoipCidrState.html#%24bByoipCidrState_Pending_deprovision"><span class="hs-identifier hs-var hs-var hs-var">ByoipCidrState_Pending_deprovision</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState%27"><span class="hs-identifier hs-type">ByoipCidrState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;pending-deprovision&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Pending_provision"><span class="hs-identifier hs-type">ByoipCidrState_Pending_provision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier hs-type">ByoipCidrState</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bByoipCidrState_Pending_provision"><span id="%24mByoipCidrState_Pending_provision"><span id="ByoipCidrState_Pending_provision"><span class="annot"><span class="annottext">$bByoipCidrState_Pending_provision :: ByoipCidrState
+$mByoipCidrState_Pending_provision :: forall r. ByoipCidrState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ByoipCidrState.html#%24bByoipCidrState_Pending_provision"><span class="hs-identifier hs-var hs-var hs-var">ByoipCidrState_Pending_provision</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState%27"><span class="hs-identifier hs-type">ByoipCidrState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;pending-provision&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Provisioned"><span class="hs-identifier hs-type">ByoipCidrState_Provisioned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier hs-type">ByoipCidrState</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bByoipCidrState_Provisioned"><span id="%24mByoipCidrState_Provisioned"><span id="ByoipCidrState_Provisioned"><span class="annot"><span class="annottext">$bByoipCidrState_Provisioned :: ByoipCidrState
+$mByoipCidrState_Provisioned :: forall r. ByoipCidrState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ByoipCidrState.html#%24bByoipCidrState_Provisioned"><span class="hs-identifier hs-var hs-var hs-var">ByoipCidrState_Provisioned</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState%27"><span class="hs-identifier hs-type">ByoipCidrState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;provisioned&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Provisioned_not_publicly_advertisable"><span class="hs-identifier hs-type">ByoipCidrState_Provisioned_not_publicly_advertisable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier hs-type">ByoipCidrState</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bByoipCidrState_Provisioned_not_publicly_advertisable"><span id="%24mByoipCidrState_Provisioned_not_publicly_advertisable"><span id="ByoipCidrState_Provisioned_not_publicly_advertisable"><span class="annot"><span class="annottext">$bByoipCidrState_Provisioned_not_publicly_advertisable :: ByoipCidrState
+$mByoipCidrState_Provisioned_not_publicly_advertisable :: forall r. ByoipCidrState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ByoipCidrState.html#%24bByoipCidrState_Provisioned_not_publicly_advertisable"><span class="hs-identifier hs-var hs-var hs-var">ByoipCidrState_Provisioned_not_publicly_advertisable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState%27"><span class="hs-identifier hs-type">ByoipCidrState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;provisioned-not-publicly-advertisable&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Advertised"><span class="hs-pragma hs-type">ByoipCidrState_Advertised</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Deprovisioned"><span class="hs-pragma hs-type">ByoipCidrState_Deprovisioned</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Failed_deprovision"><span class="hs-pragma hs-type">ByoipCidrState_Failed_deprovision</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Failed_provision"><span class="hs-pragma hs-type">ByoipCidrState_Failed_provision</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Pending_deprovision"><span class="hs-pragma hs-type">ByoipCidrState_Pending_deprovision</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Pending_provision"><span class="hs-pragma hs-type">ByoipCidrState_Pending_provision</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Provisioned"><span class="hs-pragma hs-type">ByoipCidrState_Provisioned</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState_Provisioned_not_publicly_advertisable"><span class="hs-pragma hs-type">ByoipCidrState_Provisioned_not_publicly_advertisable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ByoipCidrState.html#ByoipCidrState%27"><span class="hs-pragma hs-type">ByoipCidrState'</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-102"></span></pre></body></html>

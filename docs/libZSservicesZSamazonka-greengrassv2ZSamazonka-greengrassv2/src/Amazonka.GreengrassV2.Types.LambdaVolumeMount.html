@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GreengrassV2.Types.LambdaVolumeMount</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GreengrassV2.Types.LambdaVolumeMount</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaFilesystemPermission.html"><span class="hs-identifier">Amazonka.GreengrassV2.Types.LambdaFilesystemPermission</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a volume that Linux processes in a container</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- can access. When you define a volume, the IoT Greengrass Core software</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- mounts the source files to the destination inside the container.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLambdaVolumeMount' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679231841"><span id="local-6989586621679231842"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaVolumeMount"><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-var">LambdaVolumeMount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaVolumeMount%27"><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount%27"><span class="hs-identifier hs-var">LambdaVolumeMount'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether or not to add the IoT Greengrass user group as an owner of the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- volume.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AaddGroupOwner%3ALambdaVolumeMount%27"><span class="annot"><span class="annottext">LambdaVolumeMount -&gt; Maybe Bool
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#%24sel%3AaddGroupOwner%3ALambdaVolumeMount%27"><span class="hs-identifier hs-var hs-var">addGroupOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The permission to access the volume: read\/only (@ro@) or read\/write</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- (@rw@).</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Default: @ro@</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Apermission%3ALambdaVolumeMount%27"><span class="annot"><span class="annottext">LambdaVolumeMount -&gt; Maybe LambdaFilesystemPermission
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#%24sel%3Apermission%3ALambdaVolumeMount%27"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaFilesystemPermission.html#LambdaFilesystemPermission"><span class="hs-identifier hs-type">LambdaFilesystemPermission</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The path to the physical volume in the file system.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AsourcePath%3ALambdaVolumeMount%27"><span class="annot"><span class="annottext">LambdaVolumeMount -&gt; Text
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#%24sel%3AsourcePath%3ALambdaVolumeMount%27"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The path to the logical volume in the file system.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdestinationPath%3ALambdaVolumeMount%27"><span class="annot"><span class="annottext">LambdaVolumeMount -&gt; Text
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#%24sel%3AdestinationPath%3ALambdaVolumeMount%27"><span class="hs-identifier hs-var hs-var">destinationPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231832"><span id="local-6989586621679231834"><span class="annot"><span class="annottext">LambdaVolumeMount -&gt; LambdaVolumeMount -&gt; Bool
+(LambdaVolumeMount -&gt; LambdaVolumeMount -&gt; Bool)
+-&gt; (LambdaVolumeMount -&gt; LambdaVolumeMount -&gt; Bool)
+-&gt; Eq LambdaVolumeMount
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LambdaVolumeMount -&gt; LambdaVolumeMount -&gt; Bool
+$c/= :: LambdaVolumeMount -&gt; LambdaVolumeMount -&gt; Bool
+== :: LambdaVolumeMount -&gt; LambdaVolumeMount -&gt; Bool
+$c== :: LambdaVolumeMount -&gt; LambdaVolumeMount -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231823"><span id="local-6989586621679231825"><span id="local-6989586621679231827"><span id="local-6989586621679231829"><span class="annot"><span class="annottext">ReadPrec [LambdaVolumeMount]
+ReadPrec LambdaVolumeMount
+Int -&gt; ReadS LambdaVolumeMount
+ReadS [LambdaVolumeMount]
+(Int -&gt; ReadS LambdaVolumeMount)
+-&gt; ReadS [LambdaVolumeMount]
+-&gt; ReadPrec LambdaVolumeMount
+-&gt; ReadPrec [LambdaVolumeMount]
+-&gt; Read LambdaVolumeMount
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LambdaVolumeMount]
+$creadListPrec :: ReadPrec [LambdaVolumeMount]
+readPrec :: ReadPrec LambdaVolumeMount
+$creadPrec :: ReadPrec LambdaVolumeMount
+readList :: ReadS [LambdaVolumeMount]
+$creadList :: ReadS [LambdaVolumeMount]
+readsPrec :: Int -&gt; ReadS LambdaVolumeMount
+$creadsPrec :: Int -&gt; ReadS LambdaVolumeMount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231816"><span id="local-6989586621679231818"><span id="local-6989586621679231820"><span class="annot"><span class="annottext">Int -&gt; LambdaVolumeMount -&gt; ShowS
+[LambdaVolumeMount] -&gt; ShowS
+LambdaVolumeMount -&gt; String
+(Int -&gt; LambdaVolumeMount -&gt; ShowS)
+-&gt; (LambdaVolumeMount -&gt; String)
+-&gt; ([LambdaVolumeMount] -&gt; ShowS)
+-&gt; Show LambdaVolumeMount
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LambdaVolumeMount] -&gt; ShowS
+$cshowList :: [LambdaVolumeMount] -&gt; ShowS
+show :: LambdaVolumeMount -&gt; String
+$cshow :: LambdaVolumeMount -&gt; String
+showsPrec :: Int -&gt; LambdaVolumeMount -&gt; ShowS
+$cshowsPrec :: Int -&gt; LambdaVolumeMount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LambdaVolumeMount -&gt; Rep LambdaVolumeMount x)
+-&gt; (forall x. Rep LambdaVolumeMount x -&gt; LambdaVolumeMount)
+-&gt; Generic LambdaVolumeMount
+forall x. Rep LambdaVolumeMount x -&gt; LambdaVolumeMount
+forall x. LambdaVolumeMount -&gt; Rep LambdaVolumeMount x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LambdaVolumeMount x -&gt; LambdaVolumeMount
+$cfrom :: forall x. LambdaVolumeMount -&gt; Rep LambdaVolumeMount x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'LambdaVolumeMount' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'addGroupOwner', 'lambdaVolumeMount_addGroupOwner' - Whether or not to add the IoT Greengrass user group as an owner of the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- volume.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'permission', 'lambdaVolumeMount_permission' - The permission to access the volume: read\/only (@ro@) or read\/write</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- (@rw@).</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Default: @ro@</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'sourcePath', 'lambdaVolumeMount_sourcePath' - The path to the physical volume in the file system.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'destinationPath', 'lambdaVolumeMount_destinationPath' - The path to the logical volume in the file system.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#newLambdaVolumeMount"><span class="hs-identifier hs-type">newLambdaVolumeMount</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'sourcePath'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'destinationPath'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span><span>
+</span><span id="line-77"></span><span id="newLambdaVolumeMount"><span class="annot"><span class="annottext">newLambdaVolumeMount :: Text -&gt; Text -&gt; LambdaVolumeMount
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#newLambdaVolumeMount"><span class="hs-identifier hs-var hs-var">newLambdaVolumeMount</span></a></span></span><span> </span><span id="local-6989586621679231810"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231810"><span class="hs-identifier hs-var">pSourcePath_</span></a></span></span><span> </span><span id="local-6989586621679231809"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231809"><span class="hs-identifier hs-var">pDestinationPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">LambdaVolumeMount' :: Maybe Bool
+-&gt; Maybe LambdaFilesystemPermission
+-&gt; Text
+-&gt; Text
+-&gt; LambdaVolumeMount
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount%27"><span class="hs-identifier hs-type">LambdaVolumeMount'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addGroupOwner:LambdaVolumeMount' :: Maybe Bool
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#%24sel%3AaddGroupOwner%3ALambdaVolumeMount%27"><span class="hs-identifier hs-var">addGroupOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:permission:LambdaVolumeMount' :: Maybe LambdaFilesystemPermission
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#%24sel%3Apermission%3ALambdaVolumeMount%27"><span class="hs-identifier hs-var">permission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFilesystemPermission
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourcePath:LambdaVolumeMount' :: Text
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#%24sel%3AsourcePath%3ALambdaVolumeMount%27"><span class="hs-identifier hs-var">sourcePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231810"><span class="hs-identifier hs-var">pSourcePath_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationPath:LambdaVolumeMount' :: Text
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#%24sel%3AdestinationPath%3ALambdaVolumeMount%27"><span class="hs-identifier hs-var">destinationPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231809"><span class="hs-identifier hs-var">pDestinationPath_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Whether or not to add the IoT Greengrass user group as an owner of the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- volume.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#lambdaVolumeMount_addGroupOwner"><span class="hs-identifier hs-type">lambdaVolumeMount_addGroupOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="lambdaVolumeMount_addGroupOwner"><span class="annot"><span class="annottext">lambdaVolumeMount_addGroupOwner :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LambdaVolumeMount -&gt; f LambdaVolumeMount
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#lambdaVolumeMount_addGroupOwner"><span class="hs-identifier hs-var hs-var">lambdaVolumeMount_addGroupOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaVolumeMount -&gt; Maybe Bool)
+-&gt; (LambdaVolumeMount -&gt; Maybe Bool -&gt; LambdaVolumeMount)
+-&gt; Lens
+     LambdaVolumeMount LambdaVolumeMount (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount%27"><span class="hs-identifier hs-type">LambdaVolumeMount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231805"><span class="annot"><span class="annottext">Maybe Bool
+addGroupOwner :: Maybe Bool
+$sel:addGroupOwner:LambdaVolumeMount' :: LambdaVolumeMount -&gt; Maybe Bool
+</span><a href="#local-6989586621679231805"><span class="hs-identifier hs-var hs-var">addGroupOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679231805"><span class="hs-identifier hs-var">addGroupOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231804"><span class="annot"><span class="annottext">s :: LambdaVolumeMount
+</span><a href="#local-6989586621679231804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount%27"><span class="hs-identifier hs-type">LambdaVolumeMount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231803"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679231803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaVolumeMount
+</span><a href="#local-6989586621679231804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addGroupOwner:LambdaVolumeMount' :: Maybe Bool
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#%24sel%3AaddGroupOwner%3ALambdaVolumeMount%27"><span class="hs-identifier hs-var">addGroupOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679231803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The permission to access the volume: read\/only (@ro@) or read\/write</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- (@rw@).</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Default: @ro@</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#lambdaVolumeMount_permission"><span class="hs-identifier hs-type">lambdaVolumeMount_permission</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaFilesystemPermission.html#LambdaFilesystemPermission"><span class="hs-identifier hs-type">LambdaFilesystemPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="lambdaVolumeMount_permission"><span class="annot"><span class="annottext">lambdaVolumeMount_permission :: (Maybe LambdaFilesystemPermission
+ -&gt; f (Maybe LambdaFilesystemPermission))
+-&gt; LambdaVolumeMount -&gt; f LambdaVolumeMount
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#lambdaVolumeMount_permission"><span class="hs-identifier hs-var hs-var">lambdaVolumeMount_permission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaVolumeMount -&gt; Maybe LambdaFilesystemPermission)
+-&gt; (LambdaVolumeMount
+    -&gt; Maybe LambdaFilesystemPermission -&gt; LambdaVolumeMount)
+-&gt; Lens
+     LambdaVolumeMount
+     LambdaVolumeMount
+     (Maybe LambdaFilesystemPermission)
+     (Maybe LambdaFilesystemPermission)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount%27"><span class="hs-identifier hs-type">LambdaVolumeMount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231801"><span class="annot"><span class="annottext">Maybe LambdaFilesystemPermission
+permission :: Maybe LambdaFilesystemPermission
+$sel:permission:LambdaVolumeMount' :: LambdaVolumeMount -&gt; Maybe LambdaFilesystemPermission
+</span><a href="#local-6989586621679231801"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFilesystemPermission
+</span><a href="#local-6989586621679231801"><span class="hs-identifier hs-var">permission</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231800"><span class="annot"><span class="annottext">s :: LambdaVolumeMount
+</span><a href="#local-6989586621679231800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount%27"><span class="hs-identifier hs-type">LambdaVolumeMount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231799"><span class="annot"><span class="annottext">Maybe LambdaFilesystemPermission
+</span><a href="#local-6989586621679231799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaVolumeMount
+</span><a href="#local-6989586621679231800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permission:LambdaVolumeMount' :: Maybe LambdaFilesystemPermission
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#%24sel%3Apermission%3ALambdaVolumeMount%27"><span class="hs-identifier hs-var">permission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFilesystemPermission
+</span><a href="#local-6989586621679231799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The path to the physical volume in the file system.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#lambdaVolumeMount_sourcePath"><span class="hs-identifier hs-type">lambdaVolumeMount_sourcePath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="lambdaVolumeMount_sourcePath"><span class="annot"><span class="annottext">lambdaVolumeMount_sourcePath :: (Text -&gt; f Text) -&gt; LambdaVolumeMount -&gt; f LambdaVolumeMount
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#lambdaVolumeMount_sourcePath"><span class="hs-identifier hs-var hs-var">lambdaVolumeMount_sourcePath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaVolumeMount -&gt; Text)
+-&gt; (LambdaVolumeMount -&gt; Text -&gt; LambdaVolumeMount)
+-&gt; Lens LambdaVolumeMount LambdaVolumeMount Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount%27"><span class="hs-identifier hs-type">LambdaVolumeMount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231797"><span class="annot"><span class="annottext">Text
+sourcePath :: Text
+$sel:sourcePath:LambdaVolumeMount' :: LambdaVolumeMount -&gt; Text
+</span><a href="#local-6989586621679231797"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231797"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231796"><span class="annot"><span class="annottext">s :: LambdaVolumeMount
+</span><a href="#local-6989586621679231796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount%27"><span class="hs-identifier hs-type">LambdaVolumeMount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231795"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaVolumeMount
+</span><a href="#local-6989586621679231796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePath:LambdaVolumeMount' :: Text
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#%24sel%3AsourcePath%3ALambdaVolumeMount%27"><span class="hs-identifier hs-var">sourcePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The path to the logical volume in the file system.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#lambdaVolumeMount_destinationPath"><span class="hs-identifier hs-type">lambdaVolumeMount_destinationPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="lambdaVolumeMount_destinationPath"><span class="annot"><span class="annottext">lambdaVolumeMount_destinationPath :: (Text -&gt; f Text) -&gt; LambdaVolumeMount -&gt; f LambdaVolumeMount
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#lambdaVolumeMount_destinationPath"><span class="hs-identifier hs-var hs-var">lambdaVolumeMount_destinationPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaVolumeMount -&gt; Text)
+-&gt; (LambdaVolumeMount -&gt; Text -&gt; LambdaVolumeMount)
+-&gt; Lens LambdaVolumeMount LambdaVolumeMount Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount%27"><span class="hs-identifier hs-type">LambdaVolumeMount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231793"><span class="annot"><span class="annottext">Text
+destinationPath :: Text
+$sel:destinationPath:LambdaVolumeMount' :: LambdaVolumeMount -&gt; Text
+</span><a href="#local-6989586621679231793"><span class="hs-identifier hs-var hs-var">destinationPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231793"><span class="hs-identifier hs-var">destinationPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231792"><span class="annot"><span class="annottext">s :: LambdaVolumeMount
+</span><a href="#local-6989586621679231792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount%27"><span class="hs-identifier hs-type">LambdaVolumeMount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231791"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaVolumeMount
+</span><a href="#local-6989586621679231792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPath:LambdaVolumeMount' :: Text
+</span><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#%24sel%3AdestinationPath%3ALambdaVolumeMount%27"><span class="hs-identifier hs-var">destinationPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231787"><span id="local-6989586621679231789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231776"><span id="local-6989586621679231778"><span id="local-6989586621679231780"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679231774"><span class="annot"><span class="annottext">toJSON :: LambdaVolumeMount -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount%27"><span class="hs-identifier hs-type">LambdaVolumeMount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231769"><span id="local-6989586621679231770"><span id="local-6989586621679231771"><span id="local-6989586621679231772"><span class="annot"><span class="annottext">Maybe Bool
+Maybe LambdaFilesystemPermission
+Text
+destinationPath :: Text
+sourcePath :: Text
+permission :: Maybe LambdaFilesystemPermission
+addGroupOwner :: Maybe Bool
+$sel:destinationPath:LambdaVolumeMount' :: LambdaVolumeMount -&gt; Text
+$sel:sourcePath:LambdaVolumeMount' :: LambdaVolumeMount -&gt; Text
+$sel:permission:LambdaVolumeMount' :: LambdaVolumeMount -&gt; Maybe LambdaFilesystemPermission
+$sel:addGroupOwner:LambdaVolumeMount' :: LambdaVolumeMount -&gt; Maybe Bool
+</span><a href="#local-6989586621679231769"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addGroupOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679231772"><span class="hs-identifier hs-var">addGroupOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;permission&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaFilesystemPermission -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LambdaFilesystemPermission -&gt; Pair)
+-&gt; Maybe LambdaFilesystemPermission -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFilesystemPermission
+</span><a href="#local-6989586621679231771"><span class="hs-identifier hs-var">permission</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourcePath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231770"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231769"><span class="hs-identifier hs-var">destinationPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span></pre></body></html>

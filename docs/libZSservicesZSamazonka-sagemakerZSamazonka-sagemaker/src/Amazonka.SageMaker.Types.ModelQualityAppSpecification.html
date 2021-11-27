@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.ModelQualityAppSpecification</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.ModelQualityAppSpecification</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringProblemType.html"><span class="hs-identifier">Amazonka.SageMaker.Types.MonitoringProblemType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Container image configuration object for the monitoring job.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newModelQualityAppSpecification' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680321414"><span id="local-6989586621680321415"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelQualityAppSpecification"><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-var">ModelQualityAppSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelQualityAppSpecification%27"><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-var">ModelQualityAppSpecification'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of arguments for the container used to run the monitoring job.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcontainerArguments%3AModelQualityAppSpecification%27"><span class="annot"><span class="annottext">ModelQualityAppSpecification -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3AcontainerArguments%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var hs-var">containerArguments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | An Amazon S3 URI to a script that is called per row prior to running</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- analysis. It can base64 decode the payload and convert it into a flatted</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- json so that the built-in container can use the converted data.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Applicable only for the built-in (first party) containers.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ArecordPreprocessorSourceUri%3AModelQualityAppSpecification%27"><span class="annot"><span class="annottext">ModelQualityAppSpecification -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3ArecordPreprocessorSourceUri%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var hs-var">recordPreprocessorSourceUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Sets the environment variables in the container that the monitoring job</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- runs.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aenvironment%3AModelQualityAppSpecification%27"><span class="annot"><span class="annottext">ModelQualityAppSpecification -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3Aenvironment%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The machine learning problem type of the model that the monitoring job</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- monitors.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AproblemType%3AModelQualityAppSpecification%27"><span class="annot"><span class="annottext">ModelQualityAppSpecification -&gt; Maybe MonitoringProblemType
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3AproblemType%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var hs-var">problemType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType"><span class="hs-identifier hs-type">MonitoringProblemType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Specifies the entrypoint for a container that the monitoring job runs.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcontainerEntrypoint%3AModelQualityAppSpecification%27"><span class="annot"><span class="annottext">ModelQualityAppSpecification -&gt; Maybe (NonEmpty Text)
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3AcontainerEntrypoint%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var hs-var">containerEntrypoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | An Amazon S3 URI to a script that is called after analysis has been</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- performed. Applicable only for the built-in (first party) containers.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3ApostAnalyticsProcessorSourceUri%3AModelQualityAppSpecification%27"><span class="annot"><span class="annottext">ModelQualityAppSpecification -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3ApostAnalyticsProcessorSourceUri%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var hs-var">postAnalyticsProcessorSourceUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The address of the container image that the monitoring job runs.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AimageUri%3AModelQualityAppSpecification%27"><span class="annot"><span class="annottext">ModelQualityAppSpecification -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3AimageUri%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var hs-var">imageUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680321402"><span id="local-6989586621680321404"><span class="annot"><span class="annottext">ModelQualityAppSpecification
+-&gt; ModelQualityAppSpecification -&gt; Bool
+(ModelQualityAppSpecification
+ -&gt; ModelQualityAppSpecification -&gt; Bool)
+-&gt; (ModelQualityAppSpecification
+    -&gt; ModelQualityAppSpecification -&gt; Bool)
+-&gt; Eq ModelQualityAppSpecification
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModelQualityAppSpecification
+-&gt; ModelQualityAppSpecification -&gt; Bool
+$c/= :: ModelQualityAppSpecification
+-&gt; ModelQualityAppSpecification -&gt; Bool
+== :: ModelQualityAppSpecification
+-&gt; ModelQualityAppSpecification -&gt; Bool
+$c== :: ModelQualityAppSpecification
+-&gt; ModelQualityAppSpecification -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680321393"><span id="local-6989586621680321395"><span id="local-6989586621680321397"><span id="local-6989586621680321399"><span class="annot"><span class="annottext">ReadPrec [ModelQualityAppSpecification]
+ReadPrec ModelQualityAppSpecification
+Int -&gt; ReadS ModelQualityAppSpecification
+ReadS [ModelQualityAppSpecification]
+(Int -&gt; ReadS ModelQualityAppSpecification)
+-&gt; ReadS [ModelQualityAppSpecification]
+-&gt; ReadPrec ModelQualityAppSpecification
+-&gt; ReadPrec [ModelQualityAppSpecification]
+-&gt; Read ModelQualityAppSpecification
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModelQualityAppSpecification]
+$creadListPrec :: ReadPrec [ModelQualityAppSpecification]
+readPrec :: ReadPrec ModelQualityAppSpecification
+$creadPrec :: ReadPrec ModelQualityAppSpecification
+readList :: ReadS [ModelQualityAppSpecification]
+$creadList :: ReadS [ModelQualityAppSpecification]
+readsPrec :: Int -&gt; ReadS ModelQualityAppSpecification
+$creadsPrec :: Int -&gt; ReadS ModelQualityAppSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680321386"><span id="local-6989586621680321388"><span id="local-6989586621680321390"><span class="annot"><span class="annottext">Int -&gt; ModelQualityAppSpecification -&gt; ShowS
+[ModelQualityAppSpecification] -&gt; ShowS
+ModelQualityAppSpecification -&gt; String
+(Int -&gt; ModelQualityAppSpecification -&gt; ShowS)
+-&gt; (ModelQualityAppSpecification -&gt; String)
+-&gt; ([ModelQualityAppSpecification] -&gt; ShowS)
+-&gt; Show ModelQualityAppSpecification
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModelQualityAppSpecification] -&gt; ShowS
+$cshowList :: [ModelQualityAppSpecification] -&gt; ShowS
+show :: ModelQualityAppSpecification -&gt; String
+$cshow :: ModelQualityAppSpecification -&gt; String
+showsPrec :: Int -&gt; ModelQualityAppSpecification -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModelQualityAppSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModelQualityAppSpecification -&gt; Rep ModelQualityAppSpecification x)
+-&gt; (forall x.
+    Rep ModelQualityAppSpecification x -&gt; ModelQualityAppSpecification)
+-&gt; Generic ModelQualityAppSpecification
+forall x.
+Rep ModelQualityAppSpecification x -&gt; ModelQualityAppSpecification
+forall x.
+ModelQualityAppSpecification -&gt; Rep ModelQualityAppSpecification x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModelQualityAppSpecification x -&gt; ModelQualityAppSpecification
+$cfrom :: forall x.
+ModelQualityAppSpecification -&gt; Rep ModelQualityAppSpecification x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'ModelQualityAppSpecification' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'containerArguments', 'modelQualityAppSpecification_containerArguments' - An array of arguments for the container used to run the monitoring job.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'recordPreprocessorSourceUri', 'modelQualityAppSpecification_recordPreprocessorSourceUri' - An Amazon S3 URI to a script that is called per row prior to running</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- analysis. It can base64 decode the payload and convert it into a flatted</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- json so that the built-in container can use the converted data.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Applicable only for the built-in (first party) containers.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'environment', 'modelQualityAppSpecification_environment' - Sets the environment variables in the container that the monitoring job</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- runs.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'problemType', 'modelQualityAppSpecification_problemType' - The machine learning problem type of the model that the monitoring job</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- monitors.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'containerEntrypoint', 'modelQualityAppSpecification_containerEntrypoint' - Specifies the entrypoint for a container that the monitoring job runs.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'postAnalyticsProcessorSourceUri', 'modelQualityAppSpecification_postAnalyticsProcessorSourceUri' - An Amazon S3 URI to a script that is called after analysis has been</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- performed. Applicable only for the built-in (first party) containers.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'imageUri', 'modelQualityAppSpecification_imageUri' - The address of the container image that the monitoring job runs.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#newModelQualityAppSpecification"><span class="hs-identifier hs-type">newModelQualityAppSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'imageUri'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span>
+</span><span id="line-85"></span><span id="newModelQualityAppSpecification"><span class="annot"><span class="annottext">newModelQualityAppSpecification :: Text -&gt; ModelQualityAppSpecification
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#newModelQualityAppSpecification"><span class="hs-identifier hs-var hs-var">newModelQualityAppSpecification</span></a></span></span><span> </span><span id="local-6989586621680321380"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321380"><span class="hs-identifier hs-var">pImageUri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">ModelQualityAppSpecification' :: Maybe (NonEmpty Text)
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe MonitoringProblemType
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ModelQualityAppSpecification
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerArguments:ModelQualityAppSpecification' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3AcontainerArguments%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">containerArguments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:recordPreprocessorSourceUri:ModelQualityAppSpecification' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3ArecordPreprocessorSourceUri%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">recordPreprocessorSourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:environment:ModelQualityAppSpecification' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3Aenvironment%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:problemType:ModelQualityAppSpecification' :: Maybe MonitoringProblemType
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3AproblemType%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">problemType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringProblemType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerEntrypoint:ModelQualityAppSpecification' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3AcontainerEntrypoint%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">containerEntrypoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:postAnalyticsProcessorSourceUri:ModelQualityAppSpecification' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3ApostAnalyticsProcessorSourceUri%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">postAnalyticsProcessorSourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageUri:ModelQualityAppSpecification' :: Text
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3AimageUri%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">imageUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321380"><span class="hs-identifier hs-var">pImageUri_</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | An array of arguments for the container used to run the monitoring job.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_containerArguments"><span class="hs-identifier hs-type">modelQualityAppSpecification_containerArguments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="modelQualityAppSpecification_containerArguments"><span class="annot"><span class="annottext">modelQualityAppSpecification_containerArguments :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; ModelQualityAppSpecification -&gt; f ModelQualityAppSpecification
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_containerArguments"><span class="hs-identifier hs-var hs-var">modelQualityAppSpecification_containerArguments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelQualityAppSpecification -&gt; Maybe (NonEmpty Text))
+-&gt; (ModelQualityAppSpecification
+    -&gt; Maybe (NonEmpty Text) -&gt; ModelQualityAppSpecification)
+-&gt; Lens
+     ModelQualityAppSpecification
+     ModelQualityAppSpecification
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321376"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+containerArguments :: Maybe (NonEmpty Text)
+$sel:containerArguments:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680321376"><span class="hs-identifier hs-var hs-var">containerArguments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680321376"><span class="hs-identifier hs-var">containerArguments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321375"><span class="annot"><span class="annottext">s :: ModelQualityAppSpecification
+</span><a href="#local-6989586621680321375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321374"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680321374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelQualityAppSpecification
+</span><a href="#local-6989586621680321375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerArguments:ModelQualityAppSpecification' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3AcontainerArguments%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">containerArguments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680321374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; ModelQualityAppSpecification -&gt; f ModelQualityAppSpecification)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; ModelQualityAppSpecification
+-&gt; f ModelQualityAppSpecification
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | An Amazon S3 URI to a script that is called per row prior to running</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- analysis. It can base64 decode the payload and convert it into a flatted</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- json so that the built-in container can use the converted data.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Applicable only for the built-in (first party) containers.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_recordPreprocessorSourceUri"><span class="hs-identifier hs-type">modelQualityAppSpecification_recordPreprocessorSourceUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="modelQualityAppSpecification_recordPreprocessorSourceUri"><span class="annot"><span class="annottext">modelQualityAppSpecification_recordPreprocessorSourceUri :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModelQualityAppSpecification -&gt; f ModelQualityAppSpecification
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_recordPreprocessorSourceUri"><span class="hs-identifier hs-var hs-var">modelQualityAppSpecification_recordPreprocessorSourceUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelQualityAppSpecification -&gt; Maybe Text)
+-&gt; (ModelQualityAppSpecification
+    -&gt; Maybe Text -&gt; ModelQualityAppSpecification)
+-&gt; Lens
+     ModelQualityAppSpecification
+     ModelQualityAppSpecification
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321369"><span class="annot"><span class="annottext">Maybe Text
+recordPreprocessorSourceUri :: Maybe Text
+$sel:recordPreprocessorSourceUri:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621680321369"><span class="hs-identifier hs-var hs-var">recordPreprocessorSourceUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680321369"><span class="hs-identifier hs-var">recordPreprocessorSourceUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321368"><span class="annot"><span class="annottext">s :: ModelQualityAppSpecification
+</span><a href="#local-6989586621680321368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321367"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680321367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelQualityAppSpecification
+</span><a href="#local-6989586621680321368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordPreprocessorSourceUri:ModelQualityAppSpecification' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3ArecordPreprocessorSourceUri%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">recordPreprocessorSourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680321367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Sets the environment variables in the container that the monitoring job</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- runs.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_environment"><span class="hs-identifier hs-type">modelQualityAppSpecification_environment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="modelQualityAppSpecification_environment"><span class="annot"><span class="annottext">modelQualityAppSpecification_environment :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ModelQualityAppSpecification -&gt; f ModelQualityAppSpecification
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_environment"><span class="hs-identifier hs-var hs-var">modelQualityAppSpecification_environment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelQualityAppSpecification -&gt; Maybe (HashMap Text Text))
+-&gt; (ModelQualityAppSpecification
+    -&gt; Maybe (HashMap Text Text) -&gt; ModelQualityAppSpecification)
+-&gt; Lens
+     ModelQualityAppSpecification
+     ModelQualityAppSpecification
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321365"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+environment :: Maybe (HashMap Text Text)
+$sel:environment:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680321365"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680321365"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321364"><span class="annot"><span class="annottext">s :: ModelQualityAppSpecification
+</span><a href="#local-6989586621680321364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321363"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680321363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelQualityAppSpecification
+</span><a href="#local-6989586621680321364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:ModelQualityAppSpecification' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3Aenvironment%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680321363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ModelQualityAppSpecification -&gt; f ModelQualityAppSpecification)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ModelQualityAppSpecification
+-&gt; f ModelQualityAppSpecification
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The machine learning problem type of the model that the monitoring job</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- monitors.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_problemType"><span class="hs-identifier hs-type">modelQualityAppSpecification_problemType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MonitoringProblemType.html#MonitoringProblemType"><span class="hs-identifier hs-type">MonitoringProblemType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="modelQualityAppSpecification_problemType"><span class="annot"><span class="annottext">modelQualityAppSpecification_problemType :: (Maybe MonitoringProblemType -&gt; f (Maybe MonitoringProblemType))
+-&gt; ModelQualityAppSpecification -&gt; f ModelQualityAppSpecification
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_problemType"><span class="hs-identifier hs-var hs-var">modelQualityAppSpecification_problemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelQualityAppSpecification -&gt; Maybe MonitoringProblemType)
+-&gt; (ModelQualityAppSpecification
+    -&gt; Maybe MonitoringProblemType -&gt; ModelQualityAppSpecification)
+-&gt; Lens
+     ModelQualityAppSpecification
+     ModelQualityAppSpecification
+     (Maybe MonitoringProblemType)
+     (Maybe MonitoringProblemType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321361"><span class="annot"><span class="annottext">Maybe MonitoringProblemType
+problemType :: Maybe MonitoringProblemType
+$sel:problemType:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Maybe MonitoringProblemType
+</span><a href="#local-6989586621680321361"><span class="hs-identifier hs-var hs-var">problemType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringProblemType
+</span><a href="#local-6989586621680321361"><span class="hs-identifier hs-var">problemType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321360"><span class="annot"><span class="annottext">s :: ModelQualityAppSpecification
+</span><a href="#local-6989586621680321360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321359"><span class="annot"><span class="annottext">Maybe MonitoringProblemType
+</span><a href="#local-6989586621680321359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelQualityAppSpecification
+</span><a href="#local-6989586621680321360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:problemType:ModelQualityAppSpecification' :: Maybe MonitoringProblemType
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3AproblemType%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">problemType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringProblemType
+</span><a href="#local-6989586621680321359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Specifies the entrypoint for a container that the monitoring job runs.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_containerEntrypoint"><span class="hs-identifier hs-type">modelQualityAppSpecification_containerEntrypoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="modelQualityAppSpecification_containerEntrypoint"><span class="annot"><span class="annottext">modelQualityAppSpecification_containerEntrypoint :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; ModelQualityAppSpecification -&gt; f ModelQualityAppSpecification
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_containerEntrypoint"><span class="hs-identifier hs-var hs-var">modelQualityAppSpecification_containerEntrypoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelQualityAppSpecification -&gt; Maybe (NonEmpty Text))
+-&gt; (ModelQualityAppSpecification
+    -&gt; Maybe (NonEmpty Text) -&gt; ModelQualityAppSpecification)
+-&gt; Lens
+     ModelQualityAppSpecification
+     ModelQualityAppSpecification
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321357"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+containerEntrypoint :: Maybe (NonEmpty Text)
+$sel:containerEntrypoint:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680321357"><span class="hs-identifier hs-var hs-var">containerEntrypoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680321357"><span class="hs-identifier hs-var">containerEntrypoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321356"><span class="annot"><span class="annottext">s :: ModelQualityAppSpecification
+</span><a href="#local-6989586621680321356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321355"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680321355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelQualityAppSpecification
+</span><a href="#local-6989586621680321356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerEntrypoint:ModelQualityAppSpecification' :: Maybe (NonEmpty Text)
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3AcontainerEntrypoint%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">containerEntrypoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680321355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; ModelQualityAppSpecification -&gt; f ModelQualityAppSpecification)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; ModelQualityAppSpecification
+-&gt; f ModelQualityAppSpecification
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | An Amazon S3 URI to a script that is called after analysis has been</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- performed. Applicable only for the built-in (first party) containers.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_postAnalyticsProcessorSourceUri"><span class="hs-identifier hs-type">modelQualityAppSpecification_postAnalyticsProcessorSourceUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="modelQualityAppSpecification_postAnalyticsProcessorSourceUri"><span class="annot"><span class="annottext">modelQualityAppSpecification_postAnalyticsProcessorSourceUri :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModelQualityAppSpecification -&gt; f ModelQualityAppSpecification
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_postAnalyticsProcessorSourceUri"><span class="hs-identifier hs-var hs-var">modelQualityAppSpecification_postAnalyticsProcessorSourceUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelQualityAppSpecification -&gt; Maybe Text)
+-&gt; (ModelQualityAppSpecification
+    -&gt; Maybe Text -&gt; ModelQualityAppSpecification)
+-&gt; Lens
+     ModelQualityAppSpecification
+     ModelQualityAppSpecification
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321353"><span class="annot"><span class="annottext">Maybe Text
+postAnalyticsProcessorSourceUri :: Maybe Text
+$sel:postAnalyticsProcessorSourceUri:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621680321353"><span class="hs-identifier hs-var hs-var">postAnalyticsProcessorSourceUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680321353"><span class="hs-identifier hs-var">postAnalyticsProcessorSourceUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321352"><span class="annot"><span class="annottext">s :: ModelQualityAppSpecification
+</span><a href="#local-6989586621680321352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321351"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680321351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelQualityAppSpecification
+</span><a href="#local-6989586621680321352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:postAnalyticsProcessorSourceUri:ModelQualityAppSpecification' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3ApostAnalyticsProcessorSourceUri%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">postAnalyticsProcessorSourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680321351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The address of the container image that the monitoring job runs.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_imageUri"><span class="hs-identifier hs-type">modelQualityAppSpecification_imageUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="modelQualityAppSpecification_imageUri"><span class="annot"><span class="annottext">modelQualityAppSpecification_imageUri :: (Text -&gt; f Text)
+-&gt; ModelQualityAppSpecification -&gt; f ModelQualityAppSpecification
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#modelQualityAppSpecification_imageUri"><span class="hs-identifier hs-var hs-var">modelQualityAppSpecification_imageUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelQualityAppSpecification -&gt; Text)
+-&gt; (ModelQualityAppSpecification
+    -&gt; Text -&gt; ModelQualityAppSpecification)
+-&gt; Lens
+     ModelQualityAppSpecification ModelQualityAppSpecification Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321349"><span class="annot"><span class="annottext">Text
+imageUri :: Text
+$sel:imageUri:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Text
+</span><a href="#local-6989586621680321349"><span class="hs-identifier hs-var hs-var">imageUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321349"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321348"><span class="annot"><span class="annottext">s :: ModelQualityAppSpecification
+</span><a href="#local-6989586621680321348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321347"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelQualityAppSpecification
+</span><a href="#local-6989586621680321348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUri:ModelQualityAppSpecification' :: Text
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#%24sel%3AimageUri%3AModelQualityAppSpecification%27"><span class="hs-identifier hs-var">imageUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321344"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621680321342"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelQualityAppSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ModelQualityAppSpecification)
+-&gt; Value
+-&gt; Parser ModelQualityAppSpecification
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ModelQualityAppSpecification&quot;</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680321339"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe MonitoringProblemType
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ModelQualityAppSpecification
+</span><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-var">ModelQualityAppSpecification'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe MonitoringProblemType
+ -&gt; Maybe (NonEmpty Text)
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; ModelQualityAppSpecification)
+-&gt; Parser (Maybe (NonEmpty Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe MonitoringProblemType
+      -&gt; Maybe (NonEmpty Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ModelQualityAppSpecification)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerArguments&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe MonitoringProblemType
+   -&gt; Maybe (NonEmpty Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ModelQualityAppSpecification)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe MonitoringProblemType
+      -&gt; Maybe (NonEmpty Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ModelQualityAppSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordPreprocessorSourceUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe MonitoringProblemType
+   -&gt; Maybe (NonEmpty Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ModelQualityAppSpecification)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe MonitoringProblemType
+      -&gt; Maybe (NonEmpty Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ModelQualityAppSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MonitoringProblemType
+   -&gt; Maybe (NonEmpty Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ModelQualityAppSpecification)
+-&gt; Parser (Maybe MonitoringProblemType)
+-&gt; Parser
+     (Maybe (NonEmpty Text)
+      -&gt; Maybe Text -&gt; Text -&gt; ModelQualityAppSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonitoringProblemType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProblemType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty Text)
+   -&gt; Maybe Text -&gt; Text -&gt; ModelQualityAppSpecification)
+-&gt; Parser (Maybe (NonEmpty Text))
+-&gt; Parser (Maybe Text -&gt; Text -&gt; ModelQualityAppSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerEntrypoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; ModelQualityAppSpecification)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; ModelQualityAppSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PostAnalyticsProcessorSourceUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ModelQualityAppSpecification)
+-&gt; Parser Text -&gt; Parser ModelQualityAppSpecification
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621680321331"><span id="local-6989586621680321333"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321328"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321320"><span id="local-6989586621680321322"><span id="local-6989586621680321324"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification"><span class="hs-identifier hs-type">ModelQualityAppSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621680321318"><span class="annot"><span class="annottext">toJSON :: ModelQualityAppSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.ModelQualityAppSpecification.html#ModelQualityAppSpecification%27"><span class="hs-identifier hs-type">ModelQualityAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321310"><span id="local-6989586621680321311"><span id="local-6989586621680321312"><span id="local-6989586621680321313"><span id="local-6989586621680321314"><span id="local-6989586621680321315"><span id="local-6989586621680321316"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe MonitoringProblemType
+Text
+imageUri :: Text
+postAnalyticsProcessorSourceUri :: Maybe Text
+containerEntrypoint :: Maybe (NonEmpty Text)
+problemType :: Maybe MonitoringProblemType
+environment :: Maybe (HashMap Text Text)
+recordPreprocessorSourceUri :: Maybe Text
+containerArguments :: Maybe (NonEmpty Text)
+$sel:imageUri:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Text
+$sel:postAnalyticsProcessorSourceUri:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Maybe Text
+$sel:containerEntrypoint:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Maybe (NonEmpty Text)
+$sel:problemType:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Maybe MonitoringProblemType
+$sel:environment:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Maybe (HashMap Text Text)
+$sel:recordPreprocessorSourceUri:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Maybe Text
+$sel:containerArguments:ModelQualityAppSpecification' :: ModelQualityAppSpecification -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680321310"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerArguments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680321316"><span class="hs-identifier hs-var">containerArguments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordPreprocessorSourceUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680321315"><span class="hs-identifier hs-var">recordPreprocessorSourceUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680321314"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProblemType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringProblemType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MonitoringProblemType -&gt; Pair)
+-&gt; Maybe MonitoringProblemType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringProblemType
+</span><a href="#local-6989586621680321313"><span class="hs-identifier hs-var">problemType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerEntrypoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680321312"><span class="hs-identifier hs-var">containerEntrypoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PostAnalyticsProcessorSourceUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680321311"><span class="hs-identifier hs-var">postAnalyticsProcessorSourceUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680321310"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span></pre></body></html>

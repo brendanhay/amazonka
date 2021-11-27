@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.OpenSearch.Types.PackageSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpenSearch.Types.PackageSource</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The Amazon S3 location for importing the package specified as</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @S3BucketName@ and @S3Key@</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPackageSource' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679302165"><span id="local-6989586621679302166"></span></span><span class="hs-keyword">data</span><span> </span><span id="PackageSource"><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource"><span class="hs-identifier hs-var">PackageSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PackageSource%27"><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource%27"><span class="hs-identifier hs-var">PackageSource'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Key (file name) of the package.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3As3Key%3APackageSource%27"><span class="annot"><span class="annottext">PackageSource -&gt; Maybe Text
+</span><a href="Amazonka.OpenSearch.Types.PackageSource.html#%24sel%3As3Key%3APackageSource%27"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon S3 bucket containing the package.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3As3BucketName%3APackageSource%27"><span class="annot"><span class="annottext">PackageSource -&gt; Maybe Text
+</span><a href="Amazonka.OpenSearch.Types.PackageSource.html#%24sel%3As3BucketName%3APackageSource%27"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302158"><span id="local-6989586621679302160"><span class="annot"><span class="annottext">PackageSource -&gt; PackageSource -&gt; Bool
+(PackageSource -&gt; PackageSource -&gt; Bool)
+-&gt; (PackageSource -&gt; PackageSource -&gt; Bool) -&gt; Eq PackageSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PackageSource -&gt; PackageSource -&gt; Bool
+$c/= :: PackageSource -&gt; PackageSource -&gt; Bool
+== :: PackageSource -&gt; PackageSource -&gt; Bool
+$c== :: PackageSource -&gt; PackageSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302149"><span id="local-6989586621679302151"><span id="local-6989586621679302153"><span id="local-6989586621679302155"><span class="annot"><span class="annottext">ReadPrec [PackageSource]
+ReadPrec PackageSource
+Int -&gt; ReadS PackageSource
+ReadS [PackageSource]
+(Int -&gt; ReadS PackageSource)
+-&gt; ReadS [PackageSource]
+-&gt; ReadPrec PackageSource
+-&gt; ReadPrec [PackageSource]
+-&gt; Read PackageSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PackageSource]
+$creadListPrec :: ReadPrec [PackageSource]
+readPrec :: ReadPrec PackageSource
+$creadPrec :: ReadPrec PackageSource
+readList :: ReadS [PackageSource]
+$creadList :: ReadS [PackageSource]
+readsPrec :: Int -&gt; ReadS PackageSource
+$creadsPrec :: Int -&gt; ReadS PackageSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302142"><span id="local-6989586621679302144"><span id="local-6989586621679302146"><span class="annot"><span class="annottext">Int -&gt; PackageSource -&gt; ShowS
+[PackageSource] -&gt; ShowS
+PackageSource -&gt; String
+(Int -&gt; PackageSource -&gt; ShowS)
+-&gt; (PackageSource -&gt; String)
+-&gt; ([PackageSource] -&gt; ShowS)
+-&gt; Show PackageSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PackageSource] -&gt; ShowS
+$cshowList :: [PackageSource] -&gt; ShowS
+show :: PackageSource -&gt; String
+$cshow :: PackageSource -&gt; String
+showsPrec :: Int -&gt; PackageSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; PackageSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PackageSource -&gt; Rep PackageSource x)
+-&gt; (forall x. Rep PackageSource x -&gt; PackageSource)
+-&gt; Generic PackageSource
+forall x. Rep PackageSource x -&gt; PackageSource
+forall x. PackageSource -&gt; Rep PackageSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PackageSource x -&gt; PackageSource
+$cfrom :: forall x. PackageSource -&gt; Rep PackageSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'PackageSource' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 's3Key', 'packageSource_s3Key' - Key (file name) of the package.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 's3BucketName', 'packageSource_s3BucketName' - The name of the Amazon S3 bucket containing the package.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#newPackageSource"><span class="hs-identifier hs-type">newPackageSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource"><span class="hs-identifier hs-type">PackageSource</span></a></span><span>
+</span><span id="line-51"></span><span id="newPackageSource"><span class="annot"><span class="annottext">newPackageSource :: PackageSource
+</span><a href="Amazonka.OpenSearch.Types.PackageSource.html#newPackageSource"><span class="hs-identifier hs-var hs-var">newPackageSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">PackageSource' :: Maybe Text -&gt; Maybe Text -&gt; PackageSource
+</span><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource%27"><span class="hs-identifier hs-type">PackageSource'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Key:PackageSource' :: Maybe Text
+</span><a href="Amazonka.OpenSearch.Types.PackageSource.html#%24sel%3As3Key%3APackageSource%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BucketName:PackageSource' :: Maybe Text
+</span><a href="Amazonka.OpenSearch.Types.PackageSource.html#%24sel%3As3BucketName%3APackageSource%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | Key (file name) of the package.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#packageSource_s3Key"><span class="hs-identifier hs-type">packageSource_s3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource"><span class="hs-identifier hs-type">PackageSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="packageSource_s3Key"><span class="annot"><span class="annottext">packageSource_s3Key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PackageSource -&gt; f PackageSource
+</span><a href="Amazonka.OpenSearch.Types.PackageSource.html#packageSource_s3Key"><span class="hs-identifier hs-var hs-var">packageSource_s3Key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageSource -&gt; Maybe Text)
+-&gt; (PackageSource -&gt; Maybe Text -&gt; PackageSource)
+-&gt; Lens PackageSource PackageSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource%27"><span class="hs-identifier hs-type">PackageSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302133"><span class="annot"><span class="annottext">Maybe Text
+s3Key :: Maybe Text
+$sel:s3Key:PackageSource' :: PackageSource -&gt; Maybe Text
+</span><a href="#local-6989586621679302133"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302133"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302132"><span class="annot"><span class="annottext">s :: PackageSource
+</span><a href="#local-6989586621679302132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource%27"><span class="hs-identifier hs-type">PackageSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302131"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageSource
+</span><a href="#local-6989586621679302132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Key:PackageSource' :: Maybe Text
+</span><a href="Amazonka.OpenSearch.Types.PackageSource.html#%24sel%3As3Key%3APackageSource%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource"><span class="hs-identifier hs-type">PackageSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket containing the package.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#packageSource_s3BucketName"><span class="hs-identifier hs-type">packageSource_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource"><span class="hs-identifier hs-type">PackageSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="packageSource_s3BucketName"><span class="annot"><span class="annottext">packageSource_s3BucketName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PackageSource -&gt; f PackageSource
+</span><a href="Amazonka.OpenSearch.Types.PackageSource.html#packageSource_s3BucketName"><span class="hs-identifier hs-var hs-var">packageSource_s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageSource -&gt; Maybe Text)
+-&gt; (PackageSource -&gt; Maybe Text -&gt; PackageSource)
+-&gt; Lens PackageSource PackageSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource%27"><span class="hs-identifier hs-type">PackageSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302129"><span class="annot"><span class="annottext">Maybe Text
+s3BucketName :: Maybe Text
+$sel:s3BucketName:PackageSource' :: PackageSource -&gt; Maybe Text
+</span><a href="#local-6989586621679302129"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302129"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302128"><span class="annot"><span class="annottext">s :: PackageSource
+</span><a href="#local-6989586621679302128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource%27"><span class="hs-identifier hs-type">PackageSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302127"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageSource
+</span><a href="#local-6989586621679302128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:PackageSource' :: Maybe Text
+</span><a href="Amazonka.OpenSearch.Types.PackageSource.html#%24sel%3As3BucketName%3APackageSource%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource"><span class="hs-identifier hs-type">PackageSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302123"><span id="local-6989586621679302125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource"><span class="hs-identifier hs-type">PackageSource</span></a></span></span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource"><span class="hs-identifier hs-type">PackageSource</span></a></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302112"><span id="local-6989586621679302114"><span id="local-6989586621679302116"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource"><span class="hs-identifier hs-type">PackageSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679302110"><span class="annot"><span class="annottext">toJSON :: PackageSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.PackageSource.html#PackageSource%27"><span class="hs-identifier hs-type">PackageSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302107"><span id="local-6989586621679302108"><span class="annot"><span class="annottext">Maybe Text
+s3BucketName :: Maybe Text
+s3Key :: Maybe Text
+$sel:s3BucketName:PackageSource' :: PackageSource -&gt; Maybe Text
+$sel:s3Key:PackageSource' :: PackageSource -&gt; Maybe Text
+</span><a href="#local-6989586621679302107"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-73"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302108"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302107"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span>
+</span><span id="line-75"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span></pre></body></html>

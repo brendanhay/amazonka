@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.GetUserEndpoints</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about all the endpoints that are associated with a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specific user ID.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.GetUserEndpoints</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier">GetUserEndpoints</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#newGetUserEndpoints"><span class="hs-identifier">newGetUserEndpoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#getUserEndpoints_applicationId"><span class="hs-identifier">getUserEndpoints_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#getUserEndpoints_userId"><span class="hs-identifier">getUserEndpoints_userId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse"><span class="hs-identifier">GetUserEndpointsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#newGetUserEndpointsResponse"><span class="hs-identifier">newGetUserEndpointsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#getUserEndpointsResponse_httpStatus"><span class="hs-identifier">getUserEndpointsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#getUserEndpointsResponse_endpointsResponse"><span class="hs-identifier">getUserEndpointsResponse_endpointsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.html"><span class="hs-identifier">Amazonka.Pinpoint.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetUserEndpoints' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679625987"><span id="local-6989586621679625988"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUserEndpoints"><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-var">GetUserEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUserEndpoints%27"><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints%27"><span class="hs-identifier hs-var">GetUserEndpoints'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AapplicationId%3AGetUserEndpoints%27"><span class="annot"><span class="annottext">GetUserEndpoints -&gt; Text
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#%24sel%3AapplicationId%3AGetUserEndpoints%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the user.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AuserId%3AGetUserEndpoints%27"><span class="annot"><span class="annottext">GetUserEndpoints -&gt; Text
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#%24sel%3AuserId%3AGetUserEndpoints%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679625980"><span id="local-6989586621679625982"><span class="annot"><span class="annottext">GetUserEndpoints -&gt; GetUserEndpoints -&gt; Bool
+(GetUserEndpoints -&gt; GetUserEndpoints -&gt; Bool)
+-&gt; (GetUserEndpoints -&gt; GetUserEndpoints -&gt; Bool)
+-&gt; Eq GetUserEndpoints
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetUserEndpoints -&gt; GetUserEndpoints -&gt; Bool
+$c/= :: GetUserEndpoints -&gt; GetUserEndpoints -&gt; Bool
+== :: GetUserEndpoints -&gt; GetUserEndpoints -&gt; Bool
+$c== :: GetUserEndpoints -&gt; GetUserEndpoints -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679625971"><span id="local-6989586621679625973"><span id="local-6989586621679625975"><span id="local-6989586621679625977"><span class="annot"><span class="annottext">ReadPrec [GetUserEndpoints]
+ReadPrec GetUserEndpoints
+Int -&gt; ReadS GetUserEndpoints
+ReadS [GetUserEndpoints]
+(Int -&gt; ReadS GetUserEndpoints)
+-&gt; ReadS [GetUserEndpoints]
+-&gt; ReadPrec GetUserEndpoints
+-&gt; ReadPrec [GetUserEndpoints]
+-&gt; Read GetUserEndpoints
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetUserEndpoints]
+$creadListPrec :: ReadPrec [GetUserEndpoints]
+readPrec :: ReadPrec GetUserEndpoints
+$creadPrec :: ReadPrec GetUserEndpoints
+readList :: ReadS [GetUserEndpoints]
+$creadList :: ReadS [GetUserEndpoints]
+readsPrec :: Int -&gt; ReadS GetUserEndpoints
+$creadsPrec :: Int -&gt; ReadS GetUserEndpoints
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679625964"><span id="local-6989586621679625966"><span id="local-6989586621679625968"><span class="annot"><span class="annottext">Int -&gt; GetUserEndpoints -&gt; ShowS
+[GetUserEndpoints] -&gt; ShowS
+GetUserEndpoints -&gt; String
+(Int -&gt; GetUserEndpoints -&gt; ShowS)
+-&gt; (GetUserEndpoints -&gt; String)
+-&gt; ([GetUserEndpoints] -&gt; ShowS)
+-&gt; Show GetUserEndpoints
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetUserEndpoints] -&gt; ShowS
+$cshowList :: [GetUserEndpoints] -&gt; ShowS
+show :: GetUserEndpoints -&gt; String
+$cshow :: GetUserEndpoints -&gt; String
+showsPrec :: Int -&gt; GetUserEndpoints -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetUserEndpoints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetUserEndpoints -&gt; Rep GetUserEndpoints x)
+-&gt; (forall x. Rep GetUserEndpoints x -&gt; GetUserEndpoints)
+-&gt; Generic GetUserEndpoints
+forall x. Rep GetUserEndpoints x -&gt; GetUserEndpoints
+forall x. GetUserEndpoints -&gt; Rep GetUserEndpoints x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetUserEndpoints x -&gt; GetUserEndpoints
+$cfrom :: forall x. GetUserEndpoints -&gt; Rep GetUserEndpoints x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'GetUserEndpoints' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'applicationId', 'getUserEndpoints_applicationId' - The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'userId', 'getUserEndpoints_userId' - The unique identifier for the user.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#newGetUserEndpoints"><span class="hs-identifier hs-type">newGetUserEndpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'userId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-type">GetUserEndpoints</span></a></span><span>
+</span><span id="line-79"></span><span id="newGetUserEndpoints"><span class="annot"><span class="annottext">newGetUserEndpoints :: Text -&gt; Text -&gt; GetUserEndpoints
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#newGetUserEndpoints"><span class="hs-identifier hs-var hs-var">newGetUserEndpoints</span></a></span></span><span> </span><span id="local-6989586621679625959"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679625959"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span id="local-6989586621679625958"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679625958"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">GetUserEndpoints' :: Text -&gt; Text -&gt; GetUserEndpoints
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints%27"><span class="hs-identifier hs-type">GetUserEndpoints'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationId:GetUserEndpoints' :: Text
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#%24sel%3AapplicationId%3AGetUserEndpoints%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679625959"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:GetUserEndpoints' :: Text
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#%24sel%3AuserId%3AGetUserEndpoints%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679625958"><span class="hs-identifier hs-var">pUserId_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#getUserEndpoints_applicationId"><span class="hs-identifier hs-type">getUserEndpoints_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-type">GetUserEndpoints</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="getUserEndpoints_applicationId"><span class="annot"><span class="annottext">getUserEndpoints_applicationId :: (Text -&gt; f Text) -&gt; GetUserEndpoints -&gt; f GetUserEndpoints
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#getUserEndpoints_applicationId"><span class="hs-identifier hs-var hs-var">getUserEndpoints_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUserEndpoints -&gt; Text)
+-&gt; (GetUserEndpoints -&gt; Text -&gt; GetUserEndpoints)
+-&gt; Lens GetUserEndpoints GetUserEndpoints Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints%27"><span class="hs-identifier hs-type">GetUserEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625955"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:GetUserEndpoints' :: GetUserEndpoints -&gt; Text
+</span><a href="#local-6989586621679625955"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679625955"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625954"><span class="annot"><span class="annottext">s :: GetUserEndpoints
+</span><a href="#local-6989586621679625954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints%27"><span class="hs-identifier hs-type">GetUserEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625953"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679625953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserEndpoints
+</span><a href="#local-6989586621679625954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetUserEndpoints' :: Text
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#%24sel%3AapplicationId%3AGetUserEndpoints%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679625953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-type">GetUserEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The unique identifier for the user.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#getUserEndpoints_userId"><span class="hs-identifier hs-type">getUserEndpoints_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-type">GetUserEndpoints</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="getUserEndpoints_userId"><span class="annot"><span class="annottext">getUserEndpoints_userId :: (Text -&gt; f Text) -&gt; GetUserEndpoints -&gt; f GetUserEndpoints
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#getUserEndpoints_userId"><span class="hs-identifier hs-var hs-var">getUserEndpoints_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUserEndpoints -&gt; Text)
+-&gt; (GetUserEndpoints -&gt; Text -&gt; GetUserEndpoints)
+-&gt; Lens GetUserEndpoints GetUserEndpoints Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints%27"><span class="hs-identifier hs-type">GetUserEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625952"><span class="annot"><span class="annottext">Text
+userId :: Text
+$sel:userId:GetUserEndpoints' :: GetUserEndpoints -&gt; Text
+</span><a href="#local-6989586621679625952"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679625952"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625951"><span class="annot"><span class="annottext">s :: GetUserEndpoints
+</span><a href="#local-6989586621679625951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints%27"><span class="hs-identifier hs-type">GetUserEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625950"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679625950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserEndpoints
+</span><a href="#local-6989586621679625951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:GetUserEndpoints' :: Text
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#%24sel%3AuserId%3AGetUserEndpoints%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679625950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-type">GetUserEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-type">GetUserEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-type">GetUserEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse"><span class="hs-identifier hs-type">GetUserEndpointsResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679625946"><span class="annot"><span class="annottext">request :: GetUserEndpoints -&gt; Request GetUserEndpoints
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetUserEndpoints -&gt; Request GetUserEndpoints
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679625942"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetUserEndpoints
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetUserEndpoints)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetUserEndpoints))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetUserEndpoints
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetUserEndpoints)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679625939"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679625939"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679625938"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679625938"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679625937"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625937"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; EndpointsResponse -&gt; GetUserEndpointsResponse
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse%27"><span class="hs-identifier hs-var">GetUserEndpointsResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; EndpointsResponse -&gt; GetUserEndpointsResponse)
+-&gt; Either String Int
+-&gt; Either String (EndpointsResponse -&gt; GetUserEndpointsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679625939"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (EndpointsResponse -&gt; GetUserEndpointsResponse)
+-&gt; Either String EndpointsResponse
+-&gt; Either String GetUserEndpointsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String EndpointsResponse
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625937"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679625929"><span id="local-6989586621679625931"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-type">GetUserEndpoints</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679625926"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-type">GetUserEndpoints</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-type">GetUserEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679625922"><span class="annot"><span class="annottext">toHeaders :: GetUserEndpoints -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetUserEndpoints -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-type">GetUserEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679625916"><span class="annot"><span class="annottext">toPath :: GetUserEndpoints -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints%27"><span class="hs-identifier hs-type">GetUserEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625913"><span id="local-6989586621679625914"><span class="annot"><span class="annottext">Text
+userId :: Text
+applicationId :: Text
+$sel:userId:GetUserEndpoints' :: GetUserEndpoints -&gt; Text
+$sel:applicationId:GetUserEndpoints' :: GetUserEndpoints -&gt; Text
+</span><a href="#local-6989586621679625913"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679625914"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/users/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679625913"><span class="hs-identifier hs-var">userId</span></a></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpoints"><span class="hs-identifier hs-type">GetUserEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679625909"><span class="annot"><span class="annottext">toQuery :: GetUserEndpoints -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetUserEndpoints -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newGetUserEndpointsResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679625906"><span id="local-6989586621679625907"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUserEndpointsResponse"><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse"><span class="hs-identifier hs-var">GetUserEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUserEndpointsResponse%27"><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse%27"><span class="hs-identifier hs-var">GetUserEndpointsResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetUserEndpointsResponse%27"><span class="annot"><span class="annottext">GetUserEndpointsResponse -&gt; Int
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#%24sel%3AhttpStatus%3AGetUserEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AendpointsResponse%3AGetUserEndpointsResponse%27"><span class="annot"><span class="annottext">GetUserEndpointsResponse -&gt; EndpointsResponse
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#%24sel%3AendpointsResponse%3AGetUserEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">endpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EndpointsResponse.html#EndpointsResponse"><span class="hs-identifier hs-type">EndpointsResponse</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679625900"><span id="local-6989586621679625902"><span class="annot"><span class="annottext">GetUserEndpointsResponse -&gt; GetUserEndpointsResponse -&gt; Bool
+(GetUserEndpointsResponse -&gt; GetUserEndpointsResponse -&gt; Bool)
+-&gt; (GetUserEndpointsResponse -&gt; GetUserEndpointsResponse -&gt; Bool)
+-&gt; Eq GetUserEndpointsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetUserEndpointsResponse -&gt; GetUserEndpointsResponse -&gt; Bool
+$c/= :: GetUserEndpointsResponse -&gt; GetUserEndpointsResponse -&gt; Bool
+== :: GetUserEndpointsResponse -&gt; GetUserEndpointsResponse -&gt; Bool
+$c== :: GetUserEndpointsResponse -&gt; GetUserEndpointsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679625892"><span id="local-6989586621679625894"><span id="local-6989586621679625896"><span id="local-6989586621679625898"><span class="annot"><span class="annottext">ReadPrec [GetUserEndpointsResponse]
+ReadPrec GetUserEndpointsResponse
+Int -&gt; ReadS GetUserEndpointsResponse
+ReadS [GetUserEndpointsResponse]
+(Int -&gt; ReadS GetUserEndpointsResponse)
+-&gt; ReadS [GetUserEndpointsResponse]
+-&gt; ReadPrec GetUserEndpointsResponse
+-&gt; ReadPrec [GetUserEndpointsResponse]
+-&gt; Read GetUserEndpointsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetUserEndpointsResponse]
+$creadListPrec :: ReadPrec [GetUserEndpointsResponse]
+readPrec :: ReadPrec GetUserEndpointsResponse
+$creadPrec :: ReadPrec GetUserEndpointsResponse
+readList :: ReadS [GetUserEndpointsResponse]
+$creadList :: ReadS [GetUserEndpointsResponse]
+readsPrec :: Int -&gt; ReadS GetUserEndpointsResponse
+$creadsPrec :: Int -&gt; ReadS GetUserEndpointsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679625886"><span id="local-6989586621679625888"><span id="local-6989586621679625890"><span class="annot"><span class="annottext">Int -&gt; GetUserEndpointsResponse -&gt; ShowS
+[GetUserEndpointsResponse] -&gt; ShowS
+GetUserEndpointsResponse -&gt; String
+(Int -&gt; GetUserEndpointsResponse -&gt; ShowS)
+-&gt; (GetUserEndpointsResponse -&gt; String)
+-&gt; ([GetUserEndpointsResponse] -&gt; ShowS)
+-&gt; Show GetUserEndpointsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetUserEndpointsResponse] -&gt; ShowS
+$cshowList :: [GetUserEndpointsResponse] -&gt; ShowS
+show :: GetUserEndpointsResponse -&gt; String
+$cshow :: GetUserEndpointsResponse -&gt; String
+showsPrec :: Int -&gt; GetUserEndpointsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetUserEndpointsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetUserEndpointsResponse -&gt; Rep GetUserEndpointsResponse x)
+-&gt; (forall x.
+    Rep GetUserEndpointsResponse x -&gt; GetUserEndpointsResponse)
+-&gt; Generic GetUserEndpointsResponse
+forall x.
+Rep GetUserEndpointsResponse x -&gt; GetUserEndpointsResponse
+forall x.
+GetUserEndpointsResponse -&gt; Rep GetUserEndpointsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetUserEndpointsResponse x -&gt; GetUserEndpointsResponse
+$cfrom :: forall x.
+GetUserEndpointsResponse -&gt; Rep GetUserEndpointsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'GetUserEndpointsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'getUserEndpointsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'endpointsResponse', 'getUserEndpointsResponse_endpointsResponse' - Undocumented member.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#newGetUserEndpointsResponse"><span class="hs-identifier hs-type">newGetUserEndpointsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'endpointsResponse'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EndpointsResponse.html#EndpointsResponse"><span class="hs-identifier hs-type">EndpointsResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse"><span class="hs-identifier hs-type">GetUserEndpointsResponse</span></a></span><span>
+</span><span id="line-159"></span><span id="newGetUserEndpointsResponse"><span class="annot"><span class="annottext">newGetUserEndpointsResponse :: Int -&gt; EndpointsResponse -&gt; GetUserEndpointsResponse
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#newGetUserEndpointsResponse"><span class="hs-identifier hs-var hs-var">newGetUserEndpointsResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679625883"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679625883"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679625882"><span class="annot"><span class="annottext">EndpointsResponse
+</span><a href="#local-6989586621679625882"><span class="hs-identifier hs-var">pEndpointsResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">GetUserEndpointsResponse' :: Int -&gt; EndpointsResponse -&gt; GetUserEndpointsResponse
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse%27"><span class="hs-identifier hs-type">GetUserEndpointsResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetUserEndpointsResponse' :: Int
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#%24sel%3AhttpStatus%3AGetUserEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679625883"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:endpointsResponse:GetUserEndpointsResponse' :: EndpointsResponse
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#%24sel%3AendpointsResponse%3AGetUserEndpointsResponse%27"><span class="hs-identifier hs-var">endpointsResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EndpointsResponse
+</span><a href="#local-6989586621679625882"><span class="hs-identifier hs-var">pEndpointsResponse_</span></a></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#getUserEndpointsResponse_httpStatus"><span class="hs-identifier hs-type">getUserEndpointsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse"><span class="hs-identifier hs-type">GetUserEndpointsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="getUserEndpointsResponse_httpStatus"><span class="annot"><span class="annottext">getUserEndpointsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetUserEndpointsResponse -&gt; f GetUserEndpointsResponse
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#getUserEndpointsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getUserEndpointsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUserEndpointsResponse -&gt; Int)
+-&gt; (GetUserEndpointsResponse -&gt; Int -&gt; GetUserEndpointsResponse)
+-&gt; Lens GetUserEndpointsResponse GetUserEndpointsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse%27"><span class="hs-identifier hs-type">GetUserEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625881"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetUserEndpointsResponse' :: GetUserEndpointsResponse -&gt; Int
+</span><a href="#local-6989586621679625881"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679625881"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625880"><span class="annot"><span class="annottext">s :: GetUserEndpointsResponse
+</span><a href="#local-6989586621679625880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse%27"><span class="hs-identifier hs-type">GetUserEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625879"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679625879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserEndpointsResponse
+</span><a href="#local-6989586621679625880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetUserEndpointsResponse' :: Int
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#%24sel%3AhttpStatus%3AGetUserEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679625879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse"><span class="hs-identifier hs-type">GetUserEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#getUserEndpointsResponse_endpointsResponse"><span class="hs-identifier hs-type">getUserEndpointsResponse_endpointsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse"><span class="hs-identifier hs-type">GetUserEndpointsResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.EndpointsResponse.html#EndpointsResponse"><span class="hs-identifier hs-type">EndpointsResponse</span></a></span><span>
+</span><span id="line-174"></span><span id="getUserEndpointsResponse_endpointsResponse"><span class="annot"><span class="annottext">getUserEndpointsResponse_endpointsResponse :: (EndpointsResponse -&gt; f EndpointsResponse)
+-&gt; GetUserEndpointsResponse -&gt; f GetUserEndpointsResponse
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#getUserEndpointsResponse_endpointsResponse"><span class="hs-identifier hs-var hs-var">getUserEndpointsResponse_endpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUserEndpointsResponse -&gt; EndpointsResponse)
+-&gt; (GetUserEndpointsResponse
+    -&gt; EndpointsResponse -&gt; GetUserEndpointsResponse)
+-&gt; Lens
+     GetUserEndpointsResponse
+     GetUserEndpointsResponse
+     EndpointsResponse
+     EndpointsResponse
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse%27"><span class="hs-identifier hs-type">GetUserEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625878"><span class="annot"><span class="annottext">EndpointsResponse
+endpointsResponse :: EndpointsResponse
+$sel:endpointsResponse:GetUserEndpointsResponse' :: GetUserEndpointsResponse -&gt; EndpointsResponse
+</span><a href="#local-6989586621679625878"><span class="hs-identifier hs-var hs-var">endpointsResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointsResponse
+</span><a href="#local-6989586621679625878"><span class="hs-identifier hs-var">endpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625877"><span class="annot"><span class="annottext">s :: GetUserEndpointsResponse
+</span><a href="#local-6989586621679625877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse%27"><span class="hs-identifier hs-type">GetUserEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625876"><span class="annot"><span class="annottext">EndpointsResponse
+</span><a href="#local-6989586621679625876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserEndpointsResponse
+</span><a href="#local-6989586621679625877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointsResponse:GetUserEndpointsResponse' :: EndpointsResponse
+</span><a href="Amazonka.Pinpoint.GetUserEndpoints.html#%24sel%3AendpointsResponse%3AGetUserEndpointsResponse%27"><span class="hs-identifier hs-var">endpointsResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EndpointsResponse
+</span><a href="#local-6989586621679625876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse"><span class="hs-identifier hs-type">GetUserEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679625874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.GetUserEndpoints.html#GetUserEndpointsResponse"><span class="hs-identifier hs-type">GetUserEndpointsResponse</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

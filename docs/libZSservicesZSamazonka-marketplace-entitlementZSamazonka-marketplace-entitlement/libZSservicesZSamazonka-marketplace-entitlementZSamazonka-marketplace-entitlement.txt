@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.MarketplaceEntitlement.Types.EntitlementValue
+module Amazonka.MarketplaceEntitlement.Types.EntitlementValue
 
 -- | The EntitlementValue represents the amount of capacity that the
 --   customer is entitled to for the product.
@@ -77,16 +77,16 @@ entitlementValue_stringValue :: Lens' EntitlementValue (Maybe Text)
 -- | The BooleanValue field will be populated with a boolean value when the
 --   entitlement is a boolean type. Otherwise, the field will not be set.
 entitlementValue_booleanValue :: Lens' EntitlementValue (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
-instance GHC.Show.Show Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
-instance GHC.Read.Read Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
-instance GHC.Classes.Eq Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
+instance GHC.Generics.Generic Amazonka.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
+instance GHC.Show.Show Amazonka.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
+instance GHC.Read.Read Amazonka.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
+instance GHC.Classes.Eq Amazonka.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
+instance Control.DeepSeq.NFData Amazonka.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
 
 
-module Network.AWS.MarketplaceEntitlement.Types.Entitlement
+module Amazonka.MarketplaceEntitlement.Types.Entitlement
 
 -- | An entitlement represents capacity in a product owned by the customer.
 --   For example, a customer might own some number of users or seats in an
@@ -187,43 +187,43 @@ entitlement_customerIdentifier :: Lens' Entitlement (Maybe Text)
 --   codes are provided by AWS Marketplace when the product listing is
 --   created.
 entitlement_productCode :: Lens' Entitlement (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MarketplaceEntitlement.Types.Entitlement.Entitlement
-instance GHC.Show.Show Network.AWS.MarketplaceEntitlement.Types.Entitlement.Entitlement
-instance GHC.Read.Read Network.AWS.MarketplaceEntitlement.Types.Entitlement.Entitlement
-instance GHC.Classes.Eq Network.AWS.MarketplaceEntitlement.Types.Entitlement.Entitlement
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceEntitlement.Types.Entitlement.Entitlement
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceEntitlement.Types.Entitlement.Entitlement
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceEntitlement.Types.Entitlement.Entitlement
+instance GHC.Generics.Generic Amazonka.MarketplaceEntitlement.Types.Entitlement.Entitlement
+instance GHC.Show.Show Amazonka.MarketplaceEntitlement.Types.Entitlement.Entitlement
+instance GHC.Read.Read Amazonka.MarketplaceEntitlement.Types.Entitlement.Entitlement
+instance GHC.Classes.Eq Amazonka.MarketplaceEntitlement.Types.Entitlement.Entitlement
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceEntitlement.Types.Entitlement.Entitlement
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceEntitlement.Types.Entitlement.Entitlement
+instance Control.DeepSeq.NFData Amazonka.MarketplaceEntitlement.Types.Entitlement.Entitlement
 
 
-module Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName
+module Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName
 newtype GetEntitlementFilterName
 GetEntitlementFilterName' :: Text -> GetEntitlementFilterName
 [fromGetEntitlementFilterName] :: GetEntitlementFilterName -> Text
 pattern GetEntitlementFilterName_CUSTOMER_IDENTIFIER :: GetEntitlementFilterName
 pattern GetEntitlementFilterName_DIMENSION :: GetEntitlementFilterName
-instance Network.AWS.Data.XML.ToXML Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Network.AWS.Data.XML.FromXML Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Network.AWS.Data.Log.ToLog Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Network.AWS.Data.Text.ToText Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Network.AWS.Data.Text.FromText Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance GHC.Generics.Generic Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance GHC.Classes.Ord Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance GHC.Classes.Eq Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance GHC.Read.Read Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
-instance GHC.Show.Show Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Amazonka.Data.XML.ToXML Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Amazonka.Data.XML.FromXML Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Amazonka.Data.Headers.ToHeader Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Amazonka.Data.Log.ToLog Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Amazonka.Data.Text.ToText Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Amazonka.Data.Text.FromText Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Control.DeepSeq.NFData Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance GHC.Generics.Generic Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance GHC.Classes.Ord Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance GHC.Classes.Eq Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance GHC.Read.Read Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
+instance GHC.Show.Show Amazonka.MarketplaceEntitlement.Types.GetEntitlementFilterName.GetEntitlementFilterName
 
 
-module Network.AWS.MarketplaceEntitlement.Types
+module Amazonka.MarketplaceEntitlement.Types
 
 -- | API version <tt>2017-01-11</tt> of the Amazon Marketplace Entitlement
 --   Service SDK configuration.
@@ -421,7 +421,7 @@ entitlementValue_booleanValue :: Lens' EntitlementValue (Maybe Bool)
 --   dimensions.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MarketplaceEntitlement.GetEntitlements
+module Amazonka.MarketplaceEntitlement.GetEntitlements
 
 -- | The GetEntitlementsRequest contains parameters for the GetEntitlements
 --   operation.
@@ -559,26 +559,26 @@ getEntitlementsResponse_entitlements :: Lens' GetEntitlementsResponse (Maybe [En
 
 -- | The response's http status code.
 getEntitlementsResponse_httpStatus :: Lens' GetEntitlementsResponse Int
-instance GHC.Generics.Generic Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlements
-instance GHC.Show.Show Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlements
-instance GHC.Read.Read Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlements
-instance GHC.Classes.Eq Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlements
-instance GHC.Generics.Generic Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlementsResponse
-instance GHC.Show.Show Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlementsResponse
-instance GHC.Read.Read Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlementsResponse
-instance GHC.Classes.Eq Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlementsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlements
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlementsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlements
-instance Data.Hashable.Class.Hashable Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlements
-instance Control.DeepSeq.NFData Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlements
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlements
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlements
-instance Network.AWS.Data.Path.ToPath Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlements
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceEntitlement.GetEntitlements.GetEntitlements
+instance GHC.Generics.Generic Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlements
+instance GHC.Show.Show Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlements
+instance GHC.Read.Read Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlements
+instance GHC.Classes.Eq Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlements
+instance GHC.Generics.Generic Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlementsResponse
+instance GHC.Show.Show Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlementsResponse
+instance GHC.Read.Read Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlementsResponse
+instance GHC.Classes.Eq Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlementsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlements
+instance Control.DeepSeq.NFData Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlementsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlements
+instance Data.Hashable.Class.Hashable Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlements
+instance Control.DeepSeq.NFData Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlements
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlements
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlements
+instance Amazonka.Data.Path.ToPath Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlements
+instance Amazonka.Data.Query.ToQuery Amazonka.MarketplaceEntitlement.GetEntitlements.GetEntitlements
 
 
-module Network.AWS.MarketplaceEntitlement.Lens
+module Amazonka.MarketplaceEntitlement.Lens
 
 -- | For paginated calls to GetEntitlements, pass the NextToken from the
 --   previous GetEntitlementsResult.
@@ -658,7 +658,7 @@ entitlementValue_stringValue :: Lens' EntitlementValue (Maybe Text)
 entitlementValue_booleanValue :: Lens' EntitlementValue (Maybe Bool)
 
 
-module Network.AWS.MarketplaceEntitlement.Waiters
+module Amazonka.MarketplaceEntitlement.Waiters
 
 
 -- | Derived from API version <tt>2017-01-11</tt> of the AWS service
@@ -682,7 +682,7 @@ module Network.AWS.MarketplaceEntitlement.Waiters
 --   <li><i>GetEntitlements</i>- Gets the entitlements for a Marketplace
 --   product.</li>
 --   </ul>
-module Network.AWS.MarketplaceEntitlement
+module Amazonka.MarketplaceEntitlement
 
 -- | API version <tt>2017-01-11</tt> of the Amazon Marketplace Entitlement
 --   Service SDK configuration.

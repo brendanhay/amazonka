@@ -1,0 +1,909 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RobOMaker.CreateWorldTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a world template.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RobOMaker.CreateWorldTemplate</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier">CreateWorldTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#newCreateWorldTemplate"><span class="hs-identifier">newCreateWorldTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_name"><span class="hs-identifier">createWorldTemplate_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_templateLocation"><span class="hs-identifier">createWorldTemplate_templateLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_templateBody"><span class="hs-identifier">createWorldTemplate_templateBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_clientRequestToken"><span class="hs-identifier">createWorldTemplate_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_tags"><span class="hs-identifier">createWorldTemplate_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier">CreateWorldTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#newCreateWorldTemplateResponse"><span class="hs-identifier">newCreateWorldTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_arn"><span class="hs-identifier">createWorldTemplateResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_createdAt"><span class="hs-identifier">createWorldTemplateResponse_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_name"><span class="hs-identifier">createWorldTemplateResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_clientRequestToken"><span class="hs-identifier">createWorldTemplateResponse_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_tags"><span class="hs-identifier">createWorldTemplateResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_httpStatus"><span class="hs-identifier">createWorldTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.html"><span class="hs-identifier">Amazonka.RobOMaker.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newCreateWorldTemplate' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679385866"><span id="local-6989586621679385867"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorldTemplate"><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-var">CreateWorldTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorldTemplate%27"><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-var">CreateWorldTemplate'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the world template.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aname%3ACreateWorldTemplate%27"><span class="annot"><span class="annottext">CreateWorldTemplate -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Aname%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The location of the world template.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AtemplateLocation%3ACreateWorldTemplate%27"><span class="annot"><span class="annottext">CreateWorldTemplate -&gt; Maybe TemplateLocation
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AtemplateLocation%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var hs-var">templateLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.TemplateLocation.html#TemplateLocation"><span class="hs-identifier hs-type">TemplateLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The world template body.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AtemplateBody%3ACreateWorldTemplate%27"><span class="annot"><span class="annottext">CreateWorldTemplate -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AtemplateBody%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateWorldTemplate%27"><span class="annot"><span class="annottext">CreateWorldTemplate -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AclientRequestToken%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | A map that contains tag keys and tag values that are attached to the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- world template.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Atags%3ACreateWorldTemplate%27"><span class="annot"><span class="annottext">CreateWorldTemplate -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Atags%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385856"><span id="local-6989586621679385858"><span class="annot"><span class="annottext">CreateWorldTemplate -&gt; CreateWorldTemplate -&gt; Bool
+(CreateWorldTemplate -&gt; CreateWorldTemplate -&gt; Bool)
+-&gt; (CreateWorldTemplate -&gt; CreateWorldTemplate -&gt; Bool)
+-&gt; Eq CreateWorldTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateWorldTemplate -&gt; CreateWorldTemplate -&gt; Bool
+$c/= :: CreateWorldTemplate -&gt; CreateWorldTemplate -&gt; Bool
+== :: CreateWorldTemplate -&gt; CreateWorldTemplate -&gt; Bool
+$c== :: CreateWorldTemplate -&gt; CreateWorldTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385847"><span id="local-6989586621679385849"><span id="local-6989586621679385851"><span id="local-6989586621679385853"><span class="annot"><span class="annottext">ReadPrec [CreateWorldTemplate]
+ReadPrec CreateWorldTemplate
+Int -&gt; ReadS CreateWorldTemplate
+ReadS [CreateWorldTemplate]
+(Int -&gt; ReadS CreateWorldTemplate)
+-&gt; ReadS [CreateWorldTemplate]
+-&gt; ReadPrec CreateWorldTemplate
+-&gt; ReadPrec [CreateWorldTemplate]
+-&gt; Read CreateWorldTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateWorldTemplate]
+$creadListPrec :: ReadPrec [CreateWorldTemplate]
+readPrec :: ReadPrec CreateWorldTemplate
+$creadPrec :: ReadPrec CreateWorldTemplate
+readList :: ReadS [CreateWorldTemplate]
+$creadList :: ReadS [CreateWorldTemplate]
+readsPrec :: Int -&gt; ReadS CreateWorldTemplate
+$creadsPrec :: Int -&gt; ReadS CreateWorldTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385840"><span id="local-6989586621679385842"><span id="local-6989586621679385844"><span class="annot"><span class="annottext">Int -&gt; CreateWorldTemplate -&gt; ShowS
+[CreateWorldTemplate] -&gt; ShowS
+CreateWorldTemplate -&gt; String
+(Int -&gt; CreateWorldTemplate -&gt; ShowS)
+-&gt; (CreateWorldTemplate -&gt; String)
+-&gt; ([CreateWorldTemplate] -&gt; ShowS)
+-&gt; Show CreateWorldTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateWorldTemplate] -&gt; ShowS
+$cshowList :: [CreateWorldTemplate] -&gt; ShowS
+show :: CreateWorldTemplate -&gt; String
+$cshow :: CreateWorldTemplate -&gt; String
+showsPrec :: Int -&gt; CreateWorldTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateWorldTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateWorldTemplate -&gt; Rep CreateWorldTemplate x)
+-&gt; (forall x. Rep CreateWorldTemplate x -&gt; CreateWorldTemplate)
+-&gt; Generic CreateWorldTemplate
+forall x. Rep CreateWorldTemplate x -&gt; CreateWorldTemplate
+forall x. CreateWorldTemplate -&gt; Rep CreateWorldTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateWorldTemplate x -&gt; CreateWorldTemplate
+$cfrom :: forall x. CreateWorldTemplate -&gt; Rep CreateWorldTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'CreateWorldTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'name', 'createWorldTemplate_name' - The name of the world template.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'templateLocation', 'createWorldTemplate_templateLocation' - The location of the world template.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'templateBody', 'createWorldTemplate_templateBody' - The world template body.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'clientRequestToken', 'createWorldTemplate_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'tags', 'createWorldTemplate_tags' - A map that contains tag keys and tag values that are attached to the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- world template.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#newCreateWorldTemplate"><span class="hs-identifier hs-type">newCreateWorldTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span>
+</span><span id="line-95"></span><span id="newCreateWorldTemplate"><span class="annot"><span class="annottext">newCreateWorldTemplate :: CreateWorldTemplate
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#newCreateWorldTemplate"><span class="hs-identifier hs-var hs-var">newCreateWorldTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">CreateWorldTemplate' :: Maybe Text
+-&gt; Maybe TemplateLocation
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; CreateWorldTemplate
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-type">CreateWorldTemplate'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:CreateWorldTemplate' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Aname%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateLocation:CreateWorldTemplate' :: Maybe TemplateLocation
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AtemplateLocation%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var">templateLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateLocation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateBody:CreateWorldTemplate' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AtemplateBody%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateWorldTemplate' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AclientRequestToken%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateWorldTemplate' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Atags%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The name of the world template.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_name"><span class="hs-identifier hs-type">createWorldTemplate_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="createWorldTemplate_name"><span class="annot"><span class="annottext">createWorldTemplate_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorldTemplate -&gt; f CreateWorldTemplate
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_name"><span class="hs-identifier hs-var hs-var">createWorldTemplate_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorldTemplate -&gt; Maybe Text)
+-&gt; (CreateWorldTemplate -&gt; Maybe Text -&gt; CreateWorldTemplate)
+-&gt; Lens
+     CreateWorldTemplate CreateWorldTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-type">CreateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385833"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:CreateWorldTemplate' :: CreateWorldTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679385833"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385833"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385832"><span class="annot"><span class="annottext">s :: CreateWorldTemplate
+</span><a href="#local-6989586621679385832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-type">CreateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385831"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorldTemplate
+</span><a href="#local-6989586621679385832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateWorldTemplate' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Aname%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The location of the world template.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_templateLocation"><span class="hs-identifier hs-type">createWorldTemplate_templateLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.TemplateLocation.html#TemplateLocation"><span class="hs-identifier hs-type">TemplateLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="createWorldTemplate_templateLocation"><span class="annot"><span class="annottext">createWorldTemplate_templateLocation :: (Maybe TemplateLocation -&gt; f (Maybe TemplateLocation))
+-&gt; CreateWorldTemplate -&gt; f CreateWorldTemplate
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_templateLocation"><span class="hs-identifier hs-var hs-var">createWorldTemplate_templateLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorldTemplate -&gt; Maybe TemplateLocation)
+-&gt; (CreateWorldTemplate
+    -&gt; Maybe TemplateLocation -&gt; CreateWorldTemplate)
+-&gt; Lens
+     CreateWorldTemplate
+     CreateWorldTemplate
+     (Maybe TemplateLocation)
+     (Maybe TemplateLocation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-type">CreateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385830"><span class="annot"><span class="annottext">Maybe TemplateLocation
+templateLocation :: Maybe TemplateLocation
+$sel:templateLocation:CreateWorldTemplate' :: CreateWorldTemplate -&gt; Maybe TemplateLocation
+</span><a href="#local-6989586621679385830"><span class="hs-identifier hs-var hs-var">templateLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateLocation
+</span><a href="#local-6989586621679385830"><span class="hs-identifier hs-var">templateLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385829"><span class="annot"><span class="annottext">s :: CreateWorldTemplate
+</span><a href="#local-6989586621679385829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-type">CreateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385828"><span class="annot"><span class="annottext">Maybe TemplateLocation
+</span><a href="#local-6989586621679385828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorldTemplate
+</span><a href="#local-6989586621679385829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateLocation:CreateWorldTemplate' :: Maybe TemplateLocation
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AtemplateLocation%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var">templateLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateLocation
+</span><a href="#local-6989586621679385828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The world template body.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_templateBody"><span class="hs-identifier hs-type">createWorldTemplate_templateBody</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="createWorldTemplate_templateBody"><span class="annot"><span class="annottext">createWorldTemplate_templateBody :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorldTemplate -&gt; f CreateWorldTemplate
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_templateBody"><span class="hs-identifier hs-var hs-var">createWorldTemplate_templateBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorldTemplate -&gt; Maybe Text)
+-&gt; (CreateWorldTemplate -&gt; Maybe Text -&gt; CreateWorldTemplate)
+-&gt; Lens
+     CreateWorldTemplate CreateWorldTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-type">CreateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385827"><span class="annot"><span class="annottext">Maybe Text
+templateBody :: Maybe Text
+$sel:templateBody:CreateWorldTemplate' :: CreateWorldTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679385827"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385827"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385826"><span class="annot"><span class="annottext">s :: CreateWorldTemplate
+</span><a href="#local-6989586621679385826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-type">CreateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385825"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorldTemplate
+</span><a href="#local-6989586621679385826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateBody:CreateWorldTemplate' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AtemplateBody%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_clientRequestToken"><span class="hs-identifier hs-type">createWorldTemplate_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="createWorldTemplate_clientRequestToken"><span class="annot"><span class="annottext">createWorldTemplate_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorldTemplate -&gt; f CreateWorldTemplate
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_clientRequestToken"><span class="hs-identifier hs-var hs-var">createWorldTemplate_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorldTemplate -&gt; Maybe Text)
+-&gt; (CreateWorldTemplate -&gt; Maybe Text -&gt; CreateWorldTemplate)
+-&gt; Lens
+     CreateWorldTemplate CreateWorldTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-type">CreateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385824"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:CreateWorldTemplate' :: CreateWorldTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679385824"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385824"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385823"><span class="annot"><span class="annottext">s :: CreateWorldTemplate
+</span><a href="#local-6989586621679385823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-type">CreateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385822"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorldTemplate
+</span><a href="#local-6989586621679385823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateWorldTemplate' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AclientRequestToken%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | A map that contains tag keys and tag values that are attached to the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- world template.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_tags"><span class="hs-identifier hs-type">createWorldTemplate_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="createWorldTemplate_tags"><span class="annot"><span class="annottext">createWorldTemplate_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateWorldTemplate -&gt; f CreateWorldTemplate
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplate_tags"><span class="hs-identifier hs-var hs-var">createWorldTemplate_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorldTemplate -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateWorldTemplate
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateWorldTemplate)
+-&gt; Lens
+     CreateWorldTemplate
+     CreateWorldTemplate
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-type">CreateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385821"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateWorldTemplate' :: CreateWorldTemplate -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679385821"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679385821"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385820"><span class="annot"><span class="annottext">s :: CreateWorldTemplate
+</span><a href="#local-6989586621679385820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-type">CreateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385819"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679385819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorldTemplate
+</span><a href="#local-6989586621679385820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateWorldTemplate' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Atags%3ACreateWorldTemplate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679385819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateWorldTemplate -&gt; f CreateWorldTemplate)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateWorldTemplate
+-&gt; f CreateWorldTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679385812"><span class="annot"><span class="annottext">request :: CreateWorldTemplate -&gt; Request CreateWorldTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateWorldTemplate -&gt; Request CreateWorldTemplate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RobOMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679385808"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateWorldTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateWorldTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateWorldTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateWorldTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateWorldTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385805"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385805"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385804"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385804"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385803"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385803"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; CreateWorldTemplateResponse
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">CreateWorldTemplateResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; CreateWorldTemplateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateWorldTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateWorldTemplateResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateWorldTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateWorldTemplateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; CreateWorldTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; CreateWorldTemplateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text) -&gt; Int -&gt; CreateWorldTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientRequestToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text) -&gt; Int -&gt; CreateWorldTemplateResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; CreateWorldTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateWorldTemplateResponse)
+-&gt; Either String Int -&gt; Either String CreateWorldTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385805"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385794"><span id="local-6989586621679385796"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385791"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679385787"><span class="annot"><span class="annottext">toHeaders :: CreateWorldTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateWorldTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-154"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385777"><span id="local-6989586621679385779"><span id="local-6989586621679385781"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679385775"><span class="annot"><span class="annottext">toJSON :: CreateWorldTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate%27"><span class="hs-identifier hs-type">CreateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385769"><span id="local-6989586621679385770"><span id="local-6989586621679385771"><span id="local-6989586621679385772"><span id="local-6989586621679385773"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe TemplateLocation
+tags :: Maybe (HashMap Text Text)
+clientRequestToken :: Maybe Text
+templateBody :: Maybe Text
+templateLocation :: Maybe TemplateLocation
+name :: Maybe Text
+$sel:tags:CreateWorldTemplate' :: CreateWorldTemplate -&gt; Maybe (HashMap Text Text)
+$sel:clientRequestToken:CreateWorldTemplate' :: CreateWorldTemplate -&gt; Maybe Text
+$sel:templateBody:CreateWorldTemplate' :: CreateWorldTemplate -&gt; Maybe Text
+$sel:templateLocation:CreateWorldTemplate' :: CreateWorldTemplate -&gt; Maybe TemplateLocation
+$sel:name:CreateWorldTemplate' :: CreateWorldTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679385769"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385773"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TemplateLocation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">(TemplateLocation -&gt; Pair) -&gt; Maybe TemplateLocation -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TemplateLocation
+</span><a href="#local-6989586621679385772"><span class="hs-identifier hs-var">templateLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateBody&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385771"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385770"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679385769"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679385763"><span class="annot"><span class="annottext">toPath :: CreateWorldTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateWorldTemplate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/createWorldTemplate&quot;</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplate"><span class="hs-identifier hs-type">CreateWorldTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679385759"><span class="annot"><span class="annottext">toQuery :: CreateWorldTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateWorldTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | /See:/ 'newCreateWorldTemplateResponse' smart constructor.</span><span>
+</span><span id="line-179"></span><span id="local-6989586621679385756"><span id="local-6989586621679385757"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorldTemplateResponse"><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-var">CreateWorldTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorldTemplateResponse%27"><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">CreateWorldTemplateResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the world template.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3Aarn%3ACreateWorldTemplateResponse%27"><span class="annot"><span class="annottext">CreateWorldTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Aarn%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the world template was</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AcreatedAt%3ACreateWorldTemplateResponse%27"><span class="annot"><span class="annottext">CreateWorldTemplateResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AcreatedAt%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The name of the world template.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3Aname%3ACreateWorldTemplateResponse%27"><span class="annot"><span class="annottext">CreateWorldTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Aname%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateWorldTemplateResponse%27"><span class="annot"><span class="annottext">CreateWorldTemplateResponse -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AclientRequestToken%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | A map that contains tag keys and tag values that are attached to the</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- world template.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3Atags%3ACreateWorldTemplateResponse%27"><span class="annot"><span class="annottext">CreateWorldTemplateResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Atags%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateWorldTemplateResponse%27"><span class="annot"><span class="annottext">CreateWorldTemplateResponse -&gt; Int
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AhttpStatus%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385746"><span id="local-6989586621679385748"><span class="annot"><span class="annottext">CreateWorldTemplateResponse -&gt; CreateWorldTemplateResponse -&gt; Bool
+(CreateWorldTemplateResponse
+ -&gt; CreateWorldTemplateResponse -&gt; Bool)
+-&gt; (CreateWorldTemplateResponse
+    -&gt; CreateWorldTemplateResponse -&gt; Bool)
+-&gt; Eq CreateWorldTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateWorldTemplateResponse -&gt; CreateWorldTemplateResponse -&gt; Bool
+$c/= :: CreateWorldTemplateResponse -&gt; CreateWorldTemplateResponse -&gt; Bool
+== :: CreateWorldTemplateResponse -&gt; CreateWorldTemplateResponse -&gt; Bool
+$c== :: CreateWorldTemplateResponse -&gt; CreateWorldTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385738"><span id="local-6989586621679385740"><span id="local-6989586621679385742"><span id="local-6989586621679385744"><span class="annot"><span class="annottext">ReadPrec [CreateWorldTemplateResponse]
+ReadPrec CreateWorldTemplateResponse
+Int -&gt; ReadS CreateWorldTemplateResponse
+ReadS [CreateWorldTemplateResponse]
+(Int -&gt; ReadS CreateWorldTemplateResponse)
+-&gt; ReadS [CreateWorldTemplateResponse]
+-&gt; ReadPrec CreateWorldTemplateResponse
+-&gt; ReadPrec [CreateWorldTemplateResponse]
+-&gt; Read CreateWorldTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateWorldTemplateResponse]
+$creadListPrec :: ReadPrec [CreateWorldTemplateResponse]
+readPrec :: ReadPrec CreateWorldTemplateResponse
+$creadPrec :: ReadPrec CreateWorldTemplateResponse
+readList :: ReadS [CreateWorldTemplateResponse]
+$creadList :: ReadS [CreateWorldTemplateResponse]
+readsPrec :: Int -&gt; ReadS CreateWorldTemplateResponse
+$creadsPrec :: Int -&gt; ReadS CreateWorldTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385732"><span id="local-6989586621679385734"><span id="local-6989586621679385736"><span class="annot"><span class="annottext">Int -&gt; CreateWorldTemplateResponse -&gt; ShowS
+[CreateWorldTemplateResponse] -&gt; ShowS
+CreateWorldTemplateResponse -&gt; String
+(Int -&gt; CreateWorldTemplateResponse -&gt; ShowS)
+-&gt; (CreateWorldTemplateResponse -&gt; String)
+-&gt; ([CreateWorldTemplateResponse] -&gt; ShowS)
+-&gt; Show CreateWorldTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateWorldTemplateResponse] -&gt; ShowS
+$cshowList :: [CreateWorldTemplateResponse] -&gt; ShowS
+show :: CreateWorldTemplateResponse -&gt; String
+$cshow :: CreateWorldTemplateResponse -&gt; String
+showsPrec :: Int -&gt; CreateWorldTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateWorldTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateWorldTemplateResponse -&gt; Rep CreateWorldTemplateResponse x)
+-&gt; (forall x.
+    Rep CreateWorldTemplateResponse x -&gt; CreateWorldTemplateResponse)
+-&gt; Generic CreateWorldTemplateResponse
+forall x.
+Rep CreateWorldTemplateResponse x -&gt; CreateWorldTemplateResponse
+forall x.
+CreateWorldTemplateResponse -&gt; Rep CreateWorldTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateWorldTemplateResponse x -&gt; CreateWorldTemplateResponse
+$cfrom :: forall x.
+CreateWorldTemplateResponse -&gt; Rep CreateWorldTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Create a value of 'CreateWorldTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'arn', 'createWorldTemplateResponse_arn' - The Amazon Resource Name (ARN) of the world template.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'createdAt', 'createWorldTemplateResponse_createdAt' - The time, in milliseconds since the epoch, when the world template was</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'name', 'createWorldTemplateResponse_name' - The name of the world template.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'clientRequestToken', 'createWorldTemplateResponse_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'tags', 'createWorldTemplateResponse_tags' - A map that contains tag keys and tag values that are attached to the</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- world template.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'httpStatus', 'createWorldTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#newCreateWorldTemplateResponse"><span class="hs-identifier hs-type">newCreateWorldTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span>
+</span><span id="line-224"></span><span id="newCreateWorldTemplateResponse"><span class="annot"><span class="annottext">newCreateWorldTemplateResponse :: Int -&gt; CreateWorldTemplateResponse
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#newCreateWorldTemplateResponse"><span class="hs-identifier hs-var hs-var">newCreateWorldTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679385729"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385729"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">CreateWorldTemplateResponse' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; CreateWorldTemplateResponse
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:CreateWorldTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Aarn%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:CreateWorldTemplateResponse' :: Maybe POSIX
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AcreatedAt%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateWorldTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Aname%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateWorldTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AclientRequestToken%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateWorldTemplateResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Atags%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorldTemplateResponse' :: Int
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AhttpStatus%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385729"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the world template.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_arn"><span class="hs-identifier hs-type">createWorldTemplateResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="createWorldTemplateResponse_arn"><span class="annot"><span class="annottext">createWorldTemplateResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorldTemplateResponse -&gt; f CreateWorldTemplateResponse
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_arn"><span class="hs-identifier hs-var hs-var">createWorldTemplateResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorldTemplateResponse -&gt; Maybe Text)
+-&gt; (CreateWorldTemplateResponse
+    -&gt; Maybe Text -&gt; CreateWorldTemplateResponse)
+-&gt; Lens
+     CreateWorldTemplateResponse
+     CreateWorldTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385728"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CreateWorldTemplateResponse' :: CreateWorldTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679385728"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385728"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385727"><span class="annot"><span class="annottext">s :: CreateWorldTemplateResponse
+</span><a href="#local-6989586621679385727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385726"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorldTemplateResponse
+</span><a href="#local-6989586621679385727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateWorldTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Aarn%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the world template was</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_createdAt"><span class="hs-identifier hs-type">createWorldTemplateResponse_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="createWorldTemplateResponse_createdAt"><span class="annot"><span class="annottext">createWorldTemplateResponse_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateWorldTemplateResponse -&gt; f CreateWorldTemplateResponse
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_createdAt"><span class="hs-identifier hs-var hs-var">createWorldTemplateResponse_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorldTemplateResponse -&gt; Maybe POSIX)
+-&gt; (CreateWorldTemplateResponse
+    -&gt; Maybe POSIX -&gt; CreateWorldTemplateResponse)
+-&gt; Lens
+     CreateWorldTemplateResponse
+     CreateWorldTemplateResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385725"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:CreateWorldTemplateResponse' :: CreateWorldTemplateResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679385725"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679385725"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385724"><span class="annot"><span class="annottext">s :: CreateWorldTemplateResponse
+</span><a href="#local-6989586621679385724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385723"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679385723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorldTemplateResponse
+</span><a href="#local-6989586621679385724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:CreateWorldTemplateResponse' :: Maybe POSIX
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AcreatedAt%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679385723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CreateWorldTemplateResponse -&gt; f CreateWorldTemplateResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateWorldTemplateResponse
+-&gt; f CreateWorldTemplateResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The name of the world template.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_name"><span class="hs-identifier hs-type">createWorldTemplateResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="createWorldTemplateResponse_name"><span class="annot"><span class="annottext">createWorldTemplateResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorldTemplateResponse -&gt; f CreateWorldTemplateResponse
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_name"><span class="hs-identifier hs-var hs-var">createWorldTemplateResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorldTemplateResponse -&gt; Maybe Text)
+-&gt; (CreateWorldTemplateResponse
+    -&gt; Maybe Text -&gt; CreateWorldTemplateResponse)
+-&gt; Lens
+     CreateWorldTemplateResponse
+     CreateWorldTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385721"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:CreateWorldTemplateResponse' :: CreateWorldTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679385721"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385721"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385720"><span class="annot"><span class="annottext">s :: CreateWorldTemplateResponse
+</span><a href="#local-6989586621679385720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385719"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorldTemplateResponse
+</span><a href="#local-6989586621679385720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateWorldTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Aname%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_clientRequestToken"><span class="hs-identifier hs-type">createWorldTemplateResponse_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="createWorldTemplateResponse_clientRequestToken"><span class="annot"><span class="annottext">createWorldTemplateResponse_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorldTemplateResponse -&gt; f CreateWorldTemplateResponse
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_clientRequestToken"><span class="hs-identifier hs-var hs-var">createWorldTemplateResponse_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorldTemplateResponse -&gt; Maybe Text)
+-&gt; (CreateWorldTemplateResponse
+    -&gt; Maybe Text -&gt; CreateWorldTemplateResponse)
+-&gt; Lens
+     CreateWorldTemplateResponse
+     CreateWorldTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385718"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:CreateWorldTemplateResponse' :: CreateWorldTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679385718"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385718"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385717"><span class="annot"><span class="annottext">s :: CreateWorldTemplateResponse
+</span><a href="#local-6989586621679385717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385716"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorldTemplateResponse
+</span><a href="#local-6989586621679385717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateWorldTemplateResponse' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AclientRequestToken%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | A map that contains tag keys and tag values that are attached to the</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- world template.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_tags"><span class="hs-identifier hs-type">createWorldTemplateResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="createWorldTemplateResponse_tags"><span class="annot"><span class="annottext">createWorldTemplateResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateWorldTemplateResponse -&gt; f CreateWorldTemplateResponse
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_tags"><span class="hs-identifier hs-var hs-var">createWorldTemplateResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorldTemplateResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateWorldTemplateResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateWorldTemplateResponse)
+-&gt; Lens
+     CreateWorldTemplateResponse
+     CreateWorldTemplateResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385715"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateWorldTemplateResponse' :: CreateWorldTemplateResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679385715"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679385715"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385714"><span class="annot"><span class="annottext">s :: CreateWorldTemplateResponse
+</span><a href="#local-6989586621679385714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385713"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679385713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorldTemplateResponse
+</span><a href="#local-6989586621679385714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateWorldTemplateResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3Atags%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679385713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateWorldTemplateResponse -&gt; f CreateWorldTemplateResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateWorldTemplateResponse
+-&gt; f CreateWorldTemplateResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_httpStatus"><span class="hs-identifier hs-type">createWorldTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-259"></span><span id="createWorldTemplateResponse_httpStatus"><span class="annot"><span class="annottext">createWorldTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateWorldTemplateResponse -&gt; f CreateWorldTemplateResponse
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#createWorldTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createWorldTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorldTemplateResponse -&gt; Int)
+-&gt; (CreateWorldTemplateResponse
+    -&gt; Int -&gt; CreateWorldTemplateResponse)
+-&gt; Lens
+     CreateWorldTemplateResponse CreateWorldTemplateResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385712"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateWorldTemplateResponse' :: CreateWorldTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679385712"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385712"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385711"><span class="annot"><span class="annottext">s :: CreateWorldTemplateResponse
+</span><a href="#local-6989586621679385711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse%27"><span class="hs-identifier hs-type">CreateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385710"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorldTemplateResponse
+</span><a href="#local-6989586621679385711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorldTemplateResponse' :: Int
+</span><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#%24sel%3AhttpStatus%3ACreateWorldTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385708"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.CreateWorldTemplate.html#CreateWorldTemplateResponse"><span class="hs-identifier hs-type">CreateWorldTemplateResponse</span></a></span></span><span>
+</span><span id="line-262"></span></pre></body></html>

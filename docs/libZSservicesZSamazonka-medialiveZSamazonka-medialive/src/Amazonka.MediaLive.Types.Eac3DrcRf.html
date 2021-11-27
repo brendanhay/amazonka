@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.Eac3DrcRf</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.Eac3DrcRf</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf"><span class="hs-identifier">Eac3DrcRf</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_FILM_LIGHT"><span class="hs-identifier">Eac3DrcRf_FILM_LIGHT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_FILM_STANDARD"><span class="hs-identifier">Eac3DrcRf_FILM_STANDARD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_MUSIC_LIGHT"><span class="hs-identifier">Eac3DrcRf_MUSIC_LIGHT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_MUSIC_STANDARD"><span class="hs-identifier">Eac3DrcRf_MUSIC_STANDARD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_NONE"><span class="hs-identifier">Eac3DrcRf_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_SPEECH"><span class="hs-identifier">Eac3DrcRf_SPEECH</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- | Eac3 Drc Rf</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679873257"><span id="local-6989586621679873258"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3DrcRf"><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf"><span class="hs-identifier hs-var">Eac3DrcRf</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3DrcRf%27"><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf%27"><span class="hs-identifier hs-var">Eac3DrcRf'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3DrcRf"><span class="annot"><span class="annottext">Eac3DrcRf -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#fromEac3DrcRf"><span class="hs-identifier hs-var hs-var">fromEac3DrcRf</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679873249"><span id="local-6989586621679873251"><span id="local-6989586621679873253"><span class="annot"><span class="annottext">Int -&gt; Eac3DrcRf -&gt; ShowS
+[Eac3DrcRf] -&gt; ShowS
+Eac3DrcRf -&gt; String
+(Int -&gt; Eac3DrcRf -&gt; ShowS)
+-&gt; (Eac3DrcRf -&gt; String)
+-&gt; ([Eac3DrcRf] -&gt; ShowS)
+-&gt; Show Eac3DrcRf
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Eac3DrcRf] -&gt; ShowS
+$cshowList :: [Eac3DrcRf] -&gt; ShowS
+show :: Eac3DrcRf -&gt; String
+$cshow :: Eac3DrcRf -&gt; String
+showsPrec :: Int -&gt; Eac3DrcRf -&gt; ShowS
+$cshowsPrec :: Int -&gt; Eac3DrcRf -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679873240"><span id="local-6989586621679873242"><span id="local-6989586621679873244"><span id="local-6989586621679873246"><span class="annot"><span class="annottext">ReadPrec [Eac3DrcRf]
+ReadPrec Eac3DrcRf
+Int -&gt; ReadS Eac3DrcRf
+ReadS [Eac3DrcRf]
+(Int -&gt; ReadS Eac3DrcRf)
+-&gt; ReadS [Eac3DrcRf]
+-&gt; ReadPrec Eac3DrcRf
+-&gt; ReadPrec [Eac3DrcRf]
+-&gt; Read Eac3DrcRf
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Eac3DrcRf]
+$creadListPrec :: ReadPrec [Eac3DrcRf]
+readPrec :: ReadPrec Eac3DrcRf
+$creadPrec :: ReadPrec Eac3DrcRf
+readList :: ReadS [Eac3DrcRf]
+$creadList :: ReadS [Eac3DrcRf]
+readsPrec :: Int -&gt; ReadS Eac3DrcRf
+$creadsPrec :: Int -&gt; ReadS Eac3DrcRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679873235"><span id="local-6989586621679873237"><span class="annot"><span class="annottext">Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+(Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool)
+-&gt; (Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool) -&gt; Eq Eac3DrcRf
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+$c/= :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+== :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+$c== :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679873219"><span id="local-6989586621679873221"><span id="local-6989586621679873223"><span id="local-6989586621679873225"><span id="local-6989586621679873227"><span id="local-6989586621679873229"><span id="local-6989586621679873231"><span class="annot"><span class="annottext">Eq Eac3DrcRf
+Eq Eac3DrcRf
+-&gt; (Eac3DrcRf -&gt; Eac3DrcRf -&gt; Ordering)
+-&gt; (Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool)
+-&gt; (Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool)
+-&gt; (Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool)
+-&gt; (Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool)
+-&gt; (Eac3DrcRf -&gt; Eac3DrcRf -&gt; Eac3DrcRf)
+-&gt; (Eac3DrcRf -&gt; Eac3DrcRf -&gt; Eac3DrcRf)
+-&gt; Ord Eac3DrcRf
+Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+Eac3DrcRf -&gt; Eac3DrcRf -&gt; Ordering
+Eac3DrcRf -&gt; Eac3DrcRf -&gt; Eac3DrcRf
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Eac3DrcRf
+$cmin :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Eac3DrcRf
+max :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Eac3DrcRf
+$cmax :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Eac3DrcRf
+&gt;= :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+$c&gt;= :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+&gt; :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+$c&gt; :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+&lt;= :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+$c&lt;= :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+&lt; :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+$c&lt; :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Bool
+compare :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Ordering
+$ccompare :: Eac3DrcRf -&gt; Eac3DrcRf -&gt; Ordering
+$cp1Ord :: Eq Eac3DrcRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Eac3DrcRf -&gt; Rep Eac3DrcRf x)
+-&gt; (forall x. Rep Eac3DrcRf x -&gt; Eac3DrcRf) -&gt; Generic Eac3DrcRf
+forall x. Rep Eac3DrcRf x -&gt; Eac3DrcRf
+forall x. Eac3DrcRf -&gt; Rep Eac3DrcRf x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Eac3DrcRf x -&gt; Eac3DrcRf
+$cfrom :: forall x. Eac3DrcRf -&gt; Rep Eac3DrcRf x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679873211"><span id="local-6989586621679873213"><span class="annot"><span class="annottext">Int -&gt; Eac3DrcRf -&gt; Int
+Eac3DrcRf -&gt; Int
+(Int -&gt; Eac3DrcRf -&gt; Int)
+-&gt; (Eac3DrcRf -&gt; Int) -&gt; Hashable Eac3DrcRf
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Eac3DrcRf -&gt; Int
+$chash :: Eac3DrcRf -&gt; Int
+hashWithSalt :: Int -&gt; Eac3DrcRf -&gt; Int
+$chashWithSalt :: Int -&gt; Eac3DrcRf -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679873208"><span class="annot"><span class="annottext">Eac3DrcRf -&gt; ()
+(Eac3DrcRf -&gt; ()) -&gt; NFData Eac3DrcRf
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Eac3DrcRf -&gt; ()
+$crnf :: Eac3DrcRf -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679873205"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3DrcRf
+(Text -&gt; Either String Eac3DrcRf) -&gt; FromText Eac3DrcRf
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Eac3DrcRf
+$cfromText :: Text -&gt; Either String Eac3DrcRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679873202"><span class="annot"><span class="annottext">Eac3DrcRf -&gt; Text
+(Eac3DrcRf -&gt; Text) -&gt; ToText Eac3DrcRf
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Eac3DrcRf -&gt; Text
+$ctoText :: Eac3DrcRf -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679873199"><span class="annot"><span class="annottext">Eac3DrcRf -&gt; ByteString
+(Eac3DrcRf -&gt; ByteString) -&gt; ToByteString Eac3DrcRf
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Eac3DrcRf -&gt; ByteString
+$ctoBS :: Eac3DrcRf -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679873196"><span class="annot"><span class="annottext">Eac3DrcRf -&gt; ByteStringBuilder
+(Eac3DrcRf -&gt; ByteStringBuilder) -&gt; ToLog Eac3DrcRf
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Eac3DrcRf -&gt; ByteStringBuilder
+$cbuild :: Eac3DrcRf -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679873193"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3DrcRf -&gt; [Header]
+(HeaderName -&gt; Eac3DrcRf -&gt; [Header]) -&gt; ToHeader Eac3DrcRf
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Eac3DrcRf -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Eac3DrcRf -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679873190"><span class="annot"><span class="annottext">Eac3DrcRf -&gt; QueryString
+(Eac3DrcRf -&gt; QueryString) -&gt; ToQuery Eac3DrcRf
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Eac3DrcRf -&gt; QueryString
+$ctoQuery :: Eac3DrcRf -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679873185"><span id="local-6989586621679873187"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3DrcRf]
+Value -&gt; Parser Eac3DrcRf
+(Value -&gt; Parser Eac3DrcRf)
+-&gt; (Value -&gt; Parser [Eac3DrcRf]) -&gt; FromJSON Eac3DrcRf
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Eac3DrcRf]
+$cparseJSONList :: Value -&gt; Parser [Eac3DrcRf]
+parseJSON :: Value -&gt; Parser Eac3DrcRf
+$cparseJSON :: Value -&gt; Parser Eac3DrcRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679873180"><span id="local-6989586621679873182"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3DrcRf]
+FromJSONKeyFunction Eac3DrcRf
+FromJSONKeyFunction Eac3DrcRf
+-&gt; FromJSONKeyFunction [Eac3DrcRf] -&gt; FromJSONKey Eac3DrcRf
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Eac3DrcRf]
+$cfromJSONKeyList :: FromJSONKeyFunction [Eac3DrcRf]
+fromJSONKey :: FromJSONKeyFunction Eac3DrcRf
+$cfromJSONKey :: FromJSONKeyFunction Eac3DrcRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679873171"><span id="local-6989586621679873173"><span id="local-6989586621679873175"><span id="local-6989586621679873177"><span class="annot"><span class="annottext">[Eac3DrcRf] -&gt; Encoding
+[Eac3DrcRf] -&gt; Value
+Eac3DrcRf -&gt; Encoding
+Eac3DrcRf -&gt; Value
+(Eac3DrcRf -&gt; Value)
+-&gt; (Eac3DrcRf -&gt; Encoding)
+-&gt; ([Eac3DrcRf] -&gt; Value)
+-&gt; ([Eac3DrcRf] -&gt; Encoding)
+-&gt; ToJSON Eac3DrcRf
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Eac3DrcRf] -&gt; Encoding
+$ctoEncodingList :: [Eac3DrcRf] -&gt; Encoding
+toJSONList :: [Eac3DrcRf] -&gt; Value
+$ctoJSONList :: [Eac3DrcRf] -&gt; Value
+toEncoding :: Eac3DrcRf -&gt; Encoding
+$ctoEncoding :: Eac3DrcRf -&gt; Encoding
+toJSON :: Eac3DrcRf -&gt; Value
+$ctoJSON :: Eac3DrcRf -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679873166"><span id="local-6989586621679873168"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3DrcRf]
+ToJSONKeyFunction Eac3DrcRf
+ToJSONKeyFunction Eac3DrcRf
+-&gt; ToJSONKeyFunction [Eac3DrcRf] -&gt; ToJSONKey Eac3DrcRf
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Eac3DrcRf]
+$ctoJSONKeyList :: ToJSONKeyFunction [Eac3DrcRf]
+toJSONKey :: ToJSONKeyFunction Eac3DrcRf
+$ctoJSONKey :: ToJSONKeyFunction Eac3DrcRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679873163"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3DrcRf
+([Node] -&gt; Either String Eac3DrcRf) -&gt; FromXML Eac3DrcRf
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Eac3DrcRf
+$cparseXML :: [Node] -&gt; Either String Eac3DrcRf
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679873160"><span class="annot"><span class="annottext">Eac3DrcRf -&gt; XML
+(Eac3DrcRf -&gt; XML) -&gt; ToXML Eac3DrcRf
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Eac3DrcRf -&gt; XML
+$ctoXML :: Eac3DrcRf -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_FILM_LIGHT"><span class="hs-identifier hs-type">Eac3DrcRf_FILM_LIGHT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf"><span class="hs-identifier hs-type">Eac3DrcRf</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3DrcRf_FILM_LIGHT"><span id="%24mEac3DrcRf_FILM_LIGHT"><span id="Eac3DrcRf_FILM_LIGHT"><span class="annot"><span class="annottext">$bEac3DrcRf_FILM_LIGHT :: Eac3DrcRf
+$mEac3DrcRf_FILM_LIGHT :: forall r. Eac3DrcRf -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#%24bEac3DrcRf_FILM_LIGHT"><span class="hs-identifier hs-var hs-var hs-var">Eac3DrcRf_FILM_LIGHT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf%27"><span class="hs-identifier hs-type">Eac3DrcRf'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FILM_LIGHT&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_FILM_STANDARD"><span class="hs-identifier hs-type">Eac3DrcRf_FILM_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf"><span class="hs-identifier hs-type">Eac3DrcRf</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3DrcRf_FILM_STANDARD"><span id="%24mEac3DrcRf_FILM_STANDARD"><span id="Eac3DrcRf_FILM_STANDARD"><span class="annot"><span class="annottext">$bEac3DrcRf_FILM_STANDARD :: Eac3DrcRf
+$mEac3DrcRf_FILM_STANDARD :: forall r. Eac3DrcRf -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#%24bEac3DrcRf_FILM_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">Eac3DrcRf_FILM_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf%27"><span class="hs-identifier hs-type">Eac3DrcRf'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FILM_STANDARD&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_MUSIC_LIGHT"><span class="hs-identifier hs-type">Eac3DrcRf_MUSIC_LIGHT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf"><span class="hs-identifier hs-type">Eac3DrcRf</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3DrcRf_MUSIC_LIGHT"><span id="%24mEac3DrcRf_MUSIC_LIGHT"><span id="Eac3DrcRf_MUSIC_LIGHT"><span class="annot"><span class="annottext">$bEac3DrcRf_MUSIC_LIGHT :: Eac3DrcRf
+$mEac3DrcRf_MUSIC_LIGHT :: forall r. Eac3DrcRf -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#%24bEac3DrcRf_MUSIC_LIGHT"><span class="hs-identifier hs-var hs-var hs-var">Eac3DrcRf_MUSIC_LIGHT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf%27"><span class="hs-identifier hs-type">Eac3DrcRf'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MUSIC_LIGHT&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_MUSIC_STANDARD"><span class="hs-identifier hs-type">Eac3DrcRf_MUSIC_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf"><span class="hs-identifier hs-type">Eac3DrcRf</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3DrcRf_MUSIC_STANDARD"><span id="%24mEac3DrcRf_MUSIC_STANDARD"><span id="Eac3DrcRf_MUSIC_STANDARD"><span class="annot"><span class="annottext">$bEac3DrcRf_MUSIC_STANDARD :: Eac3DrcRf
+$mEac3DrcRf_MUSIC_STANDARD :: forall r. Eac3DrcRf -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#%24bEac3DrcRf_MUSIC_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">Eac3DrcRf_MUSIC_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf%27"><span class="hs-identifier hs-type">Eac3DrcRf'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MUSIC_STANDARD&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_NONE"><span class="hs-identifier hs-type">Eac3DrcRf_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf"><span class="hs-identifier hs-type">Eac3DrcRf</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3DrcRf_NONE"><span id="%24mEac3DrcRf_NONE"><span id="Eac3DrcRf_NONE"><span class="annot"><span class="annottext">$bEac3DrcRf_NONE :: Eac3DrcRf
+$mEac3DrcRf_NONE :: forall r. Eac3DrcRf -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#%24bEac3DrcRf_NONE"><span class="hs-identifier hs-var hs-var hs-var">Eac3DrcRf_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf%27"><span class="hs-identifier hs-type">Eac3DrcRf'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_SPEECH"><span class="hs-identifier hs-type">Eac3DrcRf_SPEECH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf"><span class="hs-identifier hs-type">Eac3DrcRf</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3DrcRf_SPEECH"><span id="%24mEac3DrcRf_SPEECH"><span id="Eac3DrcRf_SPEECH"><span class="annot"><span class="annottext">$bEac3DrcRf_SPEECH :: Eac3DrcRf
+$mEac3DrcRf_SPEECH :: forall r. Eac3DrcRf -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#%24bEac3DrcRf_SPEECH"><span class="hs-identifier hs-var hs-var hs-var">Eac3DrcRf_SPEECH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf%27"><span class="hs-identifier hs-type">Eac3DrcRf'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPEECH&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_FILM_LIGHT"><span class="hs-pragma hs-type">Eac3DrcRf_FILM_LIGHT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_FILM_STANDARD"><span class="hs-pragma hs-type">Eac3DrcRf_FILM_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_MUSIC_LIGHT"><span class="hs-pragma hs-type">Eac3DrcRf_MUSIC_LIGHT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_MUSIC_STANDARD"><span class="hs-pragma hs-type">Eac3DrcRf_MUSIC_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_NONE"><span class="hs-pragma hs-type">Eac3DrcRf_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf_SPEECH"><span class="hs-pragma hs-type">Eac3DrcRf_SPEECH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Eac3DrcRf.html#Eac3DrcRf%27"><span class="hs-pragma hs-type">Eac3DrcRf'</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-92"></span></pre></body></html>

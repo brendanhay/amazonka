@@ -1,0 +1,650 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.Association</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.Association</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationOverview.html"><span class="hs-identifier">Amazonka.SSM.Types.AssociationOverview</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Target.html"><span class="hs-identifier">Amazonka.SSM.Types.Target</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes an association of a Amazon Web Services Systems Manager</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- document (SSM document) and an instance.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAssociation' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679818565"><span id="local-6989586621679818566"></span></span><span class="hs-keyword">data</span><span> </span><span id="Association"><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-var">Association</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Association%27"><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-var">Association'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID created by the system when you create an association. An</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- association is a binding between a document and a set of targets with a</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- schedule.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AassociationId%3AAssociation%27"><span class="annot"><span class="annottext">Association -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AassociationId%3AAssociation%27"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The instance ID.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AinstanceId%3AAssociation%27"><span class="annot"><span class="annottext">Association -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AinstanceId%3AAssociation%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Information about the association.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aoverview%3AAssociation%27"><span class="annot"><span class="annottext">Association -&gt; Maybe AssociationOverview
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3Aoverview%3AAssociation%27"><span class="hs-identifier hs-var hs-var">overview</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The date on which the association was last run.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastExecutionDate%3AAssociation%27"><span class="annot"><span class="annottext">Association -&gt; Maybe POSIX
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AlastExecutionDate%3AAssociation%27"><span class="hs-identifier hs-var hs-var">lastExecutionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A cron expression that specifies a schedule when the association runs.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- The schedule runs in Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AscheduleExpression%3AAssociation%27"><span class="annot"><span class="annottext">Association -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AscheduleExpression%3AAssociation%27"><span class="hs-identifier hs-var hs-var">scheduleExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the SSM document.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aname%3AAssociation%27"><span class="annot"><span class="annottext">Association -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3Aname%3AAssociation%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The instances targeted by the request to create an association. You can</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- target all instances in an Amazon Web Services account by specifying the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- @InstanceIds@ key with a value of @*@.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Atargets%3AAssociation%27"><span class="annot"><span class="annottext">Association -&gt; Maybe [Target]
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3Atargets%3AAssociation%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The version of the document used in the association.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdocumentVersion%3AAssociation%27"><span class="annot"><span class="annottext">Association -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AdocumentVersion%3AAssociation%27"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The association version.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AassociationVersion%3AAssociation%27"><span class="annot"><span class="annottext">Association -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AassociationVersion%3AAssociation%27"><span class="hs-identifier hs-var hs-var">associationVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The association name.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AassociationName%3AAssociation%27"><span class="annot"><span class="annottext">Association -&gt; Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AassociationName%3AAssociation%27"><span class="hs-identifier hs-var hs-var">associationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679818550"><span id="local-6989586621679818552"><span class="annot"><span class="annottext">Association -&gt; Association -&gt; Bool
+(Association -&gt; Association -&gt; Bool)
+-&gt; (Association -&gt; Association -&gt; Bool) -&gt; Eq Association
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Association -&gt; Association -&gt; Bool
+$c/= :: Association -&gt; Association -&gt; Bool
+== :: Association -&gt; Association -&gt; Bool
+$c== :: Association -&gt; Association -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679818541"><span id="local-6989586621679818543"><span id="local-6989586621679818545"><span id="local-6989586621679818547"><span class="annot"><span class="annottext">ReadPrec [Association]
+ReadPrec Association
+Int -&gt; ReadS Association
+ReadS [Association]
+(Int -&gt; ReadS Association)
+-&gt; ReadS [Association]
+-&gt; ReadPrec Association
+-&gt; ReadPrec [Association]
+-&gt; Read Association
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Association]
+$creadListPrec :: ReadPrec [Association]
+readPrec :: ReadPrec Association
+$creadPrec :: ReadPrec Association
+readList :: ReadS [Association]
+$creadList :: ReadS [Association]
+readsPrec :: Int -&gt; ReadS Association
+$creadsPrec :: Int -&gt; ReadS Association
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679818534"><span id="local-6989586621679818536"><span id="local-6989586621679818538"><span class="annot"><span class="annottext">Int -&gt; Association -&gt; ShowS
+[Association] -&gt; ShowS
+Association -&gt; String
+(Int -&gt; Association -&gt; ShowS)
+-&gt; (Association -&gt; String)
+-&gt; ([Association] -&gt; ShowS)
+-&gt; Show Association
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Association] -&gt; ShowS
+$cshowList :: [Association] -&gt; ShowS
+show :: Association -&gt; String
+$cshow :: Association -&gt; String
+showsPrec :: Int -&gt; Association -&gt; ShowS
+$cshowsPrec :: Int -&gt; Association -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Association -&gt; Rep Association x)
+-&gt; (forall x. Rep Association x -&gt; Association)
+-&gt; Generic Association
+forall x. Rep Association x -&gt; Association
+forall x. Association -&gt; Rep Association x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Association x -&gt; Association
+$cfrom :: forall x. Association -&gt; Rep Association x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'Association' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'associationId', 'association_associationId' - The ID created by the system when you create an association. An</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- association is a binding between a document and a set of targets with a</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- schedule.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'instanceId', 'association_instanceId' - The instance ID.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'overview', 'association_overview' - Information about the association.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'lastExecutionDate', 'association_lastExecutionDate' - The date on which the association was last run.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'scheduleExpression', 'association_scheduleExpression' - A cron expression that specifies a schedule when the association runs.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The schedule runs in Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'name', 'association_name' - The name of the SSM document.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'targets', 'association_targets' - The instances targeted by the request to create an association. You can</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- target all instances in an Amazon Web Services account by specifying the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- @InstanceIds@ key with a value of @*@.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'documentVersion', 'association_documentVersion' - The version of the document used in the association.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'associationVersion', 'association_associationVersion' - The association version.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'associationName', 'association_associationName' - The association name.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#newAssociation"><span class="hs-identifier hs-type">newAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span>
+</span><span id="line-95"></span><span id="newAssociation"><span class="annot"><span class="annottext">newAssociation :: Association
+</span><a href="Amazonka.SSM.Types.Association.html#newAssociation"><span class="hs-identifier hs-var hs-var">newAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">Association' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AssociationOverview
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Target]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Association
+</span><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:associationId:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AassociationId%3AAssociation%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AinstanceId%3AAssociation%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:overview:Association' :: Maybe AssociationOverview
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3Aoverview%3AAssociation%27"><span class="hs-identifier hs-var">overview</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationOverview
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastExecutionDate:Association' :: Maybe POSIX
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AlastExecutionDate%3AAssociation%27"><span class="hs-identifier hs-var">lastExecutionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduleExpression:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AscheduleExpression%3AAssociation%27"><span class="hs-identifier hs-var">scheduleExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3Aname%3AAssociation%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:targets:Association' :: Maybe [Target]
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3Atargets%3AAssociation%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentVersion:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AdocumentVersion%3AAssociation%27"><span class="hs-identifier hs-var">documentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationVersion:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AassociationVersion%3AAssociation%27"><span class="hs-identifier hs-var">associationVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationName:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AassociationName%3AAssociation%27"><span class="hs-identifier hs-var">associationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The ID created by the system when you create an association. An</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- association is a binding between a document and a set of targets with a</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- schedule.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#association_associationId"><span class="hs-identifier hs-type">association_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="association_associationId"><span class="annot"><span class="annottext">association_associationId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Association -&gt; f Association
+</span><a href="Amazonka.SSM.Types.Association.html#association_associationId"><span class="hs-identifier hs-var hs-var">association_associationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Association -&gt; Maybe Text)
+-&gt; (Association -&gt; Maybe Text -&gt; Association)
+-&gt; Lens Association Association (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818525"><span class="annot"><span class="annottext">Maybe Text
+associationId :: Maybe Text
+$sel:associationId:Association' :: Association -&gt; Maybe Text
+</span><a href="#local-6989586621679818525"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818525"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818524"><span class="annot"><span class="annottext">s :: Association
+</span><a href="#local-6989586621679818524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818523"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Association
+</span><a href="#local-6989586621679818524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AassociationId%3AAssociation%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The instance ID.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#association_instanceId"><span class="hs-identifier hs-type">association_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="association_instanceId"><span class="annot"><span class="annottext">association_instanceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Association -&gt; f Association
+</span><a href="Amazonka.SSM.Types.Association.html#association_instanceId"><span class="hs-identifier hs-var hs-var">association_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Association -&gt; Maybe Text)
+-&gt; (Association -&gt; Maybe Text -&gt; Association)
+-&gt; Lens Association Association (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818521"><span class="annot"><span class="annottext">Maybe Text
+instanceId :: Maybe Text
+$sel:instanceId:Association' :: Association -&gt; Maybe Text
+</span><a href="#local-6989586621679818521"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818521"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818520"><span class="annot"><span class="annottext">s :: Association
+</span><a href="#local-6989586621679818520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818519"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Association
+</span><a href="#local-6989586621679818520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AinstanceId%3AAssociation%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Information about the association.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#association_overview"><span class="hs-identifier hs-type">association_overview</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="association_overview"><span class="annot"><span class="annottext">association_overview :: (Maybe AssociationOverview -&gt; f (Maybe AssociationOverview))
+-&gt; Association -&gt; f Association
+</span><a href="Amazonka.SSM.Types.Association.html#association_overview"><span class="hs-identifier hs-var hs-var">association_overview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Association -&gt; Maybe AssociationOverview)
+-&gt; (Association -&gt; Maybe AssociationOverview -&gt; Association)
+-&gt; Lens
+     Association
+     Association
+     (Maybe AssociationOverview)
+     (Maybe AssociationOverview)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818517"><span class="annot"><span class="annottext">Maybe AssociationOverview
+overview :: Maybe AssociationOverview
+$sel:overview:Association' :: Association -&gt; Maybe AssociationOverview
+</span><a href="#local-6989586621679818517"><span class="hs-identifier hs-var hs-var">overview</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationOverview
+</span><a href="#local-6989586621679818517"><span class="hs-identifier hs-var">overview</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818516"><span class="annot"><span class="annottext">s :: Association
+</span><a href="#local-6989586621679818516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818515"><span class="annot"><span class="annottext">Maybe AssociationOverview
+</span><a href="#local-6989586621679818515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Association
+</span><a href="#local-6989586621679818516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overview:Association' :: Maybe AssociationOverview
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3Aoverview%3AAssociation%27"><span class="hs-identifier hs-var">overview</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationOverview
+</span><a href="#local-6989586621679818515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The date on which the association was last run.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#association_lastExecutionDate"><span class="hs-identifier hs-type">association_lastExecutionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="association_lastExecutionDate"><span class="annot"><span class="annottext">association_lastExecutionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Association -&gt; f Association
+</span><a href="Amazonka.SSM.Types.Association.html#association_lastExecutionDate"><span class="hs-identifier hs-var hs-var">association_lastExecutionDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Association -&gt; Maybe POSIX)
+-&gt; (Association -&gt; Maybe POSIX -&gt; Association)
+-&gt; Lens Association Association (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818513"><span class="annot"><span class="annottext">Maybe POSIX
+lastExecutionDate :: Maybe POSIX
+$sel:lastExecutionDate:Association' :: Association -&gt; Maybe POSIX
+</span><a href="#local-6989586621679818513"><span class="hs-identifier hs-var hs-var">lastExecutionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679818513"><span class="hs-identifier hs-var">lastExecutionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818512"><span class="annot"><span class="annottext">s :: Association
+</span><a href="#local-6989586621679818512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818511"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679818511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Association
+</span><a href="#local-6989586621679818512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastExecutionDate:Association' :: Maybe POSIX
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AlastExecutionDate%3AAssociation%27"><span class="hs-identifier hs-var">lastExecutionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679818511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Association -&gt; f Association)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Association
+-&gt; f Association
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | A cron expression that specifies a schedule when the association runs.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- The schedule runs in Coordinated Universal Time (UTC).</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#association_scheduleExpression"><span class="hs-identifier hs-type">association_scheduleExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="association_scheduleExpression"><span class="annot"><span class="annottext">association_scheduleExpression :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Association -&gt; f Association
+</span><a href="Amazonka.SSM.Types.Association.html#association_scheduleExpression"><span class="hs-identifier hs-var hs-var">association_scheduleExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Association -&gt; Maybe Text)
+-&gt; (Association -&gt; Maybe Text -&gt; Association)
+-&gt; Lens Association Association (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818506"><span class="annot"><span class="annottext">Maybe Text
+scheduleExpression :: Maybe Text
+$sel:scheduleExpression:Association' :: Association -&gt; Maybe Text
+</span><a href="#local-6989586621679818506"><span class="hs-identifier hs-var hs-var">scheduleExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818506"><span class="hs-identifier hs-var">scheduleExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818505"><span class="annot"><span class="annottext">s :: Association
+</span><a href="#local-6989586621679818505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818504"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Association
+</span><a href="#local-6989586621679818505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleExpression:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AscheduleExpression%3AAssociation%27"><span class="hs-identifier hs-var">scheduleExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The name of the SSM document.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#association_name"><span class="hs-identifier hs-type">association_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="association_name"><span class="annot"><span class="annottext">association_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Association -&gt; f Association
+</span><a href="Amazonka.SSM.Types.Association.html#association_name"><span class="hs-identifier hs-var hs-var">association_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Association -&gt; Maybe Text)
+-&gt; (Association -&gt; Maybe Text -&gt; Association)
+-&gt; Lens Association Association (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818502"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Association' :: Association -&gt; Maybe Text
+</span><a href="#local-6989586621679818502"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818502"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818501"><span class="annot"><span class="annottext">s :: Association
+</span><a href="#local-6989586621679818501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818500"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Association
+</span><a href="#local-6989586621679818501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3Aname%3AAssociation%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The instances targeted by the request to create an association. You can</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- target all instances in an Amazon Web Services account by specifying the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- @InstanceIds@ key with a value of @*@.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#association_targets"><span class="hs-identifier hs-type">association_targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="association_targets"><span class="annot"><span class="annottext">association_targets :: (Maybe [Target] -&gt; f (Maybe [Target]))
+-&gt; Association -&gt; f Association
+</span><a href="Amazonka.SSM.Types.Association.html#association_targets"><span class="hs-identifier hs-var hs-var">association_targets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Association -&gt; Maybe [Target])
+-&gt; (Association -&gt; Maybe [Target] -&gt; Association)
+-&gt; Lens Association Association (Maybe [Target]) (Maybe [Target])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818498"><span class="annot"><span class="annottext">Maybe [Target]
+targets :: Maybe [Target]
+$sel:targets:Association' :: Association -&gt; Maybe [Target]
+</span><a href="#local-6989586621679818498"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
+</span><a href="#local-6989586621679818498"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818497"><span class="annot"><span class="annottext">s :: Association
+</span><a href="#local-6989586621679818497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818496"><span class="annot"><span class="annottext">Maybe [Target]
+</span><a href="#local-6989586621679818496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Association
+</span><a href="#local-6989586621679818497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:Association' :: Maybe [Target]
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3Atargets%3AAssociation%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
+</span><a href="#local-6989586621679818496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Target] -&gt; f (Maybe [Target]))
+ -&gt; Association -&gt; f Association)
+-&gt; ((Maybe [Target] -&gt; f (Maybe [Target]))
+    -&gt; Maybe [Target] -&gt; f (Maybe [Target]))
+-&gt; (Maybe [Target] -&gt; f (Maybe [Target]))
+-&gt; Association
+-&gt; f Association
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Target] [Target] [Target] [Target]
+-&gt; Iso
+     (Maybe [Target]) (Maybe [Target]) (Maybe [Target]) (Maybe [Target])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Target] [Target] [Target] [Target]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The version of the document used in the association.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#association_documentVersion"><span class="hs-identifier hs-type">association_documentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="association_documentVersion"><span class="annot"><span class="annottext">association_documentVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Association -&gt; f Association
+</span><a href="Amazonka.SSM.Types.Association.html#association_documentVersion"><span class="hs-identifier hs-var hs-var">association_documentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Association -&gt; Maybe Text)
+-&gt; (Association -&gt; Maybe Text -&gt; Association)
+-&gt; Lens Association Association (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818493"><span class="annot"><span class="annottext">Maybe Text
+documentVersion :: Maybe Text
+$sel:documentVersion:Association' :: Association -&gt; Maybe Text
+</span><a href="#local-6989586621679818493"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818493"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818492"><span class="annot"><span class="annottext">s :: Association
+</span><a href="#local-6989586621679818492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818491"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Association
+</span><a href="#local-6989586621679818492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentVersion:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AdocumentVersion%3AAssociation%27"><span class="hs-identifier hs-var">documentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The association version.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#association_associationVersion"><span class="hs-identifier hs-type">association_associationVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="association_associationVersion"><span class="annot"><span class="annottext">association_associationVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Association -&gt; f Association
+</span><a href="Amazonka.SSM.Types.Association.html#association_associationVersion"><span class="hs-identifier hs-var hs-var">association_associationVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Association -&gt; Maybe Text)
+-&gt; (Association -&gt; Maybe Text -&gt; Association)
+-&gt; Lens Association Association (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818489"><span class="annot"><span class="annottext">Maybe Text
+associationVersion :: Maybe Text
+$sel:associationVersion:Association' :: Association -&gt; Maybe Text
+</span><a href="#local-6989586621679818489"><span class="hs-identifier hs-var hs-var">associationVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818489"><span class="hs-identifier hs-var">associationVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818488"><span class="annot"><span class="annottext">s :: Association
+</span><a href="#local-6989586621679818488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Association
+</span><a href="#local-6989586621679818488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationVersion:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AassociationVersion%3AAssociation%27"><span class="hs-identifier hs-var">associationVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The association name.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#association_associationName"><span class="hs-identifier hs-type">association_associationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="association_associationName"><span class="annot"><span class="annottext">association_associationName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Association -&gt; f Association
+</span><a href="Amazonka.SSM.Types.Association.html#association_associationName"><span class="hs-identifier hs-var hs-var">association_associationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Association -&gt; Maybe Text)
+-&gt; (Association -&gt; Maybe Text -&gt; Association)
+-&gt; Lens Association Association (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818485"><span class="annot"><span class="annottext">Maybe Text
+associationName :: Maybe Text
+$sel:associationName:Association' :: Association -&gt; Maybe Text
+</span><a href="#local-6989586621679818485"><span class="hs-identifier hs-var hs-var">associationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818485"><span class="hs-identifier hs-var">associationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818484"><span class="annot"><span class="annottext">s :: Association
+</span><a href="#local-6989586621679818484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-type">Association'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818483"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Association
+</span><a href="#local-6989586621679818484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationName:Association' :: Maybe Text
+</span><a href="Amazonka.SSM.Types.Association.html#%24sel%3AassociationName%3AAssociation%27"><span class="hs-identifier hs-var">associationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679818480"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679818478"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Association
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Association) -&gt; Value -&gt; Parser Association
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Association&quot;</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679818475"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818475"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AssociationOverview
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Target]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Association
+</span><a href="Amazonka.SSM.Types.Association.html#Association%27"><span class="hs-identifier hs-var">Association'</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe AssociationOverview
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Target]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Association)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AssociationOverview
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Association)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssociationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AssociationOverview
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Association)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AssociationOverview
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Association)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AssociationOverview
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Association)
+-&gt; Parser (Maybe AssociationOverview)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Association)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AssociationOverview)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Overview&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Association)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Association)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastExecutionDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Association)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Association)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduleExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Association)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Target]
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Association)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Target]
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Association)
+-&gt; Parser (Maybe [Target])
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Association)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Target]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Target]))
+-&gt; Maybe [Target] -&gt; Parser (Maybe [Target])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Association)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Association)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Association)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Association)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssociationVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Association)
+-&gt; Parser (Maybe Text) -&gt; Parser Association
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssociationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679818468"><span id="local-6989586621679818470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679818465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.Association.html#Association"><span class="hs-identifier hs-type">Association</span></a></span></span><span>
+</span><span id="line-175"></span></pre></body></html>

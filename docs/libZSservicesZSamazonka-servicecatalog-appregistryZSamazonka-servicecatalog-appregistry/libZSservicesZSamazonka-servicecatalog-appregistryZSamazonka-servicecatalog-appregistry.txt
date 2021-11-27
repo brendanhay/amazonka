@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types.Application
+module Amazonka.ServiceCatalogAppRegistry.Types.Application
 
 -- | Represents a Amazon Web Services Service Catalog AppRegistry
 --   application that is the top-level node in a hierarchy of related cloud
@@ -97,16 +97,16 @@ application_description :: Lens' Application (Maybe Text)
 
 -- | Key-value pairs you can use to associate with the application.
 application_tags :: Lens' Application (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.Types.Application.Application
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.Types.Application.Application
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.Types.Application.Application
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.Types.Application.Application
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceCatalogAppRegistry.Types.Application.Application
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.Types.Application.Application
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.Types.Application.Application
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.Types.Application.Application
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.Types.Application.Application
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.Types.Application.Application
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.Types.Application.Application
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceCatalogAppRegistry.Types.Application.Application
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.Types.Application.Application
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.Types.Application.Application
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary
+module Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary
 
 -- | Summary of a Amazon Web Services Service Catalog AppRegistry
 --   application.
@@ -191,16 +191,16 @@ applicationSummary_lastUpdateTime :: Lens' ApplicationSummary (Maybe UTCTime)
 
 -- | The description of the application.
 applicationSummary_description :: Lens' ApplicationSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary.ApplicationSummary
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup
+module Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup
 
 -- | Represents a Amazon Web Services Service Catalog AppRegistry attribute
 --   group that is rich metadata which describes an application and its
@@ -296,16 +296,16 @@ attributeGroup_description :: Lens' AttributeGroup (Maybe Text)
 
 -- | Key-value pairs you can use to associate with the attribute group.
 attributeGroup_tags :: Lens' AttributeGroup (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup.AttributeGroup
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
+module Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
 
 -- | Summary of a Amazon Web Services Service Catalog AppRegistry attribute
 --   group.
@@ -392,16 +392,16 @@ attributeGroupSummary_lastUpdateTime :: Lens' AttributeGroupSummary (Maybe UTCTi
 
 -- | The description of the attribute group that the user provides.
 attributeGroupSummary_description :: Lens' AttributeGroupSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary.AttributeGroupSummary
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState
+module Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState
 newtype ResourceGroupState
 ResourceGroupState' :: Text -> ResourceGroupState
 [fromResourceGroupState] :: ResourceGroupState -> Text
@@ -411,28 +411,28 @@ pattern ResourceGroupState_CREATING :: ResourceGroupState
 pattern ResourceGroupState_UPDATE_COMPLETE :: ResourceGroupState
 pattern ResourceGroupState_UPDATE_FAILED :: ResourceGroupState
 pattern ResourceGroupState_UPDATING :: ResourceGroupState
-instance Network.AWS.Data.XML.ToXML Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Network.AWS.Data.XML.FromXML Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Network.AWS.Data.Log.ToLog Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Network.AWS.Data.Text.ToText Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Network.AWS.Data.Text.FromText Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance GHC.Classes.Ord Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Amazonka.Data.XML.ToXML Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Amazonka.Data.XML.FromXML Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Amazonka.Data.Headers.ToHeader Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Amazonka.Data.Log.ToLog Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Amazonka.Data.Text.ToText Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Amazonka.Data.Text.FromText Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance GHC.Classes.Ord Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState.ResourceGroupState
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroup
+module Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup
 
 -- | The information about the resource group integration.
 --   
@@ -530,16 +530,16 @@ resourceGroup_arn :: Lens' ResourceGroup (Maybe Text)
 -- | The error message that generates when the propagation process for the
 --   resource group fails.
 resourceGroup_errorMessage :: Lens' ResourceGroup (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup.ResourceGroup
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types.Integrations
+module Amazonka.ServiceCatalogAppRegistry.Types.Integrations
 
 -- | The information about the service integration.
 --   
@@ -566,16 +566,16 @@ newIntegrations :: Integrations
 
 -- | The information about the resource group integration.
 integrations_resourceGroup :: Lens' Integrations (Maybe ResourceGroup)
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.Types.Integrations.Integrations
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.Types.Integrations.Integrations
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.Types.Integrations.Integrations
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.Types.Integrations.Integrations
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceCatalogAppRegistry.Types.Integrations.Integrations
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.Types.Integrations.Integrations
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.Types.Integrations.Integrations
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.Types.Integrations.Integrations
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.Types.Integrations.Integrations
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.Types.Integrations.Integrations
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.Types.Integrations.Integrations
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceCatalogAppRegistry.Types.Integrations.Integrations
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.Types.Integrations.Integrations
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.Types.Integrations.Integrations
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo
+module Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo
 
 -- | The information about the resource.
 --   
@@ -612,16 +612,16 @@ resourceInfo_arn :: Lens' ResourceInfo (Maybe Text)
 
 -- | The name of the resource.
 resourceInfo_name :: Lens' ResourceInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo.ResourceInfo
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types.ResourceIntegrations
+module Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations
 
 -- | The service integration information about the resource.
 --   
@@ -648,16 +648,16 @@ newResourceIntegrations :: ResourceIntegrations
 
 -- | The information about the integration of Resource Groups.
 resourceIntegrations_resourceGroup :: Lens' ResourceIntegrations (Maybe ResourceGroup)
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations.ResourceIntegrations
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types.Resource
+module Amazonka.ServiceCatalogAppRegistry.Types.Resource
 
 -- | The information about the resource.
 --   
@@ -709,69 +709,69 @@ resource_associationTime :: Lens' Resource (Maybe UTCTime)
 
 -- | The name of the resource.
 resource_name :: Lens' Resource (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.Types.Resource.Resource
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.Types.Resource.Resource
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.Types.Resource.Resource
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.Types.Resource.Resource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceCatalogAppRegistry.Types.Resource.Resource
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.Types.Resource.Resource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.Types.Resource.Resource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.Types.Resource.Resource
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.Types.Resource.Resource
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.Types.Resource.Resource
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.Types.Resource.Resource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceCatalogAppRegistry.Types.Resource.Resource
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.Types.Resource.Resource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.Types.Resource.Resource
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType
+module Amazonka.ServiceCatalogAppRegistry.Types.ResourceType
 newtype ResourceType
 ResourceType' :: Text -> ResourceType
 [fromResourceType] :: ResourceType -> Text
 pattern ResourceType_CFN_STACK :: ResourceType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Network.AWS.Data.Text.ToText Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Network.AWS.Data.Text.FromText Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance GHC.Classes.Ord Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Amazonka.Data.XML.ToXML Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Amazonka.Data.XML.FromXML Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Amazonka.Data.Log.ToLog Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Amazonka.Data.Text.ToText Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Amazonka.Data.Text.FromText Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance GHC.Classes.Ord Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.Types.ResourceType.ResourceType
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction
+module Amazonka.ServiceCatalogAppRegistry.Types.SyncAction
 newtype SyncAction
 SyncAction' :: Text -> SyncAction
 [fromSyncAction] :: SyncAction -> Text
 pattern SyncAction_NO_ACTION :: SyncAction
 pattern SyncAction_START_SYNC :: SyncAction
-instance Network.AWS.Data.XML.ToXML Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Network.AWS.Data.XML.FromXML Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Network.AWS.Data.Log.ToLog Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Network.AWS.Data.Text.ToText Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Network.AWS.Data.Text.FromText Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance GHC.Classes.Ord Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Amazonka.Data.XML.ToXML Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Amazonka.Data.XML.FromXML Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Amazonka.Data.Headers.ToHeader Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Amazonka.Data.Log.ToLog Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Amazonka.Data.Text.ToText Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Amazonka.Data.Text.FromText Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance GHC.Classes.Ord Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.Types.SyncAction.SyncAction
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Types
+module Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | API version <tt>2020-06-24</tt> of the Amazon Service Catalog App
 --   Registry SDK configuration.
@@ -1411,7 +1411,7 @@ resourceIntegrations_resourceGroup :: Lens' ResourceIntegrations (Maybe Resource
 --   its value.
 --   
 --   This operation returns an empty response if the call was successful.
-module Network.AWS.ServiceCatalogAppRegistry.TagResource
+module Amazonka.ServiceCatalogAppRegistry.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1467,22 +1467,22 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.TagResource.TagResource
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.TagResource.TagResource
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceCatalogAppRegistry.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.TagResource.TagResource
 
 
 -- | Syncs the resource with current AppRegistry records.
@@ -1491,7 +1491,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.Ta
 --   associated application. We remove the resource's AppRegistry system
 --   tags if it does not associate with the application. The caller must
 --   have permissions to read and update the resource.
-module Network.AWS.ServiceCatalogAppRegistry.SyncResource
+module Amazonka.ServiceCatalogAppRegistry.SyncResource
 
 -- | <i>See:</i> <a>newSyncResource</a> smart constructor.
 data SyncResource
@@ -1588,26 +1588,26 @@ syncResourceResponse_resourceArn :: Lens' SyncResourceResponse (Maybe Text)
 
 -- | The response's http status code.
 syncResourceResponse_httpStatus :: Lens' SyncResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResource
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResource
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResource
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResource
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResourceResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResourceResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResourceResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.SyncResource.SyncResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResource
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResource
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResource
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResourceResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResourceResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResourceResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResource
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.SyncResource.SyncResource
 
 
 -- | Lists all of the tags on the resource.
-module Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource
+module Amazonka.ServiceCatalogAppRegistry.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1665,28 +1665,28 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists all attribute groups which you have access to. Results are
 --   paginated.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups
+module Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups
 
 -- | <i>See:</i> <a>newListAttributeGroups</a> smart constructor.
 data ListAttributeGroups
@@ -1774,29 +1774,29 @@ listAttributeGroupsResponse_nextToken :: Lens' ListAttributeGroupsResponse (Mayb
 
 -- | The response's http status code.
 listAttributeGroupsResponse_httpStatus :: Lens' ListAttributeGroupsResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroupsResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroupsResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroupsResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroupsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroupsResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroupsResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroupsResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroupsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups.ListAttributeGroups
 
 
 -- | Lists all resources that are associated with specified application.
 --   Results are paginated.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources
+module Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources
 
 -- | <i>See:</i> <a>newListAssociatedResources</a> smart constructor.
 data ListAssociatedResources
@@ -1895,29 +1895,29 @@ listAssociatedResourcesResponse_nextToken :: Lens' ListAssociatedResourcesRespon
 
 -- | The response's http status code.
 listAssociatedResourcesResponse_httpStatus :: Lens' ListAssociatedResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResourcesResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResourcesResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResourcesResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResourcesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResourcesResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResourcesResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResourcesResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResourcesResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources.ListAssociatedResources
 
 
 -- | Lists all attribute groups that are associated with specified
 --   application. Results are paginated.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
+module Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
 
 -- | <i>See:</i> <a>newListAssociatedAttributeGroups</a> smart constructor.
 data ListAssociatedAttributeGroups
@@ -2016,28 +2016,28 @@ listAssociatedAttributeGroupsResponse_nextToken :: Lens' ListAssociatedAttribute
 
 -- | The response's http status code.
 listAssociatedAttributeGroupsResponse_httpStatus :: Lens' ListAssociatedAttributeGroupsResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroupsResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroupsResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroupsResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroupsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroupsResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroupsResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroupsResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroupsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups.ListAssociatedAttributeGroups
 
 
 -- | Retrieves a list of all of your applications. Results are paginated.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ServiceCatalogAppRegistry.ListApplications
+module Amazonka.ServiceCatalogAppRegistry.ListApplications
 
 -- | <i>See:</i> <a>newListApplications</a> smart constructor.
 data ListApplications
@@ -2125,28 +2125,28 @@ listApplicationsResponse_applications :: Lens' ListApplicationsResponse (Maybe [
 
 -- | The response's http status code.
 listApplicationsResponse_httpStatus :: Lens' ListApplicationsResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplications
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplications
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplications
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplications
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplicationsResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplicationsResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplicationsResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplicationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplications
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplicationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplications
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplications
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplications
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplications
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplications
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.ListApplications.ListApplications
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplications
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplications
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplications
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplications
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplicationsResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplicationsResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplicationsResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplicationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplications
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplicationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplications
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplications
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplications
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplications
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplications
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.ListApplications.ListApplications
 
 
 -- | Retrieves an attribute group, either by its name or its ID. The
 --   attribute group can be specified either by its unique ID or by its
 --   name.
-module Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup
+module Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup
 
 -- | <i>See:</i> <a>newGetAttributeGroup</a> smart constructor.
 data GetAttributeGroup
@@ -2292,25 +2292,25 @@ getAttributeGroupResponse_tags :: Lens' GetAttributeGroupResponse (Maybe (HashMa
 
 -- | The response's http status code.
 getAttributeGroupResponse_httpStatus :: Lens' GetAttributeGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroupResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroupResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroupResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroupResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroupResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroupResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup.GetAttributeGroup
 
 
 -- | Gets the resource associated with the application.
-module Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource
+module Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource
 
 -- | <i>See:</i> <a>newGetAssociatedResource</a> smart constructor.
 data GetAssociatedResource
@@ -2389,21 +2389,21 @@ getAssociatedResourceResponse_resource :: Lens' GetAssociatedResourceResponse (M
 
 -- | The response's http status code.
 getAssociatedResourceResponse_httpStatus :: Lens' GetAssociatedResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResourceResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResourceResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResourceResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResourceResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResourceResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResourceResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource.GetAssociatedResource
 
 
 -- | Retrieves metadata information about one of your applications. The
@@ -2413,7 +2413,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.Ge
 --   that the exact same application is returned or a
 --   <tt>ResourceNotFoundException</tt> is thrown, avoiding the ABA
 --   addressing problem.
-module Network.AWS.ServiceCatalogAppRegistry.GetApplication
+module Amazonka.ServiceCatalogAppRegistry.GetApplication
 
 -- | <i>See:</i> <a>newGetApplication</a> smart constructor.
 data GetApplication
@@ -2564,26 +2564,26 @@ getApplicationResponse_tags :: Lens' GetApplicationResponse (Maybe (HashMap Text
 
 -- | The response's http status code.
 getApplicationResponse_httpStatus :: Lens' GetApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplication
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplication
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplication
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplication
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplicationResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplicationResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplication
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplication
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.GetApplication.GetApplication
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplication
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplication
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplication
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplication
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplicationResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplicationResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplicationResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplication
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplication
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.GetApplication.GetApplication
 
 
 -- | Disassociates a resource from application. Both the resource and the
 --   application can be specified either by ID or name.
-module Network.AWS.ServiceCatalogAppRegistry.DisassociateResource
+module Amazonka.ServiceCatalogAppRegistry.DisassociateResource
 
 -- | <i>See:</i> <a>newDisassociateResource</a> smart constructor.
 data DisassociateResource
@@ -2671,28 +2671,28 @@ disassociateResourceResponse_resourceArn :: Lens' DisassociateResourceResponse (
 
 -- | The response's http status code.
 disassociateResourceResponse_httpStatus :: Lens' DisassociateResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResourceResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResourceResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResourceResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResourceResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResourceResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResourceResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.DisassociateResource.DisassociateResource
 
 
 -- | Disassociates an attribute group from an application to remove the
 --   extra attributes contained in the attribute group from the
 --   application's metadata. This operation reverts
 --   <tt>AssociateAttributeGroup</tt>.
-module Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup
+module Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup
 
 -- | <i>See:</i> <a>newDisassociateAttributeGroup</a> smart constructor.
 data DisassociateAttributeGroup
@@ -2775,26 +2775,26 @@ disassociateAttributeGroupResponse_attributeGroupArn :: Lens' DisassociateAttrib
 
 -- | The response's http status code.
 disassociateAttributeGroupResponse_httpStatus :: Lens' DisassociateAttributeGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroupResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroupResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroupResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroupResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroupResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroupResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup.DisassociateAttributeGroup
 
 
 -- | Deletes an attribute group, specified either by its attribute group ID
 --   or name.
-module Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup
+module Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup
 
 -- | <i>See:</i> <a>newDeleteAttributeGroup</a> smart constructor.
 data DeleteAttributeGroup
@@ -2855,27 +2855,27 @@ deleteAttributeGroupResponse_attributeGroup :: Lens' DeleteAttributeGroupRespons
 
 -- | The response's http status code.
 deleteAttributeGroupResponse_httpStatus :: Lens' DeleteAttributeGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroupResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroupResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroupResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroupResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroupResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroupResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup.DeleteAttributeGroup
 
 
 -- | Deletes an application that is specified either by its application ID
 --   or name. All associated attribute groups and resources must be
 --   disassociated from it before deleting an application.
-module Network.AWS.ServiceCatalogAppRegistry.DeleteApplication
+module Amazonka.ServiceCatalogAppRegistry.DeleteApplication
 
 -- | <i>See:</i> <a>newDeleteApplication</a> smart constructor.
 data DeleteApplication
@@ -2934,28 +2934,28 @@ deleteApplicationResponse_application :: Lens' DeleteApplicationResponse (Maybe 
 
 -- | The response's http status code.
 deleteApplicationResponse_httpStatus :: Lens' DeleteApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplicationResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplicationResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplicationResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplicationResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplicationResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.DeleteApplication.DeleteApplication
 
 
 -- | Creates a new attribute group as a container for user-defined
 --   attributes. This feature enables users to have full control over their
 --   cloud application's metadata in a rich machine-readable format to
 --   facilitate integration with automated workflows and third-party tools.
-module Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup
+module Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup
 
 -- | <i>See:</i> <a>newCreateAttributeGroup</a> smart constructor.
 data CreateAttributeGroup
@@ -3072,27 +3072,27 @@ createAttributeGroupResponse_attributeGroup :: Lens' CreateAttributeGroupRespons
 
 -- | The response's http status code.
 createAttributeGroupResponse_httpStatus :: Lens' CreateAttributeGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroupResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroupResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroupResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroupResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroupResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroupResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup.CreateAttributeGroup
 
 
 -- | Creates a new application that is the top-level node in a hierarchy of
 --   related cloud resource abstractions.
-module Network.AWS.ServiceCatalogAppRegistry.CreateApplication
+module Amazonka.ServiceCatalogAppRegistry.CreateApplication
 
 -- | <i>See:</i> <a>newCreateApplication</a> smart constructor.
 data CreateApplication
@@ -3196,27 +3196,27 @@ createApplicationResponse_application :: Lens' CreateApplicationResponse (Maybe 
 
 -- | The response's http status code.
 createApplicationResponse_httpStatus :: Lens' CreateApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplicationResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplicationResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplicationResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplicationResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplicationResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.CreateApplication.CreateApplication
 
 
 -- | Associates a resource with an application. Both the resource and the
 --   application can be specified either by ID or name.
-module Network.AWS.ServiceCatalogAppRegistry.AssociateResource
+module Amazonka.ServiceCatalogAppRegistry.AssociateResource
 
 -- | <i>See:</i> <a>newAssociateResource</a> smart constructor.
 data AssociateResource
@@ -3309,29 +3309,29 @@ associateResourceResponse_resourceArn :: Lens' AssociateResourceResponse (Maybe 
 
 -- | The response's http status code.
 associateResourceResponse_httpStatus :: Lens' AssociateResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResourceResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResourceResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResourceResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResourceResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResourceResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResourceResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.AssociateResource.AssociateResource
 
 
 -- | Associates an attribute group with an application to augment the
 --   application's metadata with the group's attributes. This feature
 --   enables applications to be described with user-defined details that
 --   are machine-readable, such as third-party integrations.
-module Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup
+module Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup
 
 -- | <i>See:</i> <a>newAssociateAttributeGroup</a> smart constructor.
 data AssociateAttributeGroup
@@ -3419,28 +3419,28 @@ associateAttributeGroupResponse_attributeGroupArn :: Lens' AssociateAttributeGro
 
 -- | The response's http status code.
 associateAttributeGroupResponse_httpStatus :: Lens' AssociateAttributeGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroupResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroupResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroupResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroupResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroupResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroupResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup.AssociateAttributeGroup
 
 
 -- | Removes tags from a resource.
 --   
 --   This operation returns an empty response if the call was successful.
-module Network.AWS.ServiceCatalogAppRegistry.UntagResource
+module Amazonka.ServiceCatalogAppRegistry.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -3498,25 +3498,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.UntagResource.UntagResource
 
 
 -- | Updates an existing application with new attributes.
-module Network.AWS.ServiceCatalogAppRegistry.UpdateApplication
+module Amazonka.ServiceCatalogAppRegistry.UpdateApplication
 
 -- | <i>See:</i> <a>newUpdateApplication</a> smart constructor.
 data UpdateApplication
@@ -3597,26 +3597,26 @@ updateApplicationResponse_application :: Lens' UpdateApplicationResponse (Maybe 
 
 -- | The response's http status code.
 updateApplicationResponse_httpStatus :: Lens' UpdateApplicationResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplicationResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplicationResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplicationResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplicationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplicationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplicationResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplicationResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplicationResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplicationResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplicationResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.UpdateApplication.UpdateApplication
 
 
 -- | Updates an existing attribute group with new details.
-module Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup
+module Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup
 
 -- | <i>See:</i> <a>newUpdateAttributeGroup</a> smart constructor.
 data UpdateAttributeGroup
@@ -3715,25 +3715,25 @@ updateAttributeGroupResponse_attributeGroup :: Lens' UpdateAttributeGroupRespons
 
 -- | The response's http status code.
 updateAttributeGroupResponse_httpStatus :: Lens' UpdateAttributeGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
-instance GHC.Generics.Generic Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroupResponse
-instance GHC.Show.Show Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroupResponse
-instance GHC.Read.Read Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroupResponse
-instance GHC.Classes.Eq Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
-instance Control.DeepSeq.NFData Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
+instance GHC.Generics.Generic Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroupResponse
+instance GHC.Show.Show Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroupResponse
+instance GHC.Read.Read Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroupResponse
+instance GHC.Classes.Eq Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
+instance Control.DeepSeq.NFData Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
+instance Amazonka.Data.Path.ToPath Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup.UpdateAttributeGroup
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Lens
+module Amazonka.ServiceCatalogAppRegistry.Lens
 
 -- | The name or ID of the application.
 associateAttributeGroup_application :: Lens' AssociateAttributeGroup Text
@@ -4284,7 +4284,7 @@ resourceInfo_name :: Lens' ResourceInfo (Maybe Text)
 resourceIntegrations_resourceGroup :: Lens' ResourceIntegrations (Maybe ResourceGroup)
 
 
-module Network.AWS.ServiceCatalogAppRegistry.Waiters
+module Amazonka.ServiceCatalogAppRegistry.Waiters
 
 
 -- | Derived from API version <tt>2020-06-24</tt> of the AWS service
@@ -4295,7 +4295,7 @@ module Network.AWS.ServiceCatalogAppRegistry.Waiters
 --   resources. AppRegistry provides a repository of your applications,
 --   their resources, and the application metadata that you use within your
 --   enterprise.
-module Network.AWS.ServiceCatalogAppRegistry
+module Amazonka.ServiceCatalogAppRegistry
 
 -- | API version <tt>2020-06-24</tt> of the Amazon Service Catalog App
 --   Registry SDK configuration.

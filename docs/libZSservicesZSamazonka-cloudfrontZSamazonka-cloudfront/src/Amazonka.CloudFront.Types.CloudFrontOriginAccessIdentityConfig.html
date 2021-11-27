@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Origin access identity configuration. Send a @GET@ request to the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @\/CloudFront API version\/CloudFront\/identity ID\/config@ resource.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCloudFrontOriginAccessIdentityConfig' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679387760"><span id="local-6989586621679387761"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudFrontOriginAccessIdentityConfig"><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig"><span class="hs-identifier hs-var">CloudFrontOriginAccessIdentityConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudFrontOriginAccessIdentityConfig%27"><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-var">CloudFrontOriginAccessIdentityConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique value (for example, a date-time stamp) that ensures that the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- request can\'t be replayed.</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- If the value of @CallerReference@ is new (regardless of the content of</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the @CloudFrontOriginAccessIdentityConfig@ object), a new origin access</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- identity is created.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- If the @CallerReference@ is a value already sent in a previous identity</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- request, and the content of the @CloudFrontOriginAccessIdentityConfig@</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- is identical to the original request (ignoring white space), the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- response includes the same information returned to the original request.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- If the @CallerReference@ is a value you already sent in a previous</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- request to create an identity, but the content of the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @CloudFrontOriginAccessIdentityConfig@ is different from the original</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- request, CloudFront returns a</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @CloudFrontOriginAccessIdentityAlreadyExists@ error.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcallerReference%3ACloudFrontOriginAccessIdentityConfig%27"><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityConfig -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#%24sel%3AcallerReference%3ACloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A comment to describe the origin access identity. The comment cannot be</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- longer than 128 characters.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Acomment%3ACloudFrontOriginAccessIdentityConfig%27"><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityConfig -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#%24sel%3Acomment%3ACloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387753"><span id="local-6989586621679387755"><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityConfig
+-&gt; CloudFrontOriginAccessIdentityConfig -&gt; Bool
+(CloudFrontOriginAccessIdentityConfig
+ -&gt; CloudFrontOriginAccessIdentityConfig -&gt; Bool)
+-&gt; (CloudFrontOriginAccessIdentityConfig
+    -&gt; CloudFrontOriginAccessIdentityConfig -&gt; Bool)
+-&gt; Eq CloudFrontOriginAccessIdentityConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CloudFrontOriginAccessIdentityConfig
+-&gt; CloudFrontOriginAccessIdentityConfig -&gt; Bool
+$c/= :: CloudFrontOriginAccessIdentityConfig
+-&gt; CloudFrontOriginAccessIdentityConfig -&gt; Bool
+== :: CloudFrontOriginAccessIdentityConfig
+-&gt; CloudFrontOriginAccessIdentityConfig -&gt; Bool
+$c== :: CloudFrontOriginAccessIdentityConfig
+-&gt; CloudFrontOriginAccessIdentityConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387744"><span id="local-6989586621679387746"><span id="local-6989586621679387748"><span id="local-6989586621679387750"><span class="annot"><span class="annottext">ReadPrec [CloudFrontOriginAccessIdentityConfig]
+ReadPrec CloudFrontOriginAccessIdentityConfig
+Int -&gt; ReadS CloudFrontOriginAccessIdentityConfig
+ReadS [CloudFrontOriginAccessIdentityConfig]
+(Int -&gt; ReadS CloudFrontOriginAccessIdentityConfig)
+-&gt; ReadS [CloudFrontOriginAccessIdentityConfig]
+-&gt; ReadPrec CloudFrontOriginAccessIdentityConfig
+-&gt; ReadPrec [CloudFrontOriginAccessIdentityConfig]
+-&gt; Read CloudFrontOriginAccessIdentityConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CloudFrontOriginAccessIdentityConfig]
+$creadListPrec :: ReadPrec [CloudFrontOriginAccessIdentityConfig]
+readPrec :: ReadPrec CloudFrontOriginAccessIdentityConfig
+$creadPrec :: ReadPrec CloudFrontOriginAccessIdentityConfig
+readList :: ReadS [CloudFrontOriginAccessIdentityConfig]
+$creadList :: ReadS [CloudFrontOriginAccessIdentityConfig]
+readsPrec :: Int -&gt; ReadS CloudFrontOriginAccessIdentityConfig
+$creadsPrec :: Int -&gt; ReadS CloudFrontOriginAccessIdentityConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387737"><span id="local-6989586621679387739"><span id="local-6989586621679387741"><span class="annot"><span class="annottext">Int -&gt; CloudFrontOriginAccessIdentityConfig -&gt; ShowS
+[CloudFrontOriginAccessIdentityConfig] -&gt; ShowS
+CloudFrontOriginAccessIdentityConfig -&gt; String
+(Int -&gt; CloudFrontOriginAccessIdentityConfig -&gt; ShowS)
+-&gt; (CloudFrontOriginAccessIdentityConfig -&gt; String)
+-&gt; ([CloudFrontOriginAccessIdentityConfig] -&gt; ShowS)
+-&gt; Show CloudFrontOriginAccessIdentityConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CloudFrontOriginAccessIdentityConfig] -&gt; ShowS
+$cshowList :: [CloudFrontOriginAccessIdentityConfig] -&gt; ShowS
+show :: CloudFrontOriginAccessIdentityConfig -&gt; String
+$cshow :: CloudFrontOriginAccessIdentityConfig -&gt; String
+showsPrec :: Int -&gt; CloudFrontOriginAccessIdentityConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; CloudFrontOriginAccessIdentityConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CloudFrontOriginAccessIdentityConfig
+ -&gt; Rep CloudFrontOriginAccessIdentityConfig x)
+-&gt; (forall x.
+    Rep CloudFrontOriginAccessIdentityConfig x
+    -&gt; CloudFrontOriginAccessIdentityConfig)
+-&gt; Generic CloudFrontOriginAccessIdentityConfig
+forall x.
+Rep CloudFrontOriginAccessIdentityConfig x
+-&gt; CloudFrontOriginAccessIdentityConfig
+forall x.
+CloudFrontOriginAccessIdentityConfig
+-&gt; Rep CloudFrontOriginAccessIdentityConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CloudFrontOriginAccessIdentityConfig x
+-&gt; CloudFrontOriginAccessIdentityConfig
+$cfrom :: forall x.
+CloudFrontOriginAccessIdentityConfig
+-&gt; Rep CloudFrontOriginAccessIdentityConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'CloudFrontOriginAccessIdentityConfig' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'callerReference', 'cloudFrontOriginAccessIdentityConfig_callerReference' - A unique value (for example, a date-time stamp) that ensures that the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- request can\'t be replayed.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- If the value of @CallerReference@ is new (regardless of the content of</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- the @CloudFrontOriginAccessIdentityConfig@ object), a new origin access</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- identity is created.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- If the @CallerReference@ is a value already sent in a previous identity</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- request, and the content of the @CloudFrontOriginAccessIdentityConfig@</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- is identical to the original request (ignoring white space), the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- response includes the same information returned to the original request.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- If the @CallerReference@ is a value you already sent in a previous</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- request to create an identity, but the content of the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- @CloudFrontOriginAccessIdentityConfig@ is different from the original</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- request, CloudFront returns a</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @CloudFrontOriginAccessIdentityAlreadyExists@ error.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'comment', 'cloudFrontOriginAccessIdentityConfig_comment' - A comment to describe the origin access identity. The comment cannot be</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- longer than 128 characters.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#newCloudFrontOriginAccessIdentityConfig"><span class="hs-identifier hs-type">newCloudFrontOriginAccessIdentityConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'callerReference'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'comment'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig</span></a></span><span>
+</span><span id="line-89"></span><span id="newCloudFrontOriginAccessIdentityConfig"><span class="annot"><span class="annottext">newCloudFrontOriginAccessIdentityConfig :: Text -&gt; Text -&gt; CloudFrontOriginAccessIdentityConfig
+</span><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#newCloudFrontOriginAccessIdentityConfig"><span class="hs-identifier hs-var hs-var">newCloudFrontOriginAccessIdentityConfig</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679387731"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387731"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679387730"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387730"><span class="hs-identifier hs-var">pComment_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityConfig' :: Text -&gt; Text -&gt; CloudFrontOriginAccessIdentityConfig
+</span><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig'</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:callerReference:CloudFrontOriginAccessIdentityConfig' :: Text
+</span><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#%24sel%3AcallerReference%3ACloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387731"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:comment:CloudFrontOriginAccessIdentityConfig' :: Text
+</span><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#%24sel%3Acomment%3ACloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387730"><span class="hs-identifier hs-var">pComment_</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | A unique value (for example, a date-time stamp) that ensures that the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- request can\'t be replayed.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- If the value of @CallerReference@ is new (regardless of the content of</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the @CloudFrontOriginAccessIdentityConfig@ object), a new origin access</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- identity is created.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- If the @CallerReference@ is a value already sent in a previous identity</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- request, and the content of the @CloudFrontOriginAccessIdentityConfig@</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- is identical to the original request (ignoring white space), the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- response includes the same information returned to the original request.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- If the @CallerReference@ is a value you already sent in a previous</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- request to create an identity, but the content of the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- @CloudFrontOriginAccessIdentityConfig@ is different from the original</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- request, CloudFront returns a</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @CloudFrontOriginAccessIdentityAlreadyExists@ error.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#cloudFrontOriginAccessIdentityConfig_callerReference"><span class="hs-identifier hs-type">cloudFrontOriginAccessIdentityConfig_callerReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="cloudFrontOriginAccessIdentityConfig_callerReference"><span class="annot"><span class="annottext">cloudFrontOriginAccessIdentityConfig_callerReference :: (Text -&gt; f Text)
+-&gt; CloudFrontOriginAccessIdentityConfig
+-&gt; f CloudFrontOriginAccessIdentityConfig
+</span><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#cloudFrontOriginAccessIdentityConfig_callerReference"><span class="hs-identifier hs-var hs-var">cloudFrontOriginAccessIdentityConfig_callerReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFrontOriginAccessIdentityConfig -&gt; Text)
+-&gt; (CloudFrontOriginAccessIdentityConfig
+    -&gt; Text -&gt; CloudFrontOriginAccessIdentityConfig)
+-&gt; Lens
+     CloudFrontOriginAccessIdentityConfig
+     CloudFrontOriginAccessIdentityConfig
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387726"><span class="annot"><span class="annottext">Text
+callerReference :: Text
+$sel:callerReference:CloudFrontOriginAccessIdentityConfig' :: CloudFrontOriginAccessIdentityConfig -&gt; Text
+</span><a href="#local-6989586621679387726"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387726"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387725"><span class="annot"><span class="annottext">s :: CloudFrontOriginAccessIdentityConfig
+</span><a href="#local-6989586621679387725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityConfig
+</span><a href="#local-6989586621679387725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:CloudFrontOriginAccessIdentityConfig' :: Text
+</span><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#%24sel%3AcallerReference%3ACloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | A comment to describe the origin access identity. The comment cannot be</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- longer than 128 characters.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#cloudFrontOriginAccessIdentityConfig_comment"><span class="hs-identifier hs-type">cloudFrontOriginAccessIdentityConfig_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span id="cloudFrontOriginAccessIdentityConfig_comment"><span class="annot"><span class="annottext">cloudFrontOriginAccessIdentityConfig_comment :: (Text -&gt; f Text)
+-&gt; CloudFrontOriginAccessIdentityConfig
+-&gt; f CloudFrontOriginAccessIdentityConfig
+</span><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#cloudFrontOriginAccessIdentityConfig_comment"><span class="hs-identifier hs-var hs-var">cloudFrontOriginAccessIdentityConfig_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFrontOriginAccessIdentityConfig -&gt; Text)
+-&gt; (CloudFrontOriginAccessIdentityConfig
+    -&gt; Text -&gt; CloudFrontOriginAccessIdentityConfig)
+-&gt; Lens
+     CloudFrontOriginAccessIdentityConfig
+     CloudFrontOriginAccessIdentityConfig
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387722"><span class="annot"><span class="annottext">Text
+comment :: Text
+$sel:comment:CloudFrontOriginAccessIdentityConfig' :: CloudFrontOriginAccessIdentityConfig -&gt; Text
+</span><a href="#local-6989586621679387722"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387722"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387721"><span class="annot"><span class="annottext">s :: CloudFrontOriginAccessIdentityConfig
+</span><a href="#local-6989586621679387721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityConfig
+</span><a href="#local-6989586621679387721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:CloudFrontOriginAccessIdentityConfig' :: Text
+</span><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#%24sel%3Acomment%3ACloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679387717"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CloudFrontOriginAccessIdentityConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679387715"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679387715"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; CloudFrontOriginAccessIdentityConfig
+</span><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-var">CloudFrontOriginAccessIdentityConfig'</span></a></span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; CloudFrontOriginAccessIdentityConfig)
+-&gt; Either String Text
+-&gt; Either String (Text -&gt; CloudFrontOriginAccessIdentityConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679387715"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CallerReference&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; CloudFrontOriginAccessIdentityConfig)
+-&gt; Either String Text
+-&gt; Either String CloudFrontOriginAccessIdentityConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679387715"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Comment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679387709"><span id="local-6989586621679387711"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679387706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679387702"><span class="annot"><span class="annottext">toXML :: CloudFrontOriginAccessIdentityConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CloudFrontOriginAccessIdentityConfig.html#CloudFrontOriginAccessIdentityConfig%27"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387699"><span id="local-6989586621679387700"><span class="annot"><span class="annottext">Text
+comment :: Text
+callerReference :: Text
+$sel:comment:CloudFrontOriginAccessIdentityConfig' :: CloudFrontOriginAccessIdentityConfig -&gt; Text
+$sel:callerReference:CloudFrontOriginAccessIdentityConfig' :: CloudFrontOriginAccessIdentityConfig -&gt; Text
+</span><a href="#local-6989586621679387699"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;CallerReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387700"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Comment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387699"><span class="hs-identifier hs-var">comment</span></a></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span></pre></body></html>

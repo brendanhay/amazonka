@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.StorageGateway.Types.PoolInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StorageGateway.Types.PoolInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolStatus.html"><span class="hs-identifier">Amazonka.StorageGateway.Types.PoolStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.RetentionLockType.html"><span class="hs-identifier">Amazonka.StorageGateway.Types.RetentionLockType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.TapeStorageClass.html"><span class="hs-identifier">Amazonka.StorageGateway.Types.TapeStorageClass</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes a custom tape pool.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPoolInfo' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679375128"><span id="local-6989586621679375129"></span></span><span class="hs-keyword">data</span><span> </span><span id="PoolInfo"><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-var">PoolInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PoolInfo%27"><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-var">PoolInfo'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Tape retention lock type, which can be configured in two modes. When</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- configured in governance mode, Amazon Web Services accounts with</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- specific IAM permissions are authorized to remove the tape retention</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- lock from archived virtual tapes. When configured in compliance mode,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the tape retention lock cannot be removed by any user, including the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- root Amazon Web Services account.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AretentionLockType%3APoolInfo%27"><span class="annot"><span class="annottext">PoolInfo -&gt; Maybe RetentionLockType
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3AretentionLockType%3APoolInfo%27"><span class="hs-identifier hs-var hs-var">retentionLockType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.RetentionLockType.html#RetentionLockType"><span class="hs-identifier hs-type">RetentionLockType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Tape retention lock time is set in days. Tape retention lock can be</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- enabled for up to 100 years (36,500 days).</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AretentionLockTimeInDays%3APoolInfo%27"><span class="annot"><span class="annottext">PoolInfo -&gt; Maybe Natural
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3AretentionLockTimeInDays%3APoolInfo%27"><span class="hs-identifier hs-var hs-var">retentionLockTimeInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the custom tape pool. @PoolName@ can use all ASCII</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- characters, except \'\/\' and \'\\\'.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3ApoolName%3APoolInfo%27"><span class="annot"><span class="annottext">PoolInfo -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3ApoolName%3APoolInfo%27"><span class="hs-identifier hs-var hs-var">poolName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The storage class that is associated with the custom pool. When you use</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- your backup application to eject the tape, the tape is archived directly</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- into the storage class (S3 Glacier or S3 Glacier Deep Archive) that</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- corresponds to the pool.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AstorageClass%3APoolInfo%27"><span class="annot"><span class="annottext">PoolInfo -&gt; Maybe TapeStorageClass
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3AstorageClass%3APoolInfo%27"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.TapeStorageClass.html#TapeStorageClass"><span class="hs-identifier hs-type">TapeStorageClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3ApoolStatus%3APoolInfo%27"><span class="annot"><span class="annottext">PoolInfo -&gt; Maybe PoolStatus
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3ApoolStatus%3APoolInfo%27"><span class="hs-identifier hs-var hs-var">poolStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolStatus.html#PoolStatus"><span class="hs-identifier hs-type">PoolStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the custom tape pool. Use the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- ListTapePools operation to return a list of custom tape pools for your</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- account and Amazon Web Services Region.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3ApoolARN%3APoolInfo%27"><span class="annot"><span class="annottext">PoolInfo -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3ApoolARN%3APoolInfo%27"><span class="hs-identifier hs-var hs-var">poolARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375117"><span id="local-6989586621679375119"><span class="annot"><span class="annottext">PoolInfo -&gt; PoolInfo -&gt; Bool
+(PoolInfo -&gt; PoolInfo -&gt; Bool)
+-&gt; (PoolInfo -&gt; PoolInfo -&gt; Bool) -&gt; Eq PoolInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PoolInfo -&gt; PoolInfo -&gt; Bool
+$c/= :: PoolInfo -&gt; PoolInfo -&gt; Bool
+== :: PoolInfo -&gt; PoolInfo -&gt; Bool
+$c== :: PoolInfo -&gt; PoolInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375108"><span id="local-6989586621679375110"><span id="local-6989586621679375112"><span id="local-6989586621679375114"><span class="annot"><span class="annottext">ReadPrec [PoolInfo]
+ReadPrec PoolInfo
+Int -&gt; ReadS PoolInfo
+ReadS [PoolInfo]
+(Int -&gt; ReadS PoolInfo)
+-&gt; ReadS [PoolInfo]
+-&gt; ReadPrec PoolInfo
+-&gt; ReadPrec [PoolInfo]
+-&gt; Read PoolInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PoolInfo]
+$creadListPrec :: ReadPrec [PoolInfo]
+readPrec :: ReadPrec PoolInfo
+$creadPrec :: ReadPrec PoolInfo
+readList :: ReadS [PoolInfo]
+$creadList :: ReadS [PoolInfo]
+readsPrec :: Int -&gt; ReadS PoolInfo
+$creadsPrec :: Int -&gt; ReadS PoolInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375101"><span id="local-6989586621679375103"><span id="local-6989586621679375105"><span class="annot"><span class="annottext">Int -&gt; PoolInfo -&gt; ShowS
+[PoolInfo] -&gt; ShowS
+PoolInfo -&gt; String
+(Int -&gt; PoolInfo -&gt; ShowS)
+-&gt; (PoolInfo -&gt; String) -&gt; ([PoolInfo] -&gt; ShowS) -&gt; Show PoolInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PoolInfo] -&gt; ShowS
+$cshowList :: [PoolInfo] -&gt; ShowS
+show :: PoolInfo -&gt; String
+$cshow :: PoolInfo -&gt; String
+showsPrec :: Int -&gt; PoolInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; PoolInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PoolInfo -&gt; Rep PoolInfo x)
+-&gt; (forall x. Rep PoolInfo x -&gt; PoolInfo) -&gt; Generic PoolInfo
+forall x. Rep PoolInfo x -&gt; PoolInfo
+forall x. PoolInfo -&gt; Rep PoolInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PoolInfo x -&gt; PoolInfo
+$cfrom :: forall x. PoolInfo -&gt; Rep PoolInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'PoolInfo' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'retentionLockType', 'poolInfo_retentionLockType' - Tape retention lock type, which can be configured in two modes. When</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- configured in governance mode, Amazon Web Services accounts with</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- specific IAM permissions are authorized to remove the tape retention</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- lock from archived virtual tapes. When configured in compliance mode,</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the tape retention lock cannot be removed by any user, including the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- root Amazon Web Services account.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'retentionLockTimeInDays', 'poolInfo_retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- enabled for up to 100 years (36,500 days).</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'poolName', 'poolInfo_poolName' - The name of the custom tape pool. @PoolName@ can use all ASCII</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- characters, except \'\/\' and \'\\\'.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'storageClass', 'poolInfo_storageClass' - The storage class that is associated with the custom pool. When you use</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- your backup application to eject the tape, the tape is archived directly</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- into the storage class (S3 Glacier or S3 Glacier Deep Archive) that</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- corresponds to the pool.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'poolStatus', 'poolInfo_poolStatus' - Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'poolARN', 'poolInfo_poolARN' - The Amazon Resource Name (ARN) of the custom tape pool. Use the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- ListTapePools operation to return a list of custom tape pools for your</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- account and Amazon Web Services Region.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#newPoolInfo"><span class="hs-identifier hs-type">newPoolInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span>
+</span><span id="line-93"></span><span id="newPoolInfo"><span class="annot"><span class="annottext">newPoolInfo :: PoolInfo
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#newPoolInfo"><span class="hs-identifier hs-var hs-var">newPoolInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">PoolInfo' :: Maybe RetentionLockType
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe TapeStorageClass
+-&gt; Maybe PoolStatus
+-&gt; Maybe Text
+-&gt; PoolInfo
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:retentionLockType:PoolInfo' :: Maybe RetentionLockType
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3AretentionLockType%3APoolInfo%27"><span class="hs-identifier hs-var">retentionLockType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionLockType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:retentionLockTimeInDays:PoolInfo' :: Maybe Natural
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3AretentionLockTimeInDays%3APoolInfo%27"><span class="hs-identifier hs-var">retentionLockTimeInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolName:PoolInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3ApoolName%3APoolInfo%27"><span class="hs-identifier hs-var">poolName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageClass:PoolInfo' :: Maybe TapeStorageClass
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3AstorageClass%3APoolInfo%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TapeStorageClass
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolStatus:PoolInfo' :: Maybe PoolStatus
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3ApoolStatus%3APoolInfo%27"><span class="hs-identifier hs-var">poolStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PoolStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolARN:PoolInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3ApoolARN%3APoolInfo%27"><span class="hs-identifier hs-var">poolARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Tape retention lock type, which can be configured in two modes. When</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- configured in governance mode, Amazon Web Services accounts with</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- specific IAM permissions are authorized to remove the tape retention</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- lock from archived virtual tapes. When configured in compliance mode,</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- the tape retention lock cannot be removed by any user, including the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- root Amazon Web Services account.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#poolInfo_retentionLockType"><span class="hs-identifier hs-type">poolInfo_retentionLockType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.RetentionLockType.html#RetentionLockType"><span class="hs-identifier hs-type">RetentionLockType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="poolInfo_retentionLockType"><span class="annot"><span class="annottext">poolInfo_retentionLockType :: (Maybe RetentionLockType -&gt; f (Maybe RetentionLockType))
+-&gt; PoolInfo -&gt; f PoolInfo
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#poolInfo_retentionLockType"><span class="hs-identifier hs-var hs-var">poolInfo_retentionLockType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PoolInfo -&gt; Maybe RetentionLockType)
+-&gt; (PoolInfo -&gt; Maybe RetentionLockType -&gt; PoolInfo)
+-&gt; Lens
+     PoolInfo
+     PoolInfo
+     (Maybe RetentionLockType)
+     (Maybe RetentionLockType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375092"><span class="annot"><span class="annottext">Maybe RetentionLockType
+retentionLockType :: Maybe RetentionLockType
+$sel:retentionLockType:PoolInfo' :: PoolInfo -&gt; Maybe RetentionLockType
+</span><a href="#local-6989586621679375092"><span class="hs-identifier hs-var hs-var">retentionLockType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionLockType
+</span><a href="#local-6989586621679375092"><span class="hs-identifier hs-var">retentionLockType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375091"><span class="annot"><span class="annottext">s :: PoolInfo
+</span><a href="#local-6989586621679375091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375090"><span class="annot"><span class="annottext">Maybe RetentionLockType
+</span><a href="#local-6989586621679375090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PoolInfo
+</span><a href="#local-6989586621679375091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionLockType:PoolInfo' :: Maybe RetentionLockType
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3AretentionLockType%3APoolInfo%27"><span class="hs-identifier hs-var">retentionLockType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionLockType
+</span><a href="#local-6989586621679375090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Tape retention lock time is set in days. Tape retention lock can be</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- enabled for up to 100 years (36,500 days).</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#poolInfo_retentionLockTimeInDays"><span class="hs-identifier hs-type">poolInfo_retentionLockTimeInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="poolInfo_retentionLockTimeInDays"><span class="annot"><span class="annottext">poolInfo_retentionLockTimeInDays :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; PoolInfo -&gt; f PoolInfo
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#poolInfo_retentionLockTimeInDays"><span class="hs-identifier hs-var hs-var">poolInfo_retentionLockTimeInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PoolInfo -&gt; Maybe Natural)
+-&gt; (PoolInfo -&gt; Maybe Natural -&gt; PoolInfo)
+-&gt; Lens PoolInfo PoolInfo (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375088"><span class="annot"><span class="annottext">Maybe Natural
+retentionLockTimeInDays :: Maybe Natural
+$sel:retentionLockTimeInDays:PoolInfo' :: PoolInfo -&gt; Maybe Natural
+</span><a href="#local-6989586621679375088"><span class="hs-identifier hs-var hs-var">retentionLockTimeInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679375088"><span class="hs-identifier hs-var">retentionLockTimeInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375087"><span class="annot"><span class="annottext">s :: PoolInfo
+</span><a href="#local-6989586621679375087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375086"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679375086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PoolInfo
+</span><a href="#local-6989586621679375087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionLockTimeInDays:PoolInfo' :: Maybe Natural
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3AretentionLockTimeInDays%3APoolInfo%27"><span class="hs-identifier hs-var">retentionLockTimeInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679375086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The name of the custom tape pool. @PoolName@ can use all ASCII</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- characters, except \'\/\' and \'\\\'.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#poolInfo_poolName"><span class="hs-identifier hs-type">poolInfo_poolName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="poolInfo_poolName"><span class="annot"><span class="annottext">poolInfo_poolName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PoolInfo -&gt; f PoolInfo
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#poolInfo_poolName"><span class="hs-identifier hs-var hs-var">poolInfo_poolName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PoolInfo -&gt; Maybe Text)
+-&gt; (PoolInfo -&gt; Maybe Text -&gt; PoolInfo)
+-&gt; Lens PoolInfo PoolInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375084"><span class="annot"><span class="annottext">Maybe Text
+poolName :: Maybe Text
+$sel:poolName:PoolInfo' :: PoolInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679375084"><span class="hs-identifier hs-var hs-var">poolName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375084"><span class="hs-identifier hs-var">poolName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375083"><span class="annot"><span class="annottext">s :: PoolInfo
+</span><a href="#local-6989586621679375083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375082"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PoolInfo
+</span><a href="#local-6989586621679375083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolName:PoolInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3ApoolName%3APoolInfo%27"><span class="hs-identifier hs-var">poolName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The storage class that is associated with the custom pool. When you use</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- your backup application to eject the tape, the tape is archived directly</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- into the storage class (S3 Glacier or S3 Glacier Deep Archive) that</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- corresponds to the pool.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#poolInfo_storageClass"><span class="hs-identifier hs-type">poolInfo_storageClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.TapeStorageClass.html#TapeStorageClass"><span class="hs-identifier hs-type">TapeStorageClass</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="poolInfo_storageClass"><span class="annot"><span class="annottext">poolInfo_storageClass :: (Maybe TapeStorageClass -&gt; f (Maybe TapeStorageClass))
+-&gt; PoolInfo -&gt; f PoolInfo
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#poolInfo_storageClass"><span class="hs-identifier hs-var hs-var">poolInfo_storageClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PoolInfo -&gt; Maybe TapeStorageClass)
+-&gt; (PoolInfo -&gt; Maybe TapeStorageClass -&gt; PoolInfo)
+-&gt; Lens
+     PoolInfo PoolInfo (Maybe TapeStorageClass) (Maybe TapeStorageClass)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375080"><span class="annot"><span class="annottext">Maybe TapeStorageClass
+storageClass :: Maybe TapeStorageClass
+$sel:storageClass:PoolInfo' :: PoolInfo -&gt; Maybe TapeStorageClass
+</span><a href="#local-6989586621679375080"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TapeStorageClass
+</span><a href="#local-6989586621679375080"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375079"><span class="annot"><span class="annottext">s :: PoolInfo
+</span><a href="#local-6989586621679375079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375078"><span class="annot"><span class="annottext">Maybe TapeStorageClass
+</span><a href="#local-6989586621679375078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PoolInfo
+</span><a href="#local-6989586621679375079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:PoolInfo' :: Maybe TapeStorageClass
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3AstorageClass%3APoolInfo%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TapeStorageClass
+</span><a href="#local-6989586621679375078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#poolInfo_poolStatus"><span class="hs-identifier hs-type">poolInfo_poolStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolStatus.html#PoolStatus"><span class="hs-identifier hs-type">PoolStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="poolInfo_poolStatus"><span class="annot"><span class="annottext">poolInfo_poolStatus :: (Maybe PoolStatus -&gt; f (Maybe PoolStatus))
+-&gt; PoolInfo -&gt; f PoolInfo
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#poolInfo_poolStatus"><span class="hs-identifier hs-var hs-var">poolInfo_poolStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PoolInfo -&gt; Maybe PoolStatus)
+-&gt; (PoolInfo -&gt; Maybe PoolStatus -&gt; PoolInfo)
+-&gt; Lens PoolInfo PoolInfo (Maybe PoolStatus) (Maybe PoolStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375076"><span class="annot"><span class="annottext">Maybe PoolStatus
+poolStatus :: Maybe PoolStatus
+$sel:poolStatus:PoolInfo' :: PoolInfo -&gt; Maybe PoolStatus
+</span><a href="#local-6989586621679375076"><span class="hs-identifier hs-var hs-var">poolStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PoolStatus
+</span><a href="#local-6989586621679375076"><span class="hs-identifier hs-var">poolStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375075"><span class="annot"><span class="annottext">s :: PoolInfo
+</span><a href="#local-6989586621679375075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375074"><span class="annot"><span class="annottext">Maybe PoolStatus
+</span><a href="#local-6989586621679375074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PoolInfo
+</span><a href="#local-6989586621679375075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolStatus:PoolInfo' :: Maybe PoolStatus
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3ApoolStatus%3APoolInfo%27"><span class="hs-identifier hs-var">poolStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PoolStatus
+</span><a href="#local-6989586621679375074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the custom tape pool. Use the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- ListTapePools operation to return a list of custom tape pools for your</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- account and Amazon Web Services Region.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#poolInfo_poolARN"><span class="hs-identifier hs-type">poolInfo_poolARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="poolInfo_poolARN"><span class="annot"><span class="annottext">poolInfo_poolARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PoolInfo -&gt; f PoolInfo
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#poolInfo_poolARN"><span class="hs-identifier hs-var hs-var">poolInfo_poolARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PoolInfo -&gt; Maybe Text)
+-&gt; (PoolInfo -&gt; Maybe Text -&gt; PoolInfo)
+-&gt; Lens PoolInfo PoolInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375072"><span class="annot"><span class="annottext">Maybe Text
+poolARN :: Maybe Text
+$sel:poolARN:PoolInfo' :: PoolInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679375072"><span class="hs-identifier hs-var hs-var">poolARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375072"><span class="hs-identifier hs-var">poolARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375071"><span class="annot"><span class="annottext">s :: PoolInfo
+</span><a href="#local-6989586621679375071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-type">PoolInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375070"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PoolInfo
+</span><a href="#local-6989586621679375071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolARN:PoolInfo' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#%24sel%3ApoolARN%3APoolInfo%27"><span class="hs-identifier hs-var">poolARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375067"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679375065"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PoolInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser PoolInfo) -&gt; Value -&gt; Parser PoolInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PoolInfo&quot;</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679375062"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375062"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe RetentionLockType
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe TapeStorageClass
+-&gt; Maybe PoolStatus
+-&gt; Maybe Text
+-&gt; PoolInfo
+</span><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo%27"><span class="hs-identifier hs-var">PoolInfo'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RetentionLockType
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe TapeStorageClass
+ -&gt; Maybe PoolStatus
+ -&gt; Maybe Text
+ -&gt; PoolInfo)
+-&gt; Parser (Maybe RetentionLockType)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe TapeStorageClass
+      -&gt; Maybe PoolStatus
+      -&gt; Maybe Text
+      -&gt; PoolInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RetentionLockType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetentionLockType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe TapeStorageClass
+   -&gt; Maybe PoolStatus
+   -&gt; Maybe Text
+   -&gt; PoolInfo)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe TapeStorageClass
+      -&gt; Maybe PoolStatus
+      -&gt; Maybe Text
+      -&gt; PoolInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetentionLockTimeInDays&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe TapeStorageClass
+   -&gt; Maybe PoolStatus
+   -&gt; Maybe Text
+   -&gt; PoolInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe TapeStorageClass
+      -&gt; Maybe PoolStatus -&gt; Maybe Text -&gt; PoolInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PoolName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TapeStorageClass
+   -&gt; Maybe PoolStatus -&gt; Maybe Text -&gt; PoolInfo)
+-&gt; Parser (Maybe TapeStorageClass)
+-&gt; Parser (Maybe PoolStatus -&gt; Maybe Text -&gt; PoolInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TapeStorageClass)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StorageClass&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe PoolStatus -&gt; Maybe Text -&gt; PoolInfo)
+-&gt; Parser (Maybe PoolStatus) -&gt; Parser (Maybe Text -&gt; PoolInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PoolStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PoolStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PoolInfo)
+-&gt; Parser (Maybe Text) -&gt; Parser PoolInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PoolARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375056"><span id="local-6989586621679375058"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375053"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.PoolInfo.html#PoolInfo"><span class="hs-identifier hs-type">PoolInfo</span></a></span></span><span>
+</span><span id="line-156"></span></pre></body></html>

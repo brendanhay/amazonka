@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.PurchaseReservedDBInstancesOffering</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Purchases a reserved DB instance offering.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.PurchaseReservedDBInstancesOffering</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier">PurchaseReservedDBInstancesOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#newPurchaseReservedDBInstancesOffering"><span class="hs-identifier">newPurchaseReservedDBInstancesOffering</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOffering_dbInstanceCount"><span class="hs-identifier">purchaseReservedDBInstancesOffering_dbInstanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOffering_reservedDBInstanceId"><span class="hs-identifier">purchaseReservedDBInstancesOffering_reservedDBInstanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOffering_tags"><span class="hs-identifier">purchaseReservedDBInstancesOffering_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId"><span class="hs-identifier">purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse"><span class="hs-identifier">PurchaseReservedDBInstancesOfferingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#newPurchaseReservedDBInstancesOfferingResponse"><span class="hs-identifier">newPurchaseReservedDBInstancesOfferingResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOfferingResponse_reservedDBInstance"><span class="hs-identifier">purchaseReservedDBInstancesOfferingResponse_reservedDBInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOfferingResponse_httpStatus"><span class="hs-identifier">purchaseReservedDBInstancesOfferingResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newPurchaseReservedDBInstancesOffering' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679779907"><span id="local-6989586621679779908"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseReservedDBInstancesOffering"><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-var">PurchaseReservedDBInstancesOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseReservedDBInstancesOffering%27"><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var">PurchaseReservedDBInstancesOffering'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of instances to reserve.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Default: @1@</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdbInstanceCount%3APurchaseReservedDBInstancesOffering%27"><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOffering -&gt; Maybe Int
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AdbInstanceCount%3APurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var hs-var">dbInstanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Customer-specified identifier to track this reservation.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Example: myreservationID</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AreservedDBInstanceId%3APurchaseReservedDBInstancesOffering%27"><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOffering -&gt; Maybe Text
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AreservedDBInstanceId%3APurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var hs-var">reservedDBInstanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Atags%3APurchaseReservedDBInstancesOffering%27"><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOffering -&gt; Maybe [Tag]
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3Atags%3APurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ID of the Reserved DB instance offering to purchase.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AreservedDBInstancesOfferingId%3APurchaseReservedDBInstancesOffering%27"><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOffering -&gt; Text
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AreservedDBInstancesOfferingId%3APurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var hs-var">reservedDBInstancesOfferingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779898"><span id="local-6989586621679779900"><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOffering
+-&gt; PurchaseReservedDBInstancesOffering -&gt; Bool
+(PurchaseReservedDBInstancesOffering
+ -&gt; PurchaseReservedDBInstancesOffering -&gt; Bool)
+-&gt; (PurchaseReservedDBInstancesOffering
+    -&gt; PurchaseReservedDBInstancesOffering -&gt; Bool)
+-&gt; Eq PurchaseReservedDBInstancesOffering
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PurchaseReservedDBInstancesOffering
+-&gt; PurchaseReservedDBInstancesOffering -&gt; Bool
+$c/= :: PurchaseReservedDBInstancesOffering
+-&gt; PurchaseReservedDBInstancesOffering -&gt; Bool
+== :: PurchaseReservedDBInstancesOffering
+-&gt; PurchaseReservedDBInstancesOffering -&gt; Bool
+$c== :: PurchaseReservedDBInstancesOffering
+-&gt; PurchaseReservedDBInstancesOffering -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779889"><span id="local-6989586621679779891"><span id="local-6989586621679779893"><span id="local-6989586621679779895"><span class="annot"><span class="annottext">ReadPrec [PurchaseReservedDBInstancesOffering]
+ReadPrec PurchaseReservedDBInstancesOffering
+Int -&gt; ReadS PurchaseReservedDBInstancesOffering
+ReadS [PurchaseReservedDBInstancesOffering]
+(Int -&gt; ReadS PurchaseReservedDBInstancesOffering)
+-&gt; ReadS [PurchaseReservedDBInstancesOffering]
+-&gt; ReadPrec PurchaseReservedDBInstancesOffering
+-&gt; ReadPrec [PurchaseReservedDBInstancesOffering]
+-&gt; Read PurchaseReservedDBInstancesOffering
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PurchaseReservedDBInstancesOffering]
+$creadListPrec :: ReadPrec [PurchaseReservedDBInstancesOffering]
+readPrec :: ReadPrec PurchaseReservedDBInstancesOffering
+$creadPrec :: ReadPrec PurchaseReservedDBInstancesOffering
+readList :: ReadS [PurchaseReservedDBInstancesOffering]
+$creadList :: ReadS [PurchaseReservedDBInstancesOffering]
+readsPrec :: Int -&gt; ReadS PurchaseReservedDBInstancesOffering
+$creadsPrec :: Int -&gt; ReadS PurchaseReservedDBInstancesOffering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779882"><span id="local-6989586621679779884"><span id="local-6989586621679779886"><span class="annot"><span class="annottext">Int -&gt; PurchaseReservedDBInstancesOffering -&gt; ShowS
+[PurchaseReservedDBInstancesOffering] -&gt; ShowS
+PurchaseReservedDBInstancesOffering -&gt; String
+(Int -&gt; PurchaseReservedDBInstancesOffering -&gt; ShowS)
+-&gt; (PurchaseReservedDBInstancesOffering -&gt; String)
+-&gt; ([PurchaseReservedDBInstancesOffering] -&gt; ShowS)
+-&gt; Show PurchaseReservedDBInstancesOffering
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PurchaseReservedDBInstancesOffering] -&gt; ShowS
+$cshowList :: [PurchaseReservedDBInstancesOffering] -&gt; ShowS
+show :: PurchaseReservedDBInstancesOffering -&gt; String
+$cshow :: PurchaseReservedDBInstancesOffering -&gt; String
+showsPrec :: Int -&gt; PurchaseReservedDBInstancesOffering -&gt; ShowS
+$cshowsPrec :: Int -&gt; PurchaseReservedDBInstancesOffering -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PurchaseReservedDBInstancesOffering
+ -&gt; Rep PurchaseReservedDBInstancesOffering x)
+-&gt; (forall x.
+    Rep PurchaseReservedDBInstancesOffering x
+    -&gt; PurchaseReservedDBInstancesOffering)
+-&gt; Generic PurchaseReservedDBInstancesOffering
+forall x.
+Rep PurchaseReservedDBInstancesOffering x
+-&gt; PurchaseReservedDBInstancesOffering
+forall x.
+PurchaseReservedDBInstancesOffering
+-&gt; Rep PurchaseReservedDBInstancesOffering x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PurchaseReservedDBInstancesOffering x
+-&gt; PurchaseReservedDBInstancesOffering
+$cfrom :: forall x.
+PurchaseReservedDBInstancesOffering
+-&gt; Rep PurchaseReservedDBInstancesOffering x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'PurchaseReservedDBInstancesOffering' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'dbInstanceCount', 'purchaseReservedDBInstancesOffering_dbInstanceCount' - The number of instances to reserve.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Default: @1@</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'reservedDBInstanceId', 'purchaseReservedDBInstancesOffering_reservedDBInstanceId' - Customer-specified identifier to track this reservation.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Example: myreservationID</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'tags', 'purchaseReservedDBInstancesOffering_tags' - Undocumented member.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'reservedDBInstancesOfferingId', 'purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId' - The ID of the Reserved DB instance offering to purchase.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#newPurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">newPurchaseReservedDBInstancesOffering</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'reservedDBInstancesOfferingId'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span>
+</span><span id="line-97"></span><span id="newPurchaseReservedDBInstancesOffering"><span class="annot"><span class="annottext">newPurchaseReservedDBInstancesOffering :: Text -&gt; PurchaseReservedDBInstancesOffering
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#newPurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-var hs-var">newPurchaseReservedDBInstancesOffering</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679779877"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679779877"><span class="hs-identifier hs-var">pReservedDBInstancesOfferingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOffering' :: Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; PurchaseReservedDBInstancesOffering
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering'</span></a></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbInstanceCount:PurchaseReservedDBInstancesOffering' :: Maybe Int
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AdbInstanceCount%3APurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var">dbInstanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:reservedDBInstanceId:PurchaseReservedDBInstancesOffering' :: Maybe Text
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AreservedDBInstanceId%3APurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var">reservedDBInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:PurchaseReservedDBInstancesOffering' :: Maybe [Tag]
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3Atags%3APurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:reservedDBInstancesOfferingId:PurchaseReservedDBInstancesOffering' :: Text
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AreservedDBInstancesOfferingId%3APurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var">reservedDBInstancesOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679779877"><span class="hs-identifier hs-var">pReservedDBInstancesOfferingId_</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The number of instances to reserve.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Default: @1@</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOffering_dbInstanceCount"><span class="hs-identifier hs-type">purchaseReservedDBInstancesOffering_dbInstanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="purchaseReservedDBInstancesOffering_dbInstanceCount"><span class="annot"><span class="annottext">purchaseReservedDBInstancesOffering_dbInstanceCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; PurchaseReservedDBInstancesOffering
+-&gt; f PurchaseReservedDBInstancesOffering
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOffering_dbInstanceCount"><span class="hs-identifier hs-var hs-var">purchaseReservedDBInstancesOffering_dbInstanceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PurchaseReservedDBInstancesOffering -&gt; Maybe Int)
+-&gt; (PurchaseReservedDBInstancesOffering
+    -&gt; Maybe Int -&gt; PurchaseReservedDBInstancesOffering)
+-&gt; Lens
+     PurchaseReservedDBInstancesOffering
+     PurchaseReservedDBInstancesOffering
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779874"><span class="annot"><span class="annottext">Maybe Int
+dbInstanceCount :: Maybe Int
+$sel:dbInstanceCount:PurchaseReservedDBInstancesOffering' :: PurchaseReservedDBInstancesOffering -&gt; Maybe Int
+</span><a href="#local-6989586621679779874"><span class="hs-identifier hs-var hs-var">dbInstanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679779874"><span class="hs-identifier hs-var">dbInstanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779873"><span class="annot"><span class="annottext">s :: PurchaseReservedDBInstancesOffering
+</span><a href="#local-6989586621679779873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779872"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679779872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOffering
+</span><a href="#local-6989586621679779873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceCount:PurchaseReservedDBInstancesOffering' :: Maybe Int
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AdbInstanceCount%3APurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var">dbInstanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679779872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Customer-specified identifier to track this reservation.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Example: myreservationID</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOffering_reservedDBInstanceId"><span class="hs-identifier hs-type">purchaseReservedDBInstancesOffering_reservedDBInstanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="purchaseReservedDBInstancesOffering_reservedDBInstanceId"><span class="annot"><span class="annottext">purchaseReservedDBInstancesOffering_reservedDBInstanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PurchaseReservedDBInstancesOffering
+-&gt; f PurchaseReservedDBInstancesOffering
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOffering_reservedDBInstanceId"><span class="hs-identifier hs-var hs-var">purchaseReservedDBInstancesOffering_reservedDBInstanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PurchaseReservedDBInstancesOffering -&gt; Maybe Text)
+-&gt; (PurchaseReservedDBInstancesOffering
+    -&gt; Maybe Text -&gt; PurchaseReservedDBInstancesOffering)
+-&gt; Lens
+     PurchaseReservedDBInstancesOffering
+     PurchaseReservedDBInstancesOffering
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779871"><span class="annot"><span class="annottext">Maybe Text
+reservedDBInstanceId :: Maybe Text
+$sel:reservedDBInstanceId:PurchaseReservedDBInstancesOffering' :: PurchaseReservedDBInstancesOffering -&gt; Maybe Text
+</span><a href="#local-6989586621679779871"><span class="hs-identifier hs-var hs-var">reservedDBInstanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779871"><span class="hs-identifier hs-var">reservedDBInstanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779870"><span class="annot"><span class="annottext">s :: PurchaseReservedDBInstancesOffering
+</span><a href="#local-6989586621679779870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779869"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOffering
+</span><a href="#local-6989586621679779870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedDBInstanceId:PurchaseReservedDBInstancesOffering' :: Maybe Text
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AreservedDBInstanceId%3APurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var">reservedDBInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOffering_tags"><span class="hs-identifier hs-type">purchaseReservedDBInstancesOffering_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="purchaseReservedDBInstancesOffering_tags"><span class="annot"><span class="annottext">purchaseReservedDBInstancesOffering_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; PurchaseReservedDBInstancesOffering
+-&gt; f PurchaseReservedDBInstancesOffering
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOffering_tags"><span class="hs-identifier hs-var hs-var">purchaseReservedDBInstancesOffering_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PurchaseReservedDBInstancesOffering -&gt; Maybe [Tag])
+-&gt; (PurchaseReservedDBInstancesOffering
+    -&gt; Maybe [Tag] -&gt; PurchaseReservedDBInstancesOffering)
+-&gt; Lens
+     PurchaseReservedDBInstancesOffering
+     PurchaseReservedDBInstancesOffering
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779868"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:PurchaseReservedDBInstancesOffering' :: PurchaseReservedDBInstancesOffering -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679779868"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679779868"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779867"><span class="annot"><span class="annottext">s :: PurchaseReservedDBInstancesOffering
+</span><a href="#local-6989586621679779867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779866"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679779866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOffering
+</span><a href="#local-6989586621679779867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PurchaseReservedDBInstancesOffering' :: Maybe [Tag]
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3Atags%3APurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679779866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; PurchaseReservedDBInstancesOffering
+ -&gt; f PurchaseReservedDBInstancesOffering)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; PurchaseReservedDBInstancesOffering
+-&gt; f PurchaseReservedDBInstancesOffering
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The ID of the Reserved DB instance offering to purchase.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId"><span class="hs-identifier hs-type">purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId"><span class="annot"><span class="annottext">purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId :: (Text -&gt; f Text)
+-&gt; PurchaseReservedDBInstancesOffering
+-&gt; f PurchaseReservedDBInstancesOffering
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId"><span class="hs-identifier hs-var hs-var">purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PurchaseReservedDBInstancesOffering -&gt; Text)
+-&gt; (PurchaseReservedDBInstancesOffering
+    -&gt; Text -&gt; PurchaseReservedDBInstancesOffering)
+-&gt; Lens
+     PurchaseReservedDBInstancesOffering
+     PurchaseReservedDBInstancesOffering
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779862"><span class="annot"><span class="annottext">Text
+reservedDBInstancesOfferingId :: Text
+$sel:reservedDBInstancesOfferingId:PurchaseReservedDBInstancesOffering' :: PurchaseReservedDBInstancesOffering -&gt; Text
+</span><a href="#local-6989586621679779862"><span class="hs-identifier hs-var hs-var">reservedDBInstancesOfferingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679779862"><span class="hs-identifier hs-var">reservedDBInstancesOfferingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779861"><span class="annot"><span class="annottext">s :: PurchaseReservedDBInstancesOffering
+</span><a href="#local-6989586621679779861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779860"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679779860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOffering
+</span><a href="#local-6989586621679779861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedDBInstancesOfferingId:PurchaseReservedDBInstancesOffering' :: Text
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AreservedDBInstancesOfferingId%3APurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-var">reservedDBInstancesOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679779860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOfferingResponse</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679779856"><span class="annot"><span class="annottext">request :: PurchaseReservedDBInstancesOffering
+-&gt; Request PurchaseReservedDBInstancesOffering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PurchaseReservedDBInstancesOffering
+-&gt; Request PurchaseReservedDBInstancesOffering
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679779852"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PurchaseReservedDBInstancesOffering
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse PurchaseReservedDBInstancesOffering)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse PurchaseReservedDBInstancesOffering))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PurchaseReservedDBInstancesOffering
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse PurchaseReservedDBInstancesOffering)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PurchaseReservedDBInstancesOfferingResult&quot;</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679779849"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679779849"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679779848"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679779848"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679779847"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679779847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReservedDBInstance
+-&gt; Int -&gt; PurchaseReservedDBInstancesOfferingResponse
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-var">PurchaseReservedDBInstancesOfferingResponse'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReservedDBInstance
+ -&gt; Int -&gt; PurchaseReservedDBInstancesOfferingResponse)
+-&gt; Either String (Maybe ReservedDBInstance)
+-&gt; Either
+     String (Int -&gt; PurchaseReservedDBInstancesOfferingResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679779847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReservedDBInstance)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReservedDBInstance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; PurchaseReservedDBInstancesOfferingResponse)
+-&gt; Either String Int
+-&gt; Either String PurchaseReservedDBInstancesOfferingResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679779849"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679779839"><span id="local-6989586621679779841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679779836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679779832"><span class="annot"><span class="annottext">toHeaders :: PurchaseReservedDBInstancesOffering -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; PurchaseReservedDBInstancesOffering -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679779827"><span class="annot"><span class="annottext">toPath :: PurchaseReservedDBInstancesOffering -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PurchaseReservedDBInstancesOffering -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679779823"><span class="annot"><span class="annottext">toQuery :: PurchaseReservedDBInstancesOffering -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779818"><span id="local-6989586621679779819"><span id="local-6989586621679779820"><span id="local-6989586621679779821"><span class="annot"><span class="annottext">Maybe Int
+Maybe [Tag]
+Maybe Text
+Text
+reservedDBInstancesOfferingId :: Text
+tags :: Maybe [Tag]
+reservedDBInstanceId :: Maybe Text
+dbInstanceCount :: Maybe Int
+$sel:reservedDBInstancesOfferingId:PurchaseReservedDBInstancesOffering' :: PurchaseReservedDBInstancesOffering -&gt; Text
+$sel:tags:PurchaseReservedDBInstancesOffering' :: PurchaseReservedDBInstancesOffering -&gt; Maybe [Tag]
+$sel:reservedDBInstanceId:PurchaseReservedDBInstancesOffering' :: PurchaseReservedDBInstancesOffering -&gt; Maybe Text
+$sel:dbInstanceCount:PurchaseReservedDBInstancesOffering' :: PurchaseReservedDBInstancesOffering -&gt; Maybe Int
+</span><a href="#local-6989586621679779818"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PurchaseReservedDBInstancesOffering&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-176"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBInstanceCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679779821"><span class="hs-identifier hs-var">dbInstanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReservedDBInstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779820"><span class="hs-identifier hs-var">reservedDBInstanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679779819"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReservedDBInstancesOfferingId&quot;</span></span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679779818"><span class="hs-identifier hs-var">reservedDBInstancesOfferingId</span></a></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | /See:/ 'newPurchaseReservedDBInstancesOfferingResponse' smart constructor.</span><span>
+</span><span id="line-189"></span><span id="local-6989586621679779814"><span id="local-6989586621679779815"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseReservedDBInstancesOfferingResponse"><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse"><span class="hs-identifier hs-var">PurchaseReservedDBInstancesOfferingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseReservedDBInstancesOfferingResponse%27"><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-var">PurchaseReservedDBInstancesOfferingResponse'</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AreservedDBInstance%3APurchaseReservedDBInstancesOfferingResponse%27"><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOfferingResponse
+-&gt; Maybe ReservedDBInstance
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AreservedDBInstance%3APurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-var hs-var">reservedDBInstance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ReservedDBInstance.html#ReservedDBInstance"><span class="hs-identifier hs-type">ReservedDBInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3APurchaseReservedDBInstancesOfferingResponse%27"><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOfferingResponse -&gt; Int
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AhttpStatus%3APurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779808"><span id="local-6989586621679779810"><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOfferingResponse
+-&gt; PurchaseReservedDBInstancesOfferingResponse -&gt; Bool
+(PurchaseReservedDBInstancesOfferingResponse
+ -&gt; PurchaseReservedDBInstancesOfferingResponse -&gt; Bool)
+-&gt; (PurchaseReservedDBInstancesOfferingResponse
+    -&gt; PurchaseReservedDBInstancesOfferingResponse -&gt; Bool)
+-&gt; Eq PurchaseReservedDBInstancesOfferingResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PurchaseReservedDBInstancesOfferingResponse
+-&gt; PurchaseReservedDBInstancesOfferingResponse -&gt; Bool
+$c/= :: PurchaseReservedDBInstancesOfferingResponse
+-&gt; PurchaseReservedDBInstancesOfferingResponse -&gt; Bool
+== :: PurchaseReservedDBInstancesOfferingResponse
+-&gt; PurchaseReservedDBInstancesOfferingResponse -&gt; Bool
+$c== :: PurchaseReservedDBInstancesOfferingResponse
+-&gt; PurchaseReservedDBInstancesOfferingResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779800"><span id="local-6989586621679779802"><span id="local-6989586621679779804"><span id="local-6989586621679779806"><span class="annot"><span class="annottext">ReadPrec [PurchaseReservedDBInstancesOfferingResponse]
+ReadPrec PurchaseReservedDBInstancesOfferingResponse
+Int -&gt; ReadS PurchaseReservedDBInstancesOfferingResponse
+ReadS [PurchaseReservedDBInstancesOfferingResponse]
+(Int -&gt; ReadS PurchaseReservedDBInstancesOfferingResponse)
+-&gt; ReadS [PurchaseReservedDBInstancesOfferingResponse]
+-&gt; ReadPrec PurchaseReservedDBInstancesOfferingResponse
+-&gt; ReadPrec [PurchaseReservedDBInstancesOfferingResponse]
+-&gt; Read PurchaseReservedDBInstancesOfferingResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PurchaseReservedDBInstancesOfferingResponse]
+$creadListPrec :: ReadPrec [PurchaseReservedDBInstancesOfferingResponse]
+readPrec :: ReadPrec PurchaseReservedDBInstancesOfferingResponse
+$creadPrec :: ReadPrec PurchaseReservedDBInstancesOfferingResponse
+readList :: ReadS [PurchaseReservedDBInstancesOfferingResponse]
+$creadList :: ReadS [PurchaseReservedDBInstancesOfferingResponse]
+readsPrec :: Int -&gt; ReadS PurchaseReservedDBInstancesOfferingResponse
+$creadsPrec :: Int -&gt; ReadS PurchaseReservedDBInstancesOfferingResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779794"><span id="local-6989586621679779796"><span id="local-6989586621679779798"><span class="annot"><span class="annottext">Int -&gt; PurchaseReservedDBInstancesOfferingResponse -&gt; ShowS
+[PurchaseReservedDBInstancesOfferingResponse] -&gt; ShowS
+PurchaseReservedDBInstancesOfferingResponse -&gt; String
+(Int -&gt; PurchaseReservedDBInstancesOfferingResponse -&gt; ShowS)
+-&gt; (PurchaseReservedDBInstancesOfferingResponse -&gt; String)
+-&gt; ([PurchaseReservedDBInstancesOfferingResponse] -&gt; ShowS)
+-&gt; Show PurchaseReservedDBInstancesOfferingResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PurchaseReservedDBInstancesOfferingResponse] -&gt; ShowS
+$cshowList :: [PurchaseReservedDBInstancesOfferingResponse] -&gt; ShowS
+show :: PurchaseReservedDBInstancesOfferingResponse -&gt; String
+$cshow :: PurchaseReservedDBInstancesOfferingResponse -&gt; String
+showsPrec :: Int -&gt; PurchaseReservedDBInstancesOfferingResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PurchaseReservedDBInstancesOfferingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PurchaseReservedDBInstancesOfferingResponse
+ -&gt; Rep PurchaseReservedDBInstancesOfferingResponse x)
+-&gt; (forall x.
+    Rep PurchaseReservedDBInstancesOfferingResponse x
+    -&gt; PurchaseReservedDBInstancesOfferingResponse)
+-&gt; Generic PurchaseReservedDBInstancesOfferingResponse
+forall x.
+Rep PurchaseReservedDBInstancesOfferingResponse x
+-&gt; PurchaseReservedDBInstancesOfferingResponse
+forall x.
+PurchaseReservedDBInstancesOfferingResponse
+-&gt; Rep PurchaseReservedDBInstancesOfferingResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PurchaseReservedDBInstancesOfferingResponse x
+-&gt; PurchaseReservedDBInstancesOfferingResponse
+$cfrom :: forall x.
+PurchaseReservedDBInstancesOfferingResponse
+-&gt; Rep PurchaseReservedDBInstancesOfferingResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Create a value of 'PurchaseReservedDBInstancesOfferingResponse' with all optional fields omitted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'reservedDBInstance', 'purchaseReservedDBInstancesOfferingResponse_reservedDBInstance' - Undocumented member.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'httpStatus', 'purchaseReservedDBInstancesOfferingResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#newPurchaseReservedDBInstancesOfferingResponse"><span class="hs-identifier hs-type">newPurchaseReservedDBInstancesOfferingResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOfferingResponse</span></a></span><span>
+</span><span id="line-211"></span><span id="newPurchaseReservedDBInstancesOfferingResponse"><span class="annot"><span class="annottext">newPurchaseReservedDBInstancesOfferingResponse :: Int -&gt; PurchaseReservedDBInstancesOfferingResponse
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#newPurchaseReservedDBInstancesOfferingResponse"><span class="hs-identifier hs-var hs-var">newPurchaseReservedDBInstancesOfferingResponse</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679779791"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679779791"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOfferingResponse' :: Maybe ReservedDBInstance
+-&gt; Int -&gt; PurchaseReservedDBInstancesOfferingResponse
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOfferingResponse'</span></a></span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reservedDBInstance:PurchaseReservedDBInstancesOfferingResponse' :: Maybe ReservedDBInstance
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AreservedDBInstance%3APurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-var">reservedDBInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReservedDBInstance
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:PurchaseReservedDBInstancesOfferingResponse' :: Int
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AhttpStatus%3APurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679779791"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOfferingResponse_reservedDBInstance"><span class="hs-identifier hs-type">purchaseReservedDBInstancesOfferingResponse_reservedDBInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOfferingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.ReservedDBInstance.html#ReservedDBInstance"><span class="hs-identifier hs-type">ReservedDBInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="purchaseReservedDBInstancesOfferingResponse_reservedDBInstance"><span class="annot"><span class="annottext">purchaseReservedDBInstancesOfferingResponse_reservedDBInstance :: (Maybe ReservedDBInstance -&gt; f (Maybe ReservedDBInstance))
+-&gt; PurchaseReservedDBInstancesOfferingResponse
+-&gt; f PurchaseReservedDBInstancesOfferingResponse
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOfferingResponse_reservedDBInstance"><span class="hs-identifier hs-var hs-var">purchaseReservedDBInstancesOfferingResponse_reservedDBInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PurchaseReservedDBInstancesOfferingResponse
+ -&gt; Maybe ReservedDBInstance)
+-&gt; (PurchaseReservedDBInstancesOfferingResponse
+    -&gt; Maybe ReservedDBInstance
+    -&gt; PurchaseReservedDBInstancesOfferingResponse)
+-&gt; Lens
+     PurchaseReservedDBInstancesOfferingResponse
+     PurchaseReservedDBInstancesOfferingResponse
+     (Maybe ReservedDBInstance)
+     (Maybe ReservedDBInstance)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779790"><span class="annot"><span class="annottext">Maybe ReservedDBInstance
+reservedDBInstance :: Maybe ReservedDBInstance
+$sel:reservedDBInstance:PurchaseReservedDBInstancesOfferingResponse' :: PurchaseReservedDBInstancesOfferingResponse
+-&gt; Maybe ReservedDBInstance
+</span><a href="#local-6989586621679779790"><span class="hs-identifier hs-var hs-var">reservedDBInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedDBInstance
+</span><a href="#local-6989586621679779790"><span class="hs-identifier hs-var">reservedDBInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779789"><span class="annot"><span class="annottext">s :: PurchaseReservedDBInstancesOfferingResponse
+</span><a href="#local-6989586621679779789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779788"><span class="annot"><span class="annottext">Maybe ReservedDBInstance
+</span><a href="#local-6989586621679779788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOfferingResponse
+</span><a href="#local-6989586621679779789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedDBInstance:PurchaseReservedDBInstancesOfferingResponse' :: Maybe ReservedDBInstance
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AreservedDBInstance%3APurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-var">reservedDBInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedDBInstance
+</span><a href="#local-6989586621679779788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOfferingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOfferingResponse_httpStatus"><span class="hs-identifier hs-type">purchaseReservedDBInstancesOfferingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOfferingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-225"></span><span id="purchaseReservedDBInstancesOfferingResponse_httpStatus"><span class="annot"><span class="annottext">purchaseReservedDBInstancesOfferingResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PurchaseReservedDBInstancesOfferingResponse
+-&gt; f PurchaseReservedDBInstancesOfferingResponse
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#purchaseReservedDBInstancesOfferingResponse_httpStatus"><span class="hs-identifier hs-var hs-var">purchaseReservedDBInstancesOfferingResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PurchaseReservedDBInstancesOfferingResponse -&gt; Int)
+-&gt; (PurchaseReservedDBInstancesOfferingResponse
+    -&gt; Int -&gt; PurchaseReservedDBInstancesOfferingResponse)
+-&gt; Lens
+     PurchaseReservedDBInstancesOfferingResponse
+     PurchaseReservedDBInstancesOfferingResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779787"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PurchaseReservedDBInstancesOfferingResponse' :: PurchaseReservedDBInstancesOfferingResponse -&gt; Int
+</span><a href="#local-6989586621679779787"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679779787"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779786"><span class="annot"><span class="annottext">s :: PurchaseReservedDBInstancesOfferingResponse
+</span><a href="#local-6989586621679779786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779785"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679779785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedDBInstancesOfferingResponse
+</span><a href="#local-6989586621679779786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PurchaseReservedDBInstancesOfferingResponse' :: Int
+</span><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#%24sel%3AhttpStatus%3APurchaseReservedDBInstancesOfferingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679779785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOfferingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679779783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.PurchaseReservedDBInstancesOffering.html#PurchaseReservedDBInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedDBInstancesOfferingResponse</span></a></span></span><span>
+</span><span id="line-230"></span></pre></body></html>

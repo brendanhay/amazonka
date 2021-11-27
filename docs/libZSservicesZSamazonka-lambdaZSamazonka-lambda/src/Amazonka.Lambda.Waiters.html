@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-8"></span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Module      : Amazonka.Lambda.Waiters</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-16"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lambda.Waiters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-17"></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetFunction.html"><span class="hs-identifier">Amazonka.Lambda.GetFunction</span></a></span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetFunctionConfiguration.html"><span class="hs-identifier">Amazonka.Lambda.GetFunctionConfiguration</span></a></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Lens.html"><span class="hs-identifier">Amazonka.Lambda.Lens</span></a></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lambda.Types.html"><span class="hs-identifier">Amazonka.Lambda.Types</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Polls 'Amazonka.Lambda.GetFunction' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
+</span><span id="line-27"></span><span class="annot"><a href="Amazonka.Lambda.Waiters.html#newFunctionExists"><span class="hs-identifier hs-type">newFunctionExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetFunction.html#GetFunction"><span class="hs-identifier hs-type">GetFunction</span></a></span><span>
+</span><span id="line-28"></span><span id="newFunctionExists"><span class="annot"><span class="annottext">newFunctionExists :: Wait GetFunction
+</span><a href="Amazonka.Lambda.Waiters.html#newFunctionExists"><span class="hs-identifier hs-var hs-var">newFunctionExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-29"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FunctionExists&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">20</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">1</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetFunction]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-34"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor GetFunction
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">200</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>          </span><span class="annot"><span class="annottext">ErrorCode -&gt; Accept -&gt; Acceptor GetFunction
+forall a. ErrorCode -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchError</span></span><span>
+</span><span id="line-36"></span><span>            </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-37"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-38"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- | Polls 'Amazonka.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.</span><span>
+</span><span id="line-42"></span><span class="annot"><a href="Amazonka.Lambda.Waiters.html#newFunctionActive"><span class="hs-identifier hs-type">newFunctionActive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetFunctionConfiguration.html#GetFunctionConfiguration"><span class="hs-identifier hs-type">GetFunctionConfiguration</span></a></span><span>
+</span><span id="line-43"></span><span id="newFunctionActive"><span class="annot"><span class="annottext">newFunctionActive :: Wait GetFunctionConfiguration
+</span><a href="Amazonka.Lambda.Waiters.html#newFunctionActive"><span class="hs-identifier hs-var hs-var">newFunctionActive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-44"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FunctionActive&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">60</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetFunctionConfiguration]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-49"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetFunctionConfiguration) (CI Text)
+-&gt; Acceptor GetFunctionConfiguration
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-50"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;Active&quot;</span></span><span>
+</span><span id="line-51"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-52"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe State -&gt; f (Maybe State))
+-&gt; FunctionConfiguration -&gt; f FunctionConfiguration
+Lens' FunctionConfiguration (Maybe State)
+</span><a href="Amazonka.Lambda.Types.FunctionConfiguration.html#functionConfiguration_state"><span class="hs-identifier hs-var">functionConfiguration_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe State -&gt; f (Maybe State))
+ -&gt; FunctionConfiguration -&gt; f FunctionConfiguration)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe State -&gt; f (Maybe State))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; FunctionConfiguration
+-&gt; f FunctionConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(State -&gt; f State) -&gt; Maybe State -&gt; f (Maybe State)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-53"></span><span>                </span><span class="annot"><span class="annottext">((State -&gt; f State) -&gt; Maybe State -&gt; f (Maybe State))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; State -&gt; f State)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe State
+-&gt; f (Maybe State)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(State -&gt; CI Text) -&gt; (CI Text -&gt; f (CI Text)) -&gt; State -&gt; f State
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">State -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-54"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetFunctionConfiguration) (CI Text)
+-&gt; Acceptor GetFunctionConfiguration
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-56"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-57"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-58"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe State -&gt; f (Maybe State))
+-&gt; FunctionConfiguration -&gt; f FunctionConfiguration
+Lens' FunctionConfiguration (Maybe State)
+</span><a href="Amazonka.Lambda.Types.FunctionConfiguration.html#functionConfiguration_state"><span class="hs-identifier hs-var">functionConfiguration_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe State -&gt; f (Maybe State))
+ -&gt; FunctionConfiguration -&gt; f FunctionConfiguration)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe State -&gt; f (Maybe State))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; FunctionConfiguration
+-&gt; f FunctionConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(State -&gt; f State) -&gt; Maybe State -&gt; f (Maybe State)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-59"></span><span>                </span><span class="annot"><span class="annottext">((State -&gt; f State) -&gt; Maybe State -&gt; f (Maybe State))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; State -&gt; f State)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe State
+-&gt; f (Maybe State)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(State -&gt; CI Text) -&gt; (CI Text -&gt; f (CI Text)) -&gt; State -&gt; f State
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">State -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-60"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetFunctionConfiguration) (CI Text)
+-&gt; Acceptor GetFunctionConfiguration
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;Pending&quot;</span></span><span>
+</span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-64"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe State -&gt; f (Maybe State))
+-&gt; FunctionConfiguration -&gt; f FunctionConfiguration
+Lens' FunctionConfiguration (Maybe State)
+</span><a href="Amazonka.Lambda.Types.FunctionConfiguration.html#functionConfiguration_state"><span class="hs-identifier hs-var">functionConfiguration_state</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe State -&gt; f (Maybe State))
+ -&gt; FunctionConfiguration -&gt; f FunctionConfiguration)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe State -&gt; f (Maybe State))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; FunctionConfiguration
+-&gt; f FunctionConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(State -&gt; f State) -&gt; Maybe State -&gt; f (Maybe State)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-65"></span><span>                </span><span class="annot"><span class="annottext">((State -&gt; f State) -&gt; Maybe State -&gt; f (Maybe State))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; State -&gt; f State)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe State
+-&gt; f (Maybe State)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(State -&gt; CI Text) -&gt; (CI Text -&gt; f (CI Text)) -&gt; State -&gt; f State
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">State -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-66"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | Polls 'Amazonka.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Lambda.Waiters.html#newFunctionUpdated"><span class="hs-identifier hs-type">newFunctionUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.Lambda.GetFunctionConfiguration.html#GetFunctionConfiguration"><span class="hs-identifier hs-type">GetFunctionConfiguration</span></a></span><span>
+</span><span id="line-72"></span><span id="newFunctionUpdated"><span class="annot"><span class="annottext">newFunctionUpdated :: Wait GetFunctionConfiguration
+</span><a href="Amazonka.Lambda.Waiters.html#newFunctionUpdated"><span class="hs-identifier hs-var hs-var">newFunctionUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FunctionUpdated&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">60</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetFunctionConfiguration]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetFunctionConfiguration) (CI Text)
+-&gt; Acceptor GetFunctionConfiguration
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;Successful&quot;</span></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-81"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus))
+-&gt; FunctionConfiguration -&gt; f FunctionConfiguration
+Lens' FunctionConfiguration (Maybe LastUpdateStatus)
+</span><a href="Amazonka.Lambda.Types.FunctionConfiguration.html#functionConfiguration_lastUpdateStatus"><span class="hs-identifier hs-var">functionConfiguration_lastUpdateStatus</span></a></span><span>
+</span><span id="line-82"></span><span>                </span><span class="annot"><span class="annottext">((Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus))
+ -&gt; FunctionConfiguration -&gt; f FunctionConfiguration)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; FunctionConfiguration
+-&gt; f FunctionConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(LastUpdateStatus -&gt; f LastUpdateStatus)
+-&gt; Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-83"></span><span>                </span><span class="annot"><span class="annottext">((LastUpdateStatus -&gt; f LastUpdateStatus)
+ -&gt; Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus))
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; LastUpdateStatus -&gt; f LastUpdateStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe LastUpdateStatus
+-&gt; f (Maybe LastUpdateStatus)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(LastUpdateStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; LastUpdateStatus
+-&gt; f LastUpdateStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">LastUpdateStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-84"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetFunctionConfiguration) (CI Text)
+-&gt; Acceptor GetFunctionConfiguration
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus))
+-&gt; FunctionConfiguration -&gt; f FunctionConfiguration
+Lens' FunctionConfiguration (Maybe LastUpdateStatus)
+</span><a href="Amazonka.Lambda.Types.FunctionConfiguration.html#functionConfiguration_lastUpdateStatus"><span class="hs-identifier hs-var">functionConfiguration_lastUpdateStatus</span></a></span><span>
+</span><span id="line-89"></span><span>                </span><span class="annot"><span class="annottext">((Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus))
+ -&gt; FunctionConfiguration -&gt; f FunctionConfiguration)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; FunctionConfiguration
+-&gt; f FunctionConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(LastUpdateStatus -&gt; f LastUpdateStatus)
+-&gt; Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-90"></span><span>                </span><span class="annot"><span class="annottext">((LastUpdateStatus -&gt; f LastUpdateStatus)
+ -&gt; Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus))
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; LastUpdateStatus -&gt; f LastUpdateStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe LastUpdateStatus
+-&gt; f (Maybe LastUpdateStatus)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(LastUpdateStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; LastUpdateStatus
+-&gt; f LastUpdateStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">LastUpdateStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-91"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetFunctionConfiguration) (CI Text)
+-&gt; Acceptor GetFunctionConfiguration
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;InProgress&quot;</span></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus))
+-&gt; FunctionConfiguration -&gt; f FunctionConfiguration
+Lens' FunctionConfiguration (Maybe LastUpdateStatus)
+</span><a href="Amazonka.Lambda.Types.FunctionConfiguration.html#functionConfiguration_lastUpdateStatus"><span class="hs-identifier hs-var">functionConfiguration_lastUpdateStatus</span></a></span><span>
+</span><span id="line-96"></span><span>                </span><span class="annot"><span class="annottext">((Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus))
+ -&gt; FunctionConfiguration -&gt; f FunctionConfiguration)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; FunctionConfiguration
+-&gt; f FunctionConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(LastUpdateStatus -&gt; f LastUpdateStatus)
+-&gt; Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-97"></span><span>                </span><span class="annot"><span class="annottext">((LastUpdateStatus -&gt; f LastUpdateStatus)
+ -&gt; Maybe LastUpdateStatus -&gt; f (Maybe LastUpdateStatus))
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; LastUpdateStatus -&gt; f LastUpdateStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe LastUpdateStatus
+-&gt; f (Maybe LastUpdateStatus)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(LastUpdateStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; LastUpdateStatus
+-&gt; f LastUpdateStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">LastUpdateStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-98"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span></pre></body></html>
